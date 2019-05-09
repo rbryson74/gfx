@@ -97,6 +97,9 @@
 
 #define EBI_CS_INDEX  ${EBIChipSelectIndex}
 
+<#if (EBIPeripheralType??) && (EBIPeripheralType == "EBIPMP")>
+#define EBI_BASE_ADDR __KSEG2_EBI_DATA_MEM_BASE
+<#else>
 <#if EBIChipSelectIndex == 0>
 #define EBI_BASE_ADDR  EBI_CS0_ADDR
 <#elseif EBIChipSelectIndex == 1>
@@ -105,7 +108,8 @@
 #define EBI_BASE_ADDR  EBI_CS2_ADDR
 <#elseif EBIChipSelectIndex == 3>
 #define EBI_BASE_ADDR  EBI_CS3_ADDR
-</#if> 
+</#if>
+</#if>
 
 <#if FrameBufferMemory == "External SDRAM">
 #define FRAMEBUFFER_BASE_ADDR SDRAM_CS_ADDR
@@ -130,21 +134,33 @@
 const char* DRIVER_NAME = "LCC SMC";
 static uint32_t supported_color_formats = (GFX_COLOR_MASK_RGB_565 | GFX_COLOR_MASK_RGB_332);
 
+<#if (UseCachedFrameBuffer??) && (UseCachedFrameBuffer == true)>
+#define FRAMEBUFFER_ATTRIBUTE __attribute__((aligned(FRAMEBUFFER_PIXEL_BYTES*8)))
+<#else>
+#define FRAMEBUFFER_ATTRIBUTE __attribute__((coherent, aligned(FRAMEBUFFER_PIXEL_BYTES*8)))
+</#if>
+
 <#if FrameBufferMemory == "External SDRAM">
 FRAMEBUFFER_TYPE * frameBuffer = (FRAMEBUFFER_TYPE *) FRAMEBUFFER_BASE_ADDR;
 <#else>
 <#if Val_PaletteMode == true>
 FRAMEBUFFER_TYPE frameBuffer[BUFFER_COUNT][DISPLAY_WIDTH * DISPLAY_HEIGHT];
 <#else>
-FRAMEBUFFER_TYPE __attribute__((aligned(FRAMEBUFFER_PIXEL_BYTES*8))) frameBuffer[BUFFER_COUNT][DISPLAY_WIDTH * DISPLAY_HEIGHT];
+FRAMEBUFFER_TYPE FRAMEBUFFER_ATTRIBUTE frameBuffer[BUFFER_COUNT][DISPLAY_WIDTH * DISPLAY_HEIGHT];
 </#if>
 </#if>
 
 <#if Val_PaletteMode == true>
-uint16_t __attribute__((aligned(16))) frameLine[DISPLAY_WIDTH];
+uint16_t FRAMEBUFFER_ATTRIBUTE frameLine[DISPLAY_WIDTH];
 </#if>
 
+<#if (DMAController??) && (DMAController == "DMAC")>
+#define DRV_GFX_LCC_DMA_CHANNEL_INDEX DMAC_CHANNEL_${DMAChannel}
+#define DRV_GFX_DMA_EVENT_TYPE DMAC_TRANSFER_EVENT
+<#else>
 #define DRV_GFX_LCC_DMA_CHANNEL_INDEX XDMAC_CHANNEL_${DMAChannel}
+#define DRV_GFX_DMA_EVENT_TYPE XDMAC_TRANSFER_EVENT
+</#if>
 
 <#if Val_UseReset == true>
 #ifndef GFX_DISP_INTF_PIN_RESET_Set
@@ -186,7 +202,7 @@ enum
 
 static int DRV_GFX_LCC_Start();
 static void DRV_GFX_LCC_DisplayRefresh(void);
-void dmaIntHandler (XDMAC_TRANSFER_EVENT status,
+void dmaIntHandler (DRV_GFX_DMA_EVENT_TYPE status,
                     uintptr_t contextHandle);
 
 GFX_Context* cntxt;
@@ -446,6 +462,14 @@ GFX_Result driverLCCContextInitialize(GFX_Context* context)
 static void lccDMAStartTransfer(const void *srcAddr, size_t srcSize,
                                        const void *destAddr)
 {
+<#if DMAController?? && DMAController == "DMAC">
+    DMAC_ChannelTransfer(DRV_GFX_LCC_DMA_CHANNEL_INDEX,
+                         srcAddr,
+                         srcSize,
+                         destAddr,
+                         FRAMEBUFFER_PIXEL_BYTES,
+                         srcSize);
+<#else>
     XDMAC_ChannelBlockLengthSet(DRV_GFX_LCC_DMA_CHANNEL_INDEX, (srcSize / FRAMEBUFFER_PIXEL_BYTES) - 1);
 
 <#if UseCachedFrameBuffer == true>
@@ -455,10 +479,18 @@ static void lccDMAStartTransfer(const void *srcAddr, size_t srcSize,
 </#if>
 
     XDMAC_ChannelTransfer(DRV_GFX_LCC_DMA_CHANNEL_INDEX, srcAddr, destAddr, 1);
+</#if>
 }
 
 static int DRV_GFX_LCC_Start()
 {
+<#if DMAController?? && DMAController == "DMAC">
+    DMAC_ChannelCallbackRegister(DMAC_CHANNEL_0, dmaIntHandler, 0);
+    
+    lccDMAStartTransfer(frameBuffer, 
+                        FRAMEBUFFER_PIXEL_BYTES, 
+                        (const void*) EBI_BASE_ADDR);
+<#else>
     XDMAC_ChannelCallbackRegister(DRV_GFX_LCC_DMA_CHANNEL_INDEX, dmaIntHandler, 0);
 
 <#if Val_PaletteMode == true>
@@ -470,7 +502,8 @@ static int DRV_GFX_LCC_Start()
                         FRAMEBUFFER_PIXEL_BYTES,
                         (const void *) EBI_BASE_ADDR);
 </#if>
-    
+</#if>
+
     return 0;
 }
 
@@ -681,7 +714,7 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
 </#if>
 }
 
-void dmaIntHandler (XDMAC_TRANSFER_EVENT status,
+void dmaIntHandler (DRV_GFX_DMA_EVENT_TYPE status,
                     uintptr_t contextHandle)
 {
     DRV_GFX_LCC_DisplayRefresh();
