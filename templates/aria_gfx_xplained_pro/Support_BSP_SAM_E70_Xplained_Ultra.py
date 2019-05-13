@@ -39,7 +39,7 @@ sam_e70_xult_parallelComponentIDList = ["smc", "gfx_intf_parallel_smc", "tc0", "
 sam_e70_xult_parallelAutoConnectList = [["gfx_intf_parallel_smc", "SMC_CS", "smc", "smc_cs0"],
 										["gfx_driver_ili9488", "Display Interface", "gfx_intf_parallel_smc", "gfx_intf_parallel_smc"],
 										["sys_time", "sys_time_TMR_dependency", "tc0", "TC0_TMR"]]
-sam_e70_xult_ParallelPinConfigs = [{"pin": 4, "name": "EBI_D8", "type": "EBI_D8", "direction": "", "latch": "", "abcd": "A"}, #PE0
+sam_e70_xult_ParallelPinConfigsOpt = [{"pin": 4, "name": "EBI_D8", "type": "EBI_D8", "direction": "", "latch": "", "abcd": "A"}, #PE0
 					{"pin": 6, "name": "EBI_D9", "type": "EBI_D9", "direction": "", "latch": "", "abcd": "A"}, #PE1
 					{"pin": 7, "name": "EBI_D10", "type": "EBI_D10", "direction": "", "latch": "", "abcd": "A"}, #PE2
 					{"pin": 10, "name": "EBI_D11", "type": "EBI_D11", "direction": "", "latch": "", "abcd": "A"}, #PE3
@@ -61,6 +61,28 @@ sam_e70_xult_ParallelPinConfigs = [{"pin": 4, "name": "EBI_D8", "type": "EBI_D8"
 					{"pin": 82, "name": "EBI_NWR0/NWE", "type": "EBI_NWR0/NWE", "direction": "", "latch": "", "abcd": "A"}, #PC8
 					{"pin": 86, "name": "GFX_DISP_INTF_PIN_BACKLIGHT", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PC9
 					{"pin": 94, "name": "EBI_NRD", "type": "EBI_NRD", "direction": "", "latch": "", "abcd": "A"}] #PC11
+sam_e70_xult_ParallelPinConfigsBitBang = [{"pin": 4, "name": "EBI_D8", "type": "EBI_D8", "direction": "", "latch": "", "abcd": "A"}, #PE0
+					{"pin": 6, "name": "EBI_D9", "type": "EBI_D9", "direction": "", "latch": "", "abcd": "A"}, #PE1
+					{"pin": 7, "name": "EBI_D10", "type": "EBI_D10", "direction": "", "latch": "", "abcd": "A"}, #PE2
+					{"pin": 10, "name": "EBI_D11", "type": "EBI_D11", "direction": "", "latch": "", "abcd": "A"}, #PE3
+					{"pin": 11, "name": "EBI_D0", "type": "EBI_D0", "direction": "", "latch": "", "abcd": "A"}, #PC0
+					{"pin": 15, "name": "GFX_DISP_INTF_PIN_WR", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PC30
+					{"pin": 19, "name": "GFX_DISP_INTF_PIN_RESET", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PC13
+					{"pin": 27, "name": "EBI_D12", "type": "EBI_D12", "direction": "", "latch": "", "abcd": "A"}, #PE4
+					{"pin": 28, "name": "EBI_D13", "type": "EBI_D13", "direction": "", "latch": "", "abcd": "A"}, #PE5
+					{"pin": 38, "name": "EBI_D1", "type": "EBI_D1", "direction": "", "latch": "", "abcd": "A"}, #PC1
+					{"pin": 39, "name": "EBI_D2", "type": "EBI_D2", "direction": "", "latch": "", "abcd": "A"}, #PC2
+					{"pin": 40, "name": "EBI_D3", "type": "EBI_D3", "direction": "", "latch": "", "abcd": "A"}, #PC3
+					{"pin": 41, "name": "EBI_D4", "type": "EBI_D4", "direction": "", "latch": "", "abcd": "A"}, #PC4S
+					{"pin": 45, "name": "EBI_D15", "type": "EBI_D15", "direction": "", "latch": "", "abcd": "A"}, #PA16
+					{"pin": 48, "name": "EBI_D7", "type": "EBI_D7", "direction": "", "latch": "", "abcd": "A"}, #PC7
+					{"pin": 49, "name": "EBI_D14", "type": "EBI_D14", "direction": "", "latch": "", "abcd": "A"}, #PA15
+					{"pin": 54, "name": "EBI_D6", "type": "EBI_D6", "direction": "", "latch": "", "abcd": "A"}, #PC6
+					{"pin": 58, "name": "EBI_D5", "type": "EBI_D5", "direction": "", "latch": "", "abcd": "A"}, #PC5
+					{"pin": 67, "name": "GFX_DISP_INTF_PIN_CS", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PD19
+					{"pin": 82, "name": "GFX_DISP_INTF_PIN_RSDC", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PC8
+					{"pin": 86, "name": "GFX_DISP_INTF_PIN_BACKLIGHT", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PC9
+					{"pin": 94, "name": "GFX_DISP_INTF_PIN_RD", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}] #PC11
 
 def sam_e70_xult_eventHandlerSPI4line(event):
 	if (event == "configure"):
@@ -88,17 +110,17 @@ def sam_e70_xult_eventHandlerParallel(event):
 	except:
 		print("Failed to configure MPU")
 
-	try:
-		#Configure parallel interface for optimized mode
-		Database.setSymbolValue("gfx_intf_parallel_smc", "DataCommandSelectControl", "Peripheral", 1)
-		Database.setSymbolValue("gfx_intf_parallel_smc", "ReadStrobeControl", "Peripheral", 1)
-		Database.setSymbolValue("gfx_intf_parallel_smc", "WriteStrobeControl", "Peripheral", 1)
-	except:
-		print("Failed to gfx_intf_parallel_smc")
+	### Configure parallel interface for optimized mode (disable for bitbang mode)
+	#try:
+		#Database.setSymbolValue("gfx_intf_parallel_smc", "DataCommandSelectControl", "Peripheral", 1)
+		#Database.setSymbolValue("gfx_intf_parallel_smc", "ReadStrobeControl", "Peripheral", 1)
+		#Database.setSymbolValue("gfx_intf_parallel_smc", "WriteStrobeControl", "Peripheral", 1)
+	#except:
+		#print("Failed to gfx_intf_parallel_smc")
 
 
 sam_e70_xult_SPI = bspSupportObj(sam_e70_xult_spi4PinConfigs, sam_e70_xult_spi4PinComponentIDList, None, sam_e70_xult_spi4PinAutoConnectList, sam_e70_xult_eventHandlerSPI4line)
-sam_e70_xult_Parallel = bspSupportObj(sam_e70_xult_ParallelPinConfigs, sam_e70_xult_parallelComponentIDList, None, sam_e70_xult_parallelAutoConnectList, sam_e70_xult_eventHandlerParallel)
+sam_e70_xult_Parallel = bspSupportObj(sam_e70_xult_ParallelPinConfigsBitBang, sam_e70_xult_parallelComponentIDList, None, sam_e70_xult_parallelAutoConnectList, sam_e70_xult_eventHandlerParallel)
 
 addBSPSupport("BSP_SAM_E70_Xplained_Ultra", "SPI 4-line", sam_e70_xult_SPI)
 addBSPSupport("BSP_SAM_E70_Xplained_Ultra", "Parallel", sam_e70_xult_Parallel)
