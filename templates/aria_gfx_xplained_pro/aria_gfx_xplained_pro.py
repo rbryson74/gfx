@@ -30,102 +30,107 @@ deactivateIDTable = ["FreeRTOS"]
 
 execfile(Module.getPath() + "../common/pin_config.py")
 execfile(Module.getPath() + "../common/bsp_utils.py")
+execfile(Module.getPath() + "../common/display_utils.py")
+
+pinConfigureFxn = configurePins
 
 #Add BSP support
 execfile(Module.getPath() + "Support_BSP_SAM_E70_Xplained_Ultra.py")
 execfile(Module.getPath() + "Support_BSP_SAM_C21_Xplained_Pro.py")
 execfile(Module.getPath() + "Support_BSP_SAM_E54_Xplained_Pro.py")
+execfile(Module.getPath() + "Support_BSP_SAM_E54_Curiosity_Ultra.py")
 
-def enableILI9488SPIPins(bspID, enable):
-	ili9488SPI4PinConfigs = getBSPSupportNode(bspID, "SPI 4-line").getPinConfig()
-	if (ili9488SPI4PinConfigs != None):
-		resetPins(ili9488SPI4PinConfigs)
-		if (enable == True):
-			configurePins(ili9488SPI4PinConfigs)
+def enableConfigPins(bspID, configID, enable):
+	global pinConfigureFxn
+	if (enable == True):
+		print("enableCOnfig " + configID)
+	else:
+		print("disableCOnfig " + configID)
+	pinConfig = getBSPSupportNode(bspID, configID).getPinConfig()
 
-def enableILI9488ParallelPins(bspID, enable):
-	ili9488ParallelPinConfigs = getBSPSupportNode(bspID, "Parallel").getPinConfig()
-	if (ili9488ParallelPinConfigs != None):
-		resetPins(ili9488ParallelPinConfigs)
-		if (enable == True):
-			configurePins(ili9488ParallelPinConfigs)
+	if (enable == True):
+		pinConfigureFxn(pinConfig)
 
-def enableSPIInterface(bspID, enable):
-	componentIDTable = getBSPSupportNode(bspID, "SPI 4-line").getComponentActivateList()
-	autoConnectTable = getBSPSupportNode(bspID, "SPI 4-line").getComponentAutoConnectList()
+def enableConfig(bspID, configID, enable):
+	componentIDTable = getBSPSupportNode(bspID, configID).getComponentActivateList()
+	deactivateIDTable = getBSPSupportNode(bspID, configID).getComponentDeactivateList()
+	autoConnectTable = getBSPSupportNode(bspID, configID).getComponentAutoConnectList()
 	if (enable == True):
 		if (componentIDTable != None):
 			res = Database.activateComponents(componentIDTable)
+		if (deactivateIDTable != None):
+			res = Database.deactivateComponents(deactivateIDTable)
 		if (autoConnectTable != None):
 			res = Database.connectDependencies(autoConnectTable)
+		try:
+			getBSPSupportNode(bspID, configID).getEventCallbackFxn()("configure")
+		except:
+			print("No event callback for " + bspID + " configID.")
 	elif (enable == False):
 		if (componentIDTable != None):
 			res = Database.deactivateComponents(componentIDTable)
-	enableILI9488SPIPins(bspID, enable)
-	if (getBSPSupportNode(bspID, "SPI 4-line").getEventCallbackFxn() != None):
-		getBSPSupportNode(bspID, "SPI 4-line").getEventCallbackFxn()("configure")
-	
-def enableParallelInterface(bspID, enable):
-	componentIDTable = getBSPSupportNode(bspID, "Parallel").getComponentActivateList()
-	autoConnectTable = getBSPSupportNode(bspID, "Parallel").getComponentAutoConnectList()
-	if (enable == True):
-		if (componentIDTable != None):
-			res = Database.activateComponents(componentIDTable)
-		if (autoConnectTable != None):
-			res = Database.connectDependencies(autoConnectTable)
-	elif (enable == False):
-		if (componentIDTable != None):
-			res = Database.deactivateComponents(componentIDTable)
-	enableILI9488ParallelPins(bspID, enable)
-	if (getBSPSupportNode(bspID, "Parallel").getEventCallbackFxn() != None):
-		getBSPSupportNode(bspID, "Parallel").getEventCallbackFxn()("configure")
+	enableConfigPins(bspID, configID, enable)
 
 def configureDisplayInterface(bspID, interface):
 	print("Configuring for " + str(interface) + " Interface.")
 	if (bspID == None):
 		print("No BSP used, will not configure")
 	else:
-		if (str(interface) == "SPI 4-line"):
-			enableParallelInterface(bspID, False)
-			enableSPIInterface(bspID, True)
-		elif (str(interface) == "Parallel"):
-			enableSPIInterface(bspID, False)
-			enableParallelInterface(bspID, True)
+		DisplayInterfaceList = getDisplayInterfaces(bspID)
+		if (DisplayInterfaceList != None):
+			if (str(interface) in DisplayInterfaceList):
+				for val in DisplayInterfaceList:
+					if (val != interface):
+						enableConfig(bspID, val, False)
+				enableConfig(bspID, interface, True)
+			else:
+				print(str(interface) + " display interface is not supported.")
 
 def onDisplayInterfaceSelected(interfaceSelected, event):
 	bspID = getSupportedBSP()
 	newDisplayInterface= interfaceSelected.getComponent().getSymbolByID("DisplayInterface").getValue()
 	currDisplayInterface = interfaceSelected.getComponent().getSymbolByID("currDisplayInterface").getValue()
-	interfaceSelected.getComponent().getSymbolByID("currDisplayInterface").setValue(event["value"], 1)
+	interfaceSelected.getComponent().getSymbolByID("currDisplayInterface").setValue(event["value"], 0)
 	configureDisplayInterface(bspID, str(newDisplayInterface))
 
-def instantiateComponent(bspComponent):
+def instantiateComponent(templateComponent):
 	global componentsIDTable
 	global autoConnectTable
 	global supportedBSPsIDList
 	
 	#Check if a supported BSP is loaded
-	bspID = getSupportedBSP()
+	bspUsedKeyID = getSupportedBSP()
+	
+	DisplayInterfaceList = getDisplayInterfaces(bspUsedKeyID)
+
+	#if there is no list, build the list from the interfaces for each supported BSP
+	if (DisplayInterfaceList == None):
+		DisplayInterfaceList = []
+		bspSupportedList = getSupportedBSPList()
+		for bsp in bspSupportedList:
+			DisplayInterfaceList += getDisplayInterfaces(bsp)
+	
+	# Remove duplicates
+	DisplayInterfaceList = list(dict.fromkeys(DisplayInterfaceList))
+
+	DisplayInterface = templateComponent.createComboSymbol("DisplayInterface", None, DisplayInterfaceList)
+	DisplayInterface.setLabel("Display Interface")
+	DisplayInterface.setDescription("Configures the display controller interface to the maXTouch Xplained Pro.")
+	DisplayInterface.setDependencies(onDisplayInterfaceSelected, ["DisplayInterface"])
+	DisplayInterface.setVisible(True)
+
+	# Shadow display interface symbol
+	currDisplayInterface = templateComponent.createComboSymbol("currDisplayInterface", None, DisplayInterfaceList)
+	currDisplayInterface.setVisible(False)
 
 	res = Database.activateComponents(componentsIDTable)
 	res = Database.connectDependencies(autoConnectTable)
 	res = Database.deactivateComponents(deactivateIDTable);
 	
-	#DisplayInterface = bspComponent.createComboSymbol("DisplayInterface", None, ["SPI 4-line", "Parallel"])
-	DisplayInterface = bspComponent.createComboSymbol("DisplayInterface", None, ["SPI 4-line"])
-	DisplayInterface.setLabel("Display Interface")
-	DisplayInterface.setDescription("Configures the display interface to the maXTouch Xplained Pro display.")
-	DisplayInterface.setDefaultValue("SPI 4-line")
-	DisplayInterface.setDependencies(onDisplayInterfaceSelected, ["DisplayInterface"])
-	DisplayInterface.setVisible(True)
-	
-	# Shadow display interface symbol
-	currDisplayInterface = bspComponent.createComboSymbol("currDisplayInterface", None, ["SPI 4-line", "Parallel"])
-	currDisplayInterface.setDefaultValue("SPI 4-line")
-	currDisplayInterface.setVisible(False)
-	
-	if (bspID != None):
-		configureDisplayInterface(bspID, str(currDisplayInterface.getValue()))
+	if (bspUsedKeyID != None):
+		DisplayInterface.setDefaultValue(getDefaultDisplayInterface(bspUsedKeyID))
+		currDisplayInterface.setDefaultValue(getDefaultDisplayInterface(bspUsedKeyID))
+		configureDisplayInterface(bspUsedKeyID, str(currDisplayInterface.getValue()))
 	else:
 		print("No BSP used, only software components are configured. Please add board-specific components.")
 

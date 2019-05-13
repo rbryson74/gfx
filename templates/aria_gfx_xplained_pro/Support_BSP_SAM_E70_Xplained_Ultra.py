@@ -22,11 +22,12 @@
 # THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 ##############################################################################
 
-spi4PinComponentIDList = ["spi0", "drv_spi", "drv_spi_0", "gfx_intf_spi4"]
-spi4PinAutoConnectList = [["drv_spi_0", "drv_spi_SPI_dependency", "spi0", "SPI0_SPI"],
+sam_e70_xult_spi4PinComponentIDList = ["spi0", "drv_spi", "drv_spi_0", "gfx_intf_spi4", "tc0", "sys_time"]
+sam_e70_xult_spi4PinAutoConnectList = [["drv_spi_0", "drv_spi_SPI_dependency", "spi0", "SPI0_SPI"],
 							["gfx_intf_spi4", "DRV_SPI", "drv_spi_0", "drv_spi"],
-							["gfx_driver_ili9488", "Display Interface", "gfx_intf_spi4", "gfx_intf_spi4"]]
-spi4PinConfigs = [{"pin": 31, "name": "GFX_DISP_INTF_PIN_RSDC", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PB3
+							["gfx_driver_ili9488", "Display Interface", "gfx_intf_spi4", "gfx_intf_spi4"],
+							["sys_time", "sys_time_TMR_dependency", "tc0", "TC0_TMR"]]
+sam_e70_xult_spi4PinConfigs = [{"pin": 31, "name": "GFX_DISP_INTF_PIN_RSDC", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PB3
 				{"pin": 52, "name": "GFX_DISP_INTF_PIN_CS", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PD25
 				{"pin": 60, "name": "SPI0_SPCK", "type": "SPI0_SPCK", "direction": "", "latch": "", "abcd": "B"}, #PD22
 				{"pin": 63, "name": "SPI0_MOSI", "type": "SPI0_MOSI", "direction": "", "latch": "", "abcd": "B"}, #PD21
@@ -34,10 +35,11 @@ spi4PinConfigs = [{"pin": 31, "name": "GFX_DISP_INTF_PIN_RSDC", "type": "GPIO", 
 				{"pin": 102, "name": "GFX_DISP_INTF_PIN_BACKLIGHT", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PA0
 				{"pin": 103, "name": "GFX_DISP_INTF_PIN_RESET", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}] #PC17
 
-parallelComponentIDList = ["smc", "gfx_intf_parallel_smc"]
-parallelAutoConnectList = [["gfx_intf_parallel_smc", "smc", "smc", "smc_cs0"],
-							["gfx_driver_ili9488", "Display Interface", "gfx_intf_parallel_smc", "gfx_intf_parallel_smc"]]
-ParallelPinConfigs = [{"pin": 4, "name": "EBI_D8", "type": "EBI_D8", "direction": "", "latch": "", "abcd": "A"}, #PE0
+sam_e70_xult_parallelComponentIDList = ["smc", "gfx_intf_parallel_smc", "tc0", "sys_time"]
+sam_e70_xult_parallelAutoConnectList = [["gfx_intf_parallel_smc", "SMC_CS", "smc", "smc_cs0"],
+										["gfx_driver_ili9488", "Display Interface", "gfx_intf_parallel_smc", "gfx_intf_parallel_smc"],
+										["sys_time", "sys_time_TMR_dependency", "tc0", "TC0_TMR"]]
+sam_e70_xult_ParallelPinConfigs = [{"pin": 4, "name": "EBI_D8", "type": "EBI_D8", "direction": "", "latch": "", "abcd": "A"}, #PE0
 					{"pin": 6, "name": "EBI_D9", "type": "EBI_D9", "direction": "", "latch": "", "abcd": "A"}, #PE1
 					{"pin": 7, "name": "EBI_D10", "type": "EBI_D10", "direction": "", "latch": "", "abcd": "A"}, #PE2
 					{"pin": 10, "name": "EBI_D11", "type": "EBI_D11", "direction": "", "latch": "", "abcd": "A"}, #PE3
@@ -60,18 +62,47 @@ ParallelPinConfigs = [{"pin": 4, "name": "EBI_D8", "type": "EBI_D8", "direction"
 					{"pin": 86, "name": "GFX_DISP_INTF_PIN_BACKLIGHT", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PC9
 					{"pin": 94, "name": "EBI_NRD", "type": "EBI_NRD", "direction": "", "latch": "", "abcd": "A"}] #PC11
 
-def eventHandlerSPI4line(event):
+def sam_e70_xult_eventHandlerSPI4line(event):
 	if (event == "configure"):
 		#set the SPI clock to 20MHz
 		try:
 			Database.setSymbolValue("spi0", "SPI_BAUD_RATE", 20000000, 1)
+			#Set Draw Buffer per pixel
+			Database.setSymbolValue("gfx_driver_ili9488", "DrawBufferSize", "Pixel", 1)
 		except:
 			print("Unable to configure SPI baud rate.")
 
-sam_e70_xplained_ultra_SPI = bspSupportObj(spi4PinConfigs, spi4PinComponentIDList, None, spi4PinAutoConnectList, eventHandlerSPI4line)
-sam_e70_xplained_ultra_Parallel = bspSupportObj(ParallelPinConfigs, parallelComponentIDList, None, parallelAutoConnectList, None)
+def sam_e70_xult_eventHandlerParallel(event):
+	try:
+		#Set Draw Buffer per pixel
+		Database.setSymbolValue("gfx_driver_ili9488", "DrawBufferSize", "Pixel", 1)
+	except:
+		print("Failed to configure gfx_driver_ili9488")
+
+	try:
+		#Enable the MPU, disable caching of SMC memory space
+		Database.setSymbolValue("core", "CoreUseMPU", True, 1)
+		Database.setSymbolValue("core", "MPU_Region_0_Enable", True, 1)
+		Database.setSymbolValue("core", "MPU_Region_Name0", "EBI_SMC", 1)
+		Database.setSymbolValue("core", "MPU_Region_0_Type", 5, 1)
+	except:
+		print("Failed to configure MPU")
+
+	try:
+		#Configure parallel interface for optimized mode
+		Database.setSymbolValue("gfx_intf_parallel_smc", "DataCommandSelectControl", "Peripheral", 1)
+		Database.setSymbolValue("gfx_intf_parallel_smc", "ReadStrobeControl", "Peripheral", 1)
+		Database.setSymbolValue("gfx_intf_parallel_smc", "WriteStrobeControl", "Peripheral", 1)
+	except:
+		print("Failed to gfx_intf_parallel_smc")
 
 
+sam_e70_xult_SPI = bspSupportObj(sam_e70_xult_spi4PinConfigs, sam_e70_xult_spi4PinComponentIDList, None, sam_e70_xult_spi4PinAutoConnectList, sam_e70_xult_eventHandlerSPI4line)
+sam_e70_xult_Parallel = bspSupportObj(sam_e70_xult_ParallelPinConfigs, sam_e70_xult_parallelComponentIDList, None, sam_e70_xult_parallelAutoConnectList, sam_e70_xult_eventHandlerParallel)
 
-addBSPSupport("BSP_SAM_E70_Xplained_Ultra", "SPI 4-line", sam_e70_xplained_ultra_SPI)
-addBSPSupport("BSP_SAM_E70_Xplained_Ultra", "Parallel", sam_e70_xplained_ultra_Parallel)
+addBSPSupport("BSP_SAM_E70_Xplained_Ultra", "SPI 4-line", sam_e70_xult_SPI)
+addBSPSupport("BSP_SAM_E70_Xplained_Ultra", "Parallel", sam_e70_xult_Parallel)
+
+#sam_e70_xult_dispintf = ["SPI 4-line", "Parallel"]
+sam_e70_xult_dispintf = ["Parallel"]
+addDisplayIntfSupport("BSP_SAM_E70_Xplained_Ultra", sam_e70_xult_dispintf)

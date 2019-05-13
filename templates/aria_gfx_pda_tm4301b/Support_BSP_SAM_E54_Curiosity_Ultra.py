@@ -23,13 +23,13 @@
 ##############################################################################
 
 ############ SSD1963 CONFIG ######################################################
-ssd1963ActivateList = ["smc", "gfx_intf_parallel_portgroup", "gfx_driver_ssd1963", "sercom4", "drv_i2c", "drv_i2c0", "tc0", "sys_time"]
-ssd1963AutoConnectList = [["gfx_driver_ssd1963", "Display Interface", "gfx_intf_parallel_portgroup", "gfx_intf_parallel_portgroup"],
+e54cult_ssd1963ActivateList = ["smc", "gfx_intf_parallel_portgroup", "gfx_driver_ssd1963", "sercom4", "drv_i2c", "drv_i2c0", "tc0", "sys_time"]
+e54cult_ssd1963AutoConnectList = [["gfx_driver_ssd1963", "Display Interface", "gfx_intf_parallel_portgroup", "gfx_intf_parallel_portgroup"],
 						["gfx_hal", "gfx_display_driver", "gfx_driver_ssd1963", "gfx_driver_ssd1963"],
 						["drv_i2c_0", "drv_i2c_I2C_dependency", "sercom4", "SERCOM4_I2C"],
 						["gfx_maxtouch_controller", "i2c", "drv_i2c_0", "drv_i2c"],
 						["sys_time", "sys_time_TMR_dependency", "tc0", "TC0_TMR"]]
-ssd1963PinConfig = [{"pin": 3, "name": "GPIO_PC00", "type": "GPIO", "direction": "Out", "latch": "Low", "abcd": ""}, #PC00
+e54cult_ssd1963PinConfig = [{"pin": 3, "name": "GPIO_PC00", "type": "GPIO", "direction": "Out", "latch": "Low", "abcd": ""}, #PC00
 				{"pin": 4, "name": "GPIO_PC01", "type": "GPIO", "direction": "Out", "latch": "Low", "abcd": ""}, #PC01
 				{"pin": 7, "name": "GPIO_PC02", "type": "GPIO", "direction": "Out", "latch": "Low", "abcd": ""}, #PC02
 				{"pin": 8, "name": "GPIO_PC03", "type": "GPIO", "direction": "Out", "latch": "Low", "abcd": ""}, #PC03
@@ -47,7 +47,7 @@ ssd1963PinConfig = [{"pin": 3, "name": "GPIO_PC00", "type": "GPIO", "direction":
 				{"pin": 83, "name": "GFX_DISP_INTF_PIN_RSDC", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}] #PB17
 ##################################################################################
 
-def eventHandlerSSD1963(event):
+def e54cult_eventHandlerSSD1963(event):
 	if (event == "configure"):
 		try:
 			#Switch IO Group = 2
@@ -59,9 +59,9 @@ def eventHandlerSSD1963(event):
 		except:
 			return
 
-xbspDisplayInterfaceList = ['SSD1963']
+e54cult_xbspDisplayInterfaceList = ['SSD1963']
 
-sam_e54_curiosity_ultra_ssd1963 = bspSupportObj(ssd1963PinConfig, ssd1963ActivateList, None, ssd1963AutoConnectList, eventHandlerSSD1963)
+sam_e54_curiosity_ultra_ssd1963 = bspSupportObj(e54cult_ssd1963PinConfig, e54cult_ssd1963ActivateList, None, e54cult_ssd1963AutoConnectList, e54cult_eventHandlerSSD1963)
 
 addBSPSupport("BSP_SAM_E54_Curiosity_Ultra", "SSD1963", sam_e54_curiosity_ultra_ssd1963)
-addDisplayIntfSupport("BSP_SAM_E54_Curiosity_Ultra", xbspDisplayInterfaceList)
+addDisplayIntfSupport("BSP_SAM_E54_Curiosity_Ultra", e54cult_xbspDisplayInterfaceList)

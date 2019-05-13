@@ -22,11 +22,12 @@
 # THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 ##############################################################################
 
-spi4PinComponentIDList = ["sercom4", "drv_spi", "drv_spi_0", "gfx_intf_spi4"]
-spi4PinAutoConnectList = [["drv_spi_0", "drv_spi_SPI_dependency", "sercom4", "SERCOM4_SPI"],
+sam_e54_xpro_spi4PinComponentIDList = ["sercom4", "drv_spi", "drv_spi_0", "gfx_intf_spi4", "tc0", "sys_time"]
+sam_e54_xpro_spi4PinAutoConnectList = [["drv_spi_0", "drv_spi_SPI_dependency", "sercom4", "SERCOM4_SPI"],
 							["gfx_intf_spi4", "DRV_SPI", "drv_spi_0", "drv_spi"],
-							["gfx_driver_ili9488", "Display Interface", "gfx_intf_spi4", "gfx_intf_spi4"]]
-spi4PinConfigs = [{"pin": 23, "name": "GFX_DISP_INTF_PIN_RSDC", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PA06
+							["gfx_driver_ili9488", "Display Interface", "gfx_intf_spi4", "gfx_intf_spi4"],
+							["sys_time", "sys_time_TMR_dependency", "tc0", "TC0_TMR"]]
+sam_e54_xpro_spi4PinConfigs = [{"pin": 23, "name": "GFX_DISP_INTF_PIN_RSDC", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PA06
 				{"pin": 104, "name": "GFX_DISP_INTF_PIN_CS", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PB28
 				{"pin": 103, "name": "SERCOM4_PAD0", "type": "SERCOM4_PAD0", "direction": "", "latch": "", "abcd": "C"}, #PB27
 				{"pin": 105, "name": "SERCOM4_PAD3", "type": "SERCOM4_PAD3", "direction": "", "latch": "", "abcd": "C"}, #PB29
@@ -34,7 +35,7 @@ spi4PinConfigs = [{"pin": 23, "name": "GFX_DISP_INTF_PIN_RSDC", "type": "GPIO", 
 				{"pin": 19, "name": "GFX_DISP_INTF_PIN_BACKLIGHT", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PB08
 				{"pin": 113, "name": "GFX_DISP_INTF_PIN_RESET", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}] #PA27
 
-def eventHandlerSPI4line(event):
+def sam_e54_xpro_eventHandlerSPI4line(event):
 	if (event == "configure"):
 		#set the SPI clock to 8MHz
 		try:
@@ -48,12 +49,13 @@ def eventHandlerSPI4line(event):
 			print("Unable to configure SERCOM4 DIPO Pad.")
 		### set heap to 16kB for C21
 		Database.setSymbolValue("core", "XC32_HEAP_SIZE", 16384, 0)
-			
-def eventHandlerParallel(event):
-	print("Parallel mode is not supported.")
+		#Set Draw Buffer per pixel
+		Database.setSymbolValue("gfx_driver_ili9488", "DrawBufferSize", "Pixel", 1)
 
-sam_e54_xplained_pro_SPI = bspSupportObj(spi4PinConfigs, spi4PinComponentIDList, None, spi4PinAutoConnectList, eventHandlerSPI4line)
-sam_e54_xplained_pro_Parallel = bspSupportObj(None, None, None, None, eventHandlerParallel)
+
+sam_e54_xplained_pro_SPI = bspSupportObj(sam_e54_xpro_spi4PinConfigs, sam_e54_xpro_spi4PinComponentIDList, None, sam_e54_xpro_spi4PinAutoConnectList, sam_e54_xpro_eventHandlerSPI4line)
 
 addBSPSupport("BSP_SAM_E54_Xplained_Pro", "SPI 4-line", sam_e54_xplained_pro_SPI)
-addBSPSupport("BSP_SAM_E54_Xplained_Pro", "Parallel", sam_e54_xplained_pro_Parallel)
+
+sam_e54_xpld_dispintf = ['SPI 4-line']
+addDisplayIntfSupport("BSP_SAM_E54_Xplained_Pro", sam_e54_xpld_dispintf)
