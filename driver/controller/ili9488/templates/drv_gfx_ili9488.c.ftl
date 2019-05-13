@@ -170,9 +170,11 @@ ILI9488_CMD_PARAM initCmdParm[] =
 
 static inline void ILI9488_DelayMS(int ms)
 {
-    //Temporary delay code. Will switch over to a system delay API.
-    int i = 300000*ms;
-    while (i--);
+    SYS_TIME_HANDLE timer = SYS_TIME_HANDLE_INVALID;
+
+    if (SYS_TIME_DelayMS(ms, &timer) != SYS_TIME_SUCCESS)
+        return;
+    while (SYS_TIME_DelayIsComplete(timer) == false);
 }
 /**
   Function:
