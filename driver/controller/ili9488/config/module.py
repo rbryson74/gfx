@@ -27,3 +27,4 @@ def loadModule():
 	cntlComponent.setDisplayType("ILI9488 Display Driver")
 	cntlComponent.addCapability("gfx_driver_ili9488", "Display Driver", False)
 	cntlComponent.addDependency("Display Interface", "Display Interface", False, True)
+	cntlComponent.addDependency("SYS_TIME", "SYS_TIME", True, True)
