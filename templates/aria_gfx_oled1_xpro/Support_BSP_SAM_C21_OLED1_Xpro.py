@@ -45,8 +45,6 @@ def eventHandlerSPI4line(event):
 			Database.setSymbolValue("sercom1", "SPI_DOPO", 1, 1)
 		except:
 			print("Unable to configure SERCOM1 DOPO Pads.")
-		### set heap to 16kB for C21
-		Database.setSymbolValue("core", "XC32_HEAP_SIZE", 16384, 0)
 		### set default color mode to Grayscale
 		Database.setSymbolValue("gfx_hal", "ColorModeHint", "GFX_COLOR_MODE_GS_8", 0)
 

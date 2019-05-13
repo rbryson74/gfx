@@ -61,7 +61,7 @@ def instantiateComponent(component):
 	LIBARIA_SYS_RTOS_TASK_C.setEnabled((Database.getSymbolValue("HarmonyCore", "SELECT_RTOS") != "BareMetal"))
 	LIBARIA_SYS_RTOS_TASK_C.setDependencies(enableAriaRTOSTask, ["HarmonyCore.SELECT_RTOS"])
 	
-	Database.setSymbolValue("core", "XC32_HEAP_SIZE", 32768, 1) 
+	Database.setSymbolValue("core", "XC32_HEAP_SIZE", 16384, 1) 
 
 def onAttachmentConnected(source, target):
 	if source["id"] == "gfx_hal":
