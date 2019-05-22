@@ -166,8 +166,6 @@ static inline void SSD1963_DelayMS(int ms)
 */
 static GFX_Result SSD1963_Reset(void)
 {
-    SSD1963_Reset_Deassert();
-    SSD1963_DelayMS(10);
     SSD1963_Reset_Assert();
     SSD1963_DelayMS(10);
     SSD1963_Reset_Deassert();
