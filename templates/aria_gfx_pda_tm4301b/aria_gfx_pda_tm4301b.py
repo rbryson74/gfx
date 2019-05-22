@@ -107,6 +107,9 @@ def instantiateComponent(templateComponent):
 		for bsp in bspSupportedList:
 			DisplayInterfaceList += getDisplayInterfaces(bsp)
 
+	# Remove duplicates
+	DisplayInterfaceList = list(dict.fromkeys(DisplayInterfaceList))
+
 	DisplayInterface = templateComponent.createComboSymbol("DisplayInterface", None, DisplayInterfaceList)
 	DisplayInterface.setLabel("Display Interface")
 	DisplayInterface.setDescription("Configures the display controller interface to the PDA TM4301B.")
