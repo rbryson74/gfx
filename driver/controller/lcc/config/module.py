@@ -25,19 +25,12 @@
 def loadModule():
 	print("processor is " + str(Variables.get("__PROCESSOR")))
 	if ("PIC32MZ" in str(Variables.get("__PROCESSOR"))):
-		print("1")
 		cntlComponent = Module.CreateComponent("gfx_driver_lcc", "LCC ", "/Graphics/Driver", "config/lcc_controller_pic32mz.py")
-		print("2")
 		cntlComponent.addDependency("EBI_CS", "EBI_CS", False, True)
-		print("3")
 		cntlComponent.setDisplayType("LCC Display Driver")
-		print("4")
 		cntlComponent.addDependency("sys_dma", "sys_dma", True)
-		print("5")
 		cntlComponent.addCapability("gfx_driver_lcc", "Display Driver", False)
-		print("6")
 	else:
-		print("A")
 		cntlComponent = Module.CreateComponent("gfx_driver_lcc", "LCC ", "/Graphics/Driver", "config/lcc_controller.py")
 		cntlComponent.addDependency("SMC_CS", "SMC_CS", False, True)
 		cntlComponent.setDisplayType("LCC Display Driver")
