@@ -531,8 +531,8 @@
           <Name dnOrder="1">libaria_events.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_parallel_rgb565/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">BD64FFDD0757B3A339F87AACE434519F</GeneratedChecksum>
-          <UserChecksum dnOrder="5">BD64FFDD0757B3A339F87AACE434519F</UserChecksum>
+          <GeneratedChecksum dnOrder="4">D720F2FEA1CCAEEF4CF05F5B06D7933E</GeneratedChecksum>
+          <UserChecksum dnOrder="5">D720F2FEA1CCAEEF4CF05F5B06D7933E</UserChecksum>
         </File>
         <File dnOrder="66">
           <Type dnOrder="0">SOURCE</Type>
@@ -979,8 +979,8 @@
           <Name dnOrder="1">libaria_widget_radial_menu.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_parallel_rgb565/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">C0B97A0D08C37D4A66F4FC4491925DB2</GeneratedChecksum>
-          <UserChecksum dnOrder="5">C0B97A0D08C37D4A66F4FC4491925DB2</UserChecksum>
+          <GeneratedChecksum dnOrder="4">34BFE6720B220A59A0C2AEE07302BAE3</GeneratedChecksum>
+          <UserChecksum dnOrder="5">34BFE6720B220A59A0C2AEE07302BAE3</UserChecksum>
         </File>
         <File dnOrder="122">
           <Type dnOrder="0">SOURCE</Type>
@@ -1179,8 +1179,8 @@
           <Name dnOrder="1">plib_pio.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_parallel_rgb565/peripheral/pio/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/pio/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">20A453E14287E4E7DB445C0993169D52</GeneratedChecksum>
-          <UserChecksum dnOrder="5">20A453E14287E4E7DB445C0993169D52</UserChecksum>
+          <GeneratedChecksum dnOrder="4">EB9B232CEEAC668D231912EED503474A</GeneratedChecksum>
+          <UserChecksum dnOrder="5">EB9B232CEEAC668D231912EED503474A</UserChecksum>
         </File>
         <File dnOrder="147">
           <Type dnOrder="0">SOURCE</Type>
