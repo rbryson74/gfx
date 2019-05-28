@@ -39,6 +39,7 @@ execfile(Module.getPath() + "Support_BSP_SAM_E70_Xplained_Ultra.py")
 execfile(Module.getPath() + "Support_BSP_SAM_C21_Xplained_Pro.py")
 execfile(Module.getPath() + "Support_BSP_SAM_E54_Xplained_Pro.py")
 execfile(Module.getPath() + "Support_BSP_SAM_E54_Curiosity_Ultra.py")
+execfile(Module.getPath() + "Support_BSP_PIC32MZ_EF_Curiosity.py")
 
 def enableConfigPins(bspID, configID, enable):
 	global pinConfigureFxn
