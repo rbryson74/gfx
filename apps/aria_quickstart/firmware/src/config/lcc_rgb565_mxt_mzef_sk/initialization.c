@@ -266,9 +266,9 @@ void SYS_Initialize ( void* data )
 
 	BSP_Initialize();
     CORETIMER_Initialize();
-    TMR2_Initialize();
-
 	EBI_Initialize();
+
+    TMR2_Initialize();
 
 
 
