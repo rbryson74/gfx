@@ -41,7 +41,6 @@
 #include "definitions.h"
 
 #include "gfx/hal/inc/gfx_common.h"
-#include "system/time/sys_time.h"
 
 #include "drv_gfx_ili9488_cmd_defs.h"
 #include "drv_gfx_ili9488_common.h"
@@ -124,7 +123,6 @@ static inline void ILI9488_DelayMS(int ms)
         return;
     while (SYS_TIME_DelayIsComplete(timer) == false);
 }
-
 /**
   Function:
     static GFX_Result ILI9488_Reset(void)
