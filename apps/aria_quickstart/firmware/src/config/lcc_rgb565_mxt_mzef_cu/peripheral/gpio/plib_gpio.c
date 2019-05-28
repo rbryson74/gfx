@@ -60,10 +60,15 @@ void GPIO_Initialize ( void )
     /* PORTA Initialization */
 
     /* PORTB Initialization */
+    ODCBSET = 0x380; /* Open Drain Enable */
+    LATB = 0x380; /* Initial Latch Value */
+    TRISBCLR = 0x380; /* Direction Control */
+    ANSELBCLR = 0x380; /* Digital Mode Enable */
 
     /* PORTC Initialization */
     LATC = 0x4000; /* Initial Latch Value */
     TRISCCLR = 0x4000; /* Direction Control */
+    ANSELCCLR = 0x4000; /* Digital Mode Enable */
 
     /* PORTD Initialization */
 
@@ -72,18 +77,21 @@ void GPIO_Initialize ( void )
     /* PORTF Initialization */
     LATF = 0x0; /* Initial Latch Value */
     TRISFCLR = 0x2000; /* Direction Control */
+    ANSELFCLR = 0x2000; /* Digital Mode Enable */
 
     /* PORTG Initialization */
 
     /* PORTH Initialization */
 
     /* PORTJ Initialization */
-    LATJ = 0x4000; /* Initial Latch Value */
-    TRISJCLR = 0x4000; /* Direction Control */
+    ODCJSET = 0x88; /* Open Drain Enable */
+    LATJ = 0x4088; /* Initial Latch Value */
+    TRISJCLR = 0x4088; /* Direction Control */
 
     /* PORTK Initialization */
-    LATK = 0x0; /* Initial Latch Value */
-    TRISKCLR = 0xe; /* Direction Control */
+    ODCKSET = 0x80; /* Open Drain Enable */
+    LATK = 0x80; /* Initial Latch Value */
+    TRISKCLR = 0x8e; /* Direction Control */
 
 
 
