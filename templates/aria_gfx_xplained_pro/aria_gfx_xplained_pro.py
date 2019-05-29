@@ -33,6 +33,7 @@ execfile(Module.getPath() + "../common/bsp_utils.py")
 execfile(Module.getPath() + "../common/display_utils.py")
 
 pinConfigureFxn = configurePins
+pinResetFxn = resetPins
 
 #Add BSP support
 execfile(Module.getPath() + "Support_BSP_SAM_E70_Xplained_Ultra.py")
@@ -51,6 +52,8 @@ def enableConfigPins(bspID, configID, enable):
 
 	if (enable == True):
 		pinConfigureFxn(pinConfig)
+	else:
+		pinResetFxn(pinConfig)
 
 def enableConfig(bspID, configID, enable):
 	componentIDTable = getBSPSupportNode(bspID, configID).getComponentActivateList()
@@ -70,6 +73,10 @@ def enableConfig(bspID, configID, enable):
 	elif (enable == False):
 		if (componentIDTable != None):
 			res = Database.deactivateComponents(componentIDTable)
+		try:
+			getBSPSupportNode(bspID, configID).getEventCallbackFxn()("unconfigure")
+		except:
+			print("No event callback for " + bspID + " configID.")
 	enableConfigPins(bspID, configID, enable)
 
 def configureDisplayInterface(bspID, interface):

@@ -50,7 +50,17 @@ def configurePins(pinConfigs):
 			Database.setSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_LAT", pinConfig["latch"], 1)
 		else:
 			Database.setSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_PERIPHERAL_FUNCTION", pinConfig["abcd"], 1)
-			
+
+def resetPinsPIC32M(pinConfigs):
+	for pinConfig in pinConfigs:
+		print("Resetting PIC32M pin # " + str(pinConfig["pin"]) + " name: " + pinConfig["name"])
+		Database.clearSymbolValue("core", "BSP_PIN_" + str(pinConfig["pin"]) + "_FUNCTION_NAME")
+		Database.clearSymbolValue("core", "BSP_PIN_" + str(pinConfig["pin"]) + "_FUNCTION_TYPE")
+		Database.setSymbolValue("core", "BSP_PIN_" + str(pinConfig["pin"]) + "_FUNCTION_TYPE", "Available", 1)
+		Database.clearSymbolValue("core", "BSP_PIN_" + str(pinConfig["pin"]) + "_DIR")
+		Database.clearSymbolValue("core", "BSP_PIN_" + str(pinConfig["pin"]) + "_LAT")
+		Database.clearSymbolValue("core", "BSP_PIN_" + str(pinConfig["pin"]) + "_PERIPHERAL_FUNCTION")
+
 def configurePinsPIC32M(pinConfigs):
 	for pinConfig in pinConfigs:
 		print("Configuring PIC32M pin # " + str(pinConfig["pin"]) + " name: " + pinConfig["name"])
