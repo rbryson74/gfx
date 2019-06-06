@@ -94,9 +94,13 @@ def instantiateComponent(comp):
 	
 	MasterClockValue = 166000000
 	try:
-		MasterClockValue = Database.getSymbolValue("core", "MCK_CLK_FREQUENCY")
+		if (Variables.get("__PROCESSOR") == "SAM9X60"):
+			MasterClockValue = Database.getSymbolValue("core", "MCK_FREQUENCY")
+		else:
+			MasterClockValue = Database.getSymbolValue("core", "MCK_CLK_FREQUENCY")
 	except:
 		print(MasterClockSource.getValue() + " symbol not found")
+		MasterClockValue = 200000000
 
 	MasterClockSourceValue = comp.createIntegerSymbol("MasterClockSourceValue", ClockSettingsMenu)
 	MasterClockSourceValue.setLabel("Master Clock (Hz)")
