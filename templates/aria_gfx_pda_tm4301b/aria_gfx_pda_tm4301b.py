@@ -1,6 +1,6 @@
 # coding: utf-8
 ##############################################################################
-# Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+# Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries.
 #
 # Subject to your compliance with these terms, you may use Microchip software
 # and any derivatives exclusively with Microchip products. It is your
@@ -34,6 +34,7 @@ execfile(Module.getPath() + "Support_BSP_SAM_E54_Curiosity_Ultra.py")
 execfile(Module.getPath() + "Support_BSP_PIC32MZ_DA_Starter_Kit_MEB2.py")
 execfile(Module.getPath() + "Support_BSP_PIC32MZ_EF_Starter_Kit_MEB2.py")
 execfile(Module.getPath() + "Support_BSP_PIC32MZ_EF_Curiosity.py")
+execfile(Module.getPath() + "Support_BSP_SAM_9x60_Evaluation_Kit.py")
 
 def enableConfigPins(bspID, configID, enable):
 	global pinConfigureFxn
