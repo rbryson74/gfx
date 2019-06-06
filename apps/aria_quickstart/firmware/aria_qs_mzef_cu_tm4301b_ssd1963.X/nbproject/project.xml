@@ -17,7 +17,7 @@
             </sourceRootList>
             <confList>
                 <confElem>
-                    <name>lcc_rgb565_mxt_mzef_cu_ssd1963</name>
+                    <name>ssd1963_rgb565_mxt_mzef_cu</name>
                     <type>2</type>
                 </confElem>
             </confList>

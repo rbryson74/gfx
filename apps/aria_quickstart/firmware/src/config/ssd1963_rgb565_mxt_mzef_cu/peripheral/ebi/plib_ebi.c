@@ -132,7 +132,7 @@ void EBI_Initialize (void)
 	/* EBIRDYEN1  = false	*/
 	/* EBIRDYLVL  = false	*/
 	/* EBIRPEN    = false	*/
-	/* EBIWEEN    = true	*/
+	/* EBIWEEN    = false	*/
 	/* EBIOEEN    = false	*/
 	/* EBIBSEN1   = false	*/
 	/* EBIBSEN0   = false	*/
@@ -142,5 +142,5 @@ void EBI_Initialize (void)
 	/* EBICSEN0   = true	*/
 	/* EBIDEN1    = true	*/
 	/* EBIDEN0    = true	*/
-	CFGEBIC = 0x2013;
+	CFGEBIC = 0x13;
 }

@@ -710,69 +710,64 @@
             <Dynamic dnOrder="0" id="ebi" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="4" id="CFGEBIC_EBIWEEN">
+        <Hex dnOrder="4" id="CFGEBIC_VALUE">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_intf_parallel_ebi" value="true"/>
-          </Values>
-        </Boolean>
-        <Hex dnOrder="5" id="CFGEBIC_VALUE">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="ebi" value="8211"/>
+            <Dynamic dnOrder="0" id="ebi" value="19"/>
           </Values>
         </Hex>
-        <Hex dnOrder="6" id="EBICS0_CSADDR">
+        <Hex dnOrder="5" id="EBICS0_CSADDR">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="visible">
               <Value dnOrder="0">true</Value>
             </Boolean>
           </Attributes>
         </Hex>
-        <KeyValueSet dnOrder="7" id="EBIMSK0_MEMSIZE">
+        <KeyValueSet dnOrder="6" id="EBIMSK0_MEMSIZE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="gfx_intf_parallel_ebi" value="8"/>
           </Values>
         </KeyValueSet>
-        <Hex dnOrder="8" id="EBIMSK0_VALUE">
+        <Hex dnOrder="7" id="EBIMSK0_VALUE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="ebi" value="40"/>
           </Values>
         </Hex>
-        <KeyValueSet dnOrder="9" id="EBISMCON_SMDWIDTH0">
+        <KeyValueSet dnOrder="8" id="EBISMCON_SMDWIDTH0">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="gfx_intf_parallel_ebi" value="0"/>
           </Values>
         </KeyValueSet>
-        <Hex dnOrder="10" id="EBISMCON_VALUE">
+        <Hex dnOrder="9" id="EBISMCON_VALUE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="ebi" value="1"/>
           </Values>
         </Hex>
-        <Integer dnOrder="11" id="EBISMT0_TAS">
+        <Integer dnOrder="10" id="EBISMT0_TAS">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="gfx_intf_parallel_ebi" value="3"/>
           </Values>
         </Integer>
-        <Integer dnOrder="12" id="EBISMT0_TBTA">
+        <Integer dnOrder="11" id="EBISMT0_TBTA">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="gfx_intf_parallel_ebi" value="0"/>
           </Values>
         </Integer>
-        <Integer dnOrder="13" id="EBISMT0_TRC">
+        <Integer dnOrder="12" id="EBISMT0_TRC">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="gfx_intf_parallel_ebi" value="0"/>
           </Values>
         </Integer>
-        <Integer dnOrder="14" id="EBISMT0_TWP">
+        <Integer dnOrder="13" id="EBISMT0_TWP">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="gfx_intf_parallel_ebi" value="2"/>
           </Values>
         </Integer>
-        <Integer dnOrder="15" id="EBISMT0_TWR">
+        <Integer dnOrder="14" id="EBISMT0_TWR">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="gfx_intf_parallel_ebi" value="3"/>
           </Values>
         </Integer>
-        <Hex dnOrder="16" id="EBISMT0_VALUE">
+        <Hex dnOrder="15" id="EBISMT0_VALUE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="ebi" value="1575872"/>
           </Values>
@@ -1382,22 +1377,22 @@
     <ComponentGraph dnOrder="0" id="__ROOTVIEW">
       <ElementPositions dnOrder="0">
         <ElementPosition dnOrder="0" id="BSP_PIC32MZ_EF_Curiosity_2.0" x="340" y="20"/>
-        <ElementPosition dnOrder="1" id="HarmonyCore" x="22" y="234"/>
-        <ElementPosition dnOrder="2" id="aria_gfx_library" x="698" y="226"/>
-        <ElementPosition dnOrder="3" id="aria_gfx_pda_tm4301b" x="624" y="153"/>
+        <ElementPosition dnOrder="1" id="HarmonyCore" x="660" y="152"/>
+        <ElementPosition dnOrder="2" id="aria_gfx_library" x="661" y="265"/>
+        <ElementPosition dnOrder="3" id="aria_gfx_pda_tm4301b" x="539" y="27"/>
         <ElementPosition dnOrder="4" id="core" x="240" y="20"/>
-        <ElementPosition dnOrder="5" id="core_timer" x="418" y="55"/>
+        <ElementPosition dnOrder="5" id="core_timer" x="36" y="463"/>
         <ElementPosition dnOrder="6" id="dfp" x="20" y="20"/>
-        <ElementPosition dnOrder="7" id="drv_i2c" x="256" y="54"/>
-        <ElementPosition dnOrder="8" id="ebi" x="29" y="333"/>
-        <ElementPosition dnOrder="9" id="gfx_disp_pdatm4301b_480x272" x="237" y="218"/>
-        <ElementPosition dnOrder="10" id="gfx_driver_ssd1963" x="343" y="332"/>
-        <ElementPosition dnOrder="11" id="gfx_hal" x="508" y="257"/>
-        <ElementPosition dnOrder="12" id="gfx_intf_parallel_ebi" x="170" y="368"/>
-        <ElementPosition dnOrder="13" id="gfx_maxtouch_controller" x="426" y="126"/>
-        <ElementPosition dnOrder="14" id="i2c2" x="23" y="158"/>
-        <ElementPosition dnOrder="15" id="sys_input" x="30" y="60"/>
-        <ElementPosition dnOrder="16" id="sys_time" x="639" y="16"/>
+        <ElementPosition dnOrder="7" id="drv_i2c" x="238" y="61"/>
+        <ElementPosition dnOrder="8" id="ebi" x="0" y="253"/>
+        <ElementPosition dnOrder="9" id="gfx_disp_pdatm4301b_480x272" x="225" y="222"/>
+        <ElementPosition dnOrder="10" id="gfx_driver_ssd1963" x="303" y="321"/>
+        <ElementPosition dnOrder="11" id="gfx_hal" x="473" y="241"/>
+        <ElementPosition dnOrder="12" id="gfx_intf_parallel_ebi" x="130" y="345"/>
+        <ElementPosition dnOrder="13" id="gfx_maxtouch_controller" x="458" y="116"/>
+        <ElementPosition dnOrder="14" id="i2c2" x="70" y="81"/>
+        <ElementPosition dnOrder="15" id="sys_input" x="644" y="81"/>
+        <ElementPosition dnOrder="16" id="sys_time" x="193" y="454"/>
       </ElementPositions>
     </ComponentGraph>
     <GraphSettings canvasHeight="400" canvasWidth="400" dnOrder="1"/>
