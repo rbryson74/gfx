@@ -430,6 +430,59 @@ static GFX_Result SSD1963_PixelSet(const GFX_PixelBuffer *buf,
     return GFX_SUCCESS;
 }
 
+static GFX_Result SSD1963_DrawDirectBlit(const GFX_PixelBuffer* source,
+                             const GFX_Rect* srcRect,
+                             const GFX_Point* drawPoint,
+                             const GFX_DrawState* state)
+{
+    int16_t  left, right, top, bottom, row;
+    //uint32_t size;
+    GFX_Context* pContext = GFX_ActiveContext();
+    GFX_Point srcPnt, destPnt;
+    GFX_Buffer *src;
+
+    SSD1963_DRV *drv;
+    GFX_Disp_Intf intf;
+    
+    drv = (SSD1963_DRV *) pContext->driver_data;
+    intf = (GFX_Disp_Intf) drv->port_priv;
+    
+    srcPnt.x = srcRect->x;
+    srcPnt.y = srcRect->y;
+        
+    destPnt.x = drawPoint->x;
+    destPnt.y = drawPoint->y;
+    
+    // size for one row at a time
+    //size = srcRect->width * GFX_ColorInfo[source->mode].size;
+    
+    SSD1963_NCSAssert(intf);
+
+    // can't do bulk copy, go row by row instead        
+    for(row = 0; row < srcRect->height; row++)
+    {
+        src = GFX_PixelBufferOffsetGet(source, &srcPnt);
+    
+        left   = destPnt.x;
+        right  = left + srcRect->width;
+        top    = destPnt.y;
+        bottom = top + 1;
+
+        SetArea(drv, left,top,right,bottom);
+
+        GFX_Disp_Intf_WriteCommand(intf, CMD_WR_MEMSTART);
+
+        GFX_Disp_Intf_WriteData16(intf, (uint16_t *)src, srcRect->width);
+
+        srcPnt.y++;
+        destPnt.y++;
+    }
+
+    SSD1963_NCSDeassert(intf);
+    
+    return GFX_SUCCESS;
+}
+
 GFX_Result SSD1963_fillRect(const GFX_Rect* pRect,
                             const GFX_DrawState* pState)
 {
@@ -1111,6 +1164,8 @@ GFX_Result driverSSD1963ContextInitialize(GFX_Context *context)
     context->hal.drawPipeline[GFX_PIPELINE_GCU].drawRect[GFX_DRAW_FILL][GFX_ANTIALIAS_OFF] = &SSD1963_fillRect;
     context->hal.drawPipeline[GFX_PIPELINE_GCUGPU].drawRect[GFX_DRAW_FILL][GFX_ANTIALIAS_OFF] = &SSD1963_fillRect;
 
+    context->hal.drawPipeline[GFX_PIPELINE_GCU].drawDirectBlit = &SSD1963_DrawDirectBlit;
+    context->hal.drawPipeline[GFX_PIPELINE_GCUGPU].drawDirectBlit = &SSD1963_DrawDirectBlit;
 
     return GFX_SUCCESS;
 }
