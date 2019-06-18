@@ -61,13 +61,10 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
           this file.
 */
 
-#include "driver/driver_common.h"
 #include "gfx/hal/inc/gfx_common.h"
 #include "gfx/hal/inc/gfx_driver_interface.h"
 #include "gfx/hal/inc/gfx_default_impl.h"
 #include "peripheral/gfx2d/plib_gfx2d.h"
-
-#include "drv_gfx2d_definitions.h"
 
 #ifdef __cplusplus
     extern "C" {
@@ -75,78 +72,27 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 
 // *****************************************************************************
 /* Function:
-    SYS_MODULE_OBJ DRV_GFX2D_Initialize
-    (
-        const SYS_MODULE_INDEX drvIndex,
-        const SYS_MODULE_INIT * const init
-    )
+    void DRV_GFX2D_Initialize ()
 
   Summary:
-    Initializes the GFX2D instance for the specified driver index.
+    Initializes the GFX2D driver.
 
   Description:
-    This routine initializes the GFX2D driver instance for the specified driver
-    index, making it ready for clients to open and use it. The initialization
-    data is specified by the init parameter. The initialization may fail if the
-    number of driver objects allocated are insufficient or if the specified
-    driver instance is already initialized. The driver instance index is
-    independent of the GFX2D peripheral instance it is associated with.
-    For example, driver instance 0 can be assigned to GFX2D peripheral instance 2.
+    This routine initializes the GFX2D driver.
 
   Precondition:
     None.
 
   Parameters:
-    drvIndex - Identifier for the instance to be initialized
-
-    init - Pointer to the init data structure containing any data necessary to
-    initialize the driver.
+    None.
 
   Returns:
-    If successful, returns a valid handle to a driver instance object.
-    Otherwise, returns SYS_MODULE_OBJ_INVALID.
-
-  Example:
-    <code>
-    // The following code snippet shows an example GFX2D driver initialization.
-
-    SYS_MODULE_OBJ objectHandle;
-
-    DRV_GFX2D_PLIB_INTERFACE drvGFX2DPLibAPI = {
-        .read = (DRV_GFX2D_PLIB_FILL)GFX2D_Fill,
-        .copy = (DRV_GFX2D_PLIB_COPY)GFX2D_Copy,
-        .blend = (DRV_GFX2D_PLIB_BLEND)GFX2D_Blend,
-        .isBusy = (DRV_GFX2D_PLIB_ISBUSY)GFX2D_IsBusy,
-        .statusGet = (DRV_GFX2D_PLIB_STATUSGET)GFX2D_StatusGet,
-        .callbackRegister = (DRV_GFX2D_PLIB_CALLBACK_REGISTER)GFX2D_CallbackRegister,
-    };
-
-    DRV_GFX2D_INIT drvGFX2DInitData = {
-
-        .GFX2DPlib = &drvGFX2D0PLibAPI,
-        .interruptGFX2D = DRV_GFX2D_INT_SRC_IDX0,
-        .queueSize = DRV_GFX2D_QUEUE_SIZE_IDX0,
-    };
-
-    objectHandle = DRV_GFX2D_Initialize(DRV_GFX2D_INDEX, (SYS_MODULE_INIT*)&drvGFX2DInitData);
-    if (objectHandle == SYS_MODULE_OBJ_INVALID)
-    {
-        // Handle error
-    }
-    </code>
 
   Remarks:
     This routine must be called before any other GFX2D routine is called.
     This routine should only be called once during system initialization.
 */
-SYS_MODULE_OBJ DRV_GFX2D_Initialize( const SYS_MODULE_INDEX drvIndex, const SYS_MODULE_INIT * const init );
-
-
-// *****************************************************************************
-// *****************************************************************************
-// Section: Interface Headers for the Static Driver
-// *****************************************************************************
-// *****************************************************************************
+void DRV_GFX2D_Initialize();
 
 
 // *****************************************************************************

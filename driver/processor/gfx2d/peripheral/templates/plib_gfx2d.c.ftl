@@ -1,17 +1,17 @@
 /*******************************************************************************
-  2D Graphics Engine(${GFX2D_INSTANCE_NAME}) PLIB
+  2D Graphics Engine ${GFX2D_INSTANCE_NAME} PLIB
 
   Company
     Microchip Technology Inc.
 
   File Name
-    plib_${GFX2D_INSTANCE_NAME?lower_case}.c
+    plib_gfx2d.c
 
   Summary
     ${GFX2D_INSTANCE_NAME} PLIB Implementation File.
 
   Description
-    This file defines the interface to the GFX2D peripheral library. This
+    This file defines the interface to the ${GFX2D_INSTANCE_NAME} peripheral library. This
     library provides access to and control of the associated peripheral
     instance.
 
@@ -22,7 +22,7 @@
 
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -53,7 +53,7 @@
 /* This section lists the other files that are included in this file.
 */
 #include "device.h"
-#include "plib_${GFX2D_INSTANCE_NAME?lower_case}.h"
+#include "plib_gfx2d.h"
 
 
 #define CONF_GFX2D_GC_REGEN             1
@@ -73,7 +73,7 @@
 #define GFX2D_PC0_FILT_Pos              1
 #define GFX2D_PC1_SEL_Pos               1
 #define GFX2D_PC1_FILT_Pos              1
-#define GFX2D_GS_STATUS                 1
+//#define GFX2D_GS_STATUS                 1
 
 #ifndef CONF_GFX2D_PC1_REG
 #define CONF_GFX2D_PC1_REG ((CONF_GFX2D_PC1_SEL << GFX2D_PC1_SEL_Pos) | (CONF_GFX2D_PC1_FILT << GFX2D_PC1_FILT_Pos))
@@ -286,56 +286,145 @@ struct gpu_instruction_rop {
 
 // *****************************************************************************
 // *****************************************************************************
-// Section: ${GFX2D_INSTANCE_NAME} temporary
+// Section: GFX2D temporary
 // *****************************************************************************
 // *****************************************************************************
 /* -------- GFX2D : (GFX2D Offset: 0x2C) ( R/ 32) Interrupt Mask Register -------- */
-#define GFX2D_GD_Msk                     _U_(0x1)
-#define GFX2D_GE_ENABLE                  _U_(0x1)
-#define GFX2D_GS_BUSY                    _U_(0x1)
-#define GFX2D_ID_Msk                     _U_(0x1)
-#define GFX2D_IE_EXEND_Msk               _U_(0x1)
-#define GFX2D_IE_RERR_Msk                _U_(0x1)
-#define GFX2D_IE_BERR                    _U_(0x1)
-#define GFX2D_IE_IERR                    _U_(0x1)
+//#define GFX2D_GD_Msk                     _U_(0x1)
+//#define GFX2D_GE_ENABLE                  _U_(0x1)
+//#define GFX2D_GS_BUSY                    _U_(0x1)
+//#define GFX2D_ID_Msk                     _U_(0x1)
+//#define GFX2D_IE_EXEND_Msk               _U_(0x1)
+//#define GFX2D_IE_RERR_Msk                _U_(0x1)
+//#define GFX2D_IE_BERR                    _U_(0x1)
+//#define GFX2D_IE_IERR                    _U_(0x1)
 
-/** \brief GFX2D register API structure */
-typedef struct
-{
-  __IO   uint32_t                      GFX2D_GC;             /**< Offset: 0x00 ( /W  32) Control Register */
-  __IO  uint32_t                       GFX2D_PC0;             /**< Offset: 0x04 (R/W  32) Mode Register */
-  __IO   uint8_t                       Reserved1[0x1C];
-  __IO   uint32_t                      GFX2D_PC1;            /**< Offset: 0x24 ( /W  32) Interrupt Enable Register */
-  __IO   uint32_t                      GFX2D_GD;            /**< Offset: 0x28 ( /W  32) Interrupt Disable Register */
-  __IO   uint32_t                      GFX2D_HEAD;            /**< Offset: 0x2C (R/   32) Interrupt Mask Register */
-  __IO   uint32_t                      GFX2D_TAIL;            /**< Offset: 0x30 (R/   32) Interrupt Status Register */
-  __IO   uint8_t                       Reserved2[0x60];
-  __IO  uint32_t                       GFX2D_BASE;            /**< Offset: 0x94 (R/W  32) Analog Control Register */
-  __IO  uint8_t                        Reserved3[0x4C];
-  __IO  uint32_t                       GFX2D_LEN;           /**< Offset: 0xE4 (R/W  32) Write Protection Mode Register */
-  __IO  uint32_t                       GFX2D_GE;           /**< Offset: 0xE8 (R/   32) Write Protection Status Register */
-  __IO   uint32_t                      GFX2D_GS;
-  __IO  uint32_t                       GFX2D_ID;
-  __IO  uint32_t                       GFX2D_IS;
-  __IO   uint32_t                      GFX2D_PA0;
-  __IO  uint32_t                       GFX2D_PITCH0;
-  __IO  uint32_t                       GFX2D_CFG0;
-  __IO   uint32_t                      GFX2D_PA1;
-  __IO  uint32_t                       GFX2D_PITCH1;
-  __IO  uint32_t                       GFX2D_CFG1;
-  __IO   uint32_t                      GFX2D_PA2;
-  __IO  uint32_t                       GFX2D_PITCH2;
-  __IO  uint32_t                       GFX2D_CFG2;
-} gfx2d_registers_t;
-
-#define GFX2D_REGS                         ((gfx2d_registers_t*)0x40044000)                /**< \brief GFX2D Registers Address        */
+//#define GFX2D_REGS                         ((gfx2d_registers_t*)0x40044000)                /**< \brief GFX2D Registers Address        */
 #define GPU_BUFFER_FORMAT_SIZE      400
 
 // *****************************************************************************
 // *****************************************************************************
-// Section: ${GFX2D_INSTANCE_NAME} local
+// Global Configuration, Enable, Disable, Status
 // *****************************************************************************
 // *****************************************************************************
+          
+void GFX2D_SetClockGatingDisableCore(GFX2D_CLOCK_GATING gating)
+{
+    GFX2D_REGS->GFX2D_GC = (GFX2D_REGS->GFX2D_GC & ~GFX2D_GC_CGDISCORE_Msk) | 
+                                GFX2D_GC_CGDISCORE(gating == GFX2D_CLOCK_GATING_DISABLED);
+}
+          
+void GFX2D_SetClockGatingDisableAXI(GFX2D_CLOCK_GATING gating)
+{
+    GFX2D_REGS->GFX2D_GC = (GFX2D_REGS->GFX2D_GC & ~GFX2D_GC_CGDISAXI_Msk) | 
+                                GFX2D_GC_CGDISAXI(gating == GFX2D_CLOCK_GATING_DISABLED);
+}
+
+void GFX2D_SetClockGatingDisableFIFO(GFX2D_CLOCK_GATING gating)
+{
+    GFX2D_REGS->GFX2D_GC = (GFX2D_REGS->GFX2D_GC & ~GFX2D_GC_CGDISFIFO_Msk) | 
+                                GFX2D_GC_CGDISFIFO(gating == GFX2D_CLOCK_GATING_DISABLED);
+}
+
+void GFX2D_SetOutstandingRegulationEnable(bool enable)
+{
+    GFX2D_REGS->GFX2D_GC = (GFX2D_REGS->GFX2D_GC & ~GFX2D_GC_REGEN_Msk) | 
+                                  GFX2D_GC_REGEN(enable == true);
+}
+
+void GFX2D_SetMemoryTileAccess(GFX2D_MEMORY_ACCESS access)
+{
+    GFX2D_REGS->GFX2D_GC = (GFX2D_REGS->GFX2D_GC & ~GFX2D_GC_MTY_Msk) | 
+                                  GFX2D_GC_MTY(access == GFX2D_MEMORY_LINEAR_ACCESS);
+}
+
+void GFX2D_SetControllerEnable(bool enable)
+{
+    if (enable == true)
+        GFX2D_REGS->GFX2D_GE = (GFX2D_REGS->GFX2D_GE & ~GFX2D_GE_ENABLE_Msk) | 
+                                      GFX2D_GE_ENABLE(1);
+    else
+        GFX2D_REGS->GFX2D_GD = (GFX2D_REGS->GFX2D_GD & ~GFX2D_GD_DISABLE_Msk) | 
+                                      GFX2D_GD_DISABLE(1);
+}
+
+bool GFX2D_GetGlobalStatusEnabled( void )
+{
+    return ((GFX2D_REGS->GFX2D_GS & GFX2D_GS_STATUS_Msk) == GFX2D_GS_STATUS_Msk);
+}
+
+bool GFX2D_GetGlobalStatusBusy( void )
+{
+    return ((GFX2D_REGS->GFX2D_GS & GFX2D_GS_BUSY_Msk) == GFX2D_GS_BUSY_Msk);
+}
+
+bool GFX2D_GetGlobalStatusWaitForEvent( void )
+{
+    return ((GFX2D_REGS->GFX2D_GS & GFX2D_GS_WFEIP_Msk) == GFX2D_GS_WFEIP_Msk);
+}
+
+// *****************************************************************************
+// *****************************************************************************
+// Performance Configuration
+// *****************************************************************************
+// *****************************************************************************
+
+void GFX2D_SetPerformanceConfigFilter0(GFX2D_PERFORMANCE_FILTER_CONFIG filter)
+{
+    GFX2D_REGS->GFX2D_SUB0[0].GFX2D_PC = (GFX2D_REGS->GFX2D_SUB0[0].GFX2D_PC & ~GFX2D_PC_FILT_Msk) | 
+                                  GFX2D_PC_FILT(filter);
+}
+
+void GFX2D_SetPerformanceConfigFilter1(GFX2D_PERFORMANCE_FILTER_CONFIG filter)
+{
+    GFX2D_REGS->GFX2D_SUB0[1].GFX2D_PC = (GFX2D_REGS->GFX2D_SUB0[1].GFX2D_PC & ~GFX2D_PC_FILT_Msk) | 
+                                  GFX2D_PC_FILT(filter);
+}
+
+void GFX2D_SetPerformanceMetricsSelection0(GFX2D_PERFORMANCE_METRICS_SELECTION selection)
+{
+    GFX2D_REGS->GFX2D_SUB0[0].GFX2D_PC = (GFX2D_REGS->GFX2D_SUB0[0].GFX2D_PC & ~GFX2D_PC_SEL_Msk) | 
+                                  GFX2D_PC_SEL(selection);
+}
+
+void GFX2D_SetPerformanceMetricsSelection1(GFX2D_PERFORMANCE_METRICS_SELECTION selection)
+{
+    GFX2D_REGS->GFX2D_SUB0[1].GFX2D_PC = (GFX2D_REGS->GFX2D_SUB0[1].GFX2D_PC & ~GFX2D_PC_SEL_Msk) | 
+                                  GFX2D_PC_SEL(selection);
+}
+
+// *****************************************************************************
+// *****************************************************************************
+// Fill Instruction
+// *****************************************************************************
+// *****************************************************************************
+void GFX2D_SetSurfaceAddress(GFX2D_SURFACE surface, uint32_t addr)
+{
+    GFX2D_REGS->GFX2D_CHID[surface].GFX2D_PA = GFX2D_PA_PA(addr);
+}
+
+void GFX2D_SetSurfacePitch(GFX2D_SURFACE surface, uint16_t pitch)
+{
+    GFX2D_REGS->GFX2D_CHID[surface].GFX2D_PITCH = GFX2D_PITCH_PITCH(pitch);
+}
+
+void GFX2D_SetSurfaceColorLookupTable(GFX2D_SURFACE surface, GFX2D_COLOR_LOOKUP_TABLE table)
+{
+    GFX2D_REGS->GFX2D_CHID[surface].GFX2D_CFG = GFX2D_CFG_IDXCX(table);
+}
+
+void GFX2D_SetSurfacePixelFormat(GFX2D_SURFACE surface, GFX2D_PIXEL_FORMAT format)
+{
+    GFX2D_REGS->GFX2D_CHID[surface].GFX2D_CFG = GFX2D_CFG_PF(format);
+}
+
+// *****************************************************************************
+// *****************************************************************************
+// Section: GFX2D local
+// *****************************************************************************
+// *****************************************************************************
+
+${GFX2D_INSTANCE_NAME}_IRQ_CALLBACK_OBJECT GFX2D_IRQ_CallbackObj;
 
 static GFX2D_OBJ gfx2dObj;
 static gfx2d_registers_t *GFX2D_Module = GFX2D_REGS;
@@ -386,7 +475,9 @@ int32_t _gpu_instruction(uint32_t *i, uint8_t len)
         }
 
         /* Check if previous instruction finished */
-        if (((GFX2D_Module->GFX2D_GS & GFX2D_GS_STATUS) > 0) == 0) {
+        if ( GFX2D_GetGlobalStatusBusy() == true )
+        {
+                //if (((GFX2D_Module->GFX2D_GS & GFX2D_GS_STATUS) > 0) == 0) {
                 return 1;
         }
 
@@ -421,18 +512,43 @@ int32_t _gpu_instruction(uint32_t *i, uint8_t len)
 <#--Implementation-->
 // *****************************************************************************
 // *****************************************************************************
-// Section: ${GFX2D_INSTANCE_NAME} Implementation
+// Section: GFX2D Implementation
 // *****************************************************************************
 // *****************************************************************************
+
+
+/* Register callback for period interrupt */
+void ${GFX2D_INSTANCE_NAME}_IRQ_CallbackRegister(${GFX2D_INSTANCE_NAME}_IRQ_CALLBACK callback, uintptr_t context)
+{
+    if (callback == NULL)
+    {
+        GFX2D_Module->GFX2D_ID = GFX2D_ID_Msk;
+        return;
+    }
+
+    //GFX2D_Module->GFX2D_ID = (GFX2D_IE_EXEND_Msk | GFX2D_IE_RERR_Msk | GFX2D_IE_BERR | GFX2D_IE_IERR);
+
+    GFX2D_IRQ_CallbackObj.callback_fn = callback;
+    GFX2D_IRQ_CallbackObj.context = context;
+}
 
 void ${GFX2D_INSTANCE_NAME}_Initialize( void )
 {
-    GFX2D_Module->GFX2D_GC = CONF_GFX2D_GC_REG;
+  GFX2D_SetClockGatingDisableCore(GFX2D_CLOCK_GATING_ACTIVATED);
+  GFX2D_SetClockGatingDisableAXI(GFX2D_CLOCK_GATING_ACTIVATED);
+  GFX2D_SetClockGatingDisableFIFO(GFX2D_CLOCK_GATING_ACTIVATED);
+  GFX2D_SetOutstandingRegulationEnable(false);
+  GFX2D_SetMemoryTileAccess(GFX2D_MEMORY_TILE_ACCESS);
 
-    #if CONF_GFX2D_GC_REGEN == 1
-    GFX2D_Module->GFX2D_PC0 = CONF_GFX2D_PC0_REG;
-    GFX2D_Module->GFX2D_PC1 = CONF_GFX2D_PC1_REG;
-    #endif
+  GFX2D_SetPerformanceConfigFilter0(GFX2D_FILTER_DISABLED);
+  GFX2D_SetPerformanceConfigFilter1(GFX2D_FILTER_DISABLED);
+  GFX2D_SetPerformanceMetricsSelection0(GFX2D_METRICS_DISABLED);
+  GFX2D_SetPerformanceMetricsSelection1(GFX2D_METRICS_DISABLED);
+
+    //#if CONF_GFX2D_GC_REGEN == 1
+    //GFX2D_Module->GFX2D_SUB0[0].GFX2D_PC = CONF_GFX2D_PC0_REG;
+    //GFX2D_Module->GFX2D_SUB0[1].GFX2D_PC = CONF_GFX2D_PC1_REG;
+    //#endif
 }
 
 void ${GFX2D_INSTANCE_NAME}_DeInitialize( void )
@@ -448,34 +564,18 @@ void ${GFX2D_INSTANCE_NAME}_Enable( void )
     GFX2D_Module->GFX2D_BASE = (uint32_t)rb;
     GFX2D_Module->GFX2D_LEN = CONF_GFX2D_LEN_REG;
 
-    GFX2D_Module->GFX2D_GE = GFX2D_GE_ENABLE;
+    GFX2D_SetControllerEnable(true);
 }
 
 void ${GFX2D_INSTANCE_NAME}_Disable( void )
 {
-    while (( GFX2D_Module->GFX2D_GS & GFX2D_GS_BUSY) > 0 )
-        ;
 
     GFX2D_Module->GFX2D_HEAD = 0;
     GFX2D_Module->GFX2D_TAIL = 0;
     GFX2D_Module->GFX2D_BASE = (uint32_t)rb;
     GFX2D_Module->GFX2D_LEN = CONF_GFX2D_LEN_REG;
 
-    GFX2D_Module->GFX2D_GE = GFX2D_GE_ENABLE;
-}
-
-void ${GFX2D_INSTANCE_NAME}_CallbackRegister(GFX2D_CALLBACK callback, uintptr_t contextHandle)
-{
-    if (callback == NULL)
-    {
-        GFX2D_Module->GFX2D_ID = GFX2D_ID_Msk;
-        return;
-    }
-
-    GFX2D_Module->GFX2D_ID = (GFX2D_IE_EXEND_Msk | GFX2D_IE_RERR_Msk | GFX2D_IE_BERR | GFX2D_IE_IERR);
-
-    gfx2dObj.callback = callback;
-    gfx2dObj.context = contextHandle;
+    GFX2D_SetControllerEnable(false);
 }
 
 void ${GFX2D_INSTANCE_NAME}_InterruptHandler(void)
@@ -501,38 +601,39 @@ void ${GFX2D_INSTANCE_NAME}_InterruptHandler(void)
     /*  */
     if( status & GFX2D_IS_EXEND )
     {
-        gfx2dObj.callback( gfx2dObj.context );
+        GFX2D_IRQ_CallbackObj.callback_fn(GFX2D_IRQ_CallbackObj.context);
     }
 }
 
-GFX2D_STATUS GFX2D_Fill(struct gpu_buffer *dst, struct gpu_rectangle *rect, gpu_color_t color)
+GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_Fill(struct gpu_buffer *dst, struct gpu_rectangle *rect, gpu_color_t color)
 {
     struct gpu_instruction_fill instr;
 
-    GFX2D_Module->GFX2D_PA0 = dst->addr;
-    GFX2D_Module->GFX2D_PITCH0 = dst->width * _gfx2d_pixel_size[dst->fmt];
-    GFX2D_Module->GFX2D_CFG0 = dst->fmt;
+    GFX2D_SetSurfaceAddress(GFX2D_SURFACE_ZERO, dst->addr);
+    GFX2D_SetSurfacePitch(GFX2D_SURFACE_ZERO, dst->width * _gfx2d_pixel_size[dst->format]);
+    GFX2D_SetSurfaceColorLookupTable(GFX2D_SURFACE_ZERO, GFX2D_COLOR_LOOKUP_TABLE_ZERO);
+    GFX2D_SetSurfacePixelFormat(GFX2D_SURFACE_ZERO, dst->format);
 
-    instr.wd0 = GFX2D_INST_FILL_WD0(2, 0, 0, 1);
+    instr.wd0 = GFX2D_INST_FILL_WD0(2, dst->dir, 0, 1);
     instr.wd1 = GFX2D_INST_FILL_WD1((rect->width - 1), (rect->height - 1));
     instr.wd2 = GFX2D_INST_FILL_WD2(rect->x, rect->y);
-    instr.wd3 = color;
+    instr.wd3 = GFX2D_INST_FILL_WD3(color&0xFF000000>>24, color&0x00ff0000>>16, color&0x0000ff00>>8, color&0x000000ff);
 
     return _gpu_instruction((uint32_t *)(&instr), 4);
 }
 
-GFX2D_STATUS GFX2D_Copy(struct gpu_buffer *dst, struct gpu_rectangle *dst_rect, struct gpu_buffer *src,
+GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_Copy(struct gpu_buffer *dst, struct gpu_rectangle *dst_rect, struct gpu_buffer *src,
                         struct gpu_rectangle *src_rect)
 {
     struct gpu_instruction_copy instr;
 
-    GFX2D_Module->GFX2D_PA0 = dst->addr;
-    GFX2D_Module->GFX2D_PITCH0 = dst->width * _gfx2d_pixel_size[dst->fmt];
-    GFX2D_Module->GFX2D_CFG0 = dst->fmt;
+    GFX2D_Module->GFX2D_CHID[0].GFX2D_PA = dst->addr;
+    GFX2D_Module->GFX2D_CHID[0].GFX2D_PITCH = dst->width * _gfx2d_pixel_size[dst->format];
+    GFX2D_Module->GFX2D_CHID[0].GFX2D_CFG = dst->format;
 
-    GFX2D_Module->GFX2D_PA1 = dst->addr;
-    GFX2D_Module->GFX2D_PITCH1 = dst->width * _gfx2d_pixel_size[dst->fmt];
-    GFX2D_Module->GFX2D_CFG1 = dst->fmt;
+    GFX2D_Module->GFX2D_CHID[1].GFX2D_PA = dst->addr;
+    GFX2D_Module->GFX2D_CHID[1].GFX2D_PITCH = dst->width * _gfx2d_pixel_size[dst->format];
+    GFX2D_Module->GFX2D_CHID[1].GFX2D_CFG = dst->format;
 
     instr.wd0 = GFX2D_INST_COPY_WD0(0, 0, 0, 1);
     instr.wd1 = GFX2D_INST_COPY_WD1((dst_rect->width - 1), (dst_rect->height - 1));
@@ -551,23 +652,23 @@ static const uint32_t _gfx2d_blend_val[12] = {
     GFX2D_INST_BLEND_WD5(0, 0, 3, 0)  /* SUBTRACT, D * (1-S) */
 };
 
-GFX2D_STATUS GFX2D_Blend(struct gpu_buffer *dst, struct gpu_rectangle *dst_rect, struct gpu_buffer *fg,
+GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_Blend(struct gpu_buffer *dst, struct gpu_rectangle *dst_rect, struct gpu_buffer *fg,
                          struct gpu_rectangle *fg_rect, struct gpu_buffer *bg, struct gpu_rectangle *bg_rect,
                          enum gpu_blend blend)
 {
     struct gpu_instruction_blend instr;
 
-    GFX2D_Module->GFX2D_PA0 = dst->addr;
-    GFX2D_Module->GFX2D_PITCH0 = dst->width * _gfx2d_pixel_size[dst->fmt];
-    GFX2D_Module->GFX2D_CFG0 = dst->fmt;
+    GFX2D_Module->GFX2D_CHID[0].GFX2D_PA = dst->addr;
+    GFX2D_Module->GFX2D_CHID[0].GFX2D_PITCH = dst->width * _gfx2d_pixel_size[dst->format];
+    GFX2D_Module->GFX2D_CHID[1].GFX2D_CFG = dst->format;
 
-    GFX2D_Module->GFX2D_PA1 = dst->addr;
-    GFX2D_Module->GFX2D_PITCH1 = dst->width * _gfx2d_pixel_size[dst->fmt];
-    GFX2D_Module->GFX2D_CFG1 = dst->fmt;
+    GFX2D_Module->GFX2D_CHID[1].GFX2D_PA = dst->addr;
+    GFX2D_Module->GFX2D_CHID[1].GFX2D_PITCH = dst->width * _gfx2d_pixel_size[dst->format];
+    GFX2D_Module->GFX2D_CHID[1].GFX2D_CFG = dst->format;
 
-    GFX2D_Module->GFX2D_PA2 = dst->addr;
-    GFX2D_Module->GFX2D_PITCH2 = dst->width * _gfx2d_pixel_size[dst->fmt];
-    GFX2D_Module->GFX2D_CFG2 = dst->fmt;
+    GFX2D_Module->GFX2D_CHID[2].GFX2D_PA = dst->addr;
+    GFX2D_Module->GFX2D_CHID[2].GFX2D_PITCH = dst->width * _gfx2d_pixel_size[dst->format];
+    GFX2D_Module->GFX2D_CHID[1].GFX2D_CFG = dst->format;
 
 
     instr.wd0 = GFX2D_INST_BLEND_WD0(0, 0, 1);
@@ -582,7 +683,7 @@ GFX2D_STATUS GFX2D_Blend(struct gpu_buffer *dst, struct gpu_rectangle *dst_rect,
 
 // *****************************************************************************
 /* Function:
-    bool GFX2D_IsBusy(void)
+    bool ${GFX2D_INSTANCE_NAME}_IsBusy(void)
 
    Summary:
     Returns the Peripheral busy status.
@@ -598,7 +699,7 @@ GFX2D_STATUS GFX2D_Blend(struct gpu_buffer *dst, struct gpu_rectangle *dst_rect,
     false - Not busy.
 */
 
-bool GFX2D_IsBusy(void)
+bool ${GFX2D_INSTANCE_NAME}_IsBusy(void)
 {
     if( gfx2dObj.state == GFX2D_STATE_IDLE )
     {
@@ -612,13 +713,13 @@ bool GFX2D_IsBusy(void)
 
 // *****************************************************************************
 /* Function:
-    GFX2D_STATUS GFX2D_StatusGet(void)
+    GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_StatusGet(void)
 
    Summary:
     Returns the error during transfer.
 
    Precondition:
-    GFX2D_Initialize must have been called.
+    PLIB_GFX2D_Initialize must have been called.
 
    Parameters:
     None.
@@ -627,7 +728,7 @@ bool GFX2D_IsBusy(void)
     Error during transfer.
 */
 
-GFX2D_STATUS GFX2D_StatusGet(void)
+GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_StatusGet(void)
 {
     GFX2D_STATUS error;
 
@@ -635,4 +736,12 @@ GFX2D_STATUS GFX2D_StatusGet(void)
     gfx2dObj.error = GFX2D_ERROR_NONE;
 
     return error;
+}
+
+void ${GFX2D_INSTANCE_NAME}_Interrupt_Handler(void)
+{
+    if (GFX2D_IRQ_CallbackObj.callback_fn != NULL)
+    {
+        GFX2D_IRQ_CallbackObj.callback_fn(GFX2D_IRQ_CallbackObj.context);
+    }
 }

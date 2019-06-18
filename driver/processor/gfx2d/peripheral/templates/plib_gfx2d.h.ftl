@@ -1,14 +1,14 @@
 /*******************************************************************************
-  2D Graphics Engine(${GFX2D_INSTANCE_NAME}) PLIB
+  2D Graphics Engine GFX2D PLIB
 
   Company
     Microchip Technology Inc.
 
   File Name
-    plib_${GFX2D_INSTANCE_NAME?lower_case}.h
+    plib_gfx2d.h
 
   Summary
-    ${GFX2D_INSTANCE_NAME} PLIB Header File.
+    GFX2D PLIB Header File.
 
   Description
     This file defines the interface to the GFX2D peripheral library. This
@@ -45,23 +45,16 @@
 *******************************************************************************/
 // DOM-IGNORE-END
 
-#ifndef PLIB_${GFX2D_INSTANCE_NAME}_H      // Guards against multiple inclusion
-#define PLIB_${GFX2D_INSTANCE_NAME}_H
-
-// *****************************************************************************
-// *****************************************************************************
-// Section: Included Files
-// *****************************************************************************
-// *****************************************************************************
-/* This section lists the other files that are included in this file.
-*/
+#ifndef _PLIB_${GFX2D_INSTANCE_NAME}_H    // Guards against multiple inclusion
+#define _PLIB_${GFX2D_INSTANCE_NAME}_H
 
 #include "device.h"
-
+#include <stdint.h>
 #include <stdbool.h>
+#include <stddef.h>
 
 // DOM-IGNORE-BEGIN
-#ifdef __cplusplus // Provide C Compatibility
+#ifdef __cplusplus  // Provide C++ Compatibility
 
     extern "C" {
 
@@ -73,9 +66,29 @@
 // Section: Data Types
 // *****************************************************************************
 // *****************************************************************************
-/* The following data type definitions are used by the functions in this
-    interface and should be considered part it.
+
+typedef void (*${GFX2D_INSTANCE_NAME}_IRQ_CALLBACK) (uintptr_t context);
+
+// *****************************************************************************
+/* GFX2D IRQ Callback Object
+
+   Summary:
+    Struct for GFX2D IRQ handler
+
+   Description:
+    This structure defines the GFX2D IRQ handler object, used to store the IRQ
+    callback function registered from the GFX2D driver
+
+   Remarks:
+    None.
 */
+typedef struct
+{
+    ${GFX2D_INSTANCE_NAME}_IRQ_CALLBACK callback_fn;
+    uintptr_t context;
+}${GFX2D_INSTANCE_NAME}_IRQ_CALLBACK_OBJECT;
+
+
 // *****************************************************************************
 /* GFX2D Instruction Status
 
@@ -126,24 +139,6 @@ typedef enum {
 
 } GFX2D_STATE;
 
-// *****************************************************************************
-/* GFX2D Callback
-
-   Summary:
-    GFX2D Callback Function Pointer.
-
-   Description:
-    This data type defines the GFX2D Callback Function Pointer.
-
-   Remarks:
-    None.
-*/
-
-typedef void (*GFX2D_CALLBACK)
-(
-    /* Transfer context */
-    uintptr_t contextHandle
-);
 
 // *****************************************************************************
 /* GFX2D PLib Instance Object
@@ -169,29 +164,191 @@ typedef struct
     GFX2D_STATUS error;
 
     /* Transfer Event Callback */
-    GFX2D_CALLBACK callback;
+    ${GFX2D_INSTANCE_NAME}_IRQ_CALLBACK callback;
 
     /* Transfer context */
     uintptr_t context;
 
 } GFX2D_OBJ;
 
+
+// *****************************************************************************
+/* GFX2D Clock Gating Disable Core
+
+   Summary:
+    Defines the clock gating for the graphics engine
+
+   Description:
+    This defines .
+
+   Remarks:
+    None.
+*/
+typedef enum 
+{
+    GFX2D_CLOCK_GATING_ACTIVATED = 0,
+    GFX2D_CLOCK_GATING_DISABLED
+} GFX2D_CLOCK_GATING;
+
+
+/* GFX2D Memory Tile Access
+
+   Summary:
+    Defines the memory access for the graphics engine.
+
+   Description:
+    This defines .
+
+   Remarks:
+    None.
+*/
+typedef enum 
+{
+    GFX2D_MEMORY_TILE_ACCESS = 0,
+    GFX2D_MEMORY_LINEAR_ACCESS
+} GFX2D_MEMORY_ACCESS;
+
+
+/* GFX2D Performance Filter Configuration
+
+   Summary:
+    Defines the performance filter configuration for the graphics engine.
+
+   Description:
+    This defines .
+
+   Remarks:
+    None.
+*/
+typedef enum 
+{
+    GFX2D_FILTER_DISABLED = 0,
+    GFX2D_FILTER_QOS0,
+    GFX2D_FILTER_QOS1,
+    GFX2D_FILTER_QOS2,
+    GFX2D_FILTER_QOS3
+} GFX2D_PERFORMANCE_FILTER_CONFIG;
+
+/* GFX2D Performance Metrics Counter Selection
+
+   Summary:
+    Defines the performance metrics selection for the graphics engine.
+
+   Description:
+    This defines .
+
+   Remarks:
+    None.
+*/
+typedef enum 
+{
+    GFX2D_METRICS_DISABLED = 0,
+    GFX2D_METRICS_INCREMENT_ON_READ,
+    GFX2D_METRICS_INCREMENT_ON_WRITE,
+    GFX2D_METRICS_INCREMENT_ON_CLOCK_CYCLES
+} GFX2D_PERFORMANCE_METRICS_SELECTION;
+
+      
+/* GFX2D Surface
+
+   Summary:
+    Defines the surfaces of the graphics engine.
+
+   Description:
+    This defines .
+
+   Remarks:
+    None.
+*/
+typedef enum 
+{
+    GFX2D_SURFACE_ZERO = 0,
+    GFX2D_SURFACE_ONE,
+    GFX2D_SURFACE_TWO,
+    GFX2D_SURFACE_THREE
+} GFX2D_SURFACE;
+
+
+/* GFX2D Color Lookup Table
+
+   Summary:
+    Defines the color lookup tables of the graphics engine.
+
+   Description:
+    This defines .
+
+   Remarks:
+    None.
+*/
+typedef enum 
+{
+    GFX2D_COLOR_LOOKUP_TABLE_ZERO = 0,
+    GFX2D_COLOR_LOOKUP_TABLE_ONE,
+} GFX2D_COLOR_LOOKUP_TABLE;
+
+/* GFX2D Pixel formats
+
+   Summary:
+    Defines the pixel formats of the  graphics engine.
+
+   Description:
+    This defines .
+
+   Remarks:
+    None.
+*/
+typedef enum 
+{
+    GFX2D_A4IDX4 = 0,
+    GFX2D_A8,
+    GFX2D_IDX8,
+    GFX2D_A8IDX8,
+    GFX2D_RGB12,
+    GFX2D_ARGB16,
+    GFX2D_RBG15,
+    GFX2D_TRGB16,
+    GFX2D_RGBT16,
+    GFX2D_RGB16,
+    GFX2D_RGB24,
+    GFX2D_ARGB32
+} GFX2D_PIXEL_FORMAT;
+
+
+/* GFX2D Pixel formats
+
+   Summary:
+    Defines the pixel formats of the  graphics engine.
+
+   Description:
+    This defines .
+
+   Remarks:
+    None.
+*/
+typedef enum 
+{
+    GFX2D_XY00 = 0,
+    GFX2D_XY01,
+    GFX2D_XY10,
+    GFX2D_XY11
+} GFX2D_TRANSFER_DIRECTION;
+
 // *****************************************************************************
 /**
  * \berif GFX2D buffer format
  */
- typedef enum gpu_buffer_format {
-    GFX2D_A8       = 1,  /*!< 8 bits per pixel alpha, with user-defined constant color */
-    GFX2D_RGB12    = 4,  /*!< 12 bits per pixel, 4 bits per color channel */
-    GFX2D_ARGB16   = 5,  /*!< 16 bits per pixel with 4-bit width alpha value, and 4 bits per color channel */
-    GFX2D_RGB15    = 6,  /*!< 15 bits per pixel, 5 bits per color channel */
-    GFX2D_TRGB16   = 7,  /*!< 16 bits per pixel, 5 bits for the red and blue channels and 6 bits for the green channel */
-    GFX2D_RGBT16   = 8,  /*!< 16 bits per pixel, with 1 bit for transparency and 5 bits for color channels */
-    GFX2D_RGB16    = 9,  /*!< 16 bits per pixel, 5 bits for the red and blue channels and 6 bits for the green channel */
-    GFX2D_ARGB8888 = 10, /*!< 32 bits per pixel, 8 bits for alpha and color channels */
-    GFX2D_RGBA8888 = 11, /*!< 32 bits per pixel, 8 bits for alpha and color channels */
-    GFX2D_BUFFER_FORMAT_SIZE
-} GFX2D_BUFFER_FORMAT;
+ //typedef enum gpu_buffer_format {
+ //   GFX2D_A8       = 1,  /*!< 8 bits per pixel alpha, with user-defined constant color */
+ //   GFX2D_RGB12    = 4,  /*!< 12 bits per pixel, 4 bits per color channel */
+ //   GFX2D_ARGB16   = 5,  /*!< 16 bits per pixel with 4-bit width alpha value, and 4 bits per color channel */
+ //   GFX2D_RGB15    = 6,  /*!< 15 bits per pixel, 5 bits per color channel */
+ //   GFX2D_TRGB16   = 7,  /*!< 16 bits per pixel, 5 bits for the red and blue channels and 6 bits for the green channel */
+ //   GFX2D_RGBT16   = 8,  /*!< 16 bits per pixel, with 1 bit for transparency and 5 bits for color channels */
+ //   GFX2D_RGB16    = 9,  /*!< 16 bits per pixel, 5 bits for the red and blue channels and 6 bits for the green channel */
+ //   GFX2D_ARGB8888 = 10, /*!< 32 bits per pixel, 8 bits for alpha and color channels */
+ //   GFX2D_RGBA8888 = 11, /*!< 32 bits per pixel, 8 bits for alpha and color channels */
+ //   GFX2D_BUFFER_FORMAT_SIZE
+//} GFX2D_BUFFER_FORMAT;
 
 /* GPU BUffer format's pixel size in bytes */
 #define GFX2D_BUFFER_FORMAT_PIXEL_SIZE {1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 4, 4};
@@ -202,8 +359,9 @@ typedef struct
 typedef struct gpu_buffer {
     uint32_t               width;  /*!< Buffer width in pixel */
     uint32_t               height; /*!< Buffer height in pixel */
-    enum gpu_buffer_format fmt;    /*!< Buffer pixel format */
+    GFX2D_PIXEL_FORMAT     format;    /*!< Buffer pixel format */
     uint32_t               addr;   /*!< Buffer memory address */
+    GFX2D_TRANSFER_DIRECTION dir;
 } GFX2D_BUFFER;
 
 typedef struct gpu_rectangle {
@@ -238,17 +396,37 @@ typedef enum gpu_blend {
 // Section: Interface Routines
 // *****************************************************************************
 // *****************************************************************************
-/* The following functions make up the methods (set of possible operations) of
-    this interface.
+
+// *****************************************************************************
+/* Function:
+    void ${GFX2D_INSTANCE_NAME}_IRQ_CallbackRegister(${GFX2D_INSTANCE_NAME}_IRQ_CALLBACK callback, uintptr_t context);
+
+   Summary:
+    Registers a callback function for the GFX2 IRQ handler
+
+   Description:
+    None
+
+   Precondition:
+    None.
+
+   Parameters:
+    callback - the callback function
+    context - the handler context
+
+   Returns:
+    None
+
+   Remarks:
+    None
 */
+void ${GFX2D_INSTANCE_NAME}_IRQ_CallbackRegister(${GFX2D_INSTANCE_NAME}_IRQ_CALLBACK callback, uintptr_t context);
 
 void ${GFX2D_INSTANCE_NAME}_Initialize( void );
 
 void ${GFX2D_INSTANCE_NAME}_Enable( void );
 
 void ${GFX2D_INSTANCE_NAME}_Disable( void );
-
-void ${GFX2D_INSTANCE_NAME}_CallbackRegister(GFX2D_CALLBACK callback, uintptr_t contextHandle);
 
 GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_Fill(struct gpu_buffer *dst, struct gpu_rectangle *rect, gpu_color_t color);
 
@@ -262,6 +440,7 @@ GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_Blend(struct gpu_buffer *dst, struct gpu_rec
 bool ${GFX2D_INSTANCE_NAME}_IsBusy(void);
 
 GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_StatusGet(void);
+
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
