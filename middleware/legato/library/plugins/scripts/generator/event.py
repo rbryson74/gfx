@@ -1,220 +1,16 @@
-def generateScreenEvent(screen, event, actions):
+def generateScreenEvent(screen, event, genActions):
     text = ""
 
     if event.name == "ShowEvent":
-        text += "void %s_OnShowEvent(void)" % screen.getName()
+        text += "void %s_OnShow(void)" % screen.getName()
 
     if event.name == "HideEvent":
-        text += "void %s_OnHideEvent(void)" % screen.getName()
+        text += "void %s_OnHide(void)" % screen.getName()
 
-    text += generateActions(actions, None)
+    if event.name == "UpdateEvent":
+        text += "void %s_OnUpdate(void)" % screen.getName()
 
-    return text
-
-
-def generateButtonEvent(screen, widget, event, genActions):
-    text = ""
-
-    if event.name == "PressedEvent":
-        text += "void %s_OnPressed(%s)" % (widget.getName(), getWidgetVariableName(widget))
-
-    if event.name == "ReleasedEvent":
-        text += "void %s_OnReleased(%s)" % (widget.getName(), getWidgetVariableName(widget))
-
-    text += generateActions(genActions, None)
-
-    return text
-
-
-def generateCheckBoxEvent(screen, widget, event, genActions):
-    text = ""
-
-    if event.name == "CheckedEvent":
-        text += "void %s_OnChecked(%s)" % (widget.getName(), getWidgetVariableName(widget))
-
-    if event.name == "UncheckedEvent":
-        text += "void %s_OnUnchecked(%s)" % (widget.getName(), getWidgetVariableName(widget))
-
-    text += generateActions(genActions, None)
-
-    return text
-
-
-def generateCircularGaugeEvent(screen, widget, event, genActions):
-    text = ""
-
-    if event.name == "ValueChangedEvent":
-        text += "void %s_OnValueChanged(%s)" % (widget.getName(), getWidgetVariableName(widget))
-
-    text += generateActions(genActions, None)
-
-    return text
-
-def generateCircularSliderEvent(screen, widget, event, genActions):
-    text = ""
-
-    if event.name == "ValueChangedEvent":
-        text += "void %s_OnValueChanged(%s)" % (widget.getName(), getWidgetVariableName(widget))
-
-    if event.name == "PressedEvent":
-        text += "void %s_OnPressed(%s)" % (widget.getName(), getWidgetVariableName(widget))
-
-    if event.name == "ReleasedEvent":
-        text += "void %s_OnReleased(%s)" % (widget.getName(), getWidgetVariableName(widget))
-
-    text += generateActions(genActions, None)
-
-    return text
-
-
-def generateDrawSurfaceEvent(screen, widget, event, genActions):
-    text = ""
-
-    if event.name == "DrawNotificationEvent":
-        text += "leBool %s_OnPaint(%s, leRect* rect)" % (widget.getName(), getWidgetVariableName(widget))
-
-    text += generateActions(genActions, "return LE_SUCCESS;")
-
-    return text
-
-
-def generateImageSequenceEvent(screen, widget, event, genActions):
-    text = ""
-
-    if event.name == "ImageChangedEvent":
-        text += "void %s_OnImageChanged(%s)" % (widget.getName(), getWidgetVariableName(widget))
-
-    text += generateActions(genActions, None)
-
-    return text
-
-
-def generateKeyPadEvent(screen, widget, event, genActions):
-    text = ""
-
-    if event.name == "KeyClickEvent":
-        text += "void %s_OnKeyClick(%s, leButtonWidget* btn, uint32_t row, uint32_t col)" % (widget.getName(), getWidgetVariableName(widget))
-
-    text += generateActions(genActions, None)
-
-    return text
-
-
-def generateListEvent(screen, widget, event, genActions):
-    text = ""
-
-    if event.name == "SelectionChangedEvent":
-        text += "void %s_OnSelectionChanged(%s, uint32_t idx, leBool selected)" % (widget.getName(), getWidgetVariableName(widget))
-
-    text += generateActions(genActions, None)
-
-    return text
-
-
-def generateListWheelEvent(screen, widget, event, genActions):
-    text = ""
-
-    if event.name == "SelectedItemChangedEvent":
-        text += "void %s_OnSelectionChanged(%s, int32_t idx)" % (widget.getName(), getWidgetVariableName(widget))
-
-    text += generateActions(genActions, None)
-
-    return text
-
-
-def generatePieChartEvent(screen, widget, event, genActions):
-    text = ""
-
-    if event.name == "PressedEvent":
-        text += "void %s_OnPressed(%s)" % (widget.getName(), getWidgetVariableName(widget))
-
-    text += generateActions(genActions, None)
-
-    return text
-
-
-def generateProgressBarEvent(screen, widget, event, genActions):
-    text = ""
-
-    if event.name == "ValueChangedEvent":
-        text += "void %s_OnValueChanged(%s, uint32_t val)" % (widget.getName(), getWidgetVariableName(widget))
-
-    text += generateActions(genActions, None)
-
-    return text
-
-
-def generateRadialMenuEvent(screen, widget, event, genActions):
-    text = ""
-
-    if event.name == "ItemSelectedEvent":
-        text += "void %s_OnItemSelected(%s)" % (widget.getName(), getWidgetVariableName(widget))
-
-    if event.name == "ItemProminenceChangedEvent":
-        text += "void %s_OnItemProminenceChanged(%s)" % (widget.getName(), getWidgetVariableName(widget))
-
-    text += generateActions(genActions, None)
-
-    return text
-
-
-def generateRadioButtonEvent(screen, widget, event, genActions):
-    text = ""
-
-    if event.name == "SelectedEvent":
-        text += "void %s_OnSelected(%s)" % (widget.getName(), getWidgetVariableName(widget))
-
-    if event.name == "DeselectedEvent":
-        text += "void %s_OnDeselected(%s)" % (widget.getName(), getWidgetVariableName(widget))
-
-    text += generateActions(genActions, None)
-
-    return text
-
-
-def generateScrollBarEvent(screen, widget, event, genActions):
-    text = ""
-
-    if event.name == "ValueChangedEvent":
-        text += "void %s_OnValueChanged(%s)" % (widget.getName(), getWidgetVariableName(widget))
-
-    text += generateActions(genActions, None)
-
-    return text
-
-
-def generateSliderEvent(screen, widget, event, genActions):
-    text = ""
-
-    if event.name == "ValueChangedEvent":
-        text += "void %s_OnValueChanged(%s)" % (widget.getName(), getWidgetVariableName(widget))
-
-    text += generateActions(genActions, None)
-
-    return text
-
-
-def generateTextFieldEvent(screen, widget, event, genActions):
-    text = ""
-
-    if event.name == "TextChangedEvent":
-        text += "void %s_OnTextChanged(%s)" % (widget.getName(), getWidgetVariableName(widget))
-
-    if event.name == "FocusChangedEvent":
-        text += "void %s_OnFocusChanged(%s)" % (widget.getName(), getWidgetVariableName(widget))
-
-    text += generateActions(genActions, None)
-
-    return text
-
-
-def generateTouchTestEvent(screen, widget, event, genActions):
-    text = ""
-
-    if event.name == "PointAddedEvent":
-        text += "void %s_OnPointAdded(%s, lePoint* pnt)" % (widget.getName(), getWidgetVariableName(widget))
-
-    text += generateActions(genActions, None)
+    text += generateActions(widget, event, genActions, None, None)
 
     return text
 
@@ -239,33 +35,91 @@ eventGenerateFunctions = {
     "TouchTestWidget": generateTouchTestEvent,
 }
 
-def generateActions(actions, returnText):
-    text = ""
+actionGenerateFunctions = {
+    "Context" : generateContextAction,
+    "Screen" : generateScreenAction,
+    "ArcWidget" : generateArcAction,
+    "BarGraphWidget" : generateBarGraphAction,
+    "ButtonWidget": generateButtonAction,
+    "CheckBoxWidget": generateCheckBoxAction,
+    "CircleWidget" : generateCircleAction,
+    "CircularGaugeWidget": generateCircularGaugeAction,
+    "CircularSliderWidget": generateCircularSliderAction,
+    "DrawSurfaceWidget": generateDrawSurfaceAction,
+    "GradientWidget": generateGradientAction,
+    "GroupBoxWidget": generateGroupBoxAction,
+    "ImageWidget": generateImageAction,
+    "ImagePlusWidget": generateImagePlusAction,
+    "ImageSequenceWidget": generateImageSequenceAction,
+    "KeyPadWidget": generateKeyPadAction,
+    "LabelWidget": generateLabelAction,
+    "LineWidget": generateLineAction,
+    "LineGraphWidget": generateLineGraphAction,
+    "ListWidget": generateListAction,
+    "ListWheelWidget": generateListWheelAction,
+    "PanelWidget": generatePanelAction,
+    "PieChartWidget": generatePieChartAction,
+    "ProgressBarWidget": generateProgressBarAction,
+    "RadialMenuWidget": generateRadialMenuAction,
+    "RadioButtonWidget": generateRadioButtonAction,
+    "RectangleWidget": generateRectangleAction,
+    "ScrollBarWidget": generateScrollBarAction,
+    "SliderWidget": generateSliderAction,
+    "TextFieldWidget": generateTextFieldAction,
+    "TouchTestWidget": generateTouchTestAction,
+    "WindowWidget": generateWindowAction,
+}
 
-    if actions == True:
-        text += "\n{\n"
+def generateActions(owner, event, genActions, nullCheckText, returnText):
+    text = []
+    body = []
+    variables = {}
 
-        #actionList = event.getActionList()
+    if genActions == True:
+        text.append("{")
 
-        #for action in actionList:
-        #    text += generateAction(event.name, widget.getName())
+        actionList = event.getActionList()
 
-        if returnText != None:
-            text += "    %s\n" % returnText
+        for action in actionList:
+            generateAction(body, variables, owner, event, action)
 
-        text += "}"
+        if len(variables) > 0:
+            for var in variables:
+                text.append("    %s %s;" % (variables[var], var))
+
+            text.append("")
+
+        if nullCheckText != None and len(nullCheckText) > 0:
+            for line in nullCheckText:
+                text.append("    %s" % line)
+
+            text.append("")
+
+        for line in body:
+            text.append(line)
+
+        if returnText != None and len(returnText) > 0:
+            for line in returnText:
+                text.append("    %s" % line)
+
+        text.append("}")
     else:
-        text += ";"
+        text.append(";")
 
-    return text
+    finalText = ""
 
-def generateEvent(screen, widget, event, actions):
+    for line in text:
+        finalText += line + "\n"
+
+    return finalText
+
+def generateEvent(screen, widget, event, genActions):
     text = ""
 
     if widget == None:
-        text = generateScreenEvent(screen, event, actions)
+        text = generateScreenEvent(screen, event, genActions)
     else:
-        text = eventGenerateFunctions[widget.getType()](screen, widget, event, actions)
+        text = eventGenerateFunctions[widget.getType()](screen, widget, event, genActions)
 
     return text
 

@@ -37,3 +37,11 @@ def writeFileDescription(file, name, summary, desc):
 	text = headerDesc.replace("${FILEDESC}", desc)
 	
 	file.write(text)
+
+def generateContextAction(text, variables, owner, event, action):
+	val = getActionArgumentValue(action, "Language")
+
+	if val == None or len(val) == 0:
+		text.append("    // leSetStringLanguage(); // no valid language selected!")
+	else:
+		text.append("    leSetStringLanguage(language_%s);" % val)

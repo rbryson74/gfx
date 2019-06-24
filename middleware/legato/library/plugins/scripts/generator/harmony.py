@@ -112,6 +112,8 @@ def generateHarmonyFile():
 	sourceFile.write("        {")
 	sourceFile.write("            //Legato_DemoModeProcessEvents();")
 	sourceFile.writeNewLine()
+	sourceFile.write("            legato_updateCurrentScreen();")
+	sourceFile.writeNewLine()
 	sourceFile.write("            leUpdate(0);")
 	sourceFile.writeNewLine()
 	sourceFile.write("            break;")

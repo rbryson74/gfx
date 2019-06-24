@@ -67,13 +67,13 @@ class File:
 execfile(_SCRIPTPATH + "assetheader.py")
 execfile(_SCRIPTPATH + "assetsource.py")
 execfile(_SCRIPTPATH + "screen.py")
-execfile(_SCRIPTPATH + "action.py")
-execfile(_SCRIPTPATH + "event.py")
-execfile(_SCRIPTPATH + "widget.py")
 execfile(_SCRIPTPATH + "widgetutils.py")
+execfile(_SCRIPTPATH + "widget.py")
 execfile(_SCRIPTPATH + "scheme.py")
 execfile(_SCRIPTPATH + "init.py")
 execfile(_SCRIPTPATH + "config.py")
+execfile(_SCRIPTPATH + "action.py")
+execfile(_SCRIPTPATH + "event.py")
 
 if _HARMONY == True:
 	execfile(_SCRIPTPATH + "harmony.py")

@@ -72,7 +72,12 @@ def generateImageIDList(astHdr):
 	astHdr.write("*****************************************************************************/")
 	
 	for image in imageList:
-		paletteObj = image.generatePalette()
+		if image.shouldGeneratePalette() == True:
+			paletteObj = image.generatePalette()
+		else:
+			paletteObj = None
+
+		palette = None
 		
 		if paletteObj is not None:
 			if image.shouldGenerateUniquePalette() == True:
@@ -144,7 +149,7 @@ def generateFontIDList(astHdr):
 		antialias = font.getAntialias()
 		height = font.getAdjustedHeight()
 		baseline = font.getBaseline()
-		
+
 		style = ""
 			
 		if antialias == True:
@@ -157,6 +162,9 @@ def generateFontIDList(astHdr):
 			style = style[:-1]
 			
 		fontData = font.generateFontData()
+
+		if fontData.glyphs.size() == 0:
+			continue
 		
 		astHdr.write("/*********************************")
 		astHdr.write(" * Legato Font Asset")
@@ -171,8 +179,8 @@ def generateFontIDList(astHdr):
 		idx = 0
 		
 		for range in fontData.ranges:
-			start = ord(range.getStartIndex())
-			end = ord(range.getEndIndex())
+			start = range.getStartOrdinal()
+			end = range.getEndOrdinal()
 			
 			if idx == 0:
 				if start != end:
@@ -188,7 +196,7 @@ def generateFontIDList(astHdr):
 			idx += 1
 			
 		astHdr.write("***********************************/")
-		astHdr.write("extern leFont %s;" % (name))
+		astHdr.write("extern leRasterFont %s;" % (name))
 		astHdr.writeNewLine()
 	
 def generateStringIDList(astHdr):

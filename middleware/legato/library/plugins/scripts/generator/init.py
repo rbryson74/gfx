@@ -66,8 +66,11 @@ def generateInitFile():
 	file.write('    leSetStringTable(&stringTable);')
 	file.writeNewLine()
 	file.write('    currentScreen = -1;');
-	file.writeNewLine()
-	file.write('    legato_showScreen(screenID_%s);' % (screenList[0].getName()))
+
+	if len(screenList) > 0:
+		file.writeNewLine()
+		file.write('    legato_showScreen(screenID_%s);' % (screenList[0].getName()))
+
 	file.write('}')
 	file.writeNewLine()
 	file.write('uint32_t legato_getCurrentScreen(void)')
@@ -105,7 +108,23 @@ def generateInitFile():
 		file.write('            currentScreen = id;')
 		file.write('            break;')
 		file.write('        }')
-	
+
+	file.write('    }')
+	file.write('}')
+	file.writeNewLine()
+	file.write('void legato_updateCurrentScreen(void)')
+	file.write('{')
+	file.write('    switch(currentScreen)')
+	file.write('    {')
+
+	for scr in screenList:
+		if scr.getEventByName("UpdateEvent").enabled == True:
+			file.write('        case screenID_%s:' % (scr.getName()))
+			file.write('        {')
+			file.write('            screenUpdate_%s();' % (scr.getName()))
+			file.write('            break;')
+			file.write('        }')
+
 	file.write('    }')
 	file.write('}')
 	file.writeNewLine()

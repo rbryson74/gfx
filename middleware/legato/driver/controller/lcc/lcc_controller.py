@@ -34,7 +34,25 @@ def instantiateComponent(comp):
 	"""HALComment = comp.createCommentSymbol("HALComment", None)
 	HALComment.setLabel("Some settings are being managed by the GFX Core and have been hidden.")
 	HALComment.setVisible(False)"""
+
+	SYS_DEFINITIONS_H = comp.createFileSymbol("SYS_DEFINITIONS_H", None)
+	SYS_DEFINITIONS_H.setType("STRING")
+	SYS_DEFINITIONS_H.setOutputName("core.LIST_SYSTEM_DEFINITIONS_H_INCLUDES")
+	SYS_DEFINITIONS_H.setSourcePath("definitions.h.ftl")
+	SYS_DEFINITIONS_H.setMarkup(True)
 	
+	SYS_INIT_C = comp.createFileSymbol("SYS_INIT_C", None)
+	SYS_INIT_C.setType("STRING")
+	SYS_INIT_C.setOutputName("core.LIST_SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS")
+	SYS_INIT_C.setSourcePath("init.c.ftl")
+	SYS_INIT_C.setMarkup(True)
+
+	SYS_TASK_C = comp.createFileSymbol("SYS_TASK_C", None)
+	SYS_TASK_C.setType("STRING")
+	SYS_TASK_C.setOutputName("core.LIST_SYSTEM_TASKS_C_CALL_DRIVER_TASKS")
+	SYS_TASK_C.setSourcePath("tasks.c.ftl")
+	SYS_TASK_C.setMarkup(True)	
+
 	DisplayWidth = comp.createIntegerSymbol("DisplayWidth", None)
 	DisplayWidth.setLabel("Width")
 	DisplayWidth.setDescription("The width of the frame buffer in pixels.")
@@ -206,18 +224,18 @@ def instantiateComponent(comp):
 	### End of Backlight config options
 
 	# generated code files
-	GFX_LCC_C = comp.createFileSymbol("GFX_LE_LCC_C", None)
-	GFX_LCC_C.setSourcePath("./drv_gfx_le_lcc.c.ftl")
-	GFX_LCC_C.setDestPath("gfx/driver/controller/le_lcc/")
-	GFX_LCC_C.setOutputName("drv_gfx_le_lcc.c")
+	GFX_LCC_C = comp.createFileSymbol("GFX_LCC_C", None)
+	GFX_LCC_C.setSourcePath("./drv_gfx_lcc.c.ftl")
+	GFX_LCC_C.setDestPath("gfx/driver/controller/lcc/")
+	GFX_LCC_C.setOutputName("drv_gfx_lcc.c")
 	GFX_LCC_C.setProjectPath(projectPath)
 	GFX_LCC_C.setType("SOURCE")
 	GFX_LCC_C.setMarkup(True)
 	
-	GFX_LCC_H = comp.createFileSymbol("GFX_LE_LCC_H", None)
-	GFX_LCC_H.setSourcePath("./drv_gfx_le_lcc.h")
-	GFX_LCC_H.setDestPath("gfx/driver/controller/le_lcc/")
-	GFX_LCC_H.setOutputName("drv_gfx_le_lcc.h")
+	GFX_LCC_H = comp.createFileSymbol("GFX_LCC_H", None)
+	GFX_LCC_H.setSourcePath("./drv_gfx_lcc.h")
+	GFX_LCC_H.setDestPath("gfx/driver/controller/lcc/")
+	GFX_LCC_H.setOutputName("drv_gfx_lcc.h")
 	GFX_LCC_H.setProjectPath(projectPath)
 	GFX_LCC_H.setType("HEADER")
 

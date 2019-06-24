@@ -78,7 +78,7 @@ extern "C" {
 #define LA_BUTTON_WIDGET_ENABLED           ${enableButtonWidget?string("1", "0")}
 #define LA_CHECKBOX_WIDGET_ENABLED         ${enableCheckBoxWidget?string("1", "0")}
 #define LA_CIRCLE_WIDGET_ENABLED           ${enableCircleWidget?string("1", "0")}
-#define LA_CIRCULAR_GAUGE_WIDGET_ENABLED   ${enableCircularGuageWidget?string("1", "0")}
+#define LA_CIRCULAR_GAUGE_WIDGET_ENABLED   ${enableCircularGaugeWidget?string("1", "0")}
 #define LA_CIRCULAR_SLIDER_WIDGET_ENABLED  ${enableCircularSliderWidget?string("1", "0")}
 #define LA_DRAWSURFACE_WIDGET_ENABLED      ${enableDrawSurfaceWidget?string("1", "0")}
 #define LA_GRADIENT_WIDGET_ENABLED         ${enableGradientWidget?string("1", "0")}

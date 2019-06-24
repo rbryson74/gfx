@@ -1,8 +1,6 @@
 def generateFontSourceFile(font):
 	name = font.getName()
 	
-	fntSrc = File("generated/font/le_gen_font_" + name + ".c")
-	
 	antialias = font.getAntialias()
 	height = font.getAdjustedHeight()
 	baseline = font.getBaseline()
@@ -19,6 +17,11 @@ def generateFontSourceFile(font):
 		style = style[:-1]
 		
 	fontData = font.generateFontData()
+
+	if fontData.glyphs.size() == 0:
+		return
+
+	fntSrc = File("generated/font/le_gen_font_" + name + ".c")
 	
 	fntSrc.write('#include "gfx/legato/generated/le_gen_assets.h"')
 	fntSrc.writeNewLine()
@@ -35,8 +38,8 @@ def generateFontSourceFile(font):
 	idx = 0
 	
 	for range in fontData.ranges:
-		start = ord(range.getStartIndex())
-		end = ord(range.getEndIndex())
+		start = range.getStartOrdinal()
+		end = range.getEndOrdinal()
 		
 		if idx == 0:
 			if start != end:
@@ -113,23 +116,24 @@ def generateFontSourceFile(font):
 	memLocName = ""
 	
 	if locIdx < 2:
-		memLocName = "LE_ASSET_LOCATION_ID_INTERNAL"
+		memLocName = "LE_STREAM_LOCATION_ID_INTERNAL"
 	else:
 		memLocName = font.getMemoryLocationName()
 	
-	fntSrc.write("leFont %s =" % (name))
+	fntSrc.write("leRasterFont %s =" % (name))
 	fntSrc.write("{")
 	fntSrc.write("    {")
-	fntSrc.write("        LE_ASSET_TYPE_FONT, // asset type")
-	fntSrc.write("        %s, // data location id" % (memLocName))
-	fntSrc.write("        (void*)%s_data, // data address pointer" % (name))
-	fntSrc.write("        %d, // data size" % (glyphDataLength))
+	fntSrc.write("        {")
+	fntSrc.write("            %s, // data location id" % (memLocName))
+	fntSrc.write("            (void*)%s_data, // data address pointer" % (name))
+	fntSrc.write("            %d, // data size" % (glyphDataLength))
+	fntSrc.write("        },")
+	fntSrc.write("        LE_RASTER_FONT,")
 	fntSrc.write("    },")
 	fntSrc.write("    %d," % (fontData.getMaxHeight()))
 	fntSrc.write("    %d," % (fontData.getMaxBaseline()))
 	fntSrc.write("    LE_FONT_BPP_%d, // bits per pixel" % (bpp))
 	fntSrc.write("    %s_glyphs, // glyph table" % (name))
-	fntSrc.write("    %s_data, // font data" % (name))
 	fntSrc.write("};")
 	
 	fntSrc.close()

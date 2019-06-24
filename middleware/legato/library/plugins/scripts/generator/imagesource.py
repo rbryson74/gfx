@@ -2,7 +2,7 @@ import com.microchip.gfx.composer.Designer.ColorMode as ColorMode
 
 def getMemoryLocationName(idx):
 	if idx == 0 or idx == 1:
-		return "LE_ASSET_LOCATION_ID_INTERNAL"
+		return "LE_STREAM_LOCATION_ID_INTERNAL"
 		
 	return "LE_ASSET_LOCATION_ID_%s" % AssetManager.getMemoryLocationName(idx - 1)
 
@@ -76,8 +76,7 @@ def generateImageSourceFile(image):
 			imgSrc.write("lePalette %s =" % (palette.name))
 			imgSrc.write("{")
 			imgSrc.write("    {")
-			imgSrc.write("        LE_ASSET_TYPE_PALETTE, // asset type")
-			imgSrc.write("        LE_ASSET_LOCATION_ID_INTERNAL, // data location id")
+			imgSrc.write("        LE_STREAM_LOCATION_ID_INTERNAL, // data location id")
 			imgSrc.write("        (void*)%s_data, // data address pointer" % (palette.name))
 			imgSrc.write("        %d, // data size" % (paletteDataLength))
 			imgSrc.write("    },")
@@ -91,30 +90,35 @@ def generateImageSourceFile(image):
 	flags = ""
 		
 	if image.getMaskEnabled() == True:
-		flags += "LE_IMAGE_USE_MASK | "
-		
-	if flags.endswith(" | ") == True:
-		flags = flags[:-1]
-		
+		if len(flags) != 0:
+			flags += " | "
+
+		flags += "LE_IMAGE_USE_MASK_COLOR"
+
 	if flags == "":
 		flags = "0"
 		
 	mode = image.getOutputColorMode()
 	maskColor = image.getMaskColor().toInteger(mode)
-	
+
+	if palette != None:
+		maskColor = str(palette.object.indexOf(maskColor))
+	else:
+		maskColor = "0x" + image.getMaskColor().toHexString(mode, False)
+
 	outputFormat = str(image.getOutputFormat()).upper()
 	
 	memLocName = ""
 	
 	if locIdx < 2:
-		memLocName = "LE_ASSET_LOCATION_ID_INTERNAL"
+		memLocName = "LE_STREAM_LOCATION_ID_INTERNAL"
 	else:
 		memLocName = font.getMemoryLocationName()
 	
 	imgSrc.write("leImage %s =" % (image.getName()))
 	imgSrc.write("{")
 	imgSrc.write("    {")
-	imgSrc.write("        LE_ASSET_TYPE_IMAGE, // asset type")
+	#imgSrc.write("        LE_ASSET_TYPE_IMAGE, // asset type")
 	imgSrc.write("        %s, // data location id" % (memLocName))
 	imgSrc.write("        (void*)%s_data, // data address pointer" % (image.getName()))
 	imgSrc.write("        %d, // data size" % (dataLen))
@@ -136,7 +140,17 @@ def generateImageSourceFile(image):
 	imgSrc.write("        (void*)%s_data" % (image.getName()))
 	imgSrc.write("    },")
 	imgSrc.write("    %s, // image flags" % (flags))
-	imgSrc.write("    0x%X, // image mask" % (maskColor))
+
+	imgSrc.write("    {")
+
+	if maskColor == "-1":
+		imgSrc.write("        NULL, // color mask")
+	else:
+		imgSrc.write("        %s, // color mask" % (maskColor))
+
+	imgSrc.write("    },")
+
+	imgSrc.write("    NULL, // alpha mask")
 	
 	if palette is not None:
 		imgSrc.write("    &%s, // palette" % (palette.name))

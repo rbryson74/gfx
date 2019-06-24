@@ -1,4 +1,44 @@
+class RadioButtonGroup:
+	def __init__(self, id):
+		self.id = id
+		self.buttons = []
+		self.selectedButton = None
+
+	def __lt__(self, other):
+		return self.id < other.id
+
+def findRadioGroup(id):
+	for group in radioButtonGroups:
+		if group.id == id:
+			return group
+
+	return None
+
+radioButtonGroups = []
+
+class RadialMenuItem:
+	def __init__(self, menu, item, idx):
+		self.name = "%s_image_%d" % (menu.getName(), idx)
+
+class RadialMenu:
+	def __init__(self, menu):
+		self.menu = menu
+		self.items = []
+
+		for idx, item in enumerate(menu.getItemList()):
+			menuItem = RadialMenuItem(menu, item, idx)
+
+			self.items.append(menuItem)
+
+radialMenus = []
+
 def generateScreen(scr):
+	global radioButtonGroups
+	global radialMenus
+
+	radioButtonGroups = []
+	radialMenus = []
+
 	name = scr.getName()
 	
 	screenWidgetList = []
@@ -6,8 +46,8 @@ def generateScreen(scr):
 	layerList = scr.getLayerList()
 	
 	for layer in layerList:
-		screenWidgetList += layer.getDescendants()
-	
+		screenWidgetList += layer.getDescendents()
+
 	screenHeaderFile = File("generated/screen/le_gen_screen_%s.h" % name)
 	
 	screenHeaderFile.write("#ifndef LE_GEN_SCREEN_" + name.upper() + "_H")
@@ -32,6 +72,7 @@ def generateScreen(scr):
 	screenHeaderFile.write('leResult screenShow_%s(); // called when screen is shown' % (name))
 	screenHeaderFile.write('void screenHide_%s(); // called when screen is hidden' % (name))
 	screenHeaderFile.write('void screenDestroy_%s(); // called when Legato is destroyed' % (name))
+	screenHeaderFile.write('void screenUpdate_%s(); // called when Legato is updating' % (name))
 	screenHeaderFile.writeNewLine()
 	screenHeaderFile.write('leWidget* screenGetRoot_%s(uint32_t lyrIdx); // gets a root widget for this screen' % (name))
 	screenHeaderFile.writeNewLine()
@@ -59,7 +100,7 @@ def generateScreen(scr):
 	
 	screenSourceFile.write('#include "gfx/legato/generated/screen/le_gen_screen_%s.h"' % (name))
 	screenSourceFile.writeNewLine()
-	
+
 	generateWidgetDeclarations(screenSourceFile, scr)
 
 	screenStringList = getWidgetStringList(screenWidgetList)
@@ -73,7 +114,7 @@ def generateScreen(scr):
 	screenSourceFile.writeNewLine()
 
 	generateEventDeclarations(screenSourceFile, scr, False)
-	
+
 	screenSourceFile.write('static leBool showing = LE_FALSE;')
 	screenSourceFile.writeNewLine()
 	screenSourceFile.write('leResult screenInit_%s()' % (name))
@@ -91,6 +132,14 @@ def generateScreen(scr):
 		screenSourceFile.writeNewLine()
 
 	screenSourceFile.write("    return LE_SUCCESS;")
+
+	screenSourceFile.write('}')
+	screenSourceFile.writeNewLine()
+	screenSourceFile.write('void screenUpdate_%s()' % (name))
+	screenSourceFile.write('{')
+
+	if scr.getEventByName("UpdateEvent").enabled == True:
+		screenSourceFile.write('    %s_OnUpdate();' % name)
 
 	screenSourceFile.write('}')
 	screenSourceFile.writeNewLine()
@@ -142,8 +191,12 @@ def generateScreen(scr):
 	screenSourceFile.close()
 	
 	fileDict[screenSourceFile.name] = screenSourceFile
-	
+
+
 def generateWidgetHeaderDeclarations(file, scr, widgets):
+	global radioButtonGroups
+	global radialMenus
+
 	if len(widgets) == 0:
 		return
 
@@ -154,7 +207,7 @@ def generateWidgetHeaderDeclarations(file, scr, widgets):
 
 	for layer in layerList:
 
-		layerWidgetList = layer.getDescendants()
+		layerWidgetList = layer.getDescendents()
 
 		if len(layerWidgetList) == 0:
 			continue
@@ -168,18 +221,40 @@ def generateWidgetHeaderDeclarations(file, scr, widgets):
 
 			if type == "PanelWidget":
 				type = "Widget"
+			elif type == "RadioButtonWidget":
+				if widget.getGroup() != -1:
+					group = findRadioGroup(widget.getGroup())
+
+					if group == None:
+						group = RadioButtonGroup(widget.getGroup())
+
+						radioButtonGroups.append(group)
+
+					if widget.getSelected() == True:
+						group.selectedButton = widget
+					else:
+						group.buttons.append(widget)
+
+				radioButtonGroups.sort()
+			elif type == "RadialMenuWidget":
+				menu = RadialMenu(widget)
+
+				radialMenus.append(menu)
 
 			file.write('extern le%s* %s;' % (type, widget.getName()))
 
 		file.writeNewLine()
-	
+
 def generateWidgetDeclarations(file, scr):
+	global radioButtonGroups
+	global radialMenus
+
 	layerList = scr.getLayerList()
 
 	layerIdx = 0
 
 	for layer in layerList:
-		widgetList = layer.getDescendants()
+		widgetList = layer.getDescendents()
 
 		if len(widgetList) == 0:
 			continue
@@ -199,13 +274,25 @@ def generateWidgetDeclarations(file, scr):
 
 			file.write('le%s* %s;' % (type, widget.getName()))
 
+		if len(radioButtonGroups) > 0:
+			file.writeNewLine()
+
+			for group in radioButtonGroups:
+				file.write('static leRadioButtonGroup* RadioButtonGroup_%d;' % (group.id))
+
+		if len(radialMenus) > 0:
+			file.writeNewLine()
+
+			for menu in radialMenus:
+				for item in menu.items:
+					file.write('static leImagePlusWidget* %s;' % (item.name))
+
+
 		file.writeNewLine()
 	
 def generateScreenInitCode(file, screen, screenWidgetList, stringList):
-	#for widget in childList:
-	#	if widget.getType is "BarGraphWidget":
-	#		file.write('    uint32_t barGraphSeriesID;')
-	#		file.write('        return LE_FAILURE;')
+	global radioButtonGroups
+	global radialMenus
 
 	file.write('    if(showing == LE_TRUE)')
 	file.write('        return LE_FAILURE;')
@@ -239,6 +326,17 @@ def generateScreenInitCode(file, screen, screenWidgetList, stringList):
 		for widget in childList:
 			generateWidget(file, screen, widget, rootName)
 
+		if len(radioButtonGroups) > 0:
+			for group in radioButtonGroups:
+				file.write('    leRadioButtonGroup_Create(&RadioButtonGroup_%d);' % (group.id))
+
+				file.write('    leRadioButtonGroup_AddButton(RadioButtonGroup_%d, %s);' % (group.id, group.selectedButton.getName()))
+
+				for btn in group.buttons:
+					file.write('    leRadioButtonGroup_AddButton(RadioButtonGroup_%d, %s);' % (group.id, btn.getName()))
+
+			file.writeNewLine()
+
 	file.write("    leAddRootWidget(%s, 0);" % rootName)
 	file.writeNewLine()
 	file.write("    showing = LE_TRUE;")
@@ -247,7 +345,15 @@ def generateScreenCleanupCode(file, screen, screenWidgetList, stringList):
 	layerIdx = 0
 	
 	layerList = screen.getLayerList()
-	
+
+	if len(radioButtonGroups) > 0:
+		file.writeNewLine()
+
+		for group in radioButtonGroups:
+			file.write('    leRadioButtonGroup_Destroy(RadioButtonGroup_%d);' % (group.id))
+
+		file.writeNewLine()
+
 	for layer in layerList:
 		rootName = "root%d" % layerIdx
 
@@ -256,16 +362,29 @@ def generateScreenCleanupCode(file, screen, screenWidgetList, stringList):
 		file.write("    leWidget_Delete(%s);" % rootName)
 		file.writeNewLine()
 		file.write("    %s = NULL;" % rootName)
-	
-		for widget in layer.getDescendants():
-			file.write("    %s = NULL;" % (widget.getName()))
-		
-		file.writeNewLine()
-	
-	for stringName in stringList:
-		file.write('    tableString_%s.fn->destructor(&tableString_%s);' % (stringName, stringName))
 
-	file.writeNewLine()
+		descList = layer.getDescendents()
+
+		if len(descList) > 0:
+			file.writeNewLine()
+
+			for widget in descList:
+				file.write("    %s = NULL;" % (widget.getName()))
+
+	if len(radialMenus) > 0:
+		file.writeNewLine()
+
+		for menu in radialMenus:
+			for item in menu.items:
+				file.write('    %s = NULL;' % (item.name))
+
+		file.writeNewLine()
+
+	if len(stringList) > 0:
+		file.writeNewLine()
+
+		for stringName in stringList:
+			file.write('    tableString_%s.fn->destructor(&tableString_%s);' % (stringName, stringName))
 
 	file.write("    showing = LE_FALSE;")
 
@@ -293,7 +412,7 @@ def generateEventDeclarations(file, scr, header):
 	layerIdx = 0
 
 	for layer in layerList:
-		layerWidgetList = layer.getDescendants()
+		layerWidgetList = layer.getDescendents()
 
 		for widget in layerWidgetList:
 			wgtEvents = widget.getEventList()
@@ -338,7 +457,7 @@ def generateEventDeclarations(file, scr, header):
 		layerIdx = 0
 
 		for layer in layerList:
-			layerWidgetList = layer.getDescendants()
+			layerWidgetList = layer.getDescendents()
 
 			for widget in layerWidgetList:
 				wgtEvents = widget.getEventList()
@@ -354,7 +473,7 @@ def generateEventDeclarations(file, scr, header):
 						continue
 
 					if event.validate() == False:
-						print("Failed to validate event: %s" % event.name)
+						print("Failed to validate event: %s" % (event.name))
 
 					text = generateEvent(scr, widget, event, False)
 
@@ -385,7 +504,7 @@ def generateEventFunctions(file, scr):
 	layerIdx = 0
 
 	for layer in layerList:
-		layerWidgetList = layer.getDescendants()
+		layerWidgetList = layer.getDescendents()
 
 		for widget in layerWidgetList:
 			wgtEvents = widget.getEventList()
@@ -422,7 +541,7 @@ def generateEventFunctions(file, scr):
 		layerIdx = 0
 
 		for layer in layerList:
-			layerWidgetList = layer.getDescendants()
+			layerWidgetList = layer.getDescendents()
 
 			for widget in layerWidgetList:
 				wgtEvents = widget.getEventList()
@@ -457,7 +576,7 @@ def generateMacroDeclarations(file, scr):
 			desc = macro.description
 
 			if desc == None or len(desc) == 0:
-				desc = "Macro %s defined for %s" % (macro.name, name)
+				desc = "Macro '%s' defined for %s" % (macro.name, name)
 
 			file.write('void %s_%s(); // %s' % (name, macro.name, desc))
 
@@ -484,21 +603,20 @@ def generateMacroFunctions(file, scr):
 			desc = macro.description
 
 			if desc == None or len(desc) == 0:
-				desc = "Macro %s defined for %s" % (macro.name, name)
+				desc = "Macro '%s' - defined for %s" % (macro.name, name)
 
 			file.write("/* %s */" % desc)
 			file.write('void %s_%s()' % (name, macro.name))
-			file.write('{')
-			file.write('    if(root0 == NULL) // make sure this screen exists')
-			file.write('        return;')
-			file.write('')
 
-			actions = macro.getActions()
+			nullCheckText = []
+			nullCheckText.append("if(root0 == NULL) // make sure this screen exists")
+			nullCheckText.append("    return;")
 
-			if len(actions) > 0:
-				for idx, action in enumerate(actions):
-					generateAction(file, scr, name, None, action)
+			text = generateActions(scr, macro, True, nullCheckText, None)
 
-			file.write('}')
+			file.write(text);
 
 		file.write('')
+
+def generateScreenAction(text, variables, owner, event, action):
+	text.append("    legato_showScreen(screenID_%s);" % action.targetName)
