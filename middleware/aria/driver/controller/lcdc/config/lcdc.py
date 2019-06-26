@@ -137,17 +137,18 @@ def instantiateComponent(comp):
 	Overlay1LayerEnable.setDefaultValue(True)
 	Overlay1LayerEnable.setDependencies(OnLayersEnabled, ["Overlay1LayerEnable"])
 	
+	HEOLayerEnable = comp.createBooleanSymbol("HEOLayerEnable", EnableLayersMenu)
+	HEOLayerEnable.setLabel("High-End Overlay (HEO)")
+	HEOLayerEnable.setDescription("Enables High-End Overlay")
+	HEOLayerEnable.setDefaultValue(False)
+	HEOLayerEnable.setReadOnly(True)
+	HEOLayerEnable.setDependencies(OnLayersEnabled, ["HEOLayerEnable"])
+	
 	Overlay2LayerEnable = comp.createBooleanSymbol("Overlay2LayerEnable", EnableLayersMenu)
 	Overlay2LayerEnable.setLabel("Overlay 2")
 	Overlay2LayerEnable.setDescription("Enables Overlay2")
 	Overlay2LayerEnable.setDefaultValue(True)
 	Overlay2LayerEnable.setDependencies(OnLayersEnabled, ["Overlay2LayerEnable"])
-	
-	HEOLayerEnable = comp.createBooleanSymbol("HEOLayerEnable", EnableLayersMenu)
-	HEOLayerEnable.setLabel("High-End Overlay (HEO)")
-	HEOLayerEnable.setDescription("Enables High-End Overlay")
-	HEOLayerEnable.setDefaultValue(False)
-	HEOLayerEnable.setDependencies(OnLayersEnabled, ["HEOLayerEnable"])
 	
 	GlobalAlphaEnable = comp.createBooleanSymbol("GlobalAlphaEnable", LayerConfigurationMenu)
 	GlobalAlphaEnable.setLabel("Enable Global Alpha")

@@ -83,6 +83,11 @@
 #define LCDC_NUM_LAYERS ${TotalNumLayers}
 #define LCDC_DEFAULT_BRIGHTNESS_PCT ${BacklightBrightnessDefault}
 
+<#if HEOLayerEnable == true>
+#define XPHIDEF 0
+#define YPHIDEF 0
+</#if>
+
 <#if Val_FrameBufferColorMode == "GFX_COLOR_MODE_GS_8">
 #define LCDC_DEFAULT_GFX_COLOR_MODE GFX_COLOR_MODE_GS_8
 #define FRAMEBUFFER_PIXEL_TYPE    uint8_t
@@ -162,6 +167,7 @@ typedef struct __display_layer {
     uint32_t   colorspace;
     uint16_t   color;
     LCDC_DMA_DESC * desc;
+    uint32_t frameOffset;
 } DISPLAY_LAYER;
 
 //This array defines the z-order of the hw layers in the GLCD
@@ -172,11 +178,11 @@ static LCDC_LAYER_ID lcdcLayerZOrder[LCDC_NUM_LAYERS] =
 <#if Overlay1LayerEnable == true>
     LCDC_LAYER_OVR1,
 </#if>
-<#if Overlay2LayerEnable == true>
-    LCDC_LAYER_OVR2,
-</#if>
 <#if HEOLayerEnable == true>
     LCDC_LAYER_HEO,
+</#if>
+<#if Overlay2LayerEnable == true>
+    LCDC_LAYER_OVR2,
 </#if>
 };
 
@@ -380,6 +386,23 @@ static GFX_Result layerBufferAddressSet(uint32_t idx, GFX_Buffer address)
     return GFX_SUCCESS;
 }
 
+void layerSetFrameBufferOffset(GFX_Layer* layer, uint32_t offset)
+{
+    FRAMEBUFFER_PIXEL_TYPE * baseAddr = (FRAMEBUFFER_PIXEL_TYPE *) drvLayer[layer->id].baseaddr[layer->buffer_read_idx];
+    
+    drvLayer[layer->id].frameOffset = offset;
+    
+    LCDCUpdateDMADescriptor(drvLayer[layer->id].desc,
+                            (uint32_t) &baseAddr[drvLayer[layer->id].frameOffset] ,
+                            0x1,
+                            (uint32_t) drvLayer[layer->id].desc);
+}
+
+void * layerGetReadFrameBufferBase(GFX_Layer* layer)
+{
+    return (void *)drvLayer[layer->id].baseaddr[layer->buffer_read_idx];
+}
+
 static GFX_Result layerBufferAllocate(uint32_t idx)
 {
     GFX_Layer* layer;
@@ -441,6 +464,61 @@ static GFX_Result layerPositionSet(int32_t x, int32_t y)
     return GFX_SUCCESS;
 }
 
+<#if HEOLayerEnable == true>
+static void layerHEOGetScalingFactors(uint16_t xmemsize,
+                                     uint16_t ymemsize,
+                                     uint16_t xsize,
+                                     uint16_t ysize,
+                                     uint16_t* xfactor,
+                                     uint16_t* yfactor)
+{
+    uint16_t xfactor1st, yfactor1st;
+
+    xmemsize--;
+    ymemsize--;
+    xsize--;
+    ysize--;
+            
+    xfactor1st = ((2048 * xmemsize - 256 * XPHIDEF)/ xsize) + 1;
+    yfactor1st = ((2048 * ymemsize - 256 * XPHIDEF)/ ysize) + 1;
+
+    if ((xfactor1st * xsize / 2048) > xmemsize)
+        *xfactor = xfactor1st - 1;
+    else
+        *xfactor = xfactor1st;
+
+    if ((yfactor1st * ysize / 2048) > ymemsize)
+        *yfactor = yfactor1st - 1;
+    else
+        *yfactor = yfactor1st;
+}
+
+static void layerHEOSetSize(uint16_t s_width, uint16_t s_height, uint16_t w_width, uint16_t w_height)
+{
+    LCDC_SetWindowSize(LCDC_LAYER_HEO, w_width, w_height);
+    LCDC_SetHEOImageMemSize(s_width, s_height);    
+    
+    //Source and window size are not the same, use scaler
+    if (s_width != w_width || s_height != w_height)
+    {
+        uint16_t scale_w, scale_h;
+        
+        layerHEOGetScalingFactors(s_width,
+                                s_height,
+                                w_width,
+                                w_height,
+                                &scale_w,
+                                &scale_h);
+          
+        LCDC_SetHEOScaler(scale_h, scale_w, true);
+    }
+    else
+    {
+        LCDC_SetHEOScaler(0, 0, false);
+    }
+}
+</#if>
+
 static GFX_Result layerSizeSet(int32_t width, int32_t height)
 {
     uint32_t idx;
@@ -448,10 +526,21 @@ static GFX_Result layerSizeSet(int32_t width, int32_t height)
     idx = GFX_ActiveContext()->layer.active->id;
 
     defLayerSizeSet(width, height);
-
-    LCDC_SetWindowSize(drvLayer[idx].hwLayerID,
+<#if HEOLayerEnable == true>
+    if (drvLayer[idx].hwLayerID == LCDC_LAYER_HEO)
+        layerHEOSetSize(GFX_ActiveContext()->layer.active->rect.display.width,
+                        GFX_ActiveContext()->layer.active->rect.display.height,
                         GFX_ActiveContext()->layer.active->rect.display.width,
                         GFX_ActiveContext()->layer.active->rect.display.height);
+    else
+        LCDC_SetWindowSize(drvLayer[idx].hwLayerID,
+                           GFX_ActiveContext()->layer.active->rect.display.width,
+                           GFX_ActiveContext()->layer.active->rect.display.height);
+<#else>
+    LCDC_SetWindowSize(drvLayer[idx].hwLayerID,
+                       GFX_ActiveContext()->layer.active->rect.display.width,
+                       GFX_ActiveContext()->layer.active->rect.display.height);
+</#if>
 
     return GFX_SUCCESS;
 }
@@ -498,12 +587,13 @@ static uint32_t layerAlphaAmountGet(void)
 }
 </#if>
 
-
 void layerSwapped(GFX_Layer* layer)
 {
+    FRAMEBUFFER_PIXEL_TYPE * baseAddr;
     if (layer->buffer_count > BUFFER_PER_LAYER)
         return;
     
+    baseAddr = (FRAMEBUFFER_PIXEL_TYPE *) drvLayer[layer->id].baseaddr[layer->buffer_read_idx];
     switch(drvLayer[layer->id].hwLayerID)
     {
         case LCDC_LAYER_BASE:
@@ -512,7 +602,7 @@ void layerSwapped(GFX_Layer* layer)
         case LCDC_LAYER_HEO:
         case LCDC_LAYER_PP:
             LCDCUpdateDMADescriptor(drvLayer[layer->id].desc,
-                                    (uint32_t) drvLayer[layer->id].baseaddr[layer->buffer_read_idx],
+                                    (uint32_t) &baseAddr[drvLayer[layer->id].frameOffset] ,
                                     0x1,
                                     (uint32_t) drvLayer[layer->id].desc);
             break;
@@ -521,12 +611,11 @@ void layerSwapped(GFX_Layer* layer)
     }
 }
 
-static GFX_Result layerEnabledSet(GFX_Bool val)
+void layerEnable(GFX_Layer* layer, GFX_Bool enable)
 {
-    GFX_ActiveContext()->layer.active->enabled = val;
-    uint32_t layerIdx = GFX_ActiveContext()->layer.active->id;
+    uint32_t layerIdx = layer->id;
     
-    if(val == GFX_TRUE)
+    if(enable == GFX_TRUE)
     {
         LCDC_SetChannelEnable(drvLayer[layerIdx].hwLayerID, true);
         LCDC_IRQ_Enable(LCDC_INTERRUPT_BASE + drvLayer[layerIdx].hwLayerID);
@@ -536,6 +625,15 @@ static GFX_Result layerEnabledSet(GFX_Bool val)
         LCDC_SetChannelEnable(drvLayer[layerIdx].hwLayerID, false);
         LCDC_IRQ_Disable(LCDC_INTERRUPT_BASE + drvLayer[layerIdx].hwLayerID);
     }
+
+    layer->enabled = enable;    
+}
+
+static GFX_Result layerEnabledSet(GFX_Bool val)
+{
+    GFX_ActiveContext()->layer.active->enabled = val;
+
+    layerEnable(GFX_ActiveContext()->layer.active, val);
     
     return GFX_SUCCESS;
 }
@@ -687,6 +785,7 @@ static GFX_Result LCDCInitialize(GFX_Context* context)
         drvLayer[layerCount].sizey      = drvLayer[layerCount].resy;
         drvLayer[layerCount].alpha      = context->layer.layers[layerCount].alphaAmount;
         drvLayer[layerCount].colorspace = convertColorModeGfxToLCDC(LCDC_DEFAULT_GFX_COLOR_MODE);
+        drvLayer[layerCount].frameOffset = 0;
         LCDCUpdateDMADescriptor(drvLayer[layerCount].desc, 
                                 (uint32_t) drvLayer[layerCount].baseaddr[0],
                                 0x01,
@@ -704,7 +803,14 @@ static GFX_Result LCDCInitialize(GFX_Context* context)
  
         LCDC_SetLayerClockGatingDisable(drvLayer[layerCount].hwLayerID, false);
         LCDC_SetWindowPosition(drvLayer[layerCount].hwLayerID, drvLayer[layerCount].startx, drvLayer[layerCount].starty);
+<#if HEOLayerEnable == true>
+        if (drvLayer[layerCount].hwLayerID == LCDC_LAYER_HEO)
+            layerHEOSetSize(drvLayer[layerCount].resx, drvLayer[layerCount].resy, drvLayer[layerCount].resx, drvLayer[layerCount].resy);
+        else
+            LCDC_SetWindowSize(drvLayer[layerCount].hwLayerID, drvLayer[layerCount].resx, drvLayer[layerCount].resy);
+<#else>
         LCDC_SetWindowSize(drvLayer[layerCount].hwLayerID, drvLayer[layerCount].resx, drvLayer[layerCount].resy);
+</#if>
         LCDC_SetUseDMAPathEnable(drvLayer[layerCount].hwLayerID, true);
         LCDC_SetRGBModeInput(drvLayer[layerCount].hwLayerID, drvLayer[layerCount].colorspace);
         LCDC_SetDMAAddressRegister(drvLayer[layerCount].hwLayerID, drvLayer[layerCount].desc->addr);
@@ -720,15 +826,18 @@ static GFX_Result LCDCInitialize(GFX_Context* context)
         LCDC_SetBlenderUseIteratedColor(drvLayer[layerCount].hwLayerID, true); //Use iterated color        
         LCDC_UpdateOverlayAttributesEnable(drvLayer[layerCount].hwLayerID);
         LCDC_UpdateAttribute(drvLayer[layerCount].hwLayerID); //Apply the attributes
-        //LCDC_SetChannelEnable(drvLayer[layerCount].hwLayerID, true);
-        
+
         // all layers off by default
         context->layer.layers[layerCount].enabled = GFX_FALSE;
     }
 
+<#if HEOLayerEnable == true>
+    //Set HEO layer on top of OVL1
+    LCDC_SetHEOVideoPriority(true);
+</#if>
+
     //Register the interrupt handler
     LCDC_IRQ_CallbackRegister(_IntHandlerVSync, NULL);
-
     
     return GFX_SUCCESS;
 }
@@ -812,7 +921,7 @@ void _IntHandlerVSync(uintptr_t context)
     {
         LCDC_LAYER_ID layerID = lcdcLayerZOrder[i];
         status = LCDC_LAYER_IRQ_Status(layerID);
-        if (status)
+        if (status && pendingDMATransfer[layerID] == GFX_TRUE)
         {
             LCDC_LAYER_IRQ_Disable(layerID, LCDC_LAYER_INTERRUPT_DMA);
             
