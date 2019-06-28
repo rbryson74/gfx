@@ -108,7 +108,7 @@ typedef struct ILI9488_DRV
 
 /** 
   Function:
-    int ILI9488_Intf_Open(ILI9488_DRV *drv, unsigned int index)
+    int ILI9488_Intf_Open(ILI9488_DRV *drv)
 
   Summary:
     Opens the specified port to the ILI9488 device.
@@ -121,13 +121,12 @@ typedef struct ILI9488_DRV
 
   Parameters:
     drv         - ILI9488 driver handle
-    index       - Port index
- 
+
   Returns:
     * 0       - Operation successful
     * -1      - Operation failed
 */
-int ILI9488_Intf_Open(ILI9488_DRV *drv, unsigned int index);
+int ILI9488_Intf_Open(ILI9488_DRV *drv);
 
 /** 
   Function:

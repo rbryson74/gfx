@@ -23,11 +23,6 @@
 ##############################################################################
 
 def loadModule():	
-	cntlComponent = Module.CreateComponent("le_gfx_driver_ili9488", "LE ILI9488", "/Graphics/Driver", "config/ili9488_controller.py")
-	cntlComponent.setDisplayType("ILI9488 Display Driver")
-	cntlComponent.addCapability("gfx_driver_ili9488", "LE Display Driver", False)
-	cntlComponent.addDependency("Graphics Display", "Graphics Display", False, False)
-	cntlComponent.addDependency("legato_library", "Legato", True, True)
-	
-	cntlComponent.addDependency("Display Interface", "LE Display Interface", False, True)
-	cntlComponent.addDependency("SYS_TIME", "SYS_TIME", True, True)
+	component = Module.CreateComponent("le_gfx_intf_parallel_portgroup", "LE Parallel (Port Group)", "/Graphics/Interface", "config/parallel_portgroup.py")
+	component.setDisplayType("Parallel Display Interface via Port Group")
+	component.addCapability("le_gfx_intf_parallel_portgroup", "LE Display Interface", False)

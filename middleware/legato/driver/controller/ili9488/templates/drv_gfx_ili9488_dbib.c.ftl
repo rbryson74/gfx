@@ -42,7 +42,7 @@
 #include "drv_gfx_ili9488_cmd_defs.h"
 #include "drv_gfx_ili9488_common.h"
 
-#include "drv_gfx_disp_intf.h"
+#include "gfx/interface/drv_gfx_disp_intf.h"
 
 #define ILI9488_NCSAssert(intf)   GFX_Disp_Intf_PinControl(intf, \
                                     GFX_DISP_INTF_PIN_CS, \
@@ -213,8 +213,8 @@ int ILI9488_Intf_WritePixels(struct ILI9488_DRV *drv,
     //Set column
     buf[0] = (start_x >> 8);
     buf[1] = (start_x & 0xff);
-    buf[2] = (((drv->gfx->display_info->rect.width - 1) & 0xff00) >> 8);
-    buf[3] = ((drv->gfx->display_info->rect.width - 1) & 0xff);
+    buf[2] = (((DRV_ILI9488_GetDisplayWidth() - 1) & 0xff00) >> 8);
+    buf[3] = ((DRV_ILI9488_GetDisplayWidth() - 1) & 0xff);
     returnValue = GFX_Disp_Intf_WriteCommandParm(intf,
                                        ILI9488_CMD_COLUMN_ADDRESS_SET,
                                        buf,
@@ -228,8 +228,8 @@ int ILI9488_Intf_WritePixels(struct ILI9488_DRV *drv,
     //Set page
     buf[0] = (start_y >> 8);
     buf[1] = (start_y & 0xff);
-    buf[2] = (((drv->gfx->display_info->rect.height - 1) & 0xff00) >> 8);
-    buf[3] = ((drv->gfx->display_info->rect.height - 1) & 0xff);
+    buf[2] = (((DRV_ILI9488_GetDisplayHeight() - 1) & 0xff00) >> 8);
+    buf[3] = ((DRV_ILI9488_GetDisplayHeight() - 1) & 0xff);
     returnValue = GFX_Disp_Intf_WriteCommandParm(intf,
                                        ILI9488_CMD_PAGE_ADDRESS_SET,
                                        buf,
@@ -316,8 +316,8 @@ int ILI9488_Intf_ReadPixels(struct ILI9488_DRV *drv,
     //Set column
     buf[0] = ((x & 0xff00) >> 8);
     buf[1] = (x & 0xff);
-    buf[2] = (((drv->gfx->display_info->rect.width - 1) & 0xff00) >> 8);
-    buf[3] = ((drv->gfx->display_info->rect.width - 1) & 0xff);
+    buf[2] = (((DRV_ILI9488_GetDisplayWidth() - 1) & 0xff00) >> 8);
+    buf[3] = ((DRV_ILI9488_GetDisplayWidth() - 1) & 0xff);
     returnValue = GFX_Disp_Intf_WriteCommandParm(intf,
                                        ILI9488_CMD_COLUMN_ADDRESS_SET,
                                        buf,
@@ -331,8 +331,8 @@ int ILI9488_Intf_ReadPixels(struct ILI9488_DRV *drv,
     //Set page
     buf[0] = ((y & 0xff00) >> 8);
     buf[1] = (y & 0xff);
-    buf[2] = (((drv->gfx->display_info->rect.height - 1) & 0xff00) >> 8);
-    buf[3] = ((drv->gfx->display_info->rect.height - 1) & 0xff);
+    buf[2] = (((DRV_ILI9488_GetDisplayHeight() - 1) & 0xff00) >> 8);
+    buf[3] = ((DRV_ILI9488_GetDisplayHeight() - 1) & 0xff);
     returnValue = GFX_Disp_Intf_WriteCommandParm(intf,
                                        ILI9488_CMD_PAGE_ADDRESS_SET,
                                        buf,
@@ -475,7 +475,7 @@ int ILI9488_Intf_ReadCmd(struct ILI9488_DRV *drv,
 
 /** 
   Function:
-    int ILI9488_Intf_Open(ILI9488_DRV *drv, unsigned int index)
+    GFX_Result ILI9488_Intf_Open(ILI9488_DRV *drv)
 
   Summary:
     Opens the specified port to the ILI9488 device.
@@ -488,21 +488,20 @@ int ILI9488_Intf_ReadCmd(struct ILI9488_DRV *drv,
 
   Parameters:
     drv         - ILI9488 driver handle
-    index       - Port index
  
   Returns:
     * 0       - Operation successful
     * -1       - Operation failed
 
  */
-int ILI9488_Intf_Open(ILI9488_DRV *drv, unsigned int index)
+int ILI9488_Intf_Open(ILI9488_DRV *drv)
 {
     GFX_Disp_Intf intf;
     
     if (!drv)
         return -1;
     
-    drv->port_priv = (void *) GFX_Disp_Intf_Open(drv->gfx, index);
+    drv->port_priv = (void *) GFX_Disp_Intf_Open();
     
     intf = (GFX_Disp_Intf) drv->port_priv;
 

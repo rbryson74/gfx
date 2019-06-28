@@ -40,31 +40,20 @@
 #include "drv_gfx_ili9488_cmd_defs.h"
 #include "drv_gfx_ili9488_common.h"
 
-#include "drv_gfx_disp_intf.h"
+#include "gfx/interface/drv_gfx_disp_intf.h"
 
-#define ILI9488_SPI_SS_Assert()     GFX_Disp_Intf_PinControl(\
+#define ILI9488_SPI_SS_Assert(intf)     GFX_Disp_Intf_PinControl(intf, \
                                             GFX_DISP_INTF_PIN_CS, \
                                             GFX_DISP_INTF_PIN_CLEAR)
-#define ILI9488_SPI_SS_Deassert()   GFX_Disp_Intf_PinControl(\
+#define ILI9488_SPI_SS_Deassert(intf)   GFX_Disp_Intf_PinControl(intf, \
                                             GFX_DISP_INTF_PIN_CS, \
                                             GFX_DISP_INTF_PIN_SET)
-#define ILI9488_SPI_DCX_Command()   GFX_Disp_Intf_PinControl(\
+#define ILI9488_SPI_DCX_Command(intf)   GFX_Disp_Intf_PinControl(intf, \
                                             GFX_DISP_INTF_PIN_RSDC, \
                                             GFX_DISP_INTF_PIN_CLEAR)
-#define ILI9488_SPI_DCX_Data()      GFX_Disp_Intf_PinControl(\
+#define ILI9488_SPI_DCX_Data(intf)      GFX_Disp_Intf_PinControl(intf, \
                                             GFX_DISP_INTF_PIN_RSDC, \
                                             GFX_DISP_INTF_PIN_SET)
-
-/** ILI9488_SPI_PRIV
-
-  Summary:
-    Structure contains status and handles for SPI interface.
-    
- */
-typedef struct 
-{
-    GFX_Disp_Intf handle;
-} ILI9488_SPI_PRIV;
 
 /* ************************************************************************** */
 
@@ -104,24 +93,28 @@ static int ILI9488_Intf_Read(struct ILI9488_DRV *drv,
                              int bytes) 
 {
     int returnValue = -1;
+    GFX_Disp_Intf intf;
+
+    if ((!drv) || (!data) || (bytes <= 0))
+        return -1;
+
+    intf = (GFX_Disp_Intf) drv->port_priv;
 
     //Assert SS = LOW and D/CX = LOW (command)
-    ILI9488_SPI_DCX_Command();
-    ILI9488_SPI_SS_Assert();
+    ILI9488_SPI_DCX_Command(intf);
+    ILI9488_SPI_SS_Assert(intf);
             
-    returnValue = GFX_Disp_Intf_Write(&cmd, 1);
-    
+    returnValue = GFX_Disp_Intf_Write(intf, &cmd, 1);
     if (returnValue != 0)
         return -1;
     
-    ILI9488_SPI_DCX_Data();
-    returnValue = GFX_Disp_Intf_Read(data, bytes);
-    
+    ILI9488_SPI_DCX_Data(intf);
+    returnValue = GFX_Disp_Intf_Read(intf, data, bytes);
     if (returnValue != 0)
         return -1;
 
-    ILI9488_SPI_DCX_Command();
-    ILI9488_SPI_SS_Deassert();
+    ILI9488_SPI_DCX_Command(intf);
+    ILI9488_SPI_SS_Deassert(intf);
 
     return returnValue;
 }
@@ -161,12 +154,18 @@ int ILI9488_Intf_WriteCmd(struct ILI9488_DRV *drv,
                           int num_parms) 
 {
     int returnValue = -1;
+    GFX_Disp_Intf intf;
+
+    if (!drv)
+        return -1;
+
+    intf = (GFX_Disp_Intf) drv->port_priv;
+
+    ILI9488_SPI_SS_Assert(intf);
     
-    ILI9488_SPI_SS_Assert();
+    returnValue = GFX_Disp_Intf_WriteCommandParm(intf, cmd, parms, num_parms);
     
-    returnValue = GFX_Disp_Intf_WriteCommandParm(cmd, parms, num_parms);
-    
-    ILI9488_SPI_SS_Deassert();
+    ILI9488_SPI_SS_Deassert(intf);
 
     return returnValue;
 }
@@ -210,22 +209,27 @@ int ILI9488_Intf_WritePixels(struct ILI9488_DRV *drv,
 {
     int returnValue = -1;
     uint8_t buf[4];
+    GFX_Disp_Intf intf;
 
-    ILI9488_SPI_SS_Assert();    
+   if (!drv)
+        return -1;
+
+    intf = (GFX_Disp_Intf) drv->port_priv;
+
+    ILI9488_SPI_SS_Assert(intf);    
 
     //Set column
     buf[0] = (start_x >> 8);
     buf[1] = (start_x & 0xff);
     buf[2] = (((DRV_ILI9488_GetDisplayWidth() - 1) & 0xff00) >> 8);
     buf[3] = ((DRV_ILI9488_GetDisplayWidth() - 1) & 0xff);
-    
-    returnValue = GFX_Disp_Intf_WriteCommandParm(ILI9488_CMD_COLUMN_ADDRESS_SET,
-                                                 buf,
-                                                 4);
-                                                 
+    returnValue = GFX_Disp_Intf_WriteCommandParm(intf,
+                                            ILI9488_CMD_COLUMN_ADDRESS_SET,
+                                            buf,
+                                            4);
     if (0 != returnValue)
     {
-        ILI9488_SPI_SS_Deassert();
+        ILI9488_SPI_SS_Deassert(intf);
         return -1;
     }
 
@@ -234,23 +238,22 @@ int ILI9488_Intf_WritePixels(struct ILI9488_DRV *drv,
     buf[1] = (start_y & 0xff);
     buf[2] = (((DRV_ILI9488_GetDisplayHeight() - 1) & 0xff00) >> 8);
     buf[3] = ((DRV_ILI9488_GetDisplayHeight() - 1) & 0xff);
-    
-    returnValue = GFX_Disp_Intf_WriteCommandParm(ILI9488_CMD_PAGE_ADDRESS_SET,
-                                                 buf,
-                                                 4);
-    
+    returnValue = GFX_Disp_Intf_WriteCommandParm(intf,
+                                            ILI9488_CMD_PAGE_ADDRESS_SET,
+                                            buf,
+                                            4);
     if (0 != returnValue)
     {
-        ILI9488_SPI_SS_Deassert();
-        
+        ILI9488_SPI_SS_Deassert(intf);
         return -1;
     }
 
-    returnValue = GFX_Disp_Intf_WriteCommandParm(ILI9488_CMD_MEMORY_WRITE,
-                                                 data,
-                                                 num_pixels * 3);
+    returnValue = GFX_Disp_Intf_WriteCommandParm(intf,
+                                            ILI9488_CMD_MEMORY_WRITE,
+                                            data,
+                                            num_pixels * 3);
     
-    ILI9488_SPI_SS_Deassert();
+    ILI9488_SPI_SS_Deassert(intf);
 
     return returnValue;
 }
@@ -296,8 +299,14 @@ int ILI9488_Intf_ReadPixels(struct ILI9488_DRV *drv,
     uint8_t cmd = ILI9488_CMD_MEMORY_READ;
     uint8_t dummy;
     uint8_t buf[4];
+    GFX_Disp_Intf intf;
+
+    if (!drv)
+        return -1;
+
+    intf = (GFX_Disp_Intf) drv->port_priv;
     
-    ILI9488_SPI_SS_Assert();
+    ILI9488_SPI_SS_Assert(intf);
 
     //Set column
     buf[0] = ((x & 0xff00) >> 8);
@@ -305,7 +314,8 @@ int ILI9488_Intf_ReadPixels(struct ILI9488_DRV *drv,
     buf[2] = (((DRV_ILI9488_GetDisplayWidth() - 1) & 0xff00) >> 8);
     buf[3] = ((DRV_ILI9488_GetDisplayWidth() - 1) & 0xff);
     
-    returnValue = GFX_Disp_Intf_WriteCommandParm(ILI9488_CMD_COLUMN_ADDRESS_SET,
+    returnValue = GFX_Disp_Intf_WriteCommandParm(intf,
+                                                 ILI9488_CMD_COLUMN_ADDRESS_SET,
                                                  buf,
                                                  4);
                                        
@@ -318,44 +328,40 @@ int ILI9488_Intf_ReadPixels(struct ILI9488_DRV *drv,
     buf[2] = (((DRV_ILI9488_GetDisplayHeight() - 1) & 0xff00) >> 8);
     buf[3] = ((DRV_ILI9488_GetDisplayHeight() - 1) & 0xff);
     
-    returnValue = GFX_Disp_Intf_WriteCommandParm(ILI9488_CMD_PAGE_ADDRESS_SET,
+    returnValue = GFX_Disp_Intf_WriteCommandParm(intf,
+                                                 ILI9488_CMD_PAGE_ADDRESS_SET,
                                                  buf,
                                                  4);
                                        
     if (0 != returnValue)
     {
-        ILI9488_SPI_SS_Deassert();
-        
+        ILI9488_SPI_SS_Deassert(intf);
         return -1;
     }
 
     //Assert SS = LOW and D/CX = LOW (command)
-    ILI9488_SPI_DCX_Command();
-    ILI9488_SPI_SS_Assert();
+    ILI9488_SPI_DCX_Command(intf);
+    ILI9488_SPI_SS_Assert(intf);
 
-    returnValue = GFX_Disp_Intf_Write(&cmd, 1);
-    
+    returnValue = GFX_Disp_Intf_Write(intf, &cmd, 1);
     if (0 != returnValue)
     {
-        ILI9488_SPI_SS_Deassert();    
-        
+        ILI9488_SPI_SS_Deassert(intf);
         return -1;
     }
 
-    ILI9488_SPI_DCX_Data();
+    ILI9488_SPI_DCX_Data(intf);
 
     // Read the dummy byte
-    returnValue = GFX_Disp_Intf_Read(&dummy, 1);
-    
+    returnValue = GFX_Disp_Intf_Read(intf, &dummy, 1);
     if (0 != returnValue)
         return -1;
 
-    returnValue = GFX_Disp_Intf_Read(value, num_pixels * 3);
-    
+    returnValue = GFX_Disp_Intf_Read(intf, value, num_pixels * 3);
     if (0 != returnValue)
         return -1;
 
-    ILI9488_SPI_SS_Deassert();
+    ILI9488_SPI_SS_Deassert(intf);
 
     return returnValue;
 }
@@ -404,7 +410,6 @@ int ILI9488_Intf_ReadCmd(struct ILI9488_DRV *drv,
         return -1;
 
     returnValue = ILI9488_Intf_Read(drv, cmd, buff, bytes + 1);
-    
     if (returnValue == 0)
     {
         switch (bytes)
@@ -435,7 +440,7 @@ int ILI9488_Intf_ReadCmd(struct ILI9488_DRV *drv,
 
 /** 
   Function:
-    int ILI9488_Intf_Open(ILI9488_DRV *drv, unsigned int index)
+    int ILI9488_Intf_Open(ILI9488_DRV *drv)
 
   Summary:
     Opens the specified port to the ILI9488 device.
@@ -448,19 +453,18 @@ int ILI9488_Intf_ReadCmd(struct ILI9488_DRV *drv,
 
   Parameters:
     drv         - ILI9488 driver handle
-    index       - Port index
  
   Returns:
     * 0       - Operation successful
     * -1       - Operation failed
 
  */
-int ILI9488_Intf_Open(ILI9488_DRV *drv, unsigned int index)
+int ILI9488_Intf_Open(ILI9488_DRV *drv)
 {
     if (!drv)
         return -1;
 
-    drv->port_priv = (void *) GFX_Disp_Intf_Open(index);
+    drv->port_priv = (void *) GFX_Disp_Intf_Open();
 
     return 0;
 }
@@ -488,7 +492,7 @@ void ILI9488_Intf_Close(ILI9488_DRV *drv)
     if (!drv)
         return;
 
-    GFX_Disp_Intf_Close();
+    GFX_Disp_Intf_Close((GFX_Disp_Intf) drv->port_priv);
 
     drv->port_priv = NULL;
 }

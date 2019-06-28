@@ -48,8 +48,6 @@
 /* ************************************************************************** */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
 #define GFX_Disp_Intf    uint32_t
 
 /** GFX_DISP_INTF_PIN
@@ -85,7 +83,7 @@ extern "C" {
 
 /** 
   Function:
-    GFX_Disp_Intf_Open(unsigned int index)
+    GFX_Disp_Intf_Open(GFX_Context * gfx)
 
   Summary:
     Opens the interface to the graphics display
@@ -94,16 +92,16 @@ extern "C" {
     This opens the interface to the graphics display (e.g., SPI, parallel).
 
   Parameters:
-    index       - port index
+    None
  
   Returns:
-    * 0 if failed
+    * GFX_Intf       - the interface handle, 0 if failed
 */
-GFX_Disp_Intf GFX_Disp_Intf_Open(uint32_t index);
+GFX_Disp_Intf GFX_Disp_Intf_Open(void);
 
 /** 
   Function:
-    void GFX_Disp_Intf_Close()
+    void GFX_Disp_Intf_Close(GFX_Intf intf)
 
   Summary:
     Closes the interface to the graphics display
@@ -111,16 +109,17 @@ GFX_Disp_Intf GFX_Disp_Intf_Open(uint32_t index);
   Description:
 
   Parameters:
+    intf    - the interface handle
  
   Returns:
     * 0       - Operation successful
     * -1       - Operation failed
 */
-void GFX_Disp_Intf_Close();
+void GFX_Disp_Intf_Close(GFX_Disp_Intf intf);
 
 /** 
   Function:
-    int32_t GFX_Disp_Intf_PinControl(GFX_INTF_PIN pin, GFX_INTF_PIN_VALUE value)
+    int GFX_Disp_Intf_PinControl(GFX_Disp_Intf intf, GFX_INTF_PIN pin, GFX_INTF_PIN_VALUE value)
 
   Summary:
     Sets the value of the GFX control pin
@@ -136,11 +135,11 @@ void GFX_Disp_Intf_Close();
     * 0       - Operation successful
     * -1       - Operation failed
 */
-int32_t GFX_Disp_Intf_PinControl(GFX_DISP_INTF_PIN pin, GFX_DISP_INTF_PIN_VALUE value);
+int GFX_Disp_Intf_PinControl(GFX_Disp_Intf intf, GFX_DISP_INTF_PIN pin, GFX_DISP_INTF_PIN_VALUE value);
 
 /** 
   Function:
-    int32_t GFX_Disp_Intf_WriteCommand(uint8_t cmd)
+    int GFX_Disp_Intf_WriteCommand(GFX_Disp_Intf intf, uint8_t cmd)
 
   Summary:
     Asserts the RS/DCx control pin (LOW) and writes the 8-bit command
@@ -155,11 +154,11 @@ int32_t GFX_Disp_Intf_PinControl(GFX_DISP_INTF_PIN pin, GFX_DISP_INTF_PIN_VALUE 
     * 0       - Operation successful
     * -1       - Operation failed
 */
-int32_t GFX_Disp_Intf_WriteCommand(uint8_t cmd);
+int GFX_Disp_Intf_WriteCommand(GFX_Disp_Intf intf, uint8_t cmd);
 
 /** 
   Function:
-    int32_t GFX_Disp_Intf_WriteCommandParm(uint8_t cmd, uint8_t* parm, int num_parms)
+    int GFX_Disp_Intf_WriteCommandParm(GFX_Disp_Intf intf, uint8_t cmd, uint8_t * parm, int num_parms)
 
   Summary:
     Writes a command and its parameters to the interface.
@@ -178,11 +177,11 @@ int32_t GFX_Disp_Intf_WriteCommand(uint8_t cmd);
     * 0       - Operation successful
     * -1       - Operation failed
 */
-int32_t GFX_Disp_Intf_WriteCommandParm(uint8_t cmd, uint8_t* parm, int num_parms);
+int GFX_Disp_Intf_WriteCommandParm(GFX_Disp_Intf intf, uint8_t cmd, uint8_t * parm, int num_parms);
 
 /** 
   Function:
-    int32_t GFX_Disp_Intf_WriteData(uint8_t* data, int bytes)
+    int GFX_Disp_Intf_WriteData(GFX_Disp_Intf intf, uint8_t * data, int bytes)
 
   Summary:
     Deasserts the RS/DCx control pin (HIGH) and writes the byte stream to the interface
@@ -198,11 +197,11 @@ int32_t GFX_Disp_Intf_WriteCommandParm(uint8_t cmd, uint8_t* parm, int num_parms
     * 0       - Operation successful
     * -1       - Operation failed
 */
-int32_t GFX_Disp_Intf_WriteData(uint8_t* data, int bytes);
+int GFX_Disp_Intf_WriteData(GFX_Disp_Intf intf, uint8_t * data, int bytes);
 
 /** 
   Function:
-    int32_t GFX_Disp_Intf_WriteData16(uint16_t* data, int num)
+    int GFX_Disp_Intf_WriteData16(GFX_Disp_Intf intf, uint16_t * data, int num)
 
   Summary:
     Deasserts the RS/DCx control pin (HIGH) and writes the data to the interface
@@ -220,11 +219,11 @@ int32_t GFX_Disp_Intf_WriteData(uint8_t* data, int bytes);
     * 0       - Operation successful
     * -1       - Operation failed or not supported
 */
-int32_t GFX_Disp_Intf_WriteData16(uint16_t* data, int num);
+int GFX_Disp_Intf_WriteData16(GFX_Disp_Intf intf, uint16_t * data, int num);
 
 /** 
   Function:
-    int32_t GFX_Disp_Intf_ReadData(uint8_t* data, int bytes)
+    int GFX_Disp_Intf_ReadData(GFX_Disp_Intf intf, uint8_t * data, int bytes)
 
   Summary:
     Deasserts the RS/DCx control pin (HIGH) and reads a bytes from the interface
@@ -240,11 +239,11 @@ int32_t GFX_Disp_Intf_WriteData16(uint16_t* data, int num);
     * 0       - Operation successful
     * -1       - Operation failed
 */
-int32_t GFX_Disp_Intf_ReadData(uint8_t* data, int bytes);
+int GFX_Disp_Intf_ReadData(GFX_Disp_Intf intf, uint8_t * data, int bytes);
 
 /** 
   Function:
-    int32_t GFX_Disp_Intf_ReadCommandData(uint8_t cmd, uint8_t* data, int num_data)
+    int GFX_Disp_Intf_ReadCommandData(GFX_Disp_Intf intf, uint8_t cmd, uint8_t * data, int num_data)
 
   Summary:
     Writes a byte command (cmd) to the interface and read num_data bytes from the interface
@@ -263,11 +262,11 @@ int32_t GFX_Disp_Intf_ReadData(uint8_t* data, int bytes);
     * 0       - Operation successful
     * -1       - Operation failed
 */
-int32_t GFX_Disp_Intf_ReadCommandData(uint8_t cmd, uint8_t* data, int num_data);
+int GFX_Disp_Intf_ReadCommandData(GFX_Disp_Intf intf, uint8_t cmd, uint8_t * data, int num_data);
 
 /** 
   Function:
-    int32_t GFX_Disp_Intf_ReadData16(uint16_t* data, int num)
+    int GFX_Disp_Intf_ReadData16(GFX_Disp_Intf intf, uint16_t * data, int num)
 
   Summary:
     Deasserts the RS/DCx control pin (HIGH) and reads 16-bit data chunks from the 
@@ -286,11 +285,11 @@ int32_t GFX_Disp_Intf_ReadCommandData(uint8_t cmd, uint8_t* data, int num_data);
     * 0       - Operation successful
     * -1       - Operation failed or not supported
 */
-int32_t GFX_Disp_Intf_ReadData16(uint16_t* data, int num);
+int GFX_Disp_Intf_ReadData16(GFX_Disp_Intf intf, uint16_t * data, int num);
 
 /** 
   Function:
-    int32_t GFX_Disp_Intf_Write(uint8_t* data, int bytes)
+    int GFX_Disp_Intf_Write(GFX_Disp_Intf intf, uint8_t * data, int bytes)
 
   Summary:
     Writes the byte stream to the interface, control pins are not set
@@ -306,11 +305,11 @@ int32_t GFX_Disp_Intf_ReadData16(uint16_t* data, int num);
     * 0       - Operation successful
     * -1       - Operation failed
 */
-int32_t GFX_Disp_Intf_Write(uint8_t* data, int bytes);
+int GFX_Disp_Intf_Write(GFX_Disp_Intf intf, uint8_t * data, int bytes);
 
 /** 
   Function:
-    int32_t GFX_Disp_Intf_Read(uint8_t* data, int bytes)
+    int GFX_Disp_Intf_Read(GFX_Disp_Intf intf, uint8_t * data, int bytes)
 
   Summary:
     Reads a byte stream from the interface, control pins are not set
@@ -326,11 +325,11 @@ int32_t GFX_Disp_Intf_Write(uint8_t* data, int bytes);
     * 0       - Operation successful
     * -1       - Operation failed
 */
-int32_t GFX_Disp_Intf_Read(uint8_t* data, int bytes);
+int GFX_Disp_Intf_Read(GFX_Disp_Intf intf, uint8_t * data, int bytes);
 
 /** 
   Function:
-    GFX_Disp_Intf_WriteDataByte(uint8_t data);
+    GFX_Disp_Intf_WriteDataByte(GFX_Disp_Intf intf, uint8_t data);
 
   Summary:
     Writes a single byte, RSDC control pin is set
@@ -346,7 +345,7 @@ int32_t GFX_Disp_Intf_Read(uint8_t* data, int bytes);
     * 0       - Operation successful
     * -1       - Operation failed
 */
-int32_t GFX_Disp_Intf_WriteDataByte(uint8_t data);
+int GFX_Disp_Intf_WriteDataByte(GFX_Disp_Intf intf, uint8_t data);
 
     /* Provide C++ Compatibility */
 #ifdef __cplusplus

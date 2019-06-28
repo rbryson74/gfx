@@ -1,6 +1,6 @@
 # coding: utf-8
 ##############################################################################
-# Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+# Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries.
 #
 # Subject to your compliance with these terms, you may use Microchip software
 # and any derivatives exclusively with Microchip products. It is your
@@ -23,11 +23,7 @@
 ##############################################################################
 
 def loadModule():	
-	cntlComponent = Module.CreateComponent("le_gfx_driver_ili9488", "LE ILI9488", "/Graphics/Driver", "config/ili9488_controller.py")
-	cntlComponent.setDisplayType("ILI9488 Display Driver")
-	cntlComponent.addCapability("gfx_driver_ili9488", "LE Display Driver", False)
-	cntlComponent.addDependency("Graphics Display", "Graphics Display", False, False)
-	cntlComponent.addDependency("legato_library", "Legato", True, True)
-	
-	cntlComponent.addDependency("Display Interface", "LE Display Interface", False, True)
-	cntlComponent.addDependency("SYS_TIME", "SYS_TIME", True, True)
+	component = Module.CreateComponent("le_gfx_intf_parallel_ebi", "LE Parallel (EBI)", "/Graphics/Interface", "config/parallel_ebi.py")
+	component.setDisplayType("<html>Parallel Display Interface <br>via EBI<html>")
+	component.addCapability("le_gfx_intf_parallel_ebi", "LE Display Interface", False)
+	component.addDependency("EBI_CS", "EBI_CS", False, True)

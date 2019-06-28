@@ -51,10 +51,10 @@
 #define DISPLAY_DEFAULT_WIDTH   320
 #define DISPLAY_DEFAULT_HEIGHT  480
 
-#define DISPLAY_WIDTH   320
-#define DISPLAY_HEIGHT  480
+#define DISPLAY_WIDTH   ${DisplayWidth}
+#define DISPLAY_HEIGHT  ${DisplayHeight}
 
-<#if Interface == "SPI 4-Line">
+<#if DisplayInterfaceType == "SPI 4-line">
 #define BYTES_PER_PIXEL_BUFFER 3
 <#else>
 <#if ParallelInterfaceWidth == "16-bit">
@@ -88,7 +88,7 @@ static uint32_t swapCount = 0;
  */
 ILI9488_CMD_PARAM initCmdParm[] =
 {
-<#if Interface == "SPI 4-Line">
+<#if DisplayInterfaceType == "SPI 4-line">
     {ILI9488_CMD_INTERFACE_PIXEL_FORMAT_SET, 1, {ILI9488_COLOR_PIX_FMT_18BPP}},
     {ILI9488_CMD_SET_IMAGE_FUNCTION, 1, {0x00}},
 <#else>
@@ -143,9 +143,11 @@ ILI9488_CMD_PARAM initCmdParm[] =
 
 static inline void ILI9488_DelayMS(int ms)
 {
-    //Temporary delay code. Will switch over to a system delay API.
-    int i = 300000*ms;
-    while (i--);
+    SYS_TIME_HANDLE timer = SYS_TIME_HANDLE_INVALID;
+
+    if (SYS_TIME_DelayMS(ms, &timer) != SYS_TIME_SUCCESS)
+        return;
+    while (SYS_TIME_DelayIsComplete(timer) == false);
 }
 /**
   Function:
@@ -226,7 +228,7 @@ leResult DRV_ILI9488_Initialize(void)
     drv.bytesPerPixelBuffer = BYTES_PER_PIXEL_BUFFER;
 
     //Open interface to ILI9488 controller
-    return ILI9488_Intf_Open(&drv, 0);
+    return ILI9488_Intf_Open(&drv);
 }
 
 leColorMode DRV_ILI9488_GetColorMode(void)
@@ -288,8 +290,8 @@ leResult DRV_ILI9488_BlitBuffer(int32_t x,
     int row, col, dataIdx;
     uint16_t* ptr;
     uint16_t clr;
-    
-    uint8_t data[DISPLAY_DEFAULT_WIDTH * 3];
+
+    uint8_t data[DISPLAY_DEFAULT_WIDTH * BYTES_PER_PIXEL_BUFFER];
     
     drv.lineX_Start = x;
     drv.lineX_End = x + buf->size.width;
@@ -301,11 +303,19 @@ leResult DRV_ILI9488_BlitBuffer(int32_t x,
         ptr = lePixelBufferOffsetGet_Unsafe(buf, 0, row);
 
         dataIdx = 0;
-        
+
+<#if ParallelInterfaceWidth == "16-bit">
+        ILI9488_Intf_WritePixels(&drv,
+                                 drv.lineX_Start,
+                                 drv.currentLine,
+                                 ptr, 
+                                 buf->size.width);
+<#else>
         for(col = 0; col < buf->size.width; col++)
         {
             clr = ptr[col];
-            
+
+<#if DisplayInterfaceType == "SPI 4-line">
             // red channel
             data[dataIdx++] = (leColorChannelRed(clr, PIXEL_BUFFER_COLOR_MODE) << 3);
             
@@ -314,14 +324,18 @@ leResult DRV_ILI9488_BlitBuffer(int32_t x,
             
             // blue channel
             data[dataIdx++] = (leColorChannelBlue(clr, PIXEL_BUFFER_COLOR_MODE) << 3);
+<#else>
+            data[dataIdx++] = (uint8_t) (clr >> 8);
+            data[dataIdx++] = (uint8_t) (uint8_t) (clr & 0xff);
+</#if>
         }
 
         ILI9488_Intf_WritePixels(&drv,
                                  drv.lineX_Start,
                                  drv.currentLine,
                                  data, 
-                                 //&drv.pixelBuffer[drv.lineX_Start * BYTES_PER_PIXEL_BUFFER],
-                                 buf->size.width/*(drv.lineX_End - drv.lineX_Start + 1)*/);
+                                 buf->size.width);
+</#if>
     }
 
     return LE_SUCCESS;
