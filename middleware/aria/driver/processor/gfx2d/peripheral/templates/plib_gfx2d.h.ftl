@@ -310,7 +310,8 @@ typedef enum
     GFX2D_RGBT16,
     GFX2D_RGB16,
     GFX2D_RGB24,
-    GFX2D_ARGB32
+    GFX2D_ARGB32,
+    GFX2D_FORMAT_TYPES
 } GFX2D_PIXEL_FORMAT;
 
 
@@ -332,6 +333,71 @@ typedef enum
     GFX2D_XY10,
     GFX2D_XY11
 } GFX2D_TRANSFER_DIRECTION;
+
+/* GFX2D Special Blend
+
+   Summary:
+    Defines the special blend types of the graphics engine.
+
+   Description:
+    This defines .
+
+   Remarks:
+    None.
+*/
+typedef enum 
+{
+    GFX2D_SPE_LIGHTEN = 0,
+    GFX2D_SPE_DARKEN,
+    GFX2D_SPE_MULTIPLY,
+    GFX2D_SPE_AVERAGE,
+    GFX2D_SPE_ADD,
+    GFX2D_SPE_SUBTRACT,
+    GFX2D_SPE_DIFFERENCE,
+    GFX2D_SPE_NEGATION,
+    GFX2D_SPE_SCREEN,
+    GFX2D_SPE_OVERLAY,
+    GFX2D_SPE_DODGE,
+    GFX2D_SPE_BURN,
+    GFX2D_SPE_REFLECT,    
+    GFX2D_SPE_GLOW
+} GFX2D_BLEND_SPE;
+
+typedef enum 
+{
+    GFX2D_FUNCTION_ADD = 0,
+    GFX2D_FUNCTION_SUBTRACT,
+    GFX2D_FUNCTION_REVERSE,
+    GFX2D_FUNCTION_MIN,
+    GFX2D_FUNCTION_MAX,
+    GFX2D_FUNCTION_SPE
+} GFX2D_BLEND_FUNCTION;
+
+typedef enum 
+{
+    GFX2D_FACTOR_ZERO = 0,
+    GFX2D_FACTOR_ONE,
+    GFX2D_FACTOR_SRC_COLOR,
+    GFX2D_FACTOR_ONE_MINUS_SRC_COLOR,
+    GFX2D_FACTOR_DST_COLOR,
+    GFX2D_FACTOR_ONE_MINUS_DST_COLOR,
+    GFX2D_FACTOR_SRC_ALPHA,
+    GFX2D_FACTOR_ONE_MINUS_SRC_ALPHA,
+    GFX2D_FACTOR_DST_ALPHA,
+    GFX2D_FACTOR_ONE_MINUS_DST_ALPHA,
+    GFX2D_FACTOR_CONSTANT_COLOR,
+    GFX2D_FACTOR_ONE_MINUS_CONSTANT_COLOR,
+    GFX2D_FACTOR_CONSTANT_ALPHA,
+    GFX2D_FACTOR_ONE_MINUS_CONSTANT_ALPHA,
+    GFX2D_FACTOR_SRC_ALPHA_SATURATE,
+} GFX2D_BLEND_FACTOR;
+
+typedef enum 
+{
+    GFX2D_ROP2 = 0,
+    GFX2D_ROP3,
+    GFX2D_ROP4
+} GFX2D_ROP_MODE;
 
 // *****************************************************************************
 /**
@@ -381,14 +447,30 @@ typedef uint32_t gpu_color_t;
 /**
  * \berif GFX2D Blend functions
  */
-typedef enum gpu_blend {
-    GFX2D_BLEND_SRC_OVER, /* S + (1-Sa)*D */
-    GFX2D_BLEND_DST_OVER, /* (1-Da) * S + D */
-    GFX2D_BLEND_SRC_IN,   /* Da * S */
-    GFX2D_BLEND_DST_IN,   /* Sa * D */
-    GFX2D_BLEND_ADDITIVE, /* S + D */
-    GFX2D_BLEND_SUBTRACT  /* D * (1 - S) */
+typedef struct gpu_blend {
+    GFX2D_BLEND_SPE spe;
+    GFX2D_BLEND_FUNCTION func;
+    GFX2D_BLEND_FACTOR dfact;
+    GFX2D_BLEND_FACTOR sfact;
 } GFX2D_BLEND;
+
+/**
+ * \berif GFX2D Rop operation
+ */
+typedef struct gpu_rop {
+    uint8_t high;
+    uint8_t low;
+    GFX2D_ROP_MODE mode;
+} GFX2D_ROP;
+
+//typedef enum gpu_blend {
+//    GFX2D_BLEND_SRC_OVER, /* S + (1-Sa)*D */
+//    GFX2D_BLEND_DST_OVER, /* (1-Da) * S + D */
+//    GFX2D_BLEND_SRC_IN,   /* Da * S */
+//    GFX2D_BLEND_DST_IN,   /* Sa * D */
+//    GFX2D_BLEND_ADDITIVE, /* S + D */
+//    GFX2D_BLEND_SUBTRACT  /* D * (1 - S) */
+//} GFX2D_BLEND;
 
 
 // *****************************************************************************
@@ -428,16 +510,20 @@ void ${GFX2D_INSTANCE_NAME}_Enable( void );
 
 void ${GFX2D_INSTANCE_NAME}_Disable( void );
 
-GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_Fill(struct gpu_buffer *dst, struct gpu_rectangle *rect, gpu_color_t color);
+GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_Fill(GFX2D_BUFFER *dst, GFX2D_RECTANGLE *rect, gpu_color_t color);
 
-GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_Copy(struct gpu_buffer *dst, struct gpu_rectangle *dst_rect, struct gpu_buffer *src,
-                        struct gpu_rectangle *src_rect);
+GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_Copy(GFX2D_BUFFER *dst, GFX2D_RECTANGLE *dst_rect, GFX2D_BUFFER *src,
+                        GFX2D_RECTANGLE *src_rect);
 
-GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_Blend(struct gpu_buffer *dst, struct gpu_rectangle *dst_rect, struct gpu_buffer *fg,
-                         struct gpu_rectangle *fg_rect, struct gpu_buffer *bg, struct gpu_rectangle *bg_rect,
-                         enum gpu_blend blend);
+GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_Blend(GFX2D_BUFFER *dst, GFX2D_RECTANGLE *dst_rect, GFX2D_BUFFER *fg,
+                         GFX2D_RECTANGLE *fg_rect, GFX2D_BUFFER *bg, GFX2D_RECTANGLE *bg_rect,
+                         GFX2D_BLEND blend);
 
-bool ${GFX2D_INSTANCE_NAME}_IsBusy(void);
+GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_Rop(GFX2D_BUFFER *dst, GFX2D_RECTANGLE *dst_rect, GFX2D_BUFFER *s1,
+                         GFX2D_RECTANGLE *s1_rect, GFX2D_BUFFER *s2, GFX2D_RECTANGLE *s2_rect,
+                         GFX2D_BUFFER *pmask, struct gpu_rop rop);
+
+bool PLIB_GFX2D_IsBusy(void);
 
 GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_StatusGet(void);
 

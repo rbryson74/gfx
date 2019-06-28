@@ -55,6 +55,14 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 // Section: Global Data
 // *****************************************************************************
 // *****************************************************************************
+<#assign Val_Width = gfx_hal.DisplayWidth>
+<#assign Val_Height = gfx_hal.DisplayHeight>
+
+#define DISPLAY_WIDTH  ${Val_Width}
+#define DISPLAY_HEIGHT ${Val_Height}
+uint32_t  __attribute__ ((aligned (64))) blitbuffer[DISPLAY_WIDTH * DISPLAY_HEIGHT] ;
+uint32_t  __attribute__ ((aligned (64))) maskbuffer[DISPLAY_WIDTH * DISPLAY_HEIGHT] ;
+
 
 static void _gpuDelay(int ms)
 {
@@ -86,11 +94,11 @@ void DRV_GFX2D_Initialize()
 }
 
 void  DRV_GFX2D_Fill(
-    GFX2D_BUFFER *destination,
-    GFX2D_RECTANGLE *rectangle,
+    GFX2D_BUFFER *dest,
+    GFX2D_RECTANGLE *dest_rect,
     gpu_color_t color)
 {
-    PLIB_GFX2D_Fill(destination, rectangle, color);
+    PLIB_GFX2D_Fill(dest, dest_rect, color);
 
     _gpuDelay(10);
     /* Wait for instruction to complete */
@@ -98,6 +106,54 @@ void  DRV_GFX2D_Fill(
     //};
 }
 
+void  DRV_GFX2D_Copy(
+    GFX2D_BUFFER *dest,
+    GFX2D_RECTANGLE *dest_rect,
+    GFX2D_BUFFER *src,
+    GFX2D_RECTANGLE *src_rect)
+{
+    PLIB_GFX2D_Copy(dest, dest_rect, src, src_rect);
+
+    _gpuDelay(10);
+    /* Wait for instruction to complete */
+    //while (gpu_end == 0) {
+    //};
+}
+
+void  DRV_GFX2D_Blend(
+    GFX2D_BUFFER *dest,
+    GFX2D_RECTANGLE *dest_rect,
+    GFX2D_BUFFER *src1,
+    GFX2D_RECTANGLE *src1_rect,
+    GFX2D_BUFFER *src2,
+    GFX2D_RECTANGLE *src2_rect,
+    GFX2D_BLEND blend)
+{
+    PLIB_GFX2D_Blend(dest, dest_rect, src1, src1_rect, src2, src2_rect, blend);
+
+    _gpuDelay(10);
+    /* Wait for instruction to complete */
+    //while (gpu_end == 0) {
+    //};
+}
+
+void  DRV_GFX2D_Rop(
+   GFX2D_BUFFER *dest, 
+   GFX2D_RECTANGLE *dest_rect, 
+   GFX2D_BUFFER *src1,      
+   GFX2D_RECTANGLE *src1_rect, 
+   GFX2D_BUFFER *src2, 
+   GFX2D_RECTANGLE *src2_rect,
+   GFX2D_BUFFER *pmask, 
+   GFX2D_ROP rop)
+{
+    PLIB_GFX2D_Rop(dest, dest_rect, src1, src1_rect, src2, src2_rect, pmask, rop);
+
+    _gpuDelay(10);
+    /* Wait for instruction to complete */
+    //while (gpu_end == 0) {
+    //};
+}
 /*******************************************************************************
  End of File
 */
