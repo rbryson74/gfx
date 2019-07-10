@@ -63,11 +63,18 @@
 #define BYTES_PER_PIXEL_BUFFER 2
 </#if>
 </#if>
-
 <#if PaletteMode == true>
 #define PIXEL_BUFFER_COLOR_MODE LE_COLOR_MODE_GS_8
 <#else>
 #define PIXEL_BUFFER_COLOR_MODE LE_COLOR_MODE_RGB_565
+</#if>
+<#if RowColumnExchange == "Reverse">
+//Row and column are swapped
+#define SCREEN_WIDTH DISPLAY_HEIGHT
+#define SCREEN_HEIGHT DISPLAY_WIDTH
+<#else>
+#define SCREEN_WIDTH DISPLAY_WIDTH
+#define SCREEN_HEIGHT DISPLAY_HEIGHT
 </#if>
 
 ILI9488_DRV drv;
@@ -243,12 +250,12 @@ uint32_t DRV_ILI9488_GetBufferCount(void)
 
 uint32_t DRV_ILI9488_GetDisplayWidth(void)
 {
-    return DISPLAY_WIDTH;
+    return SCREEN_WIDTH;
 }
 
 uint32_t DRV_ILI9488_GetDisplayHeight(void)
 {
-    return DISPLAY_HEIGHT;
+    return SCREEN_HEIGHT;
 }
 
 void DRV_ILI9488_Update(void)
@@ -291,7 +298,7 @@ leResult DRV_ILI9488_BlitBuffer(int32_t x,
     uint16_t* ptr;
     uint16_t clr;
 
-    uint8_t data[DISPLAY_DEFAULT_WIDTH * BYTES_PER_PIXEL_BUFFER];
+    uint8_t data[SCREEN_WIDTH * BYTES_PER_PIXEL_BUFFER];
     
     drv.lineX_Start = x;
     drv.lineX_End = x + buf->size.width;
