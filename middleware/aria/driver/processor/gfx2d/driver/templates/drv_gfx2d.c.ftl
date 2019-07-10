@@ -64,22 +64,12 @@ uint32_t  __attribute__ ((aligned (64))) blitbuffer[DISPLAY_WIDTH * DISPLAY_HEIG
 uint32_t  __attribute__ ((aligned (64))) maskbuffer[DISPLAY_WIDTH * DISPLAY_HEIGHT] ;
 
 
-static void _gpuDelay(int ms)
-{
-    SYS_TIME_HANDLE timer = SYS_TIME_HANDLE_INVALID;
-
-    if (SYS_TIME_DelayMS(ms, &timer) != SYS_TIME_SUCCESS)
-        return;
-
-    while (SYS_TIME_DelayIsComplete(timer) == false);
-} 
-
 /* Indicate end of execute instruction */
 volatile uint8_t gpu_end = 0;
 
 void _IntHandler(uintptr_t context)
 {
-    gpu_end = true;
+    gpu_end = 1;
 }
 
 /**** End Hardware Abstraction Interfaces ****/
@@ -100,8 +90,8 @@ void  DRV_GFX2D_Fill(
 {
     PLIB_GFX2D_Fill(dest, dest_rect, color);
 
-    _gpuDelay(10);
     /* Wait for instruction to complete */
+    while ( PLIB_GFX2D_GetGlobalStatusBusy() == true ) ;
     //while (gpu_end == 0) {
     //};
 }
@@ -114,8 +104,8 @@ void  DRV_GFX2D_Copy(
 {
     PLIB_GFX2D_Copy(dest, dest_rect, src, src_rect);
 
-    _gpuDelay(10);
     /* Wait for instruction to complete */
+    while ( PLIB_GFX2D_GetGlobalStatusBusy() == true ) ;
     //while (gpu_end == 0) {
     //};
 }
@@ -131,8 +121,8 @@ void  DRV_GFX2D_Blend(
 {
     PLIB_GFX2D_Blend(dest, dest_rect, src1, src1_rect, src2, src2_rect, blend);
 
-    _gpuDelay(10);
     /* Wait for instruction to complete */
+    while ( PLIB_GFX2D_GetGlobalStatusBusy() == true ) ;
     //while (gpu_end == 0) {
     //};
 }
@@ -149,8 +139,8 @@ void  DRV_GFX2D_Rop(
 {
     PLIB_GFX2D_Rop(dest, dest_rect, src1, src1_rect, src2, src2_rect, pmask, rop);
 
-    _gpuDelay(10);
     /* Wait for instruction to complete */
+    while ( GFX2D_GetGlobalStatusBusy() == true ) ;
     //while (gpu_end == 0) {
     //};
 }
