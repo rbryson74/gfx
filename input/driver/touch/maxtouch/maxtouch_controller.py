@@ -22,25 +22,53 @@
 # THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 ##############################################################################
 
+def syncFileGen(symbol, event):
+    if event["value"] == "Synchronous":
+       symbol.setEnabled(True)
+    else:
+       symbol.setEnabled(False)
+
+def asyncFileGen(symbol, event):
+    if event["value"] == "Asynchronous":
+       symbol.setEnabled(True)
+    else:
+       symbol.setEnabled(False)
+
+def setCommonMode(symbol, event):
+    rtos_mode = event["value"]
+
+    if rtos_mode != None:
+        if rtos_mode == "BareMetal":
+            symbol.setValue("Asynchronous")
+        else:
+            symbol.setValue("Synchronous")
+
 def instantiateComponent(component):
 	component.setHelpFile("../../../../docs/help_harmony_gfx_html_alias.h")
 	#component.setHelp("IDH_HTML_CMP_GFX__8__MaxTouch_Controller_Component")
 
+        rtos_mode = Database.getSymbolValue("HarmonyCore", "SELECT_RTOS")
+
+        i2c_default_mode = "Asynchronous"
+
+        if ((rtos_mode != "BareMetal") and (rtos_mode != None)):
+            i2c_default_mode = "Synchronous"
+
+        i2cMode = component.createComboSymbol("DRV_I2C_MODE", None, ["Asynchronous", "Synchronous"])
+        i2cMode.setLabel("Driver Mode")
+        i2cMode.setDefaultValue(i2c_default_mode)
+        i2cMode.setDependencies(setCommonMode, ["HarmonyCore.SELECT_RTOS"])
+	
 	Width = component.createIntegerSymbol("Width", None)
 	Width.setLabel("Width")
 	Width.setDescription("The width of the touch panel in pixels.")
 	Width.setDefaultValue(480)
-	
+
 	Height = component.createIntegerSymbol("Height", None)
 	Height.setLabel("Height")
 	Height.setDescription("The height of the touch panel in pixels.")
 	Height.setDefaultValue(272)
-	
-	"""DisplayOrientation = halComponent.createComboSymbol("DisplayOrientation", DisplayMenu, ["0","90","180","270"])
-	DisplayOrientation.setLabel("Display Orientation")
-	DisplayOrientation.setDefaultValue("0")
-	DisplayOrientation.setDescription("Configures the touch panel orientation at the hardware level.")"""
-	
+
 	projectPath = "config/" + Variables.get("__CONFIGURATION_NAME") + "/driver/input"
 	
 	DRV_MAXTOUCH_H = component.createFileSymbol("DRV_MAXTOUCH_H", None)
@@ -48,14 +76,29 @@ def instantiateComponent(component):
 	DRV_MAXTOUCH_H.setDestPath("driver/input/")
 	DRV_MAXTOUCH_H.setProjectPath(projectPath)
 	DRV_MAXTOUCH_H.setType("HEADER")
+        DRV_MAXTOUCH_H.setOverwrite(True)
+
+        # Async Source Files
+        DRV_ASYNC_MAXTOUCH_C = component.createFileSymbol("DRV_MAXTOUCH_C", None)
+        DRV_ASYNC_MAXTOUCH_C.setSourcePath("src/async/drv_maxtouch.c")
+        DRV_ASYNC_MAXTOUCH_C.setDestPath("driver/input/")
+        DRV_ASYNC_MAXTOUCH_C.setProjectPath(projectPath)
+        DRV_ASYNC_MAXTOUCH_C.setType("SOURCE")
+        DRV_ASYNC_MAXTOUCH_C.setOverwrite(True)
+        DRV_ASYNC_MAXTOUCH_C.setEnabled((i2cMode.getValue() == "Asynchronous"))
+        DRV_ASYNC_MAXTOUCH_C.setDependencies(asyncFileGen, ["DRV_I2C_MODE"])
+
+        # Sync Source Files
+        DRV_SYNC_MAXTOUCH_C = component.createFileSymbol("DRV_I2C_SYNC_SRC", None)
+        DRV_SYNC_MAXTOUCH_C.setSourcePath("src/sync/drv_maxtouch.c")
+        DRV_SYNC_MAXTOUCH_C.setDestPath("driver/input/")
+        DRV_SYNC_MAXTOUCH_C.setProjectPath(projectPath)
+        DRV_SYNC_MAXTOUCH_C.setType("SOURCE")
+        DRV_SYNC_MAXTOUCH_C.setOverwrite(True)
+        DRV_SYNC_MAXTOUCH_C.setEnabled((i2cMode.getValue() == "Synchronous"))
+        DRV_SYNC_MAXTOUCH_C.setDependencies(syncFileGen, ["DRV_I2C_MODE"])
 	
-	DRV_MAXTOUCH_C = component.createFileSymbol("DRV_MAXTOUCH_C", None)
-	DRV_MAXTOUCH_C.setSourcePath("src/drv_maxtouch.c")
-	DRV_MAXTOUCH_C.setDestPath("driver/input/")
-	DRV_MAXTOUCH_C.setProjectPath(projectPath)
-	DRV_MAXTOUCH_C.setType("SOURCE")
-	
-	I2CIndex = component.createIntegerSymbol("I2CIndex", None)
+        I2CIndex = component.createIntegerSymbol("I2CIndex", None)
 	I2CIndex.setLabel("I2C Driver Index")
 	I2CIndex.setDefaultValue(0)
 	I2CIndex.setMin(0)
@@ -89,7 +132,7 @@ def instantiateComponent(component):
 	RTOSTaskDelay.setLabel("Task Delay")
 	RTOSTaskDelay.setDefaultValue(10)
 	RTOSTaskDelay.setMin(0)
-	
+
 	TOUCH_DRV_CONFIG_H = component.createFileSymbol("TOUCH_DRV_CONFIG_H", None)
 	TOUCH_DRV_CONFIG_H.setType("STRING")
 	TOUCH_DRV_CONFIG_H.setOutputName("core.LIST_SYSTEM_CONFIG_H_DRIVER_CONFIGURATION")
