@@ -517,7 +517,7 @@ typedef struct gpu_rop {
           
 // *****************************************************************************
 /* Function:
-    void PLIB_GFX2D_SetClockGatingDisableCore(bool enable)
+    void PLIB_GFX2D_SetClockGatingCore(GFX2D_CLOCK_GATING gating)
 
    Summary:
     Enables/disables the clock gating core 
@@ -529,7 +529,7 @@ typedef struct gpu_rop {
     None.
 
    Parameters:
-    enable - if true, clock gating core is disabled, otherwise, it is enabled.
+    enable - GFX2D_CLOCK_GATING
 
    Returns:
     None
@@ -537,11 +537,11 @@ typedef struct gpu_rop {
    Remarks:
     None
 */
-void PLIB_GFX2D_SetClockGatingDisableCore(bool enable);
+void PLIB_GFX2D_SetClockGatingCore(GFX2D_CLOCK_GATING gating);
           
 // *****************************************************************************
 /* Function:
-    void PLIB_GFX2D_SetClockGatingDisableAXI(bool enable)
+    void PLIB_GFX2D_SetClockGatingAXI(GFX2D_CLOCK_GATING gating)
 
    Summary:
     Enables/disables the clock gating AXI core 
@@ -553,7 +553,7 @@ void PLIB_GFX2D_SetClockGatingDisableCore(bool enable);
     None.
 
    Parameters:
-    enable - if true, clock gating AXI is disabled, otherwise, it is enabled.
+    gating - GFX2D_CLOCK_GATING
 
    Returns:
     None
@@ -561,11 +561,11 @@ void PLIB_GFX2D_SetClockGatingDisableCore(bool enable);
    Remarks:
     None
 */
-void PLIB_GFX2D_SetClockGatingDisableAXI(bool enable);
+void PLIB_GFX2D_SetClockGatingAXI(GFX2D_CLOCK_GATING gating);
 
 // *****************************************************************************
 /* Function:
-    void PLIB_GFX2D_SetClockGatingDisableFIFO(bool enable)
+    void PLIB_GFX2D_SetClockGatingFIFO(GFX2D_CLOCK_GATING gating)
 
    Summary:
     Enables/disables the clock gating FIFO core 
@@ -577,7 +577,7 @@ void PLIB_GFX2D_SetClockGatingDisableAXI(bool enable);
     None.
 
    Parameters:
-    enable - if true, clock gating FIFO is disabled, otherwise, it is enabled.
+    gating - GFX2D_CLOCK_GATING
 
    Returns:
     None
@@ -585,7 +585,7 @@ void PLIB_GFX2D_SetClockGatingDisableAXI(bool enable);
    Remarks:
     None
 */
-void PLIB_GFX2D_SetClockGatingDisableFIFO(bool enable);
+void PLIB_GFX2D_SetClockGatingFIFO(GFX2D_CLOCK_GATING gating);
 
 // *****************************************************************************
 /* Function:
@@ -613,7 +613,7 @@ void PLIB_GFX2D_SetOutstandingRegulationEnable(bool enable);
 
 // *****************************************************************************
 /* Function:
-    void PLIB_GFX2D_SetMemoryTileAccess(bool enable)
+    void PLIB_GFX2D_SetMemoryAccess(GFX2D_MEMORY_ACCESS access)
 
    Summary:
     Enables/disables Tile access
@@ -625,7 +625,7 @@ void PLIB_GFX2D_SetOutstandingRegulationEnable(bool enable);
     None.
 
    Parameters:
-    enable - if true, memory linear is Tile , otherwise, it is Linear.
+    access - GFX2D_MEMORY_ACCESS
 
    Returns:
     None
@@ -633,7 +633,7 @@ void PLIB_GFX2D_SetOutstandingRegulationEnable(bool enable);
    Remarks:
     None
 */
-void PLIB_GFX2D_SetMemoryTileAccess(GFX2D_MEMORY_ACCESS access);
+void PLIB_GFX2D_SetMemoryAccess(GFX2D_MEMORY_ACCESS access);
 
 // *****************************************************************************
 /* Function:

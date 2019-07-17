@@ -297,19 +297,19 @@ struct gpu_instruction_rop {
 // *****************************************************************************
 // *****************************************************************************
           
-void ${GFX2D_INSTANCE_NAME}_SetClockGatingDisableCore(bool gating)
+void ${GFX2D_INSTANCE_NAME}_SetClockGatingCore(GFX2D_CLOCK_GATING gating)
 {
     GFX2D_REGS->GFX2D_GC = (GFX2D_REGS->GFX2D_GC & ~GFX2D_GC_CGDISCORE_Msk) | 
                                 GFX2D_GC_CGDISCORE(gating == true);
 }
           
-void ${GFX2D_INSTANCE_NAME}_SetClockGatingDisableAXI(bool gating)
+void ${GFX2D_INSTANCE_NAME}_SetClockGatingAXI(GFX2D_CLOCK_GATING gating)
 {
     GFX2D_REGS->GFX2D_GC = (GFX2D_REGS->GFX2D_GC & ~GFX2D_GC_CGDISAXI_Msk) | 
                                 GFX2D_GC_CGDISAXI(gating == true);
 }
 
-void ${GFX2D_INSTANCE_NAME}_SetClockGatingDisableFIFO(bool gating)
+void ${GFX2D_INSTANCE_NAME}_SetClockGatingFIFO(GFX2D_CLOCK_GATING gating)
 {
     GFX2D_REGS->GFX2D_GC = (GFX2D_REGS->GFX2D_GC & ~GFX2D_GC_CGDISFIFO_Msk) | 
                                 GFX2D_GC_CGDISFIFO(gating == true);
@@ -321,7 +321,7 @@ void ${GFX2D_INSTANCE_NAME}_SetOutstandingRegulationEnable(bool enable)
                                   GFX2D_GC_REGEN(enable == true);
 }
 
-void ${GFX2D_INSTANCE_NAME}_SetMemoryTileAccess(GFX2D_MEMORY_ACCESS access)
+void ${GFX2D_INSTANCE_NAME}_SetMemoryAccess(GFX2D_MEMORY_ACCESS access)
 {
     GFX2D_REGS->GFX2D_GC = (GFX2D_REGS->GFX2D_GC & ~GFX2D_GC_MTY_Msk) | 
                                   GFX2D_GC_MTY(access == GFX2D_MEMORY_LINEAR_ACCESS);
@@ -608,11 +608,11 @@ void ${GFX2D_INSTANCE_NAME}_IRQ_CallbackRegister(${GFX2D_INSTANCE_NAME}_IRQ_CALL
 
 void ${GFX2D_INSTANCE_NAME}_Initialize( void )
 {
-    ${GFX2D_INSTANCE_NAME}_SetClockGatingDisableCore(GFX2D_CLOCK_GATING_ACTIVATED);
-    ${GFX2D_INSTANCE_NAME}_SetClockGatingDisableAXI(GFX2D_CLOCK_GATING_ACTIVATED);
-    ${GFX2D_INSTANCE_NAME}_SetClockGatingDisableFIFO(GFX2D_CLOCK_GATING_ACTIVATED);
+    ${GFX2D_INSTANCE_NAME}_SetClockGatingCore(GFX2D_CLOCK_GATING_ACTIVATED);
+    ${GFX2D_INSTANCE_NAME}_SetClockGatingAXI(GFX2D_CLOCK_GATING_ACTIVATED);
+    ${GFX2D_INSTANCE_NAME}_SetClockGatingFIFO(GFX2D_CLOCK_GATING_ACTIVATED);
     ${GFX2D_INSTANCE_NAME}_SetOutstandingRegulationEnable(false);
-    ${GFX2D_INSTANCE_NAME}_SetMemoryTileAccess(GFX2D_MEMORY_TILE_ACCESS);
+    ${GFX2D_INSTANCE_NAME}_SetMemoryAccess(GFX2D_MEMORY_TILE_ACCESS);
 
     ${GFX2D_INSTANCE_NAME}_SetPerformanceFilter(GFX2D_PERFORMANCE_REG0, GFX2D_METRICS_DISABLED);
     ${GFX2D_INSTANCE_NAME}_SetPerformanceFilter(GFX2D_PERFORMANCE_REG1, GFX2D_METRICS_DISABLED);
