@@ -2,7 +2,7 @@
 <Configuration>
   <Configurator>
     <Name dnOrder="0" value="ili9488_rgb565_mxt_mzef_cu_xpro_parallel"/>
-    <Processor dnOrder="1" value="PIC32MZ2048EFH144"/>
+    <Processor dnOrder="1" value="PIC32MZ2048EFM144"/>
     <Harmony dnOrder="2" path="../../.."/>
     <Manifest dnOrder="3">
       <Files dnOrder="0">
@@ -1187,8 +1187,8 @@
           <Name dnOrder="1">plib_gpio.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_mxt_mzef_cu_xpro_parallel/peripheral/gpio/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/gpio/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">0C1BFD11C0BEA3D47E7167BB8970188B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">0C1BFD11C0BEA3D47E7167BB8970188B</UserChecksum>
+          <GeneratedChecksum dnOrder="4">526C680969E38B38F932C19BBEA4602E</GeneratedChecksum>
+          <UserChecksum dnOrder="5">526C680969E38B38F932C19BBEA4602E</UserChecksum>
         </File>
         <File dnOrder="148">
           <Type dnOrder="0">SOURCE</Type>
@@ -1265,8 +1265,8 @@
         <File dnOrder="157">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">device.h</Name>
-          <LogicalPath dnOrder="2">packs/PIC32MZ2048EFH144_DFP/</LogicalPath>
-          <PhysicalPath dnOrder="3">/../../packs/PIC32MZ2048EFH144_DFP/</PhysicalPath>
+          <LogicalPath dnOrder="2">packs/PIC32MZ2048EFM144_DFP/</LogicalPath>
+          <PhysicalPath dnOrder="3">/../../packs/PIC32MZ2048EFM144_DFP/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">5D5C52527AB1435153DB9B50ADE6B79D</GeneratedChecksum>
           <UserChecksum dnOrder="5">5D5C52527AB1435153DB9B50ADE6B79D</UserChecksum>
         </File>
@@ -2123,16 +2123,16 @@
           <Name dnOrder="1">plib_evic.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_mxt_mzef_cu_xpro_parallel/peripheral/evic/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/evic/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">0718C4C8BAA47288E82FE9CCD4854832</GeneratedChecksum>
-          <UserChecksum dnOrder="5">0718C4C8BAA47288E82FE9CCD4854832</UserChecksum>
+          <GeneratedChecksum dnOrder="4">B38028A617FDD4D90B80660771629645</GeneratedChecksum>
+          <UserChecksum dnOrder="5">B38028A617FDD4D90B80660771629645</UserChecksum>
         </File>
         <File dnOrder="265">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_gpio.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_mxt_mzef_cu_xpro_parallel/peripheral/gpio/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/gpio/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B33ED1842C9770ECBCB8DF76958025BD</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B33ED1842C9770ECBCB8DF76958025BD</UserChecksum>
+          <GeneratedChecksum dnOrder="4">A498496906E3B6398A45DCA72498B1EE</GeneratedChecksum>
+          <UserChecksum dnOrder="5">A498496906E3B6398A45DCA72498B1EE</UserChecksum>
         </File>
         <File dnOrder="266">
           <Type dnOrder="0">HEADER</Type>
@@ -2232,15 +2232,15 @@
         </File>
       </Files>
       <Settings dnOrder="1">
-        <Setting append="true" category="C32" delimiter=";" dnOrder="0" key="extra-include-directories" value="../src;../src/config/ili9488_rgb565_mxt_mzef_cu_xpro_parallel;../src/packs/PIC32MZ2048EFH144_DFP;;../src/mips"/>
+        <Setting append="true" category="C32" delimiter=";" dnOrder="0" key="extra-include-directories" value="../src;../src/config/ili9488_rgb565_mxt_mzef_cu_xpro_parallel;../src/packs/PIC32MZ2048EFM144_DFP;;../src/mips"/>
         <Setting category="C32-LD" dnOrder="1" key="heap-size" value="16384"/>
         <Setting category="C32-LD" dnOrder="2" key="no-device-startup-code" value="true"/>
         <Setting category="C32-LD" dnOrder="3" key="preprocessor-macros" value=""/>
       </Settings>
     </Manifest>
     <Settings dnOrder="4">
-      <Setting dnOrder="0" key="CMSISPath" value=".\dev_packs\arm\CMSIS\5.4.0"/>
-      <Setting dnOrder="1" key="DFPPath" value=".\dev_packs\Microchip\PIC32MZ_EF_DFP\1.0.28\atdf\PIC32MZ2048EFH144.atdf"/>
+      <Setting dnOrder="0" key="CMSISPath" value=".\dev_packs\arm\CMSIS\5.5.1"/>
+      <Setting dnOrder="1" key="DFPPath" value=".\dev_packs\Microchip\PIC32MZ_EF_DFP\1.0.29\atdf\PIC32MZ2048EFM144.atdf"/>
       <Setting dnOrder="2" key="FORCE_OPTIMIZATION" value="false"/>
       <Setting dnOrder="3" key="GENERATE_BACKUP" value="true"/>
       <Setting dnOrder="4" key="MERGE_STRATEGY" value="USER_ALL"/>

@@ -2,7 +2,7 @@
 <Configuration>
   <Configurator>
     <Name dnOrder="0" value="ssd1963_rgb565_mxt_mzef_cu"/>
-    <Processor dnOrder="1" value="PIC32MZ2048EFH144"/>
+    <Processor dnOrder="1" value="PIC32MZ2048EFM144"/>
     <Harmony dnOrder="2" path="../../.."/>
     <Manifest dnOrder="3">
       <Files dnOrder="0">
@@ -35,8 +35,8 @@
           <Name dnOrder="1">drv_gfx_ssd1963.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt_mzef_cu/gfx/driver/ssd1963</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/ssd1963/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">87202B295B372DB595812E0673393E43</GeneratedChecksum>
-          <UserChecksum dnOrder="5">87202B295B372DB595812E0673393E43</UserChecksum>
+          <GeneratedChecksum dnOrder="4">F2247E2083AEDFC7CA86D37229E711FB</GeneratedChecksum>
+          <UserChecksum dnOrder="5">F2247E2083AEDFC7CA86D37229E711FB</UserChecksum>
         </File>
         <File dnOrder="4">
           <Type dnOrder="0">SOURCE</Type>
@@ -1187,8 +1187,8 @@
           <Name dnOrder="1">plib_gpio.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt_mzef_cu/peripheral/gpio/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/gpio/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">7F6619DC6D23F7F12B17E1526CDEABBD</GeneratedChecksum>
-          <UserChecksum dnOrder="5">7F6619DC6D23F7F12B17E1526CDEABBD</UserChecksum>
+          <GeneratedChecksum dnOrder="4">526C680969E38B38F932C19BBEA4602E</GeneratedChecksum>
+          <UserChecksum dnOrder="5">526C680969E38B38F932C19BBEA4602E</UserChecksum>
         </File>
         <File dnOrder="148">
           <Type dnOrder="0">SOURCE</Type>
@@ -1275,14 +1275,14 @@
           <Name dnOrder="1">definitions.h</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt_mzef_cu/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">425630F372F381FAA95E71BF513B4963</GeneratedChecksum>
-          <UserChecksum dnOrder="5">425630F372F381FAA95E71BF513B4963</UserChecksum>
+          <GeneratedChecksum dnOrder="4">E4F4F6E92FBBCD23C54FED1ED5E73D02</GeneratedChecksum>
+          <UserChecksum dnOrder="5">E4F4F6E92FBBCD23C54FED1ED5E73D02</UserChecksum>
         </File>
         <File dnOrder="159">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">device.h</Name>
-          <LogicalPath dnOrder="2">packs/PIC32MZ2048EFH144_DFP/</LogicalPath>
-          <PhysicalPath dnOrder="3">/../../packs/PIC32MZ2048EFH144_DFP/</PhysicalPath>
+          <LogicalPath dnOrder="2">packs/PIC32MZ2048EFM144_DFP/</LogicalPath>
+          <PhysicalPath dnOrder="3">/../../packs/PIC32MZ2048EFM144_DFP/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">5D5C52527AB1435153DB9B50ADE6B79D</GeneratedChecksum>
           <UserChecksum dnOrder="5">5D5C52527AB1435153DB9B50ADE6B79D</UserChecksum>
         </File>
@@ -2147,16 +2147,16 @@
           <Name dnOrder="1">plib_evic.h</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt_mzef_cu/peripheral/evic/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/evic/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">0718C4C8BAA47288E82FE9CCD4854832</GeneratedChecksum>
-          <UserChecksum dnOrder="5">0718C4C8BAA47288E82FE9CCD4854832</UserChecksum>
+          <GeneratedChecksum dnOrder="4">B38028A617FDD4D90B80660771629645</GeneratedChecksum>
+          <UserChecksum dnOrder="5">B38028A617FDD4D90B80660771629645</UserChecksum>
         </File>
         <File dnOrder="268">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_gpio.h</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt_mzef_cu/peripheral/gpio/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/gpio/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E1D34D75B61D1C0FB8F3D20E289B514B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E1D34D75B61D1C0FB8F3D20E289B514B</UserChecksum>
+          <GeneratedChecksum dnOrder="4">0D8F2CE487F08CA3C8B29F6A06322A7C</GeneratedChecksum>
+          <UserChecksum dnOrder="5">0D8F2CE487F08CA3C8B29F6A06322A7C</UserChecksum>
         </File>
         <File dnOrder="269">
           <Type dnOrder="0">HEADER</Type>
@@ -2304,15 +2304,15 @@
         </File>
       </Files>
       <Settings dnOrder="1">
-        <Setting append="true" category="C32" delimiter=";" dnOrder="0" key="extra-include-directories" value="../src;../src/config/ssd1963_rgb565_mxt_mzef_cu;../src/packs/PIC32MZ2048EFH144_DFP;;../src/mips"/>
+        <Setting append="true" category="C32" delimiter=";" dnOrder="0" key="extra-include-directories" value="../src;../src/config/ssd1963_rgb565_mxt_mzef_cu;../src/packs/PIC32MZ2048EFM144_DFP;;../src/mips"/>
         <Setting category="C32-LD" dnOrder="1" key="heap-size" value="16384"/>
         <Setting category="C32-LD" dnOrder="2" key="no-device-startup-code" value="true"/>
         <Setting category="C32-LD" dnOrder="3" key="preprocessor-macros" value=""/>
       </Settings>
     </Manifest>
     <Settings dnOrder="4">
-      <Setting dnOrder="0" key="CMSISPath" value=".\dev_packs\arm\CMSIS\5.4.0"/>
-      <Setting dnOrder="1" key="DFPPath" value=".\dev_packs\Microchip\PIC32MZ_EF_DFP\1.0.28\atdf\PIC32MZ2048EFH144.atdf"/>
+      <Setting dnOrder="0" key="CMSISPath" value=".\dev_packs\arm\CMSIS\5.5.1"/>
+      <Setting dnOrder="1" key="DFPPath" value=".\dev_packs\Microchip\PIC32MZ_EF_DFP\1.0.29\atdf\PIC32MZ2048EFM144.atdf"/>
       <Setting dnOrder="2" key="FORCE_OPTIMIZATION" value="false"/>
       <Setting dnOrder="3" key="GENERATE_BACKUP" value="true"/>
       <Setting dnOrder="4" key="MERGE_STRATEGY" value="USER_ALL"/>
