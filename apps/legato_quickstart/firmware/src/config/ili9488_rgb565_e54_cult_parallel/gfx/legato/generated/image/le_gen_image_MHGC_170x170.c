@@ -2213,8 +2213,7 @@ const uint8_t MHGC_170x170_data[35166] =
 leImage MHGC_170x170 =
 {
     {
-        LE_ASSET_TYPE_IMAGE, // asset type
-        LE_ASSET_LOCATION_ID_INTERNAL, // data location id
+        LE_STREAM_LOCATION_ID_INTERNAL, // data location id
         (void*)MHGC_170x170_data, // data address pointer
         35166, // data size
     },
@@ -2231,7 +2230,7 @@ leImage MHGC_170x170 =
     },
     0, // image flags
     {
-        0x0000, // color mask
+        0x0, // color mask
     },
     NULL, // alpha mask
     NULL, // palette

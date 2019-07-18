@@ -91,7 +91,7 @@ extern leImage MHGC_170x170;
                  0x72-0x75
                  0x79
 ***********************************/
-extern leFont NotoSans_Medium;
+extern leRasterFont NotoSans_Medium;
 
 /*****************************************************************************
  * Legato String Table

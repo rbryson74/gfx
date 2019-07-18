@@ -35,17 +35,21 @@ extern "C" {
 #endif
 
 
+#define LE_GLOBAL_COLOR_MODE               LE_COLOR_MODE_RGB_565
+
 #define LE_ASSERT_ENABLE                   0
 
 #define LE_PREEMPTION_LEVEL                0
-#define LE_ASSET_STREAMING_ENABLED         0
+#define LE_STREAMING_ENABLED               0
+#define LE_TOUCH_ORIENTATION               90
 
-#if LE_ASSET_STREAMING_ENABLED == 1
+#if LE_STREAMING_ENABLED == 1
 #define LE_ASSET_DECODER_CACHE_SIZE        128
 #define LE_ASSET_DECODER_USE_PIXEL_CACHE   0
-#define LE_ASSET_DECODER_USE_MASK_CACHE    0
 #define LE_ASSET_DECODER_USE_PALETTE_CACHE 0
+#define LE_ASSET_DECODER_USE_MASK_CACHE    0
 #define LE_ASSET_DECODER_USE_BLEND_CACHE   0
+#define LE_RASTERFONT_GLYPH_CACHE_SIZE     256
 #endif
 
 // default Font Support

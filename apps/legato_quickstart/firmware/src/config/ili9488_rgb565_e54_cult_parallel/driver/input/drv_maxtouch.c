@@ -1786,7 +1786,6 @@ static uint8_t checksumMessage(uint8_t* msg)
 }
 #endif
 
-#define SWAP_XY
 static void _handleTouchMessage(uint8_t touchID, MAXTOUCH_TouchEvent* tchEvt)
 {
     //uint8_t detect;
@@ -1816,31 +1815,20 @@ static void _handleTouchMessage(uint8_t touchID, MAXTOUCH_TouchEvent* tchEvt)
     switch(event)
     {
         case 0x4: // touch down
-        {       
-#ifdef SWAP_XY
-            SYS_INP_InjectTouchDown(touchID, ypos, xpos);
-#else
+        {            
             SYS_INP_InjectTouchDown(touchID, xpos, ypos);
-#endif            
             
             break;
         }
         case 0x5: // touch up
-        {   
-#ifdef SWAP_XY
-            SYS_INP_InjectTouchUp(touchID, ypos, xpos);
-#else            
+        {            
             SYS_INP_InjectTouchUp(touchID, xpos, ypos);
-#endif            
+            
             break;
         }
         case 0x1: // touch move
-        { 
-#ifdef SWAP_XY
-            SYS_INP_InjectTouchMove(touchID, ypos, xpos);
-#else            
+        {            
             SYS_INP_InjectTouchMove(touchID, xpos, ypos);
-#endif            
             
             break;
         }
