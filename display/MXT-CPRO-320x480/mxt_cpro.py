@@ -26,7 +26,7 @@ def instantiateComponent(comp):
 	Name = comp.createStringSymbol("Name", None)
 	Name.setLabel("Name")
 	Name.setDescription("The display name.")
-	Name.setDefaultValue("MXT-XPRO2")
+	Name.setDefaultValue("MXT-CPRO")
 	Name.setReadOnly(True)
 	
 	DisplayWidth = comp.createIntegerSymbol("DisplayWidth", None)

@@ -22,10 +22,10 @@
 # THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 ##############################################################################
 
-componentsIDTable = ["HarmonyCore", "gfx_legato", "gfx_disp_mxt_xpro2_320x480", "le_gfx_driver_ili9488", "sys_input", "gfx_maxtouch_controller"]
-autoConnectTable = [["le_gfx_driver_ili9488", "Graphics Display", "gfx_disp_mxt_xpro2_320x480", "gfx_display"],
+componentsIDTable = ["HarmonyCore", "gfx_legato", "gfx_disp_mxt_cpro_320x480", "le_gfx_driver_ili9488", "sys_input", "gfx_maxtouch_controller"]
+autoConnectTable = [["le_gfx_driver_ili9488", "Graphics Display", "gfx_disp_mxt_cpro_320x480", "gfx_display"],
 					["gfx_legato", "gfx_driver", "le_gfx_driver_ili9488", "gfx_driver_ili9488"],
-					["gfx_maxtouch_controller", "touch_panel", "gfx_disp_mxt_xpro2_320x480", "touch_panel"]]
+					["gfx_maxtouch_controller", "touch_panel", "gfx_disp_mxt_cpro_320x480", "touch_panel"]]
 deactivateIDTable = ["FreeRTOS"]
 
 execfile(Module.getPath() + "../common/pin_config.py")
@@ -119,7 +119,7 @@ def instantiateComponent(templateComponent):
 
 	DisplayInterface = templateComponent.createComboSymbol("DisplayInterface", None, DisplayInterfaceList)
 	DisplayInterface.setLabel("Display Interface")
-	DisplayInterface.setDescription("Configures the display controller interface to the maXTouch Xplained Pro.")
+	DisplayInterface.setDescription("Configures the display controller interface to the maXTouch Curiosity Pro.")
 	DisplayInterface.setDependencies(onDisplayInterfaceSelected, ["DisplayInterface"])
 	DisplayInterface.setVisible(True)
 

@@ -23,5 +23,5 @@
 ##############################################################################
 
 def loadModule():
-	component = Module.CreateComponent("legato_gfx_xplained_pro2", "Legato Graphics w/ Xplained Pro 2 Display", "/Graphics/Templates/", "legato_gfx_xplained_pro2.py")
-	component.setDisplayType("Legato Graphics w/ Xplained Pro 2 Display")
+	component = Module.CreateComponent("legato_gfx_mxt_cpro", "Legato Graphics w/ MXT Curiosity Pro Display", "/Graphics/Templates/", "legato_gfx_mxt_cpro.py")
+	component.setDisplayType("Legato Graphics w/ MXT Curiosity Pro Display")

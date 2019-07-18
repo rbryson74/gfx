@@ -23,12 +23,12 @@
 ##############################################################################
 
 ############ xpro CONFIG ######################################################
-sam_e54_cult_xpro_p_ActivateList = ["le_gfx_intf_parallel_portgroup", "sercom4", "drv_i2c", "drv_i2c0", "tc0", "sys_time"]
-sam_e54_cult_xpro_p_ConnectList = [["le_gfx_driver_ili9488", "Display Interface", "le_gfx_intf_parallel_portgroup", "le_gfx_intf_parallel_portgroup"],
+sam_e54_cult_cpro_p_ActivateList = ["le_gfx_intf_parallel_portgroup", "sercom4", "drv_i2c", "drv_i2c0", "tc0", "sys_time"]
+sam_e54_cult_cpro_p_ConnectList = [["le_gfx_driver_ili9488", "Display Interface", "le_gfx_intf_parallel_portgroup", "le_gfx_intf_parallel_portgroup"],
 						["drv_i2c_0", "drv_i2c_I2C_dependency", "sercom4", "SERCOM4_I2C"],
 						["gfx_maxtouch_controller", "i2c", "drv_i2c_0", "drv_i2c"],
 						["sys_time", "sys_time_TMR_dependency", "tc0", "TC0_TMR"]]
-sam_e54_cult_xpro_p_PinConfigOpt = [{"pin": 3, "name": "GPIO_PC00", "type": "GPIO", "direction": "Out", "latch": "Low", "abcd": ""}, #PC00
+sam_e54_cult_cpro_p_PinConfigOpt = [{"pin": 3, "name": "GPIO_PC00", "type": "GPIO", "direction": "Out", "latch": "Low", "abcd": ""}, #PC00
 						{"pin": 4, "name": "GPIO_PC01", "type": "GPIO", "direction": "Out", "latch": "Low", "abcd": ""}, #PC01
 						{"pin": 7, "name": "GPIO_PC02", "type": "GPIO", "direction": "Out", "latch": "Low", "abcd": ""}, #PC02
 						{"pin": 8, "name": "GPIO_PC03", "type": "GPIO", "direction": "Out", "latch": "Low", "abcd": ""}, #PC03
@@ -45,7 +45,7 @@ sam_e54_cult_xpro_p_PinConfigOpt = [{"pin": 3, "name": "GPIO_PC00", "type": "GPI
 						{"pin": 2, "name": "GFX_DISP_INTF_PIN_BACKLIGHT", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PA01
 						{"pin": 72, "name": "GFX_DISP_INTF_PIN_RESET", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PC18
 						{"pin": 83, "name": "GFX_DISP_INTF_PIN_RSDC", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}] #PB17
-sam_e54_cult_xpro_p_PinConfigBitBang = [{"pin": 3, "name": "GPIO_PC00", "type": "GPIO", "direction": "Out", "latch": "Low", "abcd": ""}, #PC00
+sam_e54_cult_cpro_p_PinConfigBitBang = [{"pin": 3, "name": "GPIO_PC00", "type": "GPIO", "direction": "Out", "latch": "Low", "abcd": ""}, #PC00
 						{"pin": 4, "name": "GPIO_PC01", "type": "GPIO", "direction": "Out", "latch": "Low", "abcd": ""}, #PC01
 						{"pin": 7, "name": "GPIO_PC02", "type": "GPIO", "direction": "Out", "latch": "Low", "abcd": ""}, #PC02
 						{"pin": 8, "name": "GPIO_PC03", "type": "GPIO", "direction": "Out", "latch": "Low", "abcd": ""}, #PC03
@@ -64,7 +64,7 @@ sam_e54_cult_xpro_p_PinConfigBitBang = [{"pin": 3, "name": "GPIO_PC00", "type": 
 						{"pin": 83, "name": "GFX_DISP_INTF_PIN_WR", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}] #PB17
 ##################################################################################
 
-def sam_e54_cult_xpro_p_eventHandler(event):
+def sam_e54_cult_cpro_p_eventHandler(event):
 	if (event == "configure"):
 		try:
 			#Switch IO Group = 2
@@ -84,8 +84,8 @@ def e54cult_eventHandlerSPI(event):
 sam_e54_cult_dispintf = ['Parallel']
 
 ### Use bit-bang w/ 24-bit passthrough GFX interface card
-sam_e54_cult_xpro_p = bspSupportObj(sam_e54_cult_xpro_p_PinConfigBitBang, sam_e54_cult_xpro_p_ActivateList, None, sam_e54_cult_xpro_p_ConnectList, sam_e54_cult_xpro_p_eventHandler)
+sam_e54_cult_cpro_p = bspSupportObj(sam_e54_cult_cpro_p_PinConfigBitBang, sam_e54_cult_cpro_p_ActivateList, None, sam_e54_cult_cpro_p_ConnectList, sam_e54_cult_cpro_p_eventHandler)
 
-addBSPSupport("BSP_SAM_E54_Curiosity_Ultra", "Parallel", sam_e54_cult_xpro_p)
+addBSPSupport("BSP_SAM_E54_Curiosity_Ultra", "Parallel", sam_e54_cult_cpro_p)
 addDisplayIntfSupport("BSP_SAM_E54_Curiosity_Ultra", sam_e54_cult_dispintf)
 

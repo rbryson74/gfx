@@ -23,7 +23,7 @@
 ##############################################################################
 
 def loadModule():
-	component = Module.CreateComponent("gfx_disp_mxt_xpro2_320x480", "maXTouch Xplained Pro 2", "/Graphics/Displays/", "mxt_xpro2.py")
-	component.setDisplayType("320x480 maXTouch Xplained Pro 2")
+	component = Module.CreateComponent("gfx_disp_mxt_cpro_320x480", "maXTouch Curiosity Pro", "/Graphics/Displays/", "mxt_cpro.py")
+	component.setDisplayType("320x480 maXTouch Curiosity Pro")
 	component.addCapability("gfx_display", "Graphics Display", False)
 	component.addCapability("touch_panel", "Touch Panel", False)
