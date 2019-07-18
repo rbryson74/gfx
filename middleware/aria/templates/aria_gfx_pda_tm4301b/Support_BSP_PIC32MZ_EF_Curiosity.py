@@ -33,8 +33,7 @@ bsp_pic32mzef_cu_PinConfig_LCC = [{"pin": 104, "name": "BSP_MAXTOUCH_CHG", "type
 				{"pin": 53, "name": "GFX_DISP_INTF_PIN_DE", "type": "GPIO", "direction": "Out", "latch": "Low", "abcd": ""}, #RK3
 				{"pin": 51, "name": "GFX_DISP_INTF_PIN_HSYNC", "type": "GPIO", "direction": "Out", "latch": "Low", "abcd": ""}, #RK1
 				{"pin": 52, "name": "GFX_DISP_INTF_PIN_VSYNC", "type": "GPIO", "direction": "Out", "latch": "Low", "abcd": ""}, #RK2
-				{"pin": 57, "name": "GFX_DISP_INTF_PIN_BACKLIGHT", "type": "GPIO", "direction": "Out", "latch": "Low", "abcd": ""}, #RF13
-				{"pin": 106, "name": "OLD_BACKLIGHT", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #RC14 - remove for production
+				{"pin": 37, "name": "GFX_DISP_INTF_PIN_BACKLIGHT", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #RB6
 				{"pin": 29, "name": "GFX_DISP_INTF_PIN_RESET", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}] #RJ14
 ##################################################################################
 

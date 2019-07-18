@@ -34,8 +34,7 @@ bsp_pic32mzef_cu_PinConfig_ILI9488_8080 = [{"pin": 104, "name": "BSP_MAXTOUCH_CH
 				{"pin": 53, "name": "GFX_DISP_INTF_PIN_RD", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #RK3
 				{"pin": 51, "name": "GFX_DISP_INTF_PIN_WR", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #RK1
 				{"pin": 52, "name": "GFX_DISP_INTF_PIN_CS", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #RK2
-				{"pin": 57, "name": "GFX_DISP_INTF_PIN_BACKLIGHT", "type": "GPIO", "direction": "Out", "latch": "Low", "abcd": ""}, #RF13
-				{"pin": 106, "name": "OLD_BACKLIGHT", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #RC14 - remove for production
+				{"pin": 37, "name": "GFX_DISP_INTF_PIN_BACKLIGHT", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #RF13
 				{"pin": 29, "name": "GFX_DISP_INTF_PIN_RESET", "type": "GPIO", "direction": "Out", "latch": "Low", "abcd": ""}, #RJ14
 				{"pin": 12, "name": "GFX_DISP_INTF_PIN_RSDC", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}] #RC3
 ##########################################################################################
