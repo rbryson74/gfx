@@ -29,7 +29,23 @@
 const DRV_MAXTOUCH_INIT drvMAXTOUCHInitData =
 {
     .drvOpen                     = DRV_I2C_Open,
+    <#if orientation == "Normal">
     .orientation                 = 0,
+    <#elseif orientation == "V-Flip">
+    .orientation                 = 2,
+    <#elseif orientation == "H-Flip">
+    .orientation                 = 4,
+    <#elseif orientation == "Rot-180">
+    .orientation                 = 6,
+    <#elseif orientation == "Mirror From X0,Y0">
+    .orientation                 = 1,
+    <#elseif orientation == "Rot-90 Clockwise">
+    .orientation                 = 3,
+    <#elseif orientation == "Rot-90 Counterclockwise">
+    .orientation                 = 5,
+    <#else>
+    .orientation                 = 7,
+    </#if>
     .horizontalResolution        = ${Width},
     .verticalResolution          = ${Height},
 };
