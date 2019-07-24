@@ -73,17 +73,22 @@
             </Boolean>
           </Attributes>
         </File>
-        <Boolean dnOrder="10" id="enableInput">
+        <Boolean dnOrder="10" id="enableAppSupport">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="aria_gfx_library" value="true"/>
+          </Values>
+        </Boolean>
+        <Boolean dnOrder="11" id="enableInput">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="aria_gfx_pda_tm4301b" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="11" id="useGlobalPalette">
+        <Boolean dnOrder="12" id="useGlobalPalette">
           <Values dnOrder="0">
             <User dnOrder="0" value="false"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="12" id="useRTOSExtensions">
+        <Boolean dnOrder="13" id="useRTOSExtensions">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="aria_gfx_library" value="false"/>
           </Values>
@@ -1871,12 +1876,17 @@
     </UniqueComponent>
     <UniqueComponent dnOrder="12" id="gfx_maxtouch_controller">
       <Symbols dnOrder="0">
-        <Integer dnOrder="0" id="Height">
+        <Combo dnOrder="0" id="DRV_I2C_MODE">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="gfx_maxtouch_controller" value="Asynchronous"/>
+          </Values>
+        </Combo>
+        <Integer dnOrder="1" id="Height">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="gfx_maxtouch_controller" value="272"/>
           </Values>
         </Integer>
-        <Integer dnOrder="1" id="I2CIndex">
+        <Integer dnOrder="2" id="I2CIndex">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="readOnly">
               <Value dnOrder="0">true</Value>
@@ -1886,28 +1896,28 @@
             <Dynamic dnOrder="0" id="gfx_maxtouch_controller" value="0"/>
           </Values>
         </Integer>
-        <Boolean dnOrder="2" id="RTOSEnabled">
+        <Boolean dnOrder="3" id="RTOSEnabled">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="enabled">
               <Value dnOrder="0">false</Value>
             </Boolean>
           </Attributes>
         </Boolean>
-        <Menu dnOrder="3" id="RTOSMenu">
+        <Menu dnOrder="4" id="RTOSMenu">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="visible">
               <Value dnOrder="0">false</Value>
             </Boolean>
           </Attributes>
         </Menu>
-        <File dnOrder="4" id="TOUCH_DRV_RTOS_TASK_C">
+        <File dnOrder="5" id="TOUCH_DRV_RTOS_TASK_C">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="enabled">
               <Value dnOrder="0">false</Value>
             </Boolean>
           </Attributes>
         </File>
-        <Integer dnOrder="5" id="Width">
+        <Integer dnOrder="6" id="Width">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="gfx_maxtouch_controller" value="480"/>
           </Values>
