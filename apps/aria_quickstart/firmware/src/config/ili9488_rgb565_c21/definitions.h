@@ -56,6 +56,8 @@
 #include "peripheral/clock/plib_clock.h"
 #include "peripheral/nvic/plib_nvic.h"
 #include "bsp/bsp.h"
+#include "peripheral/tc/plib_tc0.h"
+#include "system/time/sys_time.h"
 #include "driver/spi/drv_spi.h"
 #include "gfx/libaria/libaria_harmony.h"
 #include "system/int/sys_int.h"
@@ -187,6 +189,7 @@ typedef struct
     /* SPI0 Driver Object */
     SYS_MODULE_OBJ drvSPI0;
 
+    SYS_MODULE_OBJ  sysTime;
 
 } SYSTEM_OBJECTS;
 
