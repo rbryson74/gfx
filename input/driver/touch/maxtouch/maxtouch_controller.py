@@ -59,11 +59,6 @@ def instantiateComponent(component):
         i2cMode.setDefaultValue(i2c_default_mode)
         i2cMode.setDependencies(setCommonMode, ["HarmonyCore.SELECT_RTOS"])
 	
-        orient = component.createComboSymbol("orientation", None, ["Normal", "V-Flip", "H-Flip", "Rot-180", "Mirror From X0,Y0", "Rot-90 Clockwise", "Rot-90 Counterclockwise", "Mirror From X0,Ymax"])
-        orient.setLabel("orientation")
-        orient.setDescription("The orientation of the touch panel")
-        orient.setDefaultValue("Normal")
-
 	Width = component.createIntegerSymbol("Width", None)
 	Width.setLabel("Width")
 	Width.setDescription("The width of the touch panel in pixels.")

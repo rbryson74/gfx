@@ -119,7 +119,7 @@
 #define MXT_T100_YSIZE		20
 #define MXT_T100_YRANGE		24
 
-#define MXT_T100_CFG_SWITCHXY	_U_(5)
+#define MXT_T100_CFG_SWITCHXY	(1 << 5) //BIT(5)
 #define MXT_T100_CFG_INVERTY	(1 << 6) //BIT(6)
 #define MXT_T100_CFG_INVERTX	(1 << 7) //BIT(7)
 
@@ -393,8 +393,6 @@ typedef enum
     
     DEVICE_STATE_WRITE_T100_YRANGE,
             
-    DEVICE_STATE_WRITE_T100_CG1,
-            
     /* Driver ready state */
     DEVICE_STATE_READY,   
             
@@ -507,7 +505,6 @@ struct DEVICE_OBJECT
     
     uint16_t xRes;
     uint16_t yRes;
-    uint8_t cfg1;
     
     uint32_t readRequest;
     
@@ -518,7 +515,6 @@ struct DEVICE_OBJECT
     DRV_I2C_TRANSFER_HANDLE hObjectBlockRead;
     DRV_I2C_TRANSFER_HANDLE hXRangeWrite;
     DRV_I2C_TRANSFER_HANDLE hYRangeWrite;
-    DRV_I2C_TRANSFER_HANDLE hCG1Write;
     DRV_I2C_TRANSFER_HANDLE hMessageT5ObjWrite;
     DRV_I2C_TRANSFER_HANDLE hMessageT5ObjRead;
     DRV_I2C_TRANSFER_HANDLE hConfigUpload;
@@ -555,7 +551,7 @@ static void _MessageObjectRead(struct DEVICE_OBJECT* pDrvObject);
 
 /* Send request to read message processor object */
 //static void _RegRead(struct DEVICE_OBJECT* pDrvObject, uint8_t reg);
-static void _RegWrite8(struct DEVICE_OBJECT *pDrvObject, uint16_t reg, uint8_t val, DRV_I2C_TRANSFER_HANDLE * transferHandle);
+static void _RegWrite8(struct DEVICE_OBJECT *pDrvObject, uint8_t reg, uint8_t val, DRV_I2C_TRANSFER_HANDLE * transferHandle);
 static void _RegWrite16(struct DEVICE_OBJECT* pDrvObject, uint8_t reg, uint16_t val, DRV_I2C_TRANSFER_HANDLE * transferHandle);
 static void _RegRead(struct DEVICE_OBJECT *pDrvObject, void* val, size_t size, DRV_I2C_TRANSFER_HANDLE * transferHandle);
 
@@ -679,12 +675,6 @@ void DRV_MAXTOUCH_I2CEventHandler ( DRV_I2C_TRANSFER_EVENT  event,
         obj->deviceState = DEVICE_STATE_WRITE_T100_YRANGE;
     }
 
-    if( transferHandle == obj->hCG1Write &&
-        event == DRV_I2C_TRANSFER_EVENT_COMPLETE )
-    {
-        obj->deviceState = DEVICE_STATE_WRITE_T100_CG1;
-    }
-    
     if( transferHandle == obj->hMessageT5ObjWrite &&
         event == DRV_I2C_TRANSFER_EVENT_COMPLETE  )
     {
@@ -811,8 +801,6 @@ SYS_MODULE_OBJ DRV_MAXTOUCH_Initialize(const SYS_MODULE_INDEX index,
         pDrvInstance->yRes            = pInit->verticalResolution - 1;
     else
         pDrvInstance->yRes = DEFAULT_YRES;
-    
-    pDrvInstance->cfg1 = pInit->orientation << MXT_T100_CFG_SWITCHXY;
     
     pDrvInstance->deviceState = DEVICE_STATE_OPEN;
     pDrvInstance->data.progress = 0;
@@ -1208,16 +1196,6 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
 #ifdef DEBUG_ENABLE           
             SYS_DEBUG_Print("MXT Write T100 YRange %d\n", pDrvObject->taskQueue[0].drvI2CFrameData[2] | pDrvObject->taskQueue[0].drvI2CFrameData[3] << 8);
 #endif
-            _RegWrite8(pDrvObject, pDrvObject->data.T100_address + MXT_T100_CFG1, pDrvObject->cfg1, &pDrvObject->hCG1Write);
-
-                        /* wait for response from I2C then new state will be T100_YRANGE */
-            pDrvObject->deviceState = DEVICE_STATE_WAIT;
-
-            break;
-        } 
-        
-         case DEVICE_STATE_WRITE_T100_CG1:
-        {
             
             /* say we are ready and go to ready state */
             pDrvObject->status = SYS_STATUS_READY;
@@ -1251,7 +1229,7 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
                 case CONFIG_STATE_MXT_COMMAND_BACKUPNV_WRITE:
                 {
                     uint16_t reg = pDrvObject->data.T6_address + MXT_COMMAND_BACKUPNV;
-                    _RegWrite8(pDrvObject, reg, pDrvObject->data.T6_address + MXT_COMMAND_BACKUPNV, &pDrvObject->hBackupNVWrite);
+                    _RegWrite8(pDrvObject, reg, MXT_BACKUP_VALUE, &pDrvObject->hBackupNVWrite);
                     pDrvObject->deviceState = DEVICE_STATE_WAIT;
                     break;
                 }
@@ -1292,7 +1270,7 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
                 case CONFIG_STATE_MXT_COMMAND_RESET_WRITE:
                 {
                     uint16_t reg = pDrvObject->data.T6_address + MXT_COMMAND_RESET;
-                    _RegWrite8(pDrvObject, reg, pDrvObject->data.T6_address + MXT_COMMAND_BACKUPNV, &pDrvObject->hResetWrite);
+                    _RegWrite8(pDrvObject, reg, MXT_RESET_VALUE, &pDrvObject->hResetWrite);
                     pDrvObject->deviceState = DEVICE_STATE_WAIT;
                     break;
                 }
@@ -1690,10 +1668,15 @@ static void _SendResetCommand(struct DEVICE_OBJECT *pDrvObject)
 #endif
 
 /* Send request to read message processor object */
-static void _RegWrite8(struct DEVICE_OBJECT *pDrvObject, uint16_t reg, uint8_t val, DRV_I2C_TRANSFER_HANDLE * transferHandle)
+static void _RegWrite8(struct DEVICE_OBJECT *pDrvObject, uint8_t reg, uint8_t val, DRV_I2C_TRANSFER_HANDLE * transferHandle)
 {
-    buf[0] = reg & 0xFF;  
-    buf[1] = reg >> 8;
+    uint16_t pReg;
+
+    /* write the address of the object register to the device */     
+    pReg = pDrvObject->data.T6_address + MXT_COMMAND_BACKUPNV;
+
+    buf[0] = pReg & 0xFF;  
+    buf[1] = pReg >> 8;
     buf[2] = val;
 
     DRV_I2C_WriteTransferAdd(pDrvObject->drvI2CHandle,

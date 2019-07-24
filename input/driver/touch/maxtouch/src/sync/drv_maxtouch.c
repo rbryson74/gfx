@@ -248,7 +248,6 @@ struct t37_debug {
 #define MXT_T100_YSIZE		20
 #define MXT_T100_YRANGE		24
 
-#define MXT_T100_CFG_SWITCHXY_Pos  _U_(5) /**< SwitchXY Position */
 #define MXT_T100_CFG_SWITCHXY	(1 << 5) //BIT(5)
 #define MXT_T100_CFG_INVERTY	(1 << 6) //BIT(6)
 #define MXT_T100_CFG_INVERTX	(1 << 7) //BIT(7)
@@ -417,7 +416,6 @@ struct mxt_data {
     
     unsigned int xRes;
     unsigned int yRes;
-	unsigned short cfg1;
 
     SYS_STATUS status;
     MXT_DEVICE_STATE deviceState;
@@ -538,7 +536,6 @@ SYS_MODULE_OBJ DRV_MAXTOUCH_Initialize(const SYS_MODULE_INDEX index,
     pDrvInstance->drvOpen = pInit->drvOpen;
     pDrvInstance->xRes    = pInit->horizontalResolution - 1;
     pDrvInstance->yRes    = pInit->verticalResolution - 1;
-	pDrvInstance->cfg1    = pInit->orientation << MXT_T100_CFG_SWITCHXY_Pos;
     pDrvInstance->status  = SYS_STATUS_BUSY;
     pDrvInstance->deviceState = DEVICE_STATE_OPEN;
     
@@ -2568,7 +2565,7 @@ static int mxt_write_t100_config(struct mxt_data *data)
 	//		       object->start_address + MXT_T100_NUMTCH,
 	//		       sizeof(numtch), &numtch);
     
-	/* write touchscreen dimensions */
+	/* read touchscreen dimensions */
 	error = __mxt_write_reg(client,
 			       object->start_address + MXT_T100_XRANGE,
 			       sizeof(data->xRes), &data->xRes);
@@ -2582,12 +2579,16 @@ static int mxt_write_t100_config(struct mxt_data *data)
 	if (error)
 		return error;
 
-	/* write orientation config */
-	error = __mxt_write_reg(client,
-			       object->start_address + MXT_T100_CFG1,
-			       sizeof(data->cfg1), &data->cfg1);
-	if (error)
-		return error;
+	/* read orientation config */
+	//error =  __mxt_read_reg(client,
+	//			object->start_address + MXT_T100_CFG1,
+	//			1, &cfg);
+//	if (error)
+//		return error;
+
+	//data->xy_switch = cfg & MXT_T100_CFG_SWITCHXY;
+	//data->invertx = cfg & MXT_T100_CFG_INVERTX;
+	//data->inverty = cfg & MXT_T100_CFG_INVERTY;
 
 	return 0;
 }
