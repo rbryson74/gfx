@@ -6,7 +6,7 @@
                    projectFiles="true">
       <logicalFolder name="f1" displayName="config" projectFiles="true">
         <logicalFolder name="f1" displayName="ili9488_rgb565_e54" projectFiles="true">
-          <logicalFolder name="f4" displayName="bsp" projectFiles="true">
+          <logicalFolder name="f5" displayName="bsp" projectFiles="true">
             <itemPath>../src/config/ili9488_rgb565_e54/bsp/bsp.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f3" displayName="driver" projectFiles="true">
@@ -158,22 +158,31 @@
                 <itemPath>../src/config/ili9488_rgb565_e54/peripheral/sercom/spim/plib_sercom_spi_common.h</itemPath>
               </logicalFolder>
             </logicalFolder>
+            <logicalFolder name="f8" displayName="tc" projectFiles="true">
+              <itemPath>../src/config/ili9488_rgb565_e54/peripheral/tc/plib_tc_common.h</itemPath>
+              <itemPath>../src/config/ili9488_rgb565_e54/peripheral/tc/plib_tc0.h</itemPath>
+            </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f5" displayName="system" projectFiles="true">
-            <logicalFolder name="f3" displayName="cache" projectFiles="true">
+          <logicalFolder name="f4" displayName="system" projectFiles="true">
+            <logicalFolder name="f4" displayName="cache" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/system/cache/sys_cache.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="dma" projectFiles="true">
+            <logicalFolder name="f5" displayName="dma" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/system/dma/sys_dma.h</itemPath>
               <itemPath>../src/config/ili9488_rgb565_e54/system/dma/sys_dma_mapping.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f1" displayName="int" projectFiles="true">
+            <logicalFolder name="f2" displayName="int" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/system/int/sys_int.h</itemPath>
               <itemPath>../src/config/ili9488_rgb565_e54/system/int/sys_int_mapping.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="ports" projectFiles="true">
+            <logicalFolder name="f3" displayName="ports" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/system/ports/sys_ports.h</itemPath>
               <itemPath>../src/config/ili9488_rgb565_e54/system/ports/sys_ports_mapping.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f1" displayName="time" projectFiles="true">
+              <itemPath>../src/config/ili9488_rgb565_e54/system/time/sys_time.h</itemPath>
+              <itemPath>../src/config/ili9488_rgb565_e54/system/time/sys_time_definitions.h</itemPath>
+              <itemPath>../src/config/ili9488_rgb565_e54/system/time/src/sys_time_local.h</itemPath>
             </logicalFolder>
             <itemPath>../src/config/ili9488_rgb565_e54/system/system.h</itemPath>
             <itemPath>../src/config/ili9488_rgb565_e54/system/system_common.h</itemPath>
@@ -274,10 +283,10 @@
                    projectFiles="true">
       <logicalFolder name="f1" displayName="config" projectFiles="true">
         <logicalFolder name="f1" displayName="ili9488_rgb565_e54" projectFiles="true">
-          <logicalFolder name="f4" displayName="bsp" projectFiles="true">
+          <logicalFolder name="f5" displayName="bsp" projectFiles="true">
             <itemPath>../src/config/ili9488_rgb565_e54/bsp/bsp.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="f5" displayName="driver" projectFiles="true">
+          <logicalFolder name="f6" displayName="driver" projectFiles="true">
             <logicalFolder name="f1" displayName="spi" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/driver/spi/src/drv_spi.c</itemPath>
               <itemPath>../src/config/ili9488_rgb565_e54/driver/spi/src/drv_spi_local.h</itemPath>
@@ -464,19 +473,25 @@
                 <itemPath>../src/config/ili9488_rgb565_e54/peripheral/sercom/spim/plib_sercom4_spi.c</itemPath>
               </logicalFolder>
             </logicalFolder>
+            <logicalFolder name="f8" displayName="tc" projectFiles="true">
+              <itemPath>../src/config/ili9488_rgb565_e54/peripheral/tc/plib_tc0.c</itemPath>
+            </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f3" displayName="stdio" projectFiles="true">
             <itemPath>../src/config/ili9488_rgb565_e54/stdio/xc32_monitor.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="f6" displayName="system" projectFiles="true">
-            <logicalFolder name="f2" displayName="cache" projectFiles="true">
+          <logicalFolder name="f4" displayName="system" projectFiles="true">
+            <logicalFolder name="f3" displayName="cache" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/system/cache/sys_cache.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="dma" projectFiles="true">
+            <logicalFolder name="f4" displayName="dma" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/system/dma/sys_dma.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f1" displayName="int" projectFiles="true">
+            <logicalFolder name="f2" displayName="int" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/system/int/src/sys_int.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f1" displayName="time" projectFiles="true">
+              <itemPath>../src/config/ili9488_rgb565_e54/system/time/src/sys_time.c</itemPath>
             </logicalFolder>
           </logicalFolder>
           <itemPath>../src/config/ili9488_rgb565_e54/initialization.c</itemPath>
@@ -513,8 +528,8 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="CMSIS" vendor="ARM" version="5.0.1"/>
-        <pack name="SAME54_DFP" vendor="Microchip" version="2.0.12"/>
+        <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
+        <pack name="SAME54_DFP" vendor="Microchip" version="3.0.27"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -614,6 +629,9 @@
         <property key="preprocessor-macros" value=""/>
         <property key="warning-level" value=""/>
       </C32-AS>
+      <C32-CO>
+        <property key="coverage-enable" value="false"/>
+      </C32-CO>
       <C32-LD>
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>
