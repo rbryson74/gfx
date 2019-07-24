@@ -605,8 +605,8 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="SAME54_DFP" vendor="Microchip" version="2.0.12"/>
-        <pack name="CMSIS" vendor="ARM" version="5.0.1"/>
+        <pack name="SAME54_DFP" vendor="Microchip" version="3.0.27"/>
+        <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -706,6 +706,9 @@
         <property key="preprocessor-macros" value=""/>
         <property key="warning-level" value=""/>
       </C32-AS>
+      <C32-CO>
+        <property key="coverage-enable" value="false"/>
+      </C32-CO>
       <C32-LD>
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>
@@ -805,6 +808,8 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-fffff"/>
         <property key="poweroptions.powerenable" value="false"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/Users/c18797/Documents/Projects/Harmony/H3/gfx/apps/aria_quickstart/firmware/aria_qs_e54_cu_tm5000_ssd1963_freertos.X/debug/ssd1963_rgb565_mxt_e54_wvga_freertos/aria_qs_e54_cu_tm5000_ssd1963_freertos_ptg"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.preservedataflash" value="false"/>
         <property key="programoptions.preservedataflash.ranges"
