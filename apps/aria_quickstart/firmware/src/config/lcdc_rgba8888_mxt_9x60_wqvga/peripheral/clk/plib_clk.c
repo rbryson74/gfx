@@ -24,6 +24,7 @@ static void initPeriphClk(void)
         { ID_FLEXCOM6, 0, 0, 0},
         { ID_TC0, 0, 0, 0},
         { ID_LCDC, 1, PMC_PCR_GCLKCSS_MCK, 0 },
+        { ID_GFX2D, 0, 0, 0},
         { ID_PIOD, 0, 0, 0},
         { ID_PERIPH_MAX + 1, 0, 0, 0}//end of list marker
     };

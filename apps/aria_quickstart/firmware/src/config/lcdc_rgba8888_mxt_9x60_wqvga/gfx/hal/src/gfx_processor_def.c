@@ -23,7 +23,13 @@
 
 #include "gfx/hal/inc/gfx_processor_interface.h"
 
+GFX_Result procGFX2DInfoGet(GFX_ProcessorInfo* info);
+GFX_Result procGFX2DContextInitialize(GFX_Context* context);
+
 GFX_Result GFX_InitializeProcessorList()
 {
+    GFX_ProcessorInterfaces[0].infoGet = &procGFX2DInfoGet;
+    GFX_ProcessorInterfaces[0].contextInitialize = &procGFX2DContextInitialize;
+
     return GFX_SUCCESS;
 }
