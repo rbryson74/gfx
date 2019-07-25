@@ -39,9 +39,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // DOM-IGNORE-END
 
 #include "drv_maxtouch.h"
-
+#include "definitions.h"
 #include "driver/i2c/drv_i2c.h"
-#include "peripheral/pio/plib_pio.h"
 #include "system/input/sys_input.h"
 
 #include <string.h>
