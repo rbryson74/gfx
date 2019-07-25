@@ -136,7 +136,7 @@ LIB_EXPORT leRectangleWidget* leRectangleWidget_New();
   Remarks:
 
 */
-void leRectangleWidget_Constructor(leRectangleWidget* _this)
+void leRectangleWidget_Constructor(leRectangleWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:

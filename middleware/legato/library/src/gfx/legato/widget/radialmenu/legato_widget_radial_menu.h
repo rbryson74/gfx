@@ -796,7 +796,5 @@ LIB_EXPORT void leRadialMenuWidget_Constructor(leRadialMenuWidget* rad);
 leWidgetUpdateState _leRadialMenuWidget_Update(leRadialMenuWidget* mn);
 // DOM-IGNORE-END
 
-#endif
-
 #endif // LE_RADIALMENU_WIDGET_ENABLED
 #endif /* LEGATO_RADIALMENU_H */

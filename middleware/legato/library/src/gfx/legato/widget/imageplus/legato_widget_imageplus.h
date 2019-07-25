@@ -598,7 +598,5 @@ void _leImagePlusWidget_GetImageRect(leImagePlusWidget* img,
                                      leRect* imgSrcRect);
 // DOM-IGNORE-END
 
-#endif
-
 #endif // LE_IMAGE_WIDGET_ENABLED
 #endif /* LEGATO_IMAGE_H */
