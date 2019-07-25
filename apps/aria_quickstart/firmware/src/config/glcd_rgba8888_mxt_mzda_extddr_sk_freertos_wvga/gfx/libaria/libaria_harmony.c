@@ -44,6 +44,9 @@
 
 #include "gfx/libaria/libaria.h"
 
+#include "gfx/libaria/inc/libaria_context_rtos.h"
+#include "gfx/libaria/inc/libaria_input_rtos.h"
+#include "gfx/libaria/libaria_rtos.h"
 
 #include "system/input/sys_input.h"
 
@@ -100,6 +103,7 @@ int32_t LibAria_Initialize(void)
 
     laContext_SetActive(libariaObj.context);
 
+    laContext_Create_RTOS(libariaObj.context);
 
     libaria_initialize(); // use auto-generated initialization functions
 
@@ -131,7 +135,7 @@ void LibAria_Tasks(void)
             laContext_SetActive(libariaObj.context);
 
 
-            laUpdate(0);
+            laUpdate_RTOS(LA_TRUE, 0);
 
             break;
         }
@@ -145,17 +149,17 @@ void LibAria_Tasks(void)
 
 void touchDownHandler(const SYS_INP_TouchStateEvent* const evt)
 {
-    laInput_InjectTouchDown(evt->index, evt->x, evt->y);
+    laInput_SendTouchDown_Ext_RTOS(evt->index, evt->x, evt->y);
 }
 
 void touchUpHandler(const SYS_INP_TouchStateEvent* const evt)
 {
-    laInput_InjectTouchUp(evt->index, evt->x, evt->y);
+    laInput_SendTouchUp_Ext_RTOS(evt->index, evt->x, evt->y);
 }
 
 void touchMoveHandler(const SYS_INP_TouchMoveEvent* const evt)
 {
-    laInput_InjectTouchMoved(evt->index, evt->x, evt->y);
+    laInput_SendTouchMoved_Ext_RTOS(evt->index, evt->x, evt->y);
 }
 
 

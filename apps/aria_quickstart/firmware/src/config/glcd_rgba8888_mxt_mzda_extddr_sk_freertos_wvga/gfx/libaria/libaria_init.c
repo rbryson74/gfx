@@ -41,6 +41,7 @@
 
 #include "gfx/libaria/libaria_init.h"
 #include "gfx/libaria/inc/libaria_utils.h"
+#include "gfx/libaria/inc/libaria_context_rtos.h"
 
 laScheme defaultScheme;
 laImageWidget* ImageWidget1;
@@ -79,7 +80,7 @@ int32_t libaria_initialize(void)
     screen = laScreen_New(LA_FALSE, LA_FALSE, &ScreenCreate_default);
     laContext_AddScreen(screen);
 
-    laContext_SetActiveScreen(0);
+    laContext_SetActiveScreen_RTOS(0);
 
 	return 0;
 }

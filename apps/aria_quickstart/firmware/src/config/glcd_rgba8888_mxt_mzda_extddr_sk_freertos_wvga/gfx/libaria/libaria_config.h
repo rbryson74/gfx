@@ -59,6 +59,7 @@ extern "C" {
 #define LA_MAX_LAYERS     1
 
 // OSAL support
+#define LIBARIA_USE_RTOS_EXTENSIONS
 
 // widget inclusion
 #define LA_ARC_WIDGET_ENABLED              1

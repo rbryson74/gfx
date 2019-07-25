@@ -127,7 +127,7 @@ void CLK_Initialize( void )
 //END OF CUSTOM CODE    
     PMD2 = 0xffffffff;
     PMD3 = 0xffffffff;
-    PMD4 = 0xffffffff;
+    PMD4 = 0xfffffffe;
     PMD5 = 0xfefeffff;
     PMD6 = 0xffe9e0ff;
     PMD7 = 0xefffffef;

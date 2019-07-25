@@ -67,22 +67,24 @@ void GLCD_Interrupt_Handler( void );
 
 
 /* All the handlers are defined here.  Each will call its PLIB-specific function. */
-void __ISR(_CORE_TIMER_VECTOR, ipl1AUTO) CORE_TIMER_Handler (void)
+void CORE_TIMER_Handler (void)
 {
     CORE_TIMER_InterruptHandler();
 }
 
-void __ISR(_I2C1_BUS_VECTOR, ipl1AUTO) I2C1_BUS_Handler (void)
+
+
+void I2C1_BUS_Handler (void)
 {
     I2C1_BUS_InterruptHandler();
 }
 
-void __ISR(_I2C1_MASTER_VECTOR, ipl1AUTO) I2C1_MASTER_Handler (void)
+void I2C1_MASTER_Handler (void)
 {
     I2C1_MASTER_InterruptHandler();
 }
 
-void __ISR(_GLCD_VECTOR, ipl1AUTO) GLCD_Handler (void)
+void GLCD_Handler (void)
 {
     GLCD_Interrupt_Handler();
 }

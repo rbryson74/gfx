@@ -53,6 +53,59 @@
 #include "configuration.h"
 #include "definitions.h"
 
+// *****************************************************************************
+// *****************************************************************************
+// Section: RTOS "Tasks" Routine
+// *****************************************************************************
+// *****************************************************************************
+void _GFX_HAL_Tasks(  void *pvParameters  )
+{
+    while(1)
+    {
+        GFX_Update();
+        vTaskDelay(10 / portTICK_PERIOD_MS);
+    }
+}
+
+void _SYS_INPUT_Tasks(  void *pvParameters  )
+{
+    while(1)
+    {
+        SYS_INP_Tasks();
+        vTaskDelay(10 / portTICK_PERIOD_MS);
+    }
+}
+
+void _LIBARIA_Tasks(  void *pvParameters  )
+{
+    while(1)
+    {
+        LibAria_Tasks();
+    }
+}
+
+void _DRV_MAXTOUCH_Tasks(  void *pvParameters  )
+{
+    while(1)
+    {
+        DRV_MAXTOUCH_Tasks(sysObj.drvMAXTOUCH);
+        vTaskDelay(10 / portTICK_PERIOD_MS);
+    }
+}
+
+/* Handle for the APP_Tasks. */
+TaskHandle_t xAPP_Tasks;
+
+void _APP_Tasks(  void *pvParameters  )
+{
+    while(1)
+    {
+        APP_Tasks();
+        vTaskDelay(10 / portTICK_PERIOD_MS);
+    }
+}
+
+
 
 // *****************************************************************************
 // *****************************************************************************
@@ -75,27 +128,63 @@ void SYS_Tasks ( void )
 
     /* Maintain Device Drivers */
     
-    GFX_Update();
+    xTaskCreate( _GFX_HAL_Tasks,
+        "GFX_HAL_Tasks",
+        1024,
+        (void*)NULL,
+        1,
+        (TaskHandle_t*)NULL
+    );
 
 
-    DRV_MAXTOUCH_Tasks(sysObj.drvMAXTOUCH);
+    xTaskCreate( _DRV_MAXTOUCH_Tasks,
+        "DRV_MAXTOUCH_Tasks",
+        1024,
+        (void*)NULL,
+        1,
+        (TaskHandle_t*)NULL
+    );
 
 
 
     /* Maintain Middleware & Other Libraries */
     
-    SYS_INP_Tasks();
+    xTaskCreate( _SYS_INPUT_Tasks,
+        "SYS_INPUT_Tasks",
+        1024,
+        (void*)NULL,
+        1,
+        (TaskHandle_t*)NULL
+    );
 
 
-    LibAria_Tasks();
+    xTaskCreate( _LIBARIA_Tasks,
+        "LIBARIA_Tasks",
+        1024,
+        (void*)NULL,
+        2,
+        (TaskHandle_t*)NULL
+    );
 
 
 
     /* Maintain the application's state machine. */
-        /* Call Application task APP. */
-    APP_Tasks();
+        /* Create OS Thread for APP_Tasks. */
+    xTaskCreate((TaskFunction_t) _APP_Tasks,
+                "APP_Tasks",
+                1024,
+                NULL,
+                1,
+                &xAPP_Tasks);
 
 
+
+    /* Start RTOS Scheduler. */
+    
+     /**********************************************************************
+     * Create all Threads for APP Tasks before starting FreeRTOS Scheduler *
+     ***********************************************************************/
+    vTaskStartScheduler(); /* This function never returns. */
 
 }
 

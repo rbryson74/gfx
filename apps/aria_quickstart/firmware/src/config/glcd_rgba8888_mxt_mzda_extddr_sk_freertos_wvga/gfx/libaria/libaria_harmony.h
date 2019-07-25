@@ -46,6 +46,9 @@
 
 #include "gfx/libaria/libaria.h"
 
+#include "gfx/libaria/libaria_rtos.h"
+#include "gfx/libaria/inc/libaria_context_rtos.h"
+#include "gfx/libaria/inc/libaria_input_rtos.h"
 
 #include "gfx/libaria/libaria_init.h"
 
