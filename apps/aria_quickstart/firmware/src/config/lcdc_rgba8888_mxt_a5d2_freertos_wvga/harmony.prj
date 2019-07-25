@@ -51,8 +51,8 @@
           <Name dnOrder="1">drv_gfx_lcdc.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/driver/lcdc</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/lcdc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">1C49242A5056953AB302017E21CC271F</GeneratedChecksum>
-          <UserChecksum dnOrder="5">1C49242A5056953AB302017E21CC271F</UserChecksum>
+          <GeneratedChecksum dnOrder="4">8367139CDF70B02F06A14BCD11B95A12</GeneratedChecksum>
+          <UserChecksum dnOrder="5">8367139CDF70B02F06A14BCD11B95A12</UserChecksum>
         </File>
         <File dnOrder="6">
           <Type dnOrder="0">SOURCE</Type>
@@ -96,13 +96,21 @@
         </File>
         <File dnOrder="11">
           <Type dnOrder="0">SOURCE</Type>
+          <Name dnOrder="1">fault_handlers.c</Name>
+          <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/</LogicalPath>
+          <PhysicalPath dnOrder="3">/</PhysicalPath>
+          <GeneratedChecksum dnOrder="4">9E84FBBFC8C498CF6B6DC9EBC4E3B1FE</GeneratedChecksum>
+          <UserChecksum dnOrder="5">9E84FBBFC8C498CF6B6DC9EBC4E3B1FE</UserChecksum>
+        </File>
+        <File dnOrder="12">
+          <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">freertos_hooks.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">B7DBFD6F500AAD4713403E985EB18EAE</GeneratedChecksum>
           <UserChecksum dnOrder="5">B7DBFD6F500AAD4713403E985EB18EAE</UserChecksum>
         </File>
-        <File dnOrder="12">
+        <File dnOrder="13">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -110,7 +118,7 @@
           <GeneratedChecksum dnOrder="4">05D330FF0EB5123A6B350248962831B3</GeneratedChecksum>
           <UserChecksum dnOrder="5">05D330FF0EB5123A6B350248962831B3</UserChecksum>
         </File>
-        <File dnOrder="13">
+        <File dnOrder="14">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_assets.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx</LogicalPath>
@@ -118,7 +126,7 @@
           <GeneratedChecksum dnOrder="4">5547B168290C2C66767CAF987EB25010</GeneratedChecksum>
           <UserChecksum dnOrder="5">5547B168290C2C66767CAF987EB25010</UserChecksum>
         </File>
-        <File dnOrder="14">
+        <File dnOrder="15">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_color.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -126,7 +134,7 @@
           <GeneratedChecksum dnOrder="4">B4AF6DBC4BC5ACC8530B607D55122FC6</GeneratedChecksum>
           <UserChecksum dnOrder="5">B4AF6DBC4BC5ACC8530B607D55122FC6</UserChecksum>
         </File>
-        <File dnOrder="15">
+        <File dnOrder="16">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_color_blend.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -134,7 +142,7 @@
           <GeneratedChecksum dnOrder="4">B43023033B4405430DD93FB778E91D3F</GeneratedChecksum>
           <UserChecksum dnOrder="5">B43023033B4405430DD93FB778E91D3F</UserChecksum>
         </File>
-        <File dnOrder="16">
+        <File dnOrder="17">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_color_convert.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -142,7 +150,7 @@
           <GeneratedChecksum dnOrder="4">98191B50523CA5EDE761019E6CF67B3C</GeneratedChecksum>
           <UserChecksum dnOrder="5">98191B50523CA5EDE761019E6CF67B3C</UserChecksum>
         </File>
-        <File dnOrder="17">
+        <File dnOrder="18">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_color_lerp.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -150,7 +158,7 @@
           <GeneratedChecksum dnOrder="4">B5DDFB737EC5686B98CF97AD8A38FD16</GeneratedChecksum>
           <UserChecksum dnOrder="5">B5DDFB737EC5686B98CF97AD8A38FD16</UserChecksum>
         </File>
-        <File dnOrder="18">
+        <File dnOrder="19">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_color_value.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -158,7 +166,7 @@
           <GeneratedChecksum dnOrder="4">852AD384FD3FAA28C037AC8AFBEB2173</GeneratedChecksum>
           <UserChecksum dnOrder="5">852AD384FD3FAA28C037AC8AFBEB2173</UserChecksum>
         </File>
-        <File dnOrder="19">
+        <File dnOrder="20">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_context.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -166,7 +174,7 @@
           <GeneratedChecksum dnOrder="4">F6E8E012A77CE6426AA6665D3A5595A3</GeneratedChecksum>
           <UserChecksum dnOrder="5">F6E8E012A77CE6426AA6665D3A5595A3</UserChecksum>
         </File>
-        <File dnOrder="20">
+        <File dnOrder="21">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_default_impl.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -174,7 +182,7 @@
           <GeneratedChecksum dnOrder="4">1A923C5CE9E10B90AB4FBFC97B02173C</GeneratedChecksum>
           <UserChecksum dnOrder="5">1A923C5CE9E10B90AB4FBFC97B02173C</UserChecksum>
         </File>
-        <File dnOrder="21">
+        <File dnOrder="22">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_display.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -182,7 +190,7 @@
           <GeneratedChecksum dnOrder="4">3A296DAF7FB0F3A302A06593A6177502</GeneratedChecksum>
           <UserChecksum dnOrder="5">3A296DAF7FB0F3A302A06593A6177502</UserChecksum>
         </File>
-        <File dnOrder="22">
+        <File dnOrder="23">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_display_def.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -190,7 +198,7 @@
           <GeneratedChecksum dnOrder="4">7B98CF89AD6FADF64532B0E3E81F9886</GeneratedChecksum>
           <UserChecksum dnOrder="5">7B98CF89AD6FADF64532B0E3E81F9886</UserChecksum>
         </File>
-        <File dnOrder="23">
+        <File dnOrder="24">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_draw_arc.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -198,7 +206,7 @@
           <GeneratedChecksum dnOrder="4">0FB97D771634CF1CA3BE11B0E5F170EE</GeneratedChecksum>
           <UserChecksum dnOrder="5">0FB97D771634CF1CA3BE11B0E5F170EE</UserChecksum>
         </File>
-        <File dnOrder="24">
+        <File dnOrder="25">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_draw_blit.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -206,7 +214,7 @@
           <GeneratedChecksum dnOrder="4">DE5C714F06B328FFCFFE920954BB358D</GeneratedChecksum>
           <UserChecksum dnOrder="5">DE5C714F06B328FFCFFE920954BB358D</UserChecksum>
         </File>
-        <File dnOrder="25">
+        <File dnOrder="26">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_draw_circle.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -214,7 +222,7 @@
           <GeneratedChecksum dnOrder="4">94DC5497364338767A3A51BECCB627CD</GeneratedChecksum>
           <UserChecksum dnOrder="5">94DC5497364338767A3A51BECCB627CD</UserChecksum>
         </File>
-        <File dnOrder="26">
+        <File dnOrder="27">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_draw_ellipse.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -222,7 +230,7 @@
           <GeneratedChecksum dnOrder="4">6E7BE09F74FB3E1CDDD27A9487A496FE</GeneratedChecksum>
           <UserChecksum dnOrder="5">6E7BE09F74FB3E1CDDD27A9487A496FE</UserChecksum>
         </File>
-        <File dnOrder="27">
+        <File dnOrder="28">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_draw_line.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -230,7 +238,7 @@
           <GeneratedChecksum dnOrder="4">AAEFDC753BEFB195F87D77AAAF9F092E</GeneratedChecksum>
           <UserChecksum dnOrder="5">AAEFDC753BEFB195F87D77AAAF9F092E</UserChecksum>
         </File>
-        <File dnOrder="28">
+        <File dnOrder="29">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_draw_pixel.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -238,7 +246,7 @@
           <GeneratedChecksum dnOrder="4">72D94C62311366FCBA51928A1A3BAC98</GeneratedChecksum>
           <UserChecksum dnOrder="5">72D94C62311366FCBA51928A1A3BAC98</UserChecksum>
         </File>
-        <File dnOrder="29">
+        <File dnOrder="30">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_draw_rect.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -246,7 +254,7 @@
           <GeneratedChecksum dnOrder="4">7BAE7B96F2DD9D9DC22ECD691AEF7E60</GeneratedChecksum>
           <UserChecksum dnOrder="5">7BAE7B96F2DD9D9DC22ECD691AEF7E60</UserChecksum>
         </File>
-        <File dnOrder="30">
+        <File dnOrder="31">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_draw_stretchblit.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -254,7 +262,7 @@
           <GeneratedChecksum dnOrder="4">1F082E7B851710E7536A426BD872D7D7</GeneratedChecksum>
           <UserChecksum dnOrder="5">1F082E7B851710E7536A426BD872D7D7</UserChecksum>
         </File>
-        <File dnOrder="31">
+        <File dnOrder="32">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_driver_def.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -262,7 +270,7 @@
           <GeneratedChecksum dnOrder="4">794423457F250A85B9A9852C6F72ED79</GeneratedChecksum>
           <UserChecksum dnOrder="5">794423457F250A85B9A9852C6F72ED79</UserChecksum>
         </File>
-        <File dnOrder="32">
+        <File dnOrder="33">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_driver_interface.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -270,7 +278,7 @@
           <GeneratedChecksum dnOrder="4">1F5151CA1D64428A80414A5E792830C8</GeneratedChecksum>
           <UserChecksum dnOrder="5">1F5151CA1D64428A80414A5E792830C8</UserChecksum>
         </File>
-        <File dnOrder="33">
+        <File dnOrder="34">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_get.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -278,7 +286,7 @@
           <GeneratedChecksum dnOrder="4">19506A531863B9E742518FB04F5C8F35</GeneratedChecksum>
           <UserChecksum dnOrder="5">19506A531863B9E742518FB04F5C8F35</UserChecksum>
         </File>
-        <File dnOrder="34">
+        <File dnOrder="35">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_interface.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -286,7 +294,7 @@
           <GeneratedChecksum dnOrder="4">B8C5806AE0F95D7FB4A4DB7767F2D393</GeneratedChecksum>
           <UserChecksum dnOrder="5">B8C5806AE0F95D7FB4A4DB7767F2D393</UserChecksum>
         </File>
-        <File dnOrder="35">
+        <File dnOrder="36">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_layer.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -294,7 +302,7 @@
           <GeneratedChecksum dnOrder="4">031C4F2637DB67BCF3108EDC929C60B1</GeneratedChecksum>
           <UserChecksum dnOrder="5">031C4F2637DB67BCF3108EDC929C60B1</UserChecksum>
         </File>
-        <File dnOrder="36">
+        <File dnOrder="37">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_math.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -302,7 +310,7 @@
           <GeneratedChecksum dnOrder="4">6DC7272FD85B12056507A6A9F06C035B</GeneratedChecksum>
           <UserChecksum dnOrder="5">6DC7272FD85B12056507A6A9F06C035B</UserChecksum>
         </File>
-        <File dnOrder="37">
+        <File dnOrder="38">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_pixel_buffer.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -310,7 +318,7 @@
           <GeneratedChecksum dnOrder="4">7FF074C874EC9C841B7036C8C10DDAA2</GeneratedChecksum>
           <UserChecksum dnOrder="5">7FF074C874EC9C841B7036C8C10DDAA2</UserChecksum>
         </File>
-        <File dnOrder="38">
+        <File dnOrder="39">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_processor_def.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -318,7 +326,7 @@
           <GeneratedChecksum dnOrder="4">2763492977908B9FA25ABB743A806F35</GeneratedChecksum>
           <UserChecksum dnOrder="5">2763492977908B9FA25ABB743A806F35</UserChecksum>
         </File>
-        <File dnOrder="39">
+        <File dnOrder="40">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_processor_interface.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -326,7 +334,7 @@
           <GeneratedChecksum dnOrder="4">FE393662AFD93A0610C9E50ADE6DCD97</GeneratedChecksum>
           <UserChecksum dnOrder="5">FE393662AFD93A0610C9E50ADE6DCD97</UserChecksum>
         </File>
-        <File dnOrder="40">
+        <File dnOrder="41">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_rect.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -334,7 +342,7 @@
           <GeneratedChecksum dnOrder="4">E995D82E3452942FC7296121B2E3F6D9</GeneratedChecksum>
           <UserChecksum dnOrder="5">E995D82E3452942FC7296121B2E3F6D9</UserChecksum>
         </File>
-        <File dnOrder="41">
+        <File dnOrder="42">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_set.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -342,7 +350,7 @@
           <GeneratedChecksum dnOrder="4">E65D71C0A35F688C41F3B4DAA54F7E65</GeneratedChecksum>
           <UserChecksum dnOrder="5">E65D71C0A35F688C41F3B4DAA54F7E65</UserChecksum>
         </File>
-        <File dnOrder="42">
+        <File dnOrder="43">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfx_util.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
@@ -350,7 +358,7 @@
           <GeneratedChecksum dnOrder="4">440E52664C5DFBA6C53C49EC88F76EED</GeneratedChecksum>
           <UserChecksum dnOrder="5">440E52664C5DFBA6C53C49EC88F76EED</UserChecksum>
         </File>
-        <File dnOrder="43">
+        <File dnOrder="44">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfxu_image.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/utils</LogicalPath>
@@ -358,7 +366,7 @@
           <GeneratedChecksum dnOrder="4">7CD749945ECB6DD10B195AB56898A36E</GeneratedChecksum>
           <UserChecksum dnOrder="5">7CD749945ECB6DD10B195AB56898A36E</UserChecksum>
         </File>
-        <File dnOrder="44">
+        <File dnOrder="45">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfxu_image_jpg_common.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/utils/src</LogicalPath>
@@ -366,7 +374,7 @@
           <GeneratedChecksum dnOrder="4">887343786160B96253D1C9377C4066CE</GeneratedChecksum>
           <UserChecksum dnOrder="5">887343786160B96253D1C9377C4066CE</UserChecksum>
         </File>
-        <File dnOrder="45">
+        <File dnOrder="46">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfxu_image_jpg_external.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/utils/src</LogicalPath>
@@ -374,7 +382,7 @@
           <GeneratedChecksum dnOrder="4">4CCEEADB094FAF24CCEB9BCC3271E0D6</GeneratedChecksum>
           <UserChecksum dnOrder="5">4CCEEADB094FAF24CCEB9BCC3271E0D6</UserChecksum>
         </File>
-        <File dnOrder="46">
+        <File dnOrder="47">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfxu_image_jpg_internal.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/utils/src</LogicalPath>
@@ -382,7 +390,7 @@
           <GeneratedChecksum dnOrder="4">5F460CFA5BEB29079C75BC944F08C8BA</GeneratedChecksum>
           <UserChecksum dnOrder="5">5F460CFA5BEB29079C75BC944F08C8BA</UserChecksum>
         </File>
-        <File dnOrder="47">
+        <File dnOrder="48">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfxu_image_png_external.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/utils/src</LogicalPath>
@@ -390,7 +398,7 @@
           <GeneratedChecksum dnOrder="4">B6708F2BFF85CA8B416A80FCAAE9BE0E</GeneratedChecksum>
           <UserChecksum dnOrder="5">B6708F2BFF85CA8B416A80FCAAE9BE0E</UserChecksum>
         </File>
-        <File dnOrder="48">
+        <File dnOrder="49">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfxu_image_png_internal.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/utils/src</LogicalPath>
@@ -398,7 +406,7 @@
           <GeneratedChecksum dnOrder="4">3B79BA5B2FCA8D173EBA754DF3BECA0E</GeneratedChecksum>
           <UserChecksum dnOrder="5">3B79BA5B2FCA8D173EBA754DF3BECA0E</UserChecksum>
         </File>
-        <File dnOrder="49">
+        <File dnOrder="50">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfxu_image_raw_external.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/utils</LogicalPath>
@@ -406,7 +414,7 @@
           <GeneratedChecksum dnOrder="4">3AF6356AA4C4F5E13A6598FAF314D3BB</GeneratedChecksum>
           <UserChecksum dnOrder="5">3AF6356AA4C4F5E13A6598FAF314D3BB</UserChecksum>
         </File>
-        <File dnOrder="50">
+        <File dnOrder="51">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfxu_image_raw_internal.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/utils</LogicalPath>
@@ -414,7 +422,7 @@
           <GeneratedChecksum dnOrder="4">E8DBDA4DA83B331D61ABFA0C393E65B4</GeneratedChecksum>
           <UserChecksum dnOrder="5">E8DBDA4DA83B331D61ABFA0C393E65B4</UserChecksum>
         </File>
-        <File dnOrder="51">
+        <File dnOrder="52">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfxu_image_rle_external.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/utils</LogicalPath>
@@ -422,7 +430,7 @@
           <GeneratedChecksum dnOrder="4">774D305FB5DA07E41A484B23A6031713</GeneratedChecksum>
           <UserChecksum dnOrder="5">774D305FB5DA07E41A484B23A6031713</UserChecksum>
         </File>
-        <File dnOrder="52">
+        <File dnOrder="53">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfxu_image_rle_internal.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/utils</LogicalPath>
@@ -430,7 +438,7 @@
           <GeneratedChecksum dnOrder="4">99CD608D5704FBFF81584F6C2E26E07A</GeneratedChecksum>
           <UserChecksum dnOrder="5">99CD608D5704FBFF81584F6C2E26E07A</UserChecksum>
         </File>
-        <File dnOrder="53">
+        <File dnOrder="54">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfxu_image_utils.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/utils</LogicalPath>
@@ -438,7 +446,7 @@
           <GeneratedChecksum dnOrder="4">8187CF0CC72DDBF6D60A384E82667534</GeneratedChecksum>
           <UserChecksum dnOrder="5">8187CF0CC72DDBF6D60A384E82667534</UserChecksum>
         </File>
-        <File dnOrder="54">
+        <File dnOrder="55">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfxu_palette.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/utils</LogicalPath>
@@ -446,7 +454,7 @@
           <GeneratedChecksum dnOrder="4">CBE716A7AF615698A84476913025FFC1</GeneratedChecksum>
           <UserChecksum dnOrder="5">CBE716A7AF615698A84476913025FFC1</UserChecksum>
         </File>
-        <File dnOrder="55">
+        <File dnOrder="56">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfxu_string.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/utils</LogicalPath>
@@ -454,7 +462,7 @@
           <GeneratedChecksum dnOrder="4">7E98D1BF12A628B5DB7BA68B83FCF43B</GeneratedChecksum>
           <UserChecksum dnOrder="5">7E98D1BF12A628B5DB7BA68B83FCF43B</UserChecksum>
         </File>
-        <File dnOrder="56">
+        <File dnOrder="57">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfxu_string_external.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/utils</LogicalPath>
@@ -462,7 +470,7 @@
           <GeneratedChecksum dnOrder="4">9BF558893A36CE7E1E7831EE45229501</GeneratedChecksum>
           <UserChecksum dnOrder="5">9BF558893A36CE7E1E7831EE45229501</UserChecksum>
         </File>
-        <File dnOrder="57">
+        <File dnOrder="58">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfxu_string_internal.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/utils</LogicalPath>
@@ -470,7 +478,7 @@
           <GeneratedChecksum dnOrder="4">CB3DF8EFB8DA1ADED0D50D57E02802D4</GeneratedChecksum>
           <UserChecksum dnOrder="5">CB3DF8EFB8DA1ADED0D50D57E02802D4</UserChecksum>
         </File>
-        <File dnOrder="58">
+        <File dnOrder="59">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfxu_string_query.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/utils</LogicalPath>
@@ -478,7 +486,7 @@
           <GeneratedChecksum dnOrder="4">2E8F9B8E9800A58562D6879F838359FF</GeneratedChecksum>
           <UserChecksum dnOrder="5">2E8F9B8E9800A58562D6879F838359FF</UserChecksum>
         </File>
-        <File dnOrder="59">
+        <File dnOrder="60">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfxu_string_utils.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/utils</LogicalPath>
@@ -486,7 +494,7 @@
           <GeneratedChecksum dnOrder="4">575B8B41A319411C32C6C611FD3F247F</GeneratedChecksum>
           <UserChecksum dnOrder="5">575B8B41A319411C32C6C611FD3F247F</UserChecksum>
         </File>
-        <File dnOrder="60">
+        <File dnOrder="61">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfxu_stringbuffer_external.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/utils</LogicalPath>
@@ -494,7 +502,7 @@
           <GeneratedChecksum dnOrder="4">E11DE9B8C7EC77ABDA91DD7B29DA4068</GeneratedChecksum>
           <UserChecksum dnOrder="5">E11DE9B8C7EC77ABDA91DD7B29DA4068</UserChecksum>
         </File>
-        <File dnOrder="61">
+        <File dnOrder="62">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">heap_1.c</Name>
           <LogicalPath dnOrder="2">FreeRTOS/Source/portable/MemMang/</LogicalPath>
@@ -502,7 +510,7 @@
           <GeneratedChecksum dnOrder="4">703DC52C8DA59AE98436C29D5D7140E2</GeneratedChecksum>
           <UserChecksum dnOrder="5">703DC52C8DA59AE98436C29D5D7140E2</UserChecksum>
         </File>
-        <File dnOrder="62">
+        <File dnOrder="63">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">iar_monitor.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/stdio/</LogicalPath>
@@ -510,7 +518,7 @@
           <GeneratedChecksum dnOrder="4">51D19E2818A4282EE571C71E4EF288FB</GeneratedChecksum>
           <UserChecksum dnOrder="5">51D19E2818A4282EE571C71E4EF288FB</UserChecksum>
         </File>
-        <File dnOrder="63">
+        <File dnOrder="64">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">initialization.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/</LogicalPath>
@@ -518,7 +526,7 @@
           <GeneratedChecksum dnOrder="4">FF60CA0568D14C06FDE4E70CFD5AB11F</GeneratedChecksum>
           <UserChecksum dnOrder="5">FF60CA0568D14C06FDE4E70CFD5AB11F</UserChecksum>
         </File>
-        <File dnOrder="64">
+        <File dnOrder="65">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">interrupts.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/</LogicalPath>
@@ -526,7 +534,7 @@
           <GeneratedChecksum dnOrder="4">5EFDCBE9D5A0CC9E4BC251B12DFF2CC8</GeneratedChecksum>
           <UserChecksum dnOrder="5">5EFDCBE9D5A0CC9E4BC251B12DFF2CC8</UserChecksum>
         </File>
-        <File dnOrder="65">
+        <File dnOrder="66">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">jidctint.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/third_party/</LogicalPath>
@@ -534,7 +542,7 @@
           <GeneratedChecksum dnOrder="4">4F927C6E353DD9064B36C8717120718D</GeneratedChecksum>
           <UserChecksum dnOrder="5">4F927C6E353DD9064B36C8717120718D</UserChecksum>
         </File>
-        <File dnOrder="66">
+        <File dnOrder="67">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -542,7 +550,7 @@
           <GeneratedChecksum dnOrder="4">82DFFBE59058C6F6D336AE44D719DBBF</GeneratedChecksum>
           <UserChecksum dnOrder="5">82DFFBE59058C6F6D336AE44D719DBBF</UserChecksum>
         </File>
-        <File dnOrder="67">
+        <File dnOrder="68">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_array.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -550,7 +558,7 @@
           <GeneratedChecksum dnOrder="4">2C1EC62F0461D1E0BDC7F3F3F0EDFBBA</GeneratedChecksum>
           <UserChecksum dnOrder="5">2C1EC62F0461D1E0BDC7F3F3F0EDFBBA</UserChecksum>
         </File>
-        <File dnOrder="68">
+        <File dnOrder="69">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_context.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -558,7 +566,7 @@
           <GeneratedChecksum dnOrder="4">7569390DE08F0FECCDF0EE3E3D08AC86</GeneratedChecksum>
           <UserChecksum dnOrder="5">7569390DE08F0FECCDF0EE3E3D08AC86</UserChecksum>
         </File>
-        <File dnOrder="69">
+        <File dnOrder="70">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_context_paint.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -566,7 +574,7 @@
           <GeneratedChecksum dnOrder="4">35F10BB27C6DE62DD9B5E91B8B2F34C2</GeneratedChecksum>
           <UserChecksum dnOrder="5">35F10BB27C6DE62DD9B5E91B8B2F34C2</UserChecksum>
         </File>
-        <File dnOrder="70">
+        <File dnOrder="71">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_context_rtos.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -574,7 +582,7 @@
           <GeneratedChecksum dnOrder="4">F9DF87086FAF8274DF8AE8D722616ED2</GeneratedChecksum>
           <UserChecksum dnOrder="5">F9DF87086FAF8274DF8AE8D722616ED2</UserChecksum>
         </File>
-        <File dnOrder="71">
+        <File dnOrder="72">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_draw.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -582,7 +590,7 @@
           <GeneratedChecksum dnOrder="4">64C8F57C50613BB595B1C10BF2BFCFFA</GeneratedChecksum>
           <UserChecksum dnOrder="5">64C8F57C50613BB595B1C10BF2BFCFFA</UserChecksum>
         </File>
-        <File dnOrder="72">
+        <File dnOrder="73">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_editwidget.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -590,7 +598,7 @@
           <GeneratedChecksum dnOrder="4">61C2FBF9DE0D3724B4594FEAA0659C0D</GeneratedChecksum>
           <UserChecksum dnOrder="5">61C2FBF9DE0D3724B4594FEAA0659C0D</UserChecksum>
         </File>
-        <File dnOrder="73">
+        <File dnOrder="74">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_event.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -598,7 +606,7 @@
           <GeneratedChecksum dnOrder="4">2FB5D876CD272B1BDDF1AA526EAE427B</GeneratedChecksum>
           <UserChecksum dnOrder="5">2FB5D876CD272B1BDDF1AA526EAE427B</UserChecksum>
         </File>
-        <File dnOrder="74">
+        <File dnOrder="75">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_event_rtos.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -606,7 +614,7 @@
           <GeneratedChecksum dnOrder="4">28EC80BD81D15C759D7C975A4034EFD0</GeneratedChecksum>
           <UserChecksum dnOrder="5">28EC80BD81D15C759D7C975A4034EFD0</UserChecksum>
         </File>
-        <File dnOrder="75">
+        <File dnOrder="76">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_events.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -614,7 +622,7 @@
           <GeneratedChecksum dnOrder="4">D720F2FEA1CCAEEF4CF05F5B06D7933E</GeneratedChecksum>
           <UserChecksum dnOrder="5">D720F2FEA1CCAEEF4CF05F5B06D7933E</UserChecksum>
         </File>
-        <File dnOrder="76">
+        <File dnOrder="77">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_harmony.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -622,7 +630,7 @@
           <GeneratedChecksum dnOrder="4">3B85150E76ED23D1EE5AA2DC48BC92FA</GeneratedChecksum>
           <UserChecksum dnOrder="5">3B85150E76ED23D1EE5AA2DC48BC92FA</UserChecksum>
         </File>
-        <File dnOrder="77">
+        <File dnOrder="78">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_init.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -630,7 +638,7 @@
           <GeneratedChecksum dnOrder="4">491854CDB8FD21E57C179849664FCD74</GeneratedChecksum>
           <UserChecksum dnOrder="5">491854CDB8FD21E57C179849664FCD74</UserChecksum>
         </File>
-        <File dnOrder="78">
+        <File dnOrder="79">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_input.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -638,7 +646,7 @@
           <GeneratedChecksum dnOrder="4">C68CB6606B4E48DC2289BF557FAB20A6</GeneratedChecksum>
           <UserChecksum dnOrder="5">C68CB6606B4E48DC2289BF557FAB20A6</UserChecksum>
         </File>
-        <File dnOrder="79">
+        <File dnOrder="80">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_input_rtos.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -646,7 +654,7 @@
           <GeneratedChecksum dnOrder="4">DC53054995DD2233F218F64C571A9B96</GeneratedChecksum>
           <UserChecksum dnOrder="5">DC53054995DD2233F218F64C571A9B96</UserChecksum>
         </File>
-        <File dnOrder="80">
+        <File dnOrder="81">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_layer.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -654,7 +662,7 @@
           <GeneratedChecksum dnOrder="4">F67EDBF092BC6EBFB70C1B4FF9DF1DCE</GeneratedChecksum>
           <UserChecksum dnOrder="5">F67EDBF092BC6EBFB70C1B4FF9DF1DCE</UserChecksum>
         </File>
-        <File dnOrder="81">
+        <File dnOrder="82">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_list.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -662,7 +670,7 @@
           <GeneratedChecksum dnOrder="4">4C109ABF4AE7EA75DE0CC674E5214CA7</GeneratedChecksum>
           <UserChecksum dnOrder="5">4C109ABF4AE7EA75DE0CC674E5214CA7</UserChecksum>
         </File>
-        <File dnOrder="82">
+        <File dnOrder="83">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_macros.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -670,7 +678,7 @@
           <GeneratedChecksum dnOrder="4">64E4D23B6C4C91DC0E326721488C1AE1</GeneratedChecksum>
           <UserChecksum dnOrder="5">64E4D23B6C4C91DC0E326721488C1AE1</UserChecksum>
         </File>
-        <File dnOrder="83">
+        <File dnOrder="84">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_radiobutton_group.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -678,7 +686,7 @@
           <GeneratedChecksum dnOrder="4">6A1AE7A34AD1CD83F2C607BF99A44CF3</GeneratedChecksum>
           <UserChecksum dnOrder="5">6A1AE7A34AD1CD83F2C607BF99A44CF3</UserChecksum>
         </File>
-        <File dnOrder="84">
+        <File dnOrder="85">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_rectarray.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -686,7 +694,7 @@
           <GeneratedChecksum dnOrder="4">596C969750B17636DBFBF5C1933E3E3E</GeneratedChecksum>
           <UserChecksum dnOrder="5">596C969750B17636DBFBF5C1933E3E3E</UserChecksum>
         </File>
-        <File dnOrder="85">
+        <File dnOrder="86">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_rtos.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -694,7 +702,7 @@
           <GeneratedChecksum dnOrder="4">AB922C521FA82A170A45ECD7AC37F5FE</GeneratedChecksum>
           <UserChecksum dnOrder="5">AB922C521FA82A170A45ECD7AC37F5FE</UserChecksum>
         </File>
-        <File dnOrder="86">
+        <File dnOrder="87">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_scheme.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -702,7 +710,7 @@
           <GeneratedChecksum dnOrder="4">3CD2787E665DB310467890706ED5F7AB</GeneratedChecksum>
           <UserChecksum dnOrder="5">3CD2787E665DB310467890706ED5F7AB</UserChecksum>
         </File>
-        <File dnOrder="87">
+        <File dnOrder="88">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_screen.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -710,7 +718,7 @@
           <GeneratedChecksum dnOrder="4">9AD54D610057646EF2309BD17B9F3B3A</GeneratedChecksum>
           <UserChecksum dnOrder="5">9AD54D610057646EF2309BD17B9F3B3A</UserChecksum>
         </File>
-        <File dnOrder="88">
+        <File dnOrder="89">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_string.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -718,7 +726,7 @@
           <GeneratedChecksum dnOrder="4">03BBD5DC954187AABF3CE9902AE544AA</GeneratedChecksum>
           <UserChecksum dnOrder="5">03BBD5DC954187AABF3CE9902AE544AA</UserChecksum>
         </File>
-        <File dnOrder="89">
+        <File dnOrder="90">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_utils.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -726,7 +734,7 @@
           <GeneratedChecksum dnOrder="4">3888B07BBFA0CEDA76FB0872E50683A5</GeneratedChecksum>
           <UserChecksum dnOrder="5">3888B07BBFA0CEDA76FB0872E50683A5</UserChecksum>
         </File>
-        <File dnOrder="90">
+        <File dnOrder="91">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -734,7 +742,7 @@
           <GeneratedChecksum dnOrder="4">0C1EE97E167A52E89C7200CF45D274E8</GeneratedChecksum>
           <UserChecksum dnOrder="5">0C1EE97E167A52E89C7200CF45D274E8</UserChecksum>
         </File>
-        <File dnOrder="91">
+        <File dnOrder="92">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_arc.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -742,7 +750,7 @@
           <GeneratedChecksum dnOrder="4">3751E77788D6200CD0BF46AC04CB42FA</GeneratedChecksum>
           <UserChecksum dnOrder="5">3751E77788D6200CD0BF46AC04CB42FA</UserChecksum>
         </File>
-        <File dnOrder="92">
+        <File dnOrder="93">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_arc_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -750,7 +758,7 @@
           <GeneratedChecksum dnOrder="4">9C8FE859AB05FBEC7C43B3EBAA5182D6</GeneratedChecksum>
           <UserChecksum dnOrder="5">9C8FE859AB05FBEC7C43B3EBAA5182D6</UserChecksum>
         </File>
-        <File dnOrder="93">
+        <File dnOrder="94">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_bar_graph.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -758,7 +766,7 @@
           <GeneratedChecksum dnOrder="4">C7B76B9A9DA78A4A710997DB7E8BB885</GeneratedChecksum>
           <UserChecksum dnOrder="5">C7B76B9A9DA78A4A710997DB7E8BB885</UserChecksum>
         </File>
-        <File dnOrder="94">
+        <File dnOrder="95">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_bar_graph_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -766,7 +774,7 @@
           <GeneratedChecksum dnOrder="4">019D9C165F2C62EE9C820C3971A0DF04</GeneratedChecksum>
           <UserChecksum dnOrder="5">019D9C165F2C62EE9C820C3971A0DF04</UserChecksum>
         </File>
-        <File dnOrder="95">
+        <File dnOrder="96">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_button.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -774,7 +782,7 @@
           <GeneratedChecksum dnOrder="4">D028586C985CE1F1F6AB58F34FB13DB7</GeneratedChecksum>
           <UserChecksum dnOrder="5">D028586C985CE1F1F6AB58F34FB13DB7</UserChecksum>
         </File>
-        <File dnOrder="96">
+        <File dnOrder="97">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_button_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -782,7 +790,7 @@
           <GeneratedChecksum dnOrder="4">9FBC81A96A5EB3B4496E06C62B645CAF</GeneratedChecksum>
           <UserChecksum dnOrder="5">9FBC81A96A5EB3B4496E06C62B645CAF</UserChecksum>
         </File>
-        <File dnOrder="97">
+        <File dnOrder="98">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_checkbox.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -790,7 +798,7 @@
           <GeneratedChecksum dnOrder="4">863AA4A3A82897E71E29CFF5F21A1A32</GeneratedChecksum>
           <UserChecksum dnOrder="5">863AA4A3A82897E71E29CFF5F21A1A32</UserChecksum>
         </File>
-        <File dnOrder="98">
+        <File dnOrder="99">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_checkbox_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -798,7 +806,7 @@
           <GeneratedChecksum dnOrder="4">A1AC579BEBE207B2107052537F547970</GeneratedChecksum>
           <UserChecksum dnOrder="5">A1AC579BEBE207B2107052537F547970</UserChecksum>
         </File>
-        <File dnOrder="99">
+        <File dnOrder="100">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_circle.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -806,7 +814,7 @@
           <GeneratedChecksum dnOrder="4">643BCCB29011A6787D96D9BB68D611A1</GeneratedChecksum>
           <UserChecksum dnOrder="5">643BCCB29011A6787D96D9BB68D611A1</UserChecksum>
         </File>
-        <File dnOrder="100">
+        <File dnOrder="101">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_circle_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -814,7 +822,7 @@
           <GeneratedChecksum dnOrder="4">CFB5DA2CBC2179D5D791BB052A155FFD</GeneratedChecksum>
           <UserChecksum dnOrder="5">CFB5DA2CBC2179D5D791BB052A155FFD</UserChecksum>
         </File>
-        <File dnOrder="101">
+        <File dnOrder="102">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_circular_gauge.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -822,7 +830,7 @@
           <GeneratedChecksum dnOrder="4">B83B8B386BC08968FF2E8E5CC21E3B53</GeneratedChecksum>
           <UserChecksum dnOrder="5">B83B8B386BC08968FF2E8E5CC21E3B53</UserChecksum>
         </File>
-        <File dnOrder="102">
+        <File dnOrder="103">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_circular_gauge_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -830,7 +838,7 @@
           <GeneratedChecksum dnOrder="4">F228D5405961464F9A25F6C3FF0B0A54</GeneratedChecksum>
           <UserChecksum dnOrder="5">F228D5405961464F9A25F6C3FF0B0A54</UserChecksum>
         </File>
-        <File dnOrder="103">
+        <File dnOrder="104">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_circular_slider.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -838,7 +846,7 @@
           <GeneratedChecksum dnOrder="4">5EFBE2BF4EB15F32065F9CBE104E7D3E</GeneratedChecksum>
           <UserChecksum dnOrder="5">5EFBE2BF4EB15F32065F9CBE104E7D3E</UserChecksum>
         </File>
-        <File dnOrder="104">
+        <File dnOrder="105">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_circular_slider_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -846,7 +854,7 @@
           <GeneratedChecksum dnOrder="4">DBE0CBB0684C6C365211D97F358FE972</GeneratedChecksum>
           <UserChecksum dnOrder="5">DBE0CBB0684C6C365211D97F358FE972</UserChecksum>
         </File>
-        <File dnOrder="105">
+        <File dnOrder="106">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_drawsurface.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -854,7 +862,7 @@
           <GeneratedChecksum dnOrder="4">52FE0537A001B18D4ADC9BB75C4C087B</GeneratedChecksum>
           <UserChecksum dnOrder="5">52FE0537A001B18D4ADC9BB75C4C087B</UserChecksum>
         </File>
-        <File dnOrder="106">
+        <File dnOrder="107">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_drawsurface_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -862,7 +870,7 @@
           <GeneratedChecksum dnOrder="4">3BA6E8DEA0AF6027C5667F03E80026E1</GeneratedChecksum>
           <UserChecksum dnOrder="5">3BA6E8DEA0AF6027C5667F03E80026E1</UserChecksum>
         </File>
-        <File dnOrder="107">
+        <File dnOrder="108">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_gradient.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -870,7 +878,7 @@
           <GeneratedChecksum dnOrder="4">56B05AC3DD4160159FDE2DE0D5B790C0</GeneratedChecksum>
           <UserChecksum dnOrder="5">56B05AC3DD4160159FDE2DE0D5B790C0</UserChecksum>
         </File>
-        <File dnOrder="108">
+        <File dnOrder="109">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_gradient_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -878,7 +886,7 @@
           <GeneratedChecksum dnOrder="4">6B2AFA84BF63AFA2FC11C5754123D346</GeneratedChecksum>
           <UserChecksum dnOrder="5">6B2AFA84BF63AFA2FC11C5754123D346</UserChecksum>
         </File>
-        <File dnOrder="109">
+        <File dnOrder="110">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_groupbox.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -886,7 +894,7 @@
           <GeneratedChecksum dnOrder="4">FB6B8936B5CDD29D6DB465308BCA952E</GeneratedChecksum>
           <UserChecksum dnOrder="5">FB6B8936B5CDD29D6DB465308BCA952E</UserChecksum>
         </File>
-        <File dnOrder="110">
+        <File dnOrder="111">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_groupbox_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -894,7 +902,7 @@
           <GeneratedChecksum dnOrder="4">D799C06A5C712E1A8B3CEF7FC0EDD502</GeneratedChecksum>
           <UserChecksum dnOrder="5">D799C06A5C712E1A8B3CEF7FC0EDD502</UserChecksum>
         </File>
-        <File dnOrder="111">
+        <File dnOrder="112">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_image.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -902,7 +910,7 @@
           <GeneratedChecksum dnOrder="4">B9DA70C4FA55F058475E238D04A8F61B</GeneratedChecksum>
           <UserChecksum dnOrder="5">B9DA70C4FA55F058475E238D04A8F61B</UserChecksum>
         </File>
-        <File dnOrder="112">
+        <File dnOrder="113">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_image_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -910,7 +918,7 @@
           <GeneratedChecksum dnOrder="4">E55BA4C2B140A5D4806C8C6109384BDE</GeneratedChecksum>
           <UserChecksum dnOrder="5">E55BA4C2B140A5D4806C8C6109384BDE</UserChecksum>
         </File>
-        <File dnOrder="113">
+        <File dnOrder="114">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_imageplus.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -918,7 +926,7 @@
           <GeneratedChecksum dnOrder="4">4696196BE2309E889401CCC2AB9717D2</GeneratedChecksum>
           <UserChecksum dnOrder="5">4696196BE2309E889401CCC2AB9717D2</UserChecksum>
         </File>
-        <File dnOrder="114">
+        <File dnOrder="115">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_imageplus_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -926,7 +934,7 @@
           <GeneratedChecksum dnOrder="4">30C059CE062A627CF3A73CC63A0AC7D0</GeneratedChecksum>
           <UserChecksum dnOrder="5">30C059CE062A627CF3A73CC63A0AC7D0</UserChecksum>
         </File>
-        <File dnOrder="115">
+        <File dnOrder="116">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_imagesequence.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -934,7 +942,7 @@
           <GeneratedChecksum dnOrder="4">226386E2A9ADDA085EBE250BA69EE0B1</GeneratedChecksum>
           <UserChecksum dnOrder="5">226386E2A9ADDA085EBE250BA69EE0B1</UserChecksum>
         </File>
-        <File dnOrder="116">
+        <File dnOrder="117">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_imagesequence_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -942,7 +950,7 @@
           <GeneratedChecksum dnOrder="4">6FE31A92332D0234858512057BB90929</GeneratedChecksum>
           <UserChecksum dnOrder="5">6FE31A92332D0234858512057BB90929</UserChecksum>
         </File>
-        <File dnOrder="117">
+        <File dnOrder="118">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_keypad.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -950,7 +958,7 @@
           <GeneratedChecksum dnOrder="4">475B740B2AADA932A697F55045286BFC</GeneratedChecksum>
           <UserChecksum dnOrder="5">475B740B2AADA932A697F55045286BFC</UserChecksum>
         </File>
-        <File dnOrder="118">
+        <File dnOrder="119">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_keypad_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -958,7 +966,7 @@
           <GeneratedChecksum dnOrder="4">F1D5B8DFD82237FF79014009A0886E4A</GeneratedChecksum>
           <UserChecksum dnOrder="5">F1D5B8DFD82237FF79014009A0886E4A</UserChecksum>
         </File>
-        <File dnOrder="119">
+        <File dnOrder="120">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_label.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -966,7 +974,7 @@
           <GeneratedChecksum dnOrder="4">B15EF88B1C36057FC94E7780DF3B8FED</GeneratedChecksum>
           <UserChecksum dnOrder="5">B15EF88B1C36057FC94E7780DF3B8FED</UserChecksum>
         </File>
-        <File dnOrder="120">
+        <File dnOrder="121">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_label_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -974,7 +982,7 @@
           <GeneratedChecksum dnOrder="4">D61C101FF6BE1FC67580718083C0FE63</GeneratedChecksum>
           <UserChecksum dnOrder="5">D61C101FF6BE1FC67580718083C0FE63</UserChecksum>
         </File>
-        <File dnOrder="121">
+        <File dnOrder="122">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_line.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -982,7 +990,7 @@
           <GeneratedChecksum dnOrder="4">A51CACC584F454D908B9BF40A888A4C4</GeneratedChecksum>
           <UserChecksum dnOrder="5">A51CACC584F454D908B9BF40A888A4C4</UserChecksum>
         </File>
-        <File dnOrder="122">
+        <File dnOrder="123">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_line_graph.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -990,7 +998,7 @@
           <GeneratedChecksum dnOrder="4">F75F8A26E64A73AC6CF14B9843F014EF</GeneratedChecksum>
           <UserChecksum dnOrder="5">F75F8A26E64A73AC6CF14B9843F014EF</UserChecksum>
         </File>
-        <File dnOrder="123">
+        <File dnOrder="124">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_line_graph_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -998,7 +1006,7 @@
           <GeneratedChecksum dnOrder="4">1B25B1FE187504F6841D6899EE925716</GeneratedChecksum>
           <UserChecksum dnOrder="5">1B25B1FE187504F6841D6899EE925716</UserChecksum>
         </File>
-        <File dnOrder="124">
+        <File dnOrder="125">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_line_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1006,7 +1014,7 @@
           <GeneratedChecksum dnOrder="4">45DD313B1B83EDF70AE2538E88D7DABF</GeneratedChecksum>
           <UserChecksum dnOrder="5">45DD313B1B83EDF70AE2538E88D7DABF</UserChecksum>
         </File>
-        <File dnOrder="125">
+        <File dnOrder="126">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_list.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1014,7 +1022,7 @@
           <GeneratedChecksum dnOrder="4">B295329C69D68CA95DDBFF4D6E1977ED</GeneratedChecksum>
           <UserChecksum dnOrder="5">B295329C69D68CA95DDBFF4D6E1977ED</UserChecksum>
         </File>
-        <File dnOrder="126">
+        <File dnOrder="127">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_list_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1022,7 +1030,7 @@
           <GeneratedChecksum dnOrder="4">1401931A1501E7E23A71621A84EB9217</GeneratedChecksum>
           <UserChecksum dnOrder="5">1401931A1501E7E23A71621A84EB9217</UserChecksum>
         </File>
-        <File dnOrder="127">
+        <File dnOrder="128">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_listwheel.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1030,7 +1038,7 @@
           <GeneratedChecksum dnOrder="4">181DDEBE8EEA4F26B55057EC140AC750</GeneratedChecksum>
           <UserChecksum dnOrder="5">181DDEBE8EEA4F26B55057EC140AC750</UserChecksum>
         </File>
-        <File dnOrder="128">
+        <File dnOrder="129">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_listwheel_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1038,7 +1046,7 @@
           <GeneratedChecksum dnOrder="4">C68D281FA7363396AC16EBBF1913158C</GeneratedChecksum>
           <UserChecksum dnOrder="5">C68D281FA7363396AC16EBBF1913158C</UserChecksum>
         </File>
-        <File dnOrder="129">
+        <File dnOrder="130">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_pie_chart.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1046,7 +1054,7 @@
           <GeneratedChecksum dnOrder="4">338C5C30EFB8FA5654AB68197420A971</GeneratedChecksum>
           <UserChecksum dnOrder="5">338C5C30EFB8FA5654AB68197420A971</UserChecksum>
         </File>
-        <File dnOrder="130">
+        <File dnOrder="131">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_pie_chart_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1054,7 +1062,7 @@
           <GeneratedChecksum dnOrder="4">137DC0FA31D6AFA2DCCB2E2EF50D84F2</GeneratedChecksum>
           <UserChecksum dnOrder="5">137DC0FA31D6AFA2DCCB2E2EF50D84F2</UserChecksum>
         </File>
-        <File dnOrder="131">
+        <File dnOrder="132">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_progressbar.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1062,7 +1070,7 @@
           <GeneratedChecksum dnOrder="4">BD9C9EF0048559EA975D79E8274AB3EE</GeneratedChecksum>
           <UserChecksum dnOrder="5">BD9C9EF0048559EA975D79E8274AB3EE</UserChecksum>
         </File>
-        <File dnOrder="132">
+        <File dnOrder="133">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_progressbar_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1070,7 +1078,7 @@
           <GeneratedChecksum dnOrder="4">6DBE943B316E64C95BFDB5A1AAD20D57</GeneratedChecksum>
           <UserChecksum dnOrder="5">6DBE943B316E64C95BFDB5A1AAD20D57</UserChecksum>
         </File>
-        <File dnOrder="133">
+        <File dnOrder="134">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_radial_menu.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1078,7 +1086,7 @@
           <GeneratedChecksum dnOrder="4">34BFE6720B220A59A0C2AEE07302BAE3</GeneratedChecksum>
           <UserChecksum dnOrder="5">34BFE6720B220A59A0C2AEE07302BAE3</UserChecksum>
         </File>
-        <File dnOrder="134">
+        <File dnOrder="135">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_radial_menu_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1086,7 +1094,7 @@
           <GeneratedChecksum dnOrder="4">482BE097BDCA778E2EB12255B09B98F1</GeneratedChecksum>
           <UserChecksum dnOrder="5">482BE097BDCA778E2EB12255B09B98F1</UserChecksum>
         </File>
-        <File dnOrder="135">
+        <File dnOrder="136">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_radiobutton.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1094,7 +1102,7 @@
           <GeneratedChecksum dnOrder="4">82834B1FAF0B91486AAA28649C841791</GeneratedChecksum>
           <UserChecksum dnOrder="5">82834B1FAF0B91486AAA28649C841791</UserChecksum>
         </File>
-        <File dnOrder="136">
+        <File dnOrder="137">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_radiobutton_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1102,7 +1110,7 @@
           <GeneratedChecksum dnOrder="4">8182842256F41A63E15A10AEFDCFA913</GeneratedChecksum>
           <UserChecksum dnOrder="5">8182842256F41A63E15A10AEFDCFA913</UserChecksum>
         </File>
-        <File dnOrder="137">
+        <File dnOrder="138">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_rectangle.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1110,7 +1118,7 @@
           <GeneratedChecksum dnOrder="4">F1586C0FF21790703F8205990A42E871</GeneratedChecksum>
           <UserChecksum dnOrder="5">F1586C0FF21790703F8205990A42E871</UserChecksum>
         </File>
-        <File dnOrder="138">
+        <File dnOrder="139">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_rectangle_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1118,7 +1126,7 @@
           <GeneratedChecksum dnOrder="4">236A498C728717053EB602A9DC534F3F</GeneratedChecksum>
           <UserChecksum dnOrder="5">236A498C728717053EB602A9DC534F3F</UserChecksum>
         </File>
-        <File dnOrder="139">
+        <File dnOrder="140">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_scrollbar.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1126,7 +1134,7 @@
           <GeneratedChecksum dnOrder="4">B2021F8945FF54F332152AAC4E7C49CF</GeneratedChecksum>
           <UserChecksum dnOrder="5">B2021F8945FF54F332152AAC4E7C49CF</UserChecksum>
         </File>
-        <File dnOrder="140">
+        <File dnOrder="141">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_scrollbar_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1134,7 +1142,7 @@
           <GeneratedChecksum dnOrder="4">AE00FB4A2B397481582C75D90D0A1712</GeneratedChecksum>
           <UserChecksum dnOrder="5">AE00FB4A2B397481582C75D90D0A1712</UserChecksum>
         </File>
-        <File dnOrder="141">
+        <File dnOrder="142">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1142,7 +1150,7 @@
           <GeneratedChecksum dnOrder="4">E79F5D3477D4553F12A01E24B49CE7AE</GeneratedChecksum>
           <UserChecksum dnOrder="5">E79F5D3477D4553F12A01E24B49CE7AE</UserChecksum>
         </File>
-        <File dnOrder="142">
+        <File dnOrder="143">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_skin_classic_common.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1150,7 +1158,7 @@
           <GeneratedChecksum dnOrder="4">DD3A32E078647990D30F3143ACAFE157</GeneratedChecksum>
           <UserChecksum dnOrder="5">DD3A32E078647990D30F3143ACAFE157</UserChecksum>
         </File>
-        <File dnOrder="143">
+        <File dnOrder="144">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_slider.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1158,7 +1166,7 @@
           <GeneratedChecksum dnOrder="4">831E65A607C01F72DA53D35E44A2056C</GeneratedChecksum>
           <UserChecksum dnOrder="5">831E65A607C01F72DA53D35E44A2056C</UserChecksum>
         </File>
-        <File dnOrder="144">
+        <File dnOrder="145">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_slider_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1166,7 +1174,7 @@
           <GeneratedChecksum dnOrder="4">50454261620C755FB52F8E7AB4B1B85F</GeneratedChecksum>
           <UserChecksum dnOrder="5">50454261620C755FB52F8E7AB4B1B85F</UserChecksum>
         </File>
-        <File dnOrder="145">
+        <File dnOrder="146">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_textfield.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1174,7 +1182,7 @@
           <GeneratedChecksum dnOrder="4">FCB9C9455175CD33DFEDF2E3E104085A</GeneratedChecksum>
           <UserChecksum dnOrder="5">FCB9C9455175CD33DFEDF2E3E104085A</UserChecksum>
         </File>
-        <File dnOrder="146">
+        <File dnOrder="147">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_textfield_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1182,7 +1190,7 @@
           <GeneratedChecksum dnOrder="4">9816A2866A1FD2E1133B3E546560508D</GeneratedChecksum>
           <UserChecksum dnOrder="5">9816A2866A1FD2E1133B3E546560508D</UserChecksum>
         </File>
-        <File dnOrder="147">
+        <File dnOrder="148">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_touchtest.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1190,7 +1198,7 @@
           <GeneratedChecksum dnOrder="4">2BCE65EB070AB902214175AC8B09AE54</GeneratedChecksum>
           <UserChecksum dnOrder="5">2BCE65EB070AB902214175AC8B09AE54</UserChecksum>
         </File>
-        <File dnOrder="148">
+        <File dnOrder="149">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_touchtest_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1198,7 +1206,7 @@
           <GeneratedChecksum dnOrder="4">A01FD10F3AE624A0BD4EEE9810638766</GeneratedChecksum>
           <UserChecksum dnOrder="5">A01FD10F3AE624A0BD4EEE9810638766</UserChecksum>
         </File>
-        <File dnOrder="149">
+        <File dnOrder="150">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_window.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1206,7 +1214,7 @@
           <GeneratedChecksum dnOrder="4">BEF0F45F34FD89D0303F9BC3E60E716D</GeneratedChecksum>
           <UserChecksum dnOrder="5">BEF0F45F34FD89D0303F9BC3E60E716D</UserChecksum>
         </File>
-        <File dnOrder="150">
+        <File dnOrder="151">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_window_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
@@ -1214,7 +1222,7 @@
           <GeneratedChecksum dnOrder="4">345372CB351E601E410BA61E9DD4575B</GeneratedChecksum>
           <UserChecksum dnOrder="5">345372CB351E601E410BA61E9DD4575B</UserChecksum>
         </File>
-        <File dnOrder="151">
+        <File dnOrder="152">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">list.c</Name>
           <LogicalPath dnOrder="2">FreeRTOS/Source</LogicalPath>
@@ -1222,7 +1230,7 @@
           <GeneratedChecksum dnOrder="4">17ED426CF72047F289CD58849BC0C60F</GeneratedChecksum>
           <UserChecksum dnOrder="5">17ED426CF72047F289CD58849BC0C60F</UserChecksum>
         </File>
-        <File dnOrder="152">
+        <File dnOrder="153">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">lodepng.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/third_party/lodepng/</LogicalPath>
@@ -1230,7 +1238,7 @@
           <GeneratedChecksum dnOrder="4">3B3D605003E50E04E4088A1C4CC5666A</GeneratedChecksum>
           <UserChecksum dnOrder="5">3B3D605003E50E04E4088A1C4CC5666A</UserChecksum>
         </File>
-        <File dnOrder="153">
+        <File dnOrder="154">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">osal_freertos.c</Name>
           <LogicalPath dnOrder="2">/osal/</LogicalPath>
@@ -1238,7 +1246,7 @@
           <GeneratedChecksum dnOrder="4">13F747CBE45AD5A7C4DF007FEA796CC9</GeneratedChecksum>
           <UserChecksum dnOrder="5">13F747CBE45AD5A7C4DF007FEA796CC9</UserChecksum>
         </File>
-        <File dnOrder="154">
+        <File dnOrder="155">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_aic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/peripheral/aic/</LogicalPath>
@@ -1246,7 +1254,7 @@
           <GeneratedChecksum dnOrder="4">10862E5E0B12B06E93866BED38746A18</GeneratedChecksum>
           <UserChecksum dnOrder="5">10862E5E0B12B06E93866BED38746A18</UserChecksum>
         </File>
-        <File dnOrder="155">
+        <File dnOrder="156">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_clk.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/peripheral/clk/</LogicalPath>
@@ -1254,15 +1262,15 @@
           <GeneratedChecksum dnOrder="4">715F40AF37B238E23EF05DC39D833BE1</GeneratedChecksum>
           <UserChecksum dnOrder="5">715F40AF37B238E23EF05DC39D833BE1</UserChecksum>
         </File>
-        <File dnOrder="156">
+        <File dnOrder="157">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_lcdc.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/peripheral/lcdc/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/lcdc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">05171C3D93E07101C3F69AF60C57FDD6</GeneratedChecksum>
-          <UserChecksum dnOrder="5">05171C3D93E07101C3F69AF60C57FDD6</UserChecksum>
+          <GeneratedChecksum dnOrder="4">70019410CFD32E3DACDE1664F91A175C</GeneratedChecksum>
+          <UserChecksum dnOrder="5">70019410CFD32E3DACDE1664F91A175C</UserChecksum>
         </File>
-        <File dnOrder="157">
+        <File dnOrder="158">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_matrix.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/peripheral/matrix/</LogicalPath>
@@ -1270,7 +1278,7 @@
           <GeneratedChecksum dnOrder="4">A1D44A4F1F0E0FFA06D8BF524BA8088D</GeneratedChecksum>
           <UserChecksum dnOrder="5">A1D44A4F1F0E0FFA06D8BF524BA8088D</UserChecksum>
         </File>
-        <File dnOrder="158">
+        <File dnOrder="159">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_mmu.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/peripheral/mmu/</LogicalPath>
@@ -1278,7 +1286,7 @@
           <GeneratedChecksum dnOrder="4">8ED352943056112DC11932692C60A630</GeneratedChecksum>
           <UserChecksum dnOrder="5">8ED352943056112DC11932692C60A630</UserChecksum>
         </File>
-        <File dnOrder="159">
+        <File dnOrder="160">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_pio.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/peripheral/pio/</LogicalPath>
@@ -1286,23 +1294,23 @@
           <GeneratedChecksum dnOrder="4">3ACA32FA2F626A257C5A8D7D7AEC5565</GeneratedChecksum>
           <UserChecksum dnOrder="5">3ACA32FA2F626A257C5A8D7D7AEC5565</UserChecksum>
         </File>
-        <File dnOrder="160">
+        <File dnOrder="161">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_pit.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/peripheral/pit/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/pit/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">495CD0B586614A5CC4E2B7D7E4824331</GeneratedChecksum>
-          <UserChecksum dnOrder="5">495CD0B586614A5CC4E2B7D7E4824331</UserChecksum>
+          <GeneratedChecksum dnOrder="4">D0E51539C88452226AB5AB798D1877D4</GeneratedChecksum>
+          <UserChecksum dnOrder="5">D0E51539C88452226AB5AB798D1877D4</UserChecksum>
         </File>
-        <File dnOrder="161">
+        <File dnOrder="162">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_tc0.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/peripheral/tc/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/tc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">BD01D5876DB0FE85E965B21069C28523</GeneratedChecksum>
-          <UserChecksum dnOrder="5">BD01D5876DB0FE85E965B21069C28523</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6E9384D0C5DC3F5702E55C47B6C82358</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6E9384D0C5DC3F5702E55C47B6C82358</UserChecksum>
         </File>
-        <File dnOrder="162">
+        <File dnOrder="163">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_twihs1.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/peripheral/twihs/</LogicalPath>
@@ -1310,7 +1318,7 @@
           <GeneratedChecksum dnOrder="4">9738B903D6E2126A19E3EAA768928651</GeneratedChecksum>
           <UserChecksum dnOrder="5">9738B903D6E2126A19E3EAA768928651</UserChecksum>
         </File>
-        <File dnOrder="163">
+        <File dnOrder="164">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">port.c</Name>
           <LogicalPath dnOrder="2">FreeRTOS/Source/portable/IAR/SAM/CA5</LogicalPath>
@@ -1318,7 +1326,7 @@
           <GeneratedChecksum dnOrder="4">F7904FC74191D0F266AD4F0A2426F5B4</GeneratedChecksum>
           <UserChecksum dnOrder="5">F7904FC74191D0F266AD4F0A2426F5B4</UserChecksum>
         </File>
-        <File dnOrder="164">
+        <File dnOrder="165">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">portASM.s</Name>
           <LogicalPath dnOrder="2">FreeRTOS/Source/portable/IAR/SAM/CA5</LogicalPath>
@@ -1326,7 +1334,7 @@
           <GeneratedChecksum dnOrder="4">FEAF6DE6A0FA66B996CE59CF0D649C8F</GeneratedChecksum>
           <UserChecksum dnOrder="5">FEAF6DE6A0FA66B996CE59CF0D649C8F</UserChecksum>
         </File>
-        <File dnOrder="165">
+        <File dnOrder="166">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">queue.c</Name>
           <LogicalPath dnOrder="2">FreeRTOS/Source</LogicalPath>
@@ -1334,7 +1342,7 @@
           <GeneratedChecksum dnOrder="4">F5394E2E84773BFF1A4BD6CDBB7C5840</GeneratedChecksum>
           <UserChecksum dnOrder="5">F5394E2E84773BFF1A4BD6CDBB7C5840</UserChecksum>
         </File>
-        <File dnOrder="166">
+        <File dnOrder="167">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">stream_buffer.c</Name>
           <LogicalPath dnOrder="2">FreeRTOS/Source</LogicalPath>
@@ -1342,7 +1350,7 @@
           <GeneratedChecksum dnOrder="4">4825B12AEBF317AB1B8AAD54428F70BD</GeneratedChecksum>
           <UserChecksum dnOrder="5">4825B12AEBF317AB1B8AAD54428F70BD</UserChecksum>
         </File>
-        <File dnOrder="167">
+        <File dnOrder="168">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">sys_cache.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/system/cache/</LogicalPath>
@@ -1350,7 +1358,7 @@
           <GeneratedChecksum dnOrder="4">2B6EF5AAF13176F5A5E93B547721DB50</GeneratedChecksum>
           <UserChecksum dnOrder="5">2B6EF5AAF13176F5A5E93B547721DB50</UserChecksum>
         </File>
-        <File dnOrder="168">
+        <File dnOrder="169">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">sys_input.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/system/input</LogicalPath>
@@ -1358,7 +1366,7 @@
           <GeneratedChecksum dnOrder="4">B65B609E703E24FF210A497BD07D1F1F</GeneratedChecksum>
           <UserChecksum dnOrder="5">B65B609E703E24FF210A497BD07D1F1F</UserChecksum>
         </File>
-        <File dnOrder="169">
+        <File dnOrder="170">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">sys_input_listener.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/system/input</LogicalPath>
@@ -1366,7 +1374,7 @@
           <GeneratedChecksum dnOrder="4">69012897D6A9F3F18C01AA611FB75DF2</GeneratedChecksum>
           <UserChecksum dnOrder="5">69012897D6A9F3F18C01AA611FB75DF2</UserChecksum>
         </File>
-        <File dnOrder="170">
+        <File dnOrder="171">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">sys_int.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/system/int/</LogicalPath>
@@ -1374,7 +1382,7 @@
           <GeneratedChecksum dnOrder="4">0128FD5EAC2B910A9EA7090F32CFE236</GeneratedChecksum>
           <UserChecksum dnOrder="5">0128FD5EAC2B910A9EA7090F32CFE236</UserChecksum>
         </File>
-        <File dnOrder="171">
+        <File dnOrder="172">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">sys_time.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/system/time/</LogicalPath>
@@ -1382,7 +1390,7 @@
           <GeneratedChecksum dnOrder="4">70DAE413C209782D51F61D7C896593FB</GeneratedChecksum>
           <UserChecksum dnOrder="5">70DAE413C209782D51F61D7C896593FB</UserChecksum>
         </File>
-        <File dnOrder="172">
+        <File dnOrder="173">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">tasks.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/</LogicalPath>
@@ -1390,21 +1398,13 @@
           <GeneratedChecksum dnOrder="4">9D2BA4CAD9931927F4933AB71680E703</GeneratedChecksum>
           <UserChecksum dnOrder="5">9D2BA4CAD9931927F4933AB71680E703</UserChecksum>
         </File>
-        <File dnOrder="173">
+        <File dnOrder="174">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">timers.c</Name>
           <LogicalPath dnOrder="2">FreeRTOS/Source</LogicalPath>
           <PhysicalPath dnOrder="3">/../../third_party/rtos/FreeRTOS/Source/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">0319C91A5CE9B15DD2E91A78C4D92A40</GeneratedChecksum>
           <UserChecksum dnOrder="5">0319C91A5CE9B15DD2E91A78C4D92A40</UserChecksum>
-        </File>
-        <File dnOrder="174">
-          <Type dnOrder="0">SOURCE</Type>
-          <Name dnOrder="1">vectortrap.s</Name>
-          <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/</LogicalPath>
-          <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">4E18F3FB7EC807B305471847E02231B5</GeneratedChecksum>
-          <UserChecksum dnOrder="5">4E18F3FB7EC807B305471847E02231B5</UserChecksum>
         </File>
         <File dnOrder="175">
           <Type dnOrder="0">HEADER</Type>
@@ -1483,8 +1483,8 @@
           <Name dnOrder="1">arm_math.h</Name>
           <LogicalPath dnOrder="2">packs/CMSIS/CMSIS/DSP/Include/</LogicalPath>
           <PhysicalPath dnOrder="3">/../../packs/CMSIS/CMSIS/DSP/Include/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">27F6D2D0CB97CA5159FE0788243E978E</GeneratedChecksum>
-          <UserChecksum dnOrder="5">27F6D2D0CB97CA5159FE0788243E978E</UserChecksum>
+          <GeneratedChecksum dnOrder="4">4726F6E7A3CDEDAE6075A88F3D16F093</GeneratedChecksum>
+          <UserChecksum dnOrder="5">4726F6E7A3CDEDAE6075A88F3D16F093</UserChecksum>
         </File>
         <File dnOrder="185">
           <Type dnOrder="0">HEADER</Type>
@@ -1547,16 +1547,16 @@
           <Name dnOrder="1">cmsis_gcc.h</Name>
           <LogicalPath dnOrder="2">packs/CMSIS/CMSIS/Core_A/Include/</LogicalPath>
           <PhysicalPath dnOrder="3">/../../packs/CMSIS/CMSIS/Core_A/Include/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">91C03FE6A482084EEC44B1D75FE4D00E</GeneratedChecksum>
-          <UserChecksum dnOrder="5">91C03FE6A482084EEC44B1D75FE4D00E</UserChecksum>
+          <GeneratedChecksum dnOrder="4">25431DA0E64D60CDB443B02ABAC00FC8</GeneratedChecksum>
+          <UserChecksum dnOrder="5">25431DA0E64D60CDB443B02ABAC00FC8</UserChecksum>
         </File>
         <File dnOrder="193">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">cmsis_iccarm.h</Name>
           <LogicalPath dnOrder="2">packs/CMSIS/CMSIS/Core_A/Include/</LogicalPath>
           <PhysicalPath dnOrder="3">/../../packs/CMSIS/CMSIS/Core_A/Include/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">44699E7D9F67414CAC0914AB865D0FF6</GeneratedChecksum>
-          <UserChecksum dnOrder="5">44699E7D9F67414CAC0914AB865D0FF6</UserChecksum>
+          <GeneratedChecksum dnOrder="4">A194C342920D5CD34C03C2E40907D2E6</GeneratedChecksum>
+          <UserChecksum dnOrder="5">A194C342920D5CD34C03C2E40907D2E6</UserChecksum>
         </File>
         <File dnOrder="194">
           <Type dnOrder="0">HEADER</Type>
@@ -1571,8 +1571,8 @@
           <Name dnOrder="1">core_ca.h</Name>
           <LogicalPath dnOrder="2">packs/CMSIS/CMSIS/Core_A/Include/</LogicalPath>
           <PhysicalPath dnOrder="3">/../../packs/CMSIS/CMSIS/Core_A/Include/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">31692AF12C3323852C7051974B2CA56E</GeneratedChecksum>
-          <UserChecksum dnOrder="5">31692AF12C3323852C7051974B2CA56E</UserChecksum>
+          <GeneratedChecksum dnOrder="4">789BC94E81700B86004C6A43BAC0EFF2</GeneratedChecksum>
+          <UserChecksum dnOrder="5">789BC94E81700B86004C6A43BAC0EFF2</UserChecksum>
         </File>
         <File dnOrder="196">
           <Type dnOrder="0">HEADER</Type>
@@ -2627,8 +2627,8 @@
           <Name dnOrder="1">plib_lcdc.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/peripheral/lcdc/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/lcdc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">C856E5191ACDA2799995FE0197641D36</GeneratedChecksum>
-          <UserChecksum dnOrder="5">C856E5191ACDA2799995FE0197641D36</UserChecksum>
+          <GeneratedChecksum dnOrder="4">23E4DAE12980F1E0B91BC6DCD0177A6B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">23E4DAE12980F1E0B91BC6DCD0177A6B</UserChecksum>
         </File>
         <File dnOrder="328">
           <Type dnOrder="0">HEADER</Type>
@@ -3137,7 +3137,7 @@
       </Files>
     </Manifest>
     <Settings dnOrder="4">
-      <Setting dnOrder="0" key="CMSISPath" value=".\dev_packs\arm\CMSIS\5.4.0"/>
+      <Setting dnOrder="0" key="CMSISPath" value=".\dev_packs\arm\CMSIS\5.5.1"/>
       <Setting dnOrder="1" key="DFPPath" value=".\dev_packs\Microchip\SAMA5D2_DFP\0.1.18\atdf\ATSAMA5D27.atdf"/>
       <Setting dnOrder="2" key="FORCE_OPTIMIZATION" value="false"/>
       <Setting dnOrder="3" key="GENERATE_BACKUP" value="true"/>
