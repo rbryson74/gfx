@@ -64,8 +64,8 @@ extern "C" {
  * GFX Image Asset
  * Name:   NewHarmonyLogo
  * Size:   453x272 pixels
- * Mode:   RGB_888
- * Format: JPEG
+ * Mode:   RGB_565
+ * Format: RAW
  ***********************************/
 extern GFXU_ImageAsset NewHarmonyLogo;
 	

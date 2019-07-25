@@ -65,6 +65,7 @@
             <path>\peripheral\clk\plib_clk.h</path>
             <path>\peripheral\pio\plib_pio.h</path>
             <path>\peripheral\aic\plib_aic.h</path>
+            <path>\gfx\driver\processor\gfx2d\drv_gfx2d.h</path>
             <path>\peripheral\flexcom\twi\plib_flexcom6_twi.h</path>
             <path>\peripheral\flexcom\twi\plib_flexcom_twi_master.h</path>
             <path>\peripheral\tc\plib_tc0.h</path>
@@ -129,6 +130,7 @@
             <path>\..\..\packs\SAM9X60_DFP\component\xdmac.h</path>
             <path>\..\..\packs\SAM9X60_DFP\sam9x60.h</path>
             <path>\..\..\packs\SAM9X60_DFP\pio\sam9x60.h</path>
+            <path>\peripheral\gfx2d\plib_gfx2d.h</path>
             <path>\FreeRTOSConfig.h</path>
             <path>\..\..\third_party\rtos\FreeRTOS\Source\include\croutine.h</path>
             <path>\..\..\third_party\rtos\FreeRTOS\Source\include\event_groups.h</path>
@@ -279,6 +281,8 @@
             <path>\peripheral\aic\plib_aic.c</path>
             <path>\cstartup.s</path>
             <path>\vectortrap.s</path>
+            <path>\gfx\driver\processor\gfx2d\drv_gfx2d_hal.c</path>
+            <path>\gfx\driver\processor\gfx2d\drv_gfx2d.c</path>
             <path>\peripheral\flexcom\twi\plib_flexcom6_twi.c</path>
             <path>\peripheral\tc\plib_tc0.c</path>
             <path>\peripheral\lcdc\plib_lcdc.c</path>
@@ -287,6 +291,7 @@
             <path>\system\time\src\sys_time.c</path>
             <path>\system\input\sys_input.c</path>
             <path>\system\input\sys_input_listener.c</path>
+            <path>\peripheral\gfx2d\plib_gfx2d.c</path>
             <path>\freertos_hooks.c</path>
             <path>\..\..\third_party\rtos\FreeRTOS\Source\croutine.c</path>
             <path>\..\..\third_party\rtos\FreeRTOS\Source\list.c</path>

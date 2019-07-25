@@ -2158,6 +2158,9 @@
                 <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_9x60_freertos_wvga\driver\driver_common.h</name>
             </file>
             <file>
+                <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_9x60_freertos_wvga\gfx\driver\processor\gfx2d\drv_gfx2d.h</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_9x60_freertos_wvga\gfx\driver\controller\lcdc\drv_gfx_lcdc.h</name>
             </file>
             <file>
@@ -2539,6 +2542,9 @@
                 <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_9x60_freertos_wvga\peripheral\flexcom\twi\plib_flexcom_twi_master.h</name>
             </file>
             <file>
+                <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_9x60_freertos_wvga\peripheral\gfx2d\plib_gfx2d.h</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_9x60_freertos_wvga\peripheral\lcdc\plib_lcdc.h</name>
             </file>
             <file>
@@ -2729,6 +2735,12 @@
             </file>
             <file>
                 <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_9x60_freertos_wvga\cstartup.s</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_9x60_freertos_wvga\gfx\driver\processor\gfx2d\drv_gfx2d.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_9x60_freertos_wvga\gfx\driver\processor\gfx2d\drv_gfx2d_hal.c</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_9x60_freertos_wvga\gfx\driver\controller\lcdc\drv_gfx_lcdc.c</name>
@@ -3194,6 +3206,9 @@
             </file>
             <file>
                 <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_9x60_freertos_wvga\peripheral\flexcom\twi\plib_flexcom6_twi.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_9x60_freertos_wvga\peripheral\gfx2d\plib_gfx2d.c</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_9x60_freertos_wvga\peripheral\lcdc\plib_lcdc.c</name>
