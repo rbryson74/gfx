@@ -51,8 +51,8 @@
           <Name dnOrder="1">drv_maxtouch.c</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/driver/input</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/input/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">4131161BDCB6C6BC3623214A9ABAE2B8</GeneratedChecksum>
-          <UserChecksum dnOrder="5">4131161BDCB6C6BC3623214A9ABAE2B8</UserChecksum>
+          <GeneratedChecksum dnOrder="4">C48C089EF57E064C32DBEB9E961F4F5B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">C48C089EF57E064C32DBEB9E961F4F5B</UserChecksum>
         </File>
         <File dnOrder="6">
           <Type dnOrder="0">SOURCE</Type>
@@ -1156,7 +1156,7 @@
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/peripheral/clk/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/clk/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">CAC2DFA2E335E4E4CFDC664637F15E52</GeneratedChecksum>
-          <UserChecksum dnOrder="5">CAC2DFA2E335E4E4CFDC664637F15E52</UserChecksum>
+          <UserChecksum dnOrder="5">E5233F9C5C01E963724A1BBA0EFDD785</UserChecksum>
         </File>
         <File dnOrder="144">
           <Type dnOrder="0">SOURCE</Type>
@@ -2314,8 +2314,8 @@
       </Settings>
     </Manifest>
     <Settings dnOrder="4">
-      <Setting dnOrder="0" key="CMSISPath" value=".\dev_packs\arm\CMSIS\5.4.0"/>
-      <Setting dnOrder="1" key="DFPPath" value=".\dev_packs\Microchip\PIC32MZ_DA_DFP\1.0.64\atdf\PIC32MZ2064DAA288.atdf"/>
+      <Setting dnOrder="0" key="CMSISPath" value=".\dev_packs\arm\CMSIS\5.5.1"/>
+      <Setting dnOrder="1" key="DFPPath" value=".\dev_packs\Microchip\PIC32MZ_DA_DFP\1.0.65\atdf\PIC32MZ2064DAA288.atdf"/>
       <Setting dnOrder="2" key="FORCE_OPTIMIZATION" value="false"/>
       <Setting dnOrder="3" key="GENERATE_BACKUP" value="true"/>
       <Setting dnOrder="4" key="MERGE_STRATEGY" value="USER_ALL"/>
