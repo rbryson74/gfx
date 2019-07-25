@@ -83,7 +83,7 @@ typedef void (*leString_InvalidateCallback)(const struct leString* str, void* us
     void        (*preinvalidate)(THIS_TYPE* _this); \
     void        (*invalidate)(THIS_TYPE* _this); \
     leResult    (*setPreInvalidateCallback)(THIS_TYPE* _this, leString_InvalidateCallback, void* userData); \
-    leResult    (*setInvalidateCallback)(THIS_TYPE* _this, leString_InvalidateCallback, void* userData); \
+    leResult    (*setInvalidateCallback)(THIS_TYPE* _this, leString_InvalidateCallback, void* userData);
 
 typedef struct leStringVTable
 {

@@ -1811,8 +1811,8 @@
           <Name dnOrder="1">legato_string.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/string</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/legato/string/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">44D72E06F996AAF44850CAAFB9F74E67</GeneratedChecksum>
-          <UserChecksum dnOrder="5">44D72E06F996AAF44850CAAFB9F74E67</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6BE69C7730A463B33D747BAC2D2BDA0D</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6BE69C7730A463B33D747BAC2D2BDA0D</UserChecksum>
         </File>
         <File dnOrder="226">
           <Type dnOrder="0">HEADER</Type>
