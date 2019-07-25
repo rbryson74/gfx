@@ -43,8 +43,8 @@
           <Name dnOrder="1">drv_gfx_glcd.c</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_intddr_sk_freertos_wvga/gfx/driver/glcd</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/glcd/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">3CF1291051E5A08F62BF0B096D97F6F5</GeneratedChecksum>
-          <UserChecksum dnOrder="5">3CF1291051E5A08F62BF0B096D97F6F5</UserChecksum>
+          <GeneratedChecksum dnOrder="4">81C948F671CE17E6E91B8CBF51249CE9</GeneratedChecksum>
+          <UserChecksum dnOrder="5">81C948F671CE17E6E91B8CBF51249CE9</UserChecksum>
         </File>
         <File dnOrder="5">
           <Type dnOrder="0">SOURCE</Type>
@@ -67,8 +67,8 @@
           <Name dnOrder="1">drv_maxtouch.c</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_intddr_sk_freertos_wvga/driver/input</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/input/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">4131161BDCB6C6BC3623214A9ABAE2B8</GeneratedChecksum>
-          <UserChecksum dnOrder="5">4131161BDCB6C6BC3623214A9ABAE2B8</UserChecksum>
+          <GeneratedChecksum dnOrder="4">991CB96D514EE54F2A97B2D5D9972B65</GeneratedChecksum>
+          <UserChecksum dnOrder="5">991CB96D514EE54F2A97B2D5D9972B65</UserChecksum>
         </File>
         <File dnOrder="8">
           <Type dnOrder="0">SOURCE</Type>
@@ -499,8 +499,8 @@
           <Name dnOrder="1">initialization.c</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_intddr_sk_freertos_wvga/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">1CAE17D738AAAE75D79733BB50537A07</GeneratedChecksum>
-          <UserChecksum dnOrder="5">1CAE17D738AAAE75D79733BB50537A07</UserChecksum>
+          <GeneratedChecksum dnOrder="4">D456B74DA8363F1BD3EA916555C3B274</GeneratedChecksum>
+          <UserChecksum dnOrder="5">D456B74DA8363F1BD3EA916555C3B274</UserChecksum>
         </File>
         <File dnOrder="62">
           <Type dnOrder="0">SOURCE</Type>
@@ -1451,8 +1451,8 @@
           <Name dnOrder="1">definitions.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_intddr_sk_freertos_wvga/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">16A689AB8D1BC2A69A85D79311B66915</GeneratedChecksum>
-          <UserChecksum dnOrder="5">16A689AB8D1BC2A69A85D79311B66915</UserChecksum>
+          <GeneratedChecksum dnOrder="4">56BCBF7FA26D221A9EBE29F9BFF5F983</GeneratedChecksum>
+          <UserChecksum dnOrder="5">56BCBF7FA26D221A9EBE29F9BFF5F983</UserChecksum>
         </File>
         <File dnOrder="181">
           <Type dnOrder="0">HEADER</Type>
@@ -2619,8 +2619,8 @@
           <Name dnOrder="1">user.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_intddr_sk_freertos_wvga/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">4B3C3EF8A318908A22B78500515C3288</GeneratedChecksum>
-          <UserChecksum dnOrder="5">4B3C3EF8A318908A22B78500515C3288</UserChecksum>
+          <GeneratedChecksum dnOrder="4"/>
+          <UserChecksum dnOrder="5"/>
         </File>
       </Files>
       <Libraries dnOrder="1">
