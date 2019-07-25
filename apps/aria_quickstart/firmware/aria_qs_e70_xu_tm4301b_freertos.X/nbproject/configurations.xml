@@ -594,7 +594,7 @@
       </toolsSet>
       <packs>
         <pack name="CMSIS" vendor="ARM" version="5.0.1"/>
-        <pack name="SAME70_DFP" vendor="Microchip" version="4.0.29"/>
+        <pack name="SAME70_DFP" vendor="Microchip" version="3.0.10"/>
       </packs>
       <compileType>
         <linkerTool>

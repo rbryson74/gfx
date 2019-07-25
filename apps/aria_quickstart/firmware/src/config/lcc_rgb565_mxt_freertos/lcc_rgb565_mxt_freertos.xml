@@ -2218,40 +2218,11 @@
     <UniqueComponent dnOrder="5" id="dfp"/>
     <GeneratorComponent dnOrder="6" id="drv_i2c">
       <Symbols dnOrder="0">
-        <File dnOrder="0" id="DRV_I2C_ASYNC_HEADER">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="enabled">
-              <Value dnOrder="0">true</Value>
-            </Boolean>
-          </Attributes>
-        </File>
-        <File dnOrder="1" id="DRV_I2C_ASYNC_SRC">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="enabled">
-              <Value dnOrder="0">true</Value>
-            </Boolean>
-          </Attributes>
-        </File>
-        <Combo dnOrder="2" id="DRV_I2C_MODE">
+        <Combo dnOrder="0" id="DRV_I2C_MODE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="drv_i2c" value="Synchronous"/>
-            <User dnOrder="1" value="Asynchronous"/>
           </Values>
         </Combo>
-        <File dnOrder="3" id="DRV_I2C_SYNC_HEADER">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="enabled">
-              <Value dnOrder="0">false</Value>
-            </Boolean>
-          </Attributes>
-        </File>
-        <File dnOrder="4" id="DRV_I2C_SYNC_SRC">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="enabled">
-              <Value dnOrder="0">false</Value>
-            </Boolean>
-          </Attributes>
-        </File>
       </Symbols>
       <Instances dnOrder="1">
         <InstanceComponent dnOrder="0" id="drv_i2c" instance="0">
@@ -2261,13 +2232,6 @@
                 <Dynamic dnOrder="0" id="drv_i2c_0" value="TWIHS0"/>
               </Values>
             </String>
-            <Integer dnOrder="1" id="DRV_I2C_QUEUE_SIZE">
-              <Attributes dnOrder="0">
-                <Boolean dnOrder="0" id="visible">
-                  <Value dnOrder="0">true</Value>
-                </Boolean>
-              </Attributes>
-            </Integer>
           </Symbols>
           <Attachments dnOrder="1">
             <DirectCapability dnOrder="0" id="drv_i2c">
@@ -2552,34 +2516,19 @@
         <Combo dnOrder="0" id="DRV_I2C_MODE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="gfx_maxtouch_controller" value="Synchronous"/>
-            <User dnOrder="1" value="Asynchronous"/>
           </Values>
         </Combo>
-        <File dnOrder="1" id="DRV_I2C_SYNC_SRC">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="enabled">
-              <Value dnOrder="0">false</Value>
-            </Boolean>
-          </Attributes>
-        </File>
-        <File dnOrder="2" id="DRV_MAXTOUCH_C">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="enabled">
-              <Value dnOrder="0">true</Value>
-            </Boolean>
-          </Attributes>
-        </File>
-        <Integer dnOrder="3" id="Height">
+        <Integer dnOrder="1" id="Height">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="gfx_maxtouch_controller" value="272"/>
           </Values>
         </Integer>
-        <Integer dnOrder="4" id="I2CIndex">
+        <Integer dnOrder="2" id="I2CIndex">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="gfx_maxtouch_controller" value="0"/>
           </Values>
         </Integer>
-        <Integer dnOrder="5" id="Width">
+        <Integer dnOrder="3" id="Width">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="gfx_maxtouch_controller" value="480"/>
           </Values>
@@ -3123,7 +3072,8 @@
     </UniqueComponent>
   </Components>
   <UserData>
-    <ComponentGraph dnOrder="0" id="__ROOTVIEW">
+    <GraphSettings canvasHeight="400" canvasWidth="400" dnOrder="0"/>
+    <ComponentGraph dnOrder="1" id="__ROOTVIEW">
       <ElementPositions dnOrder="0">
         <ElementPosition dnOrder="0" id="BSP_SAM_E70_Xplained_Ultra" x="540" y="20"/>
         <ElementPosition dnOrder="1" id="FreeRTOS" x="664" y="399"/>
@@ -3146,6 +3096,5 @@
         <ElementPosition dnOrder="18" id="twihs0" x="23" y="112"/>
       </ElementPositions>
     </ComponentGraph>
-    <GraphSettings canvasHeight="400" canvasWidth="400" dnOrder="1"/>
   </UserData>
 </Configuration>
