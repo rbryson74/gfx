@@ -75,8 +75,8 @@
           <Name dnOrder="1">drv_maxtouch.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt_freertos_wvga/driver/input</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/input/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">736D9738EB28B17E41B793324456B564</GeneratedChecksum>
-          <UserChecksum dnOrder="5">736D9738EB28B17E41B793324456B564</UserChecksum>
+          <GeneratedChecksum dnOrder="4">329FE33213EDE0FA6D6998E995DAFCCA</GeneratedChecksum>
+          <UserChecksum dnOrder="5">329FE33213EDE0FA6D6998E995DAFCCA</UserChecksum>
         </File>
         <File dnOrder="9">
           <Type dnOrder="0">SOURCE</Type>
