@@ -122,7 +122,8 @@ void CLK_Initialize( void )
   
 
     /* Peripheral Module Disable Configuration */
-//CUSTOM CODE - DO NOT MODIFY OR REMOVE!!    
+//CUSTOM CODE - DO NOT MODIFY OR REMOVE!!
+//PMD1, bit 28 must be 0 for MZ DAA/DAB    
     PMD1 = 0xefffffff;
 //END OF CUSTOM CODE    
     PMD2 = 0xffffffff;
