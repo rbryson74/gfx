@@ -1614,14 +1614,7 @@
             </Boolean>
           </Attributes>
         </File>
-        <File dnOrder="18" id="OSAL_IMPL_BASIC_H">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="enabled">
-              <Value dnOrder="0">false</Value>
-            </Boolean>
-          </Attributes>
-        </File>
-        <Combo dnOrder="19" id="SELECT_RTOS">
+        <Combo dnOrder="18" id="SELECT_RTOS">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="HarmonyCore" value="FreeRTOS"/>
           </Values>
@@ -1656,25 +1649,11 @@
     </UniqueComponent>
     <UniqueComponent dnOrder="16" id="sys_input">
       <Symbols dnOrder="0">
-        <File dnOrder="0" id="INPUT_SYS_RTOS_TASK_C">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="enabled">
-              <Value dnOrder="0">true</Value>
-            </Boolean>
-          </Attributes>
-        </File>
-        <Boolean dnOrder="1" id="RTOSEnabled">
+        <Boolean dnOrder="0" id="RTOSEnabled">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sys_input" value="true"/>
           </Values>
         </Boolean>
-        <Menu dnOrder="2" id="RTOSMenu">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="visible">
-              <Value dnOrder="0">true</Value>
-            </Boolean>
-          </Attributes>
-        </Menu>
       </Symbols>
     </UniqueComponent>
     <UniqueComponent dnOrder="17" id="sys_time">
@@ -1700,8 +1679,7 @@
     </UniqueComponent>
   </Components>
   <UserData>
-    <GraphSettings canvasHeight="400" canvasWidth="400" dnOrder="0"/>
-    <ComponentGraph dnOrder="1" id="__ROOTVIEW">
+    <ComponentGraph dnOrder="0" id="__ROOTVIEW">
       <ElementPositions dnOrder="0">
         <ElementPosition dnOrder="0" id="BSP_PIC32MZ_DA_Starter_Kit" x="340" y="20"/>
         <ElementPosition dnOrder="1" id="FreeRTOS" x="740" y="81"/>
@@ -1723,5 +1701,6 @@
         <ElementPosition dnOrder="17" id="sys_time" x="156" y="369"/>
       </ElementPositions>
     </ComponentGraph>
+    <GraphSettings canvasHeight="400" canvasWidth="400" dnOrder="1"/>
   </UserData>
 </Configuration>

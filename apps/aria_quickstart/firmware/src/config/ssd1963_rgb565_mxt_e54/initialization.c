@@ -150,7 +150,7 @@ const DRV_I2C_INIT drvI2C0InitData =
 const DRV_MAXTOUCH_INIT drvMAXTOUCHInitData =
 {
     .drvOpen                     = DRV_I2C_Open,
-    .orientation                 = 2,
+    .orientation                 = 0,
     .horizontalResolution        = 480,
     .verticalResolution          = 272,
 };
