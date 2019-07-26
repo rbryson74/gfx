@@ -46,7 +46,7 @@ def generateScreen(scr):
 	layerList = scr.getLayerList()
 	
 	for layer in layerList:
-		screenWidgetList += layer.getDescendants()
+		screenWidgetList += layer.getDescendents()
 
 	screenHeaderFile = File("generated/screen/le_gen_screen_%s.h" % name)
 	
@@ -207,7 +207,7 @@ def generateWidgetHeaderDeclarations(file, scr, widgets):
 
 	for layer in layerList:
 
-		layerWidgetList = layer.getDescendants()
+		layerWidgetList = layer.getDescendents()
 
 		if len(layerWidgetList) == 0:
 			continue
@@ -254,7 +254,7 @@ def generateWidgetDeclarations(file, scr):
 	layerIdx = 0
 
 	for layer in layerList:
-		widgetList = layer.getDescendants()
+		widgetList = layer.getDescendents()
 
 		if len(widgetList) == 0:
 			continue
@@ -363,7 +363,7 @@ def generateScreenCleanupCode(file, screen, screenWidgetList, stringList):
 		file.writeNewLine()
 		file.write("    %s = NULL;" % rootName)
 
-		descList = layer.getDescendants()
+		descList = layer.getDescendents()
 
 		if len(descList) > 0:
 			file.writeNewLine()
@@ -412,7 +412,7 @@ def generateEventDeclarations(file, scr, header):
 	layerIdx = 0
 
 	for layer in layerList:
-		layerWidgetList = layer.getDescendants()
+		layerWidgetList = layer.getDescendents()
 
 		for widget in layerWidgetList:
 			wgtEvents = widget.getEventList()
@@ -457,7 +457,7 @@ def generateEventDeclarations(file, scr, header):
 		layerIdx = 0
 
 		for layer in layerList:
-			layerWidgetList = layer.getDescendants()
+			layerWidgetList = layer.getDescendents()
 
 			for widget in layerWidgetList:
 				wgtEvents = widget.getEventList()
@@ -504,7 +504,7 @@ def generateEventFunctions(file, scr):
 	layerIdx = 0
 
 	for layer in layerList:
-		layerWidgetList = layer.getDescendants()
+		layerWidgetList = layer.getDescendents()
 
 		for widget in layerWidgetList:
 			wgtEvents = widget.getEventList()
@@ -541,7 +541,7 @@ def generateEventFunctions(file, scr):
 		layerIdx = 0
 
 		for layer in layerList:
-			layerWidgetList = layer.getDescendants()
+			layerWidgetList = layer.getDescendents()
 
 			for widget in layerWidgetList:
 				wgtEvents = widget.getEventList()
