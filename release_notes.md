@@ -1,5 +1,5 @@
 # Microchip MPLAB® Harmony 3 Graphics Release Notes
-## Graphics Release v3.3.0
+## Graphics Release v3.4.0
 ### NEW FEATURES
 
 
@@ -72,7 +72,7 @@
 
 | Middleware/HAL | Description |
 | --- | --- |
-| aria| |
+| aria| none |
 | legato| Added graphics library |
 
 
@@ -107,10 +107,10 @@
 
 - **Development kit support** - The following table lists  applications available for different development kits.
 
-| Applications | [SAM C21N Xplained Pro Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAMC21-XPRO) | [SAM E54 Xplained Pro Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAME54-XPRO) | [SAM E70 Xplained Ultra Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAME70-XPLD) | [SAM A5D2 Xplained Ultra Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/atsama5d2c-xult) | [Multimedia Expansion Board II](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320005-5) |
+| Applications | [SAM C21N Xplained Pro Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAMC21-XPRO) | [SAM E54 Xplained Pro Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAME54-XPRO) | [SAM E70 Xplained Ultra Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAME70-XPLD) | [SAM A5D2 Xplained Ultra Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/atsama5d2c-xult) | [Multimedia Expansion Board II](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320005-5) |SAM 9x60 Evaluation Kit |
 | --- | --- | --- | --- | --- | --- |
-| aria_quickstart           | x | x | x | x | x |
-| legato_quickstart         |   | x |   |   |   |
+| aria_quickstart           | x | x | x | x | x | x |
+| legato_quickstart         |   | x |   |   |   |   |
 
 ### KNOWN ISSUES
 
@@ -135,12 +135,14 @@ In gfx.c, the variable args is falsely detected in violation of Code 530: &quot;
 
 | Tool | Version |
 | --- | --- |
-| [MPLAB X IDE](https://www.microchip.com/mplab/mplab-x-ide) | v5.20 |
-| [MPLAB XC32 C/C++ Compiler](https://www.microchip.com/mplab/compilers)      | v2.20 |
-| MPLAB X IDE plug-ins          |  |
-| MPLAB Harmony Configurator (MHC) plug-in   | v3.3.0 |
-| Harmony 3 BSP (https://github.com/Microchip-MPLAB-Harmony/bsp)   | v3.3.0 |
-| Harmony 3 CSP (https://github.com/Microchip-MPLAB-Harmony/csp)  | v3.3.0 |
-| Harmony 3 Core (https://github.com/Microchip-MPLAB-Harmony/core)  | v3.3.0|
-| Harmony 3 Graphics (https://github.com/Microchip-MPLAB-Harmony/gfx)   | v3.3.0 |
-| Harmony 3 Dev_Packs (https://github.com/Microchip-MPLAB-Harmony/dev_packs)   | v3.3.0 |
+| [MPLAB® X IDE](https://www.microchip.com/mplab/mplab-x-ide) | v5.20 |
+| [MPLAB® XC32 C/C++ Compiler](https://www.microchip.com/mplab/compilers)      | v2.20 |
+| MPLAB® X IDE plug-ins          |  |
+| MPLAB® Harmony Configurator (MHC) plug-in   | v3.3.1 |
+| [Harmony 3 BSP](https://github.com/Microchip-MPLAB-Harmony/bsp)   | v3.4.0 |
+| [Harmony 3 CSP](https://github.com/Microchip-MPLAB-Harmony/csp)  | v3.4.0 |
+| [Harmony 3 Core](https://github.com/Microchip-MPLAB-Harmony/core)  | v3.4.0 |
+| [Harmony 3 Graphics ](https://github.com/Microchip-MPLAB-Harmony/gfx)   | v3.4.0 |
+| [Harmony 3 Dev_Packs](https://github.com/Microchip-MPLAB-Harmony/dev_packs)   | v3.4.0 |
+| [Harmony 3 USB](https://github.com/Microchip-MPLAB-Harmony/usb)   | v3.3.0 |
+| [Harmony 3 CMSIS-FreeRTOS](https://github.com/ARM-software/CMSIS-FreeRTOS)   | v10.2.0 |
