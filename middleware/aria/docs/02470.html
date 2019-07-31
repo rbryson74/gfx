@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>laWindowWidget_SetIcon Function</title>
+<title>leDecodeCodePoint Function</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,23 +18,23 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00360.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00454.html" target="topic">Middleware Library</a> &gt; <a href="00446.html" target="topic">Aria User Interface Library</a> &gt; <a href="00445.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="02470.html" target="topic">laWindowWidget_SetIcon Function</a></div>
+<a href="00359.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00475.html" target="topic">Graphics Library</a> &gt; <a href="00473.html" target="topic">Legato User Interface Library</a> &gt; <a href="00489.html" target="topic">Legato Interface</a> &gt; h) String Functions &gt; <a href="02470.html" target="topic">leDecodeCodePoint Function</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
 <div class="Element1">
-MPLAB Harmony Graphics Library Help</div>
+MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00360.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00359.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02469.html" target="topic">Previous</a> | <a href="00445.html" target="topic">Up</a> | <a href="02471.html" target="topic">Next</a></div>
+<a href="02784.html" target="topic">Previous</a> | <a href="00489.html" target="topic">Up</a> | <a href="02475.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laWindowWidget_SetIcon@laWindowWidget*@GFXU_ImageAsset* Topic Title: laWindowWidget_SetIcon Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: leDecodeCodePoint@uint32_t@uint8_t*@uint32_t@uint32_t*@uint32_t* Topic Title: leDecodeCodePoint Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-laWindowWidget_SetIcon Function</div>
+leDecodeCodePoint Function</div>
 </div>
 </div>
 
@@ -46,11 +46,19 @@ laWindowWidget_SetIcon Function</div>
 
 <!-- Begin Page Content -->
 <a name="PageContent"></a><div class="Element58">
+<a name="4465736372697074696F6E"></a><div class="Element11">
+<div class="Element10">
+<p class="Element10">
+Given an encoded codepoint (ASCII, UTF-8, or UTF-16) returns the actual codepoint</p></div>
+</div>
 <a name="43"></a><div class="Element99">
 C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100">LIB_EXPORT <a href="02053.html" target="topic">laResult</a> <strong><span style="color: #000000">laWindowWidget_SetIcon</span></strong>(
-    <a href="02465.html" target="topic">laWindowWidget</a>* <strong><span style="color: #000000">win</span></strong>, 
-    <a href="00552.html" target="topic">GFXU_ImageAsset</a>* <strong><span style="color: #000000">img</span></strong>
+<div class="Element101"><div class="Element100"><pre class="Element100">LIB_EXPORT leResult <strong><span style="color: #000000">leDecodeCodePoint</span></strong>(
+    uint32_t <strong><span style="color: #000000">encoding</span></strong>, 
+    uint8_t* <strong><span style="color: #000000">data</span></strong>, 
+    uint32_t <strong><span style="color: #000000">max</span></strong>, 
+    uint32_t* <strong><span style="color: #000000">codePoint</span></strong>, 
+    uint32_t* <strong><span style="color: #000000">offset</span></strong>
 );</pre></div></div>
 <a name="506172616D6574657273"></a><div class="Element14">
 Parameters</div>
@@ -58,7 +66,7 @@ Parameters</div>
 <div class="Element10">
 <div class="Element312">
 <div class="TableDiv">
-<table cellspacing="0" class="Table1">
+<table cellspacing="0" class="Table3">
 <tr>
 <td class="Element300" valign="top" width="35%">
 <div class="Element301">
@@ -67,14 +75,29 @@ Parameters&nbsp;</div></td><td class="Element304" valign="top" width="65%">
 Description&nbsp;</div></td></tr><tr>
 <td class="Element302" valign="top" width="35%">
 <div class="Element303">
-laWindowWidget* win&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+uint32_t encoding&nbsp;</div></td><td class="Element306" valign="top" width="65%">
 <div class="Element307">
-the widget&nbsp;</div></td></tr><tr>
+the encoding of the value&nbsp;</div></td></tr><tr>
 <td class="Element302" valign="top" width="35%">
 <div class="Element303">
-GFXU_ImageAsset*&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+uint8_t* data&nbsp;</div></td><td class="Element306" valign="top" width="65%">
 <div class="Element307">
-pointer to an image asset&nbsp;</div></td></tr></table></div></div>
+the data to decode&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+uint32_t max&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+the size of the data buffer&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+uint32_t* codePoint&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+will contain the decoded code point&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+uint32_t* offset&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+will contain the offset in the buffer after the decode point&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 <a name="52657475726E73"></a><div class="Element14">
@@ -82,28 +105,30 @@ Returns</div>
 <div class="Element11">
 <div class="Element10">
 <p class="Element10">
-<a href="02053.html" target="topic">laResult</a> - the operation result</p></div>
+leResult - the result of the operation</p></div>
 </div>
+<div class="Element62">
+Created with a commercial version of <a href="#" onclick="openExternalLink('http://www.doc-o-matic.com');"><img src="indicator_external_link.gif" border="0" alt="" title="">Doc-O-Matic</a>. In order to make this message disappear you need to register this software. If you have problems registering this software please contact us at <a href="#" onclick="openExternalLink('mailto:support@toolsfactory.com');"><img src="indicator_external_link.gif" border="0" alt="" title="">support@toolsfactory.com</a>.</div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00360.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00454.html" target="topic">Middleware Library</a> &gt; <a href="00446.html" target="topic">Aria User Interface Library</a> &gt; <a href="00445.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="02470.html" target="topic">laWindowWidget_SetIcon Function</a></div>
+<a href="00359.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00475.html" target="topic">Graphics Library</a> &gt; <a href="00473.html" target="topic">Legato User Interface Library</a> &gt; <a href="00489.html" target="topic">Legato Interface</a> &gt; h) String Functions &gt; <a href="02470.html" target="topic">leDecodeCodePoint Function</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
 <div class="Element3">
-MPLAB Harmony Graphics Library Help</div>
+MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00360.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00359.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02469.html" target="topic">Previous</a> | <a href="00445.html" target="topic">Up</a> | <a href="02471.html" target="topic">Next</a></div>
+<a href="02784.html" target="topic">Previous</a> | <a href="00489.html" target="topic">Up</a> | <a href="02475.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laWindowWidget_SetIcon@laWindowWidget*@GFXU_ImageAsset* Topic Title: laWindowWidget_SetIcon Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: leDecodeCodePoint@uint32_t@uint8_t*@uint32_t@uint32_t*@uint32_t* Topic Title: leDecodeCodePoint Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

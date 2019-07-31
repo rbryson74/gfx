@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00357.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00610.html" target="topic">Examples and Demonstrations</a> &gt; <a href="00000.html" target="topic">aria_quickstart</a> &gt; <a href="00002.html" target="topic">Configuring the Hardware</a></div>
+<a href="00359.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00493.html" target="topic">Examples and Demonstrations</a> &gt; <a href="00491.html" target="topic">Aria Applications</a> &gt; <a href="00000.html" target="topic">aria_quickstart</a> &gt; <a href="00002.html" target="topic">Configuring the Hardware</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,7 +26,7 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00357.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00359.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
 <a href="00001.html" target="topic">Previous</a> | <a href="00000.html" target="topic">Up</a> | <a href="00003.html" target="topic">Next</a></div>
@@ -48,6 +48,169 @@ Configuring the Hardware</div>
 <a name="PageContent"></a><div class="Element58">
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
+<p class="Element10">
+ &nbsp;</p>
+<p class="Element10">
+<strong>PIC32MZ EF Starter Kit with Multimedia Expansion Board II (MEBII) and 4.3” WQVGA PCAP Touch Display</strong>&nbsp;</p>
+<p class="Element10">
+On the MEB II, the EBIWE and LCD_PCLK (J9) must be jumpered to use the internal SRAM for graphics frame buffer. The J9 jumper is located on the bottom of the MEB II board, beneath where the starter kit is plugged into the board. Refer to the following figure for the exact location. </p><p class="Element10" style="text-align: center;">
+<img src="lcc_rgb565_mxt_mzef_sk_cf1.png" border="0" alt="" title=""></p><p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+Connect the PIC32MZ EF Starter Kit to the MEB II board&nbsp;</p>
+<p class="Element10">
+&nbsp;</p><p class="Element10" style="text-align: center;">
+<img src="lcc_rgb565_mxt_mzef_sk_cf2.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p><p class="Element10">
+Power up the board by connecting the power adapter to J3 power connector on the MEB II board or a powered USB cable to the USB DEBUG port on the Starter Kit board&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+The final hardware set-up should be: </p><p class="Element10" style="text-align: center;">
+<img src="aria_qs_final_hardware.png" border="0" alt="" title=""></p><p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+<strong>PIC32MZ EF Curiosity 2.0 with maXTouch Xplained Pro display via SPI</strong>&nbsp;</p>
+<p class="Element10">
+Configure the hardware as follows:&nbsp;</p>
+<p class="Element10">
+• Attach the one end of the cable to the XPRO Extension Header at the back of the maXTouch Xplained Pro display.&nbsp;</p>
+<p class="Element10">
+• Attach the other end of the cable to the Xplained Pro Extension Header on the PIC32MZ EF Curiosity 2.0 board. Make sure the signals through the cable align between the display and the PIC32MZ EF Curiosity 2.0 board.&nbsp;</p>
+<p class="Element10">
+• Connect a USB cable from the host computer to the DEBUG USB port on the PIC32MZ EF Curiosity 2.0 board. This USB connection is used for power, code download and debugging.&nbsp;</p>
+<p class="Element10">
+The final hardware setup should be:&nbsp;</p>
+<p class="Element10">
+&nbsp;</p><p class="Element10" style="text-align: center;">
+<img src="ili9488_rgb565_mxt_mzef_cu_xpro_spi_cf1.png" border="0" alt="" title="">&nbsp;</p><p class="Element10">
+<strong>PIC32MZ EF Curiosity 2.0 board with 24-bit Passthrough GFX interface board and maXTouch Xplained Pro Display</strong>&nbsp;</p>
+<p class="Element10">
+On the backside of the maXTouch Xplained Pro display, set the IM[2:0] switches to ‘010’ for 16-bit MCU mode. </p><p class="Element10" style="text-align: center;">
+<img src="ili9488_rgb565_e54_cult_parallel_cf3.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p><p class="Element10">
+Connect display to the 24-bit Passthrough GFX interface board. Make sure that the S1 switch on the GFX interface board is set to 1. The final hardware set-up should be:&nbsp;</p>
+<p class="Element10">
+&nbsp;</p><p class="Element10" style="text-align: center;">
+<img src="ili9488_rgb565_mxt_mzef_cu_xpro_parallel_cf1.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p><p class="Element10">
+Power up the board by connecting the power adapter to power connector or a powered USB cable to the DEBUG USB port on the board.&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+<strong>PIC32MZ EF Curiosity 2.0 with SSD1963 GFX Interface Card and 4.3” WQVGA PCAP Touch Display</strong>&nbsp;</p>
+<p class="Element10">
+Configure the hardware as follows:&nbsp;</p>
+<p class="Element10">
+• Attach the SSD1963 GFX Interface Card to the J601 connector on the PIC32MZ EF Curiosity 2.0 board.&nbsp;</p>
+<p class="Element10">
+• Connect the ribbon cable from the WQVGA display to the J2 connector on the SSD1963 GFX Interface card.&nbsp;</p>
+<p class="Element10">
+• Connect a USB cable from the host computer to the DEBUG USB port on the PIC32MZ EF Curiosity 2.0 board. This USB connection is used for power, code download and debugging.&nbsp;</p>
+<p class="Element10">
+The final hardware setup should be: </p><p class="Element10" style="text-align: center;">
+<img src="ssd1963_rgb565_mxt_mzef_cu_cf1.png" border="0" alt="" title=""></p><p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+<strong>PIC32MZ EF Curiosity 2.0 with RGB565 GFX Interface Card and 4.3” WQVGA PCAP Touch Display</strong>&nbsp;</p>
+<p class="Element10">
+Configure the hardware as follows:&nbsp;</p>
+<p class="Element10">
+• Attach the RGB565 GFX Interface Card to the J601 connector on the PIC32MZ EF Curiosity 2.0 board.&nbsp;</p>
+<p class="Element10">
+• Connect the ribbon cable from the WQVGA display to the J2 connector on the RGB565 GFX Interface card.&nbsp;</p>
+<p class="Element10">
+• Connect a USB cable from the host computer to the DEBUG USB port on the PIC32MZ EF Curiosity 2.0 board. This USB connection is used for power, code download and debugging.&nbsp;</p>
+<p class="Element10">
+The final hardware setup should be: </p><p class="Element10" style="text-align: center;">
+<img src="lcc_rgb565_mxt_mzef_cu_cf1.png" border="0" alt="" title=""></p><p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+<strong> PIC32MZ DA Starter Kit with MEBII and 5” WVGA PCAP Touch Display</strong>&nbsp;</p>
+<p class="Element10">
+On the MEB II, the EBIOE and LCD_PCLK (J9) must be jumpered. A connection establishes the GLCD's pixel clock output timing. The external SRAM memory on the board is disabled. The J9 jumper is located on the bottom of the MEB II board, beneath where the starter kit is plugged into the board. Refer to the following figure for the exact location.&nbsp;</p>
+<p class="Element10">
+&nbsp;</p><p class="Element10" style="text-align: center;">
+<img src="mzda_sk_intddr_wqvga_hardware.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p><p class="Element10">
+Connect the PIC32MZ DA Starter Kit to the MEB II board&nbsp;</p>
+<p class="Element10">
+&nbsp;</p><p class="Element10" style="text-align: center;">
+<img src="mzda_sk_intddr_wqvga_hardware2.png" border="0" alt="" title="">&nbsp;</p><p class="Element10">
+Power up the board by connecting the power adapter to J3 power connector on the MEB II board or a powered USB cable to the USB DEBUG&nbsp;</p>
+<p class="Element10">
+port on the Starter Kit board&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+The final hardware set-up should be:&nbsp;</p>
+<p class="Element10">
+&nbsp;</p><p class="Element10" style="text-align: center;">
+<img src="aria_qs_final_hardware.png" border="0" alt="" title="">&nbsp;</p><p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+<strong>SAM E54 Curiosity Ultra board with 24-bit Passthrough GFX interface board and maXTouch Xplained Pro Display</strong>&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+<img src="ili9488_rgb565_e54_cult_parallel_cf3.png" border="0" alt="" title=""></p><p class="Element10">
+Connect display to the 24-bit Passthrough GFX interface board. Make sure that the S1 switch on the GFX interface board is set to 1. The final hardware set-up should be:&nbsp;</p>
+<p class="Element10">
+&nbsp;</p><p class="Element10" style="text-align: center;">
+<img src="ili9488_rgb565_e54_cult_parallel_cf4.png" border="0" alt="" title="">&nbsp;</p><p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+Power up the board by connecting the power adapter to power connector or a powered USB cable to the DEBUG USB port on the board.&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+<strong>SAM E70 Xplained Ultra board with 24-bit Passthrough GFX interface board and maXTouch Xplained Pro Display</strong>&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+On the backside of the maXTouch Xplained Pro display, set the IM[2:0] switches to ‘010’ for 16-bit MCU mode.&nbsp;</p>
+<p class="Element10">
+&nbsp;</p><p class="Element10" style="text-align: center;">
+<img src="ili9488_rgb565_e54_cult_parallel_cf3.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p><p class="Element10">
+Connect display to the 24-bit Passthrough GFX interface board. Make sure that the S1 switch on the GFX interface board is set to 1. The final hardware set-up should be: </p><p class="Element10" style="text-align: center;">
+<img src="ili9488_parallel_rgb565_cf2.png" border="0" alt="" title=""></p><p class="Element10">
+Power up the board by connecting the power adapter to power connector or a powered USB cable to the DEBUG USB port on the board.&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+<strong>aria_dashboard_9x60_sk_ wqvga, aria_dashboard_9x60_sk_ wvga_freertos</strong> &nbsp;</p><p class="Element10" style="text-align: center;">
+<img src="lcdc_rgba8888_mxt_9x60_cf1.png" border="0" alt="" title="">&nbsp;</p><p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+Power up the board by connecting the power adapter to power connector or a powered USB cable to the USB port on the SAM 9x60 Evaluation Kit board. The final hardware setup should be:&nbsp;</p>
+<p class="Element10">
+&nbsp;</p><p class="Element10" style="text-align: center;">
+<img src="lcdc_rgba8888_mxt_9x60_cf2.png" border="0" alt="" title="">&nbsp;</p><p class="Element10">
+&nbsp;</p>
 <p class="Element10">
 <strong>SAM E70 Xplained Ultra board with 4.3” WQVGA Display</strong>&nbsp;</p>
 <p class="Element10">
@@ -251,12 +414,14 @@ The final hardware set-up should be:&nbsp;</p>
 &nbsp;</p><p class="Element10" style="text-align: center;">
 <img src="aria_qs_final_hardware.png" border="0" alt="" title="">&nbsp;</p></div>
 </div>
+<div class="Element62">
+Created with a commercial version of <a href="#" onclick="openExternalLink('http://www.doc-o-matic.com');"><img src="indicator_external_link.gif" border="0" alt="" title="">Doc-O-Matic</a>. In order to make this message disappear you need to register this software. If you have problems registering this software please contact us at <a href="#" onclick="openExternalLink('mailto:support@toolsfactory.com');"><img src="indicator_external_link.gif" border="0" alt="" title="">support@toolsfactory.com</a>.</div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00357.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00610.html" target="topic">Examples and Demonstrations</a> &gt; <a href="00000.html" target="topic">aria_quickstart</a> &gt; <a href="00002.html" target="topic">Configuring the Hardware</a></div>
+<a href="00359.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00493.html" target="topic">Examples and Demonstrations</a> &gt; <a href="00491.html" target="topic">Aria Applications</a> &gt; <a href="00000.html" target="topic">aria_quickstart</a> &gt; <a href="00002.html" target="topic">Configuring the Hardware</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -264,7 +429,7 @@ The final hardware set-up should be:&nbsp;</p>
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00357.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00359.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
 <a href="00001.html" target="topic">Previous</a> | <a href="00000.html" target="topic">Up</a> | <a href="00003.html" target="topic">Next</a></div>

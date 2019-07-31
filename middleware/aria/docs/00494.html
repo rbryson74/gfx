@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>GFXU_ExternalAssetReader Structure</title>
+<title>Display Manager</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00357.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00450.html" target="topic">Graphics Library</a> &gt; <a href="00452.html" target="topic">Graphics Utilities Library</a> &gt; <a href="00451.html" target="topic">Graphics Utilities Interface</a> &gt; b) Data Types and Constants &gt; <a href="00494.html" target="topic">GFXU_ExternalAssetReader Structure</a></div>
+<a href="00359.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00435.html" target="topic">Configurator</a> &gt; <a href="00494.html" target="topic">Display Manager</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00357.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00359.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="00485.html" target="topic">Previous</a> | <a href="00451.html" target="topic">Up</a> | <a href="00502.html" target="topic">Next</a></div>
+<a href="02850.html" target="topic">Previous</a> | <a href="00435.html" target="topic">Up</a> | <a href="00016.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFXU_ExternalAssetReader Topic Title: GFXU_ExternalAssetReader Structure)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: HARMONY DM MPLAB Harmony Display Manager User%27s Guide Topic Title: Display Manager)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-GFXU_ExternalAssetReader Structure</div>
+Display Manager</div>
 </div>
 </div>
 
@@ -49,26 +49,47 @@ GFXU_ExternalAssetReader Structure</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-Structure: <a href="00578.html" target="topic">GFXU_MemoryIntf_t</a>&nbsp;</p>
+MPLAB Harmony Graphics driver files are generated the same way as the rest of the project within MHC. It is through the Generate button.&nbsp;</p>
 <p class="Element10">
-status - the overall status of the decoder state machine state - mostly for decoder internal use result - can be used for an overall result of the state of an operation memIntf - the memory interface the decoder is using for memory operations run - the run pointer that must be called periodically to allow the state machine to process to completion.</p></div>
+&nbsp;</p>
+<p class="Element10">
+The following figure illustrates the Display Manager screen. Descriptions for each numbered area follow the figure. </p><p class="Element10" style="text-align: center;">
+<img src="H3 Display Manager Window.png" border="0" alt="" title=""></p>
+<ol class="Element630">
+<li value="1" class="Element600"><strong>Display Settings</strong> – The Display Settings panel controls the size and orientation of the display. Under the Configuration Options of the GFX Core component is parallel set of display settings.</li>
+</ol><p class="Element10" style="text-align: center;">
+<img src="H3 Display Manager Display Settings.png" border="0" alt="" title=""></p>
+<ol class="Element630">
+<li value="2" class="Element600"><strong>Active Area / Hidden Area Diagram</strong> – This mimics the display active area transposed over the hidden area as often shown in display data sheets. It also provides a simulation of how the display behaves on the hardware. Note that in Harmony 3 horizontal and vertical syncs are not shown.</li>
+<li value="3" class="Element600"><strong>Signal Timing </strong> – This panel supports the display timing of the display. These timing values are also shown on the Active Area / Hidden Area Diagram.</li>
+</ol><p class="Element10" style="text-align: center;">
+<img src="H3 Display Mgr Signal Timing.png" border="0" alt="" title=""></p><p class="Element10">
+These settings are also available in GFX Core Configuration Options: </p><p class="Element10" style="text-align: center;">
+<img src="H3 Display Mgr Signal Timing Configs.png" border="0" alt="" title=""></p><p class="Element10">
+Here is a map between the Display Settings and the Active Area diagram in Display Manager: </p><p class="Element10" style="text-align: center;">
+<img src="H3 Display Mgr Signal Timing to Active Area.png" border="0" alt="" title=""></p>
+<ol class="Element630">
+<li value="4" class="Element600">Driver Settings –This Display Manager panel controls how the graphics driver is setup. There is an equivalent set of controls under GFX Core's Configuration Options &gt; Driver Configuration Hints.</li>
+</ol><p class="Element10" style="text-align: center;">
+<img src="H3 Display Mgr Driver Settings.png" border="0" alt="" title=""></p><p class="Element10">
+The pixel clock for the E70 LCC driver is fixed at about 45 MHz. This is because the master clock that feeds the DMA is shared with the other peripherals. Since the setup is fixed it not shown in the Driver Settings panel.</p>
+<ol class="Element630">
+<li value="5" class="Element600"><strong>H-SYNC Waveforms / V-SYNC Waveforms</strong> – This panel provides timing diagrams for the horizontal and vertical sync signals. Here is a repeat of the figure shown in 3 above with the back porches set to 5 to distinguish between front and back porches:</li>
+</ol><p class="Element10" style="text-align: center;">
+<img src="H3 Display Mgr Signal Timing to Active Area_2.png" border="0" alt="" title=""></p><p class="Element10">
+The corresponding Horizontal Sync waveforms are: </p><p class="Element10" style="text-align: center;">
+<img src="H3 Display Mgr H-Sync Waveforms.png" border="0" alt="" title=""></p><p class="Element10">
+The corresponding Vertical Sync waveforms are: </p><p class="Element10" style="text-align: center;">
+<img src="H3 Display Mgr V-Sync Waveforms.png" border="0" alt="" title=""></p></div>
 </div>
-<a name="43"></a><div class="Element99">
-C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100"><strong><span style="color: #000080">typedef</span></strong> <strong><span style="color: #000080">struct</span></strong> <strong><span style="color: #000000">GFXU_ExternalAssetReader_t</span></strong> {
-  <a href="00503.html" target="topic">GFXU_ExternalAssetReaderStatus</a> <strong><span style="color: #000000">status</span></strong>;
-  uint32_t <strong><span style="color: #000000">state</span></strong>;
-  int32_t <strong><span style="color: #000000">result</span></strong>;
-  <a href="00578.html" target="topic">GFXU_MemoryIntf</a>* <strong><span style="color: #000000">memIntf</span></strong>;
-  <a href="00502.html" target="topic">GFXU_ExternalAssetReaderRun_FnPtr</a> <strong><span style="color: #000000">run</span></strong>;
-  <strong><span style="color: #000080">void</span></strong>* <strong><span style="color: #000000">userData</span></strong>;
-} GFXU_ExternalAssetReader;</pre></div></div>
+<div class="Element62">
+Created with a commercial version of <a href="#" onclick="openExternalLink('http://www.doc-o-matic.com');"><img src="indicator_external_link.gif" border="0" alt="" title="">Doc-O-Matic</a>. In order to make this message disappear you need to register this software. If you have problems registering this software please contact us at <a href="#" onclick="openExternalLink('mailto:support@toolsfactory.com');"><img src="indicator_external_link.gif" border="0" alt="" title="">support@toolsfactory.com</a>.</div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00357.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00450.html" target="topic">Graphics Library</a> &gt; <a href="00452.html" target="topic">Graphics Utilities Library</a> &gt; <a href="00451.html" target="topic">Graphics Utilities Interface</a> &gt; b) Data Types and Constants &gt; <a href="00494.html" target="topic">GFXU_ExternalAssetReader Structure</a></div>
+<a href="00359.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00435.html" target="topic">Configurator</a> &gt; <a href="00494.html" target="topic">Display Manager</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -76,13 +97,13 @@ C</div>
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00357.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00359.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="00485.html" target="topic">Previous</a> | <a href="00451.html" target="topic">Up</a> | <a href="00502.html" target="topic">Next</a></div>
+<a href="02850.html" target="topic">Previous</a> | <a href="00435.html" target="topic">Up</a> | <a href="00016.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFXU_ExternalAssetReader Topic Title: GFXU_ExternalAssetReader Structure)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: HARMONY DM MPLAB Harmony Display Manager User%27s Guide Topic Title: Display Manager)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

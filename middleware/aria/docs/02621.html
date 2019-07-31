@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>Summary</title>
+<title>leList_PushFront Function</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,23 +18,23 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00649.html" target="topic">MPLAB Harmony Display Manager User's Guide</a> &gt; <a href="02621.html" target="topic">Summary</a></div>
+<a href="00359.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00475.html" target="topic">Graphics Library</a> &gt; <a href="00473.html" target="topic">Legato User Interface Library</a> &gt; <a href="00489.html" target="topic">Legato Interface</a> &gt; c) Datastructure Functions &gt; <a href="02621.html" target="topic">leList_PushFront Function</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
 <div class="Element1">
-MPLAB Harmony Graphics Library Help</div>
+MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00359.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="00649.html" target="topic">Previous</a> | <a href="00649.html" target="topic">Up</a> | <a href="00480.html" target="topic">Next</a></div>
+<a href="02620.html" target="topic">Previous</a> | <a href="00489.html" target="topic">Up</a> | <a href="02622.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: Summary Topic Title: Summary)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: leList_PushFront@leList*@void* Topic Title: leList_PushFront Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-Summary</div>
+leList_PushFront Function</div>
 </div>
 </div>
 
@@ -46,58 +46,66 @@ Summary</div>
 
 <!-- Begin Page Content -->
 <a name="PageContent"></a><div class="Element58">
-<a name="4465736372697074696F6E"></a><div class="Element11">
+<a name="43"></a><div class="Element99">
+C</div>
+<div class="Element101"><div class="Element100"><pre class="Element100">int32_t <strong><span style="color: #000000">leList_PushFront</span></strong>(
+    leList* <strong><span style="color: #000000">list</span></strong>, 
+    <strong><span style="color: #000080">void</span></strong>*
+);</pre></div></div>
+<a name="506172616D6574657273"></a><div class="Element14">
+Parameters</div>
+<div class="Element11">
+<div class="Element10">
+<div class="Element312">
+<div class="TableDiv">
+<table cellspacing="0" class="Table3">
+<tr>
+<td class="Element300" valign="top" width="35%">
+<div class="Element301">
+Parameters&nbsp;</div></td><td class="Element304" valign="top" width="65%">
+<div class="Element305">
+Description&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+leList* list&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+pointer to the list to modify&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+void* val&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+the new value of the node&nbsp;</div></td></tr></table></div></div>
+</div>
+</div>
+<a name="52657475726E73"></a><div class="Element14">
+Returns</div>
+<div class="Element11">
 <div class="Element10">
 <p class="Element10">
-The following figure illustrates the Display Manager screen. Descriptions for each numbered area follow the figure. </p><p class="Element10" style="text-align: center;">
-<img src="H3 Display Manager Window.png" border="0" alt="" title=""></p>
-<ol class="Element630">
-<li value="1" class="Element600"><strong>Display Settings</strong> – The Display Settings panel controls the size and orientation of the display. Under the Configuration Options of the GFX Core component is parallel set of display settings.</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="H3 Display Manager Display Settings.png" border="0" alt="" title=""></p>
-<ol class="Element630">
-<li value="2" class="Element600"><strong>Active Area / Hidden Area Diagram</strong> – This mimics the display active area transposed over the hidden area as often shown in display data sheets. It also provides a simulation of how the display behaves on the hardware. Note that in Harmony 3 horizontal and vertical syncs are not shown.</li>
-<li value="3" class="Element600"><strong>Signal Timing </strong> – This panel supports the display timing of the display. These timing values are also shown on the Active Area / Hidden Area Diagram.</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="H3 Display Mgr Signal Timing.png" border="0" alt="" title=""></p><p class="Element10">
-These settings are also available in GFX Core Configuration Options: </p><p class="Element10" style="text-align: center;">
-<img src="H3 Display Mgr Signal Timing Configs.png" border="0" alt="" title=""></p><p class="Element10">
-Here is a map between the Display Settings and the Active Area diagram in Display Manager: </p><p class="Element10" style="text-align: center;">
-<img src="H3 Display Mgr Signal Timing to Active Area.png" border="0" alt="" title=""></p>
-<ol class="Element630">
-<li value="4" class="Element600">Driver Settings –This Display Manager panel controls how the graphics driver is setup. There is an equivalent set of controls under GFX Core's Configuration Options &gt; Driver Configuration Hints.</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="H3 Display Mgr Driver Settings.png" border="0" alt="" title=""></p><p class="Element10">
-The pixel clock for the E70 LCC driver is fixed at about 45 MHz. This is because the master clock that feeds the DMA is shared with the other peripherals. Since the setup is fixed it not shown in the Driver Settings panel.</p>
-<ol class="Element630">
-<li value="5" class="Element600"><strong>H-SYNC Waveforms / V-SYNC Waveforms</strong> – This panel provides timing diagrams for the horizontal and vertical sync signals. Here is a repeat of the figure shown in 3 above with the back porches set to 5 to distinguish between front and back porches:</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="H3 Display Mgr Signal Timing to Active Area_2.png" border="0" alt="" title=""></p><p class="Element10">
-The corresponding Horizontal Sync waveforms are: </p><p class="Element10" style="text-align: center;">
-<img src="H3 Display Mgr H-Sync Waveforms.png" border="0" alt="" title=""></p><p class="Element10">
-The corresponding Vertical Sync waveforms are: </p><p class="Element10" style="text-align: center;">
-<img src="H3 Display Mgr V-Sync Waveforms.png" border="0" alt="" title=""></p></div>
+int32_t - 0 if success, -1 if failure</p></div>
 </div>
+<div class="Element62">
+Created with a commercial version of <a href="#" onclick="openExternalLink('http://www.doc-o-matic.com');"><img src="indicator_external_link.gif" border="0" alt="" title="">Doc-O-Matic</a>. In order to make this message disappear you need to register this software. If you have problems registering this software please contact us at <a href="#" onclick="openExternalLink('mailto:support@toolsfactory.com');"><img src="indicator_external_link.gif" border="0" alt="" title="">support@toolsfactory.com</a>.</div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00649.html" target="topic">MPLAB Harmony Display Manager User's Guide</a> &gt; <a href="02621.html" target="topic">Summary</a></div>
+<a href="00359.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00475.html" target="topic">Graphics Library</a> &gt; <a href="00473.html" target="topic">Legato User Interface Library</a> &gt; <a href="00489.html" target="topic">Legato Interface</a> &gt; c) Datastructure Functions &gt; <a href="02621.html" target="topic">leList_PushFront Function</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
 <div class="Element3">
-MPLAB Harmony Graphics Library Help</div>
+MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00359.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="00649.html" target="topic">Previous</a> | <a href="00649.html" target="topic">Up</a> | <a href="00480.html" target="topic">Next</a></div>
+<a href="02620.html" target="topic">Previous</a> | <a href="00489.html" target="topic">Up</a> | <a href="02622.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: Summary Topic Title: Summary)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: leList_PushFront@leList*@void* Topic Title: leList_PushFront Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->
