@@ -29,8 +29,8 @@
 |      | parallel_smc | Interface to the spi registers | Beta |
 |  hal    | hal | Aria Hardware Abstration Layer | Production |
 |  input    | maxtouch | Microchip maXTouch Touch Input Driver | Production |
-|  middleware    | aria | Harmony Graphics Middleware Solution | Production |
-|      | legato | Harmony Graphics Middleware Solution | Beta |
+|  middleware    | aria | Graphics Library (deprecated) | Production |
+|      | legato | Graphics Library | Beta |
 | templates   | aria_gfx_oled1_xpro | MHC for oled xpro| Beta |
 |             | aria_gfx_pda_tm4301b| MHC config for pda 4" display | Production |
 |             | aria_gfx_pda_tm5000| MHC config for pda 5" display | Beta |
@@ -72,8 +72,8 @@
 
 | Middleware/HAL | Description |
 | --- | --- |
-| aria| none |
-| legato| Added graphics library |
+| aria| Deprecated graphics library |
+| legato| Added new graphics library |
 
 
 - **Graphics Application Templates** - The following table provides the list of updates for graphics templates use within MHC.
