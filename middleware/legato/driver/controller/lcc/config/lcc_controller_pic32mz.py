@@ -27,32 +27,32 @@ import re
 def instantiateComponent(comp):
 	projectPath = "config/" + Variables.get("__CONFIGURATION_NAME") + "/gfx/driver/lcc"
 	
-	#comp.setHelpFile("../../../doc/html/help_harmony_gfx_html_alias.h")
+	comp.setHelpFile("../../../docs/help_harmony_gfx_html_alias.h")
 	#comp.setHelp("IDH_HTML_GFX_CMP__3__Display_Driver_Component")
 	
-	# configuration options
-	"""HALComment = comp.createCommentSymbol("HALComment", None)
-	HALComment.setLabel("Some settings are being managed by the GFX Core and have been hidden.")
-	HALComment.setVisible(False)"""
+	DriverInitName = comp.createStringSymbol("DriverInitName", None)
+	DriverInitName.setVisible(False)
+	DriverInitName.setReadOnly(True)
+	DriverInitName.setDefaultValue("lccDisplayDriver")
 
-	SYS_DEFINITIONS_H = comp.createFileSymbol("SYS_DEFINITIONS_H", None)
-	SYS_DEFINITIONS_H.setType("STRING")
-	SYS_DEFINITIONS_H.setOutputName("core.LIST_SYSTEM_DEFINITIONS_H_INCLUDES")
-	SYS_DEFINITIONS_H.setSourcePath("definitions.h.ftl")
-	SYS_DEFINITIONS_H.setMarkup(True)
+	HALConnected = comp.createBooleanSymbol("HALConnected", None)
+	HALConnected.setVisible(False)
+	HALConnected.setDependencies(onHALConnected, ["HALConnected"])
+
+	# these two symbols are read by the HAL for initialization purposes
+	# they must match the function names in the actual driver code
+	DriverInfoFunction = comp.createStringSymbol("DriverInfoFunction", None)
+	DriverInfoFunction.setLabel("Driver Info Function Name")
+	DriverInfoFunction.setReadOnly(True)
+	DriverInfoFunction.setDefaultValue("driverLCCInfoGet")
+	DriverInfoFunction.setVisible(False)
 	
-	SYS_INIT_C = comp.createFileSymbol("SYS_INIT_C", None)
-	SYS_INIT_C.setType("STRING")
-	SYS_INIT_C.setOutputName("core.LIST_SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS")
-	SYS_INIT_C.setSourcePath("init.c.ftl")
-	SYS_INIT_C.setMarkup(True)
-
-	SYS_TASK_C = comp.createFileSymbol("SYS_TASK_C", None)
-	SYS_TASK_C.setType("STRING")
-	SYS_TASK_C.setOutputName("core.LIST_SYSTEM_TASKS_C_CALL_DRIVER_TASKS")
-	SYS_TASK_C.setSourcePath("tasks.c.ftl")
-	SYS_TASK_C.setMarkup(True)	
-
+	DriverInitFunction = comp.createStringSymbol("DriverInitFunction", None)
+	DriverInitFunction.setLabel("Driver Init Function Name")
+	DriverInitFunction.setReadOnly(True)
+	DriverInitFunction.setDefaultValue("driverLCCContextInitialize")
+	DriverInitFunction.setVisible(False)
+	
 	DisplayWidth = comp.createIntegerSymbol("DisplayWidth", None)
 	DisplayWidth.setLabel("Width")
 	DisplayWidth.setDescription("The width of the frame buffer in pixels.")
@@ -143,38 +143,35 @@ def instantiateComponent(comp):
 	PaletteMode.setLabel("Use 8-bit Palette?")
 	PaletteMode.setDescription("<html>Enables frame buffer compression.<br>Uses an 8-bit color lookup table to reduce the required<br>frame buffer memory size.  This also reduces the<br>maximum avilable color count to 256 and significantly<br>slows down display refresh speed.</html>")
 
-	UseCachedFrameBuffer = comp.createBooleanSymbol("UseCachedFrameBuffer", FrameBufferSettingsMenu)
-	UseCachedFrameBuffer.setLabel("Uses Cache?")
-	UseCachedFrameBuffer.setDescription("Specifies if frame buffer is cached and needs to be managed by the LCC driver.")
-	UseCachedFrameBuffer.setDefaultValue(True)
-	UseCachedFrameBuffer.setDependencies(OnCacheEnabled, ["core.DATA_CACHE_ENABLE"])
-
-	#FrameBufferMemory = comp.createComboSymbol("FrameBufferMemory", FrameBufferSettingsMenu, ["Internal SRAM", "External SDRAM"])
 	FrameBufferMemory = comp.createComboSymbol("FrameBufferMemory", FrameBufferSettingsMenu, ["Internal SRAM"])
 	FrameBufferMemory.setLabel("Memory Interface")
 	FrameBufferMemory.setDescription("Memory used for Frame Buffer")
 	FrameBufferMemory.setDefaultValue("Internal SRAM")
 	
+	### DMA Menu
 	DMAMenu = comp.createMenuSymbol("DMAMenu", None)
 	DMAMenu.setLabel("DMA Settings")
 	
-	# temporary config symbol
-	# need to use the graph to draw a line to the DMA provider
-	# to claim a DMA channel or some other intuitive method
-	# this current method is only guessing at the max
-	# and could allow the user to assign duplicate channels
+	DMAController = comp.createStringSymbol("DMAController", DMAMenu)
+	DMAController.setLabel("DMA Controller")
+	DMAController.setDefaultValue("DMAC")
+	DMAController.setReadOnly(True)
+	
 	DMAChannel = comp.createIntegerSymbol("DMAChannel", DMAMenu)
-	DMAChannel.setLabel("DMA Instance")
+	DMAChannel.setLabel("DMA Channel")
 	DMAChannel.setDefaultValue(0)
 	DMAChannel.setMin(0)
-	DMAChannel.setMax(5) # HARD HACK
+	DMAChannel.setMax(23)
 	DMAChannel.setDependencies(onDMAChannelSet, ["DMAChannel"])
+
+	OldDMAChannel = comp.createIntegerSymbol("OldDMAChannel", DMAMenu)
+	OldDMAChannel.setLabel("Old DMA Channel")
+	OldDMAChannel.setVisible(False)
 	
-	CurrDMAChannel = comp.createIntegerSymbol("CurrDMAChannel", DMAMenu)
-	CurrDMAChannel.setMin(0)
-	CurrDMAChannel.setMax(64)
-	CurrDMAChannel.setDefaultValue(0)
-	CurrDMAChannel.setVisible(False)
+	DMAChannelSelected = comp.createBooleanSymbol("DMAChannelSelected", DMAMenu)
+	DMAChannelSelected.setDefaultValue(False)
+	DMAChannelSelected.setVisible(False)
+	### End of DMA Menu
 	
 	# IntPriority = comp.createIntegerSymbol("IntPriority", DMAMenu)
 	# IntPriority.setLabel("Interrupt Priority Level")
@@ -192,40 +189,32 @@ def instantiateComponent(comp):
 	DefaultBrightness.setMax(100)
 	DefaultBrightness.setDefaultValue(100)
 
-	PeripheralControl = comp.createComboSymbol("PeripheralControl", BacklightSettings, ["GPIO", "TC"])
+	PeripheralControl = comp.createComboSymbol("PeripheralControl", BacklightSettings, ["GPIO"])
 	PeripheralControl.setLabel("Peripheral")
 	PeripheralControl.setDescription("Peripheral used to control the backlight PWM")
 	PeripheralControl.setDefaultValue("GPIO")
-	PeripheralControl.setDependencies(onBacklightPeripheralSelected, ["PeripheralControl"])
-	
-	TCPeripheralSettings = comp.createMenuSymbol("TCPeripheralSettings", PeripheralControl)
-	TCPeripheralSettings.setLabel("Timer Counter Settings")
-	TCPeripheralSettings.setDescription("Settings for using the TC peripheral library")
-	TCPeripheralSettings.setVisible(False)
-	
-	TCInstance = comp.createIntegerSymbol("TCInstance", TCPeripheralSettings)
-	TCInstance.setLabel("TC Instance")
-	TCInstance.setDescription("The TC peripheral IDx")
-	TCInstance.setMin(0)
-	TCInstance.setMax(64)
-	TCInstance.setDefaultValue(0)
-
-	TCChannel = comp.createIntegerSymbol("TCChannel", TCPeripheralSettings)
-	TCChannel.setLabel("TC Channel")
-	TCChannel.setDescription("The TC channel that controls the PWM signal")
-	TCChannel.setMin(0)
-	TCChannel.setMax(64)
-	TCChannel.setDefaultValue(0)
-
-	TCChannelCompare = comp.createComboSymbol("TCChannelCompare", TCPeripheralSettings, ["A", "B"])
-	TCChannelCompare.setLabel("Compare Register")
-	TCChannelCompare.setDescription("Compare Register for PWM")
-	TCChannelCompare.setDefaultValue("A")
 	### End of Backlight config options
+	
+	### Start of EBI Port config
+	EBIPortSettings = comp.createMenuSymbol("EBIPortSettings", None)
+	EBIPortSettings.setLabel("EBI Port Settings")
+
+	EBIPeripheralType = comp.createStringSymbol("EBIPeripheralType", EBIPortSettings)
+	EBIPeripheralType.setLabel("EBI Peripheral Type")
+	EBIPeripheralType.setDefaultValue("EBIPMP")
+	EBIPeripheralType.setReadOnly(True)
+
+	EBIChipSelectIndex = comp.createIntegerSymbol("EBIChipSelectIndex", EBIPortSettings)
+	EBIChipSelectIndex.setLabel("EBI Chip Select Index")
+	EBIChipSelectIndex.setDescription("The chip select index")
+	EBIChipSelectIndex.setMin(0)
+	EBIChipSelectIndex.setMax(4)
+	EBIChipSelectIndex.setDefaultValue(0)
+
+	### End of EBI Port config
 
 	# generated code files
 	GFX_LCC_C = comp.createFileSymbol("GFX_LCC_C", None)
-	GFX_LCC_C.setSourcePath("./drv_gfx_lcc.c.ftl")
 	GFX_LCC_C.setDestPath("gfx/driver/controller/lcc/")
 	GFX_LCC_C.setOutputName("drv_gfx_lcc.c")
 	GFX_LCC_C.setProjectPath(projectPath)
@@ -233,110 +222,80 @@ def instantiateComponent(comp):
 	GFX_LCC_C.setMarkup(True)
 	
 	GFX_LCC_H = comp.createFileSymbol("GFX_LCC_H", None)
-	GFX_LCC_H.setSourcePath("./drv_gfx_lcc.h")
 	GFX_LCC_H.setDestPath("gfx/driver/controller/lcc/")
 	GFX_LCC_H.setOutputName("drv_gfx_lcc.h")
 	GFX_LCC_H.setProjectPath(projectPath)
 	GFX_LCC_H.setType("HEADER")
+	GFX_LCC_H.setMarkup(True)
 
-	EBIChipSelectIndex = comp.createIntegerSymbol("EBIChipSelectIndex", None)
-	EBIChipSelectIndex.setLabel("EBI Chip Select Index")
-	EBIChipSelectIndex.setDescription("The chip select index")
-	EBIChipSelectIndex.setMin(0)
-	EBIChipSelectIndex.setMax(4)
-	EBIChipSelectIndex.setDefaultValue(0)
-	EBIChipSelectIndex.setVisible(False)
+	GFX_LCC_C.setSourcePath("templates/drv_gfx_lcc_mz.c.ftl")
+	GFX_LCC_H.setSourcePath("templates/drv_gfx_lcc.h.ftl")
 
-	configureDMAChannel(str(DMAChannel.getValue()), str(CurrDMAChannel.getValue()))
+	autoSelectDMAChannel(DMAChannelSelected, DMAChannel, OldDMAChannel)
 
-def configureDMAChannel(newChannel, oldChannel):
-	# print("old channel " + str(oldChannel))
-	# print("new channel " + str(newChannel))
-	Database.clearSymbolValue("core", "XDMAC_CH" + str(oldChannel) + "_ENABLE")
-	Database.clearSymbolValue("core", "XDMAC_CC" + str(oldChannel) + "_DAM")
-	Database.clearSymbolValue("core", "XDMAC_CC" + str(oldChannel) + "_DWIDTH")
-	Database.clearSymbolValue("core", "XDMAC_CC" + str(oldChannel) + "_SIF")
-	Database.clearSymbolValue("core", "XDMAC_CC" + str(oldChannel) + "_MBSIZE")
-	
-	Database.getComponentByID("core").getSymbolByID("XDMAC_CH" + str(newChannel) + "_ENABLE").setValue(True, 1)
-	Database.getComponentByID("core").getSymbolByID("XDMAC_CC" + str(newChannel) + "_DAM").setSelectedKey("FIXED_AM", 1)
-	Database.getComponentByID("core").getSymbolByID("XDMAC_CC" + str(newChannel) + "_DWIDTH").setSelectedKey("HALFWORD", 1)
-	Database.getComponentByID("core").getSymbolByID("XDMAC_CC" + str(newChannel) + "_SIF").setSelectedKey("AHB_IF0", 1)
-	Database.getComponentByID("core").getSymbolByID("XDMAC_CC" + str(newChannel) + "_MBSIZE").setSelectedKey("SIXTEEN", 1)
+def autoSelectDMAChannel(DMAChannelSelected, DMAChannel, OldDMAChannel):
+	if DMAChannelSelected.getValue() == False:
+		for channel in range(0, 23):
+			enabled = Database.getComponentByID("core").getSymbolByID("DMAC_CHAN" + str(channel) + "_ENBL").getValue();
+			if enabled == False:
+				configureDMAChannel(channel)
+				DMAChannelSelected.setValue(True, 1)
+				DMAChannel.setValue(channel, 1)
+				OldDMAChannel.setValue(channel, 1)
+				break
 
-"""def onDisplayConnected(halConnected, event):
+def configureDMAChannel(channel):
+	Database.getComponentByID("core").getSymbolByID("DMAC_CHAN" + str(channel) + "_ENBL").setValue(True, 1)
+
+def unconfigureDMAChannel(channel):
+	Database.clearSymbolValue("core", "DMAC_CHAN" + str(channel) + "_ENBL")
+
+def onHALConnected(halConnected, event):
+	halConnected.getComponent().getSymbolByID("HALComment").setVisible(event["value"] == True)
 	halConnected.getComponent().getSymbolByID("DisplayWidth").setVisible(event["value"] == False)
 	halConnected.getComponent().getSymbolByID("DisplayHeight").setVisible(event["value"] == False)
 	halConnected.getComponent().getSymbolByID("DoubleBuffer").setVisible(event["value"] == False)
 	halConnected.getComponent().getSymbolByID("PaletteMode").setVisible(event["value"] == False)
 	halConnected.getComponent().getSymbolByID("LCCRefresh").setVisible(event["value"] == False)
 	halConnected.getComponent().getSymbolByID("DisplaySettingsMenu").setVisible(event["value"] == False)
-	"""
+
 def onDMAChannelSet(dmaChannelSet, event):
 	newDMAChannel = dmaChannelSet.getComponent().getSymbolByID("DMAChannel").getValue()
-	currDMAChannel = dmaChannelSet.getComponent().getSymbolByID("CurrDMAChannel").getValue()
-	configureDMAChannel(str(newDMAChannel), str(currDMAChannel))
-	dmaChannelSet.getComponent().getSymbolByID("CurrDMAChannel").setValue(newDMAChannel, 1)	
+	oldDMAChannel = dmaChannelSet.getComponent().getSymbolByID("OldDMAChannel").getValue()
+	unconfigureDMAChannel(str(oldDMAChannel))
+	configureDMAChannel(str(newDMAChannel))
+	dmaChannelSet.getComponent().getSymbolByID("OldDMAChannel").setValue(newDMAChannel, 1)
 
-def configureSMCComponent(lccComponent, smcComponent, smcChipSelNum):
-	print("LCC: Connecting SMC_CS" + str(smcChipSelNum))
-	smcComponent.setSymbolValue("SMC_CHIP_SELECT" + str(smcChipSelNum), True, 1)
-	smcComponent.setSymbolValue("SMC_MEM_SCRAMBLING_CS" + str(smcChipSelNum), False, 1)
-	smcComponent.setSymbolValue("SMC_NWE_SETUP_CS" + str(smcChipSelNum), 5, 1)
-	smcComponent.setSymbolValue("SMC_NCS_WR_SETUP_CS" + str(smcChipSelNum), 0, 1)
-	smcComponent.setSymbolValue("SMC_NWE_PULSE_CS" + str(smcChipSelNum), 2, 1)
-	smcComponent.setSymbolValue("SMC_NWE_CYCLE_CS" + str(smcChipSelNum), 6, 1)
-	smcComponent.setSymbolValue("SMC_NCS_WR_PULSE_CS" + str(smcChipSelNum), 6, 1)
-	smcComponent.setSymbolValue("SMC_DATA_BUS_CS" + str(smcChipSelNum), 1, 1)
-	smcComponent.setSymbolValue("SMC_WRITE_ENABLE_MODE_CS" + str(smcChipSelNum), False, 1)
-	lccComponent.setSymbolValue("EBIChipSelectIndex", smcChipSelNum, 1)
-	
-def resetSMCComponent(lccComponent, smcComponent, smcChipSelNum):
-	print("LCC: Disconnecting SMC_CS" + str(smcChipSelNum))
-	smcComponent.clearSymbolValue("SMC_CHIP_SELECT" + str(smcChipSelNum))
-	smcComponent.clearSymbolValue("SMC_MEM_SCRAMBLING_CS" + str(smcChipSelNum))
-	smcComponent.clearSymbolValue("SMC_NWE_SETUP_CS" + str(smcChipSelNum))
-	smcComponent.clearSymbolValue("SMC_NCS_WR_SETUP_CS" + str(smcChipSelNum))
-	smcComponent.clearSymbolValue("SMC_NWE_PULSE_CS" + str(smcChipSelNum))
-	smcComponent.clearSymbolValue("SMC_NWE_CYCLE_CS" + str(smcChipSelNum))
-	smcComponent.clearSymbolValue("SMC_NCS_WR_PULSE_CS" + str(smcChipSelNum))
-	smcComponent.clearSymbolValue("SMC_DATA_BUS_CS" + str(smcChipSelNum))
-	smcComponent.clearSymbolValue("SMC_WRITE_ENABLE_MODE_CS" + str(smcChipSelNum))
+def configureEBIComponent(lccComponent, ebiComponent, ebiChipSelNum):
+	print("LCC: Connecting EBI_CS" + str(ebiChipSelNum))
+	ebiComponent.setSymbolValue("CFGEBIC_EBIDAT", 2, 1) #2 = 16-bit
+	ebiComponent.setSymbolValue("CFGEBIC_EBIWEEN", True, 1)
+	ebiComponent.setSymbolValue("CFGEBIC_EBICSEN" + str(ebiChipSelNum), True, 1)
+	ebiComponent.setSymbolValue("EBIMSK" + str(ebiChipSelNum) + "_MEMSIZE", 8, 1) #8 = 8MB
+	ebiComponent.setSymbolValue("EBISMT" + str(ebiChipSelNum) + "_TRC", 0, 1)
+	ebiComponent.setSymbolValue("EBISMT" + str(ebiChipSelNum) + "_TAS", 3, 1)
+	ebiComponent.setSymbolValue("EBISMT" + str(ebiChipSelNum) + "_TWR", 3, 1)
+	ebiComponent.setSymbolValue("EBISMT" + str(ebiChipSelNum) + "_TWP", 4, 1)
+	ebiComponent.setSymbolValue("EBISMT" + str(ebiChipSelNum) + "_TBTA", 0, 1)
+	ebiComponent.setSymbolValue("EBISMCON_SMDWIDTH" + str(ebiChipSelNum), 0, 1)
+	lccComponent.setSymbolValue("EBIChipSelectIndex", ebiChipSelNum, 1)
+
+def resetEBIComponent(lccComponent, ebiComponent, ebiChipSelNum):
+	print("LCC: Disconnecting EBI_CS" + str(ebiChipSelNum))
+	ebiComponent.clearSymbolValue("CFGEBIC_EBIDAT")
+	ebiComponent.clearSymbolValue("CFGEBIC_EBIWEEN")
+	ebiComponent.clearSymbolValue("CFGEBIC_EBICSEN" + str(ebiChipSelNum))
+	ebiComponent.clearSymbolValue("EBIMSK" + str(ebiChipSelNum) + "_MEMSIZE")
+	ebiComponent.clearSymbolValue("EBISMT" + str(ebiChipSelNum) + "_TRC")
+	ebiComponent.clearSymbolValue("EBISMT" + str(ebiChipSelNum) + "_TAS")
+	ebiComponent.clearSymbolValue("EBISMT" + str(ebiChipSelNum) + "_TWR")
+	ebiComponent.clearSymbolValue("EBISMT" + str(ebiChipSelNum) + "_TWP")
+	ebiComponent.clearSymbolValue("EBISMT" + str(ebiChipSelNum) + "_TBTA")
+	ebiComponent.clearSymbolValue("EBISMCON_SMDWIDTH" + str(ebiChipSelNum))
 	lccComponent.clearSymbolValue("EBIChipSelectIndex")
-
-def onAttachmentConnected(source, target):
-	#print("dependency Connected = " + str(target['id']))
-	#### test for SMC dependency
-	if (source["id"] == "SMC_CS"):
-		sub = re.search('smc_cs(.*)', str(target["id"]))
-		if (sub and sub.group(1)):
-			configureSMCComponent(source["component"], target["component"], int(sub.group(1)))
-	#### test for TC dependency (backlight)
-	elif (source["id"] == "TMR"):
-		sub = re.search('TC(.*)', target["component"].getDisplayName())
-		if (sub and sub.group(1)):
-			source["component"].getSymbolByID("TCInstance").setValue(int(sub.group(1)), 1)
-	elif (source["id"] == "Graphics Display"):
-		#source["component"].get
-		print("display")
 	
-	
-def onAttachmentDisconnected(source, target):
-	if (source["id"] == "SMC_CS"):
-		sub = re.search('smc_cs(.*)', str(target["id"]))
-		if (sub and sub.group(1)):
-			resetSMCComponent(source["component"], target["component"], int(sub.group(1)))
-
-def OnCacheEnabled(cacheEnabled, event):
-	print("LCC: cache enabled")
-	cacheEnabled.getComponent().setSymbolValue("UseCachedFrameBuffer", event["value"] == True, 1)
-	print("LCC: UseCachedFrameBuffer enabled")
-
-def onBacklightPeripheralSelected(symbol, event):
-	print("onBacklightPeripheralSelected = " + event["value"])
-	if (event["value"] == "TC"):
-		symbol.getComponent().setDependencyEnabled("TMR", True)
-		symbol.getComponent().getSymbolByID("TCPeripheralSettings").setVisible(True)
-	else:
-		symbol.getComponent().getSymbolByID("TCPeripheralSettings").setVisible(False)
-		symbol.getComponent().setDependencyEnabled("TMR", False)
+	# ebiComponent.clearSymbolValue("EBISMT" + str(ebiChipSelNum) + "_TRC")
+	# ebiComponent.clearSymbolValue("EBISMT" + str(ebiChipSelNum) + "_TWR")
+	# ebiComponent.clearSymbolValue("EBISMT" + str(ebiChipSelNum) + "_TBTA")
+	# ebiComponent.clearSymbolValue("EBISMCON_SMDWIDTH" + str(ebiChipSelNum))
+	# lccComponent.clearSymbolValue("EBIChipSelectIndex")
