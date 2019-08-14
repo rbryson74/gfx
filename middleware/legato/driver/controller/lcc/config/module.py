@@ -36,8 +36,6 @@ def loadModule():
 		cntlComponent = Module.CreateComponent("le_gfx_driver_lcc", "LE LCC ", "/Graphics/Driver", "config/lcc_controller.py")
 		cntlComponent.setDisplayType("LE LCC Display Driver")
 		cntlComponent.addCapability("gfx_driver_lcc", "LE Display Driver", False)
-		cntlComponent.addDependency("sys_dma", "sys_dma", True)
-		cntlComponent.addDependency("sys_int", "sys_int", True)
 		cntlComponent.addDependency("Graphics Display", "Graphics Display", False)
 		cntlComponent.addDependency("SMC_CS", "SMC_CS", False, True)
 		cntlComponent.addDependency("legato_library", "Legato", True, True)
