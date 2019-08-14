@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#if 0
 //#define MEM_DEBUG
 
 #ifdef MEM_DEBUG
@@ -203,3 +204,4 @@ GFXU_MemoryIntf sim_MemoryGetInterface()
 
     return intf;
 }
+#endif

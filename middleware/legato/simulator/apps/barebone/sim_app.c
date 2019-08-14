@@ -3,15 +3,11 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "gfx/legato/generated/le_gen_init.h"
-
 static uint32_t ticks;
 
 void SYS_Initialize()
 {
-    legato_initialize();
-
-    ticks = sim_TimeTotal();
+    
 }
 
 void SYS_Tasks()
@@ -23,8 +19,6 @@ void SYS_Tasks()
         ticks = sim_TimeTotal();
 
         leUpdate(currentTicks);
-
-        legato_updateCurrentScreen();
     }
 }
 

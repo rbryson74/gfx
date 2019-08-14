@@ -35,8 +35,6 @@ extern leLineWidget* LineWidget25;
 extern leLineWidget* LineWidget26;
 extern leImageWidget* MicrochipLogo;
 extern leImageWidget* SideBar;
-extern leImageWidget* ImageWidget0;
-extern leImageWidget* ImageWidget1;
 
 
 // screen lifecycle functions

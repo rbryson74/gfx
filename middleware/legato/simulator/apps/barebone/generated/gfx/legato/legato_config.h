@@ -62,7 +62,7 @@ extern "C" {
 #define LIB_EXPORT 
 #endif
 
-#define LE_ASSERT_ENABLE                   1
+#define LE_ASSERT_ENABLE                   0
 
 #define LE_PREEMPTION_LEVEL                0
 #define LE_EXTERNAL_STREAMING_ENABLED      0
@@ -71,7 +71,7 @@ extern "C" {
 #define LE_INCLUDE_DEFAULT_1BPP_FONT       1
 #define LE_INCLUDE_DEFAULT_8BPP_FONT       1
 
-
+#define LE_GLOBAL_COLOR_MODE               LE_COLOR_MODE_RGB_565
 // OSAL support
 
 // widget inclusion
@@ -86,7 +86,7 @@ extern "C" {
 #define LE_GRADIENT_WIDGET_ENABLED         1
 #define LE_GROUPBOX_WIDGET_ENABLED         1
 #define LE_IMAGE_WIDGET_ENABLED            1
-#define LE_IMAGEPLUS_WIDGET_ENABLED        1
+#define LE_IMAGEPLUS_WIDGET_ENABLED        0
 #define LE_IMAGESEQUENCE_WIDGET_ENABLED    1
 #define LE_KEYPAD_WIDGET_ENABLED           1
 #define LE_LABEL_WIDGET_ENABLED            1
@@ -96,7 +96,7 @@ extern "C" {
 #define LE_LISTWHEEL_WIDGET_ENABLED        1
 #define LE_PIECHART_WIDGET_ENABLED         1
 #define LE_PROGRESSBAR_WIDGET_ENABLED      1
-#define LE_RADIALMENU_WIDGET_ENABLED       1
+#define LE_RADIALMENU_WIDGET_ENABLED       0
 #define LE_RADIOBUTTON_WIDGET_ENABLED      1
 #define LE_RECTANGLE_WIDGET_ENABLED        1
 #define LE_SCROLLBAR_WIDGET_ENABLED        1

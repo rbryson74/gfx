@@ -27,8 +27,6 @@ leLineWidget* LineWidget25;
 leLineWidget* LineWidget26;
 leImageWidget* MicrochipLogo;
 leImageWidget* SideBar;
-leImageWidget* ImageWidget0;
-leImageWidget* ImageWidget1;
 
 // string list for this screen
 static leTableString tableString_SysDefaultValue;
@@ -230,16 +228,6 @@ leResult screenShow_default()
     SideBar->fn->setImage(SideBar, &BannerLeft);
     root0->fn->addChild(root0, (leWidget*)SideBar);
 
-    ImageWidget0 = leImageWidget_New();
-    ImageWidget0->fn->setPosition(ImageWidget0, 137, 365);
-    ImageWidget0->fn->setImage(ImageWidget0, &GFX_Touch_80_drop);
-    root0->fn->addChild(root0, (leWidget*)ImageWidget0);
-
-    ImageWidget1 = leImageWidget_New();
-    ImageWidget1->fn->setPosition(ImageWidget1, 140, 225);
-    ImageWidget1->fn->setImage(ImageWidget1, &GFX_Keyboard_80_drop);
-    root0->fn->addChild(root0, (leWidget*)ImageWidget1);
-
     leAddRootWidget(root0, 0);
 
     showing = LE_TRUE;
@@ -286,8 +274,6 @@ void screenHide_default()
     LineWidget26 = NULL;
     MicrochipLogo = NULL;
     SideBar = NULL;
-    ImageWidget0 = NULL;
-    ImageWidget1 = NULL;
 
     tableString_SysDefaultValue.fn->destructor(&tableString_SysDefaultValue);
     tableString_Date.fn->destructor(&tableString_Date);
