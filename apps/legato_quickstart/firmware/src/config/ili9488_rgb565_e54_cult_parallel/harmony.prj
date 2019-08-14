@@ -35,7 +35,7 @@
           <Name dnOrder="1">drv_gfx_ili9488.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/driver/ili9488</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/ili9488/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">8C71FDB7E3F0D61E1DC5516936E135C1</GeneratedChecksum>
+          <GeneratedChecksum dnOrder="4">62108F35CAF1EF41EA7AD2BDF27CC17E</GeneratedChecksum>
           <UserChecksum dnOrder="5">8C71FDB7E3F0D61E1DC5516936E135C1</UserChecksum>
         </File>
         <File dnOrder="4">
@@ -43,7 +43,7 @@
           <Name dnOrder="1">drv_gfx_ili9488_intf.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/driver/ili9488</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/ili9488/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">71783FB5F26160C8197FC47FBCD26493</GeneratedChecksum>
+          <GeneratedChecksum dnOrder="4">9F63A9562428409511B68D2FB4A41348</GeneratedChecksum>
           <UserChecksum dnOrder="5">71783FB5F26160C8197FC47FBCD26493</UserChecksum>
         </File>
         <File dnOrder="5">
@@ -2566,7 +2566,7 @@
       <Setting dnOrder="1" key="DFPPath" value=".\dev_packs\Microchip\SAME54_DFP\3.0.30\atdf\ATSAME54P20A.atdf"/>
       <Setting dnOrder="2" key="FORCE_OPTIMIZATION" value="false"/>
       <Setting dnOrder="3" key="GENERATE_BACKUP" value="true"/>
-      <Setting dnOrder="4" key="MERGE_STRATEGY" value="USER_ALL"/>
+      <Setting dnOrder="4" key="MERGE_STRATEGY" value="ALL"/>
       <Setting dnOrder="5" key="PackageFilter" value="bsp;core;csp;gfx;"/>
     </Settings>
   </Configurator>
