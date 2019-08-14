@@ -146,7 +146,6 @@ static leResult _validateList(leVariableHeapBlockHeader* blk)
 #endif
 
 #if LE_USE_DEBUG_ALLOCATOR == 1
-#if 0
 static uint32_t _countList(leVariableHeapBlockHeader* blk)
 {
     uint32_t count = 0;
@@ -160,7 +159,6 @@ static uint32_t _countList(leVariableHeapBlockHeader* blk)
 
     return count;
 }
-#endif
 #endif
 
 static leVariableHeapBlockHeader* _findSlot(leVariableHeapBlockHeader* list, leVariableHeapBlockHeader* blk)
