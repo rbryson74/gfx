@@ -53,10 +53,6 @@ def instantiateComponent(comp):
 	DriverInitName.setReadOnly(True)
 	DriverInitName.setDefaultValue("lccDisplayDriver")
 
-	HALConnected = comp.createBooleanSymbol("HALConnected", None)
-	HALConnected.setVisible(False)
-	HALConnected.setDependencies(onHALConnected, ["HALConnected"])
-
 	# these two symbols are read by the HAL for initialization purposes
 	# they must match the function names in the actual driver code
 	DriverInfoFunction = comp.createStringSymbol("DriverInfoFunction", None)
@@ -268,15 +264,6 @@ def configureDMAChannel(channel):
 def unconfigureDMAChannel(channel):
 	Database.clearSymbolValue("core", "DMAC_CHAN" + str(channel) + "_ENBL")
 
-def onHALConnected(halConnected, event):
-	halConnected.getComponent().getSymbolByID("HALComment").setVisible(event["value"] == True)
-	halConnected.getComponent().getSymbolByID("DisplayWidth").setVisible(event["value"] == False)
-	halConnected.getComponent().getSymbolByID("DisplayHeight").setVisible(event["value"] == False)
-	halConnected.getComponent().getSymbolByID("DoubleBuffer").setVisible(event["value"] == False)
-	halConnected.getComponent().getSymbolByID("PaletteMode").setVisible(event["value"] == False)
-	halConnected.getComponent().getSymbolByID("LCCRefresh").setVisible(event["value"] == False)
-	halConnected.getComponent().getSymbolByID("DisplaySettingsMenu").setVisible(event["value"] == False)
-
 def onDMAChannelSet(dmaChannelSet, event):
 	newDMAChannel = dmaChannelSet.getComponent().getSymbolByID("DMAChannel").getValue()
 	oldDMAChannel = dmaChannelSet.getComponent().getSymbolByID("OldDMAChannel").getValue()
@@ -317,3 +304,17 @@ def resetEBIComponent(lccComponent, ebiComponent, ebiChipSelNum):
 	# ebiComponent.clearSymbolValue("EBISMT" + str(ebiChipSelNum) + "_TBTA")
 	# ebiComponent.clearSymbolValue("EBISMCON_SMDWIDTH" + str(ebiChipSelNum))
 	# lccComponent.clearSymbolValue("EBIChipSelectIndex")
+
+def onAttachmentConnected(source, target):
+	print("dependency Connected = " + str(target['id']))
+	#### test for EBI dependency
+	if (source["id"] == "EBI_CS"):
+		sub = re.search('ebi_cs(.*)', str(target["id"]))
+		if (sub and sub.group(1)):
+			configureEBIComponent(source["component"], target["component"], int(sub.group(1)))
+
+def onAttachmentDisconnected(source, target):
+	if (source["id"] == "EBI_CS"):
+		sub = re.search('ebi_cs(.*)', str(target["id"]))
+		if (sub and sub.group(1)):
+			resetEBIComponent(source["component"], target["component"], int(sub.group(1)))

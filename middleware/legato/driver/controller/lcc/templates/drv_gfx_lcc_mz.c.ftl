@@ -81,10 +81,6 @@
 </#if>
 </#if>
 
-uint16_t __attribute__((aligned(16))) frameBuffer[DISPLAY_WIDTH * DISPLAY_HEIGHT];
-
-lePixelBuffer pixelBuffer;
-
 <#if (DMAController??) && (DMAController == "DMAC")>
 #define DRV_GFX_LCC_DMA_CHANNEL_INDEX DMAC_CHANNEL_${DMAChannel}
 #define DRV_GFX_DMA_EVENT_TYPE DMAC_TRANSFER_EVENT
@@ -102,6 +98,12 @@ lePixelBuffer pixelBuffer;
 #define FRAMEBUFFER_TYPE uint16_t
 #define FRAMEBUFFER_PIXEL_BYTES 2
 </#if>
+
+#define FRAMEBUFFER_ATTRIBUTE __attribute__((coherent, aligned(FRAMEBUFFER_PIXEL_BYTES*8)))
+
+FRAMEBUFFER_TYPE FRAMEBUFFER_ATTRIBUTE frameBuffer[BUFFER_COUNT][DISPLAY_WIDTH * DISPLAY_HEIGHT];
+
+lePixelBuffer pixelBuffer;
 
 #ifndef GFX_DISP_INTF_PIN_RESET_Set
 #error "GFX_DISP_INTF_PIN_RESET GPIO must be defined in the Pin Settings"
