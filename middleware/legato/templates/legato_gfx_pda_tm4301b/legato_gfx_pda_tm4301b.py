@@ -30,6 +30,7 @@ pinConfigureFxn = configurePins
 
 execfile(Module.getPath() + "Support_BSP_PIC32MZ_EF_Curiosity.py")
 execfile(Module.getPath() + "Support_BSP_PIC32MZ_EF_Starter_Kit_MEB2.py")
+execfile(Module.getPath() + "Support_BSP_SAM_E70_Xplained_Ultra.py")
 
 def enableConfigPins(bspID, configID, enable):
 	global pinConfigureFxn
