@@ -12,8 +12,10 @@ elseif(${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
 endif()
 
 # include dependency on SDL2 library
-find_package(SDL2 REQUIRED)
-include_directories(${SDL2_INCLUDE_DIRS})
+#find_package(SDL2 REQUIRED)
+set(SDL2_INCLUDE_DIR /usr/include/SDL2)
+set(SDL2_LIBRARY /usr/lib/i386-linux-gnu/libSDL2.so)
+include_directories(${SDL2_INCLUDE_DIR})
 
 # find the legato source files
 file(GLOB_RECURSE srcList ./legato/gfx/legato/*.c)
@@ -39,12 +41,12 @@ include_directories(./src)
 
 add_link_options(-m32)
 
-link_libraries(${SDL2_LIBRARIES} "m")
+link_libraries(${SDL2_LIBRARY} "m")
 
 add_definitions(-DLEGATO_SIM)
 
 add_subdirectory(apps/barebone)
-add_subdirectory(apps/benchmark)
+#add_subdirectory(apps/benchmark)
 add_subdirectory(apps/monitor)
 add_subdirectory(apps/quickstart)
 add_subdirectory(apps/showcase)

@@ -54,6 +54,7 @@
 #include "gfx/legato/core/legato_input.h"
 #include "gfx/legato/core/legato_scheme.h"
 #include "gfx/legato/core/legato_state.h"
+#include "gfx/legato/core/legato_stream.h"
 #include "gfx/legato/font/legato_font.h"
 #include "gfx/legato/image/legato_image.h"
 #include "gfx/legato/image/legato_palette.h"

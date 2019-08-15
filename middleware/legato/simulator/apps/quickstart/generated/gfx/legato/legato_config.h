@@ -41,7 +41,7 @@ extern "C" {
 #define LE_ASSERT_ENABLE                   0
 
 #define LE_PREEMPTION_LEVEL                0
-#define LE_STREAMING_ENABLED               0
+#define LE_STREAMING_ENABLED               1
 
 #if LE_STREAMING_ENABLED == 1
 #define LE_ASSET_DECODER_CACHE_SIZE        128
@@ -97,7 +97,7 @@ extern "C" {
 
 // variable heap configuration
 #define LE_VARIABLEHEAP_DEBUGLEVEL         0
-#define LE_VARIABLEHEAP_SIZE               2048
+#define LE_VARIABLEHEAP_SIZE               20480
 #define LE_VARIABLEHEAP_MINALLOCSIZE       32
 #define LE_VARIABLEHEAP_ALIGNMENT          4
 #define LE_VARIABLEHEAP_BESTFIT            1

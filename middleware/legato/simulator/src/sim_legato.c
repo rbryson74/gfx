@@ -44,7 +44,7 @@ void run_Legato()
     {
         sim_TimeUpdate();
         
-#if LE_EXTERNAL_STREAMING_ENABLED == 1
+#if LE_STREAMING_ENABLED == 1
         sim_ExtMemUpdate();
 #endif
 

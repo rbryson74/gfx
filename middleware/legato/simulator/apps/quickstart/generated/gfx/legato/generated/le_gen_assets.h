@@ -67,6 +67,15 @@ extern "C" {
  ***********************************/
 extern leImage MHGC_170x170;
 
+/*********************************
+ * Legato Image Asset
+ * Name:   mchpLogo_mask
+ * Size:   32x32 pixels
+ * Format: Raw
+ * Mode: RGB_565
+ ***********************************/
+extern leImage mchpLogo_mask;
+
 /*****************************************************************************
 * MPLAB Harmony Graphics Font Assets
 *****************************************************************************/

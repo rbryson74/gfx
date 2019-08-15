@@ -2,15 +2,17 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
-#if LE_EXTERNAL_STREAMING_ENABLED == 1
+#include "gfx/legato/legato.h"
+#include "gfx/legato/generated/le_gen_assets.h"
 
-GFXU_ExternalAssetReader* _reader;
-uint32_t _location_id;
-void* _address;
-uint32_t _size;
-uint8_t* _buffer;
-GFXU_MemoryReadRequestCallback_FnPtr _cb;
+#if LE_STREAMING_ENABLED == 1
+
+leStream* _stream;
+uint32_t _address;  // address
+uint32_t _size;  // dest size
+uint8_t* _buf;
 
 static uint32_t memWaitCounter = 0;
 
@@ -31,53 +33,66 @@ void sim_ExtMemInitialize()
     decodeHexFile("./sqi.hex", sqi);
 }
 
+extern uint8_t leGenPalette0_data[6];
+
 static void memoryRead()
 {
     //printf("mem request: %i\n", requests++);
-    if(_location_id == 1)
-        memcpy(_buffer, &spi[(uint32_t)_address], _size);
-    else if(_location_id == 2)
-        memcpy(_buffer, &sqi[(uint32_t)_address], _size);
-    
-    if(_cb != NULL)
-        _cb(_reader);
+    if(_stream->desc->location == 1)
+    {
+        if(_stream->desc == (leStreamDescriptor*)&mchpLogo_mask)
+        {
+            memcpy(_buf,
+                   &((uint8_t*) mchpLogo_mask.buffer.pixels)[_address],
+                   _size);
+        }
+        /*else if(_stream->desc == (leStreamDescriptor*)mchpLogo_mask.palette)
+        {
+            memcpy(_buf,
+                   &((uint8_t*) leGenPalette0_data)[_address],
+                   _size);
+        }*/
+    }
+    else if(_stream->desc->location == 2)
+    {
+        memcpy(_buf, &spi[_address], _size);
+    }
+    else if(_stream->desc->location == 3)
+    {
+        memcpy(_buf, &sqi[_address], _size);
+    }
+
+    leStream_DataReady(_stream);
 }
 
-GFX_Result sim_ExtMemReadRequest(GFXU_ExternalAssetReader* reader,
-                                 uint32_t location_id,
-                                 void* address,
-                                 uint32_t size,
-                                 uint8_t* buffer,
-                                 GFXU_MediaReadRequestCallback_FnPtr cb)
+leResult leApplication_MediaOpenRequest(leStream* strm)
 {
-    _reader = NULL;
-    _cb = NULL;
-    
-    _location_id = location_id;
+    return LE_SUCCESS;
+}
+
+leResult leApplication_MediaReadRequest(leStream* strm,
+                                        uint32_t address,  // address
+                                        uint32_t size,  // dest size
+                                        uint8_t* buf)
+{
+    _stream = strm;
     _address = address;
     _size = size;
-    _buffer = buffer;
-    
-    // blocking read
-    if(cb == NULL)
-    {
-        memoryRead();
-    }
-    // non-blocking read
-    else
-    {
-        _reader = reader;
-        _cb = cb;
-        
-        memWaitCounter = 2;
-    }
+    _buf = buf;
 
-    return GFX_SUCCESS;
+    memWaitCounter = 2;
+
+    return LE_SUCCESS;
+}
+
+void leApplication_MediaCloseRequest(leStream* strm)
+{
+    int i = 0;
 }
 
 void sim_ExtMemUpdate()
 {
-    if(_reader == NULL)
+    if(_stream == NULL)
         return;
         
     memWaitCounter--;
@@ -85,8 +100,8 @@ void sim_ExtMemUpdate()
     if(memWaitCounter == 0)
     {
         memoryRead();
-        
-        _reader = NULL;
+
+        _stream = NULL;
     }
 }
 
@@ -123,7 +138,7 @@ static uint8_t getChecksum(uint8_t* buf)
     uint32_t i;
     uint32_t length;
     
-    length = strlen(buf);
+    length = strlen((const char*)buf);
     
     for(i = 0; i < (length - 2) / 2; i++)
     {
@@ -148,7 +163,7 @@ static void processHexCommand(char line[256], uint8_t* buffer)
     uint8_t* ptr;
     uint8_t data;
     
-    ptr = &line[0];
+    ptr = (uint8_t*)line;
     
     chars = strlen(&line[1]) - 1;
     
@@ -161,9 +176,9 @@ static void processHexCommand(char line[256], uint8_t* buffer)
     length = getByte(ptr);
     ptr += 2;
     
-    checksum = getChecksum(&line[1]);
+    checksum = getChecksum((uint8_t*)&line[1]);
     
-    if(checksum != getByte(&line[1 + ((chars - 2))]))
+    if(checksum != getByte((uint8_t*)&line[1 + ((chars - 2))]))
         return;
     
     // get record address

@@ -318,8 +318,6 @@ static void updateWidgets(uint32_t dt)
 leResult leUpdate(uint32_t dt)
 {
     leEvent_ProcessEvents();
-    
-    updateWidgets(dt);
 
 #if LE_STREAMING_ENABLED == 1
     // there is an active stream in progress, service that to completion
@@ -338,6 +336,8 @@ leResult leUpdate(uint32_t dt)
         }
     }
 #endif
+
+    updateWidgets(dt);
 
     leRenderer_Paint();
 
@@ -548,9 +548,22 @@ leResult leRunActiveStream()
 {
     if(_state.activeStream != NULL)
     {
-        _state.activeStream->exec(_state.activeStream);
+        if(_state.activeStream->exec(_state.activeStream) == LE_FAILURE)
+        {
+            leAbortActiveStream();
+        }
+        else
+        {
+            if(_state.activeStream != NULL &&
+               _state.activeStream->isDone(_state.activeStream) == LE_TRUE)
+            {
+                _state.activeStream->cleanup(_state.activeStream);
 
-        return LE_SUCCESS;
+                _state.activeStream = NULL;
+            }
+
+            return LE_SUCCESS;
+        }
     }
 
     return LE_FAILURE;
@@ -561,6 +574,14 @@ void leAbortActiveStream()
     if(_state.activeStream != NULL)
     {
         _state.activeStream->abort(_state.activeStream);
+
+        if(_state.activeStream != NULL &&
+           _state.activeStream->isDone(_state.activeStream) == LE_TRUE)
+        {
+            _state.activeStream->cleanup(_state.activeStream);
+
+            _state.activeStream = NULL;
+        }
     }
 }
 
