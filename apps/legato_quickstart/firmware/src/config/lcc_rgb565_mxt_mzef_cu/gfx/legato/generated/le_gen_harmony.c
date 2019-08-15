@@ -22,7 +22,7 @@
 #include "system/input/sys_input.h"
 
 // Input System Service interface code
-SYS_INP_InputListener inputLisner;
+SYS_INP_InputListener inputListener;
 
 static void touchDownHandler(const SYS_INP_TouchStateEvent* const evt);
 static void touchUpHandler(const SYS_INP_TouchStateEvent* const evt);
