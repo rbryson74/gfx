@@ -64,10 +64,7 @@ def instantiateComponent(component):
 def onAttachmentConnected(source, target):
 	if source["id"] == "gfx_driver":
 		driverName = target["component"].getSymbolValue("DriverInitName")
-		print(source["id"])
-		print(target["id"])
-		print(driverName)
-		#source["component"].setSymbolValue("driverInitName", driverName)
+		source["component"].setSymbolValue("driverInitName", driverName)
 		
 	#if source["id"] == "gfx_hal":
 	#	target["component"].setSymbolValue("GlobalPaletteModeHint", source["component"].getSymbolValue("useGlobalPalette"), 1)
