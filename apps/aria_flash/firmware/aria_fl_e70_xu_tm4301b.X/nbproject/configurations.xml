@@ -8,23 +8,29 @@
         <logicalFolder name="f1"
                        displayName="lcc_rgb565_mxt_mzef_sk"
                        projectFiles="true">
-          <logicalFolder name="f4" displayName="bsp" projectFiles="true">
+          <logicalFolder name="f6" displayName="bsp" projectFiles="true">
             <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/bsp/bsp.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f5" displayName="driver" projectFiles="true">
+          <logicalFolder name="f2" displayName="driver" projectFiles="true">
             <logicalFolder name="f2" displayName="i2c" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/driver/i2c/drv_i2c.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/driver/i2c/drv_i2c_definitions.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="input" projectFiles="true">
+            <logicalFolder name="f3" displayName="input" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/driver/input/drv_maxtouch.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f1" displayName="sst26" projectFiles="true">
+            <logicalFolder name="f1" displayName="sdspi" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/driver/sdspi/drv_sdspi.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/driver/sdspi/drv_sdspi_definitions.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/driver/sdspi/src/drv_sdspi_local.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/driver/sdspi/src/drv_sdspi_plib_interface.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f4" displayName="sst26" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/driver/sst26/drv_sst26.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/driver/sst26/src/drv_sst26_local.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/driver/sst26/drv_sst26_definitions.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="usb" projectFiles="true">
+            <logicalFolder name="f5" displayName="usb" projectFiles="true">
               <logicalFolder name="f1" displayName="usbhs" projectFiles="true">
                 <logicalFolder name="f1" displayName="src" projectFiles="true">
                   <logicalFolder name="f1" displayName="templates" projectFiles="true">
@@ -67,12 +73,12 @@
             <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/driver/driver_common.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f1" displayName="gfx" projectFiles="true">
-            <logicalFolder name="f1" displayName="driver" projectFiles="true">
+            <logicalFolder name="f2" displayName="driver" projectFiles="true">
               <logicalFolder name="f1" displayName="lcc" projectFiles="true">
                 <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/gfx/driver/controller/lcc/drv_gfx_lcc.h</itemPath>
               </logicalFolder>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="hal" projectFiles="true">
+            <logicalFolder name="f1" displayName="hal" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/gfx/hal/gfx.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/gfx/hal/inc/gfx_color.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/gfx/hal/inc/gfx_common.h</itemPath>
@@ -183,36 +189,44 @@
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/library/i2cbb/i2c_bb.h</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f3" displayName="peripheral" projectFiles="true">
-            <logicalFolder name="f1" displayName="clk" projectFiles="true">
+          <logicalFolder name="f4" displayName="peripheral" projectFiles="true">
+            <logicalFolder name="f6" displayName="clk" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/peripheral/clk/plib_clk.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="coretimer" projectFiles="true">
+            <logicalFolder name="f1" displayName="coretimer" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/peripheral/coretimer/plib_coretimer.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="dmac" projectFiles="true">
+            <logicalFolder name="f9" displayName="dmac" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/peripheral/dmac/plib_dmac.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="ebi" projectFiles="true">
+            <logicalFolder name="f2" displayName="ebi" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/peripheral/ebi/plib_ebi.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="evic" projectFiles="true">
+            <logicalFolder name="f8" displayName="evic" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/peripheral/evic/plib_evic.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="gpio" projectFiles="true">
+            <logicalFolder name="f7" displayName="gpio" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/peripheral/gpio/plib_gpio.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f8" displayName="sqi" projectFiles="true">
+            <logicalFolder name="f4" displayName="spi" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/peripheral/spi/plib_spi_common.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/peripheral/spi/plib_spi2.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f5" displayName="sqi" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/peripheral/sqi/plib_sqi_common.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/peripheral/sqi/plib_sqi1.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f7" displayName="tmr" projectFiles="true">
+            <logicalFolder name="f3" displayName="tmr" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/peripheral/tmr/plib_tmr_common.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/peripheral/tmr/plib_tmr2.h</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f6" displayName="system" projectFiles="true">
-            <logicalFolder name="f3" displayName="fs" projectFiles="true">
+          <logicalFolder name="f3" displayName="system" projectFiles="true">
+            <logicalFolder name="f4" displayName="dma" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/system/dma/sys_dma.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/system/dma/sys_dma_mapping.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f6" displayName="fs" projectFiles="true">
               <logicalFolder name="f1" displayName="fat_fs" projectFiles="true">
                 <logicalFolder name="f1" displayName="file_system" projectFiles="true">
                   <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/system/fs/fat_fs/src/file_system/ff.h</itemPath>
@@ -231,7 +245,7 @@
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/system/fs/sys_fs_media_manager.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/system/fs/src/sys_fs_media_manager_local.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="input" projectFiles="true">
+            <logicalFolder name="f5" displayName="input" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/system/input/sys_input.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/system/input/sys_input_gesture.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/system/input/sys_input_keyboard.h</itemPath>
@@ -239,11 +253,11 @@
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/system/input/sys_input_mouse.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/system/input/sys_input_touch.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="int" projectFiles="true">
+            <logicalFolder name="f2" displayName="int" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/system/int/sys_int.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/system/int/sys_int_mapping.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="ports" projectFiles="true">
+            <logicalFolder name="f3" displayName="ports" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/system/ports/sys_ports.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/system/ports/sys_ports_mapping.h</itemPath>
             </logicalFolder>
@@ -257,29 +271,29 @@
             <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/system/system_module.h</itemPath>
             <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/system/system_media.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f2" displayName="usb" projectFiles="true">
+          <logicalFolder name="f5" displayName="usb" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
-              <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/usb/src/usb_host_msd_local.h</itemPath>
-              <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/usb/src/usb_host_scsi_local.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/usb/src/usb_host_local.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/usb/src/usb_host_hub_mapping.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/usb/src/usb_external_dependencies.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/usb/src/usb_host_msd_local.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/usb/src/usb_host_scsi_local.h</itemPath>
             </logicalFolder>
+            <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/usb/usb_host.h</itemPath>
+            <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/usb/usb_common.h</itemPath>
+            <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/usb/usb_chapter_9.h</itemPath>
             <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/usb/usb_host_msd.h</itemPath>
             <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/usb/usb_host_scsi.h</itemPath>
             <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/usb/usb_msd.h</itemPath>
             <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/usb/scsi.h</itemPath>
             <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/usb/usb_host_client_driver.h</itemPath>
             <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/usb/usb_host_hub_interface.h</itemPath>
-            <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/usb/usb_host.h</itemPath>
             <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/usb/usb_hub.h</itemPath>
-            <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/usb/usb_common.h</itemPath>
-            <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/usb/usb_chapter_9.h</itemPath>
           </logicalFolder>
-          <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/toolchain_specifics.h</itemPath>
-          <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/definitions.h</itemPath>
           <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/user.h</itemPath>
           <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/configuration.h</itemPath>
+          <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/toolchain_specifics.h</itemPath>
+          <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/definitions.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="f3" displayName="osal" projectFiles="true">
@@ -308,21 +322,26 @@
         <logicalFolder name="f1"
                        displayName="lcc_rgb565_mxt_mzef_sk"
                        projectFiles="true">
-          <logicalFolder name="f5" displayName="bsp" projectFiles="true">
+          <logicalFolder name="f7" displayName="bsp" projectFiles="true">
             <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/bsp/bsp.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="f6" displayName="driver" projectFiles="true">
+          <logicalFolder name="f2" displayName="driver" projectFiles="true">
             <logicalFolder name="f2" displayName="i2c" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/driver/i2c/src/drv_i2c.c</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/driver/i2c/src/drv_i2c_local.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="input" projectFiles="true">
+            <logicalFolder name="f3" displayName="input" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/driver/input/drv_maxtouch.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f1" displayName="sst26" projectFiles="true">
+            <logicalFolder name="f1" displayName="sdspi" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/driver/sdspi/src/drv_sdspi.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/driver/sdspi/src/drv_sdspi_plib_interface.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/driver/sdspi/src/drv_sdspi_file_system.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f4" displayName="sst26" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/driver/sst26/src/drv_sst26.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="usb" projectFiles="true">
+            <logicalFolder name="f5" displayName="usb" projectFiles="true">
               <logicalFolder name="f1" displayName="usbhs" projectFiles="true">
                 <logicalFolder name="f1" displayName="src" projectFiles="true">
                   <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/driver/usb/usbhs/src/drv_usbhs.c</itemPath>
@@ -332,12 +351,12 @@
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f1" displayName="gfx" projectFiles="true">
-            <logicalFolder name="f1" displayName="driver" projectFiles="true">
+            <logicalFolder name="f2" displayName="driver" projectFiles="true">
               <logicalFolder name="f1" displayName="lcc" projectFiles="true">
                 <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/gfx/driver/controller/lcc/drv_gfx_lcc.c</itemPath>
               </logicalFolder>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="hal" projectFiles="true">
+            <logicalFolder name="f1" displayName="hal" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/gfx/hal/src/gfx.c</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/gfx/hal/src/gfx_color.c</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/gfx/hal/src/gfx_context.c</itemPath>
@@ -488,36 +507,42 @@
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f4" displayName="peripheral" projectFiles="true">
-            <logicalFolder name="f1" displayName="clk" projectFiles="true">
+            <logicalFolder name="f6" displayName="clk" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/peripheral/clk/plib_clk.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="coretimer" projectFiles="true">
+            <logicalFolder name="f1" displayName="coretimer" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/peripheral/coretimer/plib_coretimer.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="dmac" projectFiles="true">
+            <logicalFolder name="f9" displayName="dmac" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/peripheral/dmac/plib_dmac.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="ebi" projectFiles="true">
+            <logicalFolder name="f2" displayName="ebi" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/peripheral/ebi/plib_ebi.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="evic" projectFiles="true">
+            <logicalFolder name="f8" displayName="evic" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/peripheral/evic/plib_evic.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="gpio" projectFiles="true">
+            <logicalFolder name="f7" displayName="gpio" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/peripheral/gpio/plib_gpio.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f8" displayName="sqi" projectFiles="true">
+            <logicalFolder name="f4" displayName="spi" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/peripheral/spi/plib_spi2.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f5" displayName="sqi" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/peripheral/sqi/plib_sqi1.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f7" displayName="tmr" projectFiles="true">
+            <logicalFolder name="f3" displayName="tmr" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/peripheral/tmr/plib_tmr2.c</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f3" displayName="stdio" projectFiles="true">
+          <logicalFolder name="f6" displayName="stdio" projectFiles="true">
             <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/stdio/xc32_monitor.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="f7" displayName="system" projectFiles="true">
-            <logicalFolder name="f3" displayName="fs" projectFiles="true">
+          <logicalFolder name="f3" displayName="system" projectFiles="true">
+            <logicalFolder name="f3" displayName="dma" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/system/dma/sys_dma.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f5" displayName="fs" projectFiles="true">
               <logicalFolder name="f1" displayName="fat_fs" projectFiles="true">
                 <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/system/fs/fat_fs/src/ff.c</itemPath>
                 <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/system/fs/fat_fs/src/diskio.c</itemPath>
@@ -528,34 +553,34 @@
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/system/fs/src/sys_fs.c</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/system/fs/src/sys_fs_media_manager.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="input" projectFiles="true">
+            <logicalFolder name="f4" displayName="input" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/system/input/sys_input.c</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/system/input/sys_input_listener.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="int" projectFiles="true">
+            <logicalFolder name="f2" displayName="int" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/system/int/src/sys_int.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="time" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/system/time/src/sys_time.c</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f2" displayName="usb" projectFiles="true">
+          <logicalFolder name="f5" displayName="usb" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/usb/src/usb_host.c</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/usb/src/usb_host_msd.c</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/usb/src/usb_host_scsi.c</itemPath>
-              <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/usb/src/usb_host.c</itemPath>
             </logicalFolder>
           </logicalFolder>
+          <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/usb_host_init_data.c</itemPath>
+          <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/tasks.c</itemPath>
           <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/initialization.c</itemPath>
           <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/interrupts.c</itemPath>
           <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/exceptions.c</itemPath>
-          <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/usb_host_init_data.c</itemPath>
-          <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/tasks.c</itemPath>
         </logicalFolder>
       </logicalFolder>
       <itemPath>../src/hexdecoder.c</itemPath>
-      <itemPath>../src/main.c</itemPath>
       <itemPath>../src/app.c</itemPath>
+      <itemPath>../src/main.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

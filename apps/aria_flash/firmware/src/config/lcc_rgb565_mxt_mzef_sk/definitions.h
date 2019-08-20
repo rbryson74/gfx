@@ -49,6 +49,21 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include "gfx/hal/gfx.h"
+#include "driver/sdspi/drv_sdspi.h"
+#include "driver/i2c/drv_i2c.h"
+#include "system/time/sys_time.h"
+#include "peripheral/coretimer/plib_coretimer.h"
+#include "usb/usb_chapter_9.h"
+#include "usb/usb_host.h"
+#include "peripheral/ebi/plib_ebi.h"
+#include "peripheral/tmr/plib_tmr2.h"
+#include "peripheral/spi/plib_spi2.h"
+#include "peripheral/sqi/plib_sqi1.h"
+#include "driver/input/drv_maxtouch.h"
+#include "system/int/sys_int.h"
+#include "system/ports/sys_ports.h"
+#include "system/dma/sys_dma.h"
+#include "osal/osal.h"
 #include "usb/usb_msd.h"
 #include "usb/usb_host_msd.h"
 #include "usb/usb_host_scsi.h"
@@ -58,27 +73,15 @@
 #include "peripheral/dmac/plib_dmac.h"
 #include "bsp/bsp.h"
 #include "driver/sst26/drv_sst26.h"
-#include "driver/i2c/drv_i2c.h"
-#include "system/time/sys_time.h"
-#include "peripheral/coretimer/plib_coretimer.h"
 #include "driver/usb/usbhs/drv_usbhs.h"
-#include "usb/usb_chapter_9.h"
-#include "usb/usb_host.h"
 #include "system/input/sys_input.h"
-#include "peripheral/ebi/plib_ebi.h"
 #include "system/fs/sys_fs.h"
 #include "system/fs/sys_fs_media_manager.h"
 #include "system/fs/fat_fs/src/file_system/ff.h"
 #include "system/fs/fat_fs/src/file_system/ffconf.h"
 #include "system/fs/fat_fs/src/hardware_access/diskio.h"
-#include "peripheral/tmr/plib_tmr2.h"
 #include "library/i2cbb/i2c_bb.h"
-#include "peripheral/sqi/plib_sqi1.h"
 #include "gfx/libaria/libaria_harmony.h"
-#include "driver/input/drv_maxtouch.h"
-#include "system/int/sys_int.h"
-#include "system/ports/sys_ports.h"
-#include "osal/osal.h"
 #include "app.h"
 
 
@@ -201,16 +204,19 @@ void SYS_Tasks ( void );
 
 typedef struct
 {
+    /* SDSPI0 Driver Object */
+    SYS_MODULE_OBJ drvSDSPI0;
+
     /* I2C0 Driver Object */
     SYS_MODULE_OBJ drvI2C0;
 
-    SYS_MODULE_OBJ  drvSST26;
     SYS_MODULE_OBJ  sysTime;
-	SYS_MODULE_OBJ  drvUSBHSObject;
-
 	SYS_MODULE_OBJ  usbHostObject0;
 
     SYS_MODULE_OBJ  drvMAXTOUCH;
+
+    SYS_MODULE_OBJ  drvSST26;
+	SYS_MODULE_OBJ  drvUSBHSObject;
 
 
 } SYSTEM_OBJECTS;

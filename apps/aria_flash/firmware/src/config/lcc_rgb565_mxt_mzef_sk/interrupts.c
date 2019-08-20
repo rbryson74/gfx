@@ -64,6 +64,10 @@ void TIMER_2_InterruptHandler( void );
 void DRV_USBHS_InterruptHandler( void );
 void DRV_USBHS_DMAInterruptHandler( void );
 void DMA0_InterruptHandler( void );
+void DMA1_InterruptHandler( void );
+void DMA2_InterruptHandler( void );
+void SPI2_RX_InterruptHandler( void );
+void SPI2_TX_InterruptHandler( void );
 void SQI1_InterruptHandler( void );
 
 
@@ -79,19 +83,39 @@ void __ISR(_TIMER_2_VECTOR, ipl1AUTO) TIMER_2_Handler (void)
     TIMER_2_InterruptHandler();
 }
 
-void __ISR(_USB_VECTOR, ipl1AUTO) USB_Handler (void)
+void __ISR(_USB_VECTOR, ipl4AUTO) USB_Handler (void)
 {
     DRV_USBHS_InterruptHandler();
 }
 
-void __ISR(_USB_DMA_VECTOR, ipl1AUTO) USB_DMA_Handler (void)
+void __ISR(_USB_DMA_VECTOR, ipl4AUTO) USB_DMA_Handler (void)
 {
     DRV_USBHS_DMAInterruptHandler();
 }
 
-void __ISR(_DMA0_VECTOR, ipl1AUTO) DMA0_Handler (void)
+void __ISR(_DMA0_VECTOR, ipl4AUTO) DMA0_Handler (void)
 {
     DMA0_InterruptHandler();
+}
+
+void __ISR(_DMA1_VECTOR, ipl1AUTO) DMA1_Handler (void)
+{
+    DMA1_InterruptHandler();
+}
+
+void __ISR(_DMA2_VECTOR, ipl1AUTO) DMA2_Handler (void)
+{
+    DMA2_InterruptHandler();
+}
+
+void __ISR(_SPI2_RX_VECTOR, ipl3AUTO) SPI2_RX_Handler (void)
+{
+    SPI2_RX_InterruptHandler();
+}
+
+void __ISR(_SPI2_TX_VECTOR, ipl3AUTO) SPI2_TX_Handler (void)
+{
+    SPI2_TX_InterruptHandler();
 }
 
 void __ISR(_SQI1_VECTOR, ipl1AUTO) SQI1_Handler (void)

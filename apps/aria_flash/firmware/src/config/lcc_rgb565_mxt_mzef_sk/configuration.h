@@ -91,9 +91,9 @@ extern "C" {
 
 /* File System Service Configuration */
 
-#define SYS_FS_MEDIA_NUMBER               1
+#define SYS_FS_MEDIA_NUMBER               2
 
-#define SYS_FS_VOLUME_NUMBER              (1)
+#define SYS_FS_VOLUME_NUMBER              (1 + 1)
 
 #define SYS_FS_AUTOMOUNT_ENABLE           true
 #define SYS_FS_CLIENT_NUMBER              1
@@ -113,6 +113,12 @@ extern "C" {
 #define SYS_FS_MEDIA_IDX0_MOUNT_NAME_VOLUME_IDX0 			"/mnt/usb"
 #define SYS_FS_MEDIA_IDX0_DEVICE_NAME_VOLUME_IDX0			"/dev/sda1"
 								
+#define SYS_FS_MEDIA_TYPE_IDX1 				SYS_FS_MEDIA_TYPE_SD_CARD
+#define SYS_FS_TYPE_IDX1 					FAT
+					
+#define SYS_FS_MEDIA_IDX1_MOUNT_NAME_VOLUME_IDX0 			"/mnt/sdcard"
+#define SYS_FS_MEDIA_IDX1_DEVICE_NAME_VOLUME_IDX0			"/dev/mmcblka1"
+								
 
 
 
@@ -121,19 +127,28 @@ extern "C" {
 // Section: Driver Configuration
 // *****************************************************************************
 // *****************************************************************************
+/* SDSPI Driver Instance 0 Configuration Options */
+#define DRV_SDSPI_INDEX_0                       0
+#define DRV_SDSPI_CLIENTS_NUMBER_IDX0           1
+#define DRV_SDSPI_QUEUE_SIZE_IDX0               10
+#define DRV_SDSPI_CHIP_SELECT_PIN_IDX0          SYS_PORT_PIN_RB14
+#define DRV_SDSPI_SPEED_HZ_IDX0                 5000000
+#define DRV_SDSPI_POLLING_INTERVAL_MS_IDX0      1000
+
+#define DRV_SDSPI_DMA_MODE
+#define DRV_SDSPI_XMIT_DMA_CH_IDX0              SYS_DMA_CHANNEL_1
+#define DRV_SDSPI_RCV_DMA_CH_IDX0               SYS_DMA_CHANNEL_2
+
+
+
 /* I2C Driver Instance 0 Configuration Options */
 #define DRV_I2C_INDEX_0                       0
 #define DRV_I2C_CLIENTS_NUMBER_IDX0           1
 #define DRV_I2C_QUEUE_SIZE_IDX0               2
 #define DRV_I2C_CLOCK_SPEED_IDX0              50000
 
-/* SST26 Driver Instance Configuration */
-#define DRV_SST26_INDEX                 0
-#define DRV_SST26_CLIENTS_NUMBER        1
-#define DRV_SST26_START_ADDRESS         0x0
-#define DRV_SST26_PAGE_SIZE             256
-#define DRV_SST26_ERASE_BUFFER_SIZE     4096
-#define DRV_SST26_BUFF_DESC_NUMBER      16
+/* SDSPI Driver Common Configuration Options */
+#define DRV_SDSPI_INSTANCES_NUMBER              1
 
 /* I2C Driver Common Configuration Options */
 #define DRV_I2C_INSTANCES_NUMBER              1
@@ -143,6 +158,14 @@ extern "C" {
 /*** MXT336T Driver Configuration ***/
 #define DRV_MAXTOUCH_I2C_MODULE_INDEX   0
 
+/* SST26 Driver Instance Configuration */
+#define DRV_SST26_INDEX                 0
+#define DRV_SST26_CLIENTS_NUMBER        1
+#define DRV_SST26_START_ADDRESS         0x0
+#define DRV_SST26_PAGE_SIZE             256
+#define DRV_SST26_ERASE_BUFFER_SIZE     4096
+#define DRV_SST26_BUFF_DESC_NUMBER      16
+
 
 
 // *****************************************************************************
@@ -150,6 +173,37 @@ extern "C" {
 // Section: Middleware & Other Library Configuration
 // *****************************************************************************
 // *****************************************************************************
+// *****************************************************************************
+// *****************************************************************************
+// Section: USB Host Layer Configuration
+// *****************************************************************************
+// **************************************************************************
+
+/* Number of Endpoints used */
+#define DRV_USBHS_ENDPOINTS_NUMBER 							1
+
+/* Total number of devices to be supported */
+#define USB_HOST_DEVICES_NUMBER                             1
+
+/* Size of Endpoint 0 buffer */
+#define USB_DEVICE_EP0_BUFFER_SIZE                          64
+
+/* Target peripheral list entries */
+#define  USB_HOST_TPL_ENTRIES                               1 
+
+/* Maximum number of configurations supported per device */
+#define USB_HOST_DEVICE_INTERFACES_NUMBER                   5    
+
+#define USB_HOST_CONTROLLERS_NUMBER                         1
+
+#define USB_HOST_TRANSFERS_NUMBER                           10
+
+/* Provides Host pipes number */
+#define USB_HOST_PIPES_NUMBER                               10
+
+/* Number of Host Layer Clients */
+#define USB_HOST_CLIENTS_NUMBER                             1   
+
 /* Number of MSD Function driver instances in the application */
 #define USB_HOST_MSD_INSTANCES_NUMBER         1
 
@@ -187,37 +241,6 @@ extern "C" {
 
 /* Alignment for buffers that are submitted to USB Driver*/ 
 #define USB_ALIGN  CACHE_ALIGN
-
-// *****************************************************************************
-// *****************************************************************************
-// Section: USB Host Layer Configuration
-// *****************************************************************************
-// **************************************************************************
-
-/* Number of Endpoints used */
-#define DRV_USBHS_ENDPOINTS_NUMBER 							1
-
-/* Total number of devices to be supported */
-#define USB_HOST_DEVICES_NUMBER                             1
-
-/* Size of Endpoint 0 buffer */
-#define USB_DEVICE_EP0_BUFFER_SIZE                          64
-
-/* Target peripheral list entries */
-#define  USB_HOST_TPL_ENTRIES                               1 
-
-/* Maximum number of configurations supported per device */
-#define USB_HOST_DEVICE_INTERFACES_NUMBER                   5    
-
-#define USB_HOST_CONTROLLERS_NUMBER                         1
-
-#define USB_HOST_TRANSFERS_NUMBER                           10
-
-/* Provides Host pipes number */
-#define USB_HOST_PIPES_NUMBER                               10
-
-/* Number of Host Layer Clients */
-#define USB_HOST_CLIENTS_NUMBER                             1   
 
 
 

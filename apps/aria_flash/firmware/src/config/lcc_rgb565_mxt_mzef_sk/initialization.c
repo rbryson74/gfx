@@ -119,6 +119,87 @@
 // Section: Driver Initialization Data
 // *****************************************************************************
 // *****************************************************************************
+// <editor-fold defaultstate="collapsed" desc="DRV_SDSPI Instance 0 Initialization Data">
+
+/* SDSPI Client Objects Pool */
+static DRV_SDSPI_CLIENT_OBJ drvSDSPI0ClientObjPool[DRV_SDSPI_CLIENTS_NUMBER_IDX0];
+
+/* SDSPI Transfer Objects Pool */
+static DRV_SDSPI_BUFFER_OBJ drvSDSPI0TransferObjPool[DRV_SDSPI_QUEUE_SIZE_IDX0];
+
+/* SPI PLIB Interface Initialization for SDSPI Driver */
+const DRV_SDSPI_PLIB_INTERFACE drvSDSPI0PlibAPI = {
+
+    /* SPI PLIB WriteRead function */
+    .writeRead = (DRV_SDSPI_PLIB_WRITEREAD)SPI2_WriteRead,
+
+    /* SPI PLIB Write function */
+    .write = (DRV_SDSPI_PLIB_WRITE)SPI2_Write,
+
+    /* SPI PLIB Read function */
+    .read = (DRV_SDSPI_PLIB_READ)SPI2_Read,
+
+    /* SPI PLIB Transfer Status function */
+    .isBusy = (DRV_SDSPI_PLIB_IS_BUSY)SPI2_IsBusy,
+
+    .transferSetup = (DRV_SDSPI_PLIB_SETUP)SPI2_TransferSetup,
+
+    /* SPI PLIB Callback Register */
+    .callbackRegister = (DRV_SDSPI_PLIB_CALLBACK_REGISTER)SPI2_CallbackRegister,
+};
+
+const uint32_t drvSDSPI0remapDataBits[]= { 0x00000000, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0x00000400 };
+const uint32_t drvSDSPI0remapClockPolarity[] = { 0x00000000, 0x00000040 };
+const uint32_t drvSDSPI0remapClockPhase[] = { 0x00000000, 0x00000100 };
+/* SDSPI Driver Initialization Data */
+const DRV_SDSPI_INIT drvSDSPI0InitData =
+{
+    /* SD Card SPI PLIB API interface*/
+    .spiPlib                = &drvSDSPI0PlibAPI,
+
+    .remapDataBits          = drvSDSPI0remapDataBits,
+
+    .remapClockPolarity     = drvSDSPI0remapClockPolarity,
+
+    .remapClockPhase        = drvSDSPI0remapClockPhase,
+
+    /* SDSPI Number of clients */
+    .numClients             = DRV_SDSPI_CLIENTS_NUMBER_IDX0,
+
+    /* SDSPI Client Objects Pool */
+    .clientObjPool          = (uintptr_t)&drvSDSPI0ClientObjPool[0],
+
+    /* SDSPI Transfer Objects Pool */
+    .bufferObjPool          = (uintptr_t)&drvSDSPI0TransferObjPool[0],
+
+    /* SDSPI Transfer Objects Queue Size */
+    .bufferObjPoolSize      = DRV_SDSPI_QUEUE_SIZE_IDX0,
+
+    .chipSelectPin          = DRV_SDSPI_CHIP_SELECT_PIN_IDX0,
+
+    .sdcardSpeedHz          = DRV_SDSPI_SPEED_HZ_IDX0,
+    
+    .pollingIntervalMs      = DRV_SDSPI_POLLING_INTERVAL_MS_IDX0,
+
+    .writeProtectPin        = SYS_PORT_PIN_NONE,
+
+    .isFsEnabled            = true,
+
+    /* DMA Channel for Transmit */
+    .txDMAChannel           = DRV_SDSPI_XMIT_DMA_CH_IDX0,
+
+    /* DMA Channel for Receive */
+    .rxDMAChannel           = DRV_SDSPI_RCV_DMA_CH_IDX0,
+
+    /* SPI Transmit Register */
+    .txAddress              = (void *)&(SPI2BUF),
+
+    /* SPI Receive Register */
+    .rxAddress              = (void *)&(SPI2BUF),
+};
+
+// </editor-fold>
+
 // <editor-fold defaultstate="collapsed" desc="DRV_I2C Instance 0 Initialization Data">
 
 /* I2C Client Objects Pool */
@@ -183,6 +264,18 @@ const DRV_I2C_INIT drvI2C0InitData =
 
 // </editor-fold>
 
+// <editor-fold defaultstate="collapsed" desc="DRV_INPUT_MXT336T Initialization Data">
+/*** MaxTouch Driver Initialization Data ***/
+const DRV_MAXTOUCH_INIT drvMAXTOUCHInitData =
+{
+    .drvOpen                     = DRV_I2C_Open,
+    .orientation                 = 0,
+    .horizontalResolution        = 480,
+    .verticalResolution          = 272,
+};
+
+// </editor-fold>
+
 // <editor-fold defaultstate="collapsed" desc="DRV_SST26 Initialization Data">
 
 const DRV_SST26_PLIB_INTERFACE drvSST26PlibAPI = {
@@ -193,18 +286,6 @@ const DRV_SST26_PLIB_INTERFACE drvSST26PlibAPI = {
 const DRV_SST26_INIT drvSST26InitData =
 {
     .sst26Plib      = &drvSST26PlibAPI,
-};
-
-// </editor-fold>
-
-// <editor-fold defaultstate="collapsed" desc="DRV_INPUT_MXT336T Initialization Data">
-/*** MaxTouch Driver Initialization Data ***/
-const DRV_MAXTOUCH_INIT drvMAXTOUCHInitData =
-{
-    .drvOpen                     = DRV_I2C_Open,
-    .orientation                 = 0,
-    .horizontalResolution        = 480,
-    .verticalResolution          = 272,
 };
 
 // </editor-fold>
@@ -294,6 +375,12 @@ const SYS_FS_MEDIA_MOUNT_DATA sysfsMountTable[SYS_FS_VOLUME_NUMBER] =
 		.mediaType = SYS_FS_MEDIA_TYPE_IDX0,
 		.fsType   = SYS_FS_TYPE_IDX0   
 	},
+	{
+		.mountName = SYS_FS_MEDIA_IDX1_MOUNT_NAME_VOLUME_IDX0,
+		.devName   = SYS_FS_MEDIA_IDX1_DEVICE_NAME_VOLUME_IDX0, 
+		.mediaType = SYS_FS_MEDIA_TYPE_IDX1,
+		.fsType   = SYS_FS_TYPE_IDX1   
+	},
 };
 
 
@@ -361,40 +448,45 @@ void SYS_Initialize ( void* data )
     CFGCONbits.ECCCON = 3;
 
 
-    DMAC_Initialize();
-
-	BSP_Initialize();
     CORETIMER_Initialize();
 	EBI_Initialize();
 
     TMR2_Initialize();
 
+	SPI2_Initialize();
+
     SQI1_Initialize();
 
+    DMAC_Initialize();
+
+	BSP_Initialize();
 
 
     GFX_Initialize();
 
+    /* Initialize SDSPI0 Driver Instance */
+    sysObj.drvSDSPI0 = DRV_SDSPI_Initialize(DRV_SDSPI_INDEX_0, (SYS_MODULE_INIT *)&drvSDSPI0InitData);
+
     /* Initialize I2C0 Driver Instance */
     sysObj.drvI2C0 = DRV_I2C_Initialize(DRV_I2C_INDEX_0, (SYS_MODULE_INIT *)&drvI2C0InitData);
+
+    sysObj.drvMAXTOUCH = DRV_MAXTOUCH_Initialize(0, (SYS_MODULE_INIT *)&drvMAXTOUCHInitData);
+
     sysObj.drvSST26 = DRV_SST26_Initialize((SYS_MODULE_INDEX)DRV_SST26_INDEX, (SYS_MODULE_INIT *)&drvSST26InitData);
 
 
     I2C_BB_Initialize();
-
-    sysObj.drvMAXTOUCH = DRV_MAXTOUCH_Initialize(0, (SYS_MODULE_INIT *)&drvMAXTOUCHInitData);
-
 
     sysObj.sysTime = SYS_TIME_Initialize(SYS_TIME_INDEX_0, (SYS_MODULE_INIT *)&sysTimeInitData);
 
     SYS_INP_Init();
 
 
-	/* Initialize USB Driver */ 
-    sysObj.drvUSBHSObject = DRV_USBHS_Initialize(DRV_USBHS_INDEX_0, (SYS_MODULE_INIT *) &drvUSBInit);	
-
 	/* Initialize the USB Host layer */
     sysObj.usbHostObject0 = USB_HOST_Initialize (( SYS_MODULE_INIT *)& usbHostInitData );	
+
+	/* Initialize USB Driver */ 
+    sysObj.drvUSBHSObject = DRV_USBHS_Initialize(DRV_USBHS_INDEX_0, (SYS_MODULE_INIT *) &drvUSBInit);	
 
     /*** File System Service Initialization Code ***/
     SYS_FS_Initialize( (const void *) sysFSInit );
