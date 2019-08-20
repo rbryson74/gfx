@@ -75,58 +75,58 @@ int32_t libaria_initialize(void)
     laScreen* screen;
 
     laScheme_Initialize(&defaultScheme, GFX_COLOR_MODE_RGB_565);
-    defaultScheme.base = 0x0;
-    defaultScheme.highlight = 0x0;
-    defaultScheme.highlightLight = 0x20;
-    defaultScheme.shadow = 0x2;
-    defaultScheme.shadowDark = 0xB6;
-    defaultScheme.foreground = 0x4;
-    defaultScheme.foregroundInactive = 0x5;
-    defaultScheme.foregroundDisabled = 0x2;
-    defaultScheme.background = 0x20;
-    defaultScheme.backgroundInactive = 0x5;
-    defaultScheme.backgroundDisabled = 0x0;
-    defaultScheme.text = 0x4;
-    defaultScheme.textHighlight = 0x6;
-    defaultScheme.textHighlightText = 0x20;
-    defaultScheme.textInactive = 0x5;
-    defaultScheme.textDisabled = 0x7;
+    defaultScheme.base = 0xFC;
+    defaultScheme.highlight = 0xFC;
+    defaultScheme.highlightLight = 0xF;
+    defaultScheme.shadow = 0x8;
+    defaultScheme.shadowDark = 0xED;
+    defaultScheme.foreground = 0x0;
+    defaultScheme.foregroundInactive = 0xFE;
+    defaultScheme.foregroundDisabled = 0x8;
+    defaultScheme.background = 0xF;
+    defaultScheme.backgroundInactive = 0xFE;
+    defaultScheme.backgroundDisabled = 0xFC;
+    defaultScheme.text = 0x0;
+    defaultScheme.textHighlight = 0xC;
+    defaultScheme.textHighlightText = 0xF;
+    defaultScheme.textInactive = 0xFE;
+    defaultScheme.textDisabled = 0xF6;
 
     laScheme_Initialize(&ProgressScheme, GFX_COLOR_MODE_RGB_565);
-    ProgressScheme.base = 0x0;
-    ProgressScheme.highlight = 0x0;
-    ProgressScheme.highlightLight = 0xFD;
-    ProgressScheme.shadow = 0x2;
-    ProgressScheme.shadowDark = 0xB6;
-    ProgressScheme.foreground = 0x4;
-    ProgressScheme.foregroundInactive = 0x5;
-    ProgressScheme.foregroundDisabled = 0x2;
-    ProgressScheme.background = 0x20;
-    ProgressScheme.backgroundInactive = 0x5;
-    ProgressScheme.backgroundDisabled = 0x0;
-    ProgressScheme.text = 0x4;
-    ProgressScheme.textHighlight = 0x6;
-    ProgressScheme.textHighlightText = 0x20;
-    ProgressScheme.textInactive = 0x5;
-    ProgressScheme.textDisabled = 0x7;
+    ProgressScheme.base = 0xFC;
+    ProgressScheme.highlight = 0xFC;
+    ProgressScheme.highlightLight = 0xFA;
+    ProgressScheme.shadow = 0x8;
+    ProgressScheme.shadowDark = 0xED;
+    ProgressScheme.foreground = 0x0;
+    ProgressScheme.foregroundInactive = 0xFE;
+    ProgressScheme.foregroundDisabled = 0x8;
+    ProgressScheme.background = 0xF;
+    ProgressScheme.backgroundInactive = 0xFE;
+    ProgressScheme.backgroundDisabled = 0xFC;
+    ProgressScheme.text = 0x0;
+    ProgressScheme.textHighlight = 0xC;
+    ProgressScheme.textHighlightText = 0xF;
+    ProgressScheme.textInactive = 0xFE;
+    ProgressScheme.textDisabled = 0xF6;
 
     laScheme_Initialize(&defaultPaletteScheme, GFX_COLOR_MODE_RGB_565);
-    defaultPaletteScheme.base = 0x0;
-    defaultPaletteScheme.highlight = 0x0;
-    defaultPaletteScheme.highlightLight = 0x20;
-    defaultPaletteScheme.shadow = 0x2;
-    defaultPaletteScheme.shadowDark = 0xB6;
-    defaultPaletteScheme.foreground = 0x4;
-    defaultPaletteScheme.foregroundInactive = 0x5;
-    defaultPaletteScheme.foregroundDisabled = 0x2;
-    defaultPaletteScheme.background = 0x20;
-    defaultPaletteScheme.backgroundInactive = 0x5;
-    defaultPaletteScheme.backgroundDisabled = 0x0;
-    defaultPaletteScheme.text = 0x4;
-    defaultPaletteScheme.textHighlight = 0x6;
-    defaultPaletteScheme.textHighlightText = 0x20;
-    defaultPaletteScheme.textInactive = 0x5;
-    defaultPaletteScheme.textDisabled = 0x7;
+    defaultPaletteScheme.base = 0xFC;
+    defaultPaletteScheme.highlight = 0xFC;
+    defaultPaletteScheme.highlightLight = 0xF;
+    defaultPaletteScheme.shadow = 0x8;
+    defaultPaletteScheme.shadowDark = 0xED;
+    defaultPaletteScheme.foreground = 0x0;
+    defaultPaletteScheme.foregroundInactive = 0xFE;
+    defaultPaletteScheme.foregroundDisabled = 0x8;
+    defaultPaletteScheme.background = 0xF;
+    defaultPaletteScheme.backgroundInactive = 0xFE;
+    defaultPaletteScheme.backgroundDisabled = 0xFC;
+    defaultPaletteScheme.text = 0x0;
+    defaultPaletteScheme.textHighlight = 0xC;
+    defaultPaletteScheme.textHighlightText = 0xF;
+    defaultPaletteScheme.textInactive = 0xFE;
+    defaultPaletteScheme.textDisabled = 0xF6;
 
     GFX_Set(GFXF_DRAW_PIPELINE_MODE, GFX_PIPELINE_GCUGPU);
     GFX_Set(GFXF_GLOBAL_PALETTE, globalColorPalette);
@@ -155,12 +155,12 @@ static void ScreenCreate_default(laScreen* screen)
     laScreen_SetLayer(screen, 0, layer0);
 
     WatermarkImage = laImageWidget_New();
-    laWidget_SetPosition((laWidget*)WatermarkImage, 143, 67);
-    laWidget_SetSize((laWidget*)WatermarkImage, 180, 126);
+    laWidget_SetPosition((laWidget*)WatermarkImage, 169, 83);
+    laWidget_SetSize((laWidget*)WatermarkImage, 141, 132);
     laWidget_SetScheme((laWidget*)WatermarkImage, &defaultPaletteScheme);
     laWidget_SetBackgroundType((laWidget*)WatermarkImage, LA_WIDGET_BACKGROUND_NONE);
     laWidget_SetBorderType((laWidget*)WatermarkImage, LA_WIDGET_BORDER_NONE);
-    laImageWidget_SetImage(WatermarkImage, &harmony_faded);
+    laImageWidget_SetImage(WatermarkImage, &MHGS_logo_small);
     laWidget_AddChild((laWidget*)layer0, (laWidget*)WatermarkImage);
 
     LogoImage = laImageWidget_New();
@@ -200,7 +200,7 @@ static void ScreenCreate_default(laScreen* screen)
     laWidget_AddChild((laWidget*)SelectMediumPanel, (laWidget*)SelectMediumLabel);
 
     SDCardButton = laButtonWidget_New();
-    laWidget_SetPosition((laWidget*)SDCardButton, 19, 21);
+    laWidget_SetPosition((laWidget*)SDCardButton, 20, 40);
     laWidget_SetSize((laWidget*)SDCardButton, 120, 120);
     laWidget_SetVisible((laWidget*)SDCardButton, LA_FALSE);
     laWidget_SetScheme((laWidget*)SDCardButton, &defaultScheme);
@@ -213,8 +213,8 @@ static void ScreenCreate_default(laScreen* screen)
     laWidget_AddChild((laWidget*)SelectMediumPanel, (laWidget*)SDCardButton);
 
     USBButton = laButtonWidget_New();
-    laWidget_SetPosition((laWidget*)USBButton, 165, 21);
-    laWidget_SetSize((laWidget*)USBButton, 120, 108);
+    laWidget_SetPosition((laWidget*)USBButton, 320, 40);
+    laWidget_SetSize((laWidget*)USBButton, 120, 120);
     laWidget_SetVisible((laWidget*)USBButton, LA_FALSE);
     laWidget_SetScheme((laWidget*)USBButton, &defaultScheme);
     laWidget_SetBackgroundType((laWidget*)USBButton, LA_WIDGET_BACKGROUND_FILL);
@@ -226,7 +226,7 @@ static void ScreenCreate_default(laScreen* screen)
     laWidget_AddChild((laWidget*)SelectMediumPanel, (laWidget*)USBButton);
 
     ErrorMsgPanel = laWidget_New();
-    laWidget_SetPosition((laWidget*)ErrorMsgPanel, 77, 134);
+    laWidget_SetPosition((laWidget*)ErrorMsgPanel, 74, 151);
     laWidget_SetSize((laWidget*)ErrorMsgPanel, 304, 57);
     laWidget_SetScheme((laWidget*)ErrorMsgPanel, &defaultPaletteScheme);
     laWidget_SetBackgroundType((laWidget*)ErrorMsgPanel, LA_WIDGET_BACKGROUND_NONE);
@@ -283,7 +283,7 @@ static void ScreenCreate_default(laScreen* screen)
     laWidget_AddChild((laWidget*)InfoPanel, (laWidget*)InfoLabel2);
 
     InfoOKButton = laButtonWidget_New();
-    laWidget_SetPosition((laWidget*)InfoOKButton, 170, 158);
+    laWidget_SetPosition((laWidget*)InfoOKButton, 168, 164);
     laWidget_SetSize((laWidget*)InfoOKButton, 120, 44);
     laWidget_SetScheme((laWidget*)InfoOKButton, &defaultScheme);
     laWidget_SetBackgroundType((laWidget*)InfoOKButton, LA_WIDGET_BACKGROUND_FILL);

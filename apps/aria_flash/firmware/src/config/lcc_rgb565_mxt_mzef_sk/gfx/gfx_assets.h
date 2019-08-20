@@ -62,15 +62,6 @@ extern "C" {
  *****************************************************************************/
 /*********************************
  * GFX Image Asset
- * Name:   harmony_faded
- * Size:   180x126 pixels
- * Mode:   GS_8
- * Format: RAW
- ***********************************/
-extern GFXU_ImageAsset harmony_faded;
-	
-/*********************************
- * GFX Image Asset
  * Name:   mchpLogo
  * Size:   32x32 pixels
  * Mode:   GS_8
@@ -95,6 +86,15 @@ extern GFXU_ImageAsset sdcard_sm;
  * Format: RAW
  ***********************************/
 extern GFXU_ImageAsset usb_icon_sm;
+	
+/*********************************
+ * GFX Image Asset
+ * Name:   MHGS_logo_small
+ * Size:   141x132 pixels
+ * Mode:   GS_8
+ * Format: RAW
+ ***********************************/
+extern GFXU_ImageAsset MHGS_logo_small;
 	
 /*****************************************************************************
  * MPLAB Harmony Graphics Font Assets
