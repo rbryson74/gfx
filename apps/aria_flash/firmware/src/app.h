@@ -52,6 +52,9 @@
 // *****************************************************************************
 // *****************************************************************************
 
+#include <stdint.h>
+#include <stdbool.h>
+#include <stddef.h>
 #include <stdlib.h>
 #include "configuration.h"
 #include "driver/sst26/drv_sst26.h"
@@ -87,41 +90,21 @@ extern "C" {
 
 typedef enum
 {
-    /* Application's state machine's initial state. */
-    APP_STATE_INIT,
+	/* Application's state machine's initial state. */
+	APP_STATE_INIT = 0,
+	APP_INIT_WRITE_MEDIA,
+	APP_OPEN_FILE,
+	APP_FILE_NOT_FOUND,
+	APP_VALIDATE_FILE,
+	APP_READ_RECORD_COUNT,
+	APP_START_DECODING,
+	APP_PRE_DECODE,
+	APP_DECODE_RECORD,
 
-    /* Open the Driver */
-    APP_STATE_OPEN_DRIVER,
-
-    /* Get Device Geometry */
-    APP_STATE_GEOMETRY_GET,
-
-    /* Erase Flash */
-    APP_STATE_ERASE_FLASH,
-
-    /* Erase Wait */
-    APP_STATE_ERASE_WAIT,
-
-    /* Write to Memory */
-    APP_STATE_WRITE_MEMORY,
-
-    /* Write Wait */
     APP_STATE_WRITE_WAIT,
-
-    /* Read From Memory */
-    APP_STATE_READ_MEMORY,
-
-    /* Read Wait */
-    APP_STATE_READ_WAIT,
-
-    /* Verify Data Read */
-    APP_STATE_VERIFY_DATA,
-
-    /* The app idles */
-    APP_STATE_SUCCESS,
-
-    /* An app error has occurred */
-    APP_STATE_ERROR
+    APP_STATE_ERASE_WAIT,
+	APP_STATE_ERROR,
+	APP_STATE_DONE
 
 } APP_STATES;
 

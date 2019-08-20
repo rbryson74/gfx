@@ -294,6 +294,7 @@
           <itemPath>../src/packs/PIC32MZ2048EFH144_DFP/device.h</itemPath>
         </logicalFolder>
       </logicalFolder>
+      <itemPath>../src/hexdecoder.h</itemPath>
       <itemPath>../src/app.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -552,6 +553,7 @@
           <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/tasks.c</itemPath>
         </logicalFolder>
       </logicalFolder>
+      <itemPath>../src/hexdecoder.c</itemPath>
       <itemPath>../src/main.c</itemPath>
       <itemPath>../src/app.c</itemPath>
     </logicalFolder>

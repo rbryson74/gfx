@@ -54,12 +54,35 @@
 
 #include <string.h>
 #include "app.h"
+#include "hexdecoder.h"
+#include "definitions.h"
 
 // *****************************************************************************
 // *****************************************************************************
 // Section: Global Data Definitions
 // *****************************************************************************
 // *****************************************************************************
+
+#define USB_ID      1
+#define SDCARD_ID   2
+
+HexDecoder dec;
+
+SYS_FS_HANDLE fileHandle;
+long          fileSize;
+char          readChar;
+
+int32_t       usbDeviceConnected;
+int32_t       sdcardDeviceConnected;
+
+char number[12];
+
+uint32_t i;
+uint32_t recordCount;
+
+laString str;
+
+float percent;
 
 // *****************************************************************************
 /* Application Data
@@ -78,16 +101,12 @@
 
 APP_DATA CACHE_ALIGN appData;
 
-static uint32_t write_index = 0;
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Callback Functions
 // *****************************************************************************
 // *****************************************************************************
 
-/* TODO:  Add any necessary callback functions.
-*/
 
 // *****************************************************************************
 // *****************************************************************************
@@ -96,9 +115,194 @@ static uint32_t write_index = 0;
 // *****************************************************************************
 
 
-/* TODO:  Add any necessary local functions.
-*/
+USB_HOST_EVENT_RESPONSE APP_USBHostEventHandler (USB_HOST_EVENT event,
+                                                 void* eventData,
+                                                 uintptr_t context)
+{
+    switch (event)
+    {
+        case USB_HOST_EVENT_DEVICE_UNSUPPORTED:
+            break;
+        default:
+            break;
+    }
+    
+    return(USB_HOST_EVENT_RESPONSE_NONE);
+}
 
+static void deviceConnectionStateChanged()
+{
+    if(usbDeviceConnected != 0 || sdcardDeviceConnected != 0)
+    {
+        laWidget_SetVisible(ErrorMsgPanel, LA_FALSE);
+    }
+    else
+    {
+        laWidget_SetVisible(ErrorMsgPanel, LA_TRUE);
+    }
+    
+    laWidget_SetVisible((laWidget*)USBButton, usbDeviceConnected != 0);
+    laWidget_SetVisible((laWidget*)SDCardButton, sdcardDeviceConnected != 0);
+}
+
+void APP_SYSFSEventHandler(SYS_FS_EVENT event,
+                           void* eventData,
+                           uintptr_t context)
+{
+    switch(event)
+    {
+        case SYS_FS_EVENT_MOUNT:
+        {
+            if(strcmp((const char *)eventData,"/mnt/usb") == 0)
+            {
+                usbDeviceConnected = 1;
+            }
+            else if(strcmp((const char *)eventData,"/mnt/sdcard") == 0)
+            {
+                sdcardDeviceConnected = 1;
+            }
+            
+            deviceConnectionStateChanged();
+            
+            break;
+        }    
+        case SYS_FS_EVENT_UNMOUNT:
+        {
+            if(strcmp((const char *)eventData,"/mnt/usb") == 0)
+            {
+                usbDeviceConnected = 0;
+            }
+            else if(strcmp((const char *)eventData,"/mnt/sdcard") == 0)
+            {
+                sdcardDeviceConnected = 0;
+            }
+            
+            deviceConnectionStateChanged();
+            
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+void APP_SDCardButtonPressed(laButtonWidget* btn)
+{
+    SYS_FS_CurrentDriveSet("/mnt/sdcard");
+
+    fileHandle = SYS_FS_FileOpen("SQI.hex", (SYS_FS_FILE_OPEN_READ));
+    
+    if(fileHandle != SYS_FS_HANDLE_INVALID)
+    {
+        appData.state = APP_VALIDATE_FILE;
+    }
+    else
+    {
+        appData.state = APP_FILE_NOT_FOUND;
+    }
+}
+
+void APP_USBButtonPressed(laButtonWidget* btn)
+{
+    SYS_FS_CurrentDriveSet("/mnt/usb");
+
+    fileHandle = SYS_FS_FileOpen("SQI.hex", (SYS_FS_FILE_OPEN_READ));
+    
+    if(fileHandle != SYS_FS_HANDLE_INVALID)
+    {
+        appData.state = APP_VALIDATE_FILE;
+    }
+    else
+    {
+        appData.state = APP_FILE_NOT_FOUND;
+    }
+}
+
+void APP_OKButtonPressed(laButtonWidget* btn)
+{
+    laWidget_SetVisible(InfoPanel, LA_FALSE);
+    laWidget_SetVisible(SelectMediumPanel, LA_TRUE);
+    laWidget_SetVisible((laWidget*)InfoOKButton, LA_FALSE);
+    laWidget_SetVisible((laWidget*)USBButton, LA_TRUE);
+    laWidget_SetVisible((laWidget*)SDCardButton, LA_TRUE);
+    deviceConnectionStateChanged();
+}
+
+int32_t recordReadCB(HexDecoder* dec,
+                     uint32_t recordNum,
+                     uint8_t record[HEXDECODER_MAX_RECORD_SIZE])
+{
+    uint32_t i = 0;
+    uint32_t size;
+    char csize[4];
+    
+    // unexpected end of file
+    if(SYS_FS_FileEOF(fileHandle) == 1)
+        return -1;
+    
+    readChar = 0;
+    
+    while(readChar != ':')
+    {
+        SYS_FS_FileRead(fileHandle, &readChar, 1);
+
+        if(SYS_FS_FileEOF(fileHandle) == 1)
+            return -1;
+    }
+    
+    // colon
+    record[i++] = readChar;
+    
+    if(SYS_FS_FileEOF(fileHandle) == 1)
+        return -1;
+    
+    // size
+    SYS_FS_FileRead(fileHandle, &record[i], 8);
+    i += 8;
+    
+    if(SYS_FS_FileEOF(fileHandle) == 1)
+        return -1;
+    
+    csize[0] = record[1];
+    csize[1] = record[2];
+    csize[2] = 0;
+    csize[3] = 0;
+    
+    size = strtoul(csize, NULL, 16) * 2;
+    
+    // data block
+    SYS_FS_FileRead(fileHandle, &record[i], size);
+    i += size;
+    
+    if(SYS_FS_FileEOF(fileHandle) == 1)
+        return -1;
+    
+    // checksum
+    SYS_FS_FileRead(fileHandle, &record[i], 2);
+    i += 2;
+    
+    return 0;
+}
+
+volatile int x;
+
+int32_t dataWriteCB(HexDecoder* dec, 
+                    uint32_t address,
+                    uint8_t* buffer,
+                    uint32_t size)
+{
+    if(address == 0x9D00)
+    {
+        x = 0;
+    }
+    
+	if (DRV_SST26_PageWrite(appData.handle, (uint32_t *)buffer, address) != true)
+	{
+		return -1;
+	}
+
+	return 0;
+}
 
 // *****************************************************************************
 // *****************************************************************************
@@ -116,13 +320,23 @@ static uint32_t write_index = 0;
 
 void APP_Initialize ( void )
 {
-    uint32_t i = 0;
-
     /* Place the App state machine in its initial state. */
     appData.state = APP_STATE_INIT;
 
-    for (i = 0; i < BUFFER_SIZE; i++)
-        appData.writeBuffer[i] = i;
+    usbDeviceConnected = 0;
+    
+    SYS_FS_EventHandlerSet(APP_SYSFSEventHandler, USB_ID);
+    USB_HOST_EventHandlerSet(&APP_USBHostEventHandler, 0);
+    USB_HOST_BusEnable(0);
+    
+    laButtonWidget_SetReleasedEventCallback(SDCardButton,
+                                            &APP_SDCardButtonPressed);
+    
+    laButtonWidget_SetReleasedEventCallback(USBButton,
+                                            &APP_USBButtonPressed);
+    
+    laButtonWidget_SetReleasedEventCallback(InfoOKButton,
+                                            &APP_OKButtonPressed);
 }
 
 
@@ -143,154 +357,263 @@ void APP_Tasks ( void )
         /* Application's initial state. */
         case APP_STATE_INIT:
         {
-            if (DRV_SST26_Status(DRV_SST26_INDEX) == SYS_STATUS_READY)
-            {
-                appData.state = APP_STATE_OPEN_DRIVER;
-            }
-            break;
-        }
-
-        case APP_STATE_OPEN_DRIVER:
-        {
-            appData.handle = DRV_SST26_Open(DRV_SST26_INDEX, DRV_IO_INTENT_READWRITE);
+			if (DRV_SST26_Status(DRV_SST26_INDEX) == SYS_STATUS_READY)
+			{
+				appData.state = APP_INIT_WRITE_MEDIA;
+			}
+			break;
+		}
+		
+		case APP_INIT_WRITE_MEDIA:
+		{
+            appData.handle = DRV_SST26_Open(DRV_SST26_INDEX, DRV_IO_INTENT_WRITE);
 
             if (appData.handle != DRV_HANDLE_INVALID)
             {
-                appData.state = APP_STATE_GEOMETRY_GET;
-            }
-
-            break;
-        }
-        case APP_STATE_GEOMETRY_GET:
-        {
-            if (DRV_SST26_GeometryGet(appData.handle, &appData.geometry) != true)
-            {
-                appData.state = APP_STATE_ERROR;
-                break;
-            }
-
-            appData.state = APP_STATE_ERASE_FLASH;
-
-            break;
-        }
-
-        case APP_STATE_ERASE_FLASH:
-        {
-            if (DRV_SST26_SectorErase(appData.handle, MEM_ADDRESS) != true)
-            {
-                appData.state = APP_STATE_ERROR;
-            }
-
-            appData.state = APP_STATE_ERASE_WAIT;
-
-            break;
-        }
-
-        case APP_STATE_ERASE_WAIT:
-        {
-            transferStatus = DRV_SST26_TransferStatusGet(appData.handle);
-
-            if(transferStatus == DRV_SST26_TRANSFER_COMPLETED)
-            {
-                appData.state = APP_STATE_WRITE_MEMORY;
-            }
-            else if (transferStatus == DRV_SST26_TRANSFER_ERROR_UNKNOWN)
-            {
-                appData.state = APP_STATE_ERROR;
+				appData.state = APP_STATE_DONE;
             }
             break;
         }
 
-        case APP_STATE_WRITE_MEMORY:
-        {
-            if (DRV_SST26_PageWrite(appData.handle, (uint32_t *)&appData.writeBuffer[write_index], (MEM_ADDRESS + write_index)) != true)
-            {
-                appData.state = APP_STATE_ERROR;
-                break;
-            }
+		case APP_OPEN_FILE:
+		{
+			fileHandle = SYS_FS_FileOpen("/SQI.hex", SYS_FS_FILE_OPEN_READ);
 
-            appData.state = APP_STATE_WRITE_WAIT;
+			if (fileHandle == SYS_FS_HANDLE_INVALID)
+			{
+				appData.state = APP_STATE_DONE;
+			}
+			else
+			{
+				appData.state = APP_VALIDATE_FILE;
+			}
+			break;
+		}
 
-            break;
-        }
+		case APP_FILE_NOT_FOUND:
+		{
+			laWidget_SetVisible(SelectMediumPanel, LA_FALSE);
+			laWidget_SetVisible(InfoPanel, LA_TRUE);
 
-        case APP_STATE_WRITE_WAIT:
-        {
-            transferStatus = DRV_SST26_TransferStatusGet(appData.handle);
+			str = laString_CreateFromID(string_FileNotFound1);
+			laLabelWidget_SetText(InfoLabel1, str);
 
-            if(transferStatus == DRV_SST26_TRANSFER_COMPLETED)
-            {
-                write_index += appData.geometry.write_blockSize;
+			str = laString_CreateFromID(string_FileNotFound2);
+			laLabelWidget_SetText(InfoLabel2, str);
 
-                if (write_index < BUFFER_SIZE)
-                {
-                    appData.state = APP_STATE_WRITE_MEMORY;
-                }
-                else
-                {
-                    appData.state = APP_STATE_READ_MEMORY;
-                }
-            }
-            else if (transferStatus == DRV_SST26_TRANSFER_ERROR_UNKNOWN)
-            {
-                appData.state = APP_STATE_ERROR;
-            }
+			laWidget_SetVisible((laWidget*)InfoLabel1, LA_TRUE);
+			laWidget_SetVisible((laWidget*)InfoLabel2, LA_TRUE);
 
-            break;
-        }
+			appData.state = APP_STATE_DONE;
+			break;
+		}
 
-        case APP_STATE_READ_MEMORY:
-        {
-            if (DRV_SST26_Read(appData.handle, (uint32_t *)&appData.readBuffer, BUFFER_SIZE, MEM_ADDRESS) != true)
-            {
-                appData.state = APP_STATE_ERROR;
-            }
-            else
-            {
-                appData.state = APP_STATE_READ_WAIT;
-            }
+		case APP_VALIDATE_FILE:
+		{
+			laWidget_SetVisible(SelectMediumPanel, LA_FALSE);
+			laWidget_SetVisible(FlashingPanel, LA_TRUE);
 
-            break;
-        }
+			laWidget_SetVisible((laWidget*)CurrentRecordLabel, LA_FALSE);
+			laWidget_SetVisible((laWidget*)OfLabel, LA_FALSE);
+			laWidget_SetVisible((laWidget*)RecordsTotalLabel, LA_FALSE);
 
-        case APP_STATE_READ_WAIT:
-        {
-            transferStatus = DRV_SST26_TransferStatusGet(appData.handle);
+			str = laString_CreateFromID(string_RecordCount);
+			laLabelWidget_SetText(FlashingLabel, str);
 
-            if(transferStatus == DRV_SST26_TRANSFER_COMPLETED)
-            {
-                appData.state = APP_STATE_VERIFY_DATA;
-            }
-            else if (transferStatus == DRV_SST26_TRANSFER_ERROR_UNKNOWN)
-            {
-                appData.state = APP_STATE_ERROR;
-            }
+			fileSize = SYS_FS_FileSize(fileHandle);
 
-            break;
-        }
+			if (fileSize <= 0)
+			{
+				SYS_FS_FileClose(fileHandle);
 
-        case APP_STATE_VERIFY_DATA:
-        {
-            if (!memcmp(appData.writeBuffer, appData.readBuffer, BUFFER_SIZE))
-            {
-                appData.state = APP_STATE_SUCCESS;
-            }
-            else
-            {
-                appData.state = APP_STATE_ERROR;
-            }
+				str = laString_CreateFromID(string_InvalidFile);
+				laLabelWidget_SetText(InfoLabel1, str);
 
-            break;
-        }
+				laWidget_SetVisible((laWidget*)InfoLabel1, LA_TRUE);
+				laWidget_SetVisible((laWidget*)InfoLabel2, LA_FALSE);
 
-        case APP_STATE_SUCCESS:
-        {
-            LED_ON();
-            break;
-        }
+				appData.state = APP_STATE_DONE;
+			}
+			else
+			{
+				appData.state = APP_READ_RECORD_COUNT;
+			}
+		}
 
-        case APP_STATE_ERROR:
-        default:
-            break;
+		case APP_READ_RECORD_COUNT:
+		{
+			recordCount = 0;
+
+			str = laString_CreateFromID(string_RecordCount);
+			laLabelWidget_SetText(FlashingLabel, str);
+
+			for (i = 0; i < fileSize; i++)
+			{
+				SYS_FS_FileRead(fileHandle, &readChar, 1);
+
+				if (readChar == ':')
+					recordCount++;
+			}
+
+			if (recordCount == 0)
+			{
+				SYS_FS_FileClose(fileHandle);
+
+				str = laString_CreateFromID(string_InvalidFile);
+				laLabelWidget_SetText(InfoLabel1, str);
+
+				laWidget_SetVisible((laWidget*)InfoLabel1, LA_TRUE);
+				laWidget_SetVisible((laWidget*)InfoLabel2, LA_FALSE);
+
+				appData.state = APP_STATE_DONE;
+			}
+			else
+			{
+				// erase target space
+				if (DRV_SST26_SectorErase(appData.handle, MEM_ADDRESS) != true)
+				{
+					appData.state = APP_STATE_ERROR;
+				}
+
+				appData.state = APP_STATE_ERASE_WAIT;
+			}
+			break;
+		}
+
+		case APP_STATE_ERASE_WAIT:
+		{
+			transferStatus = DRV_SST26_TransferStatusGet(appData.handle);
+
+			if (transferStatus == DRV_SST26_TRANSFER_COMPLETED)
+			{
+				appData.state = APP_START_DECODING;
+			}
+			else if (transferStatus == DRV_SST26_TRANSFER_ERROR_UNKNOWN)
+			{
+				appData.state = APP_STATE_ERROR;
+			}
+			break;
+		}
+
+		case APP_START_DECODING:
+		{
+			// update the UI
+			str = laString_CreateFromID(string_Flashing);
+			laLabelWidget_SetText(FlashingLabel, str);
+
+			laProgressBarWidget_SetValue(FlashingProgressBar, 0);
+			laWidget_SetVisible((laWidget*)USBButton, LA_FALSE);
+			laWidget_SetVisible((laWidget*)SDCardButton, LA_FALSE);
+			laWidget_SetVisible((laWidget*)CurrentRecordLabel, LA_TRUE);
+			laWidget_SetVisible((laWidget*)OfLabel, LA_TRUE);
+			laWidget_SetVisible((laWidget*)RecordsTotalLabel, LA_TRUE);
+
+			itoa(number, recordCount, 10);
+
+			str = laString_CreateFromCharBuffer(number, &Arial_sm);
+			laLabelWidget_SetText(RecordsTotalLabel, str);
+			laString_Destroy(&str);
+
+			// initailize hex decoder
+			HexDecoder_Initialize(&dec,
+				recordCount,
+				appData.writeBuffer,
+				&recordReadCB,
+				&dataWriteCB);
+
+			// reset file pointer to the start
+			SYS_FS_FileSeek(fileHandle, 0, SYS_FS_SEEK_SET);
+
+			appData.state = APP_PRE_DECODE;
+
+			break;
+		}
+
+		case APP_PRE_DECODE:
+		{
+			itoa(number, dec.currentRecord + 1, 10);
+
+			str = laString_CreateFromCharBuffer(number, &Arial_sm);
+			laLabelWidget_SetText(CurrentRecordLabel, str);
+			laString_Destroy(&str);
+
+			percent = ((float)dec.currentRecord / ((float)dec.recordCount - 1)) * 100.0f;
+
+			laProgressBarWidget_SetValue(FlashingProgressBar, (uint32_t)percent);
+
+			appData.state = APP_DECODE_RECORD;
+
+			break;
+		}
+
+		case APP_DECODE_RECORD:
+		{
+			if (dec.currentRecord == dec.recordCount)
+			{
+				SYS_FS_FileClose(fileHandle);
+
+				laWidget_SetVisible(FlashingPanel, LA_FALSE);
+				laWidget_SetVisible(InfoPanel, LA_TRUE);
+
+				str = laString_CreateFromID(string_FlashingComplete);
+				laLabelWidget_SetText(InfoLabel1, str);
+
+				laWidget_SetVisible((laWidget*)USBButton, LA_TRUE);
+				laWidget_SetVisible((laWidget*)SDCardButton, LA_TRUE);
+				laWidget_SetVisible((laWidget*)InfoLabel1, LA_TRUE);
+				laWidget_SetVisible((laWidget*)InfoLabel2, LA_FALSE);
+				laWidget_SetVisible((laWidget*)InfoOKButton, LA_TRUE);
+
+				// decode complete
+				appData.state = APP_STATE_DONE;
+			}
+			else if (HexDecoder_Decode(&dec) == -1)
+			{
+				SYS_FS_FileClose(fileHandle);
+
+				laWidget_SetVisible(FlashingPanel, LA_FALSE);
+				laWidget_SetVisible(InfoPanel, LA_TRUE);
+
+				str = laString_CreateFromID(string_UnknownError);
+				laLabelWidget_SetText(InfoLabel1, str);
+
+				laWidget_SetVisible((laWidget*)InfoLabel1, LA_TRUE);
+				laWidget_SetVisible((laWidget*)InfoLabel2, LA_FALSE);
+
+				appData.state = APP_STATE_DONE;
+			}
+			else
+			{
+				appData.state = APP_STATE_WRITE_WAIT;
+			}
+
+			break;
+		}
+
+		case APP_STATE_WRITE_WAIT:
+		{
+			transferStatus = DRV_SST26_TransferStatusGet(appData.handle);
+
+			if (transferStatus == DRV_SST26_TRANSFER_COMPLETED)
+			{
+				appData.state = APP_PRE_DECODE;
+			}
+			else if (transferStatus == DRV_SST26_TRANSFER_ERROR_UNKNOWN)
+			{
+				appData.state = APP_STATE_ERROR;
+			}
+
+			break;
+		}
+
+		case APP_STATE_ERROR:
+		{
+			break;
+		}
+		case APP_STATE_DONE:
+		default:
+		{
+			break;
+		}
     }
 }

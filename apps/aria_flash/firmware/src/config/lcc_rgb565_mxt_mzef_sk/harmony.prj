@@ -507,8 +507,8 @@
           <Name dnOrder="1">initialization.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_sk/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">38C1E684D83D60E448BE07858E7ECC5D</GeneratedChecksum>
-          <UserChecksum dnOrder="5">38C1E684D83D60E448BE07858E7ECC5D</UserChecksum>
+          <GeneratedChecksum dnOrder="4">394AE45DA5457B08385E6E3DF998CDDB</GeneratedChecksum>
+          <UserChecksum dnOrder="5">394AE45DA5457B08385E6E3DF998CDDB</UserChecksum>
         </File>
         <File dnOrder="63">
           <Type dnOrder="0">SOURCE</Type>
@@ -1203,8 +1203,8 @@
           <Name dnOrder="1">plib_clk.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_sk/peripheral/clk/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/clk/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">DAC83279B9C5777E9F12EAFAED7FE5E7</GeneratedChecksum>
-          <UserChecksum dnOrder="5">DAC83279B9C5777E9F12EAFAED7FE5E7</UserChecksum>
+          <GeneratedChecksum dnOrder="4">BC8D6973F267BADFDEB4C2BC35310EEE</GeneratedChecksum>
+          <UserChecksum dnOrder="5">BC8D6973F267BADFDEB4C2BC35310EEE</UserChecksum>
         </File>
         <File dnOrder="150">
           <Type dnOrder="0">SOURCE</Type>
@@ -1379,8 +1379,8 @@
           <Name dnOrder="1">configuration.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_sk/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">3F4CB1A2BC5974D8E9401528C6643066</GeneratedChecksum>
-          <UserChecksum dnOrder="5">3F4CB1A2BC5974D8E9401528C6643066</UserChecksum>
+          <GeneratedChecksum dnOrder="4">D5AF2565C8197B1A27ADF5D41636D7F8</GeneratedChecksum>
+          <UserChecksum dnOrder="5">D5AF2565C8197B1A27ADF5D41636D7F8</UserChecksum>
         </File>
         <File dnOrder="172">
           <Type dnOrder="0">HEADER</Type>
