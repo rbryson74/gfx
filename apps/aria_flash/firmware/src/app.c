@@ -508,7 +508,7 @@ void APP_Tasks ( void )
 			laWidget_SetVisible((laWidget*)OfLabel, LA_TRUE);
 			laWidget_SetVisible((laWidget*)RecordsTotalLabel, LA_TRUE);
 
-			itoa(number, recordCount, 10);
+			itoa(recordCount, number, 10);
 
 			str = laString_CreateFromCharBuffer(number, &Arial_sm);
 			laLabelWidget_SetText(RecordsTotalLabel, str);
@@ -531,7 +531,7 @@ void APP_Tasks ( void )
 
 		case APP_PRE_DECODE:
 		{
-			itoa(number, dec.currentRecord + 1, 10);
+			itoa(dec.currentRecord + 1, number, 10);
 
 			str = laString_CreateFromCharBuffer(number, &Arial_sm);
 			laLabelWidget_SetText(CurrentRecordLabel, str);
