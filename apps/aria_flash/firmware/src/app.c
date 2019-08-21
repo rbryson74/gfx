@@ -156,10 +156,12 @@ void APP_SYSFSEventHandler(SYS_FS_EVENT event,
             if(strcmp((const char *)eventData,"/mnt/usb") == 0)
             {
                 usbDeviceConnected = 1;
+                LED1_On();
             }
             else if(strcmp((const char *)eventData,"/mnt/sdcard") == 0)
             {
                 sdcardDeviceConnected = 1;
+                LED2_On();
             }
             
             deviceConnectionStateChanged();
@@ -171,10 +173,12 @@ void APP_SYSFSEventHandler(SYS_FS_EVENT event,
             if(strcmp((const char *)eventData,"/mnt/usb") == 0)
             {
                 usbDeviceConnected = 0;
+                LED1_Off();
             }
             else if(strcmp((const char *)eventData,"/mnt/sdcard") == 0)
             {
                 sdcardDeviceConnected = 0;
+                LED2_Off();
             }
             
             deviceConnectionStateChanged();
@@ -357,13 +361,13 @@ void APP_Tasks ( void )
         /* Application's initial state. */
         case APP_STATE_INIT:
         {
-			if (DRV_SST26_Status(DRV_SST26_INDEX) == SYS_STATUS_READY)
-			{
-				appData.state = APP_INIT_WRITE_MEDIA;
-			}
-			break;
-		}
-		
+                if (DRV_SST26_Status(DRV_SST26_INDEX) == SYS_STATUS_READY)
+                {
+                    appData.state = APP_INIT_WRITE_MEDIA;
+                }
+            break;
+        }
+        
 		case APP_INIT_WRITE_MEDIA:
 		{
             appData.handle = DRV_SST26_Open(DRV_SST26_INDEX, DRV_IO_INTENT_WRITE);

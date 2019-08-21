@@ -92,7 +92,7 @@ typedef enum
 {
 	/* Application's state machine's initial state. */
 	APP_STATE_INIT = 0,
-	APP_INIT_WRITE_MEDIA,
+    APP_INIT_WRITE_MEDIA,
 	APP_OPEN_FILE,
 	APP_FILE_NOT_FOUND,
 	APP_VALIDATE_FILE,
