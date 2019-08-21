@@ -87,6 +87,10 @@ enum leRawDecoderMode
     LE_RAW_MODE_DRAW,
     LE_RAW_MODE_COPY,
     LE_RAW_MODE_RESIZE,
+    LE_RAW_MODE_RESIZEDRAW,
+    LE_RAW_MODE_RENDER,
+    LE_RAW_MODE_ROTATE,
+    LE_RAW_MODE_ROTATEDRAW
 };
 
 struct leRawDecodeState;
@@ -143,17 +147,17 @@ typedef struct leRawDecodeState
     leRect sourceRect; // the image source rectangle
     leRect destRect; // the target rectangle dimensions
 
-    //int32_t renderX; // the target screen X position in pixels
-    //int32_t renderY; // the target screen Y position in pixels
-
     int32_t targetX; // the current target X position
     int32_t targetY; // the current target Y position
 
     int32_t referenceX; // the current target X position
     int32_t referenceY; // the current target Y position
 
-    uint32_t sizeX;
-    uint32_t sizeY;
+    uint32_t sizeX; // the size in X of the new data
+    uint32_t sizeY; // the size in Y of the new data
+
+    int32_t angle; // rotation angle
+    lePoint origin; // rotation origin
 
     uint32_t rowIterator; // the row iterator
     uint32_t colIterator; // the column iterator

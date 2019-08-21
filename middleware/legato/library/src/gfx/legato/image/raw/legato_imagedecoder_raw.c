@@ -61,11 +61,16 @@ static void _cleanup(leStreamManager* mgr);
 leResult _leRawImageDecoder_SourceIterateSetupStage(leRawDecodeState* state);
 leResult _leRawImageDecoder_TargetIterateSetupStage(leRawDecodeState* state);
 
-leResult _leRawImageDecoder_NearestNeighborPreReadStage(leRawDecodeState* state);
-leResult _leRawImageDecoder_BilinearPreReadStage(leRawDecodeState* state);
-
 leResult _leRawImageDecoder_PostReadStage(leRawDecodeState* state);
-leResult _leRawImageDecoder_BilinearPostReadStage(leRawDecodeState* state);
+
+leResult _leRawImageDecoder_ScaleNearestNeighborPreReadStage(leRawDecodeState* state);
+leResult _leRawImageDecoder_ScaleBilinearPreReadStage(leRawDecodeState* state);
+leResult _leRawImageDecoder_ScaleBilinearPostReadStage(leRawDecodeState* state);
+
+leResult _leRawImageDecoder_RotateNearestNeighborPreReadStage(leRawDecodeState* state);
+leResult _leRawImageDecoder_RotateBilinearPreReadStage(leRawDecodeState* state);
+leResult _leRawImageDecoder_RotateBilinearPostReadStage(leRawDecodeState* state);
+
 
 leResult _leRawImageDecoder_ReadStage_Internal(leRawDecodeState* state);
 #if LE_STREAMING_ENABLED == 1
@@ -352,12 +357,12 @@ static leResult _resize(const leImage* src,
     // filter pre read stage
     if(mode == LE_IMAGEFILTER_NEAREST_NEIGHBOR)
     {
-        if(_leRawImageDecoder_NearestNeighborPreReadStage(&state) == LE_FAILURE)
+        if(_leRawImageDecoder_ScaleNearestNeighborPreReadStage(&state) == LE_FAILURE)
             return LE_FAILURE;
     }
     else
     {
-        if(_leRawImageDecoder_BilinearPreReadStage(&state) == LE_FAILURE)
+        if(_leRawImageDecoder_ScaleBilinearPreReadStage(&state) == LE_FAILURE)
         {
             return LE_FAILURE;
         }
@@ -370,7 +375,7 @@ static leResult _resize(const leImage* src,
     // post read stage
     if(mode == LE_IMAGEFILTER_BILINEAR)
     {
-        if(_leRawImageDecoder_BilinearPostReadStage(&state) == LE_FAILURE)
+        if(_leRawImageDecoder_ScaleBilinearPostReadStage(&state) == LE_FAILURE)
             return LE_FAILURE;
     }
     else
@@ -449,7 +454,7 @@ static leResult _resizeDraw(const leImage* src,
     state.manager.abort = _abort;
     state.manager.cleanup = _cleanup;
 
-    state.mode = LE_RAW_MODE_RESIZE;
+    state.mode = LE_RAW_MODE_RESIZEDRAW;
 
     state.source = src;
     state.sourceRect = drawClipRect;
@@ -472,12 +477,12 @@ static leResult _resizeDraw(const leImage* src,
     // filter pre read stage
     if(mode == LE_IMAGEFILTER_NEAREST_NEIGHBOR)
     {
-        if(_leRawImageDecoder_NearestNeighborPreReadStage(&state) == LE_FAILURE)
+        if(_leRawImageDecoder_ScaleNearestNeighborPreReadStage(&state) == LE_FAILURE)
             return LE_FAILURE;
     }
     else
     {
-        if(_leRawImageDecoder_BilinearPreReadStage(&state) == LE_FAILURE)
+        if(_leRawImageDecoder_ScaleBilinearPreReadStage(&state) == LE_FAILURE)
         {
             return LE_FAILURE;
         }
@@ -490,7 +495,7 @@ static leResult _resizeDraw(const leImage* src,
     // post read stage
     if(mode == LE_IMAGEFILTER_BILINEAR)
     {
-        if(_leRawImageDecoder_BilinearPostReadStage(&state) == LE_FAILURE)
+        if(_leRawImageDecoder_ScaleBilinearPostReadStage(&state) == LE_FAILURE)
             return LE_FAILURE;
     }
     else
@@ -564,7 +569,7 @@ static leResult _copy(const leImage* src,
     state.manager.abort = _abort;
     state.manager.cleanup = _cleanup;
 
-    state.mode = LE_RAW_MODE_RESIZE;
+    state.mode = LE_RAW_MODE_COPY;
 
     state.source = src;
     state.sourceRect = sourceClipRect;
@@ -647,7 +652,7 @@ static leResult _render(const leImage* src,
     state.manager.abort = _abort;
     state.manager.cleanup = _cleanup;
 
-    state.mode = LE_RAW_MODE_RESIZE;
+    state.mode = LE_RAW_MODE_RENDER;
 
     state.source = src;
     state.sourceRect = sourceClipRect;
@@ -715,6 +720,243 @@ static leResult _render(const leImage* src,
     // convert and write
     if(_initConvertStage(&state) == LE_FAILURE ||
        _leRawImageDecoder_ImageWriteStage(&state) == LE_FAILURE)
+    {
+        return LE_FAILURE;
+    }
+
+    return LE_SUCCESS;
+}
+
+static leResult _rotate(const leImage* src,
+                        const leRect* srcRect,
+                        leImageFilterMode mode,
+                        const lePoint* origin,
+                        int32_t angle,
+                        leImage* target)
+{
+    leRect imgRect, sourceClipRect, drawRect, targetRect, clipRect;
+
+    // only allow a new setup if there isn't a current one
+    if(state.mode != LE_RAW_MODE_NONE)
+        return LE_FAILURE;
+
+    if(mode == LE_IMAGEFILTER_NONE)
+        return LE_FAILURE;
+
+    // can't blend
+    if(mode == LE_IMAGEFILTER_BILINEAR &&
+      (LE_COLOR_MODE_IS_PIXEL(src->buffer.mode) == LE_FALSE ||
+       LE_COLOR_MODE_IS_PIXEL(target->buffer.mode) == LE_FALSE))
+    {
+        return LE_FAILURE;
+    }
+
+    if(target == NULL)
+        return LE_FAILURE;
+
+    memset(&state, 0, sizeof(leRawDecodeState));
+
+    /* make sure the source rect is within the source bounds */
+    imgRect.x = 0;
+    imgRect.y = 0;
+    imgRect.width = src->buffer.size.width;
+    imgRect.height = src->buffer.size.height;
+
+    if(leRectIntersects(&imgRect, srcRect) == LE_FALSE)
+        return LE_FAILURE;
+
+    // trim the source rectangle to fit
+    leRectClip(&imgRect, srcRect, &sourceClipRect);
+
+    drawRect.x = 0;
+    drawRect.y = 0;
+    drawRect.width = sourceClipRect.width;
+    drawRect.height = sourceClipRect.height;
+
+    targetRect.x = 0;
+    targetRect.y = 0;
+    targetRect.width = target->buffer.size.width;
+    targetRect.height = target->buffer.size.height;
+
+    /* make sure the dest rect is within the damaged rect area */
+    clipRect = leRectClipAdj(&drawRect, &targetRect, &sourceClipRect);
+
+    if(sourceClipRect.width <= 0 || sourceClipRect.height <= 0)
+        return LE_FAILURE;
+
+    state.manager.exec = _exec;
+    state.manager.isDone = _isDone;
+    state.manager.abort = _abort;
+    state.manager.cleanup = _cleanup;
+
+    state.mode = LE_RAW_MODE_ROTATE;
+
+    state.source = src;
+    state.sourceRect = sourceClipRect;
+
+    state.angle = angle;
+    state.origin = *origin;
+
+    state.filterMode = mode;
+    state.target = target;
+
+    state.destRect = clipRect;
+
+    state.targetMode = state.target->buffer.mode;
+
+    // iterator setup
+    if(_leRawImageDecoder_TargetIterateSetupStage(&state) == LE_FAILURE)
+        return LE_FAILURE;
+
+    // filter pre read stage
+    if(mode == LE_IMAGEFILTER_NEAREST_NEIGHBOR)
+    {
+        if(_leRawImageDecoder_RotateNearestNeighborPreReadStage(&state) == LE_FAILURE)
+            return LE_FAILURE;
+    }
+    else
+    {
+        if(_leRawImageDecoder_RotateBilinearPreReadStage(&state) == LE_FAILURE)
+        {
+            return LE_FAILURE;
+        }
+    }
+
+    // read stage
+    if(_initReadStage(&state) == LE_FAILURE)
+        return LE_FAILURE;
+
+    // post read stage
+    if(mode == LE_IMAGEFILTER_BILINEAR)
+    {
+        if(_leRawImageDecoder_RotateBilinearPostReadStage(&state) == LE_FAILURE)
+            return LE_FAILURE;
+    }
+    else
+    {
+        if(_leRawImageDecoder_PostReadStage(&state) == LE_FAILURE)
+            return LE_FAILURE;
+    }
+
+    // convert and write
+    if(_initConvertStage(&state) == LE_FAILURE ||
+       _leRawImageDecoder_ImageWriteStage(&state) == LE_FAILURE)
+    {
+        return LE_FAILURE;
+    }
+
+    return LE_SUCCESS;
+}
+
+static leResult _rotateDraw(const leImage* src,
+                            const leRect* srcRect,
+                            leImageFilterMode mode,
+                            const lePoint* origin,
+                            int32_t angle,
+                            int32_t x,
+                            int32_t y,
+                            uint32_t a)
+{
+    leRect imgRect, sourceClipRect, drawRect, clipRect;
+    leRect dmgRect = leRenderer_GetDrawRect();
+
+    // only allow a new setup if there isn't a current one
+    if(state.mode != LE_RAW_MODE_NONE)
+        return LE_FAILURE;
+
+    if(mode == LE_IMAGEFILTER_NONE)
+        return LE_FAILURE;
+
+    // can't blend
+    if(mode == LE_IMAGEFILTER_BILINEAR &&
+       LE_COLOR_MODE_IS_PIXEL(src->buffer.mode) == LE_FALSE)
+    {
+        return LE_FAILURE;
+    }
+
+    memset(&state, 0, sizeof(leRawDecodeState));
+
+    imgRect.x = 0;
+    imgRect.y = 0;
+    imgRect.width = src->buffer.size.width;
+    imgRect.height = src->buffer.size.height;
+
+    /* make sure the source rect is within the source bounds */
+    if(leRectIntersects(&imgRect, srcRect) == LE_FALSE)
+        return LE_FAILURE;
+
+    leRectClip(&imgRect, srcRect, &sourceClipRect);
+
+    drawRect.x = x;
+    drawRect.y = y;
+    drawRect.width = sourceClipRect.width;
+    drawRect.height = sourceClipRect.height;
+
+    /* make sure the dest rect is within the damaged rect area */
+    clipRect = leRectClipAdj(&drawRect, &dmgRect, &sourceClipRect);
+
+    if(sourceClipRect.width <= 0 || sourceClipRect.height <= 0)
+        return LE_FAILURE;
+
+    state.manager.exec = _exec;
+    state.manager.isDone = _isDone;
+    state.manager.abort = _abort;
+    state.manager.cleanup = _cleanup;
+
+    state.mode = LE_RAW_MODE_ROTATEDRAW;
+
+    state.source = src;
+    state.sourceRect = sourceClipRect;
+
+    state.filterMode = mode;
+
+    state.destRect = clipRect;
+
+    state.angle = angle;
+    state.origin = *origin;
+
+    state.targetMode = LE_GLOBAL_COLOR_MODE;
+
+    state.globalAlpha = a;
+
+    // iterator setup
+    if(_leRawImageDecoder_TargetIterateSetupStage(&state) == LE_FAILURE)
+        return LE_FAILURE;
+
+    // filter pre read stage
+    if(mode == LE_IMAGEFILTER_NEAREST_NEIGHBOR)
+    {
+        if(_leRawImageDecoder_RotateNearestNeighborPreReadStage(&state) == LE_FAILURE)
+            return LE_FAILURE;
+    }
+    else
+    {
+        if(_leRawImageDecoder_RotateBilinearPreReadStage(&state) == LE_FAILURE)
+        {
+            return LE_FAILURE;
+        }
+    }
+
+    // read stage
+    if(_initReadStage(&state) == LE_FAILURE)
+        return LE_FAILURE;
+
+    // post read stage
+    if(mode == LE_IMAGEFILTER_BILINEAR)
+    {
+        if(_leRawImageDecoder_RotateBilinearPostReadStage(&state) == LE_FAILURE)
+            return LE_FAILURE;
+    }
+    else
+    {
+        if(_leRawImageDecoder_PostReadStage(&state) == LE_FAILURE)
+            return LE_FAILURE;
+    }
+
+    // convert and write
+    if(_initMaskStage(&state) == LE_FAILURE ||
+       _initConvertStage(&state) == LE_FAILURE ||
+       _leRawImageDecoder_FrameBufferWriteStage(&state) == LE_FAILURE)
     {
         return LE_FAILURE;
     }
@@ -837,6 +1079,8 @@ leImageDecoder* _leRawImageDecoder_Init(void)
     decoder.render = _render;
     decoder.resize = _resize;
     decoder.resizeDraw = _resizeDraw;
+    decoder.rotate = _rotate;
+    decoder.rotateDraw = _rotateDraw;
     decoder.exec = _decoderExec;
     decoder.isDone = _decoderIsDone;
     decoder.free = _decoderFree;

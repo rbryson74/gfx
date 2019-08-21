@@ -275,6 +275,8 @@ typedef struct leImageDecoder
     leResult (*render)(const leImage* src, const leRect* srcRect, int32_t x, int32_t y, leBool ignoreMask, leBool ignoreAlpha, leImage* dst);
     leResult (*resize)(const leImage* src, const leRect* srcRect, leImageFilterMode mode, uint32_t sizeX, uint32_t sizeY, leImage* dst);
     leResult (*resizeDraw)(const leImage* src, const leRect* srcRect, leImageFilterMode mode, uint32_t sizeX, uint32_t sizeY, int32_t x, int32_t y, uint32_t a);
+    leResult (*rotate)(const leImage* src, const leRect* srcRect, leImageFilterMode mode, const lePoint* origin, int32_t angle, leImage* dst);
+    leResult (*rotateDraw)(const leImage* src, const leRect* srcRect, leImageFilterMode mode, const lePoint* origin, int32_t angle, int32_t x, int32_t y, uint32_t a);
     void     (*exec)(void);
     leBool   (*isDone)(void);
     void     (*free)(void);
@@ -380,7 +382,9 @@ LIB_EXPORT leResult leImage_Resize(const leImage* src,
     leImage* src - pointer to source image asset to draw
     const leRect* sourceRect - the source rectangle of the image to decode
     leImageFilterMode mode - the filter to use when resizing
-    const leRect& destRect - the destination area to fill
+    int32_t x - the X coordinate to draw to
+    int32_t y - the Y coordinate to draw to
+    uint32_t a - the alpha value to use
 
   Returns:
     leResult
@@ -455,5 +459,79 @@ LIB_EXPORT leResult leImage_Render(const leImage* src,
                                    leBool ignoreMask,
                                    leBool ignoreAlpha,
                                    leImage* dst);
+
+// *****************************************************************************
+/* Function:
+    leResult leImage_Rotate(const leImage* src,
+                            const leRect* sourceRect,
+                            leImageFilterMode mode,
+                            const lePoint* origin,
+                            int32_t angle,
+                            leImage* dst);
+
+  Summary:
+    Decodes a portion of the given image at the specified coordinates and
+    rotates it by the given angle in degrees, around the origin point,
+    using the specified filter mode.
+
+    The result is stored into the provided destination image pointer.
+
+  Parameters:
+    leImage* src - pointer to source image asset to draw
+    leRect* sourceRect - the source rectangle of the image to decode
+    leImageFilterMode mode - the filter to use when rotating
+    const lePoint* origin - the point to rotate around in image space
+    int32_t angle - the angle (degrees) to rotate by
+    leImage* dst - pointer to destination image asset
+
+  Returns:
+    leResult
+*/
+LIB_EXPORT leResult leImage_Rotate(const leImage* src,
+                                   const leRect* sourceRect,
+                                   leImageFilterMode mode,
+                                   const lePoint* origin,
+                                   int32_t angle,
+                                   leImage* dst);
+
+// *****************************************************************************
+/* Function:
+    leResult leImage_Rotate(const leImage* src,
+                            const leRect* sourceRect,
+                            leImageFilterMode mode,
+                            const lePoint* origin,
+                            int32_t angle,
+                            int32_t x,
+                            int32_t y,
+                            uint32_t a);
+
+  Summary:
+    Decodes a portion of the given image at the specified coordinates and
+    rotates it by the given angle in degrees, around the origin point,
+    using the specified filter mode.
+
+    The result is rendered directly into the frame buffer.
+
+  Parameters:
+    leImage* src - pointer to source image asset to draw
+    leRect* sourceRect - the source rectangle of the image to decode
+    leImageFilterMode mode - the filter to use when rotating
+    const lePoint* origin - the point to rotate around in image space
+    int32_t angle - the angle (degrees) to rotate by
+    int32_t x - the X coordinate to draw to
+    int32_t y - the Y coordinate to draw to
+    uint32_t a - the alpha value to use
+
+  Returns:
+    leResult
+*/
+LIB_EXPORT leResult leImage_RotateDraw(const leImage* src,
+                                       const leRect* sourceRect,
+                                       leImageFilterMode mode,
+                                       const lePoint* origin,
+                                       int32_t angle,
+                                       int32_t x,
+                                       int32_t y,
+                                       uint32_t a);
 
 #endif /* LE_IMAGE_H */

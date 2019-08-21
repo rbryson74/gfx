@@ -194,8 +194,12 @@ static void drawImage(leImageWidget* img)
     _leImageWidget_GetImageRect(img, &imgRect);
     
     leUtils_RectToScreenSpace((leWidget*)img, &imgRect);
+
+    lePoint org;
+    org.x = imgSrcRect.width / 2;
+    org.y = imgSrcRect.height / 2;
     
-    leImage_Draw(img->image, &imgSrcRect, imgRect.x, imgRect.y, paintState.alpha);
+    leImage_RotateDraw(img->image, &imgSrcRect, LE_IMAGEFILTER_NEAREST_NEIGHBOR, &org, 45, imgRect.x, imgRect.y, paintState.alpha);
 
 #if LE_STREAMING_ENABLED == 1
     if(leGetActiveStream() != NULL)

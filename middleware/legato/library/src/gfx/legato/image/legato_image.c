@@ -303,3 +303,67 @@ leResult leImage_Render(const leImage* src,
 
     return LE_FAILURE;
 }
+
+leResult leImage_Rotate(const leImage* src,
+                        const leRect* sourceRect,
+                        leImageFilterMode mode,
+                        const lePoint* origin,
+                        int32_t angle,
+                        leImage* dst)
+{
+    uint32_t decIdx;
+
+    for(decIdx = 0; decIdx < MAX_IMAGE_DECODER_COUNT; decIdx++)
+    {
+        if(decoders[decIdx] != NULL && decoders[decIdx]->supportsImage(src) == LE_TRUE)
+        {
+            if(decoders[decIdx]->rotate(src,
+                                        sourceRect,
+                                        mode,
+                                        origin,
+                                        angle,
+                                        dst) == LE_SUCCESS)
+            {
+                decoders[decIdx]->exec();
+
+                break;
+            }
+        }
+    }
+
+    return LE_FAILURE;
+}
+
+leResult leImage_RotateDraw(const leImage* src,
+                            const leRect* sourceRect,
+                            leImageFilterMode mode,
+                            const lePoint* origin,
+                            int32_t angle,
+                            int32_t x,
+                            int32_t y,
+                            uint32_t a)
+{
+    uint32_t decIdx;
+
+    for(decIdx = 0; decIdx < MAX_IMAGE_DECODER_COUNT; decIdx++)
+    {
+        if(decoders[decIdx] != NULL && decoders[decIdx]->supportsImage(src) == LE_TRUE)
+        {
+            if(decoders[decIdx]->rotateDraw(src,
+                                            sourceRect,
+                                            mode,
+                                            origin,
+                                            angle,
+                                            x,
+                                            y,
+                                            a) == LE_SUCCESS)
+            {
+                decoders[decIdx]->exec();
+
+                break;
+            }
+        }
+    }
+
+    return LE_FAILURE;
+}

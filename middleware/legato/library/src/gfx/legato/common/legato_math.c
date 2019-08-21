@@ -27,6 +27,8 @@
 
 #define COSINE_TABLE_ENTRIES 90
 
+#define TRIG_SCALAR 256
+
 const int16_t _cosTable[COSINE_TABLE_ENTRIES + 1] =
 {
     256, 256, 256, 256, 255, 255, 255, 254, 254, 253,
@@ -41,14 +43,14 @@ const int16_t _cosTable[COSINE_TABLE_ENTRIES + 1] =
     0
 };
 
-int16_t leNormalizeAngle(int16_t t)
+int32_t leNormalizeAngle(int32_t t)
 {
-    if (t >= 360)
+    while(t >= 360)
     {
         t -= 360;
     }
 
-    if (t < 0)
+    while(t < 0)
     {
         t += 360;
     }
@@ -56,67 +58,76 @@ int16_t leNormalizeAngle(int16_t t)
     return t;
 }
 
-int16_t leSineCosineGet(int16_t v, LE_TRIG_FUNCTION_TYPE type)
+int32_t leSin(int32_t v)
 {
     // if angle is neg, convert to pos equivalent
     v = leNormalizeAngle(v);
-           
+
     if(v > COSINE_TABLE_ENTRIES * 3)
     {
         v -= (COSINE_TABLE_ENTRIES * 3);
-    
-        if (type == LE_TRIG_SINE_TYPE)
-        {
-            return (-_cosTable[v]);
-        }
-        else
-        {
-            return (_cosTable[COSINE_TABLE_ENTRIES - v]);
-        }
+
+        return (-_cosTable[v]);
     }
     else if(v > COSINE_TABLE_ENTRIES * 2)
     {
         v -= (COSINE_TABLE_ENTRIES * 2);
-        
-        if (type == LE_TRIG_SINE_TYPE)
-        {
-            return (-_cosTable[(COSINE_TABLE_ENTRIES - v)]);
-        }
-        else
-        {
-            return (-_cosTable[v]);
-        }
+
+        return (-_cosTable[(COSINE_TABLE_ENTRIES - v)]);
     }
     else if(v > COSINE_TABLE_ENTRIES)
     {
         v -= (COSINE_TABLE_ENTRIES);
-        
-        if (type == LE_TRIG_SINE_TYPE)
-        {
-            return (_cosTable[v]);
-        }
-        else
-        {
-            return (-_cosTable[COSINE_TABLE_ENTRIES - v]);
-        }
+
+        return (_cosTable[v]);
     }
     else
     {
-        if (type == LE_TRIG_SINE_TYPE)
-        {
-            return (_cosTable[COSINE_TABLE_ENTRIES - v]);
-        }
-        else
-        {
-            return (_cosTable[v]);
-        }    
+        return (_cosTable[COSINE_TABLE_ENTRIES - v]);
     }
+
+    //float radians = v * (3.14159265359 / 180);
+
+    //return sinf(radians) * TRIG_SCALAR;
+}
+
+int32_t leCos(int32_t v)
+{
+    // if angle is neg, convert to pos equivalent
+    v = leNormalizeAngle(v);
+
+    if(v > COSINE_TABLE_ENTRIES * 3)
+    {
+        v -= (COSINE_TABLE_ENTRIES * 3);
+
+        return (_cosTable[COSINE_TABLE_ENTRIES - v]);
+    }
+    else if(v > COSINE_TABLE_ENTRIES * 2)
+    {
+        v -= (COSINE_TABLE_ENTRIES * 2);
+
+        return (-_cosTable[v]);
+    }
+    else if(v > COSINE_TABLE_ENTRIES)
+    {
+        v -= (COSINE_TABLE_ENTRIES);
+
+        return (-_cosTable[COSINE_TABLE_ENTRIES - v]);
+    }
+    else
+    {
+        return (_cosTable[v]);
+    }
+
+    //float radians = v * (3.14159265359 / 180);
+
+    //return cosf(radians) * TRIG_SCALAR;
 }
 
 leResult lePolarToXY(int32_t r, int32_t a, lePoint* p)
 {
-    p->x = (r * leSineCosineGet(a, LE_TRIG_COSINE_TYPE)) / 256;
-    p->y = (r * leSineCosineGet(a, LE_TRIG_SINE_TYPE)) / 256;
+    p->x = (r * leCos(a) / TRIG_SCALAR);
+    p->y = (r * leSin(a) / TRIG_SCALAR);
     
     return LE_SUCCESS;
 }
@@ -125,11 +136,11 @@ leResult leEllipsePoint(int32_t t, int32_t a, int32_t b, int32_t theta, lePoint*
 {
     t = leNormalizeAngle(t);
 
-    p->x = (a * leSineCosineGet(t, LE_TRIG_COSINE_TYPE) * leSineCosineGet(theta, LE_TRIG_COSINE_TYPE) / (256 * 256))
-            - (b * leSineCosineGet(t, LE_TRIG_SINE_TYPE) * leSineCosineGet(theta, LE_TRIG_SINE_TYPE) / (256 * 256));
-            
-    p->y = (a * leSineCosineGet(t, LE_TRIG_COSINE_TYPE) * leSineCosineGet(theta, LE_TRIG_SINE_TYPE) / (256 * 256))
-            + (b * leSineCosineGet(t, LE_TRIG_SINE_TYPE) * leSineCosineGet(theta, LE_TRIG_COSINE_TYPE) / (256 * 256));
+    p->x = (a * leCos(t) * leCos(theta) / (TRIG_SCALAR * TRIG_SCALAR)) -
+           (b * leSin(t) * leSin(theta) / (TRIG_SCALAR * TRIG_SCALAR));
+
+    p->y = (a * leCos(t) * leSin(theta) / (TRIG_SCALAR * TRIG_SCALAR)) +
+           (b * leSin(t) * leCos(theta) / (TRIG_SCALAR * TRIG_SCALAR));
     
     return LE_SUCCESS;
 }
@@ -510,4 +521,19 @@ int32_t leGetYGivenXOnLine(lePoint p1, lePoint p2, int32_t x)
         return p1.y;
     
     return (p1.y - ((p1.y - p2.y) * (p1.x - x))/(p1.x - p2.x));
+}
+
+lePoint leRotatePoint(lePoint pos,
+                      lePoint org,
+                      int32_t ang)
+{
+    lePoint res = lePoint_Zero;
+
+    int32_t sinVal = leSin(ang);
+    int32_t cosVal = leCos(ang);
+
+    res.x = ((cosVal * (pos.x - org.x)) / TRIG_SCALAR) - ((sinVal * (pos.y - org.y)) / TRIG_SCALAR) + org.x;
+    res.y = ((sinVal * (pos.x - org.x)) / TRIG_SCALAR) + ((cosVal * (pos.y - org.y)) / TRIG_SCALAR) + org.y;
+
+    return res;
 }
