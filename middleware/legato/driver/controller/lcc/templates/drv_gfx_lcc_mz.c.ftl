@@ -37,19 +37,6 @@
 *******************************************************************************/
 //DOM-IGNORE-END
 
-<#assign Val_Width = DisplayWidth>
-<#assign Val_Height = DisplayHeight>
-<#assign Val_UseReset = DisplayUseReset>
-<#assign Val_ResetPolarity = DisplayResetPolarity>
-<#assign Val_UseChipSelect = DisplayUseChipSelect>
-<#assign Val_ChipSelectPolarity = DisplayChipSelectPolarity>
-<#assign Val_BacklightEnable = DisplayBacklightEnable>
-<#assign Val_VSYNCNegative = !DisplayVSYNCNegative>
-<#assign Val_HSYNCNegative = !DisplayHSYNCNegative>
-<#assign Val_UseDataEnable = DisplayDataEnable>
-<#assign Val_DataEnablePolarity = DisplayDataEnablePolarity>
-<#assign Val_DoubleBuffer = DoubleBuffer>
-<#assign Val_PaletteMode = PaletteMode>
 
 #include "gfx/driver/controller/lcc/drv_gfx_lcc.h"
 #include "definitions.h"
@@ -89,7 +76,7 @@
 #define DRV_GFX_DMA_EVENT_TYPE XDMAC_TRANSFER_EVENT
 </#if>
 
-<#if Val_PaletteMode == true>
+<#if (Val_PaletteMode??) && (Val_PaletteMode == true)>
 #define FRAMEBUFFER_COLOR_MODE LE_COLOR_MODE_GS_8
 #define FRAMEBUFFER_TYPE uint8_t
 #define FRAMEBUFFER_PIXEL_BYTES 2
@@ -142,15 +129,15 @@ void dmaIntHandler (DRV_GFX_DMA_EVENT_TYPE status,
 uint16_t HBackPorch;
 uint32_t VER_BLANK;
 
-uint32_t DISP_HOR_FRONT_PORCH = 2;
+uint32_t DISP_HOR_FRONT_PORCH = ${DisplayHorzFrontPorch};
 uint32_t DISP_HOR_RESOLUTION = DISPLAY_WIDTH;
-uint32_t DISP_HOR_BACK_PORCH = 2;
-uint32_t DISP_HOR_PULSE_WIDTH = 41;
+uint32_t DISP_HOR_BACK_PORCH = ${DisplayHorzBackPorch};
+uint32_t DISP_HOR_PULSE_WIDTH = ${DisplayHorzPulseWidth};
 
-uint32_t DISP_VER_FRONT_PORCH = 2;
+uint32_t DISP_VER_FRONT_PORCH = ${DisplayVertFrontPorch};
 uint32_t DISP_VER_RESOLUTION = DISPLAY_HEIGHT;
-uint32_t DISP_VER_BACK_PORCH = 2;
-uint32_t DISP_VER_PULSE_WIDTH = 10;
+uint32_t DISP_VER_BACK_PORCH = ${DisplayVertBackPorch};
+uint32_t DISP_VER_PULSE_WIDTH = ${DisplayVertPulseWidth};
 
 int16_t line = 0;
 uint32_t offset = 0;
@@ -340,7 +327,7 @@ static int DRV_GFX_LCC_Start()
 static void DRV_GFX_LCC_DisplayRefresh(void)
 {
     lePoint drawPoint;
-<#if Val_PaletteMode == true>
+<#if (Val_PaletteMode??) && (Val_PaletteMode == true)>
     uint8_t * bufferPtr;
     uint16_t* palette;
     uint32_t i;
@@ -374,7 +361,7 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
         {
             if (hSyncs > vsyncPulseDown)
             {
-<#if Val_VSYNCNegative == true>
+<#if DisplayVSYNCNegative == true>
                 GFX_DISP_INTF_PIN_VSYNC_Set();
 <#else>
                 GFX_DISP_INTF_PIN_VSYNC_Clear();
@@ -398,7 +385,7 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
         {
             if (hSyncs >= vsyncPulseUp)
             {
-<#if Val_VSYNCNegative == true>
+<#if DisplayVSYNCNegative == true>
                 GFX_DISP_INTF_PIN_VSYNC_Clear();
 <#else>
                 GFX_DISP_INTF_PIN_VSYNC_Set();
@@ -428,8 +415,8 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
     {
         case HSYNC_FRONT_PORCH:
         {
-<#if Val_UseDataEnable == true>
-<#if Val_DataEnablePolarity == true>
+<#if DisplayDataEnable == true>
+<#if DisplayDataEnablePolarity == true>
             GFX_DISP_INTF_PIN_DE_Clear();
 <#else>
             GFX_DISP_INTF_PIN_DE_Set();
@@ -446,7 +433,7 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
         }
         case HSYNC_PULSE:
         {
-<#if Val_HSYNCNegative == true>
+<#if DisplayHSYNCNegative == true>
             GFX_DISP_INTF_PIN_HSYNC_Set();
 <#else>
             GFX_DISP_INTF_PIN_HSYNC_Clear();
@@ -468,7 +455,7 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
         }
         case HSYNC_BACK_PORCH:
         {
-<#if Val_HSYNCNegative == true>
+<#if DisplayHSYNCNegative == true>
             GFX_DISP_INTF_PIN_HSYNC_Clear();
 <#else>
             GFX_DISP_INTF_PIN_HSYNC_Set();
@@ -486,8 +473,8 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
         {
             if (vsyncState == VSYNC_BLANK)
             {
-<#if Val_UseDataEnable == true>
-<#if Val_DataEnablePolarity == true>
+<#if DisplayDataEnable == true>
+<#if DisplayDataEnablePolarity == true>
                 GFX_DISP_INTF_PIN_DE_Set();
 <#else>
                 GFX_DISP_INTF_PIN_DE_Clear();
@@ -496,7 +483,7 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
                 drawPoint.x = 0;
                 drawPoint.y = line++;
 
-<#if Val_PaletteMode == true>
+<#if (Val_PaletteMode??) && (Val_PaletteMode == true)>
                 bufferPtr = lePixelBufferOffsetGet_Unsafe(buffer, &drawPoint);
                 
                 palette = (uint16_t*)GFX_ActiveContext()->globalPalette;

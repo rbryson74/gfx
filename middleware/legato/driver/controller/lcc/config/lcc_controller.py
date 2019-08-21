@@ -99,12 +99,56 @@ def instantiateComponent(comp):
 	#PixelSupportLevel.setReadOnly(True)
 	#PixelSupportLevel.setDescription("The total number of pixels expected to be supportable.")
 	
-	LCCRefresh = comp.createBooleanSymbol("LCCRefresh", None)
-	LCCRefresh.setLabel("Use Aggressive Refresh Strategy?")
-	LCCRefresh.setDescription("<html>Indicates that the LCC refresh loop should attempt<br>to aggresively refresh the display.  May cause<br>display artifacts but is needed for some larger displays.</html>")
-	
+	#LCCRefresh = comp.createBooleanSymbol("LCCRefresh", None)
+	#LCCRefresh.setLabel("Use Aggressive Refresh Strategy?")
+	#LCCRefresh.setDescription("<html>Indicates that the LCC refresh loop should attempt<br>to aggresively refresh the display.  May cause<br>display artifacts but is needed for some larger displays.</html>")
+
 	DisplaySettingsMenu = comp.createMenuSymbol("DisplaySettingsMenu", None)
 	DisplaySettingsMenu.setLabel("Display Settings")
+
+	DisplayHorzMenu = comp.createMenuSymbol("DisplayHorzMenu", DisplaySettingsMenu)
+	DisplayHorzMenu.setLabel("Horizontal Attributes")
+	DisplayHorzMenu.setDescription("Contains the display horizontal refresh values.")
+
+	DisplayHorzPulseWidth = comp.createIntegerSymbol("DisplayHorzPulseWidth", DisplayHorzMenu)
+	DisplayHorzPulseWidth.setLabel("Horizontal Pulse Width")
+	DisplayHorzPulseWidth.setDescription("The horizontal pulse width.")
+	DisplayHorzPulseWidth.setDefaultValue(41)
+	DisplayHorzPulseWidth.setMin(0)
+
+	DisplayHorzBackPorch = comp.createIntegerSymbol("DisplayHorzBackPorch", DisplayHorzMenu)
+	DisplayHorzBackPorch.setLabel("Horizontal Back Porch")
+	DisplayHorzBackPorch.setDescription("The horizontal back porch size in pixels.")
+	DisplayHorzBackPorch.setDefaultValue(2)
+	DisplayHorzBackPorch.setMin(0)
+
+	DisplayHorzFrontPorch = comp.createIntegerSymbol("DisplayHorzFrontPorch", DisplayHorzMenu)
+	DisplayHorzFrontPorch.setLabel("Horizontal Front Porch")
+	DisplayHorzFrontPorch.setDescription("The horizontal front porch size in pixels.")
+	DisplayHorzFrontPorch.setDefaultValue(2)
+	DisplayHorzFrontPorch.setMin(0)
+
+	DisplayVertMenu = comp.createMenuSymbol("DisplayVertMenu", DisplaySettingsMenu)
+	DisplayVertMenu.setLabel("Vertical Attributes")
+	DisplayVertMenu.setDescription("Contains the display vertical refresh values.")
+
+	DisplayVertPulseWidth = comp.createIntegerSymbol("DisplayVertPulseWidth", DisplayVertMenu)
+	DisplayVertPulseWidth.setLabel("Vertical Pulse Width")
+	DisplayVertPulseWidth.setDescription("The vertical pulse width.")
+	DisplayVertPulseWidth.setDefaultValue(10)
+	DisplayVertPulseWidth.setMin(0)
+
+	DisplayVertBackPorch = comp.createIntegerSymbol("DisplayVertBackPorch", DisplayVertMenu)
+	DisplayVertBackPorch.setLabel("Vertical Back Porch")
+	DisplayVertBackPorch.setDescription("The vertical back porch size in pixels.")
+	DisplayVertBackPorch.setDefaultValue(2)
+	DisplayVertBackPorch.setMin(0)
+
+	DisplayVertFrontPorch = comp.createIntegerSymbol("DisplayVertFrontPorch", DisplayVertMenu)
+	DisplayVertFrontPorch.setLabel("Vertical Front Porch")
+	DisplayVertFrontPorch.setDescription("The vertical front porch size in pixels.")
+	DisplayVertFrontPorch.setDefaultValue(2)
+	DisplayVertFrontPorch.setMin(0)
 	
 	DisplayBacklightEnable = comp.createIntegerSymbol("DisplayBacklightEnable", DisplaySettingsMenu)
 	DisplayBacklightEnable.setLabel("Back Light Enable Value")
@@ -112,12 +156,12 @@ def instantiateComponent(comp):
 	DisplayBacklightEnable.setDefaultValue(1)
 
 	DisplayVSYNCNegative = comp.createBooleanSymbol("DisplayVSYNCNegative", DisplaySettingsMenu)
-	DisplayVSYNCNegative.setLabel("VSYNC Polarity Positive?")
+	DisplayVSYNCNegative.setLabel("VSYNC Polarity Negative?")
 	DisplayVSYNCNegative.setDescription("Indicates if this display requries negative VSYNC polarity.")
 	DisplayVSYNCNegative.setDefaultValue(True)
 
 	DisplayHSYNCNegative = comp.createBooleanSymbol("DisplayHSYNCNegative", DisplaySettingsMenu)
-	DisplayHSYNCNegative.setLabel("HSYNC Polarity Positive?")
+	DisplayHSYNCNegative.setLabel("HSYNC Polarity Negative?")
 	DisplayHSYNCNegative.setDescription("Indicates if this display requries negative HSYNC polarity.")
 	DisplayHSYNCNegative.setDefaultValue(True)
 
@@ -323,6 +367,22 @@ def resetSMCComponent(lccComponent, smcComponent, smcChipSelNum):
 	smcComponent.clearSymbolValue("SMC_WRITE_ENABLE_MODE_CS" + str(smcChipSelNum))
 	lccComponent.clearSymbolValue("EBIChipSelectIndex")
 
+def configureDisplayTiming(lccComponent, displayComponent):
+	lccComponent.setSymbolValue("DisplayHorzPulseWidth", displayComponent.getSymbolByID("HorzPulseWidth").getValue())
+	lccComponent.setSymbolValue("DisplayHorzBackPorch", displayComponent.getSymbolByID("HorzBackPorch").getValue())
+	lccComponent.setSymbolValue("DisplayHorzFrontPorch", displayComponent.getSymbolByID("HorzFrontPorch").getValue())
+	lccComponent.setSymbolValue("DisplayVertPulseWidth", displayComponent.getSymbolByID("VertPulseWidth").getValue())
+	lccComponent.setSymbolValue("DisplayVertBackPorch", displayComponent.getSymbolByID("VertBackPorch").getValue())
+	lccComponent.setSymbolValue("DisplayVertFrontPorch", displayComponent.getSymbolByID("VertFrontPorch").getValue())
+	
+def resetDisplayTiming(lccComponent, displayComponent):
+	lccComponent.clearSymbolValue("DisplayHorzPulseWidth")
+	lccComponent.clearSymbolValue("DisplayHorzBackPorch")
+	lccComponent.clearSymbolValue("DisplayHorzFrontPorch")
+	lccComponent.clearSymbolValue("DisplayVertPulseWidth")
+	lccComponent.clearSymbolValue("DisplayVertBackPorch")
+	lccComponent.clearSymbolValue("DisplayVertFrontPorch")
+
 def onAttachmentConnected(source, target):
 	print("dependency Connected = " + str(target['id']))
 	#### test for SMC dependency
@@ -336,15 +396,18 @@ def onAttachmentConnected(source, target):
 		if (sub and sub.group(1)):
 			source["component"].getSymbolByID("TCInstance").setValue(int(sub.group(1)), 1)
 	elif (source["id"] == "Graphics Display"):
-		#source["component"].get
-		print("display")
-	
+		#configure timing
+		configureDisplayTiming(source["component"], target["component"])
+
 	
 def onAttachmentDisconnected(source, target):
 	if (source["id"] == "SMC_CS"):
 		sub = re.search('smc_cs(.*)', str(target["id"]))
 		if (sub and sub.group(1)):
 			resetSMCComponent(source["component"], target["component"], int(sub.group(1)))
+	elif (source["id"] == "Graphics Display"):
+		#reset timing
+		resetDisplayTiming(source["component"], target["component"])
 
 def OnCacheEnabled(cacheEnabled, event):
 	print("LCC: cache enabled")

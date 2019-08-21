@@ -94,12 +94,56 @@ def instantiateComponent(comp):
 	#PixelSupportLevel.setReadOnly(True)
 	#PixelSupportLevel.setDescription("The total number of pixels expected to be supportable.")
 	
-	LCCRefresh = comp.createBooleanSymbol("LCCRefresh", None)
-	LCCRefresh.setLabel("Use Aggressive Refresh Strategy?")
-	LCCRefresh.setDescription("<html>Indicates that the LCC refresh loop should attempt<br>to aggresively refresh the display.  May cause<br>display artifacts but is needed for some larger displays.</html>")
-	
+	#LCCRefresh = comp.createBooleanSymbol("LCCRefresh", None)
+	#LCCRefresh.setLabel("Use Aggressive Refresh Strategy?")
+	#LCCRefresh.setDescription("<html>Indicates that the LCC refresh loop should attempt<br>to aggresively refresh the display.  May cause<br>display artifacts but is needed for some larger displays.</html>")
+
 	DisplaySettingsMenu = comp.createMenuSymbol("DisplaySettingsMenu", None)
 	DisplaySettingsMenu.setLabel("Display Settings")
+
+	DisplayHorzMenu = comp.createMenuSymbol("DisplayHorzMenu", DisplaySettingsMenu)
+	DisplayHorzMenu.setLabel("Horizontal Attributes")
+	DisplayHorzMenu.setDescription("Contains the display horizontal refresh values.")
+
+	DisplayHorzPulseWidth = comp.createIntegerSymbol("DisplayHorzPulseWidth", DisplayHorzMenu)
+	DisplayHorzPulseWidth.setLabel("Horizontal Pulse Width")
+	DisplayHorzPulseWidth.setDescription("The horizontal pulse width.")
+	DisplayHorzPulseWidth.setDefaultValue(41)
+	DisplayHorzPulseWidth.setMin(0)
+
+	DisplayHorzBackPorch = comp.createIntegerSymbol("DisplayHorzBackPorch", DisplayHorzMenu)
+	DisplayHorzBackPorch.setLabel("Horizontal Back Porch")
+	DisplayHorzBackPorch.setDescription("The horizontal back porch size in pixels.")
+	DisplayHorzBackPorch.setDefaultValue(2)
+	DisplayHorzBackPorch.setMin(0)
+
+	DisplayHorzFrontPorch = comp.createIntegerSymbol("DisplayHorzFrontPorch", DisplayHorzMenu)
+	DisplayHorzFrontPorch.setLabel("Horizontal Front Porch")
+	DisplayHorzFrontPorch.setDescription("The horizontal front porch size in pixels.")
+	DisplayHorzFrontPorch.setDefaultValue(2)
+	DisplayHorzFrontPorch.setMin(0)
+
+	DisplayVertMenu = comp.createMenuSymbol("DisplayVertMenu", DisplaySettingsMenu)
+	DisplayVertMenu.setLabel("Vertical Attributes")
+	DisplayVertMenu.setDescription("Contains the display vertical refresh values.")
+
+	DisplayVertPulseWidth = comp.createIntegerSymbol("DisplayVertPulseWidth", DisplayVertMenu)
+	DisplayVertPulseWidth.setLabel("Vertical Pulse Width")
+	DisplayVertPulseWidth.setDescription("The vertical pulse width.")
+	DisplayVertPulseWidth.setDefaultValue(10)
+	DisplayVertPulseWidth.setMin(0)
+
+	DisplayVertBackPorch = comp.createIntegerSymbol("DisplayVertBackPorch", DisplayVertMenu)
+	DisplayVertBackPorch.setLabel("Vertical Back Porch")
+	DisplayVertBackPorch.setDescription("The vertical back porch size in pixels.")
+	DisplayVertBackPorch.setDefaultValue(2)
+	DisplayVertBackPorch.setMin(0)
+
+	DisplayVertFrontPorch = comp.createIntegerSymbol("DisplayVertFrontPorch", DisplayVertMenu)
+	DisplayVertFrontPorch.setLabel("Vertical Front Porch")
+	DisplayVertFrontPorch.setDescription("The vertical front porch size in pixels.")
+	DisplayVertFrontPorch.setDefaultValue(2)
+	DisplayVertFrontPorch.setMin(0)
 	
 	DisplayBacklightEnable = comp.createIntegerSymbol("DisplayBacklightEnable", DisplaySettingsMenu)
 	DisplayBacklightEnable.setLabel("Back Light Enable Value")
@@ -107,12 +151,12 @@ def instantiateComponent(comp):
 	DisplayBacklightEnable.setDefaultValue(1)
 
 	DisplayVSYNCNegative = comp.createBooleanSymbol("DisplayVSYNCNegative", DisplaySettingsMenu)
-	DisplayVSYNCNegative.setLabel("VSYNC Polarity Positive?")
+	DisplayVSYNCNegative.setLabel("VSYNC Polarity Negative?")
 	DisplayVSYNCNegative.setDescription("Indicates if this display requries negative VSYNC polarity.")
 	DisplayVSYNCNegative.setDefaultValue(True)
 
 	DisplayHSYNCNegative = comp.createBooleanSymbol("DisplayHSYNCNegative", DisplaySettingsMenu)
-	DisplayHSYNCNegative.setLabel("HSYNC Polarity Positive?")
+	DisplayHSYNCNegative.setLabel("HSYNC Polarity Negative?")
 	DisplayHSYNCNegative.setDescription("Indicates if this display requries negative HSYNC polarity.")
 	DisplayHSYNCNegative.setDefaultValue(True)
 
@@ -149,13 +193,13 @@ def instantiateComponent(comp):
 	FrameBufferSettingsMenu = comp.createMenuSymbol("FrameBufferSettingsMenu", None)
 	FrameBufferSettingsMenu.setLabel("Frame Buffer Settings")
 
-	DoubleBuffer = comp.createBooleanSymbol("DoubleBuffer", FrameBufferSettingsMenu)
-	DoubleBuffer.setLabel("Use Double Buffering?")
-	DoubleBuffer.setDescription("<html>Uses an additional buffer for off-screen drawing.<br>Eliminates screen tearing but doubles the required memory.</html>")
+	#DoubleBuffer = comp.createBooleanSymbol("DoubleBuffer", FrameBufferSettingsMenu)
+	#DoubleBuffer.setLabel("Use Double Buffering?")
+	#DoubleBuffer.setDescription("<html>Uses an additional buffer for off-screen drawing.<br>Eliminates screen tearing but doubles the required memory.</html>")
 
-	PaletteMode = comp.createBooleanSymbol("PaletteMode", FrameBufferSettingsMenu)
-	PaletteMode.setLabel("Use 8-bit Palette?")
-	PaletteMode.setDescription("<html>Enables frame buffer compression.<br>Uses an 8-bit color lookup table to reduce the required<br>frame buffer memory size.  This also reduces the<br>maximum avilable color count to 256 and significantly<br>slows down display refresh speed.</html>")
+	#PaletteMode = comp.createBooleanSymbol("PaletteMode", FrameBufferSettingsMenu)
+	#PaletteMode.setLabel("Use 8-bit Palette?")
+	#PaletteMode.setDescription("<html>Enables frame buffer compression.<br>Uses an 8-bit color lookup table to reduce the required<br>frame buffer memory size.  This also reduces the<br>maximum avilable color count to 256 and significantly<br>slows down display refresh speed.</html>")
 
 	FrameBufferMemory = comp.createComboSymbol("FrameBufferMemory", FrameBufferSettingsMenu, ["Internal SRAM"])
 	FrameBufferMemory.setLabel("Memory Interface")
@@ -229,6 +273,7 @@ def instantiateComponent(comp):
 
 	# generated code files
 	GFX_LCC_C = comp.createFileSymbol("GFX_LCC_C", None)
+	GFX_LCC_C.setSourcePath("templates/drv_gfx_lcc_mz.c.ftl")
 	GFX_LCC_C.setDestPath("gfx/driver/controller/lcc/")
 	GFX_LCC_C.setOutputName("drv_gfx_lcc.c")
 	GFX_LCC_C.setProjectPath(projectPath)
@@ -236,14 +281,12 @@ def instantiateComponent(comp):
 	GFX_LCC_C.setMarkup(True)
 	
 	GFX_LCC_H = comp.createFileSymbol("GFX_LCC_H", None)
+	GFX_LCC_H.setSourcePath("templates/drv_gfx_lcc.h.ftl")
 	GFX_LCC_H.setDestPath("gfx/driver/controller/lcc/")
 	GFX_LCC_H.setOutputName("drv_gfx_lcc.h")
 	GFX_LCC_H.setProjectPath(projectPath)
 	GFX_LCC_H.setType("HEADER")
-	GFX_LCC_H.setMarkup(True)
 
-	GFX_LCC_C.setSourcePath("templates/drv_gfx_lcc_mz.c.ftl")
-	GFX_LCC_H.setSourcePath("templates/drv_gfx_lcc.h.ftl")
 
 	autoSelectDMAChannel(DMAChannelSelected, DMAChannel, OldDMAChannel)
 
@@ -305,6 +348,22 @@ def resetEBIComponent(lccComponent, ebiComponent, ebiChipSelNum):
 	# ebiComponent.clearSymbolValue("EBISMCON_SMDWIDTH" + str(ebiChipSelNum))
 	# lccComponent.clearSymbolValue("EBIChipSelectIndex")
 
+def configureDisplayTiming(lccComponent, displayComponent):
+	lccComponent.setSymbolValue("DisplayHorzPulseWidth", displayComponent.getSymbolByID("HorzPulseWidth").getValue())
+	lccComponent.setSymbolValue("DisplayHorzBackPorch", displayComponent.getSymbolByID("HorzBackPorch").getValue())
+	lccComponent.setSymbolValue("DisplayHorzFrontPorch", displayComponent.getSymbolByID("HorzFrontPorch").getValue())
+	lccComponent.setSymbolValue("DisplayVertPulseWidth", displayComponent.getSymbolByID("VertPulseWidth").getValue())
+	lccComponent.setSymbolValue("DisplayVertBackPorch", displayComponent.getSymbolByID("VertBackPorch").getValue())
+	lccComponent.setSymbolValue("DisplayVertFrontPorch", displayComponent.getSymbolByID("VertFrontPorch").getValue())
+	
+def resetDisplayTiming(lccComponent, displayComponent):
+	lccComponent.clearSymbolValue("DisplayHorzPulseWidth")
+	lccComponent.clearSymbolValue("DisplayHorzBackPorch")
+	lccComponent.clearSymbolValue("DisplayHorzFrontPorch")
+	lccComponent.clearSymbolValue("DisplayVertPulseWidth")
+	lccComponent.clearSymbolValue("DisplayVertBackPorch")
+	lccComponent.clearSymbolValue("DisplayVertFrontPorch")
+
 def onAttachmentConnected(source, target):
 	print("dependency Connected = " + str(target['id']))
 	#### test for EBI dependency
@@ -312,9 +371,16 @@ def onAttachmentConnected(source, target):
 		sub = re.search('ebi_cs(.*)', str(target["id"]))
 		if (sub and sub.group(1)):
 			configureEBIComponent(source["component"], target["component"], int(sub.group(1)))
+	elif (source["id"] == "Graphics Display"):
+		#configure timing
+		configureDisplayTiming(source["component"], target["component"])
+
 
 def onAttachmentDisconnected(source, target):
 	if (source["id"] == "EBI_CS"):
 		sub = re.search('ebi_cs(.*)', str(target["id"]))
 		if (sub and sub.group(1)):
 			resetEBIComponent(source["component"], target["component"], int(sub.group(1)))
+	elif (source["id"] == "Graphics Display"):
+		#reset timing
+		resetDisplayTiming(source["component"], target["component"])

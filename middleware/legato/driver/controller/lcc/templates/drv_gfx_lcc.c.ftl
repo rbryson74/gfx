@@ -123,15 +123,15 @@ void dmaIntHandler (DRV_GFX_DMA_EVENT_TYPE status,
 uint16_t HBackPorch;
 uint32_t VER_BLANK;
 
-uint32_t DISP_HOR_FRONT_PORCH = 2;
+uint32_t DISP_HOR_FRONT_PORCH = ${DisplayHorzFrontPorch};
 uint32_t DISP_HOR_RESOLUTION = DISPLAY_WIDTH;
-uint32_t DISP_HOR_BACK_PORCH = 2;
-uint32_t DISP_HOR_PULSE_WIDTH = 41;
+uint32_t DISP_HOR_BACK_PORCH = ${DisplayHorzBackPorch};
+uint32_t DISP_HOR_PULSE_WIDTH = ${DisplayHorzPulseWidth};
 
-uint32_t DISP_VER_FRONT_PORCH = 2;
+uint32_t DISP_VER_FRONT_PORCH = ${DisplayVertFrontPorch};
 uint32_t DISP_VER_RESOLUTION = DISPLAY_HEIGHT;
-uint32_t DISP_VER_BACK_PORCH = 2;
-uint32_t DISP_VER_PULSE_WIDTH = 10;
+uint32_t DISP_VER_BACK_PORCH = ${DisplayVertBackPorch};
+uint32_t DISP_VER_PULSE_WIDTH = ${DisplayVertPulseWidth};
 
 int16_t line = 0;
 uint32_t offset = 0;
@@ -367,7 +367,11 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
         {
             if (hSyncs > vsyncPulseDown)
             {
+<#if DisplayVSYNCNegative == true>
                 GFX_DISP_INTF_PIN_VSYNC_Set();
+<#else>
+                GFX_DISP_INTF_PIN_VSYNC_Clear();
+</#if>
 
                 vsyncPulseUp = hSyncs + DISP_VER_PULSE_WIDTH;
                 vsyncState = VSYNC_PULSE;
@@ -387,7 +391,11 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
         {
             if (hSyncs >= vsyncPulseUp)
             {
+<#if DisplayVSYNCNegative == true>
                 GFX_DISP_INTF_PIN_VSYNC_Clear();
+<#else>
+                GFX_DISP_INTF_PIN_VSYNC_Set();
+</#if>
                 vsyncEnd = hSyncs + DISP_VER_BACK_PORCH;
                 vsyncState = VSYNC_BACK_PORCH;
 
@@ -413,7 +421,13 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
     {
         case HSYNC_FRONT_PORCH:
         {
+<#if DisplayDataEnable == true>
+<#if DisplayDataEnablePolarity == true>
             GFX_DISP_INTF_PIN_DE_Clear();
+<#else>
+            GFX_DISP_INTF_PIN_DE_Set();
+</#if>
+</#if>
 
             hsyncState = HSYNC_PULSE;
 
@@ -425,7 +439,11 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
         }
         case HSYNC_PULSE:
         {
+<#if DisplayHSYNCNegative == true>
             GFX_DISP_INTF_PIN_HSYNC_Set();
+<#else>
+            GFX_DISP_INTF_PIN_HSYNC_Clear();
+</#if>
 
             if (hSyncs >= vsyncPeriod)
             {
@@ -443,7 +461,11 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
         }
         case HSYNC_BACK_PORCH:
         {
+<#if DisplayHSYNCNegative == true>
             GFX_DISP_INTF_PIN_HSYNC_Clear();
+<#else>
+            GFX_DISP_INTF_PIN_HSYNC_Set();
+</#if>
 
             hsyncState = HSYNC_DATA_ENABLE; 
 
@@ -457,7 +479,13 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
         {
             if (vsyncState == VSYNC_BLANK)
             {
+<#if DisplayDataEnable == true>
+<#if DisplayDataEnablePolarity == true>
                 GFX_DISP_INTF_PIN_DE_Set();
+<#else>
+                GFX_DISP_INTF_PIN_DE_Clear();
+</#if>
+</#if>
                 drawPoint.x = 0;
                 drawPoint.y = line++;
 
