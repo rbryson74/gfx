@@ -348,21 +348,25 @@ def resetEBIComponent(lccComponent, ebiComponent, ebiChipSelNum):
 	# ebiComponent.clearSymbolValue("EBISMCON_SMDWIDTH" + str(ebiChipSelNum))
 	# lccComponent.clearSymbolValue("EBIChipSelectIndex")
 
-def configureDisplayTiming(lccComponent, displayComponent):
+def configureDisplaySettings(lccComponent, displayComponent):
 	lccComponent.setSymbolValue("DisplayHorzPulseWidth", displayComponent.getSymbolByID("HorzPulseWidth").getValue())
 	lccComponent.setSymbolValue("DisplayHorzBackPorch", displayComponent.getSymbolByID("HorzBackPorch").getValue())
 	lccComponent.setSymbolValue("DisplayHorzFrontPorch", displayComponent.getSymbolByID("HorzFrontPorch").getValue())
 	lccComponent.setSymbolValue("DisplayVertPulseWidth", displayComponent.getSymbolByID("VertPulseWidth").getValue())
 	lccComponent.setSymbolValue("DisplayVertBackPorch", displayComponent.getSymbolByID("VertBackPorch").getValue())
 	lccComponent.setSymbolValue("DisplayVertFrontPorch", displayComponent.getSymbolByID("VertFrontPorch").getValue())
+	lccComponent.setSymbolValue("DisplayWidth", displayComponent.getSymbolByID("DisplayWidth").getValue())
+	lccComponent.setSymbolValue("DisplayHeight", displayComponent.getSymbolByID("DisplayHeight").getValue())
 	
-def resetDisplayTiming(lccComponent, displayComponent):
+def resetDisplaySettings(lccComponent, displayComponent):
 	lccComponent.clearSymbolValue("DisplayHorzPulseWidth")
 	lccComponent.clearSymbolValue("DisplayHorzBackPorch")
 	lccComponent.clearSymbolValue("DisplayHorzFrontPorch")
 	lccComponent.clearSymbolValue("DisplayVertPulseWidth")
 	lccComponent.clearSymbolValue("DisplayVertBackPorch")
 	lccComponent.clearSymbolValue("DisplayVertFrontPorch")
+	lccComponent.clearSymbolValue("DisplayWidth")
+	lccComponent.clearSymbolValue("DisplayHeight")
 
 def onAttachmentConnected(source, target):
 	print("dependency Connected = " + str(target['id']))
@@ -372,8 +376,7 @@ def onAttachmentConnected(source, target):
 		if (sub and sub.group(1)):
 			configureEBIComponent(source["component"], target["component"], int(sub.group(1)))
 	elif (source["id"] == "Graphics Display"):
-		#configure timing
-		configureDisplayTiming(source["component"], target["component"])
+		configureDisplaySettings(source["component"], target["component"])
 
 
 def onAttachmentDisconnected(source, target):
@@ -382,5 +385,4 @@ def onAttachmentDisconnected(source, target):
 		if (sub and sub.group(1)):
 			resetEBIComponent(source["component"], target["component"], int(sub.group(1)))
 	elif (source["id"] == "Graphics Display"):
-		#reset timing
-		resetDisplayTiming(source["component"], target["component"])
+		resetDisplaySettings(source["component"], target["component"])

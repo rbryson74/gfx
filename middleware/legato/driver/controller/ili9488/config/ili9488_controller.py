@@ -47,12 +47,6 @@ def instantiateComponent(comp):
 	execfile(Module.getPath() + "/config/ili9488_config.py")
 	execfile(Module.getPath() + "/config/ili9488_files.py")
 
-def onHALConnected(halConnected, event):
-	halConnected.getComponent().getSymbolByID("HALComment").setVisible(event["value"] == True)
-	halConnected.getComponent().getSymbolByID("DisplayWidth").setVisible(event["value"] == False)
-	halConnected.getComponent().getSymbolByID("DisplayHeight").setVisible(event["value"] == False)
-	halConnected.getComponent().getSymbolByID("PaletteMode").setVisible(event["value"] == False)
-
 def onAttachmentConnected(source, target):
 	if source["id"] == "Display Interface":
 		print(source["component"].getID() + ": Using " + target["component"].getID() + " interface ")
