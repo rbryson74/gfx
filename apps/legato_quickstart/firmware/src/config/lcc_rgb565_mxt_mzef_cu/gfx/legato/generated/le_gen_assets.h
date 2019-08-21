@@ -76,19 +76,20 @@ extern leImage MHGC_150x150;
  * Height:       19
  * Baseline:     14
  * Style:        Antialias
- * Glyph Count:  21
- * Range Count:  12
+ * Glyph Count:  23
+ * Range Count:  13
  * Glyph Ranges: 0x20
-                 0x41-0x43
+                 0x41-0x42
                  0x47-0x48
                  0x4C-0x4D
                  0x50
+                 0x53
                  0x61
                  0x63
                  0x65
                  0x68-0x69
                  0x6D-0x70
-                 0x72-0x73
+                 0x72-0x75
                  0x79
 ***********************************/
 extern leRasterFont NotoSans_Bold;

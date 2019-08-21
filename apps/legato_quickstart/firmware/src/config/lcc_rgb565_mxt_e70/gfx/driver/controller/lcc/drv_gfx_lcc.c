@@ -203,7 +203,7 @@ static leResult lccBacklightBrightnessSet(uint32_t brightness)
 {
     uint32_t value;
     brightness = (brightness <= 100) ? brightness : 100;
-
+    
     value = TC2_CH1_ComparePeriodGet() * (100 - brightness) / 100;
     
     //Use a positive value
@@ -265,7 +265,7 @@ static int DRV_GFX_LCC_Start()
     lccDMAStartTransfer(frameBuffer, 
                         FRAMEBUFFER_PIXEL_BYTES,
                         (const void *) EBI_BASE_ADDR);
-    
+
     return 0;
 }
 

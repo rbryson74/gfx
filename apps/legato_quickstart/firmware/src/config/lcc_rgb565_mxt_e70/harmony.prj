@@ -27,7 +27,7 @@
           <Name dnOrder="1">drv_gfx_lcc.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_e70/gfx/driver/lcc</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/lcc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">53DF3790DFDAAB6F86F19E264C9EA2B3</GeneratedChecksum>
+          <GeneratedChecksum dnOrder="4">18159C51886687C227FA6CEA8273837B</GeneratedChecksum>
           <UserChecksum dnOrder="5">18159C51886687C227FA6CEA8273837B</UserChecksum>
         </File>
         <File dnOrder="3">
@@ -99,8 +99,8 @@
           <Name dnOrder="1">le_gen_harmony.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_e70/gfx/legato/generated/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/legato\generated\</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">6D7FD84757772BB60EF3A85617ED5EF9</GeneratedChecksum>
-          <UserChecksum dnOrder="5">6D7FD84757772BB60EF3A85617ED5EF9</UserChecksum>
+          <GeneratedChecksum dnOrder="4">578CC730C8216C0EAE92436ACC860469</GeneratedChecksum>
+          <UserChecksum dnOrder="5">578CC730C8216C0EAE92436ACC860469</UserChecksum>
         </File>
         <File dnOrder="12">
           <Type dnOrder="0">SOURCE</Type>
