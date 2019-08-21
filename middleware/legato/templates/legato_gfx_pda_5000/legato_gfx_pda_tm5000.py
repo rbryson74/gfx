@@ -28,8 +28,6 @@ execfile(Module.getPath() + "../common/display_utils.py")
 
 pinConfigureFxn = configurePins
 
-execfile(Module.getPath() + "Support_BSP_PIC32MZ_EF_Curiosity.py")
-execfile(Module.getPath() + "Support_BSP_PIC32MZ_EF_Starter_Kit_MEB2.py")
 execfile(Module.getPath() + "Support_BSP_SAM_E70_Xplained_Ultra.py")
 execfile(Module.getPath() + "Support_BSP_SAM_E54_Curiosity_Ultra.py")
 
@@ -87,8 +85,8 @@ def onDisplayInterfaceSelected(interfaceSelected, event):
 	configureDisplayInterface(bspID, str(newDisplayInterface))
 
 def instantiateComponent(templateComponent):
-	componentsIDTable = ["HarmonyCore", "sys_input", "gfx_legato", "gfx_disp_pdatm4301b_480x272", "gfx_maxtouch_controller"]
-	autoConnectTable = [["gfx_maxtouch_controller", "touch_panel", "gfx_disp_pdatm4301b_480x272", "touch_panel"]]
+	componentsIDTable = ["HarmonyCore", "sys_input", "gfx_legato", "gfx_disp_pdatm5000_800x480", "gfx_maxtouch_controller"]
+	autoConnectTable = [["gfx_maxtouch_controller", "touch_panel", "gfx_disp_pdatm5000_800x480", "touch_panel"]]
 	deactivateIDTable = ["FreeRTOS"]
 
 	#Check if a supported BSP is loaded
