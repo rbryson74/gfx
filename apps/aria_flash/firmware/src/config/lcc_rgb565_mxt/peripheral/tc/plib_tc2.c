@@ -62,65 +62,82 @@
  
  
 
+ 
+
+ 
 
 /* Callback object for channel 1 */
-TC_TIMER_CALLBACK_OBJECT TC2_CH1_CallbackObj;
+TC_COMPARE_CALLBACK_OBJECT TC2_CH1_CallbackObj;
 
-/* Initialize channel in timer mode */
-void TC2_CH1_TimerInitialize (void)
+/* Initialize channel in compare mode */
+void TC2_CH1_CompareInitialize (void)
 {
     /* Use peripheral clock */
     TC2_REGS->TC_CHANNEL[1].TC_EMR = TC_EMR_NODIVCLK_Msk;
     /* clock selection and waveform selection */
-    TC2_REGS->TC_CHANNEL[1].TC_CMR =  TC_CMR_WAVEFORM_WAVSEL_UP_RC | TC_CMR_WAVE_Msk ;
+    TC2_REGS->TC_CHANNEL[1].TC_CMR =  TC_CMR_WAVEFORM_WAVSEL_UP_RC | TC_CMR_WAVE_Msk | \
+                TC_CMR_WAVEFORM_ACPA_SET | TC_CMR_WAVEFORM_ACPC_CLEAR | TC_CMR_WAVEFORM_AEEVT_CLEAR\
+           | TC_CMR_WAVEFORM_BCPB_SET | TC_CMR_WAVEFORM_BCPC_CLEAR | TC_CMR_WAVEFORM_BEEVT_CLEAR ;
+
+    /* external reset event configurations */
+    TC2_REGS->TC_CHANNEL[1].TC_CMR |= TC_CMR_WAVEFORM_ENETRG_Msk | TC_CMR_WAVEFORM_EEVT_XC0 | \
+                TC_CMR_WAVEFORM_EEVTEDG_NONE;
 
     /* write period */
-    TC2_REGS->TC_CHANNEL[1].TC_RC = 60000U;
+    TC2_REGS->TC_CHANNEL[1].TC_RC = 10000U;
 
+    /* write compare values */
+    TC2_REGS->TC_CHANNEL[1].TC_RA = 5000U;
+    TC2_REGS->TC_CHANNEL[1].TC_RB = 3000U;
 
     /* enable interrupt */
     TC2_REGS->TC_CHANNEL[1].TC_IER = TC_IER_CPCS_Msk;
     TC2_CH1_CallbackObj.callback_fn = NULL;
 }
 
-/* Start the timer */
-void TC2_CH1_TimerStart (void)
+/* Start the compare mode */
+void TC2_CH1_CompareStart (void)
 {
     TC2_REGS->TC_CHANNEL[1].TC_CCR = (TC_CCR_CLKEN_Msk | TC_CCR_SWTRG_Msk);
 }
 
-/* Stop the timer */
-void TC2_CH1_TimerStop (void)
+/* Stop the compare mode */
+void TC2_CH1_CompareStop (void)
 {
     TC2_REGS->TC_CHANNEL[1].TC_CCR = (TC_CCR_CLKDIS_Msk);
 }
 
-uint32_t TC2_CH1_TimerFrequencyGet( void )
+uint32_t TC2_CH1_CompareFrequencyGet( void )
 {
     return (uint32_t)(150000000UL);
 }
 
-/* Configure timer period */
-void TC2_CH1_TimerPeriodSet (uint16_t period)
+/* Configure the period value */
+void TC2_CH1_ComparePeriodSet (uint16_t period)
 {
     TC2_REGS->TC_CHANNEL[1].TC_RC = period;
 }
 
-
-/* Read timer period */
-uint16_t TC2_CH1_TimerPeriodGet (void)
+/* Read the period value */
+uint16_t TC2_CH1_ComparePeriodGet (void)
 {
     return TC2_REGS->TC_CHANNEL[1].TC_RC;
 }
 
-/* Read timer counter value */
-uint16_t TC2_CH1_TimerCounterGet (void)
+/* Set the compare A value */
+void TC2_CH1_CompareASet (uint16_t value)
 {
-    return TC2_REGS->TC_CHANNEL[1].TC_CV;
+    TC2_REGS->TC_CHANNEL[1].TC_RA = value;
 }
 
-/* Register callback for period interrupt */
-void TC2_CH1_TimerCallbackRegister(TC_TIMER_CALLBACK callback, uintptr_t context)
+/* Set the compare B value */
+void TC2_CH1_CompareBSet (uint16_t value)
+{
+    TC2_REGS->TC_CHANNEL[1].TC_RB = value;
+}
+
+/* Register callback function */
+void TC2_CH1_CompareCallbackRegister(TC_COMPARE_CALLBACK callback, uintptr_t context)
 {
     TC2_CH1_CallbackObj.callback_fn = callback;
     TC2_CH1_CallbackObj.context = context;
@@ -129,18 +146,13 @@ void TC2_CH1_TimerCallbackRegister(TC_TIMER_CALLBACK callback, uintptr_t context
 /* Interrupt handler for Channel 1 */
 void TC2_CH1_InterruptHandler(void)
 {
-    TC_TIMER_STATUS timer_status = (TC_TIMER_STATUS)(TC2_REGS->TC_CHANNEL[1].TC_SR & TC_TIMER_STATUS_MSK);
+    TC_COMPARE_STATUS compare_status = (TC_COMPARE_STATUS)(TC2_REGS->TC_CHANNEL[1].TC_SR & TC_COMPARE_STATUS_MSK);
     /* Call registered callback function */
-    if ((TC_TIMER_NONE != timer_status) && TC2_CH1_CallbackObj.callback_fn != NULL)
+    if ((TC_COMPARE_NONE != compare_status) && TC2_CH1_CallbackObj.callback_fn != NULL)
     {
-        TC2_CH1_CallbackObj.callback_fn(timer_status, TC2_CH1_CallbackObj.context);
+        TC2_CH1_CallbackObj.callback_fn(compare_status, TC2_CH1_CallbackObj.context);
     }
 }
-
- 
-
- 
-
  
 
  

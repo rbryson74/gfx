@@ -96,22 +96,25 @@ extern "C" {
 
 
 
-void TC2_CH1_TimerInitialize (void);
-
-void TC2_CH1_TimerStart (void);
-
-void TC2_CH1_TimerStop (void);
-
-void TC2_CH1_TimerPeriodSet (uint16_t period);
 
 
-uint32_t TC2_CH1_TimerFrequencyGet (void);
+void TC2_CH1_CompareInitialize (void);
 
-uint16_t TC2_CH1_TimerPeriodGet (void);
+void TC2_CH1_CompareStart (void);
 
-uint16_t TC2_CH1_TimerCounterGet (void);
+void TC2_CH1_CompareStop (void);
 
-void TC2_CH1_TimerCallbackRegister(TC_TIMER_CALLBACK callback, uintptr_t context);
+uint32_t TC2_CH1_CompareFrequencyGet (void);
+
+void TC2_CH1_ComparePeriodSet (uint16_t period);
+
+uint16_t TC2_CH1_ComparePeriodGet (void);
+
+void TC2_CH1_CompareASet (uint16_t value);
+
+void TC2_CH1_CompareBSet (uint16_t value);
+
+void TC2_CH1_CompareCallbackRegister(TC_COMPARE_CALLBACK callback, uintptr_t context);
 
 
 

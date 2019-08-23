@@ -40,7 +40,6 @@
 // DOM-IGNORE-END
 
 #include "gfx/libaria/libaria_events.h"
-#include "app.h"
 
 
 
