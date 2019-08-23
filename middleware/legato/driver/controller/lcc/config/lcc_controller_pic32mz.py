@@ -30,24 +30,6 @@ def instantiateComponent(comp):
 	comp.setHelpFile("../../../docs/help_harmony_gfx_html_alias.h")
 	#comp.setHelp("IDH_HTML_GFX_CMP__3__Display_Driver_Component")
 	
-	SYS_DEFINITIONS_H = comp.createFileSymbol("SYS_DEFINITIONS_H", None)
-	SYS_DEFINITIONS_H.setType("STRING")
-	SYS_DEFINITIONS_H.setOutputName("core.LIST_SYSTEM_DEFINITIONS_H_INCLUDES")
-	SYS_DEFINITIONS_H.setSourcePath("templates/definitions.h.ftl")
-	SYS_DEFINITIONS_H.setMarkup(True)
-
-	SYS_INIT_C = comp.createFileSymbol("SYS_INIT_C", None)
-	SYS_INIT_C.setType("STRING")
-	SYS_INIT_C.setOutputName("core.LIST_SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS")
-	SYS_INIT_C.setSourcePath("templates/init.c.ftl")
-	SYS_INIT_C.setMarkup(True)
-
-	SYS_TASK_C = comp.createFileSymbol("SYS_TASK_C", None)
-	SYS_TASK_C.setType("STRING")
-	SYS_TASK_C.setOutputName("core.LIST_SYSTEM_TASKS_C_CALL_DRIVER_TASKS")
-	SYS_TASK_C.setSourcePath("templates/tasks.c.ftl")
-	SYS_TASK_C.setMarkup(True)
-
 	DriverInitName = comp.createStringSymbol("DriverInitName", None)
 	DriverInitName.setVisible(False)
 	DriverInitName.setReadOnly(True)
@@ -66,6 +48,12 @@ def instantiateComponent(comp):
 	DriverInitFunction.setReadOnly(True)
 	DriverInitFunction.setDefaultValue("driverLCCContextInitialize")
 	DriverInitFunction.setVisible(False)
+
+	SYS_DEFINITIONS_H = comp.createFileSymbol("SYS_DEFINITIONS_H", None)
+	SYS_DEFINITIONS_H.setType("STRING")
+	SYS_DEFINITIONS_H.setOutputName("core.LIST_SYSTEM_DEFINITIONS_H_INCLUDES")
+	SYS_DEFINITIONS_H.setSourcePath("templates/definitions.h.ftl")
+	SYS_DEFINITIONS_H.setMarkup(True)
 	
 	DisplayWidth = comp.createIntegerSymbol("DisplayWidth", None)
 	DisplayWidth.setLabel("Width")
@@ -287,6 +275,25 @@ def instantiateComponent(comp):
 	GFX_LCC_H.setProjectPath(projectPath)
 	GFX_LCC_H.setType("HEADER")
 
+	SYS_INIT_C = comp.createFileSymbol("SYS_INIT_C", None)
+	SYS_INIT_C.setType("STRING")
+	SYS_INIT_C.setOutputName("core.LIST_SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS")
+	SYS_INIT_C.setSourcePath("templates/init.c.ftl")
+	SYS_INIT_C.setMarkup(True)
+
+	SYS_TASK_C = comp.createFileSymbol("SYS_TASK_C", None)
+	SYS_TASK_C.setType("STRING")
+	SYS_TASK_C.setOutputName("core.LIST_SYSTEM_TASKS_C_CALL_DRIVER_TASKS")
+	SYS_TASK_C.setSourcePath("templates/tasks.c.ftl")
+	SYS_TASK_C.setMarkup(True)
+
+	SYS_RTOS_TASK_C = comp.createFileSymbol("SYS_RTOS_TASK_C", None)
+	SYS_RTOS_TASK_C.setType("STRING")
+	SYS_RTOS_TASK_C.setOutputName("core.LIST_SYSTEM_RTOS_TASKS_C_DEFINITIONS")
+	SYS_RTOS_TASK_C.setSourcePath("templates/rtos_tasks.c.ftl")
+	SYS_RTOS_TASK_C.setMarkup(True)
+
+	execfile(Module.getPath() + "/config/lcc_rtos.py")
 
 	autoSelectDMAChannel(DMAChannelSelected, DMAChannel, OldDMAChannel)
 
@@ -386,3 +393,6 @@ def onAttachmentDisconnected(source, target):
 			resetEBIComponent(source["component"], target["component"], int(sub.group(1)))
 	elif (source["id"] == "Graphics Display"):
 		resetDisplaySettings(source["component"], target["component"])
+
+def showRTOSMenu(symbol, event):
+	symbol.setVisible(event["value"] != "BareMetal")

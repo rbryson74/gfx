@@ -48,11 +48,6 @@ def instantiateComponent(comp):
 	DriverInitFunction.setReadOnly(True)
 	DriverInitFunction.setDefaultValue("driverLCCContextInitialize")
 	DriverInitFunction.setVisible(False)
-	
-	# configuration options
-	#"""HALComment = comp.createCommentSymbol("HALComment", None)
-	#HALComment.setLabel("Some settings are being managed by the GFX Core and have been hidden.")
-	#HALComment.setVisible(False)"""
 
 	SYS_DEFINITIONS_H = comp.createFileSymbol("SYS_DEFINITIONS_H", None)
 	SYS_DEFINITIONS_H.setType("STRING")
@@ -60,18 +55,6 @@ def instantiateComponent(comp):
 	SYS_DEFINITIONS_H.setSourcePath("templates/definitions.h.ftl")
 	SYS_DEFINITIONS_H.setMarkup(True)
 	
-	SYS_INIT_C = comp.createFileSymbol("SYS_INIT_C", None)
-	SYS_INIT_C.setType("STRING")
-	SYS_INIT_C.setOutputName("core.LIST_SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS")
-	SYS_INIT_C.setSourcePath("templates/init.c.ftl")
-	SYS_INIT_C.setMarkup(True)
-
-	SYS_TASK_C = comp.createFileSymbol("SYS_TASK_C", None)
-	SYS_TASK_C.setType("STRING")
-	SYS_TASK_C.setOutputName("core.LIST_SYSTEM_TASKS_C_CALL_DRIVER_TASKS")
-	SYS_TASK_C.setSourcePath("templates/tasks.c.ftl")
-	SYS_TASK_C.setMarkup(True)	
-
 	DisplayWidth = comp.createIntegerSymbol("DisplayWidth", None)
 	DisplayWidth.setLabel("Width")
 	DisplayWidth.setDescription("The width of the frame buffer in pixels.")
@@ -240,11 +223,19 @@ def instantiateComponent(comp):
 	# IntPriority.setLabel("Interrupt Priority Level")
 	# IntPriority.setMin(0)
 	# IntPriority.setMax(7)
-	
+
+	EBIChipSelectIndex = comp.createIntegerSymbol("EBIChipSelectIndex", None)
+	EBIChipSelectIndex.setLabel("EBI Chip Select Index")
+	EBIChipSelectIndex.setDescription("The chip select index")
+	EBIChipSelectIndex.setMin(0)
+	EBIChipSelectIndex.setMax(4)
+	EBIChipSelectIndex.setDefaultValue(0)
+	EBIChipSelectIndex.setVisible(False)
+
 	### Start of Backlight config options
 	BacklightSettings = comp.createMenuSymbol("BacklightSettings", None)
 	BacklightSettings.setLabel("Backlight Settings")
-	
+
 	DefaultBrightness = comp.createIntegerSymbol("DefaultBrightness", BacklightSettings)
 	DefaultBrightness.setLabel("Default Brightness (%)")
 	DefaultBrightness.setDescription("The default brightness setting at driver startup")
@@ -262,7 +253,7 @@ def instantiateComponent(comp):
 	TCPeripheralSettings.setLabel("Timer Counter Settings")
 	TCPeripheralSettings.setDescription("Settings for using the TC peripheral library")
 	TCPeripheralSettings.setVisible(False)
-	
+
 	TCInstance = comp.createIntegerSymbol("TCInstance", TCPeripheralSettings)
 	TCInstance.setLabel("TC Instance")
 	TCInstance.setDescription("The TC peripheral IDx")
@@ -299,13 +290,25 @@ def instantiateComponent(comp):
 	GFX_LCC_H.setProjectPath(projectPath)
 	GFX_LCC_H.setType("HEADER")
 
-	EBIChipSelectIndex = comp.createIntegerSymbol("EBIChipSelectIndex", None)
-	EBIChipSelectIndex.setLabel("EBI Chip Select Index")
-	EBIChipSelectIndex.setDescription("The chip select index")
-	EBIChipSelectIndex.setMin(0)
-	EBIChipSelectIndex.setMax(4)
-	EBIChipSelectIndex.setDefaultValue(0)
-	EBIChipSelectIndex.setVisible(False)
+	SYS_INIT_C = comp.createFileSymbol("SYS_INIT_C", None)
+	SYS_INIT_C.setType("STRING")
+	SYS_INIT_C.setOutputName("core.LIST_SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS")
+	SYS_INIT_C.setSourcePath("templates/init.c.ftl")
+	SYS_INIT_C.setMarkup(True)
+
+	SYS_TASK_C = comp.createFileSymbol("SYS_TASK_C", None)
+	SYS_TASK_C.setType("STRING")
+	SYS_TASK_C.setOutputName("core.LIST_SYSTEM_TASKS_C_CALL_DRIVER_TASKS")
+	SYS_TASK_C.setSourcePath("templates/tasks.c.ftl")
+	SYS_TASK_C.setMarkup(True)
+
+	SYS_RTOS_TASK_C = comp.createFileSymbol("SYS_RTOS_TASK_C", None)
+	SYS_RTOS_TASK_C.setType("STRING")
+	SYS_RTOS_TASK_C.setOutputName("core.LIST_SYSTEM_RTOS_TASKS_C_DEFINITIONS")
+	SYS_RTOS_TASK_C.setSourcePath("templates/rtos_tasks.c.ftl")
+	SYS_RTOS_TASK_C.setMarkup(True)
+
+	execfile(Module.getPath() + "/config/lcc_rtos.py")
 
 	autoSelectDMAChannel(DMAChannelSelected, DMAChannel, OldDMAChannel)
 
@@ -422,3 +425,6 @@ def onBacklightPeripheralSelected(symbol, event):
 	else:
 		symbol.getComponent().getSymbolByID("TCPeripheralSettings").setVisible(False)
 		symbol.getComponent().setDependencyEnabled("TMR", False)
+
+def showRTOSMenu(symbol, event):
+	symbol.setVisible(event["value"] != "BareMetal")
