@@ -35,15 +35,15 @@
           <Name dnOrder="1">drv_gfx_ili9488.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/driver/ili9488</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/ili9488/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">62108F35CAF1EF41EA7AD2BDF27CC17E</GeneratedChecksum>
-          <UserChecksum dnOrder="5">8C71FDB7E3F0D61E1DC5516936E135C1</UserChecksum>
+          <GeneratedChecksum dnOrder="4">AE74E2BEAEBB1879D1526307515573AA</GeneratedChecksum>
+          <UserChecksum dnOrder="5">AE74E2BEAEBB1879D1526307515573AA</UserChecksum>
         </File>
         <File dnOrder="4">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">drv_gfx_ili9488_intf.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/driver/ili9488</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/ili9488/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">9F63A9562428409511B68D2FB4A41348</GeneratedChecksum>
+          <GeneratedChecksum dnOrder="4">71783FB5F26160C8197FC47FBCD26493</GeneratedChecksum>
           <UserChecksum dnOrder="5">71783FB5F26160C8197FC47FBCD26493</UserChecksum>
         </File>
         <File dnOrder="5">
@@ -1131,8 +1131,8 @@
           <Name dnOrder="1">plib_tc0.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/peripheral/tc/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/tc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">5D288853593E3C6FA2C8A0A4229EF350</GeneratedChecksum>
-          <UserChecksum dnOrder="5">5D288853593E3C6FA2C8A0A4229EF350</UserChecksum>
+          <GeneratedChecksum dnOrder="4">38FF74F05AD24F84829E26FF8DB174D2</GeneratedChecksum>
+          <UserChecksum dnOrder="5">38FF74F05AD24F84829E26FF8DB174D2</UserChecksum>
         </File>
         <File dnOrder="141">
           <Type dnOrder="0">SOURCE</Type>

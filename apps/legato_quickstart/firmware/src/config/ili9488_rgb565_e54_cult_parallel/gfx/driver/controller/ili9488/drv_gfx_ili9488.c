@@ -54,13 +54,14 @@
 #define DISPLAY_WIDTH   320
 #define DISPLAY_HEIGHT  480
 
-#define BYTES_PER_PIXEL_BUFFER 2
 #define PIXEL_BUFFER_COLOR_MODE LE_COLOR_MODE_RGB_565
+
 #define SCREEN_WIDTH DISPLAY_WIDTH
 #define SCREEN_HEIGHT DISPLAY_HEIGHT
 
-ILI9488_DRV drv;
-
+#define BYTES_PER_PIXEL_BUFFER 2
+static uint8_t pixelBuffer[SCREEN_WIDTH * BYTES_PER_PIXEL_BUFFER];
+static ILI9488_DRV drv;
 static uint32_t swapCount = 0;
 
 /** initCmdParm
@@ -193,6 +194,8 @@ static int ILI9488_Init(ILI9488_DRV *drv,
 
 leResult DRV_ILI9488_Initialize(void)
 {
+    drv.state = INIT;
+
     drv.bytesPerPixelBuffer = BYTES_PER_PIXEL_BUFFER;
 
     //Open interface to ILI9488 controller
@@ -259,8 +262,9 @@ leResult DRV_ILI9488_BlitBuffer(int32_t x,
     uint16_t* ptr;
     uint16_t clr;
 
-    uint8_t data[SCREEN_WIDTH * BYTES_PER_PIXEL_BUFFER];
-    
+    if(drv.state != RUN)
+        return LE_FAILURE;
+
     drv.lineX_Start = x;
     drv.lineX_End = x + buf->size.width;
     
@@ -276,14 +280,14 @@ leResult DRV_ILI9488_BlitBuffer(int32_t x,
         {
             clr = ptr[col];
 
-            data[dataIdx++] = (uint8_t) (clr >> 8);
-            data[dataIdx++] = (uint8_t) (uint8_t) (clr & 0xff);
+            pixelBuffer[dataIdx++] = (uint8_t) (clr >> 8);
+            pixelBuffer[dataIdx++] = (uint8_t) (uint8_t) (clr & 0xff);
         }
 
         ILI9488_Intf_WritePixels(&drv,
                                  drv.lineX_Start,
                                  drv.currentLine,
-                                 data, 
+                                 pixelBuffer, 
                                  buf->size.width);
     }
 
