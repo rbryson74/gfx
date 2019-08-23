@@ -39,7 +39,17 @@
 
 #include "driver/spi/drv_spi.h"
 
-#include "drv_gfx_disp_intf.h"
+#include "../drv_gfx_disp_intf.h"
+
+#ifndef GFX_DISP_INTF_PIN_CS_Set
+#error "GFX_DISP_INTF_PIN_CS (chip select) GPIO pin must be defined in pin manager"
+#endif
+
+#ifndef GFX_DISP_INTF_PIN_RSDC_Set
+#error "GFX_DISP_INTF_PIN_RSDC (data/command select) GPIO pin must be defined in pin manager"
+#endif
+
+#define DRV_SPI_INDEX 0
 
 /** SPI_TRANS_STATUS
 
@@ -74,7 +84,7 @@ typedef struct
     volatile GFX_DISP_INTF_SPI_TRANS_STATUS drvSPITransStatus;    
 } GFX_DISP_INTF_SPI;
 
-static GFX_DISP_INTF_SPI intf;
+static GFX_DISP_INTF_SPI spiIntf;
 
 /* ************************************************************************** */
 
@@ -131,30 +141,35 @@ static void GFX_Disp_Intf_CallBack(DRV_SPI_TRANSFER_EVENT event,
     }
 }
 
-GFX_Disp_Intf GFX_Disp_Intf_Open(uint32_t index)
+GFX_Disp_Intf GFX_Disp_Intf_Open(void)
 {   
-    intf.drvSPIHandle = DRV_SPI_Open(index, DRV_IO_INTENT_READWRITE);
+    spiIntf.drvSPIHandle = DRV_SPI_Open(DRV_SPI_INDEX, DRV_IO_INTENT_READWRITE);
     
-    if (DRV_HANDLE_INVALID == intf.drvSPIHandle)
+    if (DRV_HANDLE_INVALID == spiIntf.drvSPIHandle)
     {
         return -1;
     }
 
-    DRV_SPI_TransferEventHandlerSet(intf.drvSPIHandle,
+    DRV_SPI_TransferEventHandlerSet(spiIntf.drvSPIHandle,
                                     GFX_Disp_Intf_CallBack,
-                                    (uintptr_t)&intf.drvSPITransStatus );
+                                    (uintptr_t)&spiIntf.drvSPITransStatus );
 
-    return (GFX_Disp_Intf)&intf;
+    return (GFX_Disp_Intf)&spiIntf;
 }
 
-void GFX_Disp_Intf_Close()
+void GFX_Disp_Intf_Close(GFX_Disp_Intf intf)
 {
-    DRV_SPI_Close(intf.drvSPIHandle);
+    DRV_SPI_Close(((GFX_DISP_INTF_SPI *)&intf)->drvSPIHandle);
 }
 
-int32_t GFX_Disp_Intf_PinControl(GFX_DISP_INTF_PIN pin, GFX_DISP_INTF_PIN_VALUE value)
+int GFX_Disp_Intf_PinControl(GFX_Disp_Intf intf,
+                                 GFX_DISP_INTF_PIN pin,
+                                 GFX_DISP_INTF_PIN_VALUE value)
 {
-    int32_t res = -1;
+    int res = -1;
+
+    if (((GFX_DISP_INTF_SPI *) intf) == NULL)
+        return -1;
         
     switch(pin)
     {
@@ -231,114 +246,115 @@ int32_t GFX_Disp_Intf_PinControl(GFX_DISP_INTF_PIN pin, GFX_DISP_INTF_PIN_VALUE 
     return res;
 }
 
-int32_t GFX_Disp_Intf_WriteCommand(uint8_t cmd)
+int GFX_Disp_Intf_WriteCommand(GFX_Disp_Intf intf, uint8_t cmd)
 {
-    GFX_Disp_Intf_PinControl(GFX_DISP_INTF_PIN_RSDC, GFX_DISP_INTF_PIN_CLEAR);
+    GFX_DISP_INTF_PIN_RSDC_Clear();
     
-    return GFX_Disp_Intf_Write(&cmd, 1);
+    return GFX_Disp_Intf_Write(intf, &cmd, 1);
 }
 
-int32_t GFX_Disp_Intf_WriteData(uint8_t* data, int bytes)
+int GFX_Disp_Intf_WriteData(GFX_Disp_Intf intf, uint8_t * data, int bytes)
 {
-    GFX_Disp_Intf_PinControl(GFX_DISP_INTF_PIN_RSDC, GFX_DISP_INTF_PIN_SET);
+    GFX_Disp_Intf_PinControl(intf, GFX_DISP_INTF_PIN_RSDC, GFX_DISP_INTF_PIN_SET);
     
-    return GFX_Disp_Intf_Write(data, bytes);
+    return GFX_Disp_Intf_Write(intf, data, bytes);
 }
 
-int32_t GFX_Disp_Intf_ReadData(uint8_t* data, int bytes)
+int GFX_Disp_Intf_ReadData(GFX_Disp_Intf intf, uint8_t * data, int bytes)
 {
-    GFX_Disp_Intf_PinControl(GFX_DISP_INTF_PIN_RSDC, GFX_DISP_INTF_PIN_SET);
+    GFX_DISP_INTF_PIN_RSDC_Set();
     
-    return GFX_Disp_Intf_Read(data, bytes);
+    return GFX_Disp_Intf_Read(intf, data, bytes);
 }
 
-int32_t GFX_Disp_Intf_ReadCommandData(uint8_t cmd, uint8_t* data, int num_data)
+int GFX_Disp_Intf_ReadCommandData(GFX_Disp_Intf intf, uint8_t cmd, uint8_t * data, int num_data)
 {
-    int32_t retval;
-
-    retval = GFX_Disp_Intf_WriteCommand(cmd);
+    int retval;
     
+    retval = GFX_Disp_Intf_WriteCommand(intf, cmd);
     if (retval != 0)
         return -1;
 
-    GFX_Disp_Intf_PinControl(GFX_DISP_INTF_PIN_RSDC, GFX_DISP_INTF_PIN_SET);
+    GFX_DISP_INTF_PIN_RSDC_Set();
     
-    return GFX_Disp_Intf_Read(data, num_data);
+    return GFX_Disp_Intf_Read(intf, data, num_data);
 }
 
-int32_t GFX_Disp_Intf_WriteCommandParm(uint8_t cmd, uint8_t* parm, int num_parms)
+int GFX_Disp_Intf_WriteCommandParm(GFX_Disp_Intf intf, uint8_t cmd, uint8_t * parm, int num_parms)
 {
-    int32_t retval;
+    int retval = -1;
     
-    GFX_Disp_Intf_PinControl(GFX_DISP_INTF_PIN_RSDC, GFX_DISP_INTF_PIN_CLEAR);
+    GFX_DISP_INTF_PIN_RSDC_Clear();
     
-    retval = GFX_Disp_Intf_Write(&cmd, 1);
-    
+    retval = GFX_Disp_Intf_Write(intf, &cmd, 1);
     if (retval != 0)
         return -1;
     
     if (num_parms > 0 && parm != NULL)
     {
-        GFX_Disp_Intf_PinControl(GFX_DISP_INTF_PIN_RSDC, GFX_DISP_INTF_PIN_SET);
-        
-        retval = GFX_Disp_Intf_Write(parm, num_parms);
+        GFX_Disp_Intf_PinControl(intf, GFX_DISP_INTF_PIN_RSDC, GFX_DISP_INTF_PIN_SET);
+         retval = GFX_Disp_Intf_Write(intf, parm, num_parms);
     }
 
     return retval;
 }
 
-int32_t GFX_Disp_Intf_Write(uint8_t* data, int bytes)
+int GFX_Disp_Intf_Write(GFX_Disp_Intf intf, uint8_t * data, int bytes)
 {
-    if(bytes == 0 || data == NULL)
+    GFX_DISP_INTF_SPI * spiIntf = (GFX_DISP_INTF_SPI *) intf;
+    
+    if (spiIntf == NULL ||
+        bytes == 0 ||
+        data == NULL)
         return -1;
     
-    intf.drvSPITransStatus = SPI_TRANS_CMD_WR_PENDING;
-    
-    DRV_SPI_WriteTransferAdd(intf.drvSPIHandle,
+    spiIntf->drvSPITransStatus = SPI_TRANS_CMD_WR_PENDING;
+    DRV_SPI_WriteTransferAdd(spiIntf->drvSPIHandle,
                             (void *) data,
                             (size_t) bytes,
-                            (void *) &intf.drvSPITransferHandle);
-                            
-    if (DRV_SPI_TRANSFER_HANDLE_INVALID == intf.drvSPITransferHandle)
+                            (void *) &spiIntf->drvSPITransferHandle);
+    if (DRV_SPI_TRANSFER_HANDLE_INVALID == spiIntf->drvSPITransferHandle)
     {
         return -1;
     }
     
-    while (SPI_TRANS_CMD_WR_PENDING == intf.drvSPITransStatus);
+    while (SPI_TRANS_CMD_WR_PENDING == spiIntf->drvSPITransStatus);
     
     return 0;
 }
 
 
-int32_t GFX_Disp_Intf_Read(uint8_t* data, int bytes)
+int GFX_Disp_Intf_Read(GFX_Disp_Intf intf, uint8_t * data, int bytes)
 {
-    if(bytes == 0 || data == NULL)
+    GFX_DISP_INTF_SPI * spiIntf = (GFX_DISP_INTF_SPI *) intf;
+    
+    if (spiIntf == NULL ||
+        bytes == 0 ||
+        data == NULL)
         return -1;
     
     // Read the valid pixels
-    intf.drvSPITransStatus = SPI_TRANS_CMD_RD_PENDING;
-    
-    DRV_SPI_ReadTransferAdd(intf.drvSPIHandle,
+    spiIntf->drvSPITransStatus = SPI_TRANS_CMD_RD_PENDING;
+    DRV_SPI_ReadTransferAdd(spiIntf->drvSPIHandle,
                             (void *) data,
                             bytes,
-                            (void *) &intf.drvSPITransferHandle);
-    
-    if(DRV_SPI_TRANSFER_HANDLE_INVALID == intf.drvSPITransferHandle)
+                            (void *) &spiIntf->drvSPITransferHandle);
+    if (DRV_SPI_TRANSFER_HANDLE_INVALID == spiIntf->drvSPITransferHandle)
         return -1;
 
     //Wait for the callback (full block/no timeout)
-    while (SPI_TRANS_CMD_RD_PENDING == intf.drvSPITransStatus);
+    while (SPI_TRANS_CMD_RD_PENDING == spiIntf->drvSPITransStatus);
     
     return 0;
 }
 
-int32_t GFX_Disp_Intf_WriteData16(uint16_t* data, int num)
+int GFX_Disp_Intf_WriteData16(GFX_Disp_Intf intf, uint16_t* data, int num)
 {
     //Not supported
     return -1;
 }
 
-int32_t GFX_Disp_Intf_ReadData16(uint16_t* data, int num)
+int GFX_Disp_Intf_ReadData16(GFX_Disp_Intf intf, uint16_t* data, int num)
 {
     //Not supported
     return -1;

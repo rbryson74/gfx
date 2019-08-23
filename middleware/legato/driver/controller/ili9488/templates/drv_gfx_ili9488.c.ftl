@@ -54,20 +54,8 @@
 #define DISPLAY_WIDTH   ${DisplayWidth}
 #define DISPLAY_HEIGHT  ${DisplayHeight}
 
-<#if DisplayInterfaceType == "SPI 4-line">
-#define BYTES_PER_PIXEL_BUFFER 3
-<#else>
-<#if ParallelInterfaceWidth == "16-bit">
-#define BYTES_PER_PIXEL_BUFFER 2
-<#else>
-#define BYTES_PER_PIXEL_BUFFER 2
-</#if>
-</#if>
-<#if PaletteMode == true>
-#define PIXEL_BUFFER_COLOR_MODE LE_COLOR_MODE_GS_8
-<#else>
 #define PIXEL_BUFFER_COLOR_MODE LE_COLOR_MODE_RGB_565
-</#if>
+
 <#if RowColumnExchange == "Reverse">
 //Row and column are swapped
 #define SCREEN_WIDTH DISPLAY_HEIGHT
@@ -77,8 +65,18 @@
 #define SCREEN_HEIGHT DISPLAY_HEIGHT
 </#if>
 
-ILI9488_DRV drv;
-
+<#if DisplayInterfaceType == "SPI 4-line">
+#define BYTES_PER_PIXEL_BUFFER 3
+static uint8_t pixelBuffer[SCREEN_WIDTH * BYTES_PER_PIXEL_BUFFER];
+<#else>
+<#if ParallelInterfaceWidth == "16-bit">
+#define BYTES_PER_PIXEL_BUFFER 2
+<#else>
+#define BYTES_PER_PIXEL_BUFFER 2
+static uint8_t pixelBuffer[SCREEN_WIDTH * BYTES_PER_PIXEL_BUFFER];
+</#if>
+</#if>
+static ILI9488_DRV drv;
 static uint32_t swapCount = 0;
 
 /** initCmdParm
@@ -300,8 +298,6 @@ leResult DRV_ILI9488_BlitBuffer(int32_t x,
     uint16_t* ptr;
     uint16_t clr;
 
-    uint8_t data[SCREEN_WIDTH * BYTES_PER_PIXEL_BUFFER];
-    
     if(drv.state != RUN)
         return LE_FAILURE;
 
@@ -316,7 +312,8 @@ leResult DRV_ILI9488_BlitBuffer(int32_t x,
 
         dataIdx = 0;
 
-<#if ParallelInterfaceWidth == "16-bit">
+<#if ParallelInterfaceWidth == "16-bit" &&
+     DisplayInterfaceType != "SPI 4-line">
         ILI9488_Intf_WritePixels(&drv,
                                  drv.lineX_Start,
                                  drv.currentLine,
@@ -329,23 +326,23 @@ leResult DRV_ILI9488_BlitBuffer(int32_t x,
 
 <#if DisplayInterfaceType == "SPI 4-line">
             // red channel
-            data[dataIdx++] = (leColorChannelRed(clr, PIXEL_BUFFER_COLOR_MODE) << 3);
+            pixelBuffer[dataIdx++] = (leColorChannelRed(clr, PIXEL_BUFFER_COLOR_MODE) << 3);
             
             // green channel
-            data[dataIdx++] = (leColorChannelGreen(clr, PIXEL_BUFFER_COLOR_MODE) << 2);
+            pixelBuffer[dataIdx++] = (leColorChannelGreen(clr, PIXEL_BUFFER_COLOR_MODE) << 2);
             
             // blue channel
-            data[dataIdx++] = (leColorChannelBlue(clr, PIXEL_BUFFER_COLOR_MODE) << 3);
+            pixelBuffer[dataIdx++] = (leColorChannelBlue(clr, PIXEL_BUFFER_COLOR_MODE) << 3);
 <#else>
-            data[dataIdx++] = (uint8_t) (clr >> 8);
-            data[dataIdx++] = (uint8_t) (uint8_t) (clr & 0xff);
+            pixelBuffer[dataIdx++] = (uint8_t) (clr >> 8);
+            pixelBuffer[dataIdx++] = (uint8_t) (uint8_t) (clr & 0xff);
 </#if>
         }
 
         ILI9488_Intf_WritePixels(&drv,
                                  drv.lineX_Start,
                                  drv.currentLine,
-                                 data, 
+                                 pixelBuffer, 
                                  buf->size.width);
 </#if>
     }
