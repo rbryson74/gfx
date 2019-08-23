@@ -44,13 +44,13 @@ def instantiateComponent(comp):
 	TouchWidth = comp.createIntegerSymbol("TouchWidth", None)
 	TouchWidth.setLabel("Touch Panel Width")
 	TouchWidth.setDescription("The width of the touch panel in pixels.")
-	TouchWidth.setDefaultValue(320)
+	TouchWidth.setDefaultValue(480)
 	TouchWidth.setReadOnly(True)
 	
 	TouchHeight = comp.createIntegerSymbol("TouchHeight", None)
 	TouchHeight.setLabel("Touch Panel Height")
 	TouchHeight.setDescription("The height of the touch panel in pixels.")
-	TouchHeight.setDefaultValue(480)
+	TouchHeight.setDefaultValue(320)
 	TouchHeight.setReadOnly(True)
 	
 	DataWidth = comp.createIntegerSymbol("DataWidth", None)
