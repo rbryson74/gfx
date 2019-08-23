@@ -32,7 +32,7 @@ def instantiateComponent(component):
 	#execfile(Module.getPath() + "/utils/config/aria_utils.py")
 	#execfile(Module.getPath() + "/third_party/config/aria_thirdparty.py")
 	#execfile(Module.getPath() + "/config/aria_demomode.py")
-	#execfile(Module.getPath() + "/config/aria_rtos.py")
+	execfile(Module.getPath() + "/config/le_rtos.py")
 	execfile(Module.getPath() + "/config/le_files.py")
 
 	LE_SYS_DEFINITIONS_H = component.createFileSymbol("LE_SYS_DEFINITIONS_H", None)
@@ -53,13 +53,11 @@ def instantiateComponent(component):
 	LE_SYS_TASK_C.setSourcePath("templates/le_tasks.c.ftl")
 	LE_SYS_TASK_C.setMarkup(True)
 
-	#LIBARIA_SYS_RTOS_TASK_C = component.createFileSymbol("LIBARIA_SYS_RTOS_TASK_C", None)
-	#LIBARIA_SYS_RTOS_TASK_C.setType("STRING")
-	#LIBARIA_SYS_RTOS_TASK_C.setOutputName("core.LIST_SYSTEM_RTOS_TASKS_C_DEFINITIONS")
-	#LIBARIA_SYS_RTOS_TASK_C.setSourcePath("templates/system/libaria_rtos_tasks.c.ftl")
-	#LIBARIA_SYS_RTOS_TASK_C.setMarkup(True)
-	#LIBARIA_SYS_RTOS_TASK_C.setEnabled((Database.getSymbolValue("HarmonyCore", "SELECT_RTOS") != "BareMetal"))
-	#LIBARIA_SYS_RTOS_TASK_C.setDependencies(enableAriaRTOSTask, ["HarmonyCore.SELECT_RTOS"])
+	LE_SYS_RTOS_TASK_C = component.createFileSymbol("LE_SYS_RTOS_TASK_C", None)
+	LE_SYS_RTOS_TASK_C.setType("STRING")
+	LE_SYS_RTOS_TASK_C.setOutputName("core.LIST_SYSTEM_RTOS_TASKS_C_DEFINITIONS")
+	LE_SYS_RTOS_TASK_C.setSourcePath("templates/le_rtos_tasks.c.ftl")
+	LE_SYS_RTOS_TASK_C.setMarkup(True)
 
 def onAttachmentConnected(source, target):
 	if source["id"] == "gfx_driver":
@@ -87,11 +85,10 @@ def onAttachmentDisconnected(source, target):
 	event["source"].getSymbolByID("LIBARIA_DEMO_MODE_H").setEnabled(event["value"])
 	event["source"].getSymbolByID("LIBARIA_DEMO_MODE_C").setEnabled(event["value"])"""
 	
-"""def showAriaRTOSMenu(symbol, event):
+def showRTOSMenu(symbol, event):
 	symbol.setVisible(event["value"] != "BareMetal")
-	symbol.getComponent().getSymbolByID("useRTOSExtensions").setValue(event["value"] != "BareMetal", 1)
-	
-def enableAriaRTOSExtensions(symbol, event):
+
+"""def enableAriaRTOSExtensions(symbol, event):
 	enableAriaExtensionsFiles(symbol.getComponent(), event["value"] == True)
 
 def enableAriaRTOSSymbol(symbol, event):
