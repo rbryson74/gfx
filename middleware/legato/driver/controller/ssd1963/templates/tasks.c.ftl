@@ -22,7 +22,17 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 -->
-DRV_SSD1963_Update();
+<#if HarmonyCore.SELECT_RTOS == "BareMetal">
+    <#lt>    DRV_SSD1963_Update();
+<#elseif HarmonyCore.SELECT_RTOS == "FreeRTOS">
+    <#lt>    xTaskCreate( _SSD1963_Tasks,
+    <#lt>        "SSD1963_Tasks",
+    <#lt>        ${rtosTaskSize},
+    <#lt>        (void*)NULL,
+    <#lt>        ${rtosTaskPriority},
+    <#lt>        (TaskHandle_t*)NULL
+    <#lt>    );
+</#if>
 <#--
 /*******************************************************************************
  End of File

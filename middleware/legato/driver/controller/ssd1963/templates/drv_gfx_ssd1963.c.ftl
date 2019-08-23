@@ -158,6 +158,8 @@ static leResult DRV_SSD1963_Reset(void)
 
 leResult DRV_SSD1963_Initialize(void)
 {
+    drv.state = INIT;
+
     drv.port_priv = (void *) GFX_Disp_Intf_Open();
     if (drv.port_priv == 0)
         return LE_FAILURE;
@@ -411,6 +413,9 @@ leResult DRV_SSD1963_BlitBuffer(int32_t x,
     uint16_t* ptr;
 
     GFX_Disp_Intf intf;
+    
+    if (drv.state != RUN)
+        return LE_FAILURE;
     
     intf = (GFX_Disp_Intf) drv.port_priv;
 

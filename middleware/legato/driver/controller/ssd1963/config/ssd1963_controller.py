@@ -17,9 +17,16 @@ def instantiateComponent(comp):
 	SYS_TASK_C.setOutputName("core.LIST_SYSTEM_TASKS_C_CALL_DRIVER_TASKS")
 	SYS_TASK_C.setSourcePath("templates/tasks.c.ftl")
 	SYS_TASK_C.setMarkup(True)
+	
+	SYS_RTOS_TASK_C = comp.createFileSymbol("SYS_RTOS_TASK_C", None)
+	SYS_RTOS_TASK_C.setType("STRING")
+	SYS_RTOS_TASK_C.setOutputName("core.LIST_SYSTEM_RTOS_TASKS_C_DEFINITIONS")
+	SYS_RTOS_TASK_C.setSourcePath("templates/rtos_tasks.c.ftl")
+	SYS_RTOS_TASK_C.setMarkup(True)
 
 	execfile(Module.getPath() + "/config/ssd1963_config.py")
 	execfile(Module.getPath() + "/config/ssd1963_files.py")
+	execfile(Module.getPath() + "/config/ssd1963_rtos.py")
 
 def configureDisplaySettings(lccComponent, displayComponent):
 	lccComponent.setSymbolValue("DisplayHorzPulseWidth", displayComponent.getSymbolByID("HorzPulseWidth").getValue())
@@ -74,3 +81,6 @@ def onBacklightPWMFrequencySet(pixelClockSet, event):
 	prescalerValue = float(MasterClock/float(event["value"]))
 	strValue = str(float("{0:.4f}".format(prescalerValue)))
 	pixelClockSet.getComponent().getSymbolByID("PixelClockPreScaler").setValue(strValue, 1)
+
+def showRTOSMenu(symbol, event):
+	symbol.setVisible(event["value"] != "BareMetal")
