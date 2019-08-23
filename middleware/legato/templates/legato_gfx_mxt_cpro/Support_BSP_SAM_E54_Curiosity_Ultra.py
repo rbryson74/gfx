@@ -22,7 +22,7 @@
 # THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 ##############################################################################
 
-############ xpro CONFIG ######################################################
+############ Parallel CONFIG ######################################################
 sam_e54_cult_cpro_p_ActivateList = ["le_gfx_intf_parallel_portgroup", "sercom4", "drv_i2c", "drv_i2c0", "tc0", "sys_time"]
 sam_e54_cult_cpro_p_ConnectList = [["le_gfx_driver_ili9488", "Display Interface", "le_gfx_intf_parallel_portgroup", "le_gfx_intf_parallel_portgroup"],
 						["drv_i2c_0", "drv_i2c_I2C_dependency", "sercom4", "SERCOM4_I2C"],
@@ -64,6 +64,26 @@ sam_e54_cult_cpro_p_PinConfigBitBang = [{"pin": 3, "name": "GPIO_PC00", "type": 
 						{"pin": 83, "name": "GFX_DISP_INTF_PIN_WR", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}] #PB17
 ##################################################################################
 
+############ SPI CONFIG ######################################################
+sam_e54_cult_cpro_spi_ActivateList = ["le_gfx_intf_spi4", "sercom0", "drv_spi", "drv_spi_0","sercom6", "drv_i2c", "drv_i2c0", "tc0", "sys_time"]
+sam_e54_cult_cpro_spi_ConnectList = [["le_gfx_driver_ili9488", "Display Interface", "le_gfx_intf_spi4", "le_gfx_intf_spi4"],
+						["le_gfx_intf_spi4", "DRV_SPI", "drv_spi_0", "drv_spi"],
+						["drv_spi_0", "drv_spi_SPI_dependency", "sercom0", "SERCOM0_SPI"],
+						["gfx_maxtouch_controller", "i2c", "drv_i2c_0", "drv_i2c"],
+						["drv_i2c_0", "drv_i2c_I2C_dependency", "sercom6", "SERCOM6_I2C"],
+						["sys_time", "sys_time_TMR_dependency", "tc0", "TC0_TMR"]]
+sam_e54_cult_cpro_spi_PinConfig = [{"pin": 43, "name": "GFX_DISP_INTF_PIN_BACKLIGHT", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PB14
+						{"pin": 47, "name": "SERCOM6_PAD1", "type": "SERCOM6_PAD1", "direction": "", "latch": "", "abcd": ""}, #PD08
+						{"pin": 48, "name": "SERCOM6_PAD0", "type": "SERCOM6_PAD0", "direction": "", "latch": "", "abcd": ""}, #PD09
+						{"pin": 49, "name": "GFX_DISP_INTF_PIN_RSDC", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PD10
+						{"pin": 51, "name": "BSP_MAXTOUCH_CHG", "type": "GPIO", "direction": "In", "latch": "", "abcd": ""}, #PD12
+						{"pin": 100, "name": "SERCOM0_PAD0", "type": "SERCOM0_PAD0", "direction": "", "latch": "", "abcd": ""}, #PB24
+						{"pin": 101, "name": "SERCOM0_PAD1", "type": "SERCOM0_PAD1", "direction": "", "latch": "", "abcd": ""}, #PB25
+						{"pin": 105, "name": "GFX_DISP_INTF_PIN_RESET", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PB29
+						{"pin": 108, "name": "GFX_DISP_INTF_PIN_CS", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PC24
+						{"pin": 109, "name": "SERCOM0_PAD3", "type": "SERCOM0_PAD3", "direction": "", "latch": "", "abcd": ""}] #PC25
+##################################################################################
+
 def sam_e54_cult_cpro_p_eventHandler(event):
 	if (event == "configure"):
 		try:
@@ -73,19 +93,32 @@ def sam_e54_cult_cpro_p_eventHandler(event):
 			Database.setSymbolValue("le_gfx_driver_ili9488", "ParallelInterfaceWidth", "8-bit", 1)
 			#Set Sercom/I2C baud to 400kHz
 			Database.setSymbolValue("sercom4", "I2C_CLOCK_SPEED", 400, 1)
-			#Set Draw Buffer per pixel
-			Database.setSymbolValue("le_gfx_driver_ili9488", "DrawBufferSize", "Pixel", 1)
 		except:
 			return
 
-def e54cult_eventHandlerSPI(event):
-	print("SPI mode is not supported.")
+def sam_e54_cult_cpro_spi_eventHandler(event):
+	if (event == "configure"):
+		#set the SPI clock to 8MHz
+		try:
+			Database.setSymbolValue("sercom0", "SPI_BAUD_RATE", 8000000, 1)
+			Database.setSymbolValue("sercom0", "SPI_DIPO", 3, 1)
+		except:
+			print("Unable to configure SPI.")
+		
+		try:
+			#Set Sercom/I2C baud to 400kHz
+			Database.setSymbolValue("sercom6", "I2C_CLOCK_SPEED", 400, 1)
+		except:
+			print("Unable to configure I2C.")
+			
 
-sam_e54_cult_dispintf = ['Parallel']
+sam_e54_cult_dispintf = ['Parallel', "SPI 4-Line"]
 
 ### Use bit-bang w/ 24-bit passthrough GFX interface card
-sam_e54_cult_cpro_p = bspSupportObj(sam_e54_cult_cpro_p_PinConfigBitBang, sam_e54_cult_cpro_p_ActivateList, None, sam_e54_cult_cpro_p_ConnectList, sam_e54_cult_cpro_p_eventHandler)
+sam_e54_cult_cpro_parallel = bspSupportObj(sam_e54_cult_cpro_p_PinConfigBitBang, sam_e54_cult_cpro_p_ActivateList, None, sam_e54_cult_cpro_p_ConnectList, sam_e54_cult_cpro_p_eventHandler)
+sam_e54_cult_cpro_spi = bspSupportObj(sam_e54_cult_cpro_spi_PinConfig, sam_e54_cult_cpro_spi_ActivateList, None, sam_e54_cult_cpro_spi_ConnectList, sam_e54_cult_cpro_spi_eventHandler)
 
-addBSPSupport("BSP_SAM_E54_Curiosity_Ultra", "Parallel", sam_e54_cult_cpro_p)
+addBSPSupport("BSP_SAM_E54_Curiosity_Ultra", "Parallel", sam_e54_cult_cpro_parallel)
+addBSPSupport("BSP_SAM_E54_Curiosity_Ultra", "SPI 4-Line", sam_e54_cult_cpro_spi)
 addDisplayIntfSupport("BSP_SAM_E54_Curiosity_Ultra", sam_e54_cult_dispintf)
 

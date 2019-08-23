@@ -115,7 +115,8 @@ def instantiateComponent(templateComponent):
 			DisplayInterfaceList += getDisplayInterfaces(bsp)
 	
 	# Remove duplicates
-	DisplayInterfaceList = list(dict.fromkeys(DisplayInterfaceList))
+	DisplayInterfaceList = sorted(dict.fromkeys(list(dict.fromkeys(DisplayInterfaceList))))
+	
 
 	DisplayInterface = templateComponent.createComboSymbol("DisplayInterface", None, DisplayInterfaceList)
 	DisplayInterface.setLabel("Display Interface")
