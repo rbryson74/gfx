@@ -27,10 +27,6 @@ DriverInitName.setVisible(False)
 DriverInitName.setReadOnly(True)
 DriverInitName.setDefaultValue("ili9488DisplayDriver")
 
-HALConnected = comp.createBooleanSymbol("HALConnected", None)
-HALConnected.setVisible(False)
-HALConnected.setDependencies(onHALConnected, ["HALConnected"])
-
 DisplayInterface = comp.createStringSymbol("DisplayInterface", None)
 DisplayInterface.setLabel("Display Interface")
 DisplayInterface.setVisible(True)
@@ -67,10 +63,6 @@ DriverInitFunction.setVisible(False)
 ## Display Settings Menu
 DisplaySettingsMenu = comp.createMenuSymbol("DisplaySettingsMenu", None)
 DisplaySettingsMenu.setLabel("Display Settings")
-
-HALComment = comp.createCommentSymbol("HALComment", DisplaySettingsMenu)
-HALComment.setLabel("Display settings are being managed by the GFX HAL and have been hidden.")
-HALComment.setVisible(False)
 
 DisplayWidth = comp.createIntegerSymbol("DisplayWidth", DisplaySettingsMenu)
 DisplayWidth.setLabel("Width")

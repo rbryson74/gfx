@@ -232,6 +232,8 @@ static int ILI9488_Init(ILI9488_DRV *drv,
 
 leResult DRV_ILI9488_Initialize(void)
 {
+    drv.state = INIT;
+
     drv.bytesPerPixelBuffer = BYTES_PER_PIXEL_BUFFER;
 
     //Open interface to ILI9488 controller
@@ -300,6 +302,9 @@ leResult DRV_ILI9488_BlitBuffer(int32_t x,
 
     uint8_t data[SCREEN_WIDTH * BYTES_PER_PIXEL_BUFFER];
     
+    if(drv.state != RUN)
+        return LE_FAILURE;
+
     drv.lineX_Start = x;
     drv.lineX_End = x + buf->size.width;
     

@@ -43,9 +43,16 @@ def instantiateComponent(comp):
 	SYS_TASK_C.setOutputName("core.LIST_SYSTEM_TASKS_C_CALL_DRIVER_TASKS")
 	SYS_TASK_C.setSourcePath("templates/tasks.c.ftl")
 	SYS_TASK_C.setMarkup(True)
+	
+	SYS_RTOS_TASK_C = comp.createFileSymbol("SYS_RTOS_TASK_C", None)
+	SYS_RTOS_TASK_C.setType("STRING")
+	SYS_RTOS_TASK_C.setOutputName("core.LIST_SYSTEM_RTOS_TASKS_C_DEFINITIONS")
+	SYS_RTOS_TASK_C.setSourcePath("templates/rtos_tasks.c.ftl")
+	SYS_RTOS_TASK_C.setMarkup(True)
 
 	execfile(Module.getPath() + "/config/ili9488_config.py")
 	execfile(Module.getPath() + "/config/ili9488_files.py")
+	execfile(Module.getPath() + "/config/ili9488_rtos.py")
 
 def onAttachmentConnected(source, target):
 	if source["id"] == "Display Interface":
@@ -64,8 +71,8 @@ def onAttachmentConnected(source, target):
 			source["component"].getSymbolByID("ParallelInterfaceWidth").setVisible(True)
 			if InterfaceType == "Parallel 8-bit":
 				source["component"].getSymbolByID("ParallelInterfaceWidth").setValue("8-bit", True)
-				source["component"].getSymbolByID("ParallelInterfaceWidth").setReadOnly(True)
-			else:
-				source["component"].getSymbolByID("ParallelInterfaceWidth").setReadOnly(False)
 		else:
 			print("Interface does not contain 'InterfaceType' capability")
+
+def showRTOSMenu(symbol, event):
+	symbol.setVisible(event["value"] != "BareMetal")
