@@ -340,7 +340,7 @@ void SYS_Initialize ( void* data )
 
  
      
-    TC2_CH1_CompareInitialize(); 
+    TC2_CH1_TimerInitialize(); 
     
 	BSP_Initialize();
 	TWIHS0_Initialize();

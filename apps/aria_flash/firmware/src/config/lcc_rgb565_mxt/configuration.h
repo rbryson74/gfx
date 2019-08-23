@@ -97,7 +97,7 @@ extern "C" {
 
 #define SYS_FS_AUTOMOUNT_ENABLE           true
 #define SYS_FS_CLIENT_NUMBER              1
-#define SYS_FS_MAX_FILES                  1
+#define SYS_FS_MAX_FILES                  2
 #define SYS_FS_MAX_FILE_SYSTEM_TYPE       1
 #define SYS_FS_MEDIA_MAX_BLOCK_SIZE       512
 #define SYS_FS_MEDIA_MANAGER_BUFFER_SIZE  2048
@@ -162,7 +162,7 @@ extern "C" {
 #define DRV_SDMMC_INDEX_0                                0
 #define DRV_SDMMC_CLIENTS_NUMBER_IDX0                    1
 #define DRV_SDMMC_QUEUE_SIZE_IDX0                        1
-#define DRV_SDMMC_CONFIG_SPEED_MODE_IDX0                 DRV_SDMMC_CONFIG_SPEED_MODE_DEFAULT
+#define DRV_SDMMC_CONFIG_SPEED_MODE_IDX0                 DRV_SDMMC_CONFIG_SPEED_MODE_HIGH
 #define DRV_SDMMC_CONFIG_BUS_WIDTH_IDX0                  DRV_SDMMC_CONFIG_BUS_WIDTH_4_BIT
 #define DRV_SDMMC_CARD_DETECTION_METHOD_IDX0             DRV_SDMMC_CONFIG_CD_METHOD_USE_POLLING
 

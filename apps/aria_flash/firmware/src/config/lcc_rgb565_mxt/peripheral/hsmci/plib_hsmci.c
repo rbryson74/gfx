@@ -42,7 +42,7 @@
 #include "plib_hsmci.h"
 #include "peripheral/xdmac/plib_xdmac.h"
 
-#define HSMCI_DMA_CHANNEL      1
+#define HSMCI_DMA_CHANNEL      0
 
 // *****************************************************************************
 // *****************************************************************************

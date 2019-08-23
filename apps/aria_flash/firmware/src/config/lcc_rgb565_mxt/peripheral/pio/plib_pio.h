@@ -98,6 +98,15 @@
 #define BSP_MAXTOUCH_CHG_InputEnable()       (PIOD_REGS->PIO_ODR = (1<<28))
 #define BSP_MAXTOUCH_CHG_PIN                  PIO_PIN_PD28
 
+/*** Macros for GFX_DISP_INTF_PIN_BACKLIGHT pin ***/
+#define GFX_DISP_INTF_PIN_BACKLIGHT_Set()               (PIOC_REGS->PIO_SODR = (1<<9))
+#define GFX_DISP_INTF_PIN_BACKLIGHT_Clear()             (PIOC_REGS->PIO_CODR = (1<<9))
+#define GFX_DISP_INTF_PIN_BACKLIGHT_Toggle()            (PIOC_REGS->PIO_ODSR ^= (1<<9))
+#define GFX_DISP_INTF_PIN_BACKLIGHT_Get()               ((PIOC_REGS->PIO_PDSR >> 9) & 0x1)
+#define GFX_DISP_INTF_PIN_BACKLIGHT_OutputEnable()      (PIOC_REGS->PIO_OER = (1<<9))
+#define GFX_DISP_INTF_PIN_BACKLIGHT_InputEnable()       (PIOC_REGS->PIO_ODR = (1<<9))
+#define GFX_DISP_INTF_PIN_BACKLIGHT_PIN                  PIO_PIN_PC9
+
 /*** Macros for GFX_DISP_INTF_PIN_DE pin ***/
 #define GFX_DISP_INTF_PIN_DE_Set()               (PIOC_REGS->PIO_SODR = (1<<11))
 #define GFX_DISP_INTF_PIN_DE_Clear()             (PIOC_REGS->PIO_CODR = (1<<11))

@@ -66,7 +66,7 @@ FRAMEBUFFER_TYPE frameBuffer[BUFFER_COUNT][DISPLAY_WIDTH * DISPLAY_HEIGHT];
 
 uint16_t FRAMEBUFFER_ATTRIBUTE frameLine[DISPLAY_WIDTH];
 
-#define DRV_GFX_LCC_DMA_CHANNEL_INDEX XDMAC_CHANNEL_0
+#define DRV_GFX_LCC_DMA_CHANNEL_INDEX XDMAC_CHANNEL_1
 #define DRV_GFX_DMA_EVENT_TYPE XDMAC_TRANSFER_EVENT
 
 #ifndef GFX_DISP_INTF_PIN_RESET_Set
@@ -74,6 +74,10 @@ uint16_t FRAMEBUFFER_ATTRIBUTE frameLine[DISPLAY_WIDTH];
 #endif
 
 
+#ifndef GFX_DISP_INTF_PIN_BACKLIGHT_Set
+#warning "GFX_DISP_INTF_PIN_BACKLIGHT GPIO must be defined in the Pin Settings"
+#define GFX_DISP_INTF_PIN_BACKLIGHT_Set()
+#endif
 
 #ifndef GFX_DISP_INTF_PIN_VSYNC_Set
 #error "GFX_DISP_INTF_PIN_VSYNC GPIO must be defined in the Pin Settings"
@@ -210,16 +214,14 @@ static void layerSwapPending(GFX_Layer* layer)
 
 static GFX_Result lccBacklightBrightnessSet(uint32_t brightness)
 {
-    uint32_t value;
-    brightness = (brightness <= 100) ? brightness : 100;
-    
-    value = TC2_CH1_ComparePeriodGet() * (100 - brightness) / 100;
-    
-    //Use a positive value
-    if (value == 0)
-        value = 1;
-    
-    TC2_CH1_CompareBSet(value);
+    if (brightness == 0)
+    {
+        GFX_DISP_INTF_PIN_BACKLIGHT_Clear();
+    }
+    else
+    {
+        GFX_DISP_INTF_PIN_BACKLIGHT_Set();
+    }
 
     return GFX_SUCCESS;
 
@@ -285,7 +287,6 @@ static GFX_Result lccInitialize(GFX_Context* context)
     GFX_DISP_INTF_PIN_RESET_Set();
 
     /*Turn Backlight on*/
-    TC2_CH1_CompareStart();
 
     lccBacklightBrightnessSet(100);
 

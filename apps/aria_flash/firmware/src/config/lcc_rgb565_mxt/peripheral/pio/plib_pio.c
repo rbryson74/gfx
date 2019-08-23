@@ -61,10 +61,10 @@ void PIO_Initialize ( void )
     /************************ PIO A Initialization ************************/
     /* PORTA Peripheral Function Selection */
     ((pio_registers_t*)PIO_PORT_A)->PIO_ABCDSR[0]= 0x0;
-    ((pio_registers_t*)PIO_PORT_A)->PIO_ABCDSR[1]= 0xd0000000;
+    ((pio_registers_t*)PIO_PORT_A)->PIO_ABCDSR[1]= 0xdc000000;
     /* PORTA PIO Disable and Peripheral Enable*/
-    ((pio_registers_t*)PIO_PORT_A)->PIO_PDR = 0xd003f818;
-    ((pio_registers_t*)PIO_PORT_A)->PIO_PER = ~0xd003f818;
+    ((pio_registers_t*)PIO_PORT_A)->PIO_PDR = 0xdc03f818;
+    ((pio_registers_t*)PIO_PORT_A)->PIO_PER = ~0xdc03f818;
     ((pio_registers_t*)PIO_PORT_A)->PIO_MDDR = 0xFFFFFFFF;
     /* PORTA Pull Up Enable/Disable as per MHC selection */
     ((pio_registers_t*)PIO_PORT_A)->PIO_PUDR = ~0x800;
@@ -99,12 +99,9 @@ void PIO_Initialize ( void )
     ((pio_registers_t*)PIO_PORT_B)->PIO_DRIVER = 0x0;
 
     /************************ PIO C Initialization ************************/
-    /* PORTC Peripheral Function Selection */
-    ((pio_registers_t*)PIO_PORT_C)->PIO_ABCDSR[0]= 0x200;
-    ((pio_registers_t*)PIO_PORT_C)->PIO_ABCDSR[1]= 0x0;
     /* PORTC PIO Disable and Peripheral Enable*/
-    ((pio_registers_t*)PIO_PORT_C)->PIO_PDR = 0x3ff;
-    ((pio_registers_t*)PIO_PORT_C)->PIO_PER = ~0x3ff;
+    ((pio_registers_t*)PIO_PORT_C)->PIO_PDR = 0x1ff;
+    ((pio_registers_t*)PIO_PORT_C)->PIO_PER = ~0x1ff;
     ((pio_registers_t*)PIO_PORT_C)->PIO_MDDR = 0xFFFFFFFF;
     /* PORTC Pull Up Enable/Disable as per MHC selection */
     ((pio_registers_t*)PIO_PORT_C)->PIO_PUDR = 0xFFFFFFFF;
@@ -113,10 +110,10 @@ void PIO_Initialize ( void )
     /* PORTC Output Write Enable */
     ((pio_registers_t*)PIO_PORT_C)->PIO_OWER = PIO_OWER_Msk;
     /* PORTC Output Direction Enable */
-    ((pio_registers_t*)PIO_PORT_C)->PIO_OER = 0x40002800;
-    ((pio_registers_t*)PIO_PORT_C)->PIO_ODR = ~0x40002800;
+    ((pio_registers_t*)PIO_PORT_C)->PIO_OER = 0x40002a00;
+    ((pio_registers_t*)PIO_PORT_C)->PIO_ODR = ~0x40002a00;
     /* PORTC Initial state High */
-    ((pio_registers_t*)PIO_PORT_C)->PIO_ODSR = 0x40002800;
+    ((pio_registers_t*)PIO_PORT_C)->PIO_ODSR = 0x40002a00;
     /* PORTC drive control */
     ((pio_registers_t*)PIO_PORT_C)->PIO_DRIVER = 0x0;
 

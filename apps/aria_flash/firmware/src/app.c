@@ -512,8 +512,11 @@ void APP_Tasks ( void )
 			laWidget_SetVisible((laWidget*)OfLabel, LA_TRUE);
 			laWidget_SetVisible((laWidget*)RecordsTotalLabel, LA_TRUE);
 
+#ifdef _STDLIB_ULTOA
+			itoa(number, recordCount, 10);
+#else
 			itoa(recordCount, number, 10);
-
+#endif
 			str = laString_CreateFromCharBuffer(number, &Arial_sm);
 			laLabelWidget_SetText(RecordsTotalLabel, str);
 			laString_Destroy(&str);
@@ -535,8 +538,12 @@ void APP_Tasks ( void )
 
 		case APP_PRE_DECODE:
 		{
+#ifdef _STDLIB_ULTOA
+			itoa(number, dec.currentRecord + 1, 10);
+#else
 			itoa(dec.currentRecord + 1, number, 10);
-
+#endif
+            
 			str = laString_CreateFromCharBuffer(number, &Arial_sm);
 			laLabelWidget_SetText(CurrentRecordLabel, str);
 			laString_Destroy(&str);

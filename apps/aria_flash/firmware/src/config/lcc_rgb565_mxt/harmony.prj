@@ -35,8 +35,8 @@
           <Name dnOrder="1">drv_gfx_lcc.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/gfx/driver/lcc</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/lcc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">35A812997745FA523D894C95FD089D46</GeneratedChecksum>
-          <UserChecksum dnOrder="5">35A812997745FA523D894C95FD089D46</UserChecksum>
+          <GeneratedChecksum dnOrder="4">3F1E3E51CF04FF99F02B0D7DBCFA11AF</GeneratedChecksum>
+          <UserChecksum dnOrder="5">3F1E3E51CF04FF99F02B0D7DBCFA11AF</UserChecksum>
         </File>
         <File dnOrder="4">
           <Type dnOrder="0">SOURCE</Type>
@@ -515,8 +515,8 @@
           <Name dnOrder="1">initialization.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">ACEF9DDFE9072DF349A4A35B9D46DC60</GeneratedChecksum>
-          <UserChecksum dnOrder="5">ACEF9DDFE9072DF349A4A35B9D46DC60</UserChecksum>
+          <GeneratedChecksum dnOrder="4">E8EE7536A4D312128A5F5B414A9D9911</GeneratedChecksum>
+          <UserChecksum dnOrder="5">E8EE7536A4D312128A5F5B414A9D9911</UserChecksum>
         </File>
         <File dnOrder="64">
           <Type dnOrder="0">SOURCE</Type>
@@ -1219,8 +1219,8 @@
           <Name dnOrder="1">plib_clk.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/peripheral/clk/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/clk/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">7069492995E4F1890DFA9265AE9B8B8D</GeneratedChecksum>
-          <UserChecksum dnOrder="5">7069492995E4F1890DFA9265AE9B8B8D</UserChecksum>
+          <GeneratedChecksum dnOrder="4">E5B9ABB69AF334143E7D80A9163B2E1F</GeneratedChecksum>
+          <UserChecksum dnOrder="5">E5B9ABB69AF334143E7D80A9163B2E1F</UserChecksum>
         </File>
         <File dnOrder="152">
           <Type dnOrder="0">SOURCE</Type>
@@ -1235,8 +1235,8 @@
           <Name dnOrder="1">plib_hsmci.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/peripheral/hsmci/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/hsmci/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">FADF8BF4E61BBCA99A03B3EEF56F398C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">FADF8BF4E61BBCA99A03B3EEF56F398C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">3B32E4E89101E7736F40AC9ED5A742B0</GeneratedChecksum>
+          <UserChecksum dnOrder="5">3B32E4E89101E7736F40AC9ED5A742B0</UserChecksum>
         </File>
         <File dnOrder="154">
           <Type dnOrder="0">SOURCE</Type>
@@ -1251,16 +1251,16 @@
           <Name dnOrder="1">plib_nvic.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/peripheral/nvic/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/nvic/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">9DC36038244141207A95AFD05E3FA099</GeneratedChecksum>
-          <UserChecksum dnOrder="5">9DC36038244141207A95AFD05E3FA099</UserChecksum>
+          <GeneratedChecksum dnOrder="4">EB671C6E230D02D2D29572BF75D4B277</GeneratedChecksum>
+          <UserChecksum dnOrder="5">EB671C6E230D02D2D29572BF75D4B277</UserChecksum>
         </File>
         <File dnOrder="156">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_pio.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/peripheral/pio/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/pio/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">5B1DFD62A6AB73C39FFE20ED625A0122</GeneratedChecksum>
-          <UserChecksum dnOrder="5">5B1DFD62A6AB73C39FFE20ED625A0122</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6DB270794CA060EF64481A7263E78A1E</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6DB270794CA060EF64481A7263E78A1E</UserChecksum>
         </File>
         <File dnOrder="157">
           <Type dnOrder="0">SOURCE</Type>
@@ -1291,8 +1291,8 @@
           <Name dnOrder="1">plib_tc2.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/peripheral/tc/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/tc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">CC7EB5E260E861F4FF548A17B0BDE6F9</GeneratedChecksum>
-          <UserChecksum dnOrder="5">CC7EB5E260E861F4FF548A17B0BDE6F9</UserChecksum>
+          <GeneratedChecksum dnOrder="4">84A9462EDF311E87DFDB76E3DA210C55</GeneratedChecksum>
+          <UserChecksum dnOrder="5">84A9462EDF311E87DFDB76E3DA210C55</UserChecksum>
         </File>
         <File dnOrder="161">
           <Type dnOrder="0">SOURCE</Type>
@@ -1307,8 +1307,8 @@
           <Name dnOrder="1">plib_xdmac.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/peripheral/xdmac/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/xdmac/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">FD69004BDA806C7DC0FCE10B7CA3D3A5</GeneratedChecksum>
-          <UserChecksum dnOrder="5">FD69004BDA806C7DC0FCE10B7CA3D3A5</UserChecksum>
+          <GeneratedChecksum dnOrder="4">2BCC86E1CF0A4A2E768186EEDE29A395</GeneratedChecksum>
+          <UserChecksum dnOrder="5">2BCC86E1CF0A4A2E768186EEDE29A395</UserChecksum>
         </File>
         <File dnOrder="163">
           <Type dnOrder="0">SOURCE</Type>
@@ -1539,8 +1539,8 @@
           <Name dnOrder="1">configuration.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">848CE9A5117497247B0B73ECCDE012E0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">848CE9A5117497247B0B73ECCDE012E0</UserChecksum>
+          <GeneratedChecksum dnOrder="4">7CC1A61D736A6D38A5E03E1BE36EE77E</GeneratedChecksum>
+          <UserChecksum dnOrder="5">7CC1A61D736A6D38A5E03E1BE36EE77E</UserChecksum>
         </File>
         <File dnOrder="192">
           <Type dnOrder="0">HEADER</Type>
@@ -2667,8 +2667,8 @@
           <Name dnOrder="1">plib_pio.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/peripheral/pio/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/pio/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">3310D21ABDB3F2FA6E8B1F409CCF71AF</GeneratedChecksum>
-          <UserChecksum dnOrder="5">3310D21ABDB3F2FA6E8B1F409CCF71AF</UserChecksum>
+          <GeneratedChecksum dnOrder="4">F7A838FBFA6B43D123936F67EF551AF4</GeneratedChecksum>
+          <UserChecksum dnOrder="5">F7A838FBFA6B43D123936F67EF551AF4</UserChecksum>
         </File>
         <File dnOrder="333">
           <Type dnOrder="0">HEADER</Type>
@@ -2707,8 +2707,8 @@
           <Name dnOrder="1">plib_tc2.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/peripheral/tc/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/tc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A23BD041CF7685036D403BBCAAFD1254</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A23BD041CF7685036D403BBCAAFD1254</UserChecksum>
+          <GeneratedChecksum dnOrder="4">D0E2587B108882F6B9522A77B494EA5A</GeneratedChecksum>
+          <UserChecksum dnOrder="5">D0E2587B108882F6B9522A77B494EA5A</UserChecksum>
         </File>
         <File dnOrder="338">
           <Type dnOrder="0">HEADER</Type>
