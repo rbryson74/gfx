@@ -74,7 +74,7 @@ void SYS_Tasks ( void )
     
 
     /* Maintain Device Drivers */
-    DRV_SSD1963_Update();
+        DRV_SSD1963_Update();
 
 
     DRV_MAXTOUCH_Tasks(sysObj.drvMAXTOUCH);

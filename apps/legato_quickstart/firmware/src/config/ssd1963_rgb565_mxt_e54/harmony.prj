@@ -35,8 +35,8 @@
           <Name dnOrder="1">drv_gfx_ssd1963.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt_e54/gfx/driver/ssd1963</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/ssd1963/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">849D1563036A8327A84D68068A2D8787</GeneratedChecksum>
-          <UserChecksum dnOrder="5">849D1563036A8327A84D68068A2D8787</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6DD1A72437CC2B1D8140CEACE2EDE044</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6DD1A72437CC2B1D8140CEACE2EDE044</UserChecksum>
         </File>
         <File dnOrder="4">
           <Type dnOrder="0">SOURCE</Type>
