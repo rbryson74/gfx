@@ -29,5 +29,5 @@ def loadModule():
 	cntlComponent.addDependency("Graphics Display", "Graphics Display", False, False)
 	cntlComponent.addDependency("legato_library", "Legato", True, True)
 	
-	cntlComponent.addDependency("Display Interface", "LE Display Interface", False, True)
+	cntlComponent.addDependency("Display Interface", "Parallel Display Interface", False, True)
 	cntlComponent.addDependency("SYS_TIME", "SYS_TIME", True, True)

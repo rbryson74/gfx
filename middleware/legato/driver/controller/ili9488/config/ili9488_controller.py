@@ -55,24 +55,33 @@ def instantiateComponent(comp):
 	execfile(Module.getPath() + "/config/ili9488_rtos.py")
 
 def onAttachmentConnected(source, target):
-	if source["id"] == "Display Interface":
-		print(source["component"].getID() + ": Using " + target["component"].getID() + " interface ")
-		source["component"].getSymbolByID("GFX_ILI9488_DBIB_C").setEnabled(False)
-		source["component"].getSymbolByID("GFX_ILI9488_SPI").setEnabled(False)
-		source["component"].getSymbolByID("ParallelInterfaceWidth").setVisible(False)
+	source["component"].getSymbolByID("GFX_ILI9488_DBIB_C").setEnabled(False)
+	source["component"].getSymbolByID("GFX_ILI9488_SPI").setEnabled(False)
+	source["component"].getSymbolByID("ParallelInterfaceWidth").setVisible(False)
+	source["component"].getSymbolByID("DisplayInterface").setValue(target["id"], 1)
 
-		InterfaceType = str(target["component"].getSymbolByID("InterfaceType").getValue())
-		source["component"].getSymbolByID("DisplayInterface").setValue(target["id"], 1)
-		source["component"].getSymbolByID("DisplayInterfaceType").setValue(InterfaceType, 1)
-		if InterfaceType == "SPI 4-line":
-			source["component"].getSymbolByID("GFX_ILI9488_SPI").setEnabled(True)
-		elif "Parallel" in InterfaceType:
-			source["component"].getSymbolByID("GFX_ILI9488_DBIB_C").setEnabled(True)
-			source["component"].getSymbolByID("ParallelInterfaceWidth").setVisible(True)
-			if InterfaceType == "Parallel 8-bit":
-				source["component"].getSymbolByID("ParallelInterfaceWidth").setValue("8-bit", True)
+	InterfaceType = str(target["component"].getSymbolByID("InterfaceType").getValue())
+	source["component"].getSymbolByID("DisplayInterfaceType").setValue(InterfaceType, 1)
+
+	if source["id"] == "Parallel Display Interface":
+		print(source["component"].getID() + ": Using " + target["component"].getID() + " interface ")
+		source["component"].getSymbolByID("GFX_ILI9488_DBIB_C").setEnabled(True)
+		source["component"].getSymbolByID("ParallelInterfaceWidth").setVisible(True)
+		if InterfaceType == "Parallel 8-bit":
+			source["component"].getSymbolByID("ParallelInterfaceWidth").setValue("8-bit", True)
 		else:
 			print("Interface does not contain 'InterfaceType' capability")
+		
+		source["component"].setDependencyEnabled("Parallel Display Interface", True);
+		source["component"].setDependencyEnabled("SPI Display Interface", False);
+	elif source["id"] == "SPI Display Interface":
+		source["component"].getSymbolByID("GFX_ILI9488_SPI").setEnabled(True)
+		source["component"].setDependencyEnabled("Parallel Display Interface", False);
+		source["component"].setDependencyEnabled("SPI Display Interface", True);
+		
+def onAttachmentDisconnected(source, target):
+	source["component"].setDependencyEnabled("Parallel Display Interface", True);
+	source["component"].setDependencyEnabled("SPI Display Interface", True);
 
 def showRTOSMenu(symbol, event):
 	symbol.setVisible(event["value"] != "BareMetal")

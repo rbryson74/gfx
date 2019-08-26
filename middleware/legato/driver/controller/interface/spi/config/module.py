@@ -25,5 +25,5 @@
 def loadModule():	
 	component = Module.CreateComponent("le_gfx_intf_spi4", "LE SPI 4-line", "/Graphics/Interface", "config/spi4.py")
 	component.setDisplayType("4-line SPI Display Interface")
-	component.addCapability("le_gfx_intf_spi4", "LE Display Interface", False)
+	component.addCapability("le_gfx_intf_spi4", "SPI Display Interface", False)
 	component.addDependency("DRV_SPI", "DRV_SPI", False, False)
