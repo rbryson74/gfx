@@ -24,7 +24,7 @@
 
 ############ Parallel CONFIG ######################################################
 sam_e54_cult_cpro_p_ActivateList = ["le_gfx_intf_parallel_portgroup", "sercom4", "drv_i2c", "drv_i2c0", "tc0", "sys_time"]
-sam_e54_cult_cpro_p_ConnectList = [["le_gfx_driver_ili9488", "Display Interface", "le_gfx_intf_parallel_portgroup", "le_gfx_intf_parallel_portgroup"],
+sam_e54_cult_cpro_p_ConnectList = [["le_gfx_driver_ili9488", "Parallel Display Interface", "le_gfx_intf_parallel_portgroup", "le_gfx_intf_parallel_portgroup"],
 						["drv_i2c_0", "drv_i2c_I2C_dependency", "sercom4", "SERCOM4_I2C"],
 						["gfx_maxtouch_controller", "i2c", "drv_i2c_0", "drv_i2c"],
 						["sys_time", "sys_time_TMR_dependency", "tc0", "TC0_TMR"]]
@@ -66,7 +66,7 @@ sam_e54_cult_cpro_p_PinConfigBitBang = [{"pin": 3, "name": "GPIO_PC00", "type": 
 
 ############ SPI CONFIG ######################################################
 sam_e54_cult_cpro_spi_ActivateList = ["le_gfx_intf_spi4", "sercom0", "drv_spi", "drv_spi_0","sercom6", "drv_i2c", "drv_i2c0", "tc0", "sys_time"]
-sam_e54_cult_cpro_spi_ConnectList = [["le_gfx_driver_ili9488", "Display Interface", "le_gfx_intf_spi4", "le_gfx_intf_spi4"],
+sam_e54_cult_cpro_spi_ConnectList = [["le_gfx_driver_ili9488", "SPI Display Interface", "le_gfx_intf_spi4", "le_gfx_intf_spi4"],
 						["le_gfx_intf_spi4", "DRV_SPI", "drv_spi_0", "drv_spi"],
 						["drv_spi_0", "drv_spi_SPI_dependency", "sercom0", "SERCOM0_SPI"],
 						["gfx_maxtouch_controller", "i2c", "drv_i2c_0", "drv_i2c"],

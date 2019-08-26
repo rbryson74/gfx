@@ -44,7 +44,7 @@ bsp_pic32mzef_cu_AutoConnectList_SSD = [["gfx_hal", "gfx_display_driver", "gfx_d
 					["drv_i2c_0", "drv_i2c_I2C_dependency", "i2c2", "I2C2_I2C"],
 					["gfx_maxtouch_controller", "i2c", "drv_i2c_0", "drv_i2c"],
 					["sys_time", "sys_time_TMR_dependency", "core_timer", "CORE_TIMER_TMR"],
-					["gfx_driver_ssd1963", "Display Interface", "gfx_intf_parallel_ebi", "gfx_intf_parallel_ebi"],
+					["gfx_driver_ssd1963", "Parallel Display Interface", "gfx_intf_parallel_ebi", "gfx_intf_parallel_ebi"],
 					["gfx_intf_parallel_ebi", "EBI_CS", "ebi", "ebi_cs0"]]
 bsp_pic32mzef_cu_PinConfig_SSD = [{"pin": 104, "name": "BSP_MAXTOUCH_CHG", "type": "GPIO", "direction": "In", "latch": "", "abcd": ""}, #RD0
 				{"pin": 53, "name": "GFX_DISP_INTF_PIN_RD", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #RK3

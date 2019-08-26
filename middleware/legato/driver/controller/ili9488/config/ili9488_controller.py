@@ -59,19 +59,10 @@ def onAttachmentConnected(source, target):
 	source["component"].getSymbolByID("GFX_ILI9488_SPI").setEnabled(False)
 	source["component"].getSymbolByID("ParallelInterfaceWidth").setVisible(False)
 	source["component"].getSymbolByID("DisplayInterface").setValue(target["id"], 1)
-
-	InterfaceType = str(target["component"].getSymbolByID("InterfaceType").getValue())
-	source["component"].getSymbolByID("DisplayInterfaceType").setValue(InterfaceType, 1)
-
 	if source["id"] == "Parallel Display Interface":
 		print(source["component"].getID() + ": Using " + target["component"].getID() + " interface ")
 		source["component"].getSymbolByID("GFX_ILI9488_DBIB_C").setEnabled(True)
 		source["component"].getSymbolByID("ParallelInterfaceWidth").setVisible(True)
-		if InterfaceType == "Parallel 8-bit":
-			source["component"].getSymbolByID("ParallelInterfaceWidth").setValue("8-bit", True)
-		else:
-			print("Interface does not contain 'InterfaceType' capability")
-		
 		source["component"].setDependencyEnabled("Parallel Display Interface", True);
 		source["component"].setDependencyEnabled("SPI Display Interface", False);
 	elif source["id"] == "SPI Display Interface":

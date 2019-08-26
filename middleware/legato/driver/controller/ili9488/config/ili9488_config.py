@@ -33,14 +33,8 @@ DisplayInterface.setVisible(True)
 DisplayInterface.setReadOnly(True)
 DisplayInterface.setUseSingleDynamicValue(True)
 
-DisplayInterfaceType = comp.createStringSymbol("DisplayInterfaceType", None)
-DisplayInterfaceType.setLabel("Display Interface Type")
-DisplayInterfaceType.setVisible(True)
-DisplayInterfaceType.setReadOnly(True)
-DisplayInterfaceType.setUseSingleDynamicValue(True)
-
 ### Parallel mode specific options
-ParallelInterfaceWidth = comp.createComboSymbol("ParallelInterfaceWidth", DisplayInterfaceType, ["16-bit", "8-bit"])
+ParallelInterfaceWidth = comp.createComboSymbol("ParallelInterfaceWidth", DisplayInterface, ["16-bit", "8-bit"])
 ParallelInterfaceWidth.setLabel("Data Width")
 ParallelInterfaceWidth.setDescription("Data Width")
 ParallelInterfaceWidth.setDefaultValue("16-bit")
