@@ -41,6 +41,8 @@ static struct InternalReadStage
     uint32_t imgBPP;
 } internalReadStage;
 
+#include <stdio.h>
+
 static void colorDecode()
 {
     leRawSourceReadOperation* op = &internalReadStage.base.state->readOperation[internalReadStage.base.state->readIndex];
@@ -63,6 +65,12 @@ static void rleDecode()
 {
     leRawSourceReadOperation* op = &internalReadStage.base.state->readOperation[internalReadStage.base.state->readIndex];
 
+    // TODO sparing these values results in an optimization for
+    // known sequential decode operations.  deal with it later
+    // these values fail when doing random reads like with rotation
+    internalReadStage.lastBlock = 0;
+    internalReadStage.lastOffset = 0;
+
     op->data = leGetRLEDataAtIndex(internalReadStage.base.state->source->buffer.pixels,
                                    internalReadStage.base.state->source->buffer.pixel_count,
                                    op->bufferIndex,
@@ -79,6 +87,12 @@ static void indexRLEDecode()
     // get the offset into the index table
     srcClr = leGetOffsetFromIndexAndBPP(op->bufferIndex,
                                         internalReadStage.imgBPP);
+
+    // TODO sparing these values results in an optimization for
+    // known sequential decode operations.  deal with it later
+    // these values fail when doing random reads like with rotation
+    internalReadStage.lastBlock = 0;
+    internalReadStage.lastOffset = 0;
 
     // perform RLE lookup
     srcClr = leGetRLEDataAtIndex(internalReadStage.base.state->source->buffer.pixels,

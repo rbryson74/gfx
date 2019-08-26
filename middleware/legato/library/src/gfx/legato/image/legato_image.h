@@ -277,7 +277,7 @@ typedef struct leImageDecoder
     leResult (*resizeDraw)(const leImage* src, const leRect* srcRect, leImageFilterMode mode, uint32_t sizeX, uint32_t sizeY, int32_t x, int32_t y, uint32_t a);
     leResult (*rotate)(const leImage* src, const leRect* srcRect, leImageFilterMode mode, const lePoint* origin, int32_t angle, leImage* dst);
     leResult (*rotateDraw)(const leImage* src, const leRect* srcRect, leImageFilterMode mode, const lePoint* origin, int32_t angle, int32_t x, int32_t y, uint32_t a);
-    void     (*exec)(void);
+    leResult (*exec)(void);
     leBool   (*isDone)(void);
     void     (*free)(void);
 } leImageDecoder;

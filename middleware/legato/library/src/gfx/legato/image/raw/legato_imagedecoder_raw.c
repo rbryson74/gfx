@@ -24,6 +24,7 @@
 #include <gfx/legato/image/legato_image.h>
 #include "gfx/legato/image/raw/legato_imagedecoder_raw.h"
 
+#include "gfx/legato/common/legato_math.h"
 #include "gfx/legato/core/legato_state.h"
 #include "gfx/legato/core/legato_stream.h"
 #include "gfx/legato/image/legato_palette.h"
@@ -53,13 +54,18 @@ uint8_t leRawImageDecoderBlendBuffer[LE_ASSET_DECODER_CACHE_SIZE];
 static leImageDecoder decoder;
 static leRawDecodeState state;
 
+#if LE_STREAMING_ENABLED == 1
+
 static leResult _exec(leStreamManager* mgr);
 static leBool _isDone(leStreamManager* mgr);
 static void _abort(leStreamManager* mgr);
 static void _cleanup(leStreamManager* mgr);
 
+#endif
+
 leResult _leRawImageDecoder_SourceIterateSetupStage(leRawDecodeState* state);
 leResult _leRawImageDecoder_TargetIterateSetupStage(leRawDecodeState* state);
+leResult _leRawImageDecoder_RotatedTargetIterateSetupStage(leRawDecodeState* state);
 
 leResult _leRawImageDecoder_PostReadStage(leRawDecodeState* state);
 
@@ -242,10 +248,12 @@ static leResult _draw(const leImage* img,
     if(sourceClipRect.width <= 0 || sourceClipRect.height <= 0)
         return LE_FAILURE;
 
+#if LE_STREAMING_ENABLED == 1
     state.manager.exec = _exec;
     state.manager.isDone = _isDone;
     state.manager.abort = _abort;
     state.manager.cleanup = _cleanup;
+#endif
 
     state.mode = LE_RAW_MODE_DRAW;
 
@@ -330,10 +338,12 @@ static leResult _resize(const leImage* src,
     if(sourceClipRect.width <= 0 || sourceClipRect.height <= 0)
         return LE_FAILURE;
 
+#if LE_STREAMING_ENABLED == 1
     state.manager.exec = _exec;
     state.manager.isDone = _isDone;
     state.manager.abort = _abort;
     state.manager.cleanup = _cleanup;
+#endif
 
     state.mode = LE_RAW_MODE_RESIZE;
 
@@ -449,10 +459,12 @@ static leResult _resizeDraw(const leImage* src,
     if(drawClipRect.width <= 0 || drawClipRect.height <= 0)
         return LE_FAILURE;
 
+#if LE_STREAMING_ENABLED == 1
     state.manager.exec = _exec;
     state.manager.isDone = _isDone;
     state.manager.abort = _abort;
     state.manager.cleanup = _cleanup;
+#endif
 
     state.mode = LE_RAW_MODE_RESIZEDRAW;
 
@@ -564,10 +576,12 @@ static leResult _copy(const leImage* src,
     if(sourceClipRect.width <= 0 || sourceClipRect.height <= 0)
         return LE_FAILURE;
 
+#if LE_STREAMING_ENABLED == 1
     state.manager.exec = _exec;
     state.manager.isDone = _isDone;
     state.manager.abort = _abort;
     state.manager.cleanup = _cleanup;
+#endif
 
     state.mode = LE_RAW_MODE_COPY;
 
@@ -647,10 +661,12 @@ static leResult _render(const leImage* src,
     if(sourceClipRect.width <= 0 || sourceClipRect.height <= 0)
         return LE_FAILURE;
 
+#if LE_STREAMING_ENABLED == 1
     state.manager.exec = _exec;
     state.manager.isDone = _isDone;
     state.manager.abort = _abort;
     state.manager.cleanup = _cleanup;
+#endif
 
     state.mode = LE_RAW_MODE_RENDER;
 
@@ -704,14 +720,18 @@ static leResult _render(const leImage* src,
        (dst->flags & LE_IMAGE_USE_MASK_COLOR) > 0 &&
        src->palette != NULL)
     {
+#if LE_STREAMING_ENABLED == 1
         if(src->palette->header.location != LE_STREAM_LOCATION_ID_INTERNAL)
         {
             _leRawImageDecoder_ImageRenderPostLookupStage_Stream(&state);
         }
         else
         {
+#endif
             _leRawImageDecoder_ImageRenderPostLookupStage(&state);
+#if LE_STREAMING_ENABLED == 1
         }
+#endif
     }
 
     if(ignoreAlpha == LE_TRUE && _initBlendStage(&state) == LE_FAILURE)
@@ -784,10 +804,12 @@ static leResult _rotate(const leImage* src,
     if(sourceClipRect.width <= 0 || sourceClipRect.height <= 0)
         return LE_FAILURE;
 
+#if LE_STREAMING_ENABLED == 1
     state.manager.exec = _exec;
     state.manager.isDone = _isDone;
     state.manager.abort = _abort;
     state.manager.cleanup = _cleanup;
+#endif
 
     state.mode = LE_RAW_MODE_ROTATE;
 
@@ -887,30 +909,40 @@ static leResult _rotateDraw(const leImage* src,
 
     leRectClip(&imgRect, srcRect, &sourceClipRect);
 
-    drawRect.x = x;
-    drawRect.y = y;
-    drawRect.width = sourceClipRect.width;
-    drawRect.height = sourceClipRect.height;
+    // calculate source rect in screen space
+    imgRect = sourceClipRect;
+    imgRect.x += x;
+    imgRect.y += y;
+
+    // calculate bounds of rotated rectangle
+    drawRect = leRotatedRectBounds(imgRect,
+                                   *origin,
+                                   angle);
 
     /* make sure the dest rect is within the damaged rect area */
-    clipRect = leRectClipAdj(&drawRect, &dmgRect, &sourceClipRect);
+    leRectClip(&drawRect, &dmgRect, &clipRect);
 
-    if(sourceClipRect.width <= 0 || sourceClipRect.height <= 0)
+    if(clipRect.width <= 0 || clipRect.height <= 0)
         return LE_FAILURE;
 
+#if LE_STREAMING_ENABLED == 1
     state.manager.exec = _exec;
     state.manager.isDone = _isDone;
     state.manager.abort = _abort;
     state.manager.cleanup = _cleanup;
+#endif
 
     state.mode = LE_RAW_MODE_ROTATEDRAW;
 
     state.source = src;
-    state.sourceRect = sourceClipRect;
-
     state.filterMode = mode;
+    state.sourceRect = imgRect;
 
+    // store the target rect dimensions
     state.destRect = clipRect;
+
+    state.targetY = clipRect.y;
+    state.targetX = clipRect.x;
 
     state.angle = angle;
     state.origin = *origin;
@@ -920,7 +952,7 @@ static leResult _rotateDraw(const leImage* src,
     state.globalAlpha = a;
 
     // iterator setup
-    if(_leRawImageDecoder_TargetIterateSetupStage(&state) == LE_FAILURE)
+    if(_leRawImageDecoder_RotatedTargetIterateSetupStage(&state) == LE_FAILURE)
         return LE_FAILURE;
 
     // filter pre read stage
@@ -964,58 +996,11 @@ static leResult _rotateDraw(const leImage* src,
     return LE_SUCCESS;
 }
 
-static leResult _exec(leStreamManager* mgr)
-{
-    if(state.mode == LE_RAW_MODE_NONE)
-        return LE_FAILURE;
-
-    // any stage can set done and exit the loop
-    while(state.done == LE_FALSE)
-    {
-        // stages can return false if they stall
-        if(state.stages[state.currentStage]->exec(state.stages[state.currentStage]) == LE_FAILURE)
-            return LE_SUCCESS;
-
-        // increment stage
-        state.currentStage++;
-
-        if(state.stages[state.currentStage] == NULL)
-        {
-            // restart the pipeline
-            state.currentStage = 0;
-        }
-    }
-
-    // free the stages
-    mgr->cleanup(mgr);
-
-    if(mgr->onDone != NULL)
-    {
-        mgr->onDone(mgr);
-    }
-
-    return LE_SUCCESS;
-}
-
-static leBool _isDone(leStreamManager* mgr)
-{
-    return state.done;
-}
-
-static void _abort(leStreamManager* mgr)
-{
-    state.done = LE_TRUE;
-
-    // free the stages
-    mgr->cleanup(mgr);
-
-    if(mgr->onDone != NULL)
-    {
-        mgr->onDone(mgr);
-    }
-}
-
+#if LE_STREAMING_ENABLED == 1
 static void _cleanup(leStreamManager* mgr)
+#else
+static void _decoderCleanup()
+#endif
 {
     int32_t idx;
 
@@ -1047,8 +1032,15 @@ static void _cleanup(leStreamManager* mgr)
     }
 }
 
-static void _decoderExec(void)
+#if LE_STREAMING_ENABLED == 1
+static leResult _exec(leStreamManager* mgr)
+#else
+static leResult _decoderExec()
+#endif
 {
+    if(state.mode == LE_RAW_MODE_NONE)
+        return LE_FAILURE;
+
 #if LE_STREAMING_ENABLED == 1
     if(leGetActiveStream() != NULL)
         return;
@@ -1056,6 +1048,67 @@ static void _decoderExec(void)
     leGetState()->activeStream = (leStreamManager*)&state;
 #endif
 
+    // any stage can set done and exit the loop
+    while(state.done == LE_FALSE)
+    {
+        // stages can return false if they stall
+        if(state.stages[state.currentStage]->exec(state.stages[state.currentStage]) == LE_FAILURE)
+            return LE_SUCCESS;
+
+        // increment stage
+        state.currentStage++;
+
+        if(state.stages[state.currentStage] == NULL)
+        {
+            // restart the pipeline
+            state.currentStage = 0;
+        }
+    }
+
+#if LE_STREAMING_ENABLED == 1
+    // free the stages
+    mgr->cleanup(mgr);
+
+    if(mgr->onDone != NULL)
+    {
+        mgr->onDone(mgr);
+    }
+#else
+    _decoderCleanup();
+#endif
+
+    return LE_SUCCESS;
+}
+
+#if LE_STREAMING_ENABLED == 1
+static leBool _isDone(leStreamManager* mgr)
+#else
+static leBool _decoderIsDone()
+#endif
+{
+    return state.done;
+}
+
+#if LE_STREAMING_ENABLED == 1
+static void _abort(leStreamManager* mgr)
+{
+    state.done = LE_TRUE;
+
+    // free the stages
+    mgr->cleanup(mgr);
+
+    if(mgr->onDone != NULL)
+    {
+        mgr->onDone(mgr);
+    }
+}
+#endif
+
+
+#if LE_STREAMING_ENABLED == 1
+
+static void _decoderExec(void)
+{
     state.manager.exec(&state.manager);
 }
 
@@ -1064,10 +1117,12 @@ static leBool _decoderIsDone(void)
     return state.done;
 }
 
-static void _decoderFree(void)
+static void _decoderCleanup(void)
 {
     state.manager.cleanup(&state.manager);
 }
+
+#endif
 
 leImageDecoder* _leRawImageDecoder_Init(void)
 {
@@ -1083,7 +1138,7 @@ leImageDecoder* _leRawImageDecoder_Init(void)
     decoder.rotateDraw = _rotateDraw;
     decoder.exec = _decoderExec;
     decoder.isDone = _decoderIsDone;
-    decoder.free = _decoderFree;
+    decoder.free = _decoderCleanup;
 
     return &decoder;
 }

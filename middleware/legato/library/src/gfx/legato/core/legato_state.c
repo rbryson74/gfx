@@ -65,7 +65,8 @@ void _leDrawSurfaceWidget_GenerateVTable();
 void _leGradientWidget_GenerateVTable();
 void _leGroupBoxWidget_GenerateVTable();
 void _leImageWidget_GenerateVTable();
-void _leImagePlusWidget_GenerateVTable();
+void _leImageRotateWidget_GenerateVTable();
+void _leImageScaleWidget_GenerateVTable();
 void _leImageSequenceWidget_GenerateVTable();
 void _leKeyPadWidget_GenerateVTable();
 void _leLabelWidget_GenerateVTable();
@@ -138,8 +139,12 @@ vtableFn vtableFnTable[] =
     _leImageWidget_GenerateVTable,
 #endif
 
-#if LE_IMAGEPLUS_WIDGET_ENABLED == 1
-    _leImagePlusWidget_GenerateVTable,
+#if LE_IMAGEROTATE_WIDGET_ENABLED == 1
+    _leImageRotateWidget_GenerateVTable,
+#endif
+
+#if LE_IMAGESCALE_WIDGET_ENABLED == 1
+    _leImageScaleWidget_GenerateVTable,
 #endif
 
 #if LE_IMAGESEQUENCE_WIDGET_ENABLED == 1

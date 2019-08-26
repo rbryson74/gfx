@@ -546,4 +546,33 @@ lePoint leRotatePoint(lePoint pos,
                       lePoint org,
                       int32_t ang);
 
+// *****************************************************************************
+/* Function:
+    leRect leRotatedRectBounds(leRect rect,
+                               lePoint org,
+                               int32_t ang)
+
+  Summary:
+    Calculates the bounding rectangle of an area rotated around
+    an anchor point.
+
+  Description:
+    Calculates the bounding rectangle of an area rotated around
+    an anchor point.
+
+  Parameters:
+    leRect rect - the area to rotate
+    lePoint org - the origin of the rotation
+    int32_t ang - the angle in degrees
+
+  Returns:
+    leRect - the rectangle that completely contains the rotated area
+
+  Remarks:
+
+*/
+leRect leRotatedRectBounds(leRect rect,
+                           lePoint org,
+                           int32_t ang);
+
 #endif /* LE_MATH_H */

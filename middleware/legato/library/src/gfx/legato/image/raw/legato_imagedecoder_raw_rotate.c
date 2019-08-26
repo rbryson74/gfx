@@ -43,10 +43,12 @@ static leResult stage_rotateNearestNeighborPreRead(struct RotateNearestNeighborP
     stage->base.state->readCount = 1;
 
     // calculate rotated nearest neighbor index
-    pnt.x = stage->base.state->referenceX;
-    pnt.y = stage->base.state->referenceY;
+    pnt.x = stage->base.state->targetX - stage->base.state->sourceRect.x;
+    pnt.y = stage->base.state->targetY - stage->base.state->sourceRect.y;
 
-    pnt = leRotatePoint(pnt, stage->base.state->origin, stage->base.state->angle);
+    pnt = leRotatePoint(pnt,
+                        stage->base.state->origin,
+                        -stage->base.state->angle);
 
     /*if(stage->base.state->referenceX == 0 && stage->base.state->referenceY == 0)
     {
@@ -95,18 +97,18 @@ static struct RotateBilinearPreReadStage
 static leResult stage_bilinearPreRead(struct RotateBilinearPreReadStage* stage)
 {
     leRawDecodeState* state = stage->base.state;
-    lePoint pnt;
+    lePoint readPoint, filterPoint;
 
-    state->readCount = 4;
+    // calculate rotated nearest neighbor index
+    readPoint.x = stage->base.state->targetX - stage->base.state->sourceRect.x;
+    readPoint.y = stage->base.state->targetY - stage->base.state->sourceRect.y;
 
-    // first pixel read
-    pnt.x = state->referenceX;
-    pnt.y = state->referenceY;
+    readPoint = leRotatePoint(readPoint,
+                              stage->base.state->origin,
+                             -stage->base.state->angle);
 
-    pnt = leRotatePoint(pnt, stage->base.state->origin, stage->base.state->angle);
-
-    if(pnt.x < 0 || pnt.x >= stage->base.state->source->buffer.size.width ||
-       pnt.y < 0 || pnt.y >= stage->base.state->source->buffer.size.height)
+    if(readPoint.x < 0 || readPoint.x >= stage->base.state->source->buffer.size.width ||
+       readPoint.y < 0 || readPoint.y >= stage->base.state->source->buffer.size.height)
     {
         // this pixel position is invalid, reset the pipeline
         stage->base.state->currentStage = -1;
@@ -114,90 +116,73 @@ static leResult stage_bilinearPreRead(struct RotateBilinearPreReadStage* stage)
         return LE_SUCCESS;
     }
 
-    stage->base.state->readOperation[0].x = pnt.x;
-    stage->base.state->readOperation[0].y = pnt.y;
-
-    state->readOperation[0].bufferIndex = pnt.x + (pnt.y * state->source->buffer.size.width);
-
-    // second
-    pnt.x = state->referenceX;
-    pnt.y = state->referenceY;
-
-    if(pnt.x < stage->base.state->source->buffer.size.width - 1)
+    // if we're right on the edge, do a nearest neighbor instead of a bilinear blend
+    if(readPoint.x == stage->base.state->source->buffer.size.width - 1 ||
+       readPoint.y == stage->base.state->source->buffer.size.height - 1)
     {
-        pnt.x += 1;
+        state->readCount = 1;
+
+        stage->base.state->readOperation[0].x = readPoint.x;
+        stage->base.state->readOperation[0].y = readPoint.y;
+
+        state->readOperation[0].bufferIndex = readPoint.x + (readPoint.y * state->source->buffer.size.width);
     }
-
-    pnt = leRotatePoint(pnt, stage->base.state->origin, stage->base.state->angle);
-
-    if(pnt.x < 0 || pnt.x >= stage->base.state->source->buffer.size.width ||
-       pnt.y < 0 || pnt.y >= stage->base.state->source->buffer.size.height)
+    else
     {
-        // this pixel position is invalid, reset the pipeline
-        stage->base.state->currentStage = -1;
+        state->readCount = 4;
 
-        return LE_SUCCESS;
+        // first point
+        filterPoint = readPoint;
+
+        stage->base.state->readOperation[0].x = filterPoint.x;
+        stage->base.state->readOperation[0].y = filterPoint.y;
+
+        state->readOperation[0].bufferIndex = readPoint.x + (readPoint.y * state->source->buffer.size.width);
+
+        // second
+        filterPoint = readPoint;
+
+        if(filterPoint.x < stage->base.state->source->buffer.size.width - 1)
+        {
+            filterPoint.x += 1;
+        }
+
+        stage->base.state->readOperation[1].x = filterPoint.x;
+        stage->base.state->readOperation[1].y = filterPoint.y;
+
+        state->readOperation[1].bufferIndex = filterPoint.x + (filterPoint.y * state->source->buffer.size.width);
+
+        // third
+        filterPoint = readPoint;
+
+        if(filterPoint.y < stage->base.state->source->buffer.size.height - 1)
+        {
+            filterPoint.y += 1;
+        }
+
+        stage->base.state->readOperation[2].x = filterPoint.x;
+        stage->base.state->readOperation[2].y = filterPoint.y;
+
+        state->readOperation[2].bufferIndex = filterPoint.x + (filterPoint.y * state->source->buffer.size.width);
+
+        // fourth
+        filterPoint = readPoint;
+
+        if(filterPoint.x < stage->base.state->source->buffer.size.width - 1)
+        {
+            filterPoint.x += 1;
+        }
+
+        if(filterPoint.y < stage->base.state->source->buffer.size.height - 1)
+        {
+            filterPoint.y += 1;
+        }
+
+        stage->base.state->readOperation[3].x = filterPoint.x;
+        stage->base.state->readOperation[3].y = filterPoint.y;
+
+        state->readOperation[3].bufferIndex = filterPoint.x + (filterPoint.y * state->source->buffer.size.width);
     }
-
-    stage->base.state->readOperation[1].x = pnt.x;
-    stage->base.state->readOperation[1].y = pnt.y;
-
-    state->readOperation[1].bufferIndex = pnt.x + (pnt.y * state->source->buffer.size.width);
-
-    // third
-    pnt.x = state->referenceX;
-    pnt.y = state->referenceY;
-
-    if(pnt.y < stage->base.state->source->buffer.size.height - 1)
-    {
-        pnt.y += 1;
-    }
-
-    pnt = leRotatePoint(pnt, stage->base.state->origin, stage->base.state->angle);
-
-    if(pnt.x < 0 || pnt.x >= stage->base.state->source->buffer.size.width ||
-       pnt.y < 0 || pnt.y >= stage->base.state->source->buffer.size.height)
-    {
-        // this pixel position is invalid, reset the pipeline
-        stage->base.state->currentStage = -1;
-
-        return LE_SUCCESS;
-    }
-
-    stage->base.state->readOperation[2].x = pnt.x;
-    stage->base.state->readOperation[2].y = pnt.y;
-
-    state->readOperation[2].bufferIndex = pnt.x + (pnt.y * state->source->buffer.size.width);
-
-    // fourth
-    pnt.x = state->referenceX;
-    pnt.y = state->referenceY;
-
-    if(pnt.x < stage->base.state->source->buffer.size.width - 1)
-    {
-        pnt.x += 1;
-    }
-
-    if(pnt.y < stage->base.state->source->buffer.size.height - 1)
-    {
-        pnt.y += 1;
-    }
-
-    pnt = leRotatePoint(pnt, stage->base.state->origin, stage->base.state->angle);
-
-    if(pnt.x < 0 || pnt.x >= stage->base.state->source->buffer.size.width ||
-       pnt.y < 0 || pnt.y >= stage->base.state->source->buffer.size.height)
-    {
-        // this pixel position is invalid, reset the pipeline
-        stage->base.state->currentStage = -1;
-
-        return LE_SUCCESS;
-    }
-
-    stage->base.state->readOperation[3].x = pnt.x;
-    stage->base.state->readOperation[3].y = pnt.y;
-
-    state->readOperation[3].bufferIndex = pnt.x + (pnt.y * state->source->buffer.size.width);
 
     return LE_SUCCESS;
 }
@@ -221,13 +206,20 @@ static struct RotateBilinearPostReadStage
 
 static leResult stage_rotateBilinearPostRead(leRawDecodeStage* stage)
 {
-    stage->state->writeColor = leColorBilerp(stage->state->readOperation[0].data,
-                                             stage->state->readOperation[1].data,
-                                             stage->state->readOperation[2].data,
-                                             stage->state->readOperation[3].data,
-                                             50,
-                                             50,
-                                             stage->state->source->buffer.mode);
+    if(stage->state->readCount == 1)
+    {
+        stage->state->writeColor = stage->state->readOperation[0].data;
+    }
+    else
+    {
+        stage->state->writeColor = leColorBilerp(stage->state->readOperation[0].data,
+                                                 stage->state->readOperation[1].data,
+                                                 stage->state->readOperation[2].data,
+                                                 stage->state->readOperation[3].data,
+                                                 50,
+                                                 50,
+                                                 stage->state->source->buffer.mode);
+    }
 
     return LE_SUCCESS;
 }

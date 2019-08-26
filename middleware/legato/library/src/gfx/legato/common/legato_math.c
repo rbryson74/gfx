@@ -85,10 +85,6 @@ int32_t leSin(int32_t v)
     {
         return (_cosTable[COSINE_TABLE_ENTRIES - v]);
     }
-
-    //float radians = v * (3.14159265359 / 180);
-
-    //return sinf(radians) * TRIG_SCALAR;
 }
 
 int32_t leCos(int32_t v)
@@ -118,11 +114,9 @@ int32_t leCos(int32_t v)
     {
         return (_cosTable[v]);
     }
-
-    //float radians = v * (3.14159265359 / 180);
-
-    //return cosf(radians) * TRIG_SCALAR;
 }
+
+
 
 leResult lePolarToXY(int32_t r, int32_t a, lePoint* p)
 {
@@ -529,11 +523,78 @@ lePoint leRotatePoint(lePoint pos,
 {
     lePoint res = lePoint_Zero;
 
-    int32_t sinVal = leSin(ang);
-    int32_t cosVal = leCos(ang);
+    pos.x -= org.x;
+    pos.y -= org.y;
 
-    res.x = ((cosVal * (pos.x - org.x)) / TRIG_SCALAR) - ((sinVal * (pos.y - org.y)) / TRIG_SCALAR) + org.x;
-    res.y = ((sinVal * (pos.x - org.x)) / TRIG_SCALAR) + ((cosVal * (pos.y - org.y)) / TRIG_SCALAR) + org.y;
+    int32_t sinVal = leSin(-ang);
+    int32_t cosVal = leCos(-ang);
+
+    res.x = ((pos.x * cosVal) / TRIG_SCALAR) - ((pos.y * sinVal) / TRIG_SCALAR);
+    res.y = ((pos.x * sinVal) / TRIG_SCALAR) + ((pos.y * cosVal) / TRIG_SCALAR);
+
+    res.x += org.x;
+    res.y += org.y;
+
+    return res;
+}
+
+leRect leRotatedRectBounds(leRect rect,
+                           lePoint org,
+                           int32_t ang)
+{
+    lePoint point[4];
+    leRect res;
+    int32_t minX = 99999;
+    int32_t maxX = -99999;
+    int32_t minY = 99999;
+    int32_t maxY = -99999;
+
+    uint32_t i;
+
+    point[0].x = 0;
+    point[0].y = 0;
+
+    point[1].x = rect.width;
+    point[1].y = 0;
+
+    point[2].x = 0;
+    point[2].y = rect.height;
+
+    point[3].x = point[1].x;
+    point[3].y = point[2].y;
+
+    point[0] = leRotatePoint(point[0], org, ang);
+    point[1] = leRotatePoint(point[1], org, ang);
+    point[2] = leRotatePoint(point[2], org, ang);
+    point[3] = leRotatePoint(point[3], org, ang);
+
+    for(i = 0; i < 4; i++)
+    {
+        if(point[i].x < minX)
+        {
+            minX = point[i].x;
+        }
+
+        if(point[i].x > maxX)
+        {
+            maxX = point[i].x;
+        }
+
+        if(point[i].y < minY)
+        {
+            minY = point[i].y;
+        }
+
+        if(point[i].y > maxY)
+        {
+            maxY = point[i].y;
+        }
+    }
+
+    res.x = rect.x + minX;
+    res.y = rect.y + minY;
+    res.width = maxX - minX;
+    res.height = maxY - minY;
 
     return res;
 }
