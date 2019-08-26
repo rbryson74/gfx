@@ -460,832 +460,1214 @@
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="SERCOM0_PAD0"/>
           </Values>
         </String>
-        <String dnOrder="89" id="PIN_100_PERIPHERAL_FUNCTION">
+        <String dnOrder="89" id="PIN_100_MODE">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value=""/>
+            <User dnOrder="0" value=""/>
           </Values>
         </String>
-        <String dnOrder="90" id="PIN_101_FUNCTION_TYPE">
+        <String dnOrder="90" id="PIN_100_PERIPHERAL_FUNCTION">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value=""/>
+            <User dnOrder="1" value="C"/>
+          </Values>
+        </String>
+        <String dnOrder="91" id="PIN_101_FUNCTION_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="SERCOM0_PAD1"/>
           </Values>
         </String>
-        <String dnOrder="91" id="PIN_101_PERIPHERAL_FUNCTION">
+        <String dnOrder="92" id="PIN_101_MODE">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value=""/>
+            <User dnOrder="0" value=""/>
           </Values>
         </String>
-        <String dnOrder="92" id="PIN_105_DIR">
+        <String dnOrder="93" id="PIN_101_PERIPHERAL_FUNCTION">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value=""/>
+            <User dnOrder="1" value="C"/>
+          </Values>
+        </String>
+        <String dnOrder="94" id="PIN_105_DIR">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="Out"/>
           </Values>
         </String>
-        <String dnOrder="93" id="PIN_105_FUNCTION_NAME">
+        <String dnOrder="95" id="PIN_105_FUNCTION_NAME">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="GFX_DISP_INTF_PIN_RESET"/>
           </Values>
         </String>
-        <String dnOrder="94" id="PIN_105_FUNCTION_TYPE">
+        <String dnOrder="96" id="PIN_105_FUNCTION_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="GPIO"/>
           </Values>
         </String>
-        <String dnOrder="95" id="PIN_105_LAT">
+        <String dnOrder="97" id="PIN_105_LAT">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="High"/>
           </Values>
         </String>
-        <String dnOrder="96" id="PIN_108_DIR">
+        <String dnOrder="98" id="PIN_105_MODE">
+          <Values dnOrder="0">
+            <User dnOrder="0" value=""/>
+          </Values>
+        </String>
+        <String dnOrder="99" id="PIN_105_PERIPHERAL_FUNCTION">
+          <Values dnOrder="0">
+            <User dnOrder="0" value="GPIO"/>
+          </Values>
+        </String>
+        <String dnOrder="100" id="PIN_108_DIR">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="Out"/>
           </Values>
         </String>
-        <String dnOrder="97" id="PIN_108_FUNCTION_NAME">
+        <String dnOrder="101" id="PIN_108_FUNCTION_NAME">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="GFX_DISP_INTF_PIN_CS"/>
           </Values>
         </String>
-        <String dnOrder="98" id="PIN_108_FUNCTION_TYPE">
+        <String dnOrder="102" id="PIN_108_FUNCTION_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="GPIO"/>
           </Values>
         </String>
-        <String dnOrder="99" id="PIN_108_LAT">
+        <String dnOrder="103" id="PIN_108_LAT">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="High"/>
           </Values>
         </String>
-        <String dnOrder="100" id="PIN_109_FUNCTION_TYPE">
+        <String dnOrder="104" id="PIN_108_MODE">
+          <Values dnOrder="0">
+            <User dnOrder="0" value=""/>
+          </Values>
+        </String>
+        <String dnOrder="105" id="PIN_108_PERIPHERAL_FUNCTION">
+          <Values dnOrder="0">
+            <User dnOrder="0" value="GPIO"/>
+          </Values>
+        </String>
+        <String dnOrder="106" id="PIN_109_FUNCTION_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="SERCOM0_PAD3"/>
           </Values>
         </String>
-        <String dnOrder="101" id="PIN_109_PERIPHERAL_FUNCTION">
+        <String dnOrder="107" id="PIN_109_MODE">
+          <Values dnOrder="0">
+            <User dnOrder="0" value=""/>
+          </Values>
+        </String>
+        <String dnOrder="108" id="PIN_109_PERIPHERAL_FUNCTION">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value=""/>
+            <User dnOrder="1" value="C"/>
           </Values>
         </String>
-        <String dnOrder="102" id="PIN_11_FUNCTION_TYPE">
+        <String dnOrder="109" id="PIN_11_FUNCTION_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="Available"/>
+            <User dnOrder="1" value=""/>
           </Values>
         </String>
-        <String dnOrder="103" id="PIN_13_DIR">
+        <String dnOrder="110" id="PIN_11_PERIPHERAL_FUNCTION">
           <Values dnOrder="0">
             <User dnOrder="0" value=""/>
           </Values>
         </String>
-        <String dnOrder="104" id="PIN_13_PERIPHERAL_FUNCTION">
+        <String dnOrder="111" id="PIN_13_DIR">
+          <Values dnOrder="0">
+            <User dnOrder="0" value=""/>
+          </Values>
+        </String>
+        <String dnOrder="112" id="PIN_13_PERIPHERAL_FUNCTION">
           <Values dnOrder="0">
             <User dnOrder="0" value="SWITCH_AL"/>
           </Values>
         </String>
-        <String dnOrder="105" id="PIN_13_PULLEN">
+        <String dnOrder="113" id="PIN_13_PULLEN">
           <Values dnOrder="0">
             <User dnOrder="0" value=""/>
           </Values>
         </String>
-        <String dnOrder="106" id="PIN_16_DIR">
+        <String dnOrder="114" id="PIN_16_DIR">
           <Values dnOrder="0">
             <User dnOrder="0" value=""/>
           </Values>
         </String>
-        <String dnOrder="107" id="PIN_16_PERIPHERAL_FUNCTION">
+        <String dnOrder="115" id="PIN_16_PERIPHERAL_FUNCTION">
           <Values dnOrder="0">
             <User dnOrder="0" value="SWITCH_AL"/>
           </Values>
         </String>
-        <String dnOrder="108" id="PIN_16_PULLEN">
+        <String dnOrder="116" id="PIN_16_PULLEN">
           <Values dnOrder="0">
             <User dnOrder="0" value=""/>
           </Values>
         </String>
-        <String dnOrder="109" id="PIN_19_FUNCTION_TYPE">
+        <String dnOrder="117" id="PIN_19_FUNCTION_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="Available"/>
+            <User dnOrder="1" value=""/>
           </Values>
         </String>
-        <String dnOrder="110" id="PIN_20_FUNCTION_TYPE">
+        <String dnOrder="118" id="PIN_19_PERIPHERAL_FUNCTION">
+          <Values dnOrder="0">
+            <User dnOrder="0" value=""/>
+          </Values>
+        </String>
+        <String dnOrder="119" id="PIN_20_FUNCTION_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="Available"/>
+            <User dnOrder="1" value=""/>
           </Values>
         </String>
-        <String dnOrder="111" id="PIN_27_FUNCTION_TYPE">
+        <String dnOrder="120" id="PIN_20_PERIPHERAL_FUNCTION">
+          <Values dnOrder="0">
+            <User dnOrder="0" value=""/>
+          </Values>
+        </String>
+        <String dnOrder="121" id="PIN_27_FUNCTION_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="Available"/>
+            <User dnOrder="1" value=""/>
           </Values>
         </String>
-        <String dnOrder="112" id="PIN_28_FUNCTION_TYPE">
+        <String dnOrder="122" id="PIN_27_PERIPHERAL_FUNCTION">
+          <Values dnOrder="0">
+            <User dnOrder="0" value=""/>
+          </Values>
+        </String>
+        <String dnOrder="123" id="PIN_28_FUNCTION_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="Available"/>
+            <User dnOrder="1" value=""/>
           </Values>
         </String>
-        <String dnOrder="113" id="PIN_29_FUNCTION_TYPE">
+        <String dnOrder="124" id="PIN_28_PERIPHERAL_FUNCTION">
+          <Values dnOrder="0">
+            <User dnOrder="0" value=""/>
+          </Values>
+        </String>
+        <String dnOrder="125" id="PIN_29_FUNCTION_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="Available"/>
+            <User dnOrder="1" value=""/>
           </Values>
         </String>
-        <String dnOrder="114" id="PIN_2_FUNCTION_TYPE">
+        <String dnOrder="126" id="PIN_29_PERIPHERAL_FUNCTION">
+          <Values dnOrder="0">
+            <User dnOrder="0" value=""/>
+          </Values>
+        </String>
+        <String dnOrder="127" id="PIN_2_FUNCTION_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="Available"/>
+            <User dnOrder="1" value=""/>
           </Values>
         </String>
-        <String dnOrder="115" id="PIN_30_FUNCTION_TYPE">
+        <String dnOrder="128" id="PIN_2_PERIPHERAL_FUNCTION">
+          <Values dnOrder="0">
+            <User dnOrder="0" value=""/>
+          </Values>
+        </String>
+        <String dnOrder="129" id="PIN_30_FUNCTION_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="Available"/>
+            <User dnOrder="1" value=""/>
           </Values>
         </String>
-        <String dnOrder="116" id="PIN_3_FUNCTION_TYPE">
+        <String dnOrder="130" id="PIN_30_PERIPHERAL_FUNCTION">
+          <Values dnOrder="0">
+            <User dnOrder="0" value=""/>
+          </Values>
+        </String>
+        <String dnOrder="131" id="PIN_3_FUNCTION_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="Available"/>
+            <User dnOrder="1" value=""/>
           </Values>
         </String>
-        <String dnOrder="117" id="PIN_41_FUNCTION_TYPE">
+        <String dnOrder="132" id="PIN_3_PERIPHERAL_FUNCTION">
+          <Values dnOrder="0">
+            <User dnOrder="0" value=""/>
+          </Values>
+        </String>
+        <String dnOrder="133" id="PIN_41_FUNCTION_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="Available"/>
+            <User dnOrder="1" value=""/>
           </Values>
         </String>
-        <String dnOrder="118" id="PIN_42_FUNCTION_TYPE">
+        <String dnOrder="134" id="PIN_41_PERIPHERAL_FUNCTION">
+          <Values dnOrder="0">
+            <User dnOrder="0" value=""/>
+          </Values>
+        </String>
+        <String dnOrder="135" id="PIN_42_FUNCTION_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="Available"/>
+            <User dnOrder="1" value=""/>
           </Values>
         </String>
-        <String dnOrder="119" id="PIN_43_DIR">
+        <String dnOrder="136" id="PIN_42_PERIPHERAL_FUNCTION">
+          <Values dnOrder="0">
+            <User dnOrder="0" value=""/>
+          </Values>
+        </String>
+        <String dnOrder="137" id="PIN_43_DIR">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="Out"/>
           </Values>
         </String>
-        <String dnOrder="120" id="PIN_43_FUNCTION_NAME">
+        <String dnOrder="138" id="PIN_43_FUNCTION_NAME">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="GFX_DISP_INTF_PIN_BACKLIGHT"/>
           </Values>
         </String>
-        <String dnOrder="121" id="PIN_43_FUNCTION_TYPE">
+        <String dnOrder="139" id="PIN_43_FUNCTION_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="GPIO"/>
           </Values>
         </String>
-        <String dnOrder="122" id="PIN_43_LAT">
+        <String dnOrder="140" id="PIN_43_LAT">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="High"/>
           </Values>
         </String>
-        <String dnOrder="123" id="PIN_47_FUNCTION_TYPE">
+        <String dnOrder="141" id="PIN_43_MODE">
+          <Values dnOrder="0">
+            <User dnOrder="0" value=""/>
+          </Values>
+        </String>
+        <String dnOrder="142" id="PIN_43_PERIPHERAL_FUNCTION">
+          <Values dnOrder="0">
+            <User dnOrder="0" value="GPIO"/>
+          </Values>
+        </String>
+        <String dnOrder="143" id="PIN_47_FUNCTION_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="SERCOM6_PAD1"/>
           </Values>
         </String>
-        <String dnOrder="124" id="PIN_47_PERIPHERAL_FUNCTION">
+        <String dnOrder="144" id="PIN_47_MODE">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value=""/>
+            <User dnOrder="0" value=""/>
           </Values>
         </String>
-        <String dnOrder="125" id="PIN_48_FUNCTION_TYPE">
+        <String dnOrder="145" id="PIN_47_PERIPHERAL_FUNCTION">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value=""/>
+            <User dnOrder="1" value="D"/>
+          </Values>
+        </String>
+        <String dnOrder="146" id="PIN_48_FUNCTION_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="SERCOM6_PAD0"/>
           </Values>
         </String>
-        <String dnOrder="126" id="PIN_48_PERIPHERAL_FUNCTION">
+        <String dnOrder="147" id="PIN_48_MODE">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value=""/>
+            <User dnOrder="0" value=""/>
           </Values>
         </String>
-        <String dnOrder="127" id="PIN_49_DIR">
+        <String dnOrder="148" id="PIN_48_PERIPHERAL_FUNCTION">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value=""/>
+            <User dnOrder="1" value="D"/>
+          </Values>
+        </String>
+        <String dnOrder="149" id="PIN_49_DIR">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="Out"/>
           </Values>
         </String>
-        <String dnOrder="128" id="PIN_49_FUNCTION_NAME">
+        <String dnOrder="150" id="PIN_49_FUNCTION_NAME">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="GFX_DISP_INTF_PIN_RSDC"/>
           </Values>
         </String>
-        <String dnOrder="129" id="PIN_49_FUNCTION_TYPE">
+        <String dnOrder="151" id="PIN_49_FUNCTION_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="GPIO"/>
           </Values>
         </String>
-        <String dnOrder="130" id="PIN_49_LAT">
+        <String dnOrder="152" id="PIN_49_LAT">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="High"/>
           </Values>
         </String>
-        <String dnOrder="131" id="PIN_4_FUNCTION_TYPE">
+        <String dnOrder="153" id="PIN_49_MODE">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="Available"/>
+            <User dnOrder="0" value=""/>
           </Values>
         </String>
-        <String dnOrder="132" id="PIN_51_DIR">
+        <String dnOrder="154" id="PIN_49_PERIPHERAL_FUNCTION">
+          <Values dnOrder="0">
+            <User dnOrder="0" value="GPIO"/>
+          </Values>
+        </String>
+        <String dnOrder="155" id="PIN_4_FUNCTION_TYPE">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="Available"/>
+            <User dnOrder="1" value=""/>
+          </Values>
+        </String>
+        <String dnOrder="156" id="PIN_4_PERIPHERAL_FUNCTION">
+          <Values dnOrder="0">
+            <User dnOrder="0" value=""/>
+          </Values>
+        </String>
+        <String dnOrder="157" id="PIN_51_DIR">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="In"/>
           </Values>
         </String>
-        <String dnOrder="133" id="PIN_51_FUNCTION_NAME">
+        <String dnOrder="158" id="PIN_51_FUNCTION_NAME">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="BSP_MAXTOUCH_CHG"/>
           </Values>
         </String>
-        <String dnOrder="134" id="PIN_51_FUNCTION_TYPE">
+        <String dnOrder="159" id="PIN_51_FUNCTION_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="GPIO"/>
           </Values>
         </String>
-        <String dnOrder="135" id="PIN_51_LAT">
+        <String dnOrder="160" id="PIN_51_LAT">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value=""/>
           </Values>
         </String>
-        <String dnOrder="136" id="PIN_66_INEN">
+        <String dnOrder="161" id="PIN_51_MODE">
           <Values dnOrder="0">
             <User dnOrder="0" value=""/>
           </Values>
         </String>
-        <String dnOrder="137" id="PIN_66_PERIPHERAL_FUNCTION">
+        <String dnOrder="162" id="PIN_51_PERIPHERAL_FUNCTION">
+          <Values dnOrder="0">
+            <User dnOrder="0" value="GPIO"/>
+          </Values>
+        </String>
+        <String dnOrder="163" id="PIN_66_INEN">
+          <Values dnOrder="0">
+            <User dnOrder="0" value=""/>
+          </Values>
+        </String>
+        <String dnOrder="164" id="PIN_66_PERIPHERAL_FUNCTION">
           <Values dnOrder="0">
             <User dnOrder="0" value="LED_AL"/>
           </Values>
         </String>
-        <String dnOrder="138" id="PIN_66_PULLEN">
+        <String dnOrder="165" id="PIN_66_PULLEN">
           <Values dnOrder="0">
             <User dnOrder="0" value=""/>
           </Values>
         </String>
-        <String dnOrder="139" id="PIN_70_FUNCTION_TYPE">
+        <String dnOrder="166" id="PIN_70_FUNCTION_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="Available"/>
+            <User dnOrder="1" value=""/>
           </Values>
         </String>
-        <String dnOrder="140" id="PIN_72_FUNCTION_TYPE">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="Available"/>
-          </Values>
-        </String>
-        <String dnOrder="141" id="PIN_75_INEN">
+        <String dnOrder="167" id="PIN_70_PERIPHERAL_FUNCTION">
           <Values dnOrder="0">
             <User dnOrder="0" value=""/>
           </Values>
         </String>
-        <String dnOrder="142" id="PIN_75_PERIPHERAL_FUNCTION">
+        <String dnOrder="168" id="PIN_72_FUNCTION_TYPE">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="Available"/>
+            <User dnOrder="1" value=""/>
+          </Values>
+        </String>
+        <String dnOrder="169" id="PIN_72_PERIPHERAL_FUNCTION">
+          <Values dnOrder="0">
+            <User dnOrder="0" value=""/>
+          </Values>
+        </String>
+        <String dnOrder="170" id="PIN_75_INEN">
+          <Values dnOrder="0">
+            <User dnOrder="0" value=""/>
+          </Values>
+        </String>
+        <String dnOrder="171" id="PIN_75_PERIPHERAL_FUNCTION">
           <Values dnOrder="0">
             <User dnOrder="0" value="LED_AL"/>
           </Values>
         </String>
-        <String dnOrder="143" id="PIN_75_PULLEN">
+        <String dnOrder="172" id="PIN_75_PULLEN">
           <Values dnOrder="0">
             <User dnOrder="0" value=""/>
           </Values>
         </String>
-        <String dnOrder="144" id="PIN_7_FUNCTION_TYPE">
+        <String dnOrder="173" id="PIN_7_FUNCTION_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="Available"/>
+            <User dnOrder="1" value=""/>
           </Values>
         </String>
-        <String dnOrder="145" id="PIN_83_FUNCTION_TYPE">
+        <String dnOrder="174" id="PIN_7_PERIPHERAL_FUNCTION">
+          <Values dnOrder="0">
+            <User dnOrder="0" value=""/>
+          </Values>
+        </String>
+        <String dnOrder="175" id="PIN_83_FUNCTION_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="Available"/>
+            <User dnOrder="1" value=""/>
           </Values>
         </String>
-        <String dnOrder="146" id="PIN_8_FUNCTION_TYPE">
+        <String dnOrder="176" id="PIN_83_PERIPHERAL_FUNCTION">
+          <Values dnOrder="0">
+            <User dnOrder="0" value=""/>
+          </Values>
+        </String>
+        <String dnOrder="177" id="PIN_8_FUNCTION_TYPE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="legato_gfx_mxt_cpro" value="Available"/>
+            <User dnOrder="1" value=""/>
           </Values>
         </String>
-        <Boolean dnOrder="147" id="PORT_GROUP_0">
+        <String dnOrder="178" id="PIN_8_PERIPHERAL_FUNCTION">
+          <Values dnOrder="0">
+            <User dnOrder="0" value=""/>
+          </Values>
+        </String>
+        <Boolean dnOrder="179" id="PORT_GROUP_0">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="true"/>
           </Values>
         </Boolean>
-        <String dnOrder="148" id="PORT_GROUP_0_DIR">
+        <String dnOrder="180" id="PORT_GROUP_0_DIR">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x10000"/>
           </Values>
         </String>
-        <String dnOrder="149" id="PORT_GROUP_0_OUT">
+        <String dnOrder="181" id="PORT_GROUP_0_OUT">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x10000"/>
           </Values>
         </String>
-        <String dnOrder="150" id="PORT_GROUP_0_PAD_16">
+        <String dnOrder="182" id="PORT_GROUP_0_PAD_1">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="PA01"/>
+          </Values>
+        </String>
+        <String dnOrder="183" id="PORT_GROUP_0_PAD_16">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="PA16"/>
           </Values>
         </String>
-        <String dnOrder="151" id="PORT_GROUP_0_PINCFG16">
+        <String dnOrder="184" id="PORT_GROUP_0_PINCFG1">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x0"/>
           </Values>
         </String>
-        <String dnOrder="152" id="PORT_GROUP_0_PMUX8">
+        <String dnOrder="185" id="PORT_GROUP_0_PINCFG16">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x0"/>
           </Values>
         </String>
-        <Boolean dnOrder="153" id="PORT_GROUP_1">
+        <String dnOrder="186" id="PORT_GROUP_0_PMUX0">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x0"/>
+          </Values>
+        </String>
+        <String dnOrder="187" id="PORT_GROUP_0_PMUX8">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x0"/>
+          </Values>
+        </String>
+        <Boolean dnOrder="188" id="PORT_GROUP_1">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="true"/>
           </Values>
         </Boolean>
-        <String dnOrder="154" id="PORT_GROUP_1_DIR">
+        <String dnOrder="189" id="PORT_GROUP_1_DIR">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x20004000"/>
           </Values>
         </String>
-        <String dnOrder="155" id="PORT_GROUP_1_OUT">
+        <String dnOrder="190" id="PORT_GROUP_1_OUT">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x20004000"/>
           </Values>
         </String>
-        <String dnOrder="156" id="PORT_GROUP_1_PAD_12">
+        <String dnOrder="191" id="PORT_GROUP_1_PAD_12">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="PB12"/>
           </Values>
         </String>
-        <String dnOrder="157" id="PORT_GROUP_1_PAD_13">
+        <String dnOrder="192" id="PORT_GROUP_1_PAD_13">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="PB13"/>
           </Values>
         </String>
-        <String dnOrder="158" id="PORT_GROUP_1_PAD_14">
+        <String dnOrder="193" id="PORT_GROUP_1_PAD_14">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="PB14"/>
           </Values>
         </String>
-        <String dnOrder="159" id="PORT_GROUP_1_PAD_24">
+        <String dnOrder="194" id="PORT_GROUP_1_PAD_17">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="PB17"/>
+          </Values>
+        </String>
+        <String dnOrder="195" id="PORT_GROUP_1_PAD_24">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="PB24"/>
           </Values>
         </String>
-        <String dnOrder="160" id="PORT_GROUP_1_PAD_25">
+        <String dnOrder="196" id="PORT_GROUP_1_PAD_25">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="PB25"/>
           </Values>
         </String>
-        <String dnOrder="161" id="PORT_GROUP_1_PAD_29">
+        <String dnOrder="197" id="PORT_GROUP_1_PAD_29">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="PB29"/>
           </Values>
         </String>
-        <String dnOrder="162" id="PORT_GROUP_1_PINCFG12">
+        <String dnOrder="198" id="PORT_GROUP_1_PAD_4">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="PB04"/>
+          </Values>
+        </String>
+        <String dnOrder="199" id="PORT_GROUP_1_PAD_8">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="PB08"/>
+          </Values>
+        </String>
+        <String dnOrder="200" id="PORT_GROUP_1_PAD_9">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="PB09"/>
+          </Values>
+        </String>
+        <String dnOrder="201" id="PORT_GROUP_1_PINCFG12">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x0"/>
           </Values>
         </String>
-        <String dnOrder="163" id="PORT_GROUP_1_PINCFG13">
+        <String dnOrder="202" id="PORT_GROUP_1_PINCFG13">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x0"/>
           </Values>
         </String>
-        <String dnOrder="164" id="PORT_GROUP_1_PINCFG14">
+        <String dnOrder="203" id="PORT_GROUP_1_PINCFG14">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x0"/>
           </Values>
         </String>
-        <String dnOrder="165" id="PORT_GROUP_1_PINCFG24">
+        <String dnOrder="204" id="PORT_GROUP_1_PINCFG17">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x0"/>
           </Values>
         </String>
-        <String dnOrder="166" id="PORT_GROUP_1_PINCFG25">
+        <String dnOrder="205" id="PORT_GROUP_1_PINCFG24">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x1"/>
+          </Values>
+        </String>
+        <String dnOrder="206" id="PORT_GROUP_1_PINCFG25">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x1"/>
+          </Values>
+        </String>
+        <String dnOrder="207" id="PORT_GROUP_1_PINCFG29">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x0"/>
           </Values>
         </String>
-        <String dnOrder="167" id="PORT_GROUP_1_PINCFG29">
+        <String dnOrder="208" id="PORT_GROUP_1_PINCFG4">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x0"/>
           </Values>
         </String>
-        <String dnOrder="168" id="PORT_GROUP_1_PMUX12">
+        <String dnOrder="209" id="PORT_GROUP_1_PINCFG8">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x0"/>
           </Values>
         </String>
-        <String dnOrder="169" id="PORT_GROUP_1_PMUX14">
+        <String dnOrder="210" id="PORT_GROUP_1_PINCFG9">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x0"/>
           </Values>
         </String>
-        <String dnOrder="170" id="PORT_GROUP_1_PMUX6">
+        <String dnOrder="211" id="PORT_GROUP_1_PMUX12">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x22"/>
+          </Values>
+        </String>
+        <String dnOrder="212" id="PORT_GROUP_1_PMUX14">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x0"/>
           </Values>
         </String>
-        <String dnOrder="171" id="PORT_GROUP_1_PMUX7">
+        <String dnOrder="213" id="PORT_GROUP_1_PMUX2">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x0"/>
           </Values>
         </String>
-        <Boolean dnOrder="172" id="PORT_GROUP_2">
+        <String dnOrder="214" id="PORT_GROUP_1_PMUX4">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x0"/>
+          </Values>
+        </String>
+        <String dnOrder="215" id="PORT_GROUP_1_PMUX6">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x0"/>
+          </Values>
+        </String>
+        <String dnOrder="216" id="PORT_GROUP_1_PMUX7">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x0"/>
+          </Values>
+        </String>
+        <String dnOrder="217" id="PORT_GROUP_1_PMUX8">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x0"/>
+          </Values>
+        </String>
+        <Boolean dnOrder="218" id="PORT_GROUP_2">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="true"/>
           </Values>
         </Boolean>
-        <String dnOrder="173" id="PORT_GROUP_2_DIR">
+        <String dnOrder="219" id="PORT_GROUP_2_DIR">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x1200000"/>
           </Values>
         </String>
-        <String dnOrder="174" id="PORT_GROUP_2_OUT">
+        <String dnOrder="220" id="PORT_GROUP_2_OUT">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x1200000"/>
           </Values>
         </String>
-        <String dnOrder="175" id="PORT_GROUP_2_PAD_21">
+        <String dnOrder="221" id="PORT_GROUP_2_PAD_0">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="PC00"/>
+          </Values>
+        </String>
+        <String dnOrder="222" id="PORT_GROUP_2_PAD_1">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="PC01"/>
+          </Values>
+        </String>
+        <String dnOrder="223" id="PORT_GROUP_2_PAD_16">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="PC16"/>
+          </Values>
+        </String>
+        <String dnOrder="224" id="PORT_GROUP_2_PAD_18">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="PC18"/>
+          </Values>
+        </String>
+        <String dnOrder="225" id="PORT_GROUP_2_PAD_2">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="PC02"/>
+          </Values>
+        </String>
+        <String dnOrder="226" id="PORT_GROUP_2_PAD_21">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="PC21"/>
           </Values>
         </String>
-        <String dnOrder="176" id="PORT_GROUP_2_PAD_24">
+        <String dnOrder="227" id="PORT_GROUP_2_PAD_24">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="PC24"/>
           </Values>
         </String>
-        <String dnOrder="177" id="PORT_GROUP_2_PAD_25">
+        <String dnOrder="228" id="PORT_GROUP_2_PAD_25">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="PC25"/>
           </Values>
         </String>
-        <String dnOrder="178" id="PORT_GROUP_2_PINCFG21">
+        <String dnOrder="229" id="PORT_GROUP_2_PAD_3">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="PC03"/>
+          </Values>
+        </String>
+        <String dnOrder="230" id="PORT_GROUP_2_PAD_4">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="PC04"/>
+          </Values>
+        </String>
+        <String dnOrder="231" id="PORT_GROUP_2_PAD_5">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="PC05"/>
+          </Values>
+        </String>
+        <String dnOrder="232" id="PORT_GROUP_2_PAD_6">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="PC06"/>
+          </Values>
+        </String>
+        <String dnOrder="233" id="PORT_GROUP_2_PAD_7">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="PC07"/>
+          </Values>
+        </String>
+        <String dnOrder="234" id="PORT_GROUP_2_PINCFG0">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x0"/>
           </Values>
         </String>
-        <String dnOrder="179" id="PORT_GROUP_2_PINCFG24">
+        <String dnOrder="235" id="PORT_GROUP_2_PINCFG1">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x0"/>
           </Values>
         </String>
-        <String dnOrder="180" id="PORT_GROUP_2_PINCFG25">
+        <String dnOrder="236" id="PORT_GROUP_2_PINCFG16">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x0"/>
           </Values>
         </String>
-        <String dnOrder="181" id="PORT_GROUP_2_PMUX10">
+        <String dnOrder="237" id="PORT_GROUP_2_PINCFG18">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x0"/>
           </Values>
         </String>
-        <String dnOrder="182" id="PORT_GROUP_2_PMUX12">
+        <String dnOrder="238" id="PORT_GROUP_2_PINCFG2">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x0"/>
           </Values>
         </String>
-        <Boolean dnOrder="183" id="PORT_GROUP_3">
+        <String dnOrder="239" id="PORT_GROUP_2_PINCFG21">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x0"/>
+          </Values>
+        </String>
+        <String dnOrder="240" id="PORT_GROUP_2_PINCFG24">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x0"/>
+          </Values>
+        </String>
+        <String dnOrder="241" id="PORT_GROUP_2_PINCFG25">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x1"/>
+          </Values>
+        </String>
+        <String dnOrder="242" id="PORT_GROUP_2_PINCFG3">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x0"/>
+          </Values>
+        </String>
+        <String dnOrder="243" id="PORT_GROUP_2_PINCFG4">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x0"/>
+          </Values>
+        </String>
+        <String dnOrder="244" id="PORT_GROUP_2_PINCFG5">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x0"/>
+          </Values>
+        </String>
+        <String dnOrder="245" id="PORT_GROUP_2_PINCFG6">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x0"/>
+          </Values>
+        </String>
+        <String dnOrder="246" id="PORT_GROUP_2_PINCFG7">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x0"/>
+          </Values>
+        </String>
+        <String dnOrder="247" id="PORT_GROUP_2_PMUX0">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x0"/>
+          </Values>
+        </String>
+        <String dnOrder="248" id="PORT_GROUP_2_PMUX1">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x0"/>
+          </Values>
+        </String>
+        <String dnOrder="249" id="PORT_GROUP_2_PMUX10">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x0"/>
+          </Values>
+        </String>
+        <String dnOrder="250" id="PORT_GROUP_2_PMUX12">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x20"/>
+          </Values>
+        </String>
+        <String dnOrder="251" id="PORT_GROUP_2_PMUX2">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x0"/>
+          </Values>
+        </String>
+        <String dnOrder="252" id="PORT_GROUP_2_PMUX3">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x0"/>
+          </Values>
+        </String>
+        <String dnOrder="253" id="PORT_GROUP_2_PMUX8">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x0"/>
+          </Values>
+        </String>
+        <String dnOrder="254" id="PORT_GROUP_2_PMUX9">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x0"/>
+          </Values>
+        </String>
+        <Boolean dnOrder="255" id="PORT_GROUP_3">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="true"/>
           </Values>
         </Boolean>
-        <String dnOrder="184" id="PORT_GROUP_3_DIR">
+        <String dnOrder="256" id="PORT_GROUP_3_DIR">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x400"/>
           </Values>
         </String>
-        <String dnOrder="185" id="PORT_GROUP_3_OUT">
+        <String dnOrder="257" id="PORT_GROUP_3_OUT">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x403"/>
           </Values>
         </String>
-        <String dnOrder="186" id="PORT_GROUP_3_PAD_0">
+        <String dnOrder="258" id="PORT_GROUP_3_PAD_0">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="PD00"/>
           </Values>
         </String>
-        <String dnOrder="187" id="PORT_GROUP_3_PAD_1">
+        <String dnOrder="259" id="PORT_GROUP_3_PAD_1">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="PD01"/>
           </Values>
         </String>
-        <String dnOrder="188" id="PORT_GROUP_3_PAD_10">
+        <String dnOrder="260" id="PORT_GROUP_3_PAD_10">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="PD10"/>
           </Values>
         </String>
-        <String dnOrder="189" id="PORT_GROUP_3_PAD_12">
+        <String dnOrder="261" id="PORT_GROUP_3_PAD_12">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="PD12"/>
           </Values>
         </String>
-        <String dnOrder="190" id="PORT_GROUP_3_PAD_8">
+        <String dnOrder="262" id="PORT_GROUP_3_PAD_8">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="PD08"/>
           </Values>
         </String>
-        <String dnOrder="191" id="PORT_GROUP_3_PAD_9">
+        <String dnOrder="263" id="PORT_GROUP_3_PAD_9">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="PD09"/>
           </Values>
         </String>
-        <String dnOrder="192" id="PORT_GROUP_3_PINCFG0">
+        <String dnOrder="264" id="PORT_GROUP_3_PINCFG0">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x2"/>
           </Values>
         </String>
-        <String dnOrder="193" id="PORT_GROUP_3_PINCFG1">
+        <String dnOrder="265" id="PORT_GROUP_3_PINCFG1">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x2"/>
           </Values>
         </String>
-        <String dnOrder="194" id="PORT_GROUP_3_PINCFG10">
+        <String dnOrder="266" id="PORT_GROUP_3_PINCFG10">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x0"/>
           </Values>
         </String>
-        <String dnOrder="195" id="PORT_GROUP_3_PINCFG12">
+        <String dnOrder="267" id="PORT_GROUP_3_PINCFG12">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x0"/>
           </Values>
         </String>
-        <String dnOrder="196" id="PORT_GROUP_3_PINCFG8">
+        <String dnOrder="268" id="PORT_GROUP_3_PINCFG8">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x1"/>
+          </Values>
+        </String>
+        <String dnOrder="269" id="PORT_GROUP_3_PINCFG9">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x1"/>
+          </Values>
+        </String>
+        <String dnOrder="270" id="PORT_GROUP_3_PMUX0">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x0"/>
           </Values>
         </String>
-        <String dnOrder="197" id="PORT_GROUP_3_PINCFG9">
+        <String dnOrder="271" id="PORT_GROUP_3_PMUX4">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x33"/>
+          </Values>
+        </String>
+        <String dnOrder="272" id="PORT_GROUP_3_PMUX5">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x0"/>
           </Values>
         </String>
-        <String dnOrder="198" id="PORT_GROUP_3_PMUX0">
+        <String dnOrder="273" id="PORT_GROUP_3_PMUX6">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x0"/>
           </Values>
         </String>
-        <String dnOrder="199" id="PORT_GROUP_3_PMUX4">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="core" value="0x0"/>
-          </Values>
-        </String>
-        <String dnOrder="200" id="PORT_GROUP_3_PMUX5">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="core" value="0x0"/>
-          </Values>
-        </String>
-        <String dnOrder="201" id="PORT_GROUP_3_PMUX6">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="core" value="0x0"/>
-          </Values>
-        </String>
-        <Boolean dnOrder="202" id="PendSV_INTERRUPT_ENABLE_UPDATE">
+        <Boolean dnOrder="274" id="PendSV_INTERRUPT_ENABLE_UPDATE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="true"/>
           </Values>
         </Boolean>
-        <Integer dnOrder="203" id="QSPI_CLOCK_FREQUENCY">
+        <Integer dnOrder="275" id="QSPI_CLOCK_FREQUENCY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </Integer>
-        <Boolean dnOrder="204" id="SERCOM0_0_INTERRUPT_ENABLE">
+        <Boolean dnOrder="276" id="SERCOM0_0_INTERRUPT_ENABLE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sercom0" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="205" id="SERCOM0_0_INTERRUPT_ENABLE_UPDATE">
+        <Boolean dnOrder="277" id="SERCOM0_0_INTERRUPT_ENABLE_UPDATE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="false"/>
           </Values>
         </Boolean>
-        <String dnOrder="206" id="SERCOM0_0_INTERRUPT_HANDLER">
+        <String dnOrder="278" id="SERCOM0_0_INTERRUPT_HANDLER">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sercom0" value="SERCOM0_SPI_InterruptHandler"/>
           </Values>
         </String>
-        <Boolean dnOrder="207" id="SERCOM0_0_INTERRUPT_HANDLER_LOCK">
+        <Boolean dnOrder="279" id="SERCOM0_0_INTERRUPT_HANDLER_LOCK">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sercom0" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="208" id="SERCOM0_1_INTERRUPT_ENABLE">
+        <Boolean dnOrder="280" id="SERCOM0_1_INTERRUPT_ENABLE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sercom0" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="209" id="SERCOM0_1_INTERRUPT_ENABLE_UPDATE">
+        <Boolean dnOrder="281" id="SERCOM0_1_INTERRUPT_ENABLE_UPDATE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="false"/>
           </Values>
         </Boolean>
-        <String dnOrder="210" id="SERCOM0_1_INTERRUPT_HANDLER">
+        <String dnOrder="282" id="SERCOM0_1_INTERRUPT_HANDLER">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sercom0" value="SERCOM0_SPI_InterruptHandler"/>
           </Values>
         </String>
-        <Boolean dnOrder="211" id="SERCOM0_1_INTERRUPT_HANDLER_LOCK">
+        <Boolean dnOrder="283" id="SERCOM0_1_INTERRUPT_HANDLER_LOCK">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sercom0" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="212" id="SERCOM0_2_INTERRUPT_ENABLE">
+        <Boolean dnOrder="284" id="SERCOM0_2_INTERRUPT_ENABLE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sercom0" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="213" id="SERCOM0_2_INTERRUPT_ENABLE_UPDATE">
+        <Boolean dnOrder="285" id="SERCOM0_2_INTERRUPT_ENABLE_UPDATE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="false"/>
           </Values>
         </Boolean>
-        <String dnOrder="214" id="SERCOM0_2_INTERRUPT_HANDLER">
+        <String dnOrder="286" id="SERCOM0_2_INTERRUPT_HANDLER">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sercom0" value="SERCOM0_SPI_InterruptHandler"/>
           </Values>
         </String>
-        <Boolean dnOrder="215" id="SERCOM0_2_INTERRUPT_HANDLER_LOCK">
+        <Boolean dnOrder="287" id="SERCOM0_2_INTERRUPT_HANDLER_LOCK">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sercom0" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="216" id="SERCOM0_CORE_CLOCK_ENABLE">
+        <Boolean dnOrder="288" id="SERCOM0_CORE_CLOCK_ENABLE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sercom0" value="true"/>
           </Values>
         </Boolean>
-        <Integer dnOrder="217" id="SERCOM0_CORE_CLOCK_FREQUENCY">
+        <Integer dnOrder="289" id="SERCOM0_CORE_CLOCK_FREQUENCY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="60000000"/>
           </Values>
         </Integer>
-        <Boolean dnOrder="218" id="SERCOM0_OTHER_INTERRUPT_ENABLE">
+        <Boolean dnOrder="290" id="SERCOM0_OTHER_INTERRUPT_ENABLE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sercom0" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="219" id="SERCOM0_OTHER_INTERRUPT_ENABLE_UPDATE">
+        <Boolean dnOrder="291" id="SERCOM0_OTHER_INTERRUPT_ENABLE_UPDATE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="false"/>
           </Values>
         </Boolean>
-        <String dnOrder="220" id="SERCOM0_OTHER_INTERRUPT_HANDLER">
+        <String dnOrder="292" id="SERCOM0_OTHER_INTERRUPT_HANDLER">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sercom0" value="SERCOM0_SPI_InterruptHandler"/>
           </Values>
         </String>
-        <Boolean dnOrder="221" id="SERCOM0_OTHER_INTERRUPT_HANDLER_LOCK">
+        <Boolean dnOrder="293" id="SERCOM0_OTHER_INTERRUPT_HANDLER_LOCK">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sercom0" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="222" id="SERCOM4_0_INTERRUPT_ENABLE_UPDATE">
+        <Boolean dnOrder="294" id="SERCOM4_0_INTERRUPT_ENABLE_UPDATE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="223" id="SERCOM4_1_INTERRUPT_ENABLE_UPDATE">
+        <Boolean dnOrder="295" id="SERCOM4_1_INTERRUPT_ENABLE_UPDATE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="224" id="SERCOM4_2_INTERRUPT_ENABLE_UPDATE">
+        <Boolean dnOrder="296" id="SERCOM4_2_INTERRUPT_ENABLE_UPDATE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="true"/>
           </Values>
         </Boolean>
-        <Integer dnOrder="225" id="SERCOM4_CORE_CLOCK_FREQUENCY">
+        <Integer dnOrder="297" id="SERCOM4_CORE_CLOCK_FREQUENCY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </Integer>
-        <Boolean dnOrder="226" id="SERCOM4_OTHER_INTERRUPT_ENABLE_UPDATE">
+        <Boolean dnOrder="298" id="SERCOM4_OTHER_INTERRUPT_ENABLE_UPDATE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="227" id="SERCOM6_0_INTERRUPT_ENABLE">
+        <Boolean dnOrder="299" id="SERCOM6_0_INTERRUPT_ENABLE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sercom6" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="228" id="SERCOM6_0_INTERRUPT_ENABLE_UPDATE">
+        <Boolean dnOrder="300" id="SERCOM6_0_INTERRUPT_ENABLE_UPDATE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="false"/>
           </Values>
         </Boolean>
-        <String dnOrder="229" id="SERCOM6_0_INTERRUPT_HANDLER">
+        <String dnOrder="301" id="SERCOM6_0_INTERRUPT_HANDLER">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sercom6" value="SERCOM6_I2C_InterruptHandler"/>
           </Values>
         </String>
-        <Boolean dnOrder="230" id="SERCOM6_0_INTERRUPT_HANDLER_LOCK">
+        <Boolean dnOrder="302" id="SERCOM6_0_INTERRUPT_HANDLER_LOCK">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sercom6" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="231" id="SERCOM6_1_INTERRUPT_ENABLE">
+        <Boolean dnOrder="303" id="SERCOM6_1_INTERRUPT_ENABLE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sercom6" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="232" id="SERCOM6_1_INTERRUPT_ENABLE_UPDATE">
+        <Boolean dnOrder="304" id="SERCOM6_1_INTERRUPT_ENABLE_UPDATE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="false"/>
           </Values>
         </Boolean>
-        <String dnOrder="233" id="SERCOM6_1_INTERRUPT_HANDLER">
+        <String dnOrder="305" id="SERCOM6_1_INTERRUPT_HANDLER">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sercom6" value="SERCOM6_I2C_InterruptHandler"/>
           </Values>
         </String>
-        <Boolean dnOrder="234" id="SERCOM6_1_INTERRUPT_HANDLER_LOCK">
+        <Boolean dnOrder="306" id="SERCOM6_1_INTERRUPT_HANDLER_LOCK">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sercom6" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="235" id="SERCOM6_2_INTERRUPT_ENABLE">
+        <Boolean dnOrder="307" id="SERCOM6_2_INTERRUPT_ENABLE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sercom6" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="236" id="SERCOM6_2_INTERRUPT_ENABLE_UPDATE">
+        <Boolean dnOrder="308" id="SERCOM6_2_INTERRUPT_ENABLE_UPDATE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="false"/>
           </Values>
         </Boolean>
-        <String dnOrder="237" id="SERCOM6_2_INTERRUPT_HANDLER">
+        <String dnOrder="309" id="SERCOM6_2_INTERRUPT_HANDLER">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sercom6" value="SERCOM6_I2C_InterruptHandler"/>
           </Values>
         </String>
-        <Boolean dnOrder="238" id="SERCOM6_2_INTERRUPT_HANDLER_LOCK">
+        <Boolean dnOrder="310" id="SERCOM6_2_INTERRUPT_HANDLER_LOCK">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sercom6" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="239" id="SERCOM6_CORE_CLOCK_ENABLE">
+        <Boolean dnOrder="311" id="SERCOM6_CORE_CLOCK_ENABLE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sercom6" value="true"/>
           </Values>
         </Boolean>
-        <Integer dnOrder="240" id="SERCOM6_CORE_CLOCK_FREQUENCY">
+        <Integer dnOrder="312" id="SERCOM6_CORE_CLOCK_FREQUENCY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="60000000"/>
           </Values>
         </Integer>
-        <Boolean dnOrder="241" id="SERCOM6_OTHER_INTERRUPT_ENABLE">
+        <Boolean dnOrder="313" id="SERCOM6_OTHER_INTERRUPT_ENABLE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sercom6" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="242" id="SERCOM6_OTHER_INTERRUPT_ENABLE_UPDATE">
+        <Boolean dnOrder="314" id="SERCOM6_OTHER_INTERRUPT_ENABLE_UPDATE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="false"/>
           </Values>
         </Boolean>
-        <String dnOrder="243" id="SERCOM6_OTHER_INTERRUPT_HANDLER">
+        <String dnOrder="315" id="SERCOM6_OTHER_INTERRUPT_HANDLER">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sercom6" value="SERCOM6_I2C_InterruptHandler"/>
           </Values>
         </String>
-        <Boolean dnOrder="244" id="SERCOM6_OTHER_INTERRUPT_HANDLER_LOCK">
+        <Boolean dnOrder="316" id="SERCOM6_OTHER_INTERRUPT_HANDLER_LOCK">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sercom6" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="245" id="SVCall_INTERRUPT_ENABLE_UPDATE">
+        <Boolean dnOrder="317" id="SVCall_INTERRUPT_ENABLE_UPDATE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="true"/>
           </Values>
         </Boolean>
-        <String dnOrder="246" id="SYSTICK_PERIOD">
+        <String dnOrder="318" id="SYSTICK_PERIOD">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0x1d4c0"/>
           </Values>
         </String>
-        <Integer dnOrder="247" id="SYSTICK_PERIOD_US">
+        <Integer dnOrder="319" id="SYSTICK_PERIOD_US">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="1000"/>
           </Values>
         </Integer>
-        <Boolean dnOrder="248" id="SysTick_INTERRUPT_ENABLE_UPDATE">
+        <Boolean dnOrder="320" id="SysTick_INTERRUPT_ENABLE_UPDATE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="249" id="TC0_CLOCK_ENABLE">
+        <Boolean dnOrder="321" id="TC0_CLOCK_ENABLE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="tc0" value="true"/>
           </Values>
         </Boolean>
-        <Integer dnOrder="250" id="TC0_CLOCK_FREQUENCY">
+        <Integer dnOrder="322" id="TC0_CLOCK_FREQUENCY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="60000000"/>
           </Values>
         </Integer>
-        <Boolean dnOrder="251" id="TC0_INTERRUPT_ENABLE">
+        <Boolean dnOrder="323" id="TC0_INTERRUPT_ENABLE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="tc0" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="252" id="TC0_INTERRUPT_ENABLE_UPDATE">
+        <Boolean dnOrder="324" id="TC0_INTERRUPT_ENABLE_UPDATE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="false"/>
           </Values>
         </Boolean>
-        <String dnOrder="253" id="TC0_INTERRUPT_HANDLER">
+        <String dnOrder="325" id="TC0_INTERRUPT_HANDLER">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="tc0" value="TC0_TimerInterruptHandler"/>
           </Values>
         </String>
-        <Boolean dnOrder="254" id="TC0_INTERRUPT_HANDLER_LOCK">
+        <Boolean dnOrder="326" id="TC0_INTERRUPT_HANDLER_LOCK">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="tc0" value="true"/>
           </Values>
@@ -1739,7 +2121,7 @@
         </Boolean>
         <Boolean dnOrder="13" id="ENABLE_SYS_COMMON">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="drv_spi_0" value="true"/>
+            <Dynamic dnOrder="0" id="HarmonyCore" value="true"/>
           </Values>
         </Boolean>
         <Boolean dnOrder="14" id="ENABLE_SYS_DMA">
@@ -1942,17 +2324,7 @@
         </Combo>
       </Symbols>
       <Attachments dnOrder="1">
-        <DirectDependency dnOrder="0" id="Display Interface">
-          <Attributes dnOrder="0">
-            <String dnOrder="0" id="targetComponentID">
-              <Value dnOrder="0">le_gfx_intf_spi4</Value>
-            </String>
-            <String dnOrder="1" id="targetAttachmentID">
-              <Value dnOrder="0">le_gfx_intf_spi4</Value>
-            </String>
-          </Attributes>
-        </DirectDependency>
-        <DirectDependency dnOrder="1" id="Graphics Display">
+        <DirectDependency dnOrder="0" id="Graphics Display">
           <Attributes dnOrder="0">
             <String dnOrder="0" id="targetComponentID">
               <Value dnOrder="0">gfx_disp_mxt_cpro_320x480</Value>
@@ -1962,7 +2334,27 @@
             </String>
           </Attributes>
         </DirectDependency>
-        <DirectCapability dnOrder="2" id="gfx_driver_ili9488">
+        <DirectDependency dnOrder="1" id="Parallel Display Interface">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="enabled">
+              <Value dnOrder="0">false</Value>
+            </Boolean>
+          </Attributes>
+        </DirectDependency>
+        <DirectDependency dnOrder="2" id="SPI Display Interface">
+          <Attributes dnOrder="0">
+            <String dnOrder="0" id="targetComponentID">
+              <Value dnOrder="0">le_gfx_intf_spi4</Value>
+            </String>
+            <String dnOrder="1" id="targetAttachmentID">
+              <Value dnOrder="0">le_gfx_intf_spi4</Value>
+            </String>
+            <Boolean dnOrder="2" id="enabled">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+        </DirectDependency>
+        <DirectCapability dnOrder="3" id="gfx_driver_ili9488">
           <Attributes dnOrder="0">
             <String dnOrder="0" id="targetComponentID">
               <Value dnOrder="0">gfx_legato</Value>
@@ -1992,7 +2384,7 @@
               <Value dnOrder="0">le_gfx_driver_ili9488</Value>
             </String>
             <String dnOrder="1" id="targetAttachmentID">
-              <Value dnOrder="0">Display&amp;#160;Interface</Value>
+              <Value dnOrder="0">SPI&amp;#160;Display&amp;#160;Interface</Value>
             </String>
           </Attributes>
         </DirectCapability>
@@ -2600,26 +2992,26 @@
   <UserData>
     <ComponentGraph dnOrder="0" id="__ROOTVIEW">
       <ElementPositions dnOrder="0">
-        <ElementPosition dnOrder="0" id="BSP_SAM_E54_Curiosity_Ultra" x="800" y="20"/>
-        <ElementPosition dnOrder="1" id="HarmonyCore" x="814" y="146"/>
+        <ElementPosition dnOrder="0" id="BSP_SAM_E54_Curiosity_Ultra" x="528" y="72"/>
+        <ElementPosition dnOrder="1" id="HarmonyCore" x="807" y="149"/>
         <ElementPosition dnOrder="2" id="cmsis" x="660" y="20"/>
         <ElementPosition dnOrder="3" id="core" x="560" y="20"/>
         <ElementPosition dnOrder="4" id="dfp" x="340" y="20"/>
-        <ElementPosition dnOrder="5" id="drv_i2c" x="448" y="88"/>
-        <ElementPosition dnOrder="6" id="drv_spi" x="220" y="354"/>
+        <ElementPosition dnOrder="5" id="drv_i2c" x="427" y="157"/>
+        <ElementPosition dnOrder="6" id="drv_spi" x="190" y="291"/>
         <ElementPosition dnOrder="7" id="evsys" x="180" y="20"/>
-        <ElementPosition dnOrder="8" id="gfx_disp_mxt_cpro_320x480" x="373" y="255"/>
-        <ElementPosition dnOrder="9" id="gfx_legato" x="791" y="279"/>
-        <ElementPosition dnOrder="10" id="gfx_maxtouch_controller" x="599" y="146"/>
-        <ElementPosition dnOrder="11" id="le_gfx_driver_ili9488" x="606" y="273"/>
-        <ElementPosition dnOrder="12" id="le_gfx_intf_spi4" x="405" y="359"/>
-        <ElementPosition dnOrder="13" id="legato_gfx_mxt_cpro" x="581" y="543"/>
+        <ElementPosition dnOrder="8" id="gfx_disp_mxt_cpro_320x480" x="348" y="323"/>
+        <ElementPosition dnOrder="9" id="gfx_legato" x="809" y="278"/>
+        <ElementPosition dnOrder="10" id="gfx_maxtouch_controller" x="597" y="166"/>
+        <ElementPosition dnOrder="11" id="le_gfx_driver_ili9488" x="606" y="285"/>
+        <ElementPosition dnOrder="12" id="le_gfx_intf_spi4" x="361" y="429"/>
+        <ElementPosition dnOrder="13" id="legato_gfx_mxt_cpro" x="176" y="81"/>
         <ElementPosition dnOrder="14" id="nvmctrl" x="20" y="20"/>
-        <ElementPosition dnOrder="15" id="sercom0" x="55" y="338"/>
-        <ElementPosition dnOrder="16" id="sercom6" x="270" y="88"/>
-        <ElementPosition dnOrder="17" id="sys_input" x="580" y="452"/>
-        <ElementPosition dnOrder="18" id="sys_time" x="221" y="213"/>
-        <ElementPosition dnOrder="19" id="tc0" x="68" y="190"/>
+        <ElementPosition dnOrder="15" id="sercom0" x="40" y="316"/>
+        <ElementPosition dnOrder="16" id="sercom6" x="282" y="185"/>
+        <ElementPosition dnOrder="17" id="sys_input" x="587" y="463"/>
+        <ElementPosition dnOrder="18" id="sys_time" x="358" y="527"/>
+        <ElementPosition dnOrder="19" id="tc0" x="205" y="487"/>
       </ElementPositions>
     </ComponentGraph>
     <GraphSettings canvasHeight="400" canvasWidth="400" dnOrder="1"/>
