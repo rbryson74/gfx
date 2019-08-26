@@ -63,13 +63,15 @@ def onAttachmentConnected(source, target):
 		print(source["component"].getID() + ": Using " + target["component"].getID() + " interface ")
 		source["component"].getSymbolByID("GFX_ILI9488_DBIB_C").setEnabled(True)
 		source["component"].getSymbolByID("ParallelInterfaceWidth").setVisible(True)
-		source["component"].setDependencyEnabled("Parallel Display Interface", True);
+		source["component"].setDependencyEnabled("Parallel Display Interface", True)
 		source["component"].setDependencyEnabled("SPI Display Interface", False);
+		source["component"].getSymbolByID("DisplayInterfaceType").setValue("Parallel")
 	elif source["id"] == "SPI Display Interface":
 		source["component"].getSymbolByID("GFX_ILI9488_SPI").setEnabled(True)
-		source["component"].setDependencyEnabled("Parallel Display Interface", False);
-		source["component"].setDependencyEnabled("SPI Display Interface", True);
-		
+		source["component"].setDependencyEnabled("Parallel Display Interface", False)
+		source["component"].setDependencyEnabled("SPI Display Interface", True)
+		source["component"].getSymbolByID("DisplayInterfaceType").setValue("SPI 4-line")
+
 def onAttachmentDisconnected(source, target):
 	source["component"].setDependencyEnabled("Parallel Display Interface", True);
 	source["component"].setDependencyEnabled("SPI Display Interface", True);
