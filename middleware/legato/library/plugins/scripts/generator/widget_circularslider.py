@@ -68,7 +68,7 @@ def generateCircularSliderEvent(screen, widget, event, genActions):
     text = ""
 
     if event.name == "ValueChangedEvent":
-        text += "void %s_OnValueChanged(%s)\n" % (widget.getName(), getWidgetVariableName(widget))
+        text += "void %s_OnValueChanged(%s, int32_t val)\n" % (widget.getName(), getWidgetVariableName(widget))
 
     if event.name == "PressedEvent":
         text += "void %s_OnPressed(%s)\n" % (widget.getName(), getWidgetVariableName(widget))
