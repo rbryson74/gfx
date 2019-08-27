@@ -1042,8 +1042,9 @@ static leResult _decoderExec()
         return LE_FAILURE;
 
 #if LE_STREAMING_ENABLED == 1
-    if(leGetActiveStream() != NULL)
-        return;
+    if(leGetActiveStream() != NULL &&
+       leGetActiveStream() != (leStreamManager*)&state)
+        return LE_FAILURE;
 
     leGetState()->activeStream = (leStreamManager*)&state;
 #endif
@@ -1107,9 +1108,9 @@ static void _abort(leStreamManager* mgr)
 
 #if LE_STREAMING_ENABLED == 1
 
-static void _decoderExec(void)
+static leResult _decoderExec(void)
 {
-    state.manager.exec(&state.manager);
+    return state.manager.exec(&state.manager);
 }
 
 static leBool _decoderIsDone(void)

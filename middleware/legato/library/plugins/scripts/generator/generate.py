@@ -64,6 +64,7 @@ class File:
 		self.handle.write(text)
 		self.handle.write("\n")
 
+execfile(_SCRIPTPATH + "assetbatch.py")
 execfile(_SCRIPTPATH + "assetheader.py")
 execfile(_SCRIPTPATH + "assetsource.py")
 execfile(_SCRIPTPATH + "screen.py")
@@ -80,7 +81,8 @@ if _HARMONY == True:
 
 # do this here because it is used by both asset header and string table
 stringTableMatrix = StringTable.generateData()
-	
+
+generateAssetBatches()
 generateAssetHeader()
 generateAssetSources()
 

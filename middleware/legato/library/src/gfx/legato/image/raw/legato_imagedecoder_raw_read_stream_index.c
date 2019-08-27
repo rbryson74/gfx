@@ -170,6 +170,10 @@ static leResult exec_blocking(struct StreamReadStage* stage)
                                                 op->bufferIndex % streamReadStage.mod);
 
         streamReadStage.base.state->readIndex += 1;
+
+        /*printf("%i, %i, %u\n", op->x,
+                               op->y,
+                               op->data);*/
     }
 
     return LE_SUCCESS;

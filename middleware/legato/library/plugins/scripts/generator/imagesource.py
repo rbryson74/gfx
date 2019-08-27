@@ -30,10 +30,11 @@ def generateImageSourceFile(image):
 	imgSrc.writeNewLine()
 	
 	locIdx = image.getMemoryLocationIndex()
-	
+
+	data = image.toDataArray()
+	dataLen = len(data)
+
 	if locIdx < 2:
-		data = image.toDataArray()
-		dataLen = len(data)
 		itr = 0
 		
 		if locIdx == 0: # internal flash = const
@@ -64,20 +65,30 @@ def generateImageSourceFile(image):
 			
 			paletteData = palette.object.toDataArray()
 			paletteDataLength = len(paletteData)
+
+			if locIdx < 2:
+				if locIdx == 0:
+					imgSrc.writeNoNewline("const ")
+
+				imgSrc.write("uint8_t %s_data[%d] =" % (palette.name, paletteDataLength))
+				imgSrc.write("{")
 			
-			imgSrc.write("uint8_t %s_data[%d] =" % (palette.name, paletteDataLength))
-			imgSrc.write("{")
+				writeBinaryData(imgSrc, paletteData, paletteDataLength)
 			
-			writeBinaryData(imgSrc, paletteData, paletteDataLength)
-			
-			imgSrc.write("};")
-			imgSrc.writeNewLine()
+				imgSrc.write("};")
+				imgSrc.writeNewLine()
 			
 			imgSrc.write("lePalette %s =" % (palette.name))
 			imgSrc.write("{")
 			imgSrc.write("    {")
-			imgSrc.write("        LE_STREAM_LOCATION_ID_INTERNAL, // data location id")
-			imgSrc.write("        (void*)%s_data, // data address pointer" % (palette.name))
+
+			if locIdx < 2:
+				imgSrc.write("        LE_STREAM_LOCATION_ID_INTERNAL, // data location id")
+				imgSrc.write("        (void*)%s_data, // data address pointer" % (palette.name))
+			else:
+				imgSrc.write("        %d, // data location id" % (locIdx - 1))
+				imgSrc.write("        (void*)%d, // external address" % (image.getPaletteAddress()))
+
 			imgSrc.write("        %d, // data size" % (paletteDataLength))
 			imgSrc.write("    },")
 			imgSrc.write("    %d, // color count" % (palette.object.getColorCount()))
@@ -110,17 +121,17 @@ def generateImageSourceFile(image):
 	
 	memLocName = ""
 	
-	if locIdx < 2:
-		memLocName = "LE_STREAM_LOCATION_ID_INTERNAL"
-	else:
-		memLocName = font.getMemoryLocationName()
-	
 	imgSrc.write("leImage %s =" % (image.getName()))
 	imgSrc.write("{")
 	imgSrc.write("    {")
-	#imgSrc.write("        LE_ASSET_TYPE_IMAGE, // asset type")
-	imgSrc.write("        %s, // data location id" % (memLocName))
-	imgSrc.write("        (void*)%s_data, // data address pointer" % (image.getName()))
+
+	if locIdx < 2:
+		imgSrc.write("        LE_STREAM_LOCATION_ID_INTERNAL, // data location id")
+		imgSrc.write("        (void*)%s_data, // data address pointer" % (image.getName()))
+	else:
+		imgSrc.write("        %d, // data location id" % (locIdx - 1))
+		imgSrc.write("        (void*)%d, // external data address" % (image.getAddress()))
+
 	imgSrc.write("        %d, // data size" % (dataLen))
 	imgSrc.write("    },")
 	imgSrc.write("    LE_IMAGE_FORMAT_%s," % (outputFormat))
@@ -137,14 +148,19 @@ def generateImageSourceFile(image):
 	imgSrc.write("        },")
 	imgSrc.write("        %d," % (sz.getWidth() * sz.getHeight()))
 	imgSrc.write("        %d," % (image.getSizeBytes()))
-	imgSrc.write("        (void*)%s_data" % (image.getName()))
+
+	if locIdx < 2:
+		imgSrc.write("        (void*)%s_data" % (image.getName()))
+	else:
+		imgSrc.write("        (void*)%d, // external data address" % (image.getAddress()))
+
 	imgSrc.write("    },")
 	imgSrc.write("    %s, // image flags" % (flags))
 
 	imgSrc.write("    {")
 
 	if maskColor == "-1":
-		imgSrc.write("        NULL, // color mask")
+		imgSrc.write("        0, // color mask")
 	else:
 		imgSrc.write("        %s, // color mask" % (maskColor))
 

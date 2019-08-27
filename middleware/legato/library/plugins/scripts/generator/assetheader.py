@@ -80,24 +80,10 @@ def generateImageIDList(astHdr):
 		palette = None
 		
 		if paletteObj is not None:
-			if image.shouldGenerateUniquePalette() == True:
-				palette = PaletteDef(paletteObj)
+			palette = PaletteDef(paletteObj)
 				
-				imagePaletteMap[image.getName()] = palette
-			else:
-				checksum = paletteObj.getChecksum()
-				
-				palette = None
-			
-				if checksum not in paletteDict:
-					palette = PaletteDef(paletteObj)
-				
-					paletteDict[checksum] = palette
-				else:
-					palette = paletteDict[checksum]
-					
-				imagePaletteMap[image.getName()] = palette
-				
+			imagePaletteMap[image.getName()] = palette
+
 		sz = image.getOutputSize()
 		
 		astHdr.write("/*********************************")

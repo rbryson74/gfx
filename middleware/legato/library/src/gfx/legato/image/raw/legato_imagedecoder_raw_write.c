@@ -33,6 +33,8 @@ static struct FrameBufferWriteStage
     leRawDecodeStage base;
 } frameBufferWriteStage;
 
+//#include <stdio.h>
+
 #if LE_ALPHA_BLENDING_ENABLED == 1
 static leResult stage_FrameBufferWrite(leRawDecodeStage* stage)
 {
@@ -41,6 +43,10 @@ static leResult stage_FrameBufferWrite(leRawDecodeStage* stage)
                           stage->state->targetY,
                           stage->state->writeColor,
                           stage->state->globalAlpha);
+
+    /*printf("%i, %i, %u\n", stage->state->targetX,
+                           stage->state->targetY,
+                           stage->state->writeColor);*/
 
     return LE_SUCCESS;
 }

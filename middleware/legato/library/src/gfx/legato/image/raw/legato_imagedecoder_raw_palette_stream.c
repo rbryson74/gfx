@@ -125,8 +125,8 @@ static leResult exec_blocking(struct StreamPaletteStage* stage)
     uint32_t addr;
 
     addr = (uint32_t)streamPaletteStage.base.state->source->palette->header.address +
-    streamPaletteStage.base.state->writeColor *
-    stage->paletteSize;
+            streamPaletteStage.base.state->writeColor *
+            stage->paletteSize;
 
     leStream_Read(&streamPaletteStage.stream,
                   addr,

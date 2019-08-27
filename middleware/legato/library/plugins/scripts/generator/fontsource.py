@@ -76,28 +76,27 @@ def generateFontSourceFile(font):
 	fntSrc.write(" *     unsigned short - data row width    * the size of a row of glyph data in bytes")
 	fntSrc.write(" *     unsigned int   - data table offset * the offset into the corresponding font data table")
 	fntSrc.write(" ********************************/")
-	
-	if locIdx == 0: # internal flash = const
-		fntSrc.writeNoNewline("const ")
-		
-	fntSrc.write("uint8_t %s_glyphs[%d] =" % (name, kerningDataLength))
+
+	fntSrc.write("const uint8_t %s_glyphs[%d] =" % (name, kerningDataLength))
 	fntSrc.write("{")
-	
+
 	writeBinaryData(fntSrc, kerningData, kerningDataLength)
-	
+
 	fntSrc.write("};")
-	
+
 	fntSrc.writeNewLine()
+
+	glyphData = fontData.getGlyphDataArray()
+	glyphDataLength = len(glyphData)
 	
 	if locIdx < 2:
-		glyphData = fontData.getGlyphDataArray()
-		glyphDataLength = len(glyphData)
-	
 		fntSrc.write("/*********************************")
 		fntSrc.write(" * raw font glyph data")
 		fntSrc.write(" ********************************/")
+
 		if locIdx == 0: # internal flash = const
 			fntSrc.writeNoNewline("const ")
+
 		fntSrc.write("uint8_t %s_data[%d] =" % (name, glyphDataLength))
 		fntSrc.write("{")
 		
@@ -124,8 +123,14 @@ def generateFontSourceFile(font):
 	fntSrc.write("{")
 	fntSrc.write("    {")
 	fntSrc.write("        {")
-	fntSrc.write("            %s, // data location id" % (memLocName))
-	fntSrc.write("            (void*)%s_data, // data address pointer" % (name))
+
+	if locIdx < 2:
+		fntSrc.write("            %s, // data location id" % (memLocName))
+		fntSrc.write("            (void*)%s_data, // data address pointer" % (name))
+	else:
+		fntSrc.write("            %d, // data location id" % (locIdx - 1))
+		fntSrc.write("            (void*)%d, // external data address" % (font.getAddress()))
+
 	fntSrc.write("            %d, // data size" % (glyphDataLength))
 	fntSrc.write("        },")
 	fntSrc.write("        LE_RASTER_FONT,")
