@@ -92,7 +92,7 @@ def generateRadialMenuWidget(file, screen, menu, parentName):
     if len(items) > 0:
         for idx, item in enumerate(items):
             varName = "%s_image_%d" % (name, idx)
-            file.write("    %s = leImagePlusWidget_New();" % (varName))
+            file.write("    %s = leImageScaleWidget_New();" % (varName))
 
             imageName = craftAssetName(item.image)
 

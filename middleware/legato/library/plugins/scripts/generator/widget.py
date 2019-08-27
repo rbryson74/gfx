@@ -283,7 +283,8 @@ execfile(_SCRIPTPATH + "widget_drawsurface.py")
 execfile(_SCRIPTPATH + "widget_gradient.py")
 execfile(_SCRIPTPATH + "widget_groupbox.py")
 execfile(_SCRIPTPATH + "widget_image.py")
-execfile(_SCRIPTPATH + "widget_imageplus.py")
+execfile(_SCRIPTPATH + "widget_imagerotate.py")
+execfile(_SCRIPTPATH + "widget_imagescale.py")
 execfile(_SCRIPTPATH + "widget_imagesequence.py")
 execfile(_SCRIPTPATH + "widget_keypad.py")
 execfile(_SCRIPTPATH + "widget_label.py")
@@ -315,7 +316,8 @@ generateFunctions = {
     "GradientWidget": generateGradientWidget,
     "GroupBoxWidget": generateGroupBoxWidget,
     "ImageWidget": generateImageWidget,
-    "ImagePlusWidget": generateImagePlusWidget,
+    "ImageRotateWidget": generateImageRotateWidget,
+    "ImageScaleWidget": generateImageScaleWidget,
     "ImageSequenceWidget": generateImageSequenceWidget,
     "KeyPadWidget": generateKeyPadWidget,
     "LabelWidget": generateLabelWidget,

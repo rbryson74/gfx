@@ -285,7 +285,7 @@ def generateWidgetDeclarations(file, scr):
 
 			for menu in radialMenus:
 				for item in menu.items:
-					file.write('static leImagePlusWidget* %s;' % (item.name))
+					file.write('static leImageScaleWidget* %s;' % (item.name))
 
 
 		file.writeNewLine()
