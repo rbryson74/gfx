@@ -66,11 +66,14 @@
 #define USB_ID      1
 #define SDCARD_ID   2
 
-HexDecoder dec;
+HexDecoder CACHE_ALIGN dec;
 
 SYS_FS_HANDLE fileHandle;
 long          fileSize;
 char          readChar;
+uint8_t       writeBuffer[HEXDECODER_MAX_RECORD_SIZE] __attribute__((coherent, aligned(4)));
+uint8_t       presendBuffer[HEXDECODER_MAX_RECORD_SIZE] __attribute__((coherent, aligned(4)));
+uint8_t       verificationBuffer[HEXDECODER_MAX_RECORD_SIZE] __attribute__((coherent, aligned(4)));
 
 int32_t       usbDeviceConnected;
 int32_t       sdcardDeviceConnected;
@@ -106,7 +109,6 @@ APP_DATA CACHE_ALIGN appData;
 // Section: Application Callback Functions
 // *****************************************************************************
 // *****************************************************************************
-
 
 // *****************************************************************************
 // *****************************************************************************
@@ -300,11 +302,16 @@ int32_t dataWriteCB(HexDecoder* dec,
         x = 0;
     }
     
-	if (DRV_SST26_PageWrite(appData.handle, (uint32_t *)buffer, address) != true)
+	if (DRV_SST26_PageWrite(appData.handle, (uint32_t *)&buffer, address) != true)
 	{
 		return -1;
 	}
 
+    appData.address = address;
+    appData.size = size;
+    
+    memcpy(&presendBuffer, buffer, size);
+    
 	return 0;
 }
 
@@ -370,11 +377,24 @@ void APP_Tasks ( void )
         
 		case APP_INIT_WRITE_MEDIA:
 		{
-            appData.handle = DRV_SST26_Open(DRV_SST26_INDEX, DRV_IO_INTENT_WRITE);
+            appData.handle = DRV_SST26_Open(DRV_SST26_INDEX, DRV_IO_INTENT_READWRITE);
 
             if (appData.handle != DRV_HANDLE_INVALID)
             {
-				appData.state = APP_STATE_DONE;
+				appData.state = APP_INIT_GEOMETRY;
+            }
+            break;
+        }
+
+        case APP_INIT_GEOMETRY:
+        {
+            if (DRV_SST26_GeometryGet(appData.handle, &appData.geometry) != true)
+            {
+                appData.state = APP_STATE_ERROR;
+            }
+            else
+            {
+                appData.state = APP_STATE_DONE;
             }
             break;
         }
@@ -528,6 +548,8 @@ void APP_Tasks ( void )
 				&recordReadCB,
 				&dataWriteCB);
 
+            appData.size = 0;
+            
 			// reset file pointer to the start
 			SYS_FS_FileSeek(fileHandle, 0, SYS_FS_SEEK_SET);
 
@@ -595,7 +617,15 @@ void APP_Tasks ( void )
 			}
 			else
 			{
-				appData.state = APP_STATE_WRITE_WAIT;
+                //Check if anything was written
+                if (appData.size > 0)
+                {
+    				appData.state = APP_STATE_WRITE_WAIT;
+                }
+                else
+                {
+    				appData.state = APP_PRE_DECODE;
+                }
 			}
 
 			break;
@@ -607,7 +637,31 @@ void APP_Tasks ( void )
 
 			if (transferStatus == DRV_SST26_TRANSFER_COMPLETED)
 			{
-				appData.state = APP_PRE_DECODE;
+                memset(verificationBuffer, 0x0, appData.size);
+                
+                if(DRV_SST26_Read(appData.handle, (uint32_t *)&verificationBuffer, appData.size, appData.address) == true)
+                {
+    				appData.state = APP_STATE_VERIFY_WAIT;                    
+                }
+			}
+			else if (transferStatus == DRV_SST26_TRANSFER_ERROR_UNKNOWN)
+			{
+				appData.state = APP_STATE_ERROR;
+			}
+
+			break;
+		}
+
+		case APP_STATE_VERIFY_WAIT:
+		{
+			transferStatus = DRV_SST26_TransferStatusGet(appData.handle);
+
+			if (transferStatus == DRV_SST26_TRANSFER_COMPLETED)
+			{
+                //if (memcmp(presendBuffer, verificationBuffer, appData.size) == 0)
+                {
+    				appData.state = APP_PRE_DECODE;
+                }
 			}
 			else if (transferStatus == DRV_SST26_TRANSFER_ERROR_UNKNOWN)
 			{

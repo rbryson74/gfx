@@ -46,7 +46,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 extern "C" {
 #endif
 
-#define HEXDECODER_MAX_RECORD_SIZE    1024
+#define HEXDECODER_MAX_RECORD_SIZE    4096
     
 typedef struct HexDecoder_t HexDecoder;
     

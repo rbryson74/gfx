@@ -58,6 +58,7 @@
 #include <stdlib.h>
 #include "configuration.h"
 #include "driver/sst26/drv_sst26.h"
+#include "hexdecoder.h"
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
@@ -74,7 +75,7 @@ extern "C" {
 // *****************************************************************************
 
 /* Erase-Write-Read One Sector of Data 4096 Bytes*/
-#define BUFFER_SIZE     4096
+#define BUFFER_SIZE     HEXDECODER_MAX_RECORD_SIZE
 #define MEM_ADDRESS     0x0
 
 // *****************************************************************************
@@ -93,6 +94,7 @@ typedef enum
 	/* Application's state machine's initial state. */
 	APP_STATE_INIT = 0,
     APP_INIT_WRITE_MEDIA,
+    APP_INIT_GEOMETRY,
 	APP_OPEN_FILE,
 	APP_FILE_NOT_FOUND,
 	APP_VALIDATE_FILE,
@@ -101,6 +103,7 @@ typedef enum
 	APP_PRE_DECODE,
 	APP_DECODE_RECORD,
 
+    APP_STATE_VERIFY_WAIT,
     APP_STATE_WRITE_WAIT,
     APP_STATE_ERASE_WAIT,
 	APP_STATE_ERROR,
@@ -141,6 +144,12 @@ typedef struct
 
     /* Write Buffer*/
     uint8_t writeBuffer[BUFFER_SIZE];
+    
+    /* read address */
+    uint32_t address;
+
+    /* read size */
+    uint32_t size;
 } APP_DATA;
 
 
@@ -149,8 +158,6 @@ typedef struct
 // Section: Application Callback Routines
 // *****************************************************************************
 // *****************************************************************************
-/* These routines are called by drivers when certain events occur.
-*/
 
 // *****************************************************************************
 // *****************************************************************************

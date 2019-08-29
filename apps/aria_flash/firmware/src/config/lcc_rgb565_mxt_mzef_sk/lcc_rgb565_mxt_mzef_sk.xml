@@ -3164,7 +3164,7 @@
             </Boolean>
           </Attributes>
           <Values dnOrder="1">
-            <User dnOrder="0" value="100000000"/>
+            <User dnOrder="0" value="50000000"/>
           </Values>
         </String>
         <Boolean dnOrder="607" id="CONFIG_SYS_CLK_REFCLK2_OE">
@@ -3201,7 +3201,7 @@
             </Boolean>
           </Attributes>
           <Values dnOrder="1">
-            <User dnOrder="0" value="1"/>
+            <User dnOrder="0" value="2"/>
           </Values>
         </Integer>
         <Integer dnOrder="612" id="CONFIG_SYS_CLK_ROTRIM2">
@@ -3558,12 +3558,12 @@
         </String>
         <Combo dnOrder="682" id="EVIC_132_PRIORITY">
           <Values dnOrder="0">
-            <User dnOrder="0" value="4"/>
+            <User dnOrder="0" value="1"/>
           </Values>
         </Combo>
         <Hex dnOrder="683" id="EVIC_132_PRIVALUE">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="core" value="16"/>
+            <Dynamic dnOrder="0" id="core" value="4"/>
           </Values>
         </Hex>
         <Boolean dnOrder="684" id="EVIC_133_ENABLE">
@@ -3583,12 +3583,12 @@
         </String>
         <Combo dnOrder="687" id="EVIC_133_PRIORITY">
           <Values dnOrder="0">
-            <User dnOrder="0" value="4"/>
+            <User dnOrder="0" value="1"/>
           </Values>
         </Combo>
         <Hex dnOrder="688" id="EVIC_133_PRIVALUE">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="core" value="4096"/>
+            <Dynamic dnOrder="0" id="core" value="1024"/>
           </Values>
         </Hex>
         <Boolean dnOrder="689" id="EVIC_134_ENABLE">
@@ -3608,12 +3608,12 @@
         </String>
         <Combo dnOrder="692" id="EVIC_134_PRIORITY">
           <Values dnOrder="0">
-            <User dnOrder="0" value="4"/>
+            <User dnOrder="0" value="1"/>
           </Values>
         </Combo>
         <Hex dnOrder="693" id="EVIC_134_PRIVALUE">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="core" value="1048576"/>
+            <Dynamic dnOrder="0" id="core" value="262144"/>
           </Values>
         </Hex>
         <Boolean dnOrder="694" id="EVIC_135_ENABLE">
@@ -3648,12 +3648,12 @@
         </String>
         <Combo dnOrder="700" id="EVIC_142_PRIORITY">
           <Values dnOrder="0">
-            <User dnOrder="0" value="3"/>
+            <User dnOrder="0" value="1"/>
           </Values>
         </Combo>
         <Hex dnOrder="701" id="EVIC_142_PRIVALUE">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="core" value="786432"/>
+            <Dynamic dnOrder="0" id="core" value="262144"/>
           </Values>
         </Hex>
         <Boolean dnOrder="702" id="EVIC_143_ENABLE">
@@ -3673,12 +3673,12 @@
         </String>
         <Combo dnOrder="705" id="EVIC_143_PRIORITY">
           <Values dnOrder="0">
-            <User dnOrder="0" value="3"/>
+            <User dnOrder="0" value="1"/>
           </Values>
         </Combo>
         <Hex dnOrder="706" id="EVIC_143_PRIVALUE">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="core" value="201326592"/>
+            <Dynamic dnOrder="0" id="core" value="67108864"/>
           </Values>
         </Hex>
         <Boolean dnOrder="707" id="EVIC_144_ENABLE">
@@ -3698,12 +3698,12 @@
         </String>
         <Combo dnOrder="710" id="EVIC_144_PRIORITY">
           <Values dnOrder="0">
-            <User dnOrder="0" value="3"/>
+            <User dnOrder="0" value="1"/>
           </Values>
         </Combo>
         <Hex dnOrder="711" id="EVIC_144_PRIVALUE">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="core" value="12"/>
+            <Dynamic dnOrder="0" id="core" value="4"/>
           </Values>
         </Hex>
         <Boolean dnOrder="712" id="EVIC_169_ENABLE">
@@ -3983,7 +3983,7 @@
         </Integer>
         <String dnOrder="767" id="REFOCON2_VALUE">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="core" value="0x10200"/>
+            <Dynamic dnOrder="0" id="core" value="0x20200"/>
           </Values>
         </String>
         <Integer dnOrder="768" id="RNG_CLOCK_FREQUENCY">
@@ -4078,7 +4078,7 @@
         </Boolean>
         <Integer dnOrder="786" id="SQI1_CLOCK_FREQUENCY">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="core" value="100000000"/>
+            <Dynamic dnOrder="0" id="core" value="50000000"/>
           </Values>
         </Integer>
         <Boolean dnOrder="787" id="SQI1_INTERRUPT_ENABLE">
@@ -4642,22 +4642,10 @@
               </Values>
             </Boolean>
             <KeyValueSet dnOrder="8" id="DRV_SDSPI_WRITE_PROTECT_PIN">
-              <Attributes dnOrder="0">
-                <Boolean dnOrder="0" id="visible">
-                  <Value dnOrder="0">false</Value>
-                </Boolean>
-              </Attributes>
-              <Values dnOrder="1">
+              <Values dnOrder="0">
                 <User dnOrder="0" value="62"/>
               </Values>
             </KeyValueSet>
-            <Comment dnOrder="9" id="DRV_SDSPI_WRITE_PROTECT_PIN_COMMENT">
-              <Attributes dnOrder="0">
-                <Boolean dnOrder="0" id="visible">
-                  <Value dnOrder="0">false</Value>
-                </Boolean>
-              </Attributes>
-            </Comment>
           </Symbols>
           <Attachments dnOrder="1">
             <DirectDependency dnOrder="0" id="drv_sdspi_SPI_dependency">
@@ -5497,7 +5485,7 @@
         <Comment dnOrder="0" id="SQI_CLK_DIV_COMMENT">
           <Attributes dnOrder="0">
             <String dnOrder="0" id="text">
-              <Value dnOrder="0">***&amp;#160;SQI&amp;#160;Clock&amp;#160;Frequency&amp;#160;Is&amp;#160;Set&amp;#160;To&amp;#160;100000000&amp;#160;for&amp;#160;REFCLK2&amp;#160;Frequency&amp;#160;At&amp;#160;100000000</Value>
+              <Value dnOrder="0">***&amp;#160;SQI&amp;#160;Clock&amp;#160;Frequency&amp;#160;Is&amp;#160;Set&amp;#160;To&amp;#160;50000000&amp;#160;for&amp;#160;REFCLK2&amp;#160;Frequency&amp;#160;At&amp;#160;50000000</Value>
             </String>
           </Attributes>
         </Comment>
@@ -5705,8 +5693,7 @@
     </UniqueComponent>
   </Components>
   <UserData>
-    <GraphSettings canvasHeight="400" canvasWidth="400" dnOrder="0"/>
-    <ComponentGraph dnOrder="1" id="__ROOTVIEW">
+    <ComponentGraph dnOrder="0" id="__ROOTVIEW">
       <ElementPositions dnOrder="0">
         <ElementPosition dnOrder="0" id="BSP_PIC32MZ_EF_Starter_Kit" x="328" y="20"/>
         <ElementPosition dnOrder="1" id="HarmonyCore" x="46" y="61"/>
@@ -5726,7 +5713,7 @@
         <ElementPosition dnOrder="15" id="gfx_maxtouch_controller" x="453" y="419"/>
         <ElementPosition dnOrder="16" id="i2c_bb" x="168" y="388"/>
         <ElementPosition dnOrder="17" id="spi2" x="11" y="497"/>
-        <ElementPosition dnOrder="18" id="sqi1" x="7" y="170"/>
+        <ElementPosition dnOrder="18" id="sqi1" x="7" y="169"/>
         <ElementPosition dnOrder="19" id="sys_fs" x="770" y="181"/>
         <ElementPosition dnOrder="20" id="sys_input" x="730" y="100"/>
         <ElementPosition dnOrder="21" id="sys_time" x="411" y="54"/>
@@ -5735,5 +5722,6 @@
         <ElementPosition dnOrder="24" id="usb_host_msd" x="563" y="141"/>
       </ElementPositions>
     </ComponentGraph>
+    <GraphSettings canvasHeight="400" canvasWidth="400" dnOrder="1"/>
   </UserData>
 </Configuration>
