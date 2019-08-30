@@ -82,10 +82,11 @@ lccPinConfig = [{"pin": 4, "name": "EBI_D8", "type": "EBI_D8", "direction": "", 
 ##################################################################################
 
 ############ SSD1963 CONFIG ######################################################
-ssd1963ActivateList = ["smc", "gfx_intf_parallel_smc", "gfx_driver_ssd1963", "twihs0", "drv_i2c", "drv_i2c0", "tc0", "sys_time"]
-ssd1963AutoConnectList = [["gfx_driver_ssd1963", "Parallel Display Interface", "gfx_intf_parallel_smc", "gfx_intf_parallel_smc"],
-						["gfx_intf_parallel_smc", "SMC_CS", "smc", "smc_cs0"],
-						["gfx_hal", "gfx_display_driver", "gfx_driver_ssd1963", "gfx_driver_ssd1963"],
+ssd1963ActivateList = ["smc", "le_gfx_intf_parallel_smc", "le_gfx_driver_ssd1963", "twihs0", "drv_i2c", "drv_i2c0", "tc0", "sys_time"]
+ssd1963AutoConnectList = [["le_gfx_driver_ssd1963", "Graphics Display", "gfx_disp_pdatm4301b_480x272", "gfx_display"],
+						["le_gfx_driver_ssd1963", "Display Interface", "le_gfx_intf_parallel_smc", "le_gfx_intf_parallel_smc"],
+						["le_gfx_intf_parallel_smc", "SMC_CS", "smc", "smc_cs0"],
+						["gfx_legato", "gfx_driver", "le_gfx_driver_ssd1963", "gfx_driver_ssd1963"],
 						["drv_i2c_0", "drv_i2c_I2C_dependency", "twihs0", "TWIHS0_I2C"],
 						["gfx_maxtouch_controller", "i2c", "drv_i2c_0", "drv_i2c"],
 						["sys_time", "sys_time_TMR_dependency", "tc0", "TC0_TMR"]]
@@ -142,15 +143,15 @@ def eventHandlerLCC(event):
 			Database.setSymbolValue("le_gfx_driver_lcc", "TCChannelCompare", "B", 1)
 			print("Done confguring backlight")
 		except:
-			print("Failed confguring backlight")
+			print("Failed to configure backlight")
 			return
 
-#bspDisplayInterfaceList = ["LCC", "SSD1963"]
-bspDisplayInterfaceList = ["LCC"]
+bspDisplayInterfaceList = ["LCC", "SSD1963"]
+#bspDisplayInterfaceList = ["LCC"]
 
 sam_e70_xplained_utra_lcc = bspSupportObj(lccPinConfig, lccActivateList, None, lccAutoConnectList, eventHandlerLCC)
 sam_e70_xplained_utra_ssd1963 = bspSupportObj(ssd1963PinConfig, ssd1963ActivateList, None, ssd1963AutoConnectList, eventHandlerSSD1963)
 
 addBSPSupport("BSP_SAM_E70_Xplained_Ultra", "LCC", sam_e70_xplained_utra_lcc)
-#addBSPSupport("BSP_SAM_E70_Xplained_Ultra", "SSD1963", sam_e70_xplained_utra_ssd1963)
+addBSPSupport("BSP_SAM_E70_Xplained_Ultra", "SSD1963", sam_e70_xplained_utra_ssd1963)
 addDisplayIntfSupport("BSP_SAM_E70_Xplained_Ultra", bspDisplayInterfaceList)
