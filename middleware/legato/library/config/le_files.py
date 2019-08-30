@@ -442,6 +442,27 @@ LEGATO_IMAGEDECODER_RAW_READ_STREAM_RLEINDEX_C.setProjectPath(projectPath + "/im
 LEGATO_IMAGEDECODER_RAW_READ_STREAM_RLEINDEX_C.setOutputName("legato_imagedecoder_raw_read_stream_rleindex.c")
 LEGATO_IMAGEDECODER_RAW_READ_STREAM_RLEINDEX_C.setType("SOURCE")
 
+LEGATO_IMAGEDECODER_RAW_ROTATE_C = component.createFileSymbol("LEGATO_IMAGEDECODER_RAW_ROTATE_C", None)
+LEGATO_IMAGEDECODER_RAW_ROTATE_C.setSourcePath("src/gfx/legato/image/raw/legato_imagedecoder_raw_rotate.c")
+LEGATO_IMAGEDECODER_RAW_ROTATE_C.setDestPath("gfx/legato/image/raw")
+LEGATO_IMAGEDECODER_RAW_ROTATE_C.setProjectPath(projectPath + "/image/raw")
+LEGATO_IMAGEDECODER_RAW_ROTATE_C.setOutputName("legato_imagedecoder_raw_rotate.c")
+LEGATO_IMAGEDECODER_RAW_ROTATE_C.setType("SOURCE")
+
+LEGATO_IMAGEDECODER_RAW_SCALE_C = component.createFileSymbol("LEGATO_IMAGEDECODER_RAW_SCALE_C", None)
+LEGATO_IMAGEDECODER_RAW_SCALE_C.setSourcePath("src/gfx/legato/image/raw/legato_imagedecoder_raw_scale.c")
+LEGATO_IMAGEDECODER_RAW_SCALE_C.setDestPath("gfx/legato/image/raw")
+LEGATO_IMAGEDECODER_RAW_SCALE_C.setProjectPath(projectPath + "/image/raw")
+LEGATO_IMAGEDECODER_RAW_SCALE_C.setOutputName("legato_imagedecoder_raw_scale.c")
+LEGATO_IMAGEDECODER_RAW_SCALE_C.setType("SOURCE")
+
+LEGATO_IMAGEDECODER_RAW_SETUP_C = component.createFileSymbol("LEGATO_IMAGEDECODER_RAW_SETUP_C", None)
+LEGATO_IMAGEDECODER_RAW_SETUP_C.setSourcePath("src/gfx/legato/image/raw/legato_imagedecoder_raw_setup.c")
+LEGATO_IMAGEDECODER_RAW_SETUP_C.setDestPath("gfx/legato/image/raw")
+LEGATO_IMAGEDECODER_RAW_SETUP_C.setProjectPath(projectPath + "/image/raw")
+LEGATO_IMAGEDECODER_RAW_SETUP_C.setOutputName("legato_imagedecoder_raw_setup.c")
+LEGATO_IMAGEDECODER_RAW_SETUP_C.setType("SOURCE")
+
 LEGATO_IMAGEDECODER_RAW_WRITE_C = component.createFileSymbol("LEGATO_IMAGEDECODER_RAW_WRITE_C", None)
 LEGATO_IMAGEDECODER_RAW_WRITE_C.setSourcePath("src/gfx/legato/image/raw/legato_imagedecoder_raw_write.c")
 LEGATO_IMAGEDECODER_RAW_WRITE_C.setDestPath("gfx/legato/image/raw")
