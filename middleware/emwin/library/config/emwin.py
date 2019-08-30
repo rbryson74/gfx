@@ -56,6 +56,23 @@ def instantiateComponent(component):
 	#LIBARIA_SYS_RTOS_TASK_C.setEnabled((Database.getSymbolValue("HarmonyCore", "SELECT_RTOS") != "BareMetal"))
 	#LIBARIA_SYS_RTOS_TASK_C.setDependencies(enableAriaRTOSTask, ["HarmonyCore.SELECT_RTOS"])
 
+	EMWIN_ControllerMenu = component.createMenuSymbol("EMWIN_DisplayControllerMenu", None)
+	EMWIN_ControllerMenu.setLabel("Display Controller Setting")
+
+        EMWIN_ControllerType = component.createComboSymbol("EMWIN_ControllerType", EMWIN_ControllerMenu, ["LCC", "GLCD", "S1D13517"])
+	EMWIN_ControllerType.setLabel("Display Controller")
+	EMWIN_ControllerType.setDescription("Display controller used for emWin")
+	EMWIN_ControllerType.setDefaultValue("LCC")
+
+	EMWIN_ColorMenu = component.createMenuSymbol("EMWIN_ColorFormatMenu", None)
+	EMWIN_ColorMenu.setLabel("Color Format Setting")
+
+        EMWIN_ColorFormat = component.createComboSymbol("EMWIN_ColorFormat", EMWIN_ColorMenu, ["EMWIN_COLOR_MODE_RGB_332", "EMWIN_COLOR_MODE_RGB_565", "EMWIN_COLOR_MODE_RGB_888", "EMWIN_COLOR_MODE_ARGB_888"])
+	EMWIN_ColorFormat.setLabel("Color Format")
+	EMWIN_ColorFormat.setDescription("Color format used for emWin")
+	EMWIN_ColorFormat.setDefaultValue("EMWIN_COLOR_MODE_RGB_565")
+
+
 def onAttachmentConnected(source, target):
 	if source["id"] == "gfx_driver":
 		driverName = target["component"].getSymbolValue("DriverInitName")

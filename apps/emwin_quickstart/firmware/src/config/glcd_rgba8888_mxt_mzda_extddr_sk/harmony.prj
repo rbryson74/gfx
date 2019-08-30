@@ -339,8 +339,8 @@
           <Name dnOrder="1">initialization.c</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">94B9A062E8576325167716671DD1DCA2</GeneratedChecksum>
-          <UserChecksum dnOrder="5">94B9A062E8576325167716671DD1DCA2</UserChecksum>
+          <GeneratedChecksum dnOrder="4">45539E025DA7B4B19C2090CAD07996D9</GeneratedChecksum>
+          <UserChecksum dnOrder="5">45539E025DA7B4B19C2090CAD07996D9</UserChecksum>
         </File>
         <File dnOrder="42">
           <Type dnOrder="0">SOURCE</Type>
@@ -355,8 +355,8 @@
           <Name dnOrder="1">lcdconf.c</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/config/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">8E2D2F37AB614617D6F51CE5C0147D58</GeneratedChecksum>
-          <UserChecksum dnOrder="5">8E2D2F37AB614617D6F51CE5C0147D58</UserChecksum>
+          <GeneratedChecksum dnOrder="4">DDEAC6132B187F45F390ED8C2A15D49F</GeneratedChecksum>
+          <UserChecksum dnOrder="5">DDEAC6132B187F45F390ED8C2A15D49F</UserChecksum>
         </File>
         <File dnOrder="44">
           <Type dnOrder="0">SOURCE</Type>
@@ -380,7 +380,7 @@
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/peripheral/clk/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/clk/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">CAC2DFA2E335E4E4CFDC664637F15E52</GeneratedChecksum>
-          <UserChecksum dnOrder="5">CAC2DFA2E335E4E4CFDC664637F15E52</UserChecksum>
+          <UserChecksum dnOrder="5">B50FE8D8084B331961B32396941D91DE</UserChecksum>
         </File>
         <File dnOrder="47">
           <Type dnOrder="0">SOURCE</Type>
@@ -563,8 +563,8 @@
           <Name dnOrder="1">definitions.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">CC538C867BD842A136502E36164980A5</GeneratedChecksum>
-          <UserChecksum dnOrder="5">CC538C867BD842A136502E36164980A5</UserChecksum>
+          <GeneratedChecksum dnOrder="4">335533640B0DF83EB84F7D923DB06863</GeneratedChecksum>
+          <UserChecksum dnOrder="5">335533640B0DF83EB84F7D923DB06863</UserChecksum>
         </File>
         <File dnOrder="70">
           <Type dnOrder="0">HEADER</Type>
@@ -1861,7 +1861,7 @@
       </Libraries>
       <Settings dnOrder="2">
         <Setting append="true" category="C32" delimiter=";" dnOrder="0" key="extra-include-directories" value="../src;../src/config/glcd_rgba8888_mxt_mzda_extddr_sk;../src/packs/PIC32MZ2064DAA288_DFP;;../src/mips"/>
-        <Setting category="C32-LD" dnOrder="1" key="heap-size" value="512"/>
+        <Setting category="C32-LD" dnOrder="1" key="heap-size" value="4096"/>
         <Setting category="C32-LD" dnOrder="2" key="no-device-startup-code" value="true"/>
         <Setting category="C32-LD" dnOrder="3" key="preprocessor-macros" value=""/>
       </Settings>

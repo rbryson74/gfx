@@ -42,8 +42,10 @@ Purpose     : Display controller configuration (single layer)
 // *****************************************************************************
 #include "gfx/emwin/guidrv_lin.h"
 
-#define DRIVER_TYPE			GUIDRV_LIN_32
-#define COLOR_CONVERSION	GUICC_M8888I
+#define DRIVER_TYPE			GUIDRV_LIN_16
+#define COLOR_CONVERSION	GUICC_M565
+
+
 
 
 
@@ -57,7 +59,7 @@ Purpose     : Display controller configuration (single layer)
 
 	static GFX_ColorMode colorModeConvertToGFX(void)
 	{
-		return GFX_COLOR_MODE_ARGB_8888;
+		return  GFX_COLOR_MODE_RGB_565;
 	}
 
 /*********************************************************************
@@ -72,8 +74,6 @@ Purpose     : Display controller configuration (single layer)
 
 void LCD_X_Config(void) 
 {
-
-
 	
 
 		GFX_Buffer buffer = NULL;
@@ -84,20 +84,20 @@ void LCD_X_Config(void)
 		
 		if (LCD_GetSwapXY()) 
 		{
-			LCD_SetSizeEx (0, 272, 480);
-			LCD_SetVSizeEx(0, 272, 480);
+                        LCD_SetSizeEx (0, 272, 480);
+                        LCD_SetVSizeEx(0, 272, 480);
 		} 
 		else 
 		{
-			LCD_SetSizeEx (0, 480, 272);
-			LCD_SetVSizeEx(0, 480, 272);
+                        LCD_SetSizeEx (0, 480, 272);
+                        LCD_SetVSizeEx(0, 480, 272);
 		}
 		
 
 		//Set the Active Layer to be Layer 0
 		GFX_Set(GFXF_LAYER_ACTIVE, 0);
 		//Enable the active layer
-        GFX_Set(GFXF_LAYER_ENABLED, GFX_TRUE);
+		GFX_Set(GFXF_LAYER_ENABLED, GFX_TRUE);
 		//Set the default layer as one for DA GLCD
 		GFX_Set(GFXF_LAYER_BUFFER_COUNT, 1);
 
