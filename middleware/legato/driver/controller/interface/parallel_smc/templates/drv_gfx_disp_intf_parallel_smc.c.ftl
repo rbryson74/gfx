@@ -37,6 +37,7 @@
 *******************************************************************************/
 //DOM-IGNORE-END
 
+#include <string.h>
 #include "definitions.h"
 
 #include "../drv_gfx_disp_intf.h"
