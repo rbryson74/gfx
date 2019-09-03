@@ -128,7 +128,7 @@ void GFX_Disp_Intf_Close(GFX_Disp_Intf intf)
     if (((GFX_DISP_INTF_EBI *) intf) == NULL)
         return;
 
-    intf->locked = 0;
+    ((GFX_DISP_INTF_EBI *) intf)->locked = 0;
 }
 
 int GFX_Disp_Intf_PinControl(GFX_Disp_Intf intf, GFX_DISP_INTF_PIN pin, GFX_DISP_INTF_PIN_VALUE value)
