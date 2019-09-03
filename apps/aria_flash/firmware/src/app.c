@@ -71,9 +71,8 @@ HexDecoder CACHE_ALIGN dec;
 SYS_FS_HANDLE fileHandle;
 long          fileSize;
 char          readChar;
-uint8_t       writeBuffer[HEXDECODER_MAX_RECORD_SIZE] __attribute__((coherent, aligned(4)));
-uint8_t       presendBuffer[HEXDECODER_MAX_RECORD_SIZE] __attribute__((coherent, aligned(4)));
-uint8_t       verificationBuffer[HEXDECODER_MAX_RECORD_SIZE] __attribute__((coherent, aligned(4)));
+uint8_t       writeBuffer[BUFFER_SIZE] __attribute__((coherent, aligned(4)));
+uint8_t       verificationBuffer[BUFFER_SIZE] __attribute__((coherent, aligned(4)));
 
 int32_t       usbDeviceConnected;
 int32_t       sdcardDeviceConnected;
@@ -291,27 +290,23 @@ int32_t recordReadCB(HexDecoder* dec,
 }
 
 volatile int x;
+volatile uint32_t readSize;
+volatile uint32_t writeAddress;
 
 int32_t dataWriteCB(HexDecoder* dec, 
                     uint32_t address,
                     uint8_t* buffer,
                     uint32_t size)
 {
-    if(address == 0x9D00)
+    if(readSize > BUFFER_SIZE)
     {
-        x = 0;
+        return -1;
     }
     
-	if (DRV_SST26_PageWrite(appData.handle, (uint32_t *)&buffer, address) != true)
-	{
-		return -1;
-	}
+    memcpy(&appData.writeBuffer[readSize], buffer, size);
+    
+    readSize += size;
 
-    appData.address = address;
-    appData.size = size;
-    
-    memcpy(&presendBuffer, buffer, size);
-    
 	return 0;
 }
 
@@ -368,21 +363,22 @@ void APP_Tasks ( void )
         /* Application's initial state. */
         case APP_STATE_INIT:
         {
-                if (DRV_SST26_Status(DRV_SST26_INDEX) == SYS_STATUS_READY)
-                {
+            if (DRV_SST26_Status(DRV_SST26_INDEX) == SYS_STATUS_READY)
+            {
                     appData.state = APP_INIT_WRITE_MEDIA;
-                }
+            }
             break;
         }
-        
+
 		case APP_INIT_WRITE_MEDIA:
-		{
+        {
             appData.handle = DRV_SST26_Open(DRV_SST26_INDEX, DRV_IO_INTENT_READWRITE);
 
             if (appData.handle != DRV_HANDLE_INVALID)
             {
 				appData.state = APP_INIT_GEOMETRY;
             }
+
             break;
         }
 
@@ -411,8 +407,8 @@ void APP_Tasks ( void )
 			{
 				appData.state = APP_VALIDATE_FILE;
 			}
-			break;
-		}
+            break;
+        }
 
 		case APP_FILE_NOT_FOUND:
 		{
@@ -429,11 +425,11 @@ void APP_Tasks ( void )
 			laWidget_SetVisible((laWidget*)InfoLabel2, LA_TRUE);
 
 			appData.state = APP_STATE_DONE;
-			break;
-		}
+            break;
+        }
 
 		case APP_VALIDATE_FILE:
-		{
+			{
 			laWidget_SetVisible(SelectMediumPanel, LA_FALSE);
 			laWidget_SetVisible(FlashingPanel, LA_TRUE);
 
@@ -494,33 +490,33 @@ void APP_Tasks ( void )
 			else
 			{
 				// erase target space
-				if (DRV_SST26_SectorErase(appData.handle, MEM_ADDRESS) != true)
-				{
-					appData.state = APP_STATE_ERROR;
-				}
+	            if (DRV_SST26_SectorErase(appData.handle, MEM_ADDRESS) != true)
+	            {
+	                appData.state = APP_STATE_ERROR;
+	            }
 
-				appData.state = APP_STATE_ERASE_WAIT;
+            	appData.state = APP_STATE_ERASE_WAIT;
 			}
-			break;
-		}
+            break;
+        }
 
-		case APP_STATE_ERASE_WAIT:
-		{
-			transferStatus = DRV_SST26_TransferStatusGet(appData.handle);
+        case APP_STATE_ERASE_WAIT:
+        {
+            transferStatus = DRV_SST26_TransferStatusGet(appData.handle);
 
-			if (transferStatus == DRV_SST26_TRANSFER_COMPLETED)
-			{
+            if(transferStatus == DRV_SST26_TRANSFER_COMPLETED)
+            {
 				appData.state = APP_START_DECODING;
-			}
-			else if (transferStatus == DRV_SST26_TRANSFER_ERROR_UNKNOWN)
-			{
-				appData.state = APP_STATE_ERROR;
-			}
-			break;
-		}
+            }
+            else if (transferStatus == DRV_SST26_TRANSFER_ERROR_UNKNOWN)
+            {
+                appData.state = APP_STATE_ERROR;
+            }
+            break;
+        }
 
 		case APP_START_DECODING:
-		{
+        {
 			// update the UI
 			str = laString_CreateFromID(string_Flashing);
 			laLabelWidget_SetText(FlashingLabel, str);
@@ -541,22 +537,25 @@ void APP_Tasks ( void )
 			laLabelWidget_SetText(RecordsTotalLabel, str);
 			laString_Destroy(&str);
 
+            memset(writeBuffer, 0x0, BUFFER_SIZE);
+
 			// initailize hex decoder
 			HexDecoder_Initialize(&dec,
 				recordCount,
-				appData.writeBuffer,
+				writeBuffer,
 				&recordReadCB,
 				&dataWriteCB);
 
-            appData.size = 0;
+            readSize = 0;
+            writeAddress = 0;
             
 			// reset file pointer to the start
 			SYS_FS_FileSeek(fileHandle, 0, SYS_FS_SEEK_SET);
 
 			appData.state = APP_PRE_DECODE;
 
-			break;
-		}
+                break;
+            }
 
 		case APP_PRE_DECODE:
 		{
@@ -576,13 +575,13 @@ void APP_Tasks ( void )
 
 			appData.state = APP_DECODE_RECORD;
 
-			break;
-		}
+            break;
+        }
 
 		case APP_DECODE_RECORD:
 		{
 			if (dec.currentRecord == dec.recordCount)
-			{
+            {
 				SYS_FS_FileClose(fileHandle);
 
 				laWidget_SetVisible(FlashingPanel, LA_FALSE);
@@ -599,9 +598,9 @@ void APP_Tasks ( void )
 
 				// decode complete
 				appData.state = APP_STATE_DONE;
-			}
+            }
 			else if (HexDecoder_Decode(&dec) == -1)
-			{
+            {
 				SYS_FS_FileClose(fileHandle);
 
 				laWidget_SetVisible(FlashingPanel, LA_FALSE);
@@ -614,71 +613,84 @@ void APP_Tasks ( void )
 				laWidget_SetVisible((laWidget*)InfoLabel2, LA_FALSE);
 
 				appData.state = APP_STATE_DONE;
-			}
-			else
-			{
-                //Check if anything was written
-                if (appData.size > 0)
+            }
+            else
+            {
+                if (readSize < appData.geometry.write_blockSize)
                 {
-    				appData.state = APP_STATE_WRITE_WAIT;
+                    appData.state = APP_PRE_DECODE;
                 }
                 else
                 {
-    				appData.state = APP_PRE_DECODE;
-                }
-			}
+                    if (DRV_SST26_PageWrite(appData.handle, (uint32_t *)&appData.writeBuffer, writeAddress) == true)
+                    {
+                        appData.state = APP_STATE_WRITE_WAIT;
+                    }
+                    else
+                    {
+                        appData.state = APP_STATE_ERROR;
+                    }
 
-			break;
-		}
+                }
+            }
+            break;
+        }
 
 		case APP_STATE_WRITE_WAIT:
-		{
-			transferStatus = DRV_SST26_TransferStatusGet(appData.handle);
+        {
+            transferStatus = DRV_SST26_TransferStatusGet(appData.handle);
 
-			if (transferStatus == DRV_SST26_TRANSFER_COMPLETED)
-			{
-                memset(verificationBuffer, 0x0, appData.size);
+            if(transferStatus == DRV_SST26_TRANSFER_COMPLETED)
+            {
+                memset(verificationBuffer, 0x0, BUFFER_SIZE);
                 
-                if(DRV_SST26_Read(appData.handle, (uint32_t *)&verificationBuffer, appData.size, appData.address) == true)
+                if(DRV_SST26_Read(appData.handle, (uint32_t *)&verificationBuffer, readSize, writeAddress) == true)
                 {
-    				appData.state = APP_STATE_VERIFY_WAIT;                    
+    				appData.state = APP_STATE_VERIFY_WAIT;
                 }
-			}
-			else if (transferStatus == DRV_SST26_TRANSFER_ERROR_UNKNOWN)
-			{
-				appData.state = APP_STATE_ERROR;
-			}
+            }
+            else if (transferStatus == DRV_SST26_TRANSFER_ERROR_UNKNOWN)
+            {
+                appData.state = APP_STATE_ERROR;
+            }
 
-			break;
-		}
+            break;
+        }
 
 		case APP_STATE_VERIFY_WAIT:
-		{
+        {
 			transferStatus = DRV_SST26_TransferStatusGet(appData.handle);
 
 			if (transferStatus == DRV_SST26_TRANSFER_COMPLETED)
-			{
-                //if (memcmp(presendBuffer, verificationBuffer, appData.size) == 0)
+            {
+                if (memcmp(appData.writeBuffer, verificationBuffer, readSize) == 0)
                 {
-    				appData.state = APP_PRE_DECODE;
+    				writeAddress += readSize;
+                    
+                    readSize = 0;
+                    appData.state = APP_PRE_DECODE;
                 }
-			}
+                else
+                {
+                    appData.state = APP_STATE_ERROR;
+                }
+            }
 			else if (transferStatus == DRV_SST26_TRANSFER_ERROR_UNKNOWN)
-			{
-				appData.state = APP_STATE_ERROR;
-			}
+            {
+                appData.state = APP_STATE_ERROR;
+            }
 
-			break;
-		}
+            break;
+        }
 
 		case APP_STATE_ERROR:
-		{
-			break;
-		}
+        {
+            break;
+        }
 		case APP_STATE_DONE:
-		default:
+        default:
 		{
-			break;
+            break;
 		}
     }
 }

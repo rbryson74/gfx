@@ -97,7 +97,7 @@ extern "C" {
 
 #define SYS_FS_AUTOMOUNT_ENABLE           true
 #define SYS_FS_CLIENT_NUMBER              1
-#define SYS_FS_MAX_FILES                  1
+#define SYS_FS_MAX_FILES                  2
 #define SYS_FS_MAX_FILE_SYSTEM_TYPE       1
 #define SYS_FS_MEDIA_MAX_BLOCK_SIZE       512
 #define SYS_FS_MEDIA_MANAGER_BUFFER_SIZE  2048
@@ -164,7 +164,7 @@ extern "C" {
 #define DRV_SST26_START_ADDRESS         0x0
 #define DRV_SST26_PAGE_SIZE             256
 #define DRV_SST26_ERASE_BUFFER_SIZE     4096
-#define DRV_SST26_BUFF_DESC_NUMBER      16
+#define DRV_SST26_BUFF_DESC_NUMBER      10
 
 
 

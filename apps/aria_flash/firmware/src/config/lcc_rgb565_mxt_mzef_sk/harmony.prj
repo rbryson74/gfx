@@ -539,8 +539,8 @@
           <Name dnOrder="1">interrupts.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_sk/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B93C15D34FD52F44C680E55C864B3DCB</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B93C15D34FD52F44C680E55C864B3DCB</UserChecksum>
+          <GeneratedChecksum dnOrder="4">62D41EDCCB892DCA9325966B548B9CC7</GeneratedChecksum>
+          <UserChecksum dnOrder="5">62D41EDCCB892DCA9325966B548B9CC7</UserChecksum>
         </File>
         <File dnOrder="67">
           <Type dnOrder="0">SOURCE</Type>
@@ -1227,8 +1227,8 @@
           <Name dnOrder="1">plib_clk.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_sk/peripheral/clk/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/clk/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">0ECAAA5287E7F80C056928ABF34CDCB6</GeneratedChecksum>
-          <UserChecksum dnOrder="5">0ECAAA5287E7F80C056928ABF34CDCB6</UserChecksum>
+          <GeneratedChecksum dnOrder="4">C92BB5E7A5BA7C441A11AF406FDED858</GeneratedChecksum>
+          <UserChecksum dnOrder="5">C92BB5E7A5BA7C441A11AF406FDED858</UserChecksum>
         </File>
         <File dnOrder="153">
           <Type dnOrder="0">SOURCE</Type>
@@ -1259,8 +1259,8 @@
           <Name dnOrder="1">plib_evic.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_sk/peripheral/evic/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/evic/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">AFD2C9A6694A067EBA08C5B2767FD0A6</GeneratedChecksum>
-          <UserChecksum dnOrder="5">AFD2C9A6694A067EBA08C5B2767FD0A6</UserChecksum>
+          <GeneratedChecksum dnOrder="4">BC87176D8B85114745AC5F4499F759BE</GeneratedChecksum>
+          <UserChecksum dnOrder="5">BC87176D8B85114745AC5F4499F759BE</UserChecksum>
         </File>
         <File dnOrder="157">
           <Type dnOrder="0">SOURCE</Type>
@@ -1419,8 +1419,8 @@
           <Name dnOrder="1">configuration.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_sk/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">8C0430069237A767925DE94C7D09732A</GeneratedChecksum>
-          <UserChecksum dnOrder="5">8C0430069237A767925DE94C7D09732A</UserChecksum>
+          <GeneratedChecksum dnOrder="4">36BB3B2CD8767CA8C7580085E247B5FA</GeneratedChecksum>
+          <UserChecksum dnOrder="5">36BB3B2CD8767CA8C7580085E247B5FA</UserChecksum>
         </File>
         <File dnOrder="177">
           <Type dnOrder="0">HEADER</Type>
@@ -3426,10 +3426,10 @@
             <String dnOrder="0" name="USB">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="1" name="SDCard">
+            <String dnOrder="1" name="Ok">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="2" name="Ok">
+            <String dnOrder="2" name="SDCard">
               <Language dnOrder="0" index="0"/>
             </String>
             <String dnOrder="3" name="Title">
@@ -3440,46 +3440,46 @@
         <Font antialias="false" bold="false" dnOrder="4" italic="false" location="0" name="Arial_sm" size="16" sourceName="Arial">
           <Data dnOrder="0">rO0ABXNyAA1qYXZhLmF3dC5Gb250xaE15szeVnMDAAZJABlmb250U2VyaWFsaXplZERhdGFWZXJzaW9uRgAJcG9pbnRTaXplSQAEc2l6ZUkABXN0eWxlTAAUZlJlcXVlc3RlZEF0dHJpYnV0ZXN0ABVMamF2YS91dGlsL0hhc2h0YWJsZTtMAARuYW1ldAASTGphdmEvbGFuZy9TdHJpbmc7eHAAAAABQTAAAAAAAAsAAAAAcHQABUFyaWFseA==</Data>
           <Strings dnOrder="1">
-            <String dnOrder="0" name="FileNotFound1">
+            <String dnOrder="0" name="InvalidFile">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="1" name="SelectSource">
+            <String dnOrder="1" name="Of">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="2" name="Done">
+            <String dnOrder="2" name="stringNumberFiller">
               <Language dnOrder="0" index="0"/>
             </String>
             <String dnOrder="3" name="FlashingComplete">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="4" name="FileNotFound2">
+            <String dnOrder="4" name="NoValidMedium">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="5" name="Of">
+            <String dnOrder="5" name="SelectSource">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="6" name="NoValidMedium2">
+            <String dnOrder="6" name="UnknownError">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="7" name="stringNumberFiller">
+            <String dnOrder="7" name="FileNotFound1">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="8" name="InvalidFile">
+            <String dnOrder="8" name="NoValidMedium2">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="9" name="Numbers">
+            <String dnOrder="9" name="RecordCount">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="10" name="NoValidMedium">
+            <String dnOrder="10" name="Numbers">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="11" name="RecordCount">
+            <String dnOrder="11" name="Done">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="12" name="Flashing">
+            <String dnOrder="12" name="FileNotFound2">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="13" name="UnknownError">
+            <String dnOrder="13" name="Flashing">
               <Language dnOrder="0" index="0"/>
             </String>
           </Strings>

@@ -91,7 +91,7 @@ extern "C" {
 
 typedef enum
 {
-	/* Application's state machine's initial state. */
+    /* Application's state machine's initial state. */
 	APP_STATE_INIT = 0,
     APP_INIT_WRITE_MEDIA,
     APP_INIT_GEOMETRY,
@@ -102,7 +102,7 @@ typedef enum
 	APP_START_DECODING,
 	APP_PRE_DECODE,
 	APP_DECODE_RECORD,
-
+            
     APP_STATE_VERIFY_WAIT,
     APP_STATE_WRITE_WAIT,
     APP_STATE_ERASE_WAIT,
@@ -150,6 +150,9 @@ typedef struct
 
     /* read size */
     uint32_t size;
+    
+    /* tracks write index */
+    uint32_t write_index;
 } APP_DATA;
 
 
