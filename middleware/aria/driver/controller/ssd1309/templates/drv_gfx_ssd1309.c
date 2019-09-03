@@ -217,14 +217,20 @@ GFX_Result SSD1309_HorizontalScrollLeft(void)
 {
     GFX_Context *context = GFX_ActiveContext();
     SSD1309_DRV *drv;
-    uint8_t parms[6] = {0, 0, 7, 7, 0, 0xff};
+    uint8_t parms[7] = {0, //Dummy byte
+                        2, //start page address
+                        4, //time interval
+                        5, //end page
+                        0, //dummy byte
+                        32, //start column
+                        0x7f}; //end column
 
     if(context == NULL)
         return GFX_FAILURE;
 
     drv = (SSD1309_DRV *) context->driver_data;
     
-    SSD1309_WriteCommandParms(drv, SSD1309_CMD_SCROLL_H_LEFT, parms, 6);
+    SSD1309_WriteCommandParms(drv, SSD1309_CMD_SCROLL_H_LEFT, parms, 7);
     SSD1309_WriteCommand(drv, SSD1309_CMD_ACTIVATE_SCROLL);
     
     return GFX_SUCCESS;
@@ -234,14 +240,20 @@ GFX_Result SSD1309_HorizontalScrollRight(void)
 {
     GFX_Context *context = GFX_ActiveContext();
     SSD1309_DRV *drv;
-    uint8_t parms[6] = {0, 0, 7, 7, 0, 0xff};
+    uint8_t parms[7] = {0, //Dummy byte
+                        2, //start page address
+                        4, //time interval
+                        5, //end page
+                        0, //dummy byte
+                        32, //start column
+                        0x7f}; //end column
 
     if(context == NULL)
         return GFX_FAILURE;
 
     drv = (SSD1309_DRV *) context->driver_data;
     
-    SSD1309_WriteCommandParms(drv, SSD1309_CMD_SCROLL_H_RIGHT, parms, 6);
+    SSD1309_WriteCommandParms(drv, SSD1309_CMD_SCROLL_H_RIGHT, parms, 7);
     SSD1309_WriteCommand(drv, SSD1309_CMD_ACTIVATE_SCROLL);
     
     return GFX_SUCCESS;
