@@ -25,7 +25,7 @@
 ############ SSD1963 CONFIG ######################################################
 e54cult_ssd1963ActivateList = ["le_gfx_intf_parallel_portgroup", "le_gfx_driver_ssd1963", "sercom4", "drv_i2c", "drv_i2c0", "tc0", "sys_time"]
 e54cult_ssd1963AutoConnectList = [["le_gfx_driver_ssd1963", "Graphics Display", "gfx_disp_pdatm4301b_480x272", "gfx_display"],
-				["le_gfx_driver_ssd1963", "Parallel Display Interface", "le_gfx_intf_parallel_portgroup", "le_gfx_intf_parallel_portgroup"],
+				["le_gfx_driver_ssd1963", "Display Interface", "le_gfx_intf_parallel_portgroup", "le_gfx_intf_parallel_portgroup"],
   				["gfx_legato", "gfx_driver", "le_gfx_driver_ssd1963", "gfx_driver_ssd1963"],
 				["drv_i2c_0", "drv_i2c_I2C_dependency", "sercom4", "SERCOM4_I2C"],
 				["gfx_maxtouch_controller", "i2c", "drv_i2c_0", "drv_i2c"],

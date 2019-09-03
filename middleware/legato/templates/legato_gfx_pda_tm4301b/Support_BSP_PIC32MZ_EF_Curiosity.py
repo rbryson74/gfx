@@ -39,13 +39,14 @@ bsp_pic32mzef_cu_PinConfig_LCC = [{"pin": 104, "name": "BSP_MAXTOUCH_CHG", "type
 ##################################################################################
 
 ############ SSD1963 + TOUCH I2C CONFIG ######################################################
-bsp_pic32mzef_cu_ActivateList_SSD = ["gfx_driver_ssd1963", "gfx_intf_parallel_ebi", "i2c2", "drv_i2c", "drv_i2c0", "core_timer", "sys_time", "ebi"]
-bsp_pic32mzef_cu_AutoConnectList_SSD = [["gfx_hal", "gfx_display_driver", "gfx_driver_ssd1963", "gfx_driver_ssd1963"],
+bsp_pic32mzef_cu_ActivateList_SSD = ["le_gfx_driver_ssd1963", "le_gfx_intf_parallel_ebi", "i2c2", "drv_i2c", "drv_i2c0", "core_timer", "sys_time", "ebi"]
+bsp_pic32mzef_cu_AutoConnectList_SSD = [["gfx_legato", "gfx_driver", "le_gfx_driver_ssd1963", "gfx_driver_ssd1963"],
+					["le_gfx_driver_ssd1963", "Graphics Display", "gfx_disp_pdatm4301b_480x272", "gfx_display"],
 					["drv_i2c_0", "drv_i2c_I2C_dependency", "i2c2", "I2C2_I2C"],
 					["gfx_maxtouch_controller", "i2c", "drv_i2c_0", "drv_i2c"],
-					["sys_time", "sys_time_TMR_dependency", "core_timer", "CORE_TIMER_TMR"],
-					["gfx_driver_ssd1963", "Parallel Display Interface", "gfx_intf_parallel_ebi", "gfx_intf_parallel_ebi"],
-					["gfx_intf_parallel_ebi", "EBI_CS", "ebi", "ebi_cs0"]]
+					["le_gfx_driver_ssd1963", "Display Interface", "le_gfx_intf_parallel_ebi", "le_gfx_intf_parallel_ebi"],
+					["le_gfx_intf_parallel_ebi", "EBI_CS", "ebi", "ebi_cs0"],
+					["sys_time", "sys_time_TMR_dependency", "core_timer", "CORE_TIMER_TMR"]]
 bsp_pic32mzef_cu_PinConfig_SSD = [{"pin": 104, "name": "BSP_MAXTOUCH_CHG", "type": "GPIO", "direction": "In", "latch": "", "abcd": ""}, #RD0
 				{"pin": 53, "name": "GFX_DISP_INTF_PIN_RD", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #RK3
 				{"pin": 51, "name": "GFX_DISP_INTF_PIN_RSDC", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #RK1
@@ -65,8 +66,7 @@ def bsp_pic32mzef_cu_EventHandler(event):
 		except:
 			return
 
-#bsp_pic32mzef_cu_DisplayInterfaceList = ["LCC", "SSD1963"]
-bsp_pic32mzef_cu_DisplayInterfaceList = ["LCC"]
+bsp_pic32mzef_cu_DisplayInterfaceList = ["LCC", "SSD1963"]
 
 bsp_pic32mzef_cu_obj_LCC = bspSupportObj(bsp_pic32mzef_cu_PinConfig_LCC,
 										bsp_pic32mzef_cu_ActivateList_LCC,
@@ -82,5 +82,5 @@ bsp_pic32mzef_cu_obj_SSD = bspSupportObj(bsp_pic32mzef_cu_PinConfig_SSD,
 
 addDisplayIntfSupport("BSP_PIC32MZ_EF_Curiosity_2.0", bsp_pic32mzef_cu_DisplayInterfaceList)
 addBSPSupport("BSP_PIC32MZ_EF_Curiosity_2.0", "LCC", bsp_pic32mzef_cu_obj_LCC)
-#addBSPSupport("BSP_PIC32MZ_EF_Curiosity_2.0", "SSD1963", bsp_pic32mzef_cu_obj_SSD)
+addBSPSupport("BSP_PIC32MZ_EF_Curiosity_2.0", "SSD1963", bsp_pic32mzef_cu_obj_SSD)
 
