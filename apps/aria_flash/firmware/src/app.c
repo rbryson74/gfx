@@ -490,7 +490,7 @@ void APP_Tasks ( void )
 			else
 			{
 				// erase target space
-	            if (DRV_SST26_SectorErase(appData.handle, MEM_ADDRESS) != true)
+                if (DRV_SST26_ChipErase(appData.handle) != true)
 	            {
 	                appData.state = APP_STATE_ERROR;
 	            }
@@ -548,6 +548,7 @@ void APP_Tasks ( void )
 
             readSize = 0;
             writeAddress = 0;
+            LED_OFF();
             
 			// reset file pointer to the start
 			SYS_FS_FileSeek(fileHandle, 0, SYS_FS_SEEK_SET);
@@ -596,6 +597,7 @@ void APP_Tasks ( void )
 				laWidget_SetVisible((laWidget*)InfoLabel2, LA_FALSE);
 				laWidget_SetVisible((laWidget*)InfoOKButton, LA_TRUE);
 
+                LED_ON();
 				// decode complete
 				appData.state = APP_STATE_DONE;
             }
@@ -616,37 +618,46 @@ void APP_Tasks ( void )
             }
             else
             {
-                if (readSize < appData.geometry.write_blockSize)
+                if (readSize < BUFFER_SIZE)
                 {
                     appData.state = APP_PRE_DECODE;
                 }
                 else
                 {
-                    if (DRV_SST26_PageWrite(appData.handle, (uint32_t *)&appData.writeBuffer, writeAddress) == true)
-                    {
-                        appData.state = APP_STATE_WRITE_WAIT;
-                    }
-                    else
-                    {
-                        appData.state = APP_STATE_ERROR;
-                    }
-
+                    appData.write_index = 0;
+                    appData.state = APP_STATE_WRITE_TO_SQI;
                 }
             }
             break;
         }
 
+        case APP_STATE_WRITE_TO_SQI:
+        {
+            if (DRV_SST26_PageWrite(appData.handle, (uint32_t *)&appData.writeBuffer[appData.write_index], writeAddress + appData.write_index) != true)
+            {
+                appData.state = APP_STATE_ERROR;
+            }
+
+            appData.state = APP_STATE_WRITE_WAIT;
+
+            break;
+        }
+        
 		case APP_STATE_WRITE_WAIT:
         {
             transferStatus = DRV_SST26_TransferStatusGet(appData.handle);
 
             if(transferStatus == DRV_SST26_TRANSFER_COMPLETED)
             {
-                memset(verificationBuffer, 0x0, BUFFER_SIZE);
+                appData.write_index += appData.geometry.write_blockSize;
                 
-                if(DRV_SST26_Read(appData.handle, (uint32_t *)&verificationBuffer, readSize, writeAddress) == true)
+                if (appData.write_index < BUFFER_SIZE)
                 {
-    				appData.state = APP_STATE_VERIFY_WAIT;
+                    appData.state = APP_STATE_WRITE_TO_SQI;
+                }
+                else
+                {
+                    appData.state = APP_STATE_VERIFY_READ;
                 }
             }
             else if (transferStatus == DRV_SST26_TRANSFER_ERROR_UNKNOWN)
@@ -657,23 +668,26 @@ void APP_Tasks ( void )
             break;
         }
 
+        case APP_STATE_VERIFY_READ:
+        {
+            if(DRV_SST26_Read(appData.handle, (uint32_t *)&verificationBuffer, readSize, writeAddress) == true)
+            {
+                appData.state = APP_STATE_VERIFY_WAIT;
+            }
+            else
+            {
+                appData.state = APP_STATE_ERROR;
+            }
+            break;
+        }
+        
 		case APP_STATE_VERIFY_WAIT:
         {
 			transferStatus = DRV_SST26_TransferStatusGet(appData.handle);
 
 			if (transferStatus == DRV_SST26_TRANSFER_COMPLETED)
             {
-                if (memcmp(appData.writeBuffer, verificationBuffer, readSize) == 0)
-                {
-    				writeAddress += readSize;
-                    
-                    readSize = 0;
-                    appData.state = APP_PRE_DECODE;
-                }
-                else
-                {
-                    appData.state = APP_STATE_ERROR;
-                }
+                appData.state = APP_STATE_VERIFY_DATA;
             }
 			else if (transferStatus == DRV_SST26_TRANSFER_ERROR_UNKNOWN)
             {
@@ -683,10 +697,23 @@ void APP_Tasks ( void )
             break;
         }
 
-		case APP_STATE_ERROR:
+        case APP_STATE_VERIFY_DATA:
         {
+            if (memcmp(appData.writeBuffer, verificationBuffer, readSize) == 0)
+            {
+                writeAddress += readSize;
+
+                readSize = 0;
+                appData.state = APP_PRE_DECODE;
+            }
+            else
+            {
+                appData.state = APP_STATE_ERROR;
+            }
             break;
         }
+        
+		case APP_STATE_ERROR:
 		case APP_STATE_DONE:
         default:
 		{

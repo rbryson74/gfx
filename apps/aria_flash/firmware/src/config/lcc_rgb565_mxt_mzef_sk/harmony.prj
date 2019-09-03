@@ -1419,8 +1419,8 @@
           <Name dnOrder="1">configuration.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_sk/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">36BB3B2CD8767CA8C7580085E247B5FA</GeneratedChecksum>
-          <UserChecksum dnOrder="5">36BB3B2CD8767CA8C7580085E247B5FA</UserChecksum>
+          <GeneratedChecksum dnOrder="4">881A2BD9957D68BA6985655AE0CBC824</GeneratedChecksum>
+          <UserChecksum dnOrder="5">881A2BD9957D68BA6985655AE0CBC824</UserChecksum>
         </File>
         <File dnOrder="177">
           <Type dnOrder="0">HEADER</Type>
