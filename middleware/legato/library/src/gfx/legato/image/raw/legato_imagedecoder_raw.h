@@ -143,6 +143,7 @@ typedef struct leRawDecodeState
     enum leRawDecoderMode mode; // the current mode of the decoder
 
     leColorMode targetMode;
+    leBool randomRLE; // hint to the decoder that RLE decodes will be random
 
     leRect sourceRect; // the image source rectangle
     leRect destRect; // the target rectangle dimensions

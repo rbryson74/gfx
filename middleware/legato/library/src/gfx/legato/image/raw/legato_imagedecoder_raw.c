@@ -951,6 +951,8 @@ static leResult _rotateDraw(const leImage* src,
 
     state.globalAlpha = a;
 
+    state.randomRLE = LE_TRUE;
+
     // iterator setup
     if(_leRawImageDecoder_RotatedTargetIterateSetupStage(&state) == LE_FAILURE)
         return LE_FAILURE;

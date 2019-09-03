@@ -61,13 +61,21 @@ static void indexDecode()
                                             op->bufferIndex);
 }
 
-static void rleDecode()
+static void rleSequentialDecode()
 {
     leRawSourceReadOperation* op = &internalReadStage.base.state->readOperation[internalReadStage.base.state->readIndex];
 
-    // TODO sparing these values results in an optimization for
-    // known sequential decode operations.  deal with it later
-    // these values fail when doing random reads like with rotation
+    op->data = leGetRLEDataAtIndex(internalReadStage.base.state->source->buffer.pixels,
+                                   internalReadStage.base.state->source->buffer.pixel_count,
+                                   op->bufferIndex,
+                                   &internalReadStage.lastBlock,
+                                   &internalReadStage.lastOffset);
+}
+
+static void rleRandomDecode()
+{
+    leRawSourceReadOperation* op = &internalReadStage.base.state->readOperation[internalReadStage.base.state->readIndex];
+
     internalReadStage.lastBlock = 0;
     internalReadStage.lastOffset = 0;
 
@@ -78,7 +86,7 @@ static void rleDecode()
                                    &internalReadStage.lastOffset);
 }
 
-static void indexRLEDecode()
+static void indexRLESequentialDecode()
 {
     uint32_t srcClr;
 
@@ -88,9 +96,31 @@ static void indexRLEDecode()
     srcClr = leGetOffsetFromIndexAndBPP(op->bufferIndex,
                                         internalReadStage.imgBPP);
 
-    // TODO sparing these values results in an optimization for
-    // known sequential decode operations.  deal with it later
-    // these values fail when doing random reads like with rotation
+    // perform RLE lookup
+    srcClr = leGetRLEDataAtIndex(internalReadStage.base.state->source->buffer.pixels,
+                                 internalReadStage.base.state->source->buffer.pixel_count,
+                                 srcClr,
+                                 &internalReadStage.lastBlock,
+                                 &internalReadStage.lastOffset);
+
+    // get the value from the RLE block
+    srcClr = leGetDiscreteValueAtIndex(op->bufferIndex,
+                                       srcClr,
+                                       internalReadStage.base.state->source->buffer.mode);
+
+    op->data = srcClr;
+}
+
+static void indexRLERandomDecode()
+{
+    uint32_t srcClr;
+
+    leRawSourceReadOperation* op = &internalReadStage.base.state->readOperation[internalReadStage.base.state->readIndex];
+
+    // get the offset into the index table
+    srcClr = leGetOffsetFromIndexAndBPP(op->bufferIndex,
+                                        internalReadStage.imgBPP);
+
     internalReadStage.lastBlock = 0;
     internalReadStage.lastOffset = 0;
 
@@ -140,7 +170,14 @@ leResult _leRawImageDecoder_ReadStage_Internal(leRawDecodeState* state)
         }
         else
         {
-            internalReadStage.decode = indexRLEDecode;
+            if(state->randomRLE == LE_FALSE)
+            {
+                internalReadStage.decode = indexRLESequentialDecode;
+            }
+            else
+            {
+                internalReadStage.decode = indexRLERandomDecode;
+            }
         }
     }
     else
@@ -151,7 +188,14 @@ leResult _leRawImageDecoder_ReadStage_Internal(leRawDecodeState* state)
         }
         else
         {
-            internalReadStage.decode = rleDecode;
+            if(state->randomRLE == LE_FALSE)
+            {
+                internalReadStage.decode = rleSequentialDecode;
+            }
+            else
+            {
+                internalReadStage.decode = rleRandomDecode;
+            }
         }
     }
 
