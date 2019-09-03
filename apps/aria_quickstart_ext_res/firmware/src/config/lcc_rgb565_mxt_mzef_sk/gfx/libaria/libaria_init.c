@@ -91,7 +91,7 @@ static void ScreenCreate_screen1(laScreen* screen)
     laWidget_SetSize((laWidget*)SloganButton, 464, 47);
     laWidget_SetBackgroundType((laWidget*)SloganButton, LA_WIDGET_BACKGROUND_FILL);
     laWidget_SetBorderType((laWidget*)SloganButton, LA_WIDGET_BORDER_BEVEL);
-    laButtonWidget_SetText(SloganButton, laString_CreateFromID(string_DrawRaw));
+    laButtonWidget_SetText(SloganButton, laString_CreateFromID(string_DrawRLE));
     laButtonWidget_SetReleasedEventCallback(SloganButton, &SloganButton_ReleasedEvent);
 
     laWidget_AddChild((laWidget*)layer0, (laWidget*)SloganButton);

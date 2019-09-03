@@ -85,9 +85,9 @@ GFX_Result app_externalMediaRead(GFXU_ExternalAssetReader* reader,
         // read from cache if available
         if(appData.sqiCacheValid == 1 &&
            appData.sqiCacheAddress <= (uint32_t)address &&
-           (uint32_t)address + readSize < appData.sqiCacheAddress + SQI_CACHE_SIZE)
+           (uint32_t)address + readSize < appData.sqiCacheAddress + (uint32_t)SQI_CACHE_SIZE)
         {
-            memcpy(destBuffer, &appData.sqiCache[(uint32_t)address - appData.sqiCacheAddress], appData.readSize);
+            memcpy(destBuffer, &appData.sqiCache[(uint32_t)address - appData.sqiCacheAddress], readSize);
 
             if(reader != NULL && cb != NULL)
                 cb(reader); // indicate that the data buffer is ready

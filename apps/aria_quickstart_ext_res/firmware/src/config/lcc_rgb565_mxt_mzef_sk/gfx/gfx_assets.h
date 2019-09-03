@@ -92,7 +92,7 @@ extern GFXU_ImageAsset MHGS_logo_small_raw;
  * GFX Image Asset
  * Name:   MHGS_logo_small_rle
  * Size:   141x132 pixels
- * Mode:   INDEX_8
+ * Mode:   RGB_565
  * Format: RAW
  ***********************************/
 extern GFXU_ImageAsset MHGS_logo_small_rle;
@@ -107,23 +107,12 @@ extern GFXU_ImageAsset MHGS_logo_small_rle;
 extern GFXU_ImageAsset MHGS_logo_small_raw_direct_blit;
 	
 /*****************************************************************************
- * MPLAB Harmony Graphics Palette Assets
- *****************************************************************************/
-/*********************************
- * GFX Palette Asset
- * Name:   MHGS_logo_small_rle_palette
- * Colors: 116
- * Format: RGB_565
- ***********************************/
-extern GFXU_PaletteAsset MHGS_logo_small_rle_palette;
-	
-/*****************************************************************************
  * MPLAB Harmony Graphics Font Assets
  *****************************************************************************/
 /*********************************
  * GFX Font Asset
  * Name:         ArialUnicodeMS
- * Height:       17
+ * Height:       23
  * Style:        Plain
  * Glyph Count:  40
  * Range Count:  15
@@ -179,7 +168,7 @@ extern GFXU_FontAsset ArialUnicodeMS_Large;
 /*********************************
  * GFX String Table
  * Name:         stringTable
- * Encoding:     UTF8
+ * Encoding:     UTF16
  * Languages:    English, Chinese
  * String Count: 11
  ***********************************/
