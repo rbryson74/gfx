@@ -595,8 +595,8 @@
           <Name dnOrder="1">libaria_events.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">BD64FFDD0757B3A339F87AACE434519F</GeneratedChecksum>
-          <UserChecksum dnOrder="5">BD64FFDD0757B3A339F87AACE434519F</UserChecksum>
+          <GeneratedChecksum dnOrder="4">D720F2FEA1CCAEEF4CF05F5B06D7933E</GeneratedChecksum>
+          <UserChecksum dnOrder="5">D720F2FEA1CCAEEF4CF05F5B06D7933E</UserChecksum>
         </File>
         <File dnOrder="74">
           <Type dnOrder="0">SOURCE</Type>
@@ -1307,8 +1307,8 @@
           <Name dnOrder="1">plib_xdmac.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/peripheral/xdmac/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/xdmac/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">52CA9DE4CA3D6F7B73B2A4C646D8CE0D</GeneratedChecksum>
-          <UserChecksum dnOrder="5">52CA9DE4CA3D6F7B73B2A4C646D8CE0D</UserChecksum>
+          <GeneratedChecksum dnOrder="4">71113E43E9492176776F94262A17572B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">71113E43E9492176776F94262A17572B</UserChecksum>
         </File>
         <File dnOrder="163">
           <Type dnOrder="0">SOURCE</Type>
@@ -1563,8 +1563,8 @@
           <Name dnOrder="1">definitions.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">C78437F5895DA86BBBDDE951AB4737E0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">C78437F5895DA86BBBDDE951AB4737E0</UserChecksum>
+          <GeneratedChecksum dnOrder="4">647EF816883921C3B4779522FF45289F</GeneratedChecksum>
+          <UserChecksum dnOrder="5">647EF816883921C3B4779522FF45289F</UserChecksum>
         </File>
         <File dnOrder="195">
           <Type dnOrder="0">HEADER</Type>

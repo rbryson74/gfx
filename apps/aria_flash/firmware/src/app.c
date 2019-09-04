@@ -71,8 +71,8 @@ HexDecoder CACHE_ALIGN dec;
 SYS_FS_HANDLE fileHandle;
 long          fileSize;
 char          readChar;
-uint8_t       writeBuffer[BUFFER_SIZE] __attribute__((coherent, aligned(4)));
-uint8_t       verificationBuffer[BUFFER_SIZE] __attribute__((coherent, aligned(4)));
+uint8_t CACHE_ALIGN      writeBuffer[BUFFER_SIZE];
+uint8_t CACHE_ALIGN      verificationBuffer[BUFFER_SIZE];
 
 int32_t       usbDeviceConnected;
 int32_t       sdcardDeviceConnected;
@@ -165,7 +165,10 @@ void APP_SYSFSEventHandler(SYS_FS_EVENT event,
                 LED2_On();
             }
             
-            deviceConnectionStateChanged();
+            if (appData.state != APP_STATE_ERROR)
+            {
+                deviceConnectionStateChanged();
+            }
             
             break;
         }    
@@ -429,7 +432,7 @@ void APP_Tasks ( void )
         }
 
 		case APP_VALIDATE_FILE:
-			{
+        {
 			laWidget_SetVisible(SelectMediumPanel, LA_FALSE);
 			laWidget_SetVisible(FlashingPanel, LA_TRUE);
 
@@ -493,6 +496,7 @@ void APP_Tasks ( void )
                 if (DRV_SST26_ChipErase(appData.handle) != true)
 	            {
 	                appData.state = APP_STATE_ERROR;
+                    break;
 	            }
 
             	appData.state = APP_STATE_ERASE_WAIT;
@@ -548,7 +552,14 @@ void APP_Tasks ( void )
 
             readSize = 0;
             writeAddress = 0;
+            
+#ifdef LED_OFF            
             LED_OFF();
+#else 
+#ifdef LED3_Off
+            LED3_Off();
+#endif
+#endif
             
 			// reset file pointer to the start
 			SYS_FS_FileSeek(fileHandle, 0, SYS_FS_SEEK_SET);
@@ -597,7 +608,13 @@ void APP_Tasks ( void )
 				laWidget_SetVisible((laWidget*)InfoLabel2, LA_FALSE);
 				laWidget_SetVisible((laWidget*)InfoOKButton, LA_TRUE);
 
-                LED_ON();
+#ifdef LED_ON            
+            LED_ON();
+#else 
+#ifdef LED3_On
+            LED3_On();
+#endif
+#endif
 				// decode complete
 				appData.state = APP_STATE_DONE;
             }
@@ -636,6 +653,7 @@ void APP_Tasks ( void )
             if (DRV_SST26_PageWrite(appData.handle, (uint32_t *)&appData.writeBuffer[appData.write_index], writeAddress + appData.write_index) != true)
             {
                 appData.state = APP_STATE_ERROR;
+                break;
             }
 
             appData.state = APP_STATE_WRITE_WAIT;
@@ -714,6 +732,16 @@ void APP_Tasks ( void )
         }
         
 		case APP_STATE_ERROR:
+        {
+#ifdef LED_ON            
+            LED_ON();
+#else 
+#ifdef RGB_LED_R_On
+            RGB_LED_R_On();
+#endif
+#endif
+            break;
+        }
 		case APP_STATE_DONE:
         default:
 		{
