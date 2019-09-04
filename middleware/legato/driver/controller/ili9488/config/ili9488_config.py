@@ -27,17 +27,9 @@ DriverInitName.setVisible(False)
 DriverInitName.setReadOnly(True)
 DriverInitName.setDefaultValue("ili9488DisplayDriver")
 
-DisplayInterface = comp.createStringSymbol("DisplayInterface", None)
-DisplayInterface.setLabel("Display Interface")
-DisplayInterface.setVisible(True)
-DisplayInterface.setReadOnly(True)
-DisplayInterface.setUseSingleDynamicValue(True)
-
 DisplayInterfaceType = comp.createComboSymbol("DisplayInterfaceType", None, ["Parallel", "SPI 4-line"])
 DisplayInterfaceType.setLabel("Display Interface Type")
 DisplayInterfaceType.setVisible(True)
-DisplayInterfaceType.setReadOnly(True)
-DisplayInterfaceType.setUseSingleDynamicValue(True)
 
 ### Parallel mode specific options
 ParallelInterfaceWidth = comp.createComboSymbol("ParallelInterfaceWidth", DisplayInterfaceType, ["16-bit", "8-bit"])

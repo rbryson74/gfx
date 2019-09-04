@@ -55,21 +55,14 @@ def instantiateComponent(comp):
 	execfile(Module.getPath() + "/config/ili9488_rtos.py")
 
 def onAttachmentConnected(source, target):
-	source["component"].getSymbolByID("GFX_ILI9488_DBIB_C").setEnabled(False)
-	source["component"].getSymbolByID("GFX_ILI9488_SPI").setEnabled(False)
 	source["component"].getSymbolByID("ParallelInterfaceWidth").setVisible(False)
-	source["component"].getSymbolByID("DisplayInterface").setValue(target["id"], 1)
 	if source["id"] == "Parallel Display Interface":
 		print(source["component"].getID() + ": Using " + target["component"].getID() + " interface ")
-		source["component"].getSymbolByID("GFX_ILI9488_DBIB_C").setEnabled(True)
 		source["component"].getSymbolByID("ParallelInterfaceWidth").setVisible(True)
-		source["component"].setDependencyEnabled("Parallel Display Interface", True)
 		source["component"].setDependencyEnabled("SPI Display Interface", False);
 		source["component"].getSymbolByID("DisplayInterfaceType").setValue("Parallel")
 	elif source["id"] == "SPI Display Interface":
-		source["component"].getSymbolByID("GFX_ILI9488_SPI").setEnabled(True)
-		source["component"].setDependencyEnabled("Parallel Display Interface", False)
-		source["component"].setDependencyEnabled("SPI Display Interface", True)
+		source["component"].setDependencyEnabled("Parallel Display Interface", False);
 		source["component"].getSymbolByID("DisplayInterfaceType").setValue("SPI 4-line")
 
 def onAttachmentDisconnected(source, target):
