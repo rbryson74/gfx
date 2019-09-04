@@ -719,6 +719,10 @@ void leRenderer_Paint()
                 {
                     _rendererState.frameState = LE_FRAME_POSTWIDGET;
                 }
+                else
+                {
+                    return;
+                }
                 
                 break;
             }
