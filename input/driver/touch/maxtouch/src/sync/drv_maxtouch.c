@@ -517,9 +517,6 @@ static void resetTimer_Callback ( uintptr_t context )
 // *****************************************************************************
 //******************************************************************************
 
-/* temporary CHG pin read REMOVE BEGIN */
-//#define BSP_MAXTOUCH_CHG_Get() PIO_PinRead(PIO_PIN_PD28)
-
 static uint32_t MXT_INTERRUPT_PIN_VALUE_GET(void)
 {
 #ifndef BSP_MAXTOUCH_CHG_Get
@@ -530,6 +527,12 @@ return(BSP_MAXTOUCH_CHG_Get());
 /* temporary CHG pin read REMOVE END */
 }
 
+
+void mxt_chg_callback ( PIO_PIN pin, uintptr_t context)
+{
+    struct mxt_data * obj = (struct mxt_data *) context;
+    obj->deviceState = DEVICE_STATE_READY;
+}
 
 // *****************************************************************************
 
@@ -568,7 +571,11 @@ SYS_MODULE_OBJ DRV_MAXTOUCH_Initialize(const SYS_MODULE_INDEX index,
     pDrvInstance->yRes    = pInit->verticalResolution - 1;
     pDrvInstance->status  = SYS_STATUS_BUSY;
     pDrvInstance->deviceState = DEVICE_STATE_OPEN;
-    
+
+	/* enable CHG interrupt handler */
+    PIO_PinInterruptCallbackRegister(BSP_MAXTOUCH_CHG_PIN, mxt_chg_callback, (uintptr_t)pDrvInstance);
+    PIO_PinInterruptEnable(BSP_MAXTOUCH_CHG_PIN);
+
     return (SYS_MODULE_OBJ)pDrvInstance;
 }
 
@@ -702,7 +709,6 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
             
             pDrvInstance->status = SYS_STATUS_READY;  
             pDrvObject->deviceState = DEVICE_STATE_READY;
-        
             break;
         }
                 
@@ -713,14 +719,15 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
             /* send a read request to the message processor object T5 */ 
             if(MXT_INTERRUPT_PIN_VALUE_GET() == false)
             {
-//                portd = MXT_INTERRUPT_PIN_VALUE_GET();
-                mxt_interrupt(pDrvInstance);              
+                mxt_interrupt(pDrvInstance);  
             }
+            pDrvObject->deviceState = DEVICE_STATE_WAIT;
+
             break;          
         }
 
         case DEVICE_STATE_ERROR: /* In error state */
-        {
+        { 
             pDrvObject->status = SYS_STATUS_ERROR;
             break;
         }
