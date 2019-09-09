@@ -54,6 +54,7 @@
 #include "driver/memory/drv_memory.h"
 #include "usb/usb_chapter_9.h"
 #include "usb/usb_device.h"
+#include "peripheral/efc/plib_efc.h"
 #include "peripheral/tc/plib_tc0.h"
 #include "peripheral/tc/plib_tc2.h"
 #include "system/time/sys_time.h"

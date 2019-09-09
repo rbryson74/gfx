@@ -146,8 +146,6 @@ Clock Initialize
 *********************************************************************************/
 void CLK_Initialize( void )
 {
-    /* Set Flash Wait States and  Enable Code Loop Optimization */
-    EFC_REGS->EEFC_FMR = EEFC_FMR_FWS(6) | EEFC_FMR_CLOE_Msk;
 
 
     /* Initialize Main Clock */
@@ -168,8 +166,7 @@ void CLK_Initialize( void )
 
 
     /* Enable Peripheral Clock */
-    //PMC_REGS->PMC_PCER0=0x8b1e00;
-    //PMC_REGS->PMC_PCER1=0x4010804;
-    PMC_REGS->PMC_PCER0=0x831c00;
-    PMC_REGS->PMC_PCER1=0x804;
+    PMC_REGS->PMC_PCER0=0x8b1e00;
+    PMC_REGS->PMC_PCER1=0x4010804;
+    //PMC_REGS->PMC_PCER1=0x10804;
 }

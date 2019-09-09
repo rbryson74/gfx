@@ -8,21 +8,28 @@
         <logicalFolder name="f1"
                        displayName="lcc_rgb565_mxt_msd_fs_sqi_flash"
                        projectFiles="true">
-          <logicalFolder name="f5" displayName="bsp" projectFiles="true">
+          <logicalFolder name="f6" displayName="bsp" projectFiles="true">
             <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/bsp/bsp.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f3" displayName="driver" projectFiles="true">
+            <logicalFolder name="f2" displayName="i2c" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/driver/i2c/drv_i2c.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/driver/i2c/drv_i2c_definitions.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f3" displayName="input" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/driver/input/drv_maxtouch.h</itemPath>
+            </logicalFolder>
             <logicalFolder name="f1" displayName="memory" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/driver/memory/src/drv_memory_local.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/driver/memory/drv_memory.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/driver/memory/drv_memory_definitions.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="sst26" projectFiles="true">
+            <logicalFolder name="f4" displayName="sst26" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/driver/sst26/drv_sst26.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/driver/sst26/src/drv_sst26_local.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/driver/sst26/drv_sst26_definitions.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="usb" projectFiles="true">
+            <logicalFolder name="f5" displayName="usb" projectFiles="true">
               <logicalFolder name="f1" displayName="usbhsv1" projectFiles="true">
                 <logicalFolder name="f1" displayName="src" projectFiles="true">
                   <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/driver/usb/usbhsv1/src/drv_usbhsv1_variant_mapping.h</itemPath>
@@ -36,34 +43,160 @@
             <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/driver/driver.h</itemPath>
             <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/driver/driver_common.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f2" displayName="peripheral" projectFiles="true">
-            <logicalFolder name="f1" displayName="clk" projectFiles="true">
+          <logicalFolder name="f1" displayName="gfx" projectFiles="true">
+            <logicalFolder name="f2" displayName="driver" projectFiles="true">
+              <logicalFolder name="f1" displayName="lcc" projectFiles="true">
+                <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/driver/controller/lcc/drv_gfx_lcc.h</itemPath>
+              </logicalFolder>
+            </logicalFolder>
+            <logicalFolder name="f1" displayName="hal" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/gfx.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/inc/gfx_color.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/inc/gfx_common.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/inc/gfx_context.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/inc/gfx_default_impl.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/inc/gfx_display.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/inc/gfx_driver_interface.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/inc/gfx_hal.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/inc/gfx_interface.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/inc/gfx_layer.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/inc/gfx_pixel_buffer.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/inc/gfx_processor_interface.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/inc/gfx_rect.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/inc/gfx_util.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/inc/gfx_draw.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/inc/gfx_draw_arc.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/inc/gfx_draw_blit.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/inc/gfx_draw_circle.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/inc/gfx_draw_ellipse.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/inc/gfx_draw_line.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/inc/gfx_draw_pixel.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/inc/gfx_draw_rect.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/inc/gfx_draw_stretchblit.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/inc/gfx_math.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/gfx_config.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f5" displayName="libaria" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/libaria_harmony.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/libaria_config.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/libaria_init.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/libaria.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_array.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_common.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_context.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_draw.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_editwidget.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_event.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_global.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_input.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_layer.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_math.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_list.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_rectarray.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_scheme.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_screen.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_string.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_utils.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_skin_classic_common.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_arc.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_bar_graph.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_button.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_checkbox.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_circle.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_circular_gauge.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_circular_slider.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_drawsurface.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_gradient.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_groupbox.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_image.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_imageplus.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_imagesequence.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_keypad.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_label.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_line.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_line_graph.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_list.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_listwheel.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_pie_chart.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_progressbar.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_radial_menu.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_radiobutton.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_radiobutton_group.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_rectangle.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_scrollbar.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_slider.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_textfield.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_touchtest.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_window.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/libaria_events.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/libaria_macros.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f4" displayName="third_party" projectFiles="true">
+              <logicalFolder name="f1" displayName="lodepng" projectFiles="true">
+                <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/third_party/lodepng/lodepng.h</itemPath>
+              </logicalFolder>
+            </logicalFolder>
+            <logicalFolder name="f3" displayName="utils" projectFiles="true">
+              <logicalFolder name="f1" displayName="inc" projectFiles="true">
+                <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/inc/gfxu_binary.h</itemPath>
+                <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/inc/gfxu_font.h</itemPath>
+                <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/inc/gfxu_global.h</itemPath>
+                <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/inc/gfxu_image.h</itemPath>
+                <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/inc/gfxu_image_utils.h</itemPath>
+                <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/inc/gfxu_palette.h</itemPath>
+                <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/inc/gfxu_string.h</itemPath>
+                <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/inc/gfxu_string_utils.h</itemPath>
+                <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/inc/gfxu_image_jpg_common.h</itemPath>
+              </logicalFolder>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/gfx_utils.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/gfxu_config.h</itemPath>
+            </logicalFolder>
+            <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/gfx_assets.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f4" displayName="peripheral" projectFiles="true">
+            <logicalFolder name="f4" displayName="clk" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/clk/plib_clk.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="mpu" projectFiles="true">
+            <logicalFolder name="f1" displayName="efc" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/efc/plib_efc.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f7" displayName="mpu" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/mpu/plib_mpu.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/mpu/plib_mpu_local.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="nvic" projectFiles="true">
+            <logicalFolder name="f6" displayName="nvic" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/nvic/plib_nvic.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="pio" projectFiles="true">
+            <logicalFolder name="f5" displayName="pio" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/pio/plib_pio.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="qspi" projectFiles="true">
+            <logicalFolder name="f9" displayName="qspi" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/qspi/plib_qspi_common.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/qspi/plib_qspi.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="tc" projectFiles="true">
+            <logicalFolder name="f10" displayName="smc" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/smc/plib_smc.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f2" displayName="tc" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/tc/plib_tc0.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/tc/plib_tc_common.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/tc/plib_tc2.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f3" displayName="twihs" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/twihs/plib_twihs_master.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/twihs/plib_twihs0.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f8" displayName="xdmac" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/xdmac/plib_xdmac_common.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/xdmac/plib_xdmac.h</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f4" displayName="system" projectFiles="true">
-            <logicalFolder name="f4" displayName="cache" projectFiles="true">
+          <logicalFolder name="f5" displayName="system" projectFiles="true">
+            <logicalFolder name="f3" displayName="cache" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/system/cache/sys_cache.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="fs" projectFiles="true">
+            <logicalFolder name="f5" displayName="fs" projectFiles="true">
               <logicalFolder name="f1" displayName="fat_fs" projectFiles="true">
                 <logicalFolder name="f1" displayName="file_system" projectFiles="true">
                   <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/system/fs/fat_fs/src/file_system/ff.h</itemPath>
@@ -82,7 +215,15 @@
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/system/fs/sys_fs_media_manager.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/system/fs/src/sys_fs_media_manager_local.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="int" projectFiles="true">
+            <logicalFolder name="f4" displayName="input" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/system/input/sys_input.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/system/input/sys_input_gesture.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/system/input/sys_input_keyboard.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/system/input/sys_input_listener.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/system/input/sys_input_mouse.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/system/input/sys_input_touch.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f2" displayName="int" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/system/int/sys_int.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/system/int/sys_int_mapping.h</itemPath>
             </logicalFolder>
@@ -96,7 +237,7 @@
             <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/system/system_module.h</itemPath>
             <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/system/system_media.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f1" displayName="usb" projectFiles="true">
+          <logicalFolder name="f2" displayName="usb" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/usb/src/usb_device_msd_local.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/usb/src/usb_device_local.h</itemPath>
@@ -115,11 +256,11 @@
             <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/usb/usb_host.h</itemPath>
             <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/usb/usb_hub.h</itemPath>
           </logicalFolder>
+          <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/user.h</itemPath>
+          <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/configuration.h</itemPath>
           <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/device_cache.h</itemPath>
           <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/toolchain_specifics.h</itemPath>
           <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/definitions.h</itemPath>
-          <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/user.h</itemPath>
-          <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/configuration.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="f3" displayName="osal" projectFiles="true">
@@ -212,15 +353,22 @@
           <logicalFolder name="f6" displayName="bsp" projectFiles="true">
             <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/bsp/bsp.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="f4" displayName="driver" projectFiles="true">
+          <logicalFolder name="f3" displayName="driver" projectFiles="true">
+            <logicalFolder name="f2" displayName="i2c" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/driver/i2c/src/drv_i2c.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/driver/i2c/src/drv_i2c_local.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f3" displayName="input" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/driver/input/drv_maxtouch.c</itemPath>
+            </logicalFolder>
             <logicalFolder name="f1" displayName="memory" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/driver/memory/src/drv_memory.c</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/driver/memory/src/drv_memory_file_system.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="sst26" projectFiles="true">
+            <logicalFolder name="f4" displayName="sst26" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/driver/sst26/src/drv_sst26.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="usb" projectFiles="true">
+            <logicalFolder name="f5" displayName="usb" projectFiles="true">
               <logicalFolder name="f1" displayName="usbhsv1" projectFiles="true">
                 <logicalFolder name="f1" displayName="src" projectFiles="true">
                   <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/driver/usb/usbhsv1/src/drv_usbhsv1.c</itemPath>
@@ -229,34 +377,198 @@
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f3" displayName="peripheral" projectFiles="true">
-            <logicalFolder name="f1" displayName="clk" projectFiles="true">
+          <logicalFolder name="f1" displayName="gfx" projectFiles="true">
+            <logicalFolder name="f2" displayName="driver" projectFiles="true">
+              <logicalFolder name="f1" displayName="lcc" projectFiles="true">
+                <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/driver/controller/lcc/drv_gfx_lcc.c</itemPath>
+              </logicalFolder>
+            </logicalFolder>
+            <logicalFolder name="f1" displayName="hal" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_color.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_context.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_default_impl.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_display.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_display_def.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_driver_interface.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_driver_def.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_processor_def.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_get.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_interface.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_layer.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_pixel_buffer.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_processor_interface.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_rect.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_util.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_set.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_color_blend.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_color_convert.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_color_lerp.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_color_value.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_draw_arc.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_draw_blit.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_draw_circle.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_draw_ellipse.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_draw_line.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_draw_pixel.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_draw_rect.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_draw_stretchblit.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/hal/src/gfx_math.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f5" displayName="libaria" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/libaria_harmony.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/libaria_init.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_array.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_context.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_context_paint.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_draw.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_editwidget.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_event.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_input.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_layer.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_list.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_rectarray.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_scheme.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_screen.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_string.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_utils.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_skin_classic_common.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_arc.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_arc_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_bar_graph.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_bar_graph_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_button.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_button_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_checkbox.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_checkbox_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_circle.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_circle_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_circular_gauge.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_circular_gauge_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_circular_slider.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_circular_slider_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_drawsurface.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_drawsurface_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_gradient.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_gradient_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_groupbox.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_groupbox_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_image.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_image_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_imageplus.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_imageplus_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_imagesequence.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_imagesequence_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_keypad.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_keypad_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_label.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_label_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_line.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_line_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_line_graph.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_line_graph_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_list.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_list_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_listwheel.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_listwheel_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_pie_chart.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_pie_chart_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_progressbar.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_progressbar_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_radial_menu.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_radial_menu_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_radiobutton.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_radiobutton_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_radiobutton_group.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_rectangle.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_rectangle_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_scrollbar.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_scrollbar_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_slider.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_slider_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_textfield.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_textfield_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_touchtest.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_touchtest_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_window.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/src/libaria_widget_window_skin_classic.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/libaria_events.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/libaria_macros.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f4" displayName="third_party" projectFiles="true">
+              <logicalFolder name="f1" displayName="lodepng" projectFiles="true">
+                <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/third_party/src/lodepng/lodepng.c</itemPath>
+              </logicalFolder>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/third_party/decoder/src/jidctint.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f3" displayName="utils" projectFiles="true">
+              <logicalFolder name="f1" displayName="src" projectFiles="true">
+                <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/src/gfxu_image_jpg_common.c</itemPath>
+                <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/src/gfxu_image_jpg_internal.c</itemPath>
+                <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/src/gfxu_image_jpg_external.c</itemPath>
+                <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/src/gfxu_image_png_external.c</itemPath>
+                <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/src/gfxu_image_png_internal.c</itemPath>
+              </logicalFolder>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/src/gfxu_image.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/src/gfxu_image_raw_external.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/src/gfxu_image_raw_internal.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/src/gfxu_image_rle_external.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/src/gfxu_image_rle_internal.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/src/gfxu_image_utils.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/src/gfxu_palette.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/src/gfxu_string.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/src/gfxu_string_external.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/src/gfxu_stringbuffer_external.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/src/gfxu_string_internal.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/src/gfxu_string_query.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/src/gfxu_string_utils.c</itemPath>
+            </logicalFolder>
+            <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/gfx_assets.c</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f4" displayName="peripheral" projectFiles="true">
+            <logicalFolder name="f4" displayName="clk" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/clk/plib_clk.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="mpu" projectFiles="true">
+            <logicalFolder name="f1" displayName="efc" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/efc/plib_efc.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f7" displayName="mpu" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/mpu/plib_mpu.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="nvic" projectFiles="true">
+            <logicalFolder name="f6" displayName="nvic" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/nvic/plib_nvic.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="pio" projectFiles="true">
+            <logicalFolder name="f5" displayName="pio" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/pio/plib_pio.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="qspi" projectFiles="true">
+            <logicalFolder name="f9" displayName="qspi" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/qspi/plib_qspi.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="tc" projectFiles="true">
+            <logicalFolder name="f10" displayName="smc" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/smc/plib_smc.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f2" displayName="tc" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/tc/plib_tc0.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/tc/plib_tc2.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f3" displayName="twihs" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/twihs/plib_twihs0.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f8" displayName="xdmac" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/xdmac/plib_xdmac.c</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f2" displayName="stdio" projectFiles="true">
+          <logicalFolder name="f7" displayName="stdio" projectFiles="true">
             <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/stdio/xc32_monitor.c</itemPath>
           </logicalFolder>
           <logicalFolder name="f5" displayName="system" projectFiles="true">
-            <logicalFolder name="f4" displayName="cache" projectFiles="true">
+            <logicalFolder name="f3" displayName="cache" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/system/cache/sys_cache.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="fs" projectFiles="true">
+            <logicalFolder name="f5" displayName="fs" projectFiles="true">
               <logicalFolder name="f1" displayName="fat_fs" projectFiles="true">
                 <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/system/fs/fat_fs/src/ff.c</itemPath>
                 <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/system/fs/fat_fs/src/diskio.c</itemPath>
@@ -267,30 +579,34 @@
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/system/fs/src/sys_fs.c</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/system/fs/src/sys_fs_media_manager.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="int" projectFiles="true">
+            <logicalFolder name="f4" displayName="input" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/system/input/sys_input.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/system/input/sys_input_listener.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f2" displayName="int" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/system/int/src/sys_int.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="time" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/system/time/src/sys_time.c</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f1" displayName="usb" projectFiles="true">
+          <logicalFolder name="f2" displayName="usb" projectFiles="true">
             <logicalFolder name="f1" displayName="src" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/usb/src/usb_device_msd.c</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/usb/src/usb_device.c</itemPath>
             </logicalFolder>
           </logicalFolder>
+          <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/usb_device_init_data.c</itemPath>
+          <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/tasks.c</itemPath>
           <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/initialization.c</itemPath>
           <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/interrupts.c</itemPath>
           <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/exceptions.c</itemPath>
           <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/startup_xc32.c</itemPath>
           <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/libc_syscalls.c</itemPath>
-          <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/usb_device_init_data.c</itemPath>
-          <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash/tasks.c</itemPath>
         </logicalFolder>
       </logicalFolder>
-      <itemPath>../src/main.c</itemPath>
       <itemPath>../src/app_msd_fs_sqi_flash.c</itemPath>
+      <itemPath>../src/main.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -436,7 +752,7 @@
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-cross-reference-file" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
-        <property key="heap-size" value="512"/>
+        <property key="heap-size" value="16384"/>
         <property key="input-libraries" value=""/>
         <property key="kseg-length" value=""/>
         <property key="kseg-origin" value=""/>
