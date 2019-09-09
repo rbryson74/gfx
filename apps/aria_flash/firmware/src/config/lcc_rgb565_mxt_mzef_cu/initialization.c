@@ -89,12 +89,12 @@
 #pragma config FDMTEN =     OFF
 
 /*** DEVCFG2 ***/
-#pragma config FPLLIDIV =   DIV_3
-#pragma config FPLLRNG =    RANGE_5_10_MHZ
+#pragma config FPLLIDIV =   DIV_1
+#pragma config FPLLRNG =    RANGE_8_16_MHZ
 #pragma config FPLLICLK =   PLL_POSC
-#pragma config FPLLMULT =   MUL_50
+#pragma config FPLLMULT =   MUL_33
 #pragma config FPLLODIV =   DIV_2
-#pragma config UPLLFSEL =   FREQ_24MHZ
+#pragma config UPLLFSEL =   FREQ_12MHZ
 
 /*** DEVCFG3 ***/
 #pragma config USERID =     0xffff

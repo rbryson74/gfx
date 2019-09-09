@@ -103,8 +103,8 @@ void CLK_Initialize( void )
     /* REFO2CON register */
     /* ROSEL =  SYSCLK */
     /* DIVSWEN = 1 */
-    /* RODIV = 1 */
-    REFO2CON = 0x10200;
+    /* RODIV = 2 */
+    REFO2CON = 0x20200;
 
     /* Enable oscillator (ON bit) */
     REFO2CONSET = 0x00008000;

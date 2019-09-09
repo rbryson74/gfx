@@ -85,7 +85,7 @@ void __ISR(_USB_DMA_VECTOR, ipl1AUTO) USB_DMA_Handler (void)
     DRV_USBHS_DMAInterruptHandler();
 }
 
-void __ISR(_DMA0_VECTOR, ipl1AUTO) DMA0_Handler (void)
+void __ISR(_DMA0_VECTOR, ipl7AUTO) DMA0_Handler (void)
 {
     DMA0_InterruptHandler();
 }
@@ -100,7 +100,7 @@ void __ISR(_I2C2_MASTER_VECTOR, ipl1AUTO) I2C2_MASTER_Handler (void)
     I2C2_MASTER_InterruptHandler();
 }
 
-void __ISR(_SQI1_VECTOR, ipl1AUTO) SQI1_Handler (void)
+void __ISR(_SQI1_VECTOR, ipl3AUTO) SQI1_Handler (void)
 {
     SQI1_InterruptHandler();
 }

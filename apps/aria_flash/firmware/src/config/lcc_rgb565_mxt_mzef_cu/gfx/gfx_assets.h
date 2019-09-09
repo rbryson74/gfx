@@ -127,13 +127,14 @@ extern GFXU_FontAsset Arial;
  * Name:         Arial_sm
  * Height:       19
  * Style:        Plain
- * Glyph Count:  48
- * Range Count:  14
+ * Glyph Count:  47
+ * Range Count:  15
  * Glyph Ranges: 0x20-0x21
 			     0x27
 			     0x2E
 			     0x30-0x39
-			     0x41-0x44
+			     0x41-0x42
+			     0x44
 			     0x46
 			     0x49
 			     0x4E

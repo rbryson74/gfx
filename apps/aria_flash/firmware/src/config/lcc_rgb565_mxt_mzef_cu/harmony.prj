@@ -115,8 +115,8 @@
           <Name dnOrder="1">gfx_assets.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/gfx</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">26F318CA1B72E92939E9C1F8D298D0C8</GeneratedChecksum>
-          <UserChecksum dnOrder="5">26F318CA1B72E92939E9C1F8D298D0C8</UserChecksum>
+          <GeneratedChecksum dnOrder="4">B8E1C4D73381EA50BC93B2483B1C50C7</GeneratedChecksum>
+          <UserChecksum dnOrder="5">B8E1C4D73381EA50BC93B2483B1C50C7</UserChecksum>
         </File>
         <File dnOrder="14">
           <Type dnOrder="0">SOURCE</Type>
@@ -499,16 +499,16 @@
           <Name dnOrder="1">initialization.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">D8F7692AEF623E61657B835F49D9D4C5</GeneratedChecksum>
-          <UserChecksum dnOrder="5">D8F7692AEF623E61657B835F49D9D4C5</UserChecksum>
+          <GeneratedChecksum dnOrder="4">55B2A2B39A2DAD60DDF7E2E1B2331A5F</GeneratedChecksum>
+          <UserChecksum dnOrder="5">55B2A2B39A2DAD60DDF7E2E1B2331A5F</UserChecksum>
         </File>
         <File dnOrder="62">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">interrupts.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">0A5DB04A4EA130B6B3108EDE0322BC58</GeneratedChecksum>
-          <UserChecksum dnOrder="5">0A5DB04A4EA130B6B3108EDE0322BC58</UserChecksum>
+          <GeneratedChecksum dnOrder="4">ADCDE3610C86C89F0EA06D9C37A0A424</GeneratedChecksum>
+          <UserChecksum dnOrder="5">ADCDE3610C86C89F0EA06D9C37A0A424</UserChecksum>
         </File>
         <File dnOrder="63">
           <Type dnOrder="0">SOURCE</Type>
@@ -595,8 +595,8 @@
           <Name dnOrder="1">libaria_init.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">63829B7CB4FA674A85AAB68B896E117D</GeneratedChecksum>
-          <UserChecksum dnOrder="5">63829B7CB4FA674A85AAB68B896E117D</UserChecksum>
+          <GeneratedChecksum dnOrder="4">3AA9772A0F754D00D1E972A7B4F9EFEA</GeneratedChecksum>
+          <UserChecksum dnOrder="5">3AA9772A0F754D00D1E972A7B4F9EFEA</UserChecksum>
         </File>
         <File dnOrder="74">
           <Type dnOrder="0">SOURCE</Type>
@@ -1195,8 +1195,8 @@
           <Name dnOrder="1">plib_clk.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/peripheral/clk/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/clk/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E0CD443E0884C18FDB31DEC54154AB0D</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E0CD443E0884C18FDB31DEC54154AB0D</UserChecksum>
+          <GeneratedChecksum dnOrder="4">D448CF8FEEC3E5A0B750D7B4267C1CFF</GeneratedChecksum>
+          <UserChecksum dnOrder="5">D448CF8FEEC3E5A0B750D7B4267C1CFF</UserChecksum>
         </File>
         <File dnOrder="149">
           <Type dnOrder="0">SOURCE</Type>
@@ -1211,8 +1211,8 @@
           <Name dnOrder="1">plib_dmac.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/peripheral/dmac/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/dmac/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E89B5D6DF0DB140DE8D4F7943BC5ADD9</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E89B5D6DF0DB140DE8D4F7943BC5ADD9</UserChecksum>
+          <GeneratedChecksum dnOrder="4">B779C873823701492A89090CCEA4A06E</GeneratedChecksum>
+          <UserChecksum dnOrder="5">B779C873823701492A89090CCEA4A06E</UserChecksum>
         </File>
         <File dnOrder="151">
           <Type dnOrder="0">SOURCE</Type>
@@ -1227,8 +1227,8 @@
           <Name dnOrder="1">plib_evic.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/peripheral/evic/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/evic/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E607D965440EA3146552E7E90986BACA</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E607D965440EA3146552E7E90986BACA</UserChecksum>
+          <GeneratedChecksum dnOrder="4">4855B3701621DF4A925D8904F910190A</GeneratedChecksum>
+          <UserChecksum dnOrder="5">4855B3701621DF4A925D8904F910190A</UserChecksum>
         </File>
         <File dnOrder="153">
           <Type dnOrder="0">SOURCE</Type>
@@ -1243,8 +1243,8 @@
           <Name dnOrder="1">plib_i2c2.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/peripheral/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/i2c/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">4EBACA2B9F43E1309C9A067A7A28BFDA</GeneratedChecksum>
-          <UserChecksum dnOrder="5">4EBACA2B9F43E1309C9A067A7A28BFDA</UserChecksum>
+          <GeneratedChecksum dnOrder="4">F424CA1BE2915FB1D338623E445BD8DE</GeneratedChecksum>
+          <UserChecksum dnOrder="5">F424CA1BE2915FB1D338623E445BD8DE</UserChecksum>
         </File>
         <File dnOrder="155">
           <Type dnOrder="0">SOURCE</Type>
@@ -1371,8 +1371,8 @@
           <Name dnOrder="1">configuration.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">16756D4A8B31822CF76241A3A5E38D40</GeneratedChecksum>
-          <UserChecksum dnOrder="5">16756D4A8B31822CF76241A3A5E38D40</UserChecksum>
+          <GeneratedChecksum dnOrder="4">DB682C8A892D5282BEA4693AA07978E9</GeneratedChecksum>
+          <UserChecksum dnOrder="5">DB682C8A892D5282BEA4693AA07978E9</UserChecksum>
         </File>
         <File dnOrder="171">
           <Type dnOrder="0">HEADER</Type>
@@ -1539,8 +1539,8 @@
           <Name dnOrder="1">gfx_assets.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/gfx</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">2456E514FAD6CE4489C94A897269DD22</GeneratedChecksum>
-          <UserChecksum dnOrder="5">2456E514FAD6CE4489C94A897269DD22</UserChecksum>
+          <GeneratedChecksum dnOrder="4">24EE571518C1885661C729630D8768BD</GeneratedChecksum>
+          <UserChecksum dnOrder="5">24EE571518C1885661C729630D8768BD</UserChecksum>
         </File>
         <File dnOrder="192">
           <Type dnOrder="0">HEADER</Type>
@@ -2315,8 +2315,8 @@
           <Name dnOrder="1">plib_coretimer.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/peripheral/coretimer/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/coretimer/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B56E73929AA8C9899F0BA761F7053A87</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B56E73929AA8C9899F0BA761F7053A87</UserChecksum>
+          <GeneratedChecksum dnOrder="4">44ACE604994590C35CF6AD051B454C0E</GeneratedChecksum>
+          <UserChecksum dnOrder="5">44ACE604994590C35CF6AD051B454C0E</UserChecksum>
         </File>
         <File dnOrder="289">
           <Type dnOrder="0">HEADER</Type>
@@ -2898,7 +2898,7 @@
   <MHGC>
     <GAC dnOrder="0">
       <Locations dnOrder="0">
-        <Location dnOrder="0" fileName="gfx_assets" index="0" maxSize="1024"/>
+        <Location dnOrder="0" fileName="gfx_assets" index="0" maxSize="2048000"/>
       </Locations>
       <Assets dnOrder="1">
         <StringTable dnOrder="0" encoding="ASCII" location="0" name="stringTable">
@@ -2948,7 +2948,7 @@
             </String>
             <String desc="" dnOrder="8" folder="\" name="NoValidMedium2">
               <Entries dnOrder="0">
-                <Entry dnOrder="0" index="0">Please&amp;#160;insert&amp;#160;a&amp;#160;USB&amp;#160;device&amp;#160;or&amp;#160;SD&amp;#160;Card.</Entry>
+                <Entry dnOrder="0" index="0">Please&amp;#160;insert&amp;#160;a&amp;#160;USB&amp;#160;device.</Entry>
               </Entries>
             </String>
             <String desc="" dnOrder="9" folder="\" name="Numbers">
@@ -3279,16 +3279,16 @@
         <Font antialias="false" bold="true" dnOrder="3" italic="false" location="0" name="Arial" size="18" sourceName="Arial">
           <Data dnOrder="0">rO0ABXNyAA1qYXZhLmF3dC5Gb250xaE15szeVnMDAAZJABlmb250U2VyaWFsaXplZERhdGFWZXJzaW9uRgAJcG9pbnRTaXplSQAEc2l6ZUkABXN0eWxlTAAUZlJlcXVlc3RlZEF0dHJpYnV0ZXN0ABVMamF2YS91dGlsL0hhc2h0YWJsZTtMAARuYW1ldAASTGphdmEvbGFuZy9TdHJpbmc7eHAAAAABQTAAAAAAAAsAAAAAcHQABUFyaWFseA==</Data>
           <Strings dnOrder="1">
-            <String dnOrder="0" name="Title">
+            <String dnOrder="0" name="SDCard">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="1" name="USB">
+            <String dnOrder="1" name="Title">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="2" name="Ok">
+            <String dnOrder="2" name="USB">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="3" name="SDCard">
+            <String dnOrder="3" name="Ok">
               <Language dnOrder="0" index="0"/>
             </String>
           </Strings>
@@ -3296,46 +3296,46 @@
         <Font antialias="false" bold="false" dnOrder="4" italic="false" location="0" name="Arial_sm" size="16" sourceName="Arial">
           <Data dnOrder="0">rO0ABXNyAA1qYXZhLmF3dC5Gb250xaE15szeVnMDAAZJABlmb250U2VyaWFsaXplZERhdGFWZXJzaW9uRgAJcG9pbnRTaXplSQAEc2l6ZUkABXN0eWxlTAAUZlJlcXVlc3RlZEF0dHJpYnV0ZXN0ABVMamF2YS91dGlsL0hhc2h0YWJsZTtMAARuYW1ldAASTGphdmEvbGFuZy9TdHJpbmc7eHAAAAABQTAAAAAAAAsAAAAAcHQABUFyaWFseA==</Data>
           <Strings dnOrder="1">
-            <String dnOrder="0" name="FileNotFound2">
+            <String dnOrder="0" name="NoValidMedium2">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="1" name="FlashingComplete">
+            <String dnOrder="1" name="RecordCount">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="2" name="NoValidMedium2">
+            <String dnOrder="2" name="Done">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="3" name="RecordCount">
+            <String dnOrder="3" name="NoValidMedium">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="4" name="SelectSource">
+            <String dnOrder="4" name="FileNotFound2">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="5" name="Of">
+            <String dnOrder="5" name="Numbers">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="6" name="Done">
+            <String dnOrder="6" name="Flashing">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="7" name="InvalidFile">
+            <String dnOrder="7" name="stringNumberFiller">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="8" name="UnknownError">
+            <String dnOrder="8" name="InvalidFile">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="9" name="Numbers">
+            <String dnOrder="9" name="SelectSource">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="10" name="stringNumberFiller">
+            <String dnOrder="10" name="Of">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="11" name="NoValidMedium">
+            <String dnOrder="11" name="FlashingComplete">
               <Language dnOrder="0" index="0"/>
             </String>
             <String dnOrder="12" name="FileNotFound1">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="13" name="Flashing">
+            <String dnOrder="13" name="UnknownError">
               <Language dnOrder="0" index="0"/>
             </String>
           </Strings>
@@ -3802,7 +3802,7 @@
                           <DrawOnce dnOrder="17">false</DrawOnce>
                           <ForceOpaque dnOrder="18">false</ForceOpaque>
                           <StringID dnOrder="19" meta="stringAsset">NoValidMedium2</StringID>
-                          <HAlignment dnOrder="20">Left</HAlignment>
+                          <HAlignment dnOrder="20">Center</HAlignment>
                           <VAlignment dnOrder="21">Middle</VAlignment>
                           <CustLineSpace dnOrder="22">false</CustLineSpace>
                           <LineSpace dnOrder="23">-1</LineSpace>

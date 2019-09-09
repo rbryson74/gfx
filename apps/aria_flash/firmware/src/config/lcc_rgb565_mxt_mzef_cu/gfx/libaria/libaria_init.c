@@ -240,7 +240,6 @@ static void ScreenCreate_default(laScreen* screen)
     laWidget_SetBackgroundType((laWidget*)NoMediumLabel2, LA_WIDGET_BACKGROUND_NONE);
     laWidget_SetBorderType((laWidget*)NoMediumLabel2, LA_WIDGET_BORDER_NONE);
     laLabelWidget_SetText(NoMediumLabel2, laString_CreateFromID(string_NoValidMedium2));
-    laLabelWidget_SetHAlignment(NoMediumLabel2, LA_HALIGN_LEFT);
     laWidget_AddChild((laWidget*)ErrorMsgPanel, (laWidget*)NoMediumLabel2);
 
     NoMediumLabel1 = laLabelWidget_New();
