@@ -99,7 +99,7 @@ void USART2_Handler             ( void ) __attribute__((weak, alias("Dummy_Handl
 void PIOD_Handler               ( void ) __attribute__((weak, alias("Dummy_Handler")));
 void PIOE_Handler               ( void ) __attribute__((weak, alias("Dummy_Handler")));
 void HSMCI_Handler              ( void ) __attribute__((weak, alias("Dummy_Handler")));
-void TWIHS0_Handler             ( void ) __attribute__((weak, alias("Dummy_Handler")));
+void TWIHS0_InterruptHandler    ( void ) __attribute__((weak, alias("Dummy_Handler")));
 void TWIHS1_Handler             ( void ) __attribute__((weak, alias("Dummy_Handler")));
 void SPI0_Handler               ( void ) __attribute__((weak, alias("Dummy_Handler")));
 void SSC_Handler                ( void ) __attribute__((weak, alias("Dummy_Handler")));
@@ -128,14 +128,14 @@ void UART2_Handler              ( void ) __attribute__((weak, alias("Dummy_Handl
 void UART3_Handler              ( void ) __attribute__((weak, alias("Dummy_Handler")));
 void UART4_Handler              ( void ) __attribute__((weak, alias("Dummy_Handler")));
 void TC2_CH0_Handler            ( void ) __attribute__((weak, alias("Dummy_Handler")));
-void TC2_CH1_Handler            ( void ) __attribute__((weak, alias("Dummy_Handler")));
+void TC2_CH1_InterruptHandler   ( void ) __attribute__((weak, alias("Dummy_Handler")));
 void TC2_CH2_Handler            ( void ) __attribute__((weak, alias("Dummy_Handler")));
 void TC3_CH0_Handler            ( void ) __attribute__((weak, alias("Dummy_Handler")));
 void TC3_CH1_Handler            ( void ) __attribute__((weak, alias("Dummy_Handler")));
 void TC3_CH2_Handler            ( void ) __attribute__((weak, alias("Dummy_Handler")));
 void AES_Handler                ( void ) __attribute__((weak, alias("Dummy_Handler")));
 void TRNG_Handler               ( void ) __attribute__((weak, alias("Dummy_Handler")));
-void XDMAC_Handler              ( void ) __attribute__((weak, alias("Dummy_Handler")));
+void XDMAC_InterruptHandler     ( void ) __attribute__((weak, alias("Dummy_Handler")));
 void ISI_Handler                ( void ) __attribute__((weak, alias("Dummy_Handler")));
 void PWM1_Handler               ( void ) __attribute__((weak, alias("Dummy_Handler")));
 void FPU_Handler                ( void ) __attribute__((weak, alias("Dummy_Handler")));
@@ -192,7 +192,7 @@ const DeviceVectors exception_table=
     .pfnPIOD_Handler               = ( void * ) PIOD_Handler,
     .pfnPIOE_Handler               = ( void * ) PIOE_Handler,
     .pfnHSMCI_Handler              = ( void * ) HSMCI_Handler,
-    .pfnTWIHS0_Handler             = ( void * ) TWIHS0_Handler,
+    .pfnTWIHS0_Handler             = ( void * ) TWIHS0_InterruptHandler,
     .pfnTWIHS1_Handler             = ( void * ) TWIHS1_Handler,
     .pfnSPI0_Handler               = ( void * ) SPI0_Handler,
     .pfnSSC_Handler                = ( void * ) SSC_Handler,
@@ -221,14 +221,14 @@ const DeviceVectors exception_table=
     .pfnUART3_Handler              = ( void * ) UART3_Handler,
     .pfnUART4_Handler              = ( void * ) UART4_Handler,
     .pfnTC2_CH0_Handler            = ( void * ) TC2_CH0_Handler,
-    .pfnTC2_CH1_Handler            = ( void * ) TC2_CH1_Handler,
+    .pfnTC2_CH1_Handler            = ( void * ) TC2_CH1_InterruptHandler,
     .pfnTC2_CH2_Handler            = ( void * ) TC2_CH2_Handler,
     .pfnTC3_CH0_Handler            = ( void * ) TC3_CH0_Handler,
     .pfnTC3_CH1_Handler            = ( void * ) TC3_CH1_Handler,
     .pfnTC3_CH2_Handler            = ( void * ) TC3_CH2_Handler,
     .pfnAES_Handler                = ( void * ) AES_Handler,
     .pfnTRNG_Handler               = ( void * ) TRNG_Handler,
-    .pfnXDMAC_Handler              = ( void * ) XDMAC_Handler,
+    .pfnXDMAC_Handler              = ( void * ) XDMAC_InterruptHandler,
     .pfnISI_Handler                = ( void * ) ISI_Handler,
     .pfnPWM1_Handler               = ( void * ) PWM1_Handler,
     .pfnFPU_Handler                = ( void * ) FPU_Handler,

@@ -74,10 +74,6 @@ uint16_t FRAMEBUFFER_ATTRIBUTE frameLine[DISPLAY_WIDTH];
 #endif
 
 
-#ifndef GFX_DISP_INTF_PIN_BACKLIGHT_Set
-#warning "GFX_DISP_INTF_PIN_BACKLIGHT GPIO must be defined in the Pin Settings"
-#define GFX_DISP_INTF_PIN_BACKLIGHT_Set()
-#endif
 
 #ifndef GFX_DISP_INTF_PIN_VSYNC_Set
 #error "GFX_DISP_INTF_PIN_VSYNC GPIO must be defined in the Pin Settings"
@@ -200,14 +196,16 @@ static GFX_Result layerBufferAllocate(uint32_t idx)
 
 static GFX_Result lccBacklightBrightnessSet(uint32_t brightness)
 {
-    if (brightness == 0)
-    {
-        GFX_DISP_INTF_PIN_BACKLIGHT_Clear();
-    }
-    else
-    {
-        GFX_DISP_INTF_PIN_BACKLIGHT_Set();
-    }
+    uint32_t value;
+    brightness = (brightness <= 100) ? brightness : 100;
+    
+    value = TC2_CH1_ComparePeriodGet() * (100 - brightness) / 100;
+    
+    //Use a positive value
+    if (value == 0)
+        value = 1;
+    
+    TC2_CH1_CompareBSet(value);
 
     return GFX_SUCCESS;
 
@@ -271,6 +269,7 @@ static GFX_Result lccInitialize(GFX_Context* context)
     GFX_DISP_INTF_PIN_RESET_Set();
 
     /*Turn Backlight on*/
+    TC2_CH1_CompareStart();
 
     lccBacklightBrightnessSet(100);
 
@@ -348,7 +347,7 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
         {
             if (hSyncs > vsyncPulseDown)
             {
-                GFX_DISP_INTF_PIN_VSYNC_Clear();
+                GFX_DISP_INTF_PIN_VSYNC_Set();
 
                 vsyncPulseUp = hSyncs + DISP_VER_PULSE_WIDTH;
                 vsyncState = VSYNC_PULSE;
@@ -368,7 +367,7 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
         {
             if (hSyncs >= vsyncPulseUp)
             {
-                GFX_DISP_INTF_PIN_VSYNC_Set();
+                GFX_DISP_INTF_PIN_VSYNC_Clear();
                 vsyncEnd = hSyncs + DISP_VER_BACK_PORCH;
                 vsyncState = VSYNC_BACK_PORCH;
             }
@@ -404,7 +403,7 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
         }
         case HSYNC_PULSE:
         {
-            GFX_DISP_INTF_PIN_HSYNC_Clear();
+            GFX_DISP_INTF_PIN_HSYNC_Set();
 
             if (hSyncs >= vsyncPeriod)
             {
@@ -422,7 +421,7 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
         }
         case HSYNC_BACK_PORCH:
         {
-            GFX_DISP_INTF_PIN_HSYNC_Set();
+            GFX_DISP_INTF_PIN_HSYNC_Clear();
 
             hsyncState = HSYNC_DATA_ENABLE; 
 

@@ -77,7 +77,13 @@ SYS_FS_Tasks();
 
 
     /* Maintain Device Drivers */
-    DRV_MEMORY_Tasks(sysObj.drvMemory0);
+    
+    GFX_Update();
+
+DRV_MEMORY_Tasks(sysObj.drvMemory0);
+
+
+    DRV_MAXTOUCH_Tasks(sysObj.drvMAXTOUCH);
 
 
 
@@ -87,6 +93,12 @@ SYS_FS_Tasks();
 
 	/* USB HS Driver Task Routine */ 
     DRV_USBHSV1_Tasks(sysObj.drvUSBHSV1Object);
+
+
+    SYS_INP_Tasks();
+
+
+    LibAria_Tasks();
 
 
 

@@ -66,19 +66,66 @@
 // Section: Driver Initialization Data
 // *****************************************************************************
 // *****************************************************************************
-// <editor-fold defaultstate="collapsed" desc="DRV_SST26 Initialization Data">
+// <editor-fold defaultstate="collapsed" desc="DRV_I2C Instance 0 Initialization Data">
 
-const DRV_SST26_PLIB_INTERFACE drvSST26PlibAPI = {
-    .CommandWrite   = QSPI_CommandWrite,
-    .RegisterRead   = QSPI_RegisterRead,
-    .RegisterWrite  = QSPI_RegisterWrite,
-    .MemoryRead     = QSPI_MemoryRead,
-    .MemoryWrite    = QSPI_MemoryWrite
+/* I2C Client Objects Pool */
+static DRV_I2C_CLIENT_OBJ drvI2C0ClientObjPool[DRV_I2C_CLIENTS_NUMBER_IDX0];
+
+/* I2C Transfer Objects Pool */
+static DRV_I2C_TRANSFER_OBJ drvI2C0TransferObj[DRV_I2C_QUEUE_SIZE_IDX0];
+
+/* I2C PLib Interface Initialization */
+const DRV_I2C_PLIB_INTERFACE drvI2C0PLibAPI = {
+
+    /* I2C PLib Transfer Read Add function */
+    .read = (DRV_I2C_PLIB_READ)TWIHS0_Read,
+
+    /* I2C PLib Transfer Write Add function */
+    .write = (DRV_I2C_PLIB_WRITE)TWIHS0_Write,
+
+    /* I2C PLib Transfer Write Read Add function */
+    .writeRead = (DRV_I2C_PLIB_WRITE_READ)TWIHS0_WriteRead,
+
+    /* I2C PLib Transfer Status function */
+    .errorGet = (DRV_I2C_PLIB_ERROR_GET)TWIHS0_ErrorGet,
+
+    /* I2C PLib Callback Register */
+    .callbackRegister = (DRV_I2C_PLIB_CALLBACK_REGISTER)TWIHS0_CallbackRegister,
 };
 
-const DRV_SST26_INIT drvSST26InitData =
+
+const DRV_I2C_INTERRUPT_SOURCES drvI2C0InterruptSources =
 {
-    .sst26Plib      = &drvSST26PlibAPI,
+    /* Peripheral has single interrupt vector */
+    .isSingleIntSrc                        = true,
+
+    /* Peripheral interrupt line */
+    .intSources.i2cInterrupt             = TWIHS0_IRQn,
+};
+
+/* I2C Driver Initialization Data */
+const DRV_I2C_INIT drvI2C0InitData =
+{
+    /* I2C PLib API */
+    .i2cPlib = &drvI2C0PLibAPI,
+
+    /* I2C Number of clients */
+    .numClients = DRV_I2C_CLIENTS_NUMBER_IDX0,
+
+    /* I2C Client Objects Pool */
+    .clientObjPool = (uintptr_t)&drvI2C0ClientObjPool[0],
+
+    /* I2C TWI Queue Size */
+    .transferObjPoolSize = DRV_I2C_QUEUE_SIZE_IDX0,
+
+    /* I2C Transfer Objects */
+    .transferObjPool = (uintptr_t)&drvI2C0TransferObj[0],
+
+    /* I2C interrupt sources */
+    .interruptSources = &drvI2C0InterruptSources,
+
+    /* I2C Clock Speed */
+    .clockSpeed = DRV_I2C_CLOCK_SPEED_IDX0,
 };
 
 // </editor-fold>
@@ -118,6 +165,35 @@ const DRV_MEMORY_INIT drvMemory0InitData =
 };
 
 // </editor-fold>
+// <editor-fold defaultstate="collapsed" desc="DRV_INPUT_MXT336T Initialization Data">
+/*** MaxTouch Driver Initialization Data ***/
+const DRV_MAXTOUCH_INIT drvMAXTOUCHInitData =
+{
+    .drvOpen                     = DRV_I2C_Open,
+    .orientation                 = 0,
+    .horizontalResolution        = 480,
+    .verticalResolution          = 272,
+};
+
+// </editor-fold>
+
+// <editor-fold defaultstate="collapsed" desc="DRV_SST26 Initialization Data">
+
+const DRV_SST26_PLIB_INTERFACE drvSST26PlibAPI = {
+    .CommandWrite   = QSPI_CommandWrite,
+    .RegisterRead   = QSPI_RegisterRead,
+    .RegisterWrite  = QSPI_RegisterWrite,
+    .MemoryRead     = QSPI_MemoryRead,
+    .MemoryWrite    = QSPI_MemoryWrite
+};
+
+const DRV_SST26_INIT drvSST26InitData =
+{
+    .sst26Plib      = &drvSST26PlibAPI,
+};
+
+// </editor-fold>
+
 
 
 // *****************************************************************************
@@ -235,26 +311,49 @@ void SYS_Initialize ( void* data )
     CLK_Initialize();
 	PIO_Initialize();
 
-	RSWDT_REGS->RSWDT_MR = RSWDT_MR_WDDIS_Msk;	// Disable RSWDT 
-
-	WDT_REGS->WDT_MR = WDT_MR_WDDIS_Msk; 		// Disable WDT 
-
   
 
  
     TC0_CH0_TimerInitialize(); 
      
     
+  
+
+ 
+     
+    TC2_CH1_CompareInitialize(); 
+    
 	BSP_Initialize();
+	TWIHS0_Initialize();
+
+    XDMAC_Initialize();
+
+	RSWDT_REGS->RSWDT_MR = RSWDT_MR_WDDIS_Msk;	// Disable RSWDT 
+
+	WDT_REGS->WDT_MR = WDT_MR_WDDIS_Msk; 		// Disable WDT 
+
     QSPI_Initialize();
 
+    SMC_Initialize();
 
-    sysObj.drvSST26 = DRV_SST26_Initialize((SYS_MODULE_INDEX)DRV_SST26_INDEX, (SYS_MODULE_INIT *)&drvSST26InitData);
 
+
+    GFX_Initialize();
+
+    /* Initialize I2C0 Driver Instance */
+    sysObj.drvI2C0 = DRV_I2C_Initialize(DRV_I2C_INDEX_0, (SYS_MODULE_INIT *)&drvI2C0InitData);
     sysObj.drvMemory0 = DRV_MEMORY_Initialize((SYS_MODULE_INDEX)DRV_MEMORY_INDEX_0, (SYS_MODULE_INIT *)&drvMemory0InitData);
 
 
+    sysObj.drvMAXTOUCH = DRV_MAXTOUCH_Initialize(0, (SYS_MODULE_INIT *)&drvMAXTOUCHInitData);
+
+    sysObj.drvSST26 = DRV_SST26_Initialize((SYS_MODULE_INDEX)DRV_SST26_INDEX, (SYS_MODULE_INIT *)&drvSST26InitData);
+
+
     sysObj.sysTime = SYS_TIME_Initialize(SYS_TIME_INDEX_0, (SYS_MODULE_INIT *)&sysTimeInitData);
+
+    SYS_INP_Init();
+
 
 
 	 /* Initialize the USB device layer */
@@ -267,6 +366,11 @@ void SYS_Initialize ( void* data )
 
     /*** File System Service Initialization Code ***/
     SYS_FS_Initialize( (const void *) sysFSInit );
+
+ 
+    // initialize UI library
+    LibAria_Initialize();
+
 
 
     APP_MSD_FS_SQI_FLASH_Initialize();

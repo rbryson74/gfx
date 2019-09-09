@@ -62,6 +62,51 @@
 // *****************************************************************************
 
 
+/*** Macros for GFX_DISP_INTF_PIN_HSYNC pin ***/
+#define GFX_DISP_INTF_PIN_HSYNC_Set()               (PIOC_REGS->PIO_SODR = (1<<30))
+#define GFX_DISP_INTF_PIN_HSYNC_Clear()             (PIOC_REGS->PIO_CODR = (1<<30))
+#define GFX_DISP_INTF_PIN_HSYNC_Toggle()            (PIOC_REGS->PIO_ODSR ^= (1<<30))
+#define GFX_DISP_INTF_PIN_HSYNC_Get()               ((PIOC_REGS->PIO_PDSR >> 30) & 0x1)
+#define GFX_DISP_INTF_PIN_HSYNC_OutputEnable()      (PIOC_REGS->PIO_OER = (1<<30))
+#define GFX_DISP_INTF_PIN_HSYNC_InputEnable()       (PIOC_REGS->PIO_ODR = (1<<30))
+#define GFX_DISP_INTF_PIN_HSYNC_PIN                  PIO_PIN_PC30
+
+/*** Macros for GFX_DISP_INTF_PIN_RESET pin ***/
+#define GFX_DISP_INTF_PIN_RESET_Set()               (PIOC_REGS->PIO_SODR = (1<<13))
+#define GFX_DISP_INTF_PIN_RESET_Clear()             (PIOC_REGS->PIO_CODR = (1<<13))
+#define GFX_DISP_INTF_PIN_RESET_Toggle()            (PIOC_REGS->PIO_ODSR ^= (1<<13))
+#define GFX_DISP_INTF_PIN_RESET_Get()               ((PIOC_REGS->PIO_PDSR >> 13) & 0x1)
+#define GFX_DISP_INTF_PIN_RESET_OutputEnable()      (PIOC_REGS->PIO_OER = (1<<13))
+#define GFX_DISP_INTF_PIN_RESET_InputEnable()       (PIOC_REGS->PIO_ODR = (1<<13))
+#define GFX_DISP_INTF_PIN_RESET_PIN                  PIO_PIN_PC13
+
+/*** Macros for GFX_DISP_INTF_PIN_VSYNC pin ***/
+#define GFX_DISP_INTF_PIN_VSYNC_Set()               (PIOD_REGS->PIO_SODR = (1<<19))
+#define GFX_DISP_INTF_PIN_VSYNC_Clear()             (PIOD_REGS->PIO_CODR = (1<<19))
+#define GFX_DISP_INTF_PIN_VSYNC_Toggle()            (PIOD_REGS->PIO_ODSR ^= (1<<19))
+#define GFX_DISP_INTF_PIN_VSYNC_Get()               ((PIOD_REGS->PIO_PDSR >> 19) & 0x1)
+#define GFX_DISP_INTF_PIN_VSYNC_OutputEnable()      (PIOD_REGS->PIO_OER = (1<<19))
+#define GFX_DISP_INTF_PIN_VSYNC_InputEnable()       (PIOD_REGS->PIO_ODR = (1<<19))
+#define GFX_DISP_INTF_PIN_VSYNC_PIN                  PIO_PIN_PD19
+
+/*** Macros for BSP_MAXTOUCH_CHG pin ***/
+#define BSP_MAXTOUCH_CHG_Set()               (PIOD_REGS->PIO_SODR = (1<<28))
+#define BSP_MAXTOUCH_CHG_Clear()             (PIOD_REGS->PIO_CODR = (1<<28))
+#define BSP_MAXTOUCH_CHG_Toggle()            (PIOD_REGS->PIO_ODSR ^= (1<<28))
+#define BSP_MAXTOUCH_CHG_Get()               ((PIOD_REGS->PIO_PDSR >> 28) & 0x1)
+#define BSP_MAXTOUCH_CHG_OutputEnable()      (PIOD_REGS->PIO_OER = (1<<28))
+#define BSP_MAXTOUCH_CHG_InputEnable()       (PIOD_REGS->PIO_ODR = (1<<28))
+#define BSP_MAXTOUCH_CHG_PIN                  PIO_PIN_PD28
+
+/*** Macros for GFX_DISP_INTF_PIN_DE pin ***/
+#define GFX_DISP_INTF_PIN_DE_Set()               (PIOC_REGS->PIO_SODR = (1<<11))
+#define GFX_DISP_INTF_PIN_DE_Clear()             (PIOC_REGS->PIO_CODR = (1<<11))
+#define GFX_DISP_INTF_PIN_DE_Toggle()            (PIOC_REGS->PIO_ODSR ^= (1<<11))
+#define GFX_DISP_INTF_PIN_DE_Get()               ((PIOC_REGS->PIO_PDSR >> 11) & 0x1)
+#define GFX_DISP_INTF_PIN_DE_OutputEnable()      (PIOC_REGS->PIO_OER = (1<<11))
+#define GFX_DISP_INTF_PIN_DE_InputEnable()       (PIOC_REGS->PIO_ODR = (1<<11))
+#define GFX_DISP_INTF_PIN_DE_PIN                  PIO_PIN_PC11
+
 /*** Macros for USB_VBUS_SENSE pin ***/
 #define USB_VBUS_SENSE_Set()               (PIOB_REGS->PIO_SODR = (1<<8))
 #define USB_VBUS_SENSE_Clear()             (PIOB_REGS->PIO_CODR = (1<<8))

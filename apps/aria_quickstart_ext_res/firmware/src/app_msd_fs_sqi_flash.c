@@ -168,7 +168,7 @@ void APP_USBDeviceEventHandler
 
         case USB_DEVICE_EVENT_CONFIGURED:
         {
-//            if (laContext_GetActiveScreen()->id == LoadingScreen_ID)
+            if (laContext_GetActiveScreen()->id == LoadingScreen_ID)
             {
                 /* Endpoint is configured. */
                 LED1_On();
@@ -242,17 +242,17 @@ SYS_FS_HANDLE APP_GetFileHandle(uint32_t dataLocation)
 {
     SYS_FS_HANDLE handle = SYS_FS_HANDLE_INVALID;
     
-//    switch(dataLocation)
-//    {
-//        case GFXU_ASSET_LOCATION_ID_Fonts:
-//            handle = SYS_FS_FileOpen("Fonts.bin", (SYS_FS_FILE_OPEN_READ));
-//            break;
-//        case GFXU_ASSET_LOCATION_ID_Images:
-//            handle = SYS_FS_FileOpen("Images.bin", (SYS_FS_FILE_OPEN_READ));
-//            break;
-//        default:
-//            break;
-//    }
+    switch(dataLocation)
+    {
+        case GFXU_ASSET_LOCATION_ID_Fonts:
+            handle = SYS_FS_FileOpen("Fonts.bin", (SYS_FS_FILE_OPEN_READ));
+            break;
+        case GFXU_ASSET_LOCATION_ID_Images:
+            handle = SYS_FS_FileOpen("Images.bin", (SYS_FS_FILE_OPEN_READ));
+            break;
+        default:
+            break;
+    }
     
     return handle;
 }
@@ -729,7 +729,7 @@ void APP_MSD_FS_SQI_FLASH_Tasks ( void )
                 //if both files exist, boot to the next screen                
                 if (fontsHandle != SYS_FS_HANDLE_INVALID && imagesHandle != SYS_FS_HANDLE_INVALID)
                 {
-//                    laContext_SetActiveScreen(MainScreen_ID);
+                    laContext_SetActiveScreen(MainScreen_ID);
                     appData.state = APP_STATE_IDLE;
                 }
             }
