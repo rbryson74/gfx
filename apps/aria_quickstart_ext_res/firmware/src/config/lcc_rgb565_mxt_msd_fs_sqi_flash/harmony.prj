@@ -35,8 +35,8 @@
           <Name dnOrder="1">drv_gfx_lcc.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash/gfx/driver/lcc</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/lcc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">9E8B1BC6B5B1AF396F5775BBFAF9610D</GeneratedChecksum>
-          <UserChecksum dnOrder="5">9E8B1BC6B5B1AF396F5775BBFAF9610D</UserChecksum>
+          <GeneratedChecksum dnOrder="4">43B8DC9735AF1A3D4F54656C9BE85976</GeneratedChecksum>
+          <UserChecksum dnOrder="5">43B8DC9735AF1A3D4F54656C9BE85976</UserChecksum>
         </File>
         <File dnOrder="4">
           <Type dnOrder="0">SOURCE</Type>
@@ -1220,7 +1220,7 @@
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/clk/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/clk/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">79D734DD226204C26961DE1C8DF2672C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">4DCCA6CC2A1815B7739434C9439D0CF0</UserChecksum>
+          <UserChecksum dnOrder="5">79D734DD226204C26961DE1C8DF2672C</UserChecksum>
         </File>
         <File dnOrder="152">
           <Type dnOrder="0">SOURCE</Type>
@@ -1243,8 +1243,8 @@
           <Name dnOrder="1">plib_nvic.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/nvic/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/nvic/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">1C36F847CA2895A3F8D6027C6AE4A517</GeneratedChecksum>
-          <UserChecksum dnOrder="5">1C36F847CA2895A3F8D6027C6AE4A517</UserChecksum>
+          <GeneratedChecksum dnOrder="4">8B1675E465319F7304747606478778B2</GeneratedChecksum>
+          <UserChecksum dnOrder="5">8B1675E465319F7304747606478778B2</UserChecksum>
         </File>
         <File dnOrder="155">
           <Type dnOrder="0">SOURCE</Type>
@@ -1299,8 +1299,8 @@
           <Name dnOrder="1">plib_xdmac.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/xdmac/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/xdmac/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">7B15393B9F907CB82F5616EABBC31AFF</GeneratedChecksum>
-          <UserChecksum dnOrder="5">7B15393B9F907CB82F5616EABBC31AFF</UserChecksum>
+          <GeneratedChecksum dnOrder="4">D649347876CF00641850C2292297810F</GeneratedChecksum>
+          <UserChecksum dnOrder="5">FC997DCAD32138E30649ED30E5349ECC</UserChecksum>
         </File>
         <File dnOrder="162">
           <Type dnOrder="0">SOURCE</Type>
@@ -1547,8 +1547,8 @@
           <Name dnOrder="1">definitions.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">50B51F4D13632D5C3CA8BA73DBB499B6</GeneratedChecksum>
-          <UserChecksum dnOrder="5">50B51F4D13632D5C3CA8BA73DBB499B6</UserChecksum>
+          <GeneratedChecksum dnOrder="4">9EA83C81BD0830D34C0A6158FBA2F371</GeneratedChecksum>
+          <UserChecksum dnOrder="5">9EA83C81BD0830D34C0A6158FBA2F371</UserChecksum>
         </File>
         <File dnOrder="193">
           <Type dnOrder="0">HEADER</Type>
@@ -2707,8 +2707,8 @@
           <Name dnOrder="1">plib_xdmac.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash/peripheral/xdmac/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/xdmac/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">0B434FD408371158EF9B8710F665EA34</GeneratedChecksum>
-          <UserChecksum dnOrder="5">0B434FD408371158EF9B8710F665EA34</UserChecksum>
+          <GeneratedChecksum dnOrder="4">713C20D62621248FCD11E80C14CC70E8</GeneratedChecksum>
+          <UserChecksum dnOrder="5">713C20D62621248FCD11E80C14CC70E8</UserChecksum>
         </File>
         <File dnOrder="338">
           <Type dnOrder="0">HEADER</Type>
@@ -3648,34 +3648,34 @@
         <Font antialias="false" bold="false" dnOrder="7" italic="false" location="1" name="ArialUnicodeMS" size="16" sourceName="Arial Unicode MS">
           <Data dnOrder="0">rO0ABXNyAA1qYXZhLmF3dC5Gb250xaE15szeVnMDAAZJABlmb250U2VyaWFsaXplZERhdGFWZXJzaW9uRgAJcG9pbnRTaXplSQAEc2l6ZUkABXN0eWxlTAAUZlJlcXVlc3RlZEF0dHJpYnV0ZXN0ABVMamF2YS91dGlsL0hhc2h0YWJsZTtMAARuYW1ldAASTGphdmEvbGFuZy9TdHJpbmc7eHAAAAABQTAAAAAAAAsAAAAAcHQAEEFyaWFsIFVuaWNvZGUgTVN4</Data>
           <Strings dnOrder="1">
-            <String dnOrder="0" name="DrawRLE">
+            <String dnOrder="0" name="DrawDirectBlit">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="1" name="ImageIsPNG">
+            <String dnOrder="1" name="TitleString">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="2" name="ImageIsDirectBlit">
+            <String dnOrder="2" name="ImageIsJPEG">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="3" name="DrawDirectBlit">
+            <String dnOrder="3" name="DrawRLE">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="4" name="DrawRaw">
+            <String dnOrder="4" name="ImageIsDirectBlit">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="5" name="DrawJpeg">
+            <String dnOrder="5" name="ImageIsPNG">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="6" name="ImageIsJPEG">
+            <String dnOrder="6" name="DrawRaw">
               <Language dnOrder="0" index="0"/>
             </String>
             <String dnOrder="7" name="ImageIsRaw">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="8" name="TitleString">
+            <String dnOrder="8" name="ImageIsRLE">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="9" name="ImageIsRLE">
+            <String dnOrder="9" name="DrawJpeg">
               <Language dnOrder="0" index="0"/>
             </String>
             <String dnOrder="10" name="DrawPNG">
@@ -3689,34 +3689,34 @@
             <Range dnOrder="0" end="40959" name="CJK Unified Ideographs" start="19968"/>
           </Ranges>
           <Strings dnOrder="2">
-            <String dnOrder="0" name="DrawRLE">
+            <String dnOrder="0" name="DrawDirectBlit">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="1" name="ImageIsPNG">
+            <String dnOrder="1" name="TitleString">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="2" name="ImageIsDirectBlit">
+            <String dnOrder="2" name="ImageIsJPEG">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="3" name="DrawDirectBlit">
+            <String dnOrder="3" name="DrawRLE">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="4" name="DrawRaw">
+            <String dnOrder="4" name="ImageIsDirectBlit">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="5" name="DrawJpeg">
+            <String dnOrder="5" name="ImageIsPNG">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="6" name="ImageIsJPEG">
+            <String dnOrder="6" name="DrawRaw">
               <Language dnOrder="0" index="1"/>
             </String>
             <String dnOrder="7" name="ImageIsRaw">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="8" name="TitleString">
+            <String dnOrder="8" name="ImageIsRLE">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="9" name="ImageIsRLE">
+            <String dnOrder="9" name="DrawJpeg">
               <Language dnOrder="0" index="1"/>
             </String>
             <String dnOrder="10" name="DrawPNG">
