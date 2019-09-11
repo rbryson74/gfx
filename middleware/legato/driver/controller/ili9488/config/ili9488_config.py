@@ -82,6 +82,10 @@ PaletteMode.setDescription("Enables Palette Mode.")
 PaletteMode.setDefaultValue(False)
 PaletteMode.setVisible(False)
 
+TransferMode = comp.createComboSymbol("TransferMode", DriverSettingsMenu, ["Synchronous", "Asynchronous"])
+TransferMode.setLabel("Transfer Mode")
+TransferMode.setDescription("Configure for non-blocking or blocking transfers")
+
 PixelOrder = comp.createComboSymbol("PixelOrder", DriverSettingsMenu, ["RGB", "BGR"])
 PixelOrder.setLabel("PixelOrder")
 PixelOrder.setDescription("Configures Pixel Order.")
