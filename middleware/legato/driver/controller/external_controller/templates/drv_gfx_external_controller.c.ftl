@@ -204,7 +204,8 @@ static int DRV_${ControllerName}_Configure(${ControllerName}_DRV *drv)
     parms[${j}] = 0x${.vars[PARM]};
         </#list>
     </#if>
-    GFX_Disp_Intf_WriteCommandParm(intf, cmd, parms, ${.vars[PARMSCOUNT]});
+    GFX_Disp_Intf_WriteCommand(intf, cmd);
+	GFX_Disp_Intf_WriteData(intf, parms, ${.vars[PARMSCOUNT]});
     <#if .vars[DELAY] != 0>
     DRV_${ControllerName}_DelayMS(${.vars[DELAY]});
     </#if>
@@ -313,24 +314,28 @@ leResult DRV_${ControllerName}_BlitBuffer(int32_t x,
     parm[1] = x;
     parm[2] = (x + buf->size.width - 1) >>8;
     parm[3] = (x + buf->size.width - 1);
-    GFX_Disp_Intf_WriteCommandParm(intf, 0x${SetXAddressCommand}, parm, 4);
+    GFX_Disp_Intf_WriteCommand(intf, 0x${SetXAddressCommand});
+	GFX_Disp_Intf_WriteData(intf, parm, 4);
     
     //Write Y/Page Address
     parm[0] = y>>8;
     parm[1] = y;
     parm[2] = (y + buf->size.height - 1)>>8;
     parm[3] = (y + buf->size.height - 1);
-    GFX_Disp_Intf_WriteCommandParm(intf, 0x${SetYAddressCommand}, parm, 4);
+    GFX_Disp_Intf_WriteCommand(intf, 0x${SetYAddressCommand});
+	GFX_Disp_Intf_WriteData(intf, parm, 4);
 <#else>
     //Write X/Column Address
     parm[0] = x;
     parm[1] = (x + buf->size.width - 1);
-    GFX_Disp_Intf_WriteCommandParm(intf, 0x${SetXAddressCommand}, parm, 2);
+    GFX_Disp_Intf_WriteCommand(intf, 0x${SetXAddressCommand});
+	GFX_Disp_Intf_WriteData(intf, parm, 4);
     
     //Write Y/Page Address
     parm[0] = y;
     parm[1] = (y + buf->size.height - 1);
-    GFX_Disp_Intf_WriteCommandParm(intf, 0x${SetYAddressCommand}, parm, 2);
+    GFX_Disp_Intf_WriteCommand(intf, 0x${SetYAddressCommand});
+	GFX_Disp_Intf_WriteData(intf, parm, 4);
 </#if>
 
     //Start Memory Write

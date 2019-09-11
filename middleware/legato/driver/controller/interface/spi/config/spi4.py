@@ -36,6 +36,7 @@ def instantiateComponent(comp):
 	GFX_INTF_SPI.setOutputName("drv_gfx_disp_intf_spi4.c")
 	GFX_INTF_SPI.setProjectPath("config/" + Variables.get("__CONFIGURATION_NAME") + "/gfx/interface/spi4")
 	GFX_INTF_SPI.setType("SOURCE")
+	GFX_INTF_SPI.setMarkup(True)
 
 	### Interface type is required for all interface components. This is queried by the driver to determine
 	### the display interface supported by the interface component. Valid values are "SPI 4-line", "Parallel 16-bit",
@@ -45,6 +46,13 @@ def instantiateComponent(comp):
 	InterfaceType.setDescription("The interface configuration")
 	InterfaceType.setDefaultValue("SPI 4-line")
 	InterfaceType.setVisible(False)
+
+	TransferModeSettingsMenu = comp.createMenuSymbol("TransferModeSettingsMenu", None)
+	TransferModeSettingsMenu.setLabel("Transfer Mode Settings")
+	
+	BlockingTransfers = comp.createBooleanSymbol("BlockingTransfers", TransferModeSettingsMenu)
+	BlockingTransfers.setLabel("Blocking")
+	BlockingTransfers.setDefaultValue(True)
 	
 def onAttachmentConnected(source, target):
 	#print(source["component"].getID() + ": " + dependencyID + " dependent component added ")

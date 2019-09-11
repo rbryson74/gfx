@@ -62,7 +62,6 @@ typedef enum
     SPI_TRANS_IDLE,
     SPI_TRANS_CMD_WR_PENDING,
     SPI_TRANS_CMD_RD_PENDING,
-    SPI_TRANS_DONE,
     SPI_TRANS_FAIL,
 } GFX_DISP_INTF_SPI_TRANS_STATUS;
 
@@ -126,7 +125,7 @@ static void GFX_Disp_Intf_CallBack(DRV_SPI_TRANSFER_EVENT event,
     {
         case DRV_SPI_TRANSFER_EVENT_COMPLETE:
         {
-            *status = SPI_TRANS_DONE;
+            *status = SPI_TRANS_IDLE;
         
             break;
         }
@@ -267,7 +266,7 @@ int GFX_Disp_Intf_ReadData(GFX_Disp_Intf intf, uint8_t * data, int bytes)
     return GFX_Disp_Intf_Read(intf, data, bytes);
 }
 
-int GFX_Disp_Intf_ReadCommandData(GFX_Disp_Intf intf, uint8_t cmd, uint8_t * data, int num_data)
+DRV_GFX_DEPRECATED int GFX_Disp_Intf_ReadCommandData(GFX_Disp_Intf intf, uint8_t cmd, uint8_t * data, int num_data)
 {
     int retval;
     
@@ -280,7 +279,7 @@ int GFX_Disp_Intf_ReadCommandData(GFX_Disp_Intf intf, uint8_t cmd, uint8_t * dat
     return GFX_Disp_Intf_Read(intf, data, num_data);
 }
 
-int GFX_Disp_Intf_WriteCommandParm(GFX_Disp_Intf intf, uint8_t cmd, uint8_t * parm, int num_parms)
+DRV_GFX_DEPRECATED int GFX_Disp_Intf_WriteCommandParm(GFX_Disp_Intf intf, uint8_t cmd, uint8_t * parm, int num_parms)
 {
     int retval = -1;
     
@@ -318,7 +317,9 @@ int GFX_Disp_Intf_Write(GFX_Disp_Intf intf, uint8_t * data, int bytes)
         return -1;
     }
     
-    while (SPI_TRANS_CMD_WR_PENDING == spiIntf->drvSPITransStatus);
+<#if BlockingTransfers == true>
+    while(!GFX_Disp_Intf_Ready());
+</#if>
     
     return 0;
 }
@@ -342,8 +343,9 @@ int GFX_Disp_Intf_Read(GFX_Disp_Intf intf, uint8_t * data, int bytes)
     if (DRV_SPI_TRANSFER_HANDLE_INVALID == spiIntf->drvSPITransferHandle)
         return -1;
 
-    //Wait for the callback (full block/no timeout)
-    while (SPI_TRANS_CMD_RD_PENDING == spiIntf->drvSPITransStatus);
+<#if BlockingTransfers == true>
+    while(!GFX_Disp_Intf_Ready());
+</#if>
     
     return 0;
 }
@@ -358,6 +360,11 @@ int GFX_Disp_Intf_ReadData16(GFX_Disp_Intf intf, uint16_t* data, int num)
 {
     //Not supported
     return -1;
+}
+
+int GFX_Disp_Intf_Ready(GFX_Disp_Intf intf)
+{
+    return (SPI_TRANS_IDLE == ((GFX_DISP_INTF_SPI *) intf)->drvSPITransStatus);
 }
 
 /* *****************************************************************************

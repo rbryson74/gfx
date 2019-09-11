@@ -193,16 +193,19 @@ static leResult DRV_SSD1963_Configure(SSD1963_DRV *drv)
     parm[0] = 0x1D; // Muliplier M = 29, VCO = 12*(N+1)  = 300 MHz
     parm[1] = 0x2; // Divider N = 2,   PLL = 360/(N+1) = 100MHz
     parm[2] = 0x54; // Validate M and N values ("Effectuate" values)
-    GFX_Disp_Intf_WriteCommandParm(intf, CMD_SET_PLL_MN, parm, 3); // Set PLL with OSC = 10MHz (hardware)
+    GFX_Disp_Intf_WriteCommand(intf, CMD_SET_PLL_MN);
+    GFX_Disp_Intf_WriteData(intf, parm, 3); // Set PLL with OSC = 10MHz (hardware)
     DRV_SSD1963_DelayMS(10);
 
     parm[0] = 0x01; // enable PLL
-    GFX_Disp_Intf_WriteCommandParm(intf, CMD_PLL_START, parm, 1); // Start PLL command
+    GFX_Disp_Intf_WriteCommand(intf, CMD_PLL_START); // Start PLL command
+    GFX_Disp_Intf_WriteData(intf, parm, 1); 
     
     DRV_SSD1963_DelayMS(10);
 
     parm[0] = 0x03; // now, use PLL output as system clock
-    GFX_Disp_Intf_WriteCommandParm(intf, CMD_PLL_START, parm, 1); // Start PLL command again
+    GFX_Disp_Intf_WriteCommand(intf, CMD_PLL_START); // Start PLL command again
+    GFX_Disp_Intf_WriteData(intf, parm, 1); 
 
     DRV_SSD1963_DelayMS(10); // Wait for PLL to lock
 
@@ -215,7 +218,8 @@ static leResult DRV_SSD1963_Configure(SSD1963_DRV *drv)
     parm[0] = 0xFF & (lcdc_fpr>>16);
     parm[1] = 0xFF & (lcdc_fpr>>8);
     parm[2] = iByte = 0xFF &  lcdc_fpr;
-    GFX_Disp_Intf_WriteCommandParm(intf, CMD_SET_PCLK, parm, 3); // Set Pixel clock to 15 MHz
+    GFX_Disp_Intf_WriteCommand(intf, CMD_SET_PCLK); // Set Pixel clock to 15 MHz
+    GFX_Disp_Intf_WriteData(intf, parm, 3); 
     
     parm[0] = 0x20; // set 24-bit for TY430TF480272 4.3" panel data latch in rising edge for LSHIFT
     parm[1] = 0x00; // set Hsync+Vsync mode
@@ -224,7 +228,8 @@ static leResult DRV_SSD1963_Configure(SSD1963_DRV *drv)
     parm[4] = (DISP_VER_RESOLUTION-1)>>8;
     parm[5] = (uint8_t)(DISP_VER_RESOLUTION-1);
     parm[6] = 0x00; //RGB sequence
-    GFX_Disp_Intf_WriteCommandParm(intf, CMD_SET_PANEL_MODE, parm, 7);
+    GFX_Disp_Intf_WriteCommand(intf, CMD_SET_PANEL_MODE);
+    GFX_Disp_Intf_WriteData(intf, parm, 7); 
 
     //Set horizontal period
     parm[0] = (HT-1)>>8;
@@ -235,8 +240,9 @@ static leResult DRV_SSD1963_Configure(SSD1963_DRV *drv)
     parm[5] = 0x00;
     parm[6] = 0x00;
     parm[7] = 0x00;
-    GFX_Disp_Intf_WriteCommandParm(intf, CMD_SET_HOR_PERIOD, parm, 8);
-    
+    GFX_Disp_Intf_WriteCommand(intf, CMD_SET_HOR_PERIOD);
+    GFX_Disp_Intf_WriteData(intf, parm, 8); 
+
     //Set vertical period
     parm[0] = (VT-1)>>8;
     parm[1] = (uint8_t)(VT-1);
@@ -245,11 +251,13 @@ static leResult DRV_SSD1963_Configure(SSD1963_DRV *drv)
     parm[4] = DISP_VER_PULSE_WIDTH-1;
     parm[5] = 0x00;
     parm[6] = 0x00;
-    GFX_Disp_Intf_WriteCommandParm(intf, CMD_SET_VER_PERIOD, parm, 7);
+    GFX_Disp_Intf_WriteCommand(intf, CMD_SET_VER_PERIOD);
+    GFX_Disp_Intf_WriteData(intf, parm, 7); 
 
     //Set pixel format, i.e. the bpp
     parm[0] = 0x55; // set 16bpp, (565 format) 
-    GFX_Disp_Intf_WriteCommandParm(intf, CMD_SET_PIXEL_FORMAT, parm, 1);
+    GFX_Disp_Intf_WriteCommand(intf, CMD_SET_PIXEL_FORMAT);
+    GFX_Disp_Intf_WriteData(intf, parm, 1); 
     
     //Set pixel data interface
 <#if ParallelInterfaceWidth == "16-bit">
@@ -258,7 +266,8 @@ static leResult DRV_SSD1963_Configure(SSD1963_DRV *drv)
 <#if ParallelInterfaceWidth == "8-bit">
     parm[0] = 0x00; //8-bit pixel data
 </#if>
-    GFX_Disp_Intf_WriteCommandParm(intf, CMD_SET_DATA_INTERFACE, parm, 1);
+    GFX_Disp_Intf_WriteCommand(intf, CMD_SET_DATA_INTERFACE);
+    GFX_Disp_Intf_WriteData(intf, parm, 1); 
 
     // Turn on display; show the image on display
     GFX_Disp_Intf_WriteCommand(intf,
@@ -284,13 +293,15 @@ static void DRV_SSD1963_SetArea(SSD1963_DRV *drv,
     parm[1] = start_x;
     parm[2] = end_x>>8;
     parm[3] = end_x;
-    GFX_Disp_Intf_WriteCommandParm(intf, CMD_SET_COLUMN, parm, 4);
+    GFX_Disp_Intf_WriteCommand(intf, CMD_SET_COLUMN);
+    GFX_Disp_Intf_WriteData(intf, parm, 4); 
     
     parm[0] = start_y>>8;
     parm[1] = start_y;
     parm[2] = end_y>>8;
     parm[3] = end_y;
-    GFX_Disp_Intf_WriteCommandParm(intf, CMD_SET_PAGE, parm, 4);
+    GFX_Disp_Intf_WriteCommand(intf, CMD_SET_PAGE);
+    GFX_Disp_Intf_WriteData(intf, parm, 4);
 }
 
 /**
@@ -326,8 +337,8 @@ static leResult DRV_SSD1963_BrightnessSet(uint32_t brightness)
 
     DRV_SSD1963_NCSAssert((GFX_Disp_Intf) drv.port_priv);
 
-    GFX_Disp_Intf_WriteCommandParm((GFX_Disp_Intf) drv.port_priv,
-                                    CMD_SET_PWM_CONF, parm, 5);
+    GFX_Disp_Intf_WriteCommand((GFX_Disp_Intf) drv.port_priv, CMD_SET_PWM_CONF);
+    GFX_Disp_Intf_WriteData((GFX_Disp_Intf) drv.port_priv, parm, 5);
 
     DRV_SSD1963_NCSDeassert((GFX_Disp_Intf) drv.port_priv);
     

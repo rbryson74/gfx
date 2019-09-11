@@ -376,7 +376,7 @@ int GFX_Disp_Intf_ReadData(GFX_Disp_Intf intf, uint8_t* data, int bytes)
     return 0;
 }
 
-int GFX_Disp_Intf_ReadCommandData(GFX_Disp_Intf intf, uint8_t cmd, uint8_t* data, int num_data)
+DRV_GFX_DEPRECATED int GFX_Disp_Intf_ReadCommandData(GFX_Disp_Intf intf, uint8_t cmd, uint8_t* data, int num_data)
 {
     int retval;
     unsigned int i;
@@ -415,7 +415,7 @@ int GFX_Disp_Intf_ReadCommandData(GFX_Disp_Intf intf, uint8_t cmd, uint8_t* data
     return retval;
 }
 
-int GFX_Disp_Intf_WriteCommandParm(GFX_Disp_Intf intf, uint8_t cmd, uint8_t* parm, int num_parms)
+DRV_GFX_DEPRECATED int GFX_Disp_Intf_WriteCommandParm(GFX_Disp_Intf intf, uint8_t cmd, uint8_t* parm, int num_parms)
 {
     int retval;
     unsigned int i;
@@ -533,6 +533,11 @@ int GFX_Disp_Intf_Read(GFX_Disp_Intf intf, uint8_t* data, int bytes)
     }
     
     return 0;
+}
+
+int GFX_Disp_Intf_Ready(GFX_Disp_Intf intf)
+{
+    return 1;
 }
 
 
