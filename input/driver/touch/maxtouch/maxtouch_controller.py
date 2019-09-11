@@ -43,6 +43,7 @@ def setCommonMode(symbol, event):
         else:
             symbol.setValue("Synchronous")
 
+
 def instantiateComponent(component):
 	component.setHelpFile("../../../../docs/help_harmony_gfx_html_alias.h")
 	#component.setHelp("IDH_HTML_CMP_GFX__8__MaxTouch_Controller_Component")
@@ -58,6 +59,10 @@ def instantiateComponent(component):
         i2cMode.setLabel("Driver Mode")
         i2cMode.setDefaultValue(i2c_default_mode)
         i2cMode.setDependencies(setCommonMode, ["HarmonyCore.SELECT_RTOS"])
+
+        ChgMode = component.createComboSymbol("ChgMode", None, ["Polling", "Interrupt"])
+        ChgMode.setLabel("CHG Mode")
+        ChgMode.setDefaultValue("Polling")
 	
 	Width = component.createIntegerSymbol("Width", None)
 	Width.setLabel("Width")
