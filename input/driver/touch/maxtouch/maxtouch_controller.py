@@ -80,23 +80,27 @@ def instantiateComponent(component):
 
         # Async Source Files
         DRV_ASYNC_MAXTOUCH_C = component.createFileSymbol("DRV_MAXTOUCH_C", None)
-        DRV_ASYNC_MAXTOUCH_C.setSourcePath("src/async/drv_maxtouch.c")
+        DRV_ASYNC_MAXTOUCH_C.setSourcePath("src/async/drv_maxtouch.c.ftl")
+        DRV_ASYNC_MAXTOUCH_C.setOutputName("drv_maxtouch.c")
         DRV_ASYNC_MAXTOUCH_C.setDestPath("driver/input/")
         DRV_ASYNC_MAXTOUCH_C.setProjectPath(projectPath)
         DRV_ASYNC_MAXTOUCH_C.setType("SOURCE")
         DRV_ASYNC_MAXTOUCH_C.setOverwrite(True)
         DRV_ASYNC_MAXTOUCH_C.setEnabled((i2cMode.getValue() == "Asynchronous"))
         DRV_ASYNC_MAXTOUCH_C.setDependencies(asyncFileGen, ["DRV_I2C_MODE"])
+	DRV_ASYNC_MAXTOUCH_C.setMarkup(True)
 
         # Sync Source Files
         DRV_SYNC_MAXTOUCH_C = component.createFileSymbol("DRV_I2C_SYNC_SRC", None)
-        DRV_SYNC_MAXTOUCH_C.setSourcePath("src/sync/drv_maxtouch.c")
+        DRV_SYNC_MAXTOUCH_C.setSourcePath("src/sync/drv_maxtouch.c.ftl")
+        DRV_SYNC_MAXTOUCH_C.setOutputName("drv_maxtouch.c")
         DRV_SYNC_MAXTOUCH_C.setDestPath("driver/input/")
         DRV_SYNC_MAXTOUCH_C.setProjectPath(projectPath)
         DRV_SYNC_MAXTOUCH_C.setType("SOURCE")
         DRV_SYNC_MAXTOUCH_C.setOverwrite(True)
         DRV_SYNC_MAXTOUCH_C.setEnabled((i2cMode.getValue() == "Synchronous"))
         DRV_SYNC_MAXTOUCH_C.setDependencies(syncFileGen, ["DRV_I2C_MODE"])
+	DRV_SYNC_MAXTOUCH_C.setMarkup(True)
 	
         I2CIndex = component.createIntegerSymbol("I2CIndex", None)
 	I2CIndex.setLabel("I2C Driver Index")

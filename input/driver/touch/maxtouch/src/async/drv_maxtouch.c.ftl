@@ -563,6 +563,16 @@ return(BSP_MAXTOUCH_CHG_Get());
 #endif
 }
 
+<#if __PROCESSOR?matches("PIC32M.*") == false>
+void mxt_chg_callback ( PIO_PIN pin, uintptr_t context)
+<#else>
+void mxt_chg_callback ( GPIO_PIN pin, uintptr_t context)
+</#if>
+{
+    struct DEVICE_OBJECT * obj = (struct DEVICE_OBJECT *) context;
+    obj->deviceState = DEVICE_STATE_READY;
+}
+
 static void _handleTouchMessage(uint8_t touchID, MAXTOUCH_TouchEvent* tchEvt);
 static bool mxt_init_t7_power_cfg(struct DEVICE_OBJECT* pDeviceObject);
 static bool mxt_load_xcfg_file(struct DEVICE_OBJECT* pDeviceObject, const char *filename);
@@ -805,6 +815,15 @@ SYS_MODULE_OBJ DRV_MAXTOUCH_Initialize(const SYS_MODULE_INDEX index,
     pDrvInstance->data.progress = 0;
     pDrvInstance->apiEvent = APP_DRV_MAXTOUCH_None;
 
+    /* enable CHG interrupt handler */
+    <#if __PROCESSOR?matches("PIC32M.*") == false>
+    PIO_PinInterruptCallbackRegister(BSP_MAXTOUCH_CHG_PIN, mxt_chg_callback, (uintptr_t)pDrvInstance);
+    PIO_PinInterruptEnable(BSP_MAXTOUCH_CHG_PIN);
+    <#else>
+    GPIO_PinInterruptCallbackRegister(BSP_MAXTOUCH_CHG_PIN, mxt_chg_callback, (uintptr_t)pDrvInstance);
+    GPIO_PinInterruptEnable(BSP_MAXTOUCH_CHG_PIN);
+    </#if>
+    
     return (SYS_MODULE_OBJ)pDrvInstance;
 }
 
@@ -1352,6 +1371,7 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
             {
                 _MessageObjectRead(pDrvObject);
             }
+            pDrvObject->deviceState = DEVICE_STATE_WAIT;
             break; 
         }
         

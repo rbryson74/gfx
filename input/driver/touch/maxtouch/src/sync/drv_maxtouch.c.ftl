@@ -527,8 +527,11 @@ return(BSP_MAXTOUCH_CHG_Get());
 /* temporary CHG pin read REMOVE END */
 }
 
-
+<#if __PROCESSOR?matches("PIC32M.*") == false>
 void mxt_chg_callback ( PIO_PIN pin, uintptr_t context)
+<#else>
+void mxt_chg_callback ( GPIO_PIN pin, uintptr_t context)
+</#if>
 {
     struct mxt_data * obj = (struct mxt_data *) context;
     obj->deviceState = DEVICE_STATE_READY;
@@ -572,9 +575,14 @@ SYS_MODULE_OBJ DRV_MAXTOUCH_Initialize(const SYS_MODULE_INDEX index,
     pDrvInstance->status  = SYS_STATUS_BUSY;
     pDrvInstance->deviceState = DEVICE_STATE_OPEN;
 
-	/* enable CHG interrupt handler */
+    /* enable CHG interrupt handler */
+    <#if __PROCESSOR?matches("PIC32M.*") == false>
     PIO_PinInterruptCallbackRegister(BSP_MAXTOUCH_CHG_PIN, mxt_chg_callback, (uintptr_t)pDrvInstance);
     PIO_PinInterruptEnable(BSP_MAXTOUCH_CHG_PIN);
+    <#else>
+    GPIO_PinInterruptCallbackRegister(BSP_MAXTOUCH_CHG_PIN, mxt_chg_callback, (uintptr_t)pDrvInstance);
+    GPIO_PinInterruptEnable(BSP_MAXTOUCH_CHG_PIN);
+    </#if>
 
     return (SYS_MODULE_OBJ)pDrvInstance;
 }
