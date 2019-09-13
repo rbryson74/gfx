@@ -92,7 +92,8 @@ static uint8_t pixelBuffer[SCREEN_WIDTH * PIXEL_BUFFER_BYTES_PER_PIXEL];
 typedef enum
 {
     INIT = 0,
-    RUN
+    RUN,
+    ERROR,
 } DRV_STATE;
 
 typedef struct ILI9488_DRV 
@@ -171,10 +172,6 @@ int DRV_${ControllerName}_Initialize(void)
 {
     drv.state = INIT;
 
-    drv.port_priv = (void *) GFX_Disp_Intf_Open();
-    if (drv.port_priv == 0)
-        return -1;
-    
     return 0;
 }
 
@@ -205,7 +202,9 @@ static int DRV_${ControllerName}_Configure(${ControllerName}_DRV *drv)
         </#list>
     </#if>
     GFX_Disp_Intf_WriteCommand(intf, cmd);
-	GFX_Disp_Intf_WriteData(intf, parms, ${.vars[PARMSCOUNT]});
+    <#if .vars[PARMSCOUNT] != 0>
+    GFX_Disp_Intf_WriteData(intf, parms, ${.vars[PARMSCOUNT]});
+    </#if>
     <#if .vars[DELAY] != 0>
     DRV_${ControllerName}_DelayMS(${.vars[DELAY]});
     </#if>
@@ -240,6 +239,13 @@ void DRV_${ControllerName}_Update(void)
 {
     if(drv.state == INIT)
     {
+        drv.port_priv = (void *) GFX_Disp_Intf_Open();
+        if (drv.port_priv == 0)
+        {
+            drv.state = ERROR;
+            return;
+        }
+
 <#if ResetEnable == true>
         DRV_${ControllerName}_Reset();
 </#if>
@@ -306,6 +312,15 @@ leResult DRV_${ControllerName}_BlitBuffer(int32_t x,
     
     intf = (GFX_Disp_Intf) drv.port_priv;
 
+<#if XAddressOffset != 0>
+    //Add X offset
+    x += ${XAddressOffset};
+</#if>
+<#if YAddressOffset != 0>
+    //Add Y offset
+    y += ${YAddressOffset};
+</#if>
+
     DRV_${ControllerName}_NCSAssert(intf);
 
 <#if FrameAddressSize == "2-bytes">
@@ -315,7 +330,7 @@ leResult DRV_${ControllerName}_BlitBuffer(int32_t x,
     parm[2] = (x + buf->size.width - 1) >>8;
     parm[3] = (x + buf->size.width - 1);
     GFX_Disp_Intf_WriteCommand(intf, 0x${SetXAddressCommand});
-	GFX_Disp_Intf_WriteData(intf, parm, 4);
+    GFX_Disp_Intf_WriteData(intf, parm, 4);
     
     //Write Y/Page Address
     parm[0] = y>>8;
@@ -323,19 +338,19 @@ leResult DRV_${ControllerName}_BlitBuffer(int32_t x,
     parm[2] = (y + buf->size.height - 1)>>8;
     parm[3] = (y + buf->size.height - 1);
     GFX_Disp_Intf_WriteCommand(intf, 0x${SetYAddressCommand});
-	GFX_Disp_Intf_WriteData(intf, parm, 4);
+    GFX_Disp_Intf_WriteData(intf, parm, 4);
 <#else>
     //Write X/Column Address
     parm[0] = x;
     parm[1] = (x + buf->size.width - 1);
     GFX_Disp_Intf_WriteCommand(intf, 0x${SetXAddressCommand});
-	GFX_Disp_Intf_WriteData(intf, parm, 4);
+    GFX_Disp_Intf_WriteData(intf, parm, 2);
     
     //Write Y/Page Address
     parm[0] = y;
     parm[1] = (y + buf->size.height - 1);
     GFX_Disp_Intf_WriteCommand(intf, 0x${SetYAddressCommand});
-	GFX_Disp_Intf_WriteData(intf, parm, 4);
+    GFX_Disp_Intf_WriteData(intf, parm, 2);
 </#if>
 
     //Start Memory Write
