@@ -318,7 +318,7 @@ int GFX_Disp_Intf_Write(GFX_Disp_Intf intf, uint8_t * data, int bytes)
     }
     
 <#if BlockingTransfers == true>
-    while(!GFX_Disp_Intf_Ready());
+    while(!GFX_Disp_Intf_Ready(intf));
 </#if>
     
     return 0;
@@ -344,7 +344,7 @@ int GFX_Disp_Intf_Read(GFX_Disp_Intf intf, uint8_t * data, int bytes)
         return -1;
 
 <#if BlockingTransfers == true>
-    while(!GFX_Disp_Intf_Ready());
+    while(!GFX_Disp_Intf_Ready(intf));
 </#if>
     
     return 0;
