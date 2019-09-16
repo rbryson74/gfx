@@ -190,7 +190,10 @@ extern "C" {
 /* Maximum instances of MSD function driver */
 #define USB_DEVICE_MSD_INSTANCES_NUMBER     1 
 
+/* CUSTOM CODE: DO NOT REMOVE */
+/* Need extra large number of access buffers to support MSD Device + FS + QSPI Flash */
 #define USB_DEVICE_MSD_NUM_SECTOR_BUFFERS 128
+/* CUSTOM CODE ENDS */
 
 /* Number of Logical Units */
 #define USB_DEVICE_MSD_LUNS_NUMBER      1
