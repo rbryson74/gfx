@@ -54,6 +54,14 @@
     Application strings and buffers are be defined outside this structure.
 */
 
+#define APP_MOUNT_NAME          "/mnt/qspi"
+#define APP_DEVICE_NAME         "/dev/mtda1"
+#define APP_FS_TYPE             FAT
+
+#define APP_IMAGE_FILE_PATHNAME  APP_MOUNT_NAME"/""Images.bin"
+#define APP_FONT1_FILE_PATHNAME  APP_MOUNT_NAME"/""Fonts1.bin"
+#define APP_FONT2_FILE_PATHNAME  APP_MOUNT_NAME"/""Fonts2.bin"
+
 APP_DATA appData;
 
 // *****************************************************************************
@@ -62,76 +70,60 @@ APP_DATA appData;
 // *****************************************************************************
 // *****************************************************************************
 
-void APP_FormatFileSystem ( void )
-{
-    appData.state = APP_STATE_FORMAT_FS;
-}
-
 void APP_ToggleLanguage( void )
 {
-//    if (laContext_GetStringLanguage() == language_English)
-//    {
-//        laContext_SetStringLanguage(language_Chinese);
-//    }
-//    else
-//    {
-//        laContext_SetStringLanguage(language_English);
-//    }
+    if (laContext_GetStringLanguage() == language_English)
+    {
+        laContext_SetStringLanguage(language_Chinese);
+    }
+    else
+    {
+        laContext_SetStringLanguage(language_English);
+    }
 }
 
 void APP_ToggleImage( void )
 {
-//    if (LogoButton->releasedImage == &MHGS_logo_small_raw_direct_blit)
-//    {
-//        //Show the next message
-//        laButtonWidget_SetText(SloganButton, laString_CreateFromID(string_DrawRLE));
-//
-//        //Draw the intended from the previous message
-//        laButtonWidget_SetPressedImage(LogoButton, &MHGS_logo_small_raw);
-//        laButtonWidget_SetReleasedImage(LogoButton, &MHGS_logo_small_raw);
-//        laLabelWidget_SetText(ImageTypeLabelWidget, laString_CreateFromID(string_ImageIsRaw));
-//    }
-//    else if (LogoButton->releasedImage == &MHGS_logo_small_raw)
-//    {
-//        //Show the next message
-//        laButtonWidget_SetText(SloganButton, laString_CreateFromID(string_DrawDirectBlit));
-//
-//        //Draw the intended from the previous message
-//        laButtonWidget_SetPressedImage(LogoButton, &MHGS_logo_small_rle);
-//        laButtonWidget_SetReleasedImage(LogoButton, &MHGS_logo_small_rle);
-//        laLabelWidget_SetText(ImageTypeLabelWidget, laString_CreateFromID(string_ImageIsRLE));
-//    }
-//    else if (LogoButton->releasedImage == &MHGS_logo_small_rle)
-//    {
-//        //Show the next message
-//        laButtonWidget_SetText(SloganButton, laString_CreateFromID(string_DrawJpeg));
-//
-//        //Draw the intended from the previous message
-//        laButtonWidget_SetPressedImage(LogoButton, &MHGS_logo_small_raw_direct_blit);
-//        laButtonWidget_SetReleasedImage(LogoButton, &MHGS_logo_small_raw_direct_blit);
-//        laLabelWidget_SetText(ImageTypeLabelWidget, laString_CreateFromID(string_ImageIsDirectBlit));
-//    }
-//    else if (LogoButton->releasedImage == &MHGS_logo_small_png)
-//    {
-//        //Show the next message
-//        laButtonWidget_SetText(SloganButton, laString_CreateFromID(string_DrawDirectBlit));
-//
-//        //Draw the intended from the previous message
-//        laButtonWidget_SetPressedImage(LogoButton, &MHGS_logo_small_jpeg);
-//        laButtonWidget_SetReleasedImage(LogoButton, &MHGS_logo_small_jpeg);
-//        laLabelWidget_SetText(ImageTypeLabelWidget, laString_CreateFromID(string_ImageIsJPEG));
-//    }
-//    else if (LogoButton->releasedImage == &MHGS_logo_small_jpeg)
-//    {
-//        //Show the next message
-//        laButtonWidget_SetText(SloganButton, laString_CreateFromID(string_DrawRaw));
-//
-//        //Draw the intended from the previous message
-//        laButtonWidget_SetPressedImage(LogoButton, &MHGS_logo_small_raw_direct_blit);
-//        laButtonWidget_SetReleasedImage(LogoButton, &MHGS_logo_small_raw_direct_blit);
-//        laLabelWidget_SetText(ImageTypeLabelWidget, laString_CreateFromID(string_ImageIsDirectBlit));
-//    }
-        
+    if (LogoButton->releasedImage == &MHGS_logo_small_raw_direct_blit)
+    {
+        //Show the next message
+        laLabelWidget_SetText(LabelWidget2, laString_CreateFromID(string_DrawRLE));
+
+        //Draw the intended from the previous message
+        laButtonWidget_SetPressedImage(LogoButton, &MHGS_logo_small_raw);
+        laButtonWidget_SetReleasedImage(LogoButton, &MHGS_logo_small_raw);
+        laLabelWidget_SetText(ImageTypeLabelWidget, laString_CreateFromID(string_ImageIsRaw));
+    }
+    else if (LogoButton->releasedImage == &MHGS_logo_small_raw)
+    {
+        //Show the next message
+        laLabelWidget_SetText(LabelWidget2, laString_CreateFromID(string_DrawJpeg));
+
+        //Draw the intended from the previous message
+        laButtonWidget_SetPressedImage(LogoButton, &MHGS_logo_small_raw_rle);
+        laButtonWidget_SetReleasedImage(LogoButton, &MHGS_logo_small_raw_rle);
+        laLabelWidget_SetText(ImageTypeLabelWidget, laString_CreateFromID(string_ImageIsRLE));
+    }
+    else if (LogoButton->releasedImage == &MHGS_logo_small_raw_rle)
+    {
+        //Show the next message
+        laLabelWidget_SetText(LabelWidget2, laString_CreateFromID(string_DrawDirectBlit));
+
+        //Draw the intended from the previous message
+        laButtonWidget_SetPressedImage(LogoButton, &MHGS_logo_small_jpeg);
+        laButtonWidget_SetReleasedImage(LogoButton, &MHGS_logo_small_jpeg);
+        laLabelWidget_SetText(ImageTypeLabelWidget, laString_CreateFromID(string_ImageIsJPEG));
+    }
+    else if (LogoButton->releasedImage == &MHGS_logo_small_jpeg)
+    {
+        //Show the next message
+        laLabelWidget_SetText(LabelWidget2, laString_CreateFromID(string_DrawRaw));
+
+        //Draw the intended from the previous message
+        laButtonWidget_SetPressedImage(LogoButton, &MHGS_logo_small_raw_direct_blit);
+        laButtonWidget_SetReleasedImage(LogoButton, &MHGS_logo_small_raw_direct_blit);
+        laLabelWidget_SetText(ImageTypeLabelWidget, laString_CreateFromID(string_ImageIsDirectBlit));
+    }
 }
 
 /******************************************************************************
@@ -147,12 +139,7 @@ void APP_ToggleImage( void )
     Handles the Device Layers Events.
 */
 
-void APP_USBDeviceEventHandler
-(
-    USB_DEVICE_EVENT event, 
-    void * pEventData, 
-    uintptr_t context
-)
+void APP_USBDeviceEventHandler ( USB_DEVICE_EVENT event, void * pEventData, uintptr_t context )
 {
     APP_DATA * appData = (APP_DATA*)context;
 
@@ -168,13 +155,10 @@ void APP_USBDeviceEventHandler
 
         case USB_DEVICE_EVENT_CONFIGURED:
         {
-            if (laContext_GetActiveScreen()->id == LoadingScreen_ID)
-            {
-                /* Endpoint is configured. */
-                LED1_On();
+            /* Endpoint is configured. */
+            LED1_On();
 
-                appData->isFsRunning = true;
-            }
+            appData->isFsConnected = true;
             break;
         }
 
@@ -187,8 +171,9 @@ void APP_USBDeviceEventHandler
         case USB_DEVICE_EVENT_POWER_DETECTED:
         {
             /* Indicate Device is attached to Host */ 
-            appData->isUsbConnected = true; 
-            if (appData->isFsRunning)
+            appData->isUsbConnected = true;
+            
+            if (appData->isFsConnected == true)
             {
                 /* VBUS is detected. Since FS is running defer the event
                  * handling to the Task Routine. */
@@ -204,6 +189,7 @@ void APP_USBDeviceEventHandler
         case USB_DEVICE_EVENT_POWER_REMOVED:
         {
             appData->isUsbConnected = false;
+            
             LED1_Off(); 
             /* VBUS is removed. Detach the device */
             USB_DEVICE_Detach(appData->usbDeviceHandle);
@@ -221,34 +207,26 @@ void APP_USBDeviceEventHandler
     }
 }
 
-/******************************************************************************
-  Function:
-    void APP_SysTimerCallback10ms ( uintptr_t context, uint32_t currTick )
-
-  Remarks:
-    Timer system call back for 10 milli Second 
-*/
-void APP_SysTimerCallback10ms ( uintptr_t context)
-{
-    appData.isTimerEventOccured = true; 
-}
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Local Functions
 // *****************************************************************************
 // *****************************************************************************
 
-SYS_FS_HANDLE APP_GetFileHandle(uint32_t dataLocation)
+SYS_FS_HANDLE APP_GetFileHandle( uint32_t dataLocation )
 {
     SYS_FS_HANDLE handle = SYS_FS_HANDLE_INVALID;
     
     switch(dataLocation)
     {
-        case GFXU_ASSET_LOCATION_ID_Fonts:
-            handle = SYS_FS_FileOpen("Fonts.bin", (SYS_FS_FILE_OPEN_READ));
+        case GFXU_ASSET_LOCATION_ID_Fonts1:
+            handle = SYS_FS_FileOpen(APP_FONT1_FILE_PATHNAME, (SYS_FS_FILE_OPEN_READ));
+            break;
+        case GFXU_ASSET_LOCATION_ID_Fonts2:
+            handle = SYS_FS_FileOpen(APP_FONT2_FILE_PATHNAME, (SYS_FS_FILE_OPEN_READ));
             break;
         case GFXU_ASSET_LOCATION_ID_Images:
-            handle = SYS_FS_FileOpen("Images.bin", (SYS_FS_FILE_OPEN_READ));
+            handle = SYS_FS_FileOpen(APP_IMAGE_FILE_PATHNAME, (SYS_FS_FILE_OPEN_READ));
             break;
         default:
             break;
@@ -269,63 +247,6 @@ void APP_USBInitialize ( void )
     appData.isUsbConnected = false; 
 }
 
-void APP_FSInitialize(void)
-{
-    /* Place the App state machine in its initial state. */
-    appData.fsState = APP_FS_STATE_SET_TIMER_CALLBACK;
-    appData.isFsRunning = 0;
-}
-
-
-/*******************************************************************************
-  Function:
-    void APP_ProcessSwitchPress(void)
-
-  Remarks:
-    This function handles Switch de-bouncing. 
- */
-void APP_ProcessSwitchPress(void)
-{
-    /* This function checks if the switch is pressed and then
-     * de-bounce the switch press*/
-    if(appData.isUsbConnected == true)
-    {
-        if(appData.ignoreSwitchPress)
-        {
-            /* This mean the key press is in progress */
-            if(appData.isTimerEventOccured)
-            {
-                /* A timer event has occurred. Update the de-bounce timer */
-                appData.switchDebounceTimer ++;
-                appData.isTimerEventOccured = false;
-
-                if(appData.switchDebounceTimer == APP_USB_SWITCH_DEBOUNCE_COUNT)
-                {
-                    /* Indicate that we have valid switch press. The switch is
-                     * pressed flag will be cleared by the application tasks
-                     * routine. We should be ready for the next key press.*/
-                    appData.isSwitch1Pressed = true;
-                    appData.switchDebounceTimer = 0;
-                    appData.ignoreSwitchPress = false;
-                }
-            }
-        }
-        else
-        {
-            /* We have a fresh key press */
-            appData.ignoreSwitchPress = true;
-            appData.switchDebounceTimer = 0;
-        }
-    }
-    else
-    {
-        /* No key press. Reset all the indicators. */
-        appData.ignoreSwitchPress = false;
-        appData.switchDebounceTimer = 0;
-        appData.isTimerEventOccured = false;
-    }
-
-}
 /******************************************************************************
   Function:
     void APP_USBTasks ( void )
@@ -362,7 +283,7 @@ bool APP_USBTasks (void)
         {
             /* VBUS detect event handling was deferred to the task routine.
              * Attach the device. */
-            if (appData.isUsbConnected == true)
+            if (appData.isFsConnected == false)
             {
                 USB_DEVICE_Attach(appData.usbDeviceHandle);
                 appData.usbState = APP_USB_STATE_RUNNING;
@@ -389,225 +310,8 @@ bool APP_USBTasks (void)
     return done;
 }
 
-/******************************************************************************
-  Function:
-    void APP_FSTasks ( void )
-
-  Remarks:
-    See prototype in app.h.
- */
-
-void APP_FSTasks (void)
-{
-    SYS_FS_RESULT retVal = SYS_FS_RES_FAILURE;
-    uint8_t ledState = 0;
-    APP_ProcessSwitchPress();
-    /* Check the application's current state. */
-    switch (appData.fsState)
-    {
-        /* Application's initial state. */
-        case APP_FS_STATE_SET_TIMER_CALLBACK: 
-            /* Register periodic System Timer call back for 100 milli Seconds. 
-             * This is used for Switch De-bouncing */ 
-            appData.timerHandlePeriodic = SYS_TIME_CallbackRegisterMS(APP_SysTimerCallback10ms, 0, 100, SYS_TIME_PERIODIC ); 
-            if(appData.timerHandlePeriodic != SYS_TIME_HANDLE_INVALID)
-            {
-                 /* Move the application to the next state */
-                 appData.fsState = APP_FS_STATE_INIT;
-            } 
-            break; 
-        case APP_FS_STATE_INIT:
-            { 
-                appData.isFsRunning = false;
-                appData.numLedChange = 0;
-                //appData.fsState = APP_FS_STATE_WAIT_FOR_SWITCH_PRESS;
-                /* Fall through */
-            }
-            break; 
-        case APP_FS_STATE_WAIT_FOR_SWITCH_PRESS:
-            {
-                if (appData.isSwitch1Pressed == true)
-                {
-                    appData.isSwitch1Pressed = false; 
-                    
-                    /* Turn ON LED 5. This indicates user that the medial is being 
-                     * accessed by the File System */
-                    LED1_On();
-
-                    if (appData.isUsbConnected == true)
-                    {
-                        /* Detach the device from Host. */
-                        USB_DEVICE_Detach(appData.usbDeviceHandle);
-
-                        /* Once the Device is detached from Host it must wait at
-                         * least 100 milli Second before re-attaching the device 
-                         * back to Host. If the application re-attaches too soon
-                         * (ex: after a few micro seconds for instance), some 
-                         * hosts may interpret this as an unexpected "glitch" 
-                         * rather than as a physical removal/re-attachment of 
-                         * the USB device. */ 
-                        /* Start the delay here. We used 1 sec for this example. */
-                        SYS_TIME_DelayMS(1000, &appData.timerHandle);
-                    }
-
-                    /* USB has been detached. Now mount the File System. */
-                    appData.isFsRunning = true;
-                    appData.fsState = APP_FS_STATE_MOUNT_DISK;
-                }
-                break; 
-            }
-        case APP_FS_STATE_MOUNT_DISK:
-            {
-                if (SYS_FS_Mount("/dev/mtda1", "/mnt/myDrive", FAT, 0, NULL) != 0)
-                {
-                    /* The disk could not be mounted. Try mounting again until
-                     * mount is successful. */
-                    appData.fsState = APP_FS_STATE_MOUNT_DISK;
-                }
-                else
-                { 
-                    /* Mount was successful. Now open a file. */
-                    appData.fsState = APP_FS_STATE_OPEN_FILE;
-                }
-                break;
-            }
-
-        case APP_FS_STATE_OPEN_FILE:
-            {
-                appData.fileHandle = SYS_FS_FileOpen("/mnt/myDrive/FILE.TXT", SYS_FS_FILE_OPEN_WRITE_PLUS);
-                if (appData.fileHandle == SYS_FS_HANDLE_INVALID)
-                {
-                    /* Could not open the file. Error out. */
-                    appData.fsState = APP_FS_STATE_ERROR;
-                }
-                else
-                {
-                    /* Check the file status */
-                    appData.fsState = APP_FS_STATE_READ_FILE;
-                }
-                break;
-            }
-
-        case APP_FS_STATE_READ_FILE:
-            {
-                retVal = SYS_FS_FileStringGet(appData.fileHandle, (char *)appData.fsBuffer, 8);
-                if (retVal == SYS_FS_RES_SUCCESS)
-                {
-                    if ((strncmp((const char *)appData.fsBuffer, "LED9:", 5)) == 0)
-                    {
-                        appData.numLedChange ++;
-                        ledState = atoi((const char *)&appData.fsBuffer[5]);
-                        if (ledState)
-                        {
-                            LED1_Off();
-                        }
-                        else
-                        {
-                            LED1_Off();
-                        }
-                    }
-
-                    if ((strncmp((const char *)appData.fsBuffer, "LED8:", 5)) == 0)
-                    {
-                        appData.numLedChange ++;
-                        ledState = atoi((const char *)&appData.fsBuffer[5]);
-                        if (ledState)
-                        {
-                            LED1_On();
-                        }
-                        else
-                        {
-                            LED1_On();
-                        }
-                    }
-                }
-
-                if (appData.numLedChange == 2)
-                {
-                    appData.numLedChange = 0;
-                    appData.fsState = APP_FS_STATE_CLOSE_FILE;
-                }
-                else
-                {
-                    appData.fsState = APP_FS_STATE_CHECK_EOF;
-                }
-
-                break;
-            }
-
-        case APP_FS_STATE_CHECK_EOF:
-            {
-                if (SYS_FS_FileEOF(appData.fileHandle) == true)
-                {
-                    /* Reached End of the File. */ 
-                    appData.fsState = APP_FS_STATE_CLOSE_FILE;
-                }
-                else
-                {
-                    /* Not reached end of file. See if there is still data to
-                     * be acted upon. */
-                    appData.fsState = APP_FS_STATE_READ_FILE;
-                }
-                break;
-            }
-
-        case APP_FS_STATE_CLOSE_FILE:
-            {
-                SYS_FS_FileClose(appData.fileHandle);
-                appData.fsState = APP_FS_STATE_UNMOUNT_DISK;
-            }
-            break;
-
-        case APP_FS_STATE_UNMOUNT_DISK:
-            {
-                SYS_FS_Unmount("/mnt/myDrive");
-                    
-                appData.fsState = APP_FS_STATE_RE_ATTACH_USB; 
-                break;
-            }
-        case APP_FS_STATE_RE_ATTACH_USB: 
-            if (appData.isUsbConnected == false)
-            {
-                /* USB is not connected. Go back to Init state.  */
-                appData.fsState = APP_FS_STATE_INIT;
-                
-                /* Turn off LED5. Indicate user that File operation is complete */
-                //BSP_LEDOff (BSP_LED_5);
-            }
-            else
-            {
-                /* USB is connected to Host. CHeck if the timer is expired 
-                   before re-attaching */
-                if(SYS_TIME_DelayIsComplete(appData.timerHandle)) 
-                {
-                    /* Signal USB Task to re-attach the Device.  */
-                    appData.usbState = APP_USB_STATE_DEVICE_ATTACH;
-                    
-                    /* Go back to Init state.  */
-                    appData.fsState = APP_FS_STATE_INIT;
-                    
-                    /* Turn off LED5. Indicate user that File operation is complete */
-                    //BSP_LEDOff (BSP_LED_5);
-                }
-            }
-            break; 
-        case APP_FS_STATE_ERROR:
-            {
-                //BSP_LEDOn (BSP_LED_6);
-            break;
-            }
-        default:
-            {
-                break;
-            }
-    }
-}
-
 GFX_Result app_externalMediaOpen(GFXU_AssetHeader* ast)
 {
-    if(appData.isUsbConnected == false || appData.isFsRunning == false)
-        return GFX_FAILURE;
-    
     appData.fileHandle = APP_GetFileHandle(ast->dataLocation);
 
     if (appData.fileHandle == SYS_FS_HANDLE_INVALID)
@@ -645,6 +349,18 @@ void app_externalMediaClose(GFXU_AssetHeader* ast)
     appData.fileHandle = SYS_FS_HANDLE_INVALID;
 }
 
+void APP_SysTimerCallback ( uintptr_t context)
+{
+    //After 5 seconds retry opening the files
+    appData.state = APP_STATE_READ_FILES;
+    
+    if (appData.timerHandle != SYS_TIME_HANDLE_INVALID)
+    {
+        SYS_TIME_TimerDestroy(appData.timerHandle);        
+        appData.timerHandle = SYS_TIME_HANDLE_INVALID;
+    }
+}
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Local Functions
@@ -669,10 +385,9 @@ void app_externalMediaClose(GFXU_AssetHeader* ast)
 void APP_MSD_FS_SQI_FLASH_Initialize ( void )
 {
     appData.state = APP_STATE_INIT;
-    appData.isFsRunning = false;
+    appData.timerHandle = SYS_TIME_HANDLE_INVALID;
 
     APP_USBInitialize();
-    APP_FSInitialize ();
 }
 
 
@@ -686,7 +401,8 @@ void APP_MSD_FS_SQI_FLASH_Initialize ( void )
 
 void APP_MSD_FS_SQI_FLASH_Tasks ( void )
 {
-    SYS_FS_HANDLE fontsHandle = SYS_FS_HANDLE_INVALID;
+    SYS_FS_HANDLE fonts1Handle = SYS_FS_HANDLE_INVALID;
+    SYS_FS_HANDLE fonts2Handle = SYS_FS_HANDLE_INVALID;
     SYS_FS_HANDLE imagesHandle = SYS_FS_HANDLE_INVALID;
     
     /* Check the application's current state. */
@@ -695,47 +411,92 @@ void APP_MSD_FS_SQI_FLASH_Tasks ( void )
         /* Application's initial state. */
         case APP_STATE_INIT:
         {
+            appData.state = APP_STATE_USB_INIT;
+            break;
+        }
+        
+        case APP_STATE_USB_INIT:
+        {
 		    if (APP_USBTasks () == true)
             {
-
-                appData.state = APP_STATE_FS_INIT;
+                appData.state = APP_STATE_MOUNT_DISK;
             }
+            break;            
+        }
+
+        case APP_STATE_MOUNT_DISK:
+        {
+            /* Mount the disk */
+            if(SYS_FS_Mount(APP_DEVICE_NAME, APP_MOUNT_NAME, APP_FS_TYPE, 0, NULL) != SYS_FS_RES_SUCCESS)
+            {
+                /* The disk could not be mounted. Try mounting again until
+                 * the operation succeeds. */
+                appData.state = APP_STATE_MOUNT_DISK;
+            }
+            else
+            {
+                /* Mount was successful. Proceed to access file system */
+                appData.state = APP_STATE_READ_FILES;
+            }
+
             break;
         }
 
-        case APP_STATE_FORMAT_FS:
+        case APP_STATE_READ_FILES:
         {
-            if (appData.isFsRunning != true)
+            if (laContext_IsDrawing() || laContext_GetActiveScreenIndex() != LoadingScreen_ID)
                 break;
             
-//            if(SYS_FS_DriveFormat(SYS_FS_MEDIA_IDX0_MOUNT_NAME_VOLUME_IDX0, SYS_FS_FORMAT_FDISK, 0) == SYS_FS_RES_FAILURE)
-//            {
-//                appData.state = APP_STATE_ERROR;
-//            }
-//            else
+            if(SYS_FS_CurrentDriveSet(APP_MOUNT_NAME) != SYS_FS_RES_SUCCESS)
+                break;
+
+            fonts1Handle = SYS_FS_FileOpen(APP_FONT1_FILE_PATHNAME, (SYS_FS_FILE_OPEN_READ));
+            fonts2Handle = SYS_FS_FileOpen(APP_FONT2_FILE_PATHNAME, (SYS_FS_FILE_OPEN_READ));
+            imagesHandle = SYS_FS_FileOpen(APP_IMAGE_FILE_PATHNAME, (SYS_FS_FILE_OPEN_READ));
+
+            //if both files exist, boot to the next screen                
+            if (fonts1Handle != SYS_FS_HANDLE_INVALID
+                    && fonts2Handle != SYS_FS_HANDLE_INVALID 
+                    && imagesHandle != SYS_FS_HANDLE_INVALID)
             {
+                laWidget_SetVisible((laWidget*)ButtonWidget_MainScreen, LA_TRUE);
+            }
+            else
+            {
+                laWidget_SetVisible((laWidget*)ButtonWidget_MainScreen, LA_FALSE);
+            }
+            
+            SYS_FS_FileClose(fonts1Handle);
+            SYS_FS_FileClose(fonts2Handle);
+            SYS_FS_FileClose(imagesHandle);
+
+            appData.state = APP_STATE_WAIT_TO_RESAMPLE;
+            break;
+        }
+        
+        case APP_STATE_WAIT_TO_RESAMPLE:
+        {
+            if (appData.timerHandle == SYS_TIME_HANDLE_INVALID)
+            {
+                appData.timerHandle = SYS_TIME_CallbackRegisterMS(APP_SysTimerCallback, 0, 60000, SYS_TIME_SINGLE );
                 appData.state = APP_STATE_IDLE;
             }
             break;
         }
-        
-        case APP_STATE_FS_INIT:
+            
+        case APP_STATE_UNMOUNT_DISK:
         {
-            if (appData.isFsRunning == true)
+            if (SYS_FS_Unmount(APP_MOUNT_NAME) != SYS_FS_RES_SUCCESS)
             {
-                fontsHandle = SYS_FS_FileOpen("Fonts.bin", (SYS_FS_FILE_OPEN_READ));
-                imagesHandle = SYS_FS_FileOpen("Images.bin", (SYS_FS_FILE_OPEN_READ));
-
-                //if both files exist, boot to the next screen                
-                if (fontsHandle != SYS_FS_HANDLE_INVALID && imagesHandle != SYS_FS_HANDLE_INVALID)
-                {
-                    laContext_SetActiveScreen(MainScreen_ID);
-                    appData.state = APP_STATE_IDLE;
-                }
+                appData.state = APP_STATE_UNMOUNT_DISK;
+            }
+            else
+            {
+                appData.state = APP_STATE_MOUNT_DISK;
             }
             break;
         }
-        
+
         case APP_STATE_IDLE:
         {
             break;

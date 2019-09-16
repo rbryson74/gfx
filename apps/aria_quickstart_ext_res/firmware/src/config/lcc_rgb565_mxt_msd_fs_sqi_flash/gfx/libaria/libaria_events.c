@@ -49,11 +49,11 @@ void ButtonWidget_Wait_ReleasedEvent(laButtonWidget* btn)
     APP_ToggleLanguage();
 }
 
-// ButtonWidget1 - ReleasedEvent
-void ButtonWidget1_ReleasedEvent(laButtonWidget* btn)
+// ButtonWidget_MainScreen - ReleasedEvent
+void ButtonWidget_MainScreen_ReleasedEvent(laButtonWidget* btn)
 {
-    // Custom Action
-    APP_FormatFileSystem();
+    // Show Screen (MainScreen) - Show Screen - MainScreen
+    laContext_SetActiveScreen(MainScreen_ID);
 }
 
 // SloganButton - ReleasedEvent

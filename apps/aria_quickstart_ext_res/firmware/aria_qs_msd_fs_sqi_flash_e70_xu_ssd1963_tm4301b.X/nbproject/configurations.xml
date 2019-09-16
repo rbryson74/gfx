@@ -81,7 +81,7 @@
             <logicalFolder name="f3" displayName="interface" projectFiles="true">
               <itemPath>../src/config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx/interface/drv_gfx_disp_intf.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="libaria" projectFiles="true">
+            <logicalFolder name="f5" displayName="libaria" projectFiles="true">
               <itemPath>../src/config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/libaria_harmony.h</itemPath>
               <itemPath>../src/config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/libaria_config.h</itemPath>
               <itemPath>../src/config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/libaria_init.h</itemPath>
@@ -136,11 +136,6 @@
               <itemPath>../src/config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/inc/libaria_widget_window.h</itemPath>
               <itemPath>../src/config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/libaria_events.h</itemPath>
               <itemPath>../src/config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/libaria_macros.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f5" displayName="third_party" projectFiles="true">
-              <logicalFolder name="f1" displayName="lodepng" projectFiles="true">
-                <itemPath>../src/config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx/third_party/lodepng/lodepng.h</itemPath>
-              </logicalFolder>
             </logicalFolder>
             <logicalFolder name="f4" displayName="utils" projectFiles="true">
               <logicalFolder name="f1" displayName="inc" projectFiles="true">
@@ -504,9 +499,6 @@
               <itemPath>../src/config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria/libaria_macros.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f5" displayName="third_party" projectFiles="true">
-              <logicalFolder name="f1" displayName="lodepng" projectFiles="true">
-                <itemPath>../src/config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx/third_party/src/lodepng/lodepng.c</itemPath>
-              </logicalFolder>
               <itemPath>../src/config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx/third_party/decoder/src/jidctint.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f4" displayName="utils" projectFiles="true">
@@ -514,8 +506,6 @@
                 <itemPath>../src/config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/src/gfxu_image_jpg_common.c</itemPath>
                 <itemPath>../src/config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/src/gfxu_image_jpg_internal.c</itemPath>
                 <itemPath>../src/config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/src/gfxu_image_jpg_external.c</itemPath>
-                <itemPath>../src/config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/src/gfxu_image_png_external.c</itemPath>
-                <itemPath>../src/config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/src/gfxu_image_png_internal.c</itemPath>
               </logicalFolder>
               <itemPath>../src/config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/src/gfxu_image.c</itemPath>
               <itemPath>../src/config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx/utils/src/gfxu_image_raw_external.c</itemPath>
@@ -632,8 +622,8 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="SAME70_DFP" vendor="Microchip" version="4.0.29"/>
         <pack name="CMSIS" vendor="ARM" version="5.0.1"/>
+        <pack name="SAME70_DFP" vendor="Microchip" version="4.0.29"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -789,7 +779,7 @@
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
         <property key="make-warnings-into-errors" value="false"/>
-        <property key="optimization-level" value="-O1"/>
+        <property key="optimization-level" value=""/>
         <property key="place-data-into-section" value="false"/>
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>

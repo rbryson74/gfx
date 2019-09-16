@@ -70,9 +70,12 @@ extern "C" {
 extern laScheme defaultPaletteScheme;
 extern laButtonWidget* ButtonWidget_Wait;
 extern laLabelWidget* LabelWidget_Wait;
-extern laButtonWidget* ButtonWidget1;
+extern laButtonWidget* ButtonWidget_MainScreen;
 extern laLabelWidget* TitleLabel;
 extern laButtonWidget* SloganButton;
+extern laLabelWidget* LabelWidget1;
+extern laLabelWidget* LabelWidget2;
+extern laLabelWidget* LabelWidget3;
 extern laButtonWidget* LogoButton;
 extern laLabelWidget* ImageTypeLabelWidget;
 

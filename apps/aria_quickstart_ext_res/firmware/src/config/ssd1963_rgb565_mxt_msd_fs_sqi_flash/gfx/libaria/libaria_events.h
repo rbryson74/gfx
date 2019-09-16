@@ -57,8 +57,8 @@ extern "C" {
 // Generated Event Handler - Origin: ButtonWidget_Wait, Event: ReleasedEvent
 void ButtonWidget_Wait_ReleasedEvent(laButtonWidget* btn);
 
-// Generated Event Handler - Origin: ButtonWidget1, Event: ReleasedEvent
-void ButtonWidget1_ReleasedEvent(laButtonWidget* btn);
+// Generated Event Handler - Origin: ButtonWidget_MainScreen, Event: ReleasedEvent
+void ButtonWidget_MainScreen_ReleasedEvent(laButtonWidget* btn);
 
 // Generated Event Handler - Origin: SloganButton, Event: ReleasedEvent
 void SloganButton_ReleasedEvent(laButtonWidget* btn);

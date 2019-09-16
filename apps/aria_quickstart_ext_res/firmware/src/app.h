@@ -123,8 +123,6 @@ void APP_ToggleLanguage( void );
 
 void APP_ToggleImage( void );
 
-void APP_FormatFileSystem( void );
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Initialization and State Machine Functions

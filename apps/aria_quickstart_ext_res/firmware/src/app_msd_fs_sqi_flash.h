@@ -50,10 +50,7 @@ extern "C" {
 // *****************************************************************************
 // Section: Type Definitions
 // *****************************************************************************
-// *****************************************************************************
-/* Switch De-bounce count in 10 milli Seconds unit. Value of 20 means a 
- * De-bounce count of 200 milli Seconds. */
-#define APP_USB_SWITCH_DEBOUNCE_COUNT 20 
+    
 // *****************************************************************************
 /* USB Task states
 
@@ -82,56 +79,6 @@ typedef enum
 } APP_USB_STATES;
 
 // *****************************************************************************
-/* FS Task States 
-
-  Summary:
-    FS Task states enumeration
-
-  Description:
-    This enumeration defines the valid FS Task states. These states
-    determine the behavior of the FS Task at various times.
-*/
-
-typedef enum
-{
-    /* Initial state. */
-    APP_FS_STATE_INIT = 0,
-
-    /* Wait for SW1 switch press */
-    APP_FS_STATE_WAIT_FOR_SWITCH_PRESS,
-
-    /* Wait for SW1 switch release */
-    APP_FS_STATE_WAIT_FOR_SWITCH_RELEASE,
-
-    /* Mount the FS */
-    APP_FS_STATE_MOUNT_DISK,
-
-    /* Open the file */
-    APP_FS_STATE_OPEN_FILE,
-
-    /* Read from the file */
-    APP_FS_STATE_READ_FILE,
-
-    /* Check for End of File. */
-    APP_FS_STATE_CHECK_EOF,
-
-    /* Close the file */
-    APP_FS_STATE_CLOSE_FILE,
-
-    /* Unmount the FS */
-    APP_FS_STATE_UNMOUNT_DISK,
-    
-    /* Re attach USB Device Host as File operation is complete  */        
-    APP_FS_STATE_RE_ATTACH_USB, 
-
-    /* Error state */
-    APP_FS_STATE_ERROR,
-            
-    APP_FS_STATE_SET_TIMER_CALLBACK
-
-} APP_FS_STATES;
-
-// *****************************************************************************
 /* Application states
 
   Summary:
@@ -146,8 +93,11 @@ typedef enum
 {
     /* Application's state machine's initial state. */
     APP_STATE_INIT=0,
-    APP_STATE_FS_INIT,
-    APP_STATE_FORMAT_FS,
+    APP_STATE_USB_INIT,
+    APP_STATE_MOUNT_DISK,
+    APP_STATE_READ_FILES,
+    APP_STATE_UNMOUNT_DISK,
+    APP_STATE_WAIT_TO_RESAMPLE,
     APP_STATE_IDLE,
     APP_STATE_ERROR
 
@@ -175,45 +125,19 @@ typedef struct
     /* USB Sub task's current state */
     APP_USB_STATES usbState;
 
-    /* FS Sub task's current state */
-    APP_FS_STATES fsState;
-
     /* USB Device Handle */
     USB_DEVICE_HANDLE usbDeviceHandle;
-    
+
     /* Flag to track the USB Connect Status */
-    bool isUsbConnected;   
+    bool isUsbConnected;
+    
+    /* Flag to track the File System Connect Status */
+    bool isFsConnected;
 
-    /* Flag to track the FS Running Status */
-    bool isFsRunning;
-
+    SYS_TIME_HANDLE timerHandle;
+    
     /* SYS_FS File handle */
     SYS_FS_HANDLE fileHandle;
-
-    /* Application data buffer */
-    uint8_t fsBuffer[8];
-
-    /* Variable to track the number of LEDs changes requested */
-    uint8_t numLedChange;
-    
-    /* System Timer Handle */ 
-    SYS_TIME_HANDLE timerHandle; 
-    
-    /* System Timer Handle */ 
-    SYS_TIME_HANDLE timerHandlePeriodic; 
-
-    /* Switch 1 De-bounce Timer */ 
-    uint32_t switchDebounceTimer; 
-    
-    /* Flag indicates switch 1 is pressed */ 
-    bool isSwitch1Pressed; 
-    
-    /* Flag used for switch de-bouncing */ 
-    bool ignoreSwitchPress; 
-    
-    /* Indicates timer event has occurred. Used for switch de-bouncing  */ 
-    bool isTimerEventOccured; 
-
 } APP_DATA;
 
 // *****************************************************************************
@@ -225,8 +149,6 @@ typedef struct
 void APP_ToggleLanguage( void );
 
 void APP_ToggleImage( void );
-
-void APP_FormatFileSystem ( void );
 
 // *****************************************************************************
 // *****************************************************************************
