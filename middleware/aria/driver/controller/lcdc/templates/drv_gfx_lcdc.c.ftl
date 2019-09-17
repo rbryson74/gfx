@@ -105,15 +105,6 @@
 #define FRAMEBUFFER_PIXEL_TYPE    uint32_t
 </#if>
 
-
-<#if UseCachedFrameBuffer == true>
-#define __REGION__
-#define CACHED_BUFFER_FLUSH(addr, size) dcache_invalidate()
-<#else>
-#define __REGION__ @ ".region_nocache"
-#define CACHED_BUFFER_FLUSH(addr, size) //Do nothing
-</#if>
-
 <#if DisplayVSYNCNegative == true>
 #define LCDC_VSYNC_POLARITY LCDC_POLARITY_NEGATIVE
 <#else>
@@ -187,17 +178,17 @@ static LCDC_LAYER_ID lcdcLayerZOrder[LCDC_NUM_LAYERS] =
 };
 
 <#list 0..(TotalNumLayers-1) as i>
-FRAMEBUFFER_PIXEL_TYPE  __attribute__ ((aligned (64))) framebuffer_${i}[DISPLAY_WIDTH * DISPLAY_HEIGHT] __REGION__;
+FRAMEBUFFER_PIXEL_TYPE  __attribute__ ((section(".region_nocache"), aligned (32))) framebuffer_${i}[DISPLAY_WIDTH * DISPLAY_HEIGHT];
 </#list>
 
 <#if Val_DoubleBuffer == true>
 <#list 0..(TotalNumLayers-1) as i>
-FRAMEBUFFER_PIXEL_TYPE  __attribute__ ((aligned (64))) framebuffer1_${i}[DISPLAY_WIDTH * DISPLAY_HEIGHT] __REGION__;
+FRAMEBUFFER_PIXEL_TYPE  __attribute__ ((section(".region_nocache"), aligned (32))) framebuffer1_${i}[DISPLAY_WIDTH * DISPLAY_HEIGHT];
 </#list>
 </#if>
 
 <#list 0..(TotalNumLayers-1) as i>
-LCDC_DMA_DESC __attribute__ ((aligned (32))) channelDesc${i} __REGION__;
+LCDC_DMA_DESC __attribute__ ((section(".region_nocache"), aligned (64))) channelDesc${i};
 </#list>
 
 const char* DRIVER_NAME = "LCDC";
@@ -227,8 +218,6 @@ static void LCDCUpdateDMADescriptor(LCDC_DMA_DESC * desc, uint32_t addr, uint32_
     desc->addr = addr;
     desc->ctrl = ctrl;
     desc->next = next;
-    
-    CACHED_BUFFER_FLUSH(desc, sizeof(LCDC_DMA_DESC));
 }
 
 // function that returns the information for this driver
@@ -312,8 +301,7 @@ static GFX_Result colorModeSet(GFX_ColorMode mode)
     GFX_Layer* layer;
     GFX_Context* context = GFX_ActiveContext();
     LCDC_INPUT_COLOR_MODE LCDCMode;
-    uint32_t stride = 0;
-    
+
     layer = context->layer.active;
 
     LCDCMode = convertColorModeGfxToLCDC(mode);
@@ -322,11 +310,11 @@ static GFX_Result colorModeSet(GFX_ColorMode mode)
 
     // use default implementation to initialize buffer struct
     defColorModeSet(mode);
-    
+
     //Update the active layer's color mode and stride
     drvLayer[layer->id].colorspace = LCDCMode;
     LCDC_SetRGBModeInput(drvLayer[layer->id].hwLayerID, drvLayer[layer->id].colorspace );
-    
+
     return GFX_SUCCESS;
 }
 
@@ -837,7 +825,7 @@ static GFX_Result LCDCInitialize(GFX_Context* context)
 </#if>
 
     //Register the interrupt handler
-    LCDC_IRQ_CallbackRegister(_IntHandlerVSync, NULL);
+    LCDC_IRQ_CallbackRegister(_IntHandlerVSync, (uintptr_t) NULL);
     
     return GFX_SUCCESS;
 }
@@ -914,7 +902,6 @@ GFX_Result driverLCDCContextInitialize(GFX_Context* context)
 
 void _IntHandlerVSync(uintptr_t context)
 {
-    GFX_Context* gfxContext= GFX_ActiveContext();
     uint32_t i, status;
     
     for (i = 0; i < LCDC_NUM_LAYERS; i++)
