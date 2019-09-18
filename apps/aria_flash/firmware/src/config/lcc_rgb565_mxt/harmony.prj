@@ -59,8 +59,8 @@
           <Name dnOrder="1">drv_maxtouch.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/driver/input</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/input/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">4131161BDCB6C6BC3623214A9ABAE2B8</GeneratedChecksum>
-          <UserChecksum dnOrder="5">4131161BDCB6C6BC3623214A9ABAE2B8</UserChecksum>
+          <GeneratedChecksum dnOrder="4">A86BDB5CFCA302B3F14CD9186F740EF6</GeneratedChecksum>
+          <UserChecksum dnOrder="5">A86BDB5CFCA302B3F14CD9186F740EF6</UserChecksum>
         </File>
         <File dnOrder="7">
           <Type dnOrder="0">SOURCE</Type>
@@ -387,8 +387,8 @@
           <Name dnOrder="1">gfxu_image_jpg_external.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/gfx/utils/src</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/utils/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">4CCEEADB094FAF24CCEB9BCC3271E0D6</GeneratedChecksum>
-          <UserChecksum dnOrder="5">4CCEEADB094FAF24CCEB9BCC3271E0D6</UserChecksum>
+          <GeneratedChecksum dnOrder="4">260BA1B904486D53AE8C65AF8164CD4B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">260BA1B904486D53AE8C65AF8164CD4B</UserChecksum>
         </File>
         <File dnOrder="48">
           <Type dnOrder="0">SOURCE</Type>
@@ -1307,8 +1307,8 @@
           <Name dnOrder="1">plib_xdmac.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/peripheral/xdmac/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/xdmac/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">71113E43E9492176776F94262A17572B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">71113E43E9492176776F94262A17572B</UserChecksum>
+          <GeneratedChecksum dnOrder="4">36A4374A9FA1A70CB3D4CFB29F6C408D</GeneratedChecksum>
+          <UserChecksum dnOrder="5">36A4374A9FA1A70CB3D4CFB29F6C408D</UserChecksum>
         </File>
         <File dnOrder="163">
           <Type dnOrder="0">SOURCE</Type>
