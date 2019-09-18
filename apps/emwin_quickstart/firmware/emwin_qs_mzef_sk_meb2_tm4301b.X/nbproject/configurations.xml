@@ -399,7 +399,7 @@
       <compileType>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>../src/config/lcc_rgb565_mxt_mzef_sk/gfx/emwin/lib/emWin.a</linkerLibFileItem>
+            <linkerLibFileItem>../src/config/lcc_rgb565_mxt_mzef_sk/gfx/emwin/lib/libemwin.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>

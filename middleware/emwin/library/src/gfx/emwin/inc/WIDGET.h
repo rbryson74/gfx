@@ -3,13 +3,13 @@
 *        Solutions for real time microcontroller applications        *
 **********************************************************************
 *                                                                    *
-*        (c) 1996 - 2018  SEGGER Microcontroller GmbH                *
+*        (c) 1996 - 2019  SEGGER Microcontroller GmbH                *
 *                                                                    *
 *        Internet: www.segger.com    Support:  support@segger.com    *
 *                                                                    *
 **********************************************************************
 
-** emWin V5.48 - Graphical user interface for embedded applications **
+** emWin V5.50 - Graphical user interface for embedded applications **
 All  Intellectual Property rights  in the Software belongs to  SEGGER.
 emWin is protected by  international copyright laws.  Knowledge of the
 source code may not be used to write a similar product.  This file may
@@ -68,6 +68,7 @@ typedef struct {
   int        ItemIndex;
   int        Col;
   int        x0, y0, x1, y1;
+  I32        Angle;
   void     * p;
 } WIDGET_ITEM_DRAW_INFO;
 
@@ -127,6 +128,7 @@ typedef struct {
 #define SPINBOX_ID   0x5350494eUL /* SPIN */
 #define KNOB_ID      0x4b4e4f42UL /* KNOB */
 #define WINDOW_ID    0x57494e44UL /* WIND */
+#define ROTARY_ID    0x524f5441UL /* ROTA */
 
 #define WIDGET_LOCK(hWin)       ((WIDGET*)GUI_LOCK_H(hWin))
 
@@ -139,7 +141,11 @@ typedef struct {
   #define WIDGET_USE_PARENT_EFFECT 0
 #endif
 #ifndef   WIDGET_USE_FLEX_SKIN
-  #define WIDGET_USE_FLEX_SKIN     1
+  #if WM_SUPPORT_TRANSPARENCY
+    #define WIDGET_USE_FLEX_SKIN     1
+  #else
+    #define WIDGET_USE_FLEX_SKIN     0
+  #endif
 #endif
 #if !defined(WIDGET_USE_SCHEME_SMALL) && !defined(WIDGET_USE_SCHEME_MEDIUM) && !defined(WIDGET_USE_SCHEME_LARGE)
   #define WIDGET_USE_SCHEME_SMALL  1
@@ -292,10 +298,11 @@ int  GUI_DRAW__GetYSize(GUI_DRAW_HANDLE hDrawObj);
 void GUI_DrawStreamedEnableAuto(void);
 
 /* GUI_DRAW_ Constructurs for different objects */
-WM_HMEM GUI_DRAW_BITMAP_Create  (const GUI_BITMAP* pBitmap, int x, int y);
-WM_HMEM GUI_DRAW_BMP_Create     (const void* pBMP, int x, int y);
-WM_HMEM GUI_DRAW_STREAMED_Create(const GUI_BITMAP_STREAM * pBitmap, int x, int y);
-WM_HMEM GUI_DRAW_SELF_Create(GUI_DRAW_SELF_CB* pfDraw, int x, int y);
+WM_HMEM GUI_DRAW_BITMAP_Create     (const GUI_BITMAP * pBitmap, int x, int y);
+WM_HMEM GUI_DRAW_BMP_Create        (const void * pBMP, int x, int y);
+WM_HMEM GUI_DRAW_STREAMED_Create   (const GUI_BITMAP_STREAM * pBitmap, int x, int y);
+WM_HMEM GUI_DRAW_SELF_Create       (GUI_DRAW_SELF_CB * pfDraw, int x, int y);
+WM_HMEM GUI_DRAW_BITMAP_HQHR_Create(const GUI_BITMAP * pBitmap, int x, int y);
 
 /*********************************************************************
 *

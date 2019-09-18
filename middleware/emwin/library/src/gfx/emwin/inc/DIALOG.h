@@ -3,13 +3,13 @@
 *        Solutions for real time microcontroller applications        *
 **********************************************************************
 *                                                                    *
-*        (c) 1996 - 2018  SEGGER Microcontroller GmbH                *
+*        (c) 1996 - 2019  SEGGER Microcontroller GmbH                *
 *                                                                    *
 *        Internet: www.segger.com    Support:  support@segger.com    *
 *                                                                    *
 **********************************************************************
 
-** emWin V5.48 - Graphical user interface for embedded applications **
+** emWin V5.50 - Graphical user interface for embedded applications **
 All  Intellectual Property rights  in the Software belongs to  SEGGER.
 emWin is protected by  international copyright laws.  Knowledge of the
 source code may not be used to write a similar product.  This file may
@@ -71,6 +71,7 @@ Purpose     : Dialog box include
 #include "MULTIPAGE.h"
 #include "PROGBAR.h"
 #include "RADIO.h"
+#include "ROTARY.h"
 #include "SCROLLBAR.h"
 #include "SLIDER.h"
 #include "SPINBOX.h"
@@ -91,6 +92,7 @@ Purpose     : Dialog box include
 WM_HWIN   WINDOW_CreateEx         (int x0, int y0, int xSize, int ySize, WM_HWIN hParent, int WinFlags, int ExFlags, int Id, WM_CALLBACK * cb);
 WM_HWIN   WINDOW_CreateUser       (int x0, int y0, int xSize, int ySize, WM_HWIN hParent, int WinFlags, int ExFlags, int Id, WM_CALLBACK * cb, int NumExtraBytes);
 WM_HWIN   WINDOW_CreateIndirect   (const GUI_WIDGET_CREATE_INFO * pCreateInfo, WM_HWIN hWinParent, int x0, int y0, WM_CALLBACK * cb);
+GUI_COLOR WINDOW_GetBkColor       (WM_HWIN hObj);
 GUI_COLOR WINDOW_GetDefaultBkColor(void);
 int       WINDOW_GetUserData      (WM_HWIN hObj, void * pDest, int NumBytes);
 void      WINDOW_SetBkColor       (WM_HWIN hObj, GUI_COLOR Color);

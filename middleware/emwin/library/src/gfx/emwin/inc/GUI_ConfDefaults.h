@@ -3,13 +3,13 @@
 *        Solutions for real time microcontroller applications        *
 **********************************************************************
 *                                                                    *
-*        (c) 1996 - 2018  SEGGER Microcontroller GmbH                *
+*        (c) 1996 - 2019  SEGGER Microcontroller GmbH                *
 *                                                                    *
 *        Internet: www.segger.com    Support:  support@segger.com    *
 *                                                                    *
 **********************************************************************
 
-** emWin V5.48 - Graphical user interface for embedded applications **
+** emWin V5.50 - Graphical user interface for embedded applications **
 All  Intellectual Property rights  in the Software belongs to  SEGGER.
 emWin is protected by  international copyright laws.  Knowledge of the
 source code may not be used to write a similar product.  This file may
@@ -52,10 +52,10 @@ Attention : Do not modify this file ! If you do, you will not
 #ifndef  GUI_CONFDEFAULTS_H
 #define  GUI_CONFDEFAULTS_H
 
-#include "config/guiconf.h"
+#include "GUIConf.h"
 
-#ifndef   GUI_USE_MIXCOLORS
-  #define GUI_USE_MIXCOLORS 1
+#ifndef   GUI_SUPPORT_BIDI
+  #define GUI_SUPPORT_BIDI 1
 #endif
 
 #ifndef   GUI_USE_BIDI2
@@ -77,6 +77,10 @@ Attention : Do not modify this file ! If you do, you will not
 #endif
 #ifndef LCD_XMAG
   #define LCD_XMAG 1
+#endif
+
+#ifndef   GUI_SIM_SUPPORT_EMBOS
+  #define GUI_SIM_SUPPORT_EMBOS 0
 #endif
 
 /**********************************************************************

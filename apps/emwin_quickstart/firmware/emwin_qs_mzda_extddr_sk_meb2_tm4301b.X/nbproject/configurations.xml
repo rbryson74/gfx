@@ -388,7 +388,7 @@
         <linkerTool>
           <linkerLibItems>
             <linkerLibFileItem>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/driver/processor/2dgpu/lib/libnano2d.a</linkerLibFileItem>
-            <linkerLibFileItem>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/lib/emwin_nofp.a</linkerLibFileItem>
+            <linkerLibFileItem>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/lib/libemwin.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>
