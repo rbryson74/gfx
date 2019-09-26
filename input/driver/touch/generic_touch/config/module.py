@@ -1,6 +1,6 @@
 # coding: utf-8
 ##############################################################################
-# Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+# Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries.
 #
 # Subject to your compliance with these terms, you may use Microchip software
 # and any derivatives exclusively with Microchip products. It is your
@@ -22,23 +22,9 @@
 # THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 ##############################################################################
 
-def instantiateComponent(comp):
-	Width = comp.createIntegerSymbol("Width", None)
-	Width.setLabel("Width")
-	Width.setDescription("The width of the touch panel in pixels.")
-	Width.setDefaultValue(480)
-	
-	Height = comp.createIntegerSymbol("Height", None)
-	Height.setLabel("Height")
-	Height.setDescription("The height of the touch panel in pixels.")
-	Height.setDefaultValue(272)
-	
-def onAttachmentConnected(source, target):
-	if source["id"] == "touch_panel":
-		source["component"].setSymbolValue("Width", target["component"].getSymbolValue("TouchWidth"), 1)
-		source["component"].setSymbolValue("Height", target["component"].getSymbolValue("TouchHeight"), 1)
-	
-def onAttachmentDisconnected(source, target):
-	if source["id"] == "touch_panel":
-		source["component"].clearSymbolValue("Width")
-		source["component"].clearSymbolValue("Height")
+def loadModule():
+	component = Module.CreateComponent("gfx_generic_touch_controller", "Generic Touch Controller", "/Input/Touch", "config/controller.py")
+	component.setDisplayType("Generic Touch Controller")
+	component.addDependency("touch_panel", "Touch Panel", False)
+	component.addDependency("i2c", "DRV_I2C", False)
+	component.addDependency("sys_input", "Input System Service", True)
