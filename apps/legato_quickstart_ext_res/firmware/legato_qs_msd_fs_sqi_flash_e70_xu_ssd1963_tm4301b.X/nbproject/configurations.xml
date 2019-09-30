@@ -377,6 +377,9 @@
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_iccarm.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_gcc.h</itemPath>
+                <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_armcc.h</itemPath>
+                <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_armclang.h</itemPath>
+                <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_armclang_ltm.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/tz_context.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/core_cm7.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/mpu_armv7.h</itemPath>
@@ -480,8 +483,6 @@
                   <itemPath>../src/config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx/legato/generated/font/le_gen_font_NotoSansCJKsc_Regular.c</itemPath>
                   <itemPath>../src/config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx/legato/generated/font/le_gen_font_NotoSansCJKsc_Regular_Bold.c</itemPath>
                   <itemPath>../src/config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx/legato/generated/font/le_gen_font_NotoSansCJKsc_Regular_Internal.c</itemPath>
-                  <itemPath>../src/config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx/legato/generated/font/le_gen_font_NotoSansCJKsc_Regular_Large1.c</itemPath>
-                  <itemPath>../src/config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx/legato/generated/font/le_gen_font_NotoSansCJKsc_Regular_Large2.c</itemPath>
                 </logicalFolder>
                 <logicalFolder name="f2" displayName="image" projectFiles="true">
                   <itemPath>../src/config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx/legato/generated/image/le_gen_image_MHGS_logo_small_jpeg.c</itemPath>
