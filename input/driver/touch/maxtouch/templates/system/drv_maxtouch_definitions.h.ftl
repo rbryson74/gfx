@@ -22,7 +22,7 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 -->
-#include "driver/input/drv_touch_controller.h"
+#include "driver/input/drv_maxtouch.h"
 <#--
 /*******************************************************************************
  End of File
