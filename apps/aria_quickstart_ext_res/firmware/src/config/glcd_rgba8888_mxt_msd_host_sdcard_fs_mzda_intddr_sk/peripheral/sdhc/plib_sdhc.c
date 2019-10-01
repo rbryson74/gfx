@@ -58,7 +58,7 @@
 #define SDHC_MODE_RESPTYPE_NONE                                 (0x00 << 16)
 
 #define SDHC_DMA_NUM_DESCR_LINES               1
-#define SDHC_BASE_CLOCK_FREQUENCY              0
+#define SDHC_BASE_CLOCK_FREQUENCY              200000000
 #define SDHC_MAX_BLOCK_SIZE                    0x200
 
 typedef unsigned long _paddr_t; /* a physical address */

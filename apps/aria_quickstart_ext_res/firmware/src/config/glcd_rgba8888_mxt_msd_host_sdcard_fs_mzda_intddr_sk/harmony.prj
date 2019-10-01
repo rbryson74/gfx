@@ -1267,8 +1267,8 @@
           <Name dnOrder="1">plib_sdhc.c</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_msd_host_sdcard_fs_mzda_intddr_sk/peripheral/sdhc/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/sdhc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">6DE1D48D37FB9E47DE702455825B79AD</GeneratedChecksum>
-          <UserChecksum dnOrder="5">6DE1D48D37FB9E47DE702455825B79AD</UserChecksum>
+          <GeneratedChecksum dnOrder="4">021B19B0F876EC5767EE1E583656E268</GeneratedChecksum>
+          <UserChecksum dnOrder="5">021B19B0F876EC5767EE1E583656E268</UserChecksum>
         </File>
         <File dnOrder="158">
           <Type dnOrder="0">SOURCE</Type>
@@ -1499,8 +1499,8 @@
           <Name dnOrder="1">drv_usb_external_dependencies.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_msd_host_sdcard_fs_mzda_intddr_sk/driver/usb/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/usb/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">C07E5598C11AD6C2F25F92037919A988</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A23C52DD5878316ACFD1714564385CD3</UserChecksum>
+          <GeneratedChecksum dnOrder="4">5E2621860496A1FD0821B43178B3C75A</GeneratedChecksum>
+          <UserChecksum dnOrder="5">5E2621860496A1FD0821B43178B3C75A</UserChecksum>
         </File>
         <File dnOrder="187">
           <Type dnOrder="0">HEADER</Type>
