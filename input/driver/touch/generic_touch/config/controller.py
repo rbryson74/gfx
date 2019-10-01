@@ -63,6 +63,9 @@ def onTouchPointPosSizeChanged(source, event):
 	source.getComponent().getSymbolByID("TouchPointPosXHIndex").setVisible(event['value'] == "2")
 	source.getComponent().getSymbolByID("TouchPointPosXHMask").setVisible(event['value'] == "2")
 	source.getComponent().getSymbolByID("TouchPointPosXHShift").setVisible(event['value'] == "2")
+	source.getComponent().getSymbolByID("TouchPointPosYHIndex").setVisible(event['value'] == "2")
+	source.getComponent().getSymbolByID("TouchPointPosYHMask").setVisible(event['value'] == "2")
+	source.getComponent().getSymbolByID("TouchPointPosYHShift").setVisible(event['value'] == "2")
 	
 def onTouchDataProcessFunctionGenerateModeChanged(source, event):
 	source.getComponent().getSymbolByID("TouchDataMenu").setVisible(event['value'] == "Generate")
