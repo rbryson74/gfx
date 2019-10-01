@@ -77,6 +77,14 @@
 #define BSP_MAXTOUCH_CHG_OutputEnable()      (TRISBCLR = (1<<1))
 #define BSP_MAXTOUCH_CHG_InputEnable()       (TRISBSET = (1<<1))
 #define BSP_MAXTOUCH_CHG_PIN                  GPIO_PIN_RB1
+/*** Macros for GPIO_RB14 pin ***/
+#define GPIO_RB14_Set()               (LATBSET = (1<<14))
+#define GPIO_RB14_Clear()             (LATBCLR = (1<<14))
+#define GPIO_RB14_Toggle()            (LATBINV= (1<<14))
+#define GPIO_RB14_Get()               ((PORTB >> 14) & 0x1)
+#define GPIO_RB14_OutputEnable()      (TRISBCLR = (1<<14))
+#define GPIO_RB14_InputEnable()       (TRISBSET = (1<<14))
+#define GPIO_RB14_PIN                  GPIO_PIN_RB14
 /*** Macros for TM4301B_BACKLIGHT pin ***/
 #define TM4301B_BACKLIGHT_Set()               (LATESET = (1<<3))
 #define TM4301B_BACKLIGHT_Clear()             (LATECLR = (1<<3))
