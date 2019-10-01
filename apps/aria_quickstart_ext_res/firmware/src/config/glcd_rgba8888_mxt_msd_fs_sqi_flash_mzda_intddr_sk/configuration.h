@@ -133,7 +133,7 @@ extern "C" {
 #define DRV_MEMORY_BUFFER_QUEUE_SIZE_IDX0    1
 
 /* Custom Code */
-#define DRV_MEMORY_DEVICE_PROGRAM_SIZE      2048
+#define DRV_MEMORY_DEVICE_PROGRAM_SIZE      4096
 /* Custom Code - End Code */
 
 

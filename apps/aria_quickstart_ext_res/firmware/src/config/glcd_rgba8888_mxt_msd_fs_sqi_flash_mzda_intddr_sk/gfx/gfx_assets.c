@@ -1234,7 +1234,7 @@ GFXU_FontAsset ArialUnicodeMS =
 {
 	{
         GFXU_ASSET_TYPE_FONT, // asset type
-	    GFXU_ASSET_LOCATION_ID_Fonts, // data location id
+	    GFXU_ASSET_LOCATION_ID_Fonts1, // data location id
 	    (void*)0x0, // data address pointer
 	    1426, // data size
     },	
@@ -4369,7 +4369,7 @@ GFXU_FontAsset ArialUnicodeMS_Large1 =
 {
 	{
         GFXU_ASSET_TYPE_FONT, // asset type
-	    GFXU_ASSET_LOCATION_ID_Fonts, // data location id
+	    GFXU_ASSET_LOCATION_ID_Fonts1, // data location id
 	    (void*)0x592, // data address pointer
 	    883204, // data size
     },	
@@ -7205,7 +7205,7 @@ GFXU_FontAsset ArialUnicodeMS_Large2 =
 {
 	{
         GFXU_ASSET_TYPE_FONT, // asset type
-	    GFXU_ASSET_LOCATION_ID_Fonts1, // data location id
+	    GFXU_ASSET_LOCATION_ID_Fonts2, // data location id
 	    (void*)0x0, // data address pointer
 	    881748, // data size
     },	
@@ -7412,7 +7412,7 @@ GFXU_FontAsset ArialUnicodeMS_Bold =
 {
 	{
         GFXU_ASSET_TYPE_FONT, // asset type
-	    GFXU_ASSET_LOCATION_ID_Fonts1, // data location id
+	    GFXU_ASSET_LOCATION_ID_Fonts2, // data location id
 	    (void*)0xd7454, // data address pointer
 	    1081, // data size
     },	
