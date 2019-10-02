@@ -42,6 +42,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "definitions.h"
 #include "driver/i2c/drv_i2c.h"
 #include "system/input/sys_input.h"
+#include "system/time/sys_time.h"
 
 #include <string.h>
 #include <stdio.h>
@@ -75,12 +76,25 @@ typedef enum
     /* Driver ready state */
     DEVICE_STATE_READY,   
                      
+    DEVICE_STATE_WAIT,
+            
+    DEVICE_STATE_MXT_INITIALIZE,
+            
     /* In error state */        
     DEVICE_STATE_ERROR,
             
     DEVICE_POR,
             
 } MXT_DEVICE_STATE;
+
+typedef enum
+{
+    /* Application's API event states. */
+    APP_DRV_MAXTOUCH_None=0,
+    APP_DRV_MAXTOUCH_ResetCallback,
+    /* TODO: Define states used by the application state machine. */
+
+} API_EVENTS;
 
 #define KEY_RESERVED		0
 #define BTN_TOOL_PEN		0x140
@@ -419,6 +433,7 @@ struct mxt_data {
     SYS_STATUS status;
     MXT_DEVICE_STATE deviceState;
     bool isExclusive;
+    API_EVENTS apiEvent;
 };
 
 enum irqreturn {
@@ -457,17 +472,33 @@ static int mxt_initialize(struct mxt_data *data);
 static int mxt_interrupt(struct mxt_data *data);
 static int mxt_init_t7_power_cfg(struct mxt_data *data);
 
-static void msleep(uint32_t delay)
+static void _mxt_DelayMS(int ms)
 {
-    uint32_t i, count;
- 
-    /* delay * (CPU_FREQ/1000000) / 6 */
-    count = delay *  (300000000/1000000)/6;
- 
-    /* 6 CPU cycles per iteration */
-    for (i = 0; i < count; i++)
-        __NOP();
+	SYS_TIME_HANDLE timer = SYS_TIME_HANDLE_INVALID;
+
+	if (SYS_TIME_DelayMS(ms, &timer) != SYS_TIME_SUCCESS)
+	return;
+	
+	while (SYS_TIME_DelayIsComplete(timer) == false);
 } 
+
+static SYS_TIME_HANDLE resetTimer;
+
+static void resetTimer_Callback ( uintptr_t context )
+{
+    struct mxt_data * obj = (struct mxt_data *) context;
+    
+    switch ( obj->apiEvent )
+    {          
+        case APP_DRV_MAXTOUCH_ResetCallback:
+            obj->deviceState = DEVICE_STATE_MXT_INITIALIZE;
+            break;
+            
+        default:
+            break;
+    }
+    SYS_TIME_TimerDestroy(resetTimer);
+}
 
 
 // *****************************************************************************
@@ -486,9 +517,6 @@ static void msleep(uint32_t delay)
 // *****************************************************************************
 //******************************************************************************
 
-/* temporary CHG pin read REMOVE BEGIN */
-//#define BSP_MAXTOUCH_CHG_Get() PIO_PinRead(PIO_PIN_PD28)
-
 static uint32_t MXT_INTERRUPT_PIN_VALUE_GET(void)
 {
 #ifndef BSP_MAXTOUCH_CHG_Get
@@ -498,6 +526,7 @@ return(BSP_MAXTOUCH_CHG_Get());
 #endif
 /* temporary CHG pin read REMOVE END */
 }
+
 
 
 // *****************************************************************************
@@ -537,7 +566,8 @@ SYS_MODULE_OBJ DRV_MAXTOUCH_Initialize(const SYS_MODULE_INDEX index,
     pDrvInstance->yRes    = pInit->verticalResolution - 1;
     pDrvInstance->status  = SYS_STATUS_BUSY;
     pDrvInstance->deviceState = DEVICE_STATE_OPEN;
-    
+
+
     return (SYS_MODULE_OBJ)pDrvInstance;
 }
 
@@ -644,23 +674,33 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
     /* MAXTOUCH Driver state machine */
     switch (pDrvObject->deviceState)
     {
+        case DEVICE_STATE_WAIT:
+        {
+            break;
+        }
+                
         case DEVICE_STATE_OPEN:
         {
-            static uint8_t delayN = 5;
+            DRV_MAXTOUCH_Open(0, DRV_IO_INTENT_EXCLUSIVE);
+                    
+            SYS_TIME_TimerDestroy(resetTimer);
 
-			while(delayN > 0)
-			{
-				delayN--;
-				return;				
-			}
+            resetTimer = SYS_TIME_CallbackRegisterMS(resetTimer_Callback, 
+                        (uintptr_t)pDrvObject,
+                        MXT_RESET_INVALID_CHG,
+                        SYS_TIME_SINGLE);
             
-            DRV_MAXTOUCH_Open(0, DRV_IO_INTENT_EXCLUSIVE); 
-            
+            pDrvObject->apiEvent = APP_DRV_MAXTOUCH_ResetCallback;
+            pDrvObject->deviceState = DEVICE_STATE_WAIT;
+
+            break;
+        }
+        case DEVICE_STATE_MXT_INITIALIZE: /* Request information block */
+        {            
             mxt_initialize(pDrvInstance);                         
             
             pDrvInstance->status = SYS_STATUS_READY;  
             pDrvObject->deviceState = DEVICE_STATE_READY;
-        
             break;
         }
                 
@@ -671,14 +711,13 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
             /* send a read request to the message processor object T5 */ 
             if(MXT_INTERRUPT_PIN_VALUE_GET() == false)
             {
-//                portd = MXT_INTERRUPT_PIN_VALUE_GET();
-                mxt_interrupt(pDrvInstance);              
+                mxt_interrupt(pDrvInstance);  
             }
             break;          
         }
 
         case DEVICE_STATE_ERROR: /* In error state */
-        {
+        { 
             pDrvObject->status = SYS_STATUS_ERROR;
             break;
         }
@@ -1532,7 +1571,7 @@ static int mxt_t6_command(struct mxt_data *data, uint16_t cmd_offset,
 		return 0;
 
 	do {
-		msleep(20);
+		_mxt_DelayMS(20);
 		ret = __mxt_read_reg(data->client, reg, 1, &command_register);
 		if (ret)
 			return ret;
@@ -1575,7 +1614,7 @@ static int mxt_soft_reset(struct mxt_data *data)
 		return ret;
 
 	/* Ignore CHG line for 100ms after reset */
-	msleep(MXT_RESET_INVALID_CHG);
+	_mxt_DelayMS(MXT_RESET_INVALID_CHG);
 
 //	mxt_acquire_irq(data);
 
