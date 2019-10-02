@@ -125,6 +125,8 @@ uint32_t vsyncEnd = 0;
 
 unsigned int vsyncCount = 0;
 
+static uint32_t state;
+
 leColorMode DRV_LCC_GetColorMode()
 {
     return FRAMEBUFFER_COLOR_MODE;
@@ -147,8 +149,6 @@ uint32_t DRV_LCC_GetDisplayHeight()
 
 void DRV_LCC_Update()
 {
-    static uint32_t state;
-   
     if(state == INIT)
     {
         if(DRV_GFX_LCC_Start() != 0)
@@ -192,6 +192,9 @@ leResult DRV_LCC_BlitBuffer(int32_t x,
     void* srcPtr;
     void* destPtr;
     uint32_t row, rowSize;
+
+    if (state != RUN)
+        return LE_FAILURE;
     
     rowSize = buf->size.width * leColorInfoTable[buf->mode].size;
     
@@ -223,6 +226,8 @@ static leResult lccBacklightBrightnessSet(uint32_t brightness)
 
 leResult DRV_LCC_Initialize(void)
 {
+    state = INIT;
+
     lePixelBufferCreate(DISP_HOR_RESOLUTION,
                         DISP_VER_RESOLUTION,
                         FRAMEBUFFER_COLOR_MODE,
