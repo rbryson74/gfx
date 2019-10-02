@@ -44,7 +44,7 @@
 #include "definitions.h"
 
 #define MAX_LAYER_COUNT 1
-#define BUFFER_COUNT    2
+#define BUFFER_COUNT    1
 #define DISPLAY_WIDTH   480
 #define DISPLAY_HEIGHT  272
 
@@ -53,8 +53,8 @@
 #define EBI_BASE_ADDR __KSEG2_EBI_DATA_MEM_BASE
 
 
-#define FRAMEBUFFER_COLOR_MODE GFX_COLOR_MODE_GS_8
-#define FRAMEBUFFER_TYPE uint8_t
+#define FRAMEBUFFER_COLOR_MODE GFX_COLOR_MODE_RGB_565
+#define FRAMEBUFFER_TYPE uint16_t
 #define FRAMEBUFFER_PIXEL_BYTES 2
 
 const char* DRIVER_NAME = "LCC SMC";
@@ -62,9 +62,8 @@ static uint32_t supported_color_formats = (GFX_COLOR_MASK_RGB_565 | GFX_COLOR_MA
 
 #define FRAMEBUFFER_ATTRIBUTE __attribute__((coherent, aligned(FRAMEBUFFER_PIXEL_BYTES*8)))
 
-FRAMEBUFFER_TYPE frameBuffer[BUFFER_COUNT][DISPLAY_WIDTH * DISPLAY_HEIGHT];
+FRAMEBUFFER_TYPE FRAMEBUFFER_ATTRIBUTE frameBuffer[BUFFER_COUNT][DISPLAY_WIDTH * DISPLAY_HEIGHT];
 
-uint16_t FRAMEBUFFER_ATTRIBUTE frameLine[DISPLAY_WIDTH];
 
 #define DRV_GFX_LCC_DMA_CHANNEL_INDEX DMAC_CHANNEL_0
 #define DRV_GFX_DMA_EVENT_TYPE DMAC_TRANSFER_EVENT
@@ -128,8 +127,6 @@ uint32_t vsyncPulseDown = 0;
 uint32_t vsyncPulseUp = 0;
 uint32_t vsyncEnd = 0;
 
-volatile unsigned int activeReadBuffer = 0;
-volatile bool swapPending = false;
 
 // function that returns the information for this driver
 GFX_Result driverLCCInfoGet(GFX_DriverInfo* info)
@@ -199,18 +196,6 @@ static GFX_Result layerBufferAllocate(uint32_t idx)
     return GFX_SUCCESS;
 }
 
-static void layerSwapped(GFX_Layer* layer)
-{
-    //Do nothing
-    activeReadBuffer = cntxt->layer.active->buffer_read_idx;
-}
-
-static void layerSwapPending(GFX_Layer* layer)
-{
-    swapPending = true;
-
-    while(swapPending);
-}
 
 static GFX_Result lccBacklightBrightnessSet(uint32_t brightness)
 {
@@ -244,8 +229,6 @@ static GFX_Result lccInitialize(GFX_Context* context)
     context->hal.layerBufferAddressSet = &layerBufferAddressSet;
     context->hal.layerBufferAllocate = &layerBufferAllocate;
     context->hal.brightnessSet = &lccBacklightBrightnessSet;
-    context->hal.layerSwapped = &layerSwapped;
-    context->hal.layerSwapPending = &layerSwapPending;
     
     // driver specific initialization tasks    
     // initialize all layer color modes
@@ -333,9 +316,7 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
 {
     GFX_Point drawPoint;
     GFX_PixelBuffer* buffer;
-    uint8_t * bufferPtr;
-    uint16_t* palette;
-    uint32_t i;
+    GFX_Buffer* buffer_to_tx = (GFX_Buffer *) frameBuffer;
 
     typedef enum
     {
@@ -369,11 +350,9 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
                 vsyncState = VSYNC_PULSE;
 
                 if(cntxt->layer.active->vsync == GFX_TRUE
-                    && cntxt->layer.active->swap == GFX_TRUE
-                    && swapPending == true)
+                    && cntxt->layer.active->swap == GFX_TRUE)
                 {
                     GFX_LayerSwap(cntxt->layer.active);
-                    swapPending = false;
                 }
 
                 line = 0;
@@ -459,12 +438,7 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
 
                 buffer = &cntxt->layer.active->buffers[cntxt->layer.active->buffer_read_idx].pb;
 
-                bufferPtr = GFX_PixelBufferOffsetGet_Unsafe(buffer, &drawPoint);
-                
-                palette = (uint16_t*)GFX_ActiveContext()->globalPalette;
-                
-                for(i = 0; i < DISPLAY_WIDTH; i++)
-                    frameLine[i] = palette[bufferPtr[i]];
+                buffer_to_tx = GFX_PixelBufferOffsetGet_Unsafe(buffer, &drawPoint);
 
             }
 
@@ -481,8 +455,8 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
         }
     }
 
-    lccDMAStartTransfer(frameLine,
-                        (pixels * 2), //2 bytes per pixel
+    lccDMAStartTransfer(buffer_to_tx,
+                        (pixels * FRAMEBUFFER_PIXEL_BYTES), //2 bytes per pixel
                         (uint32_t*) EBI_BASE_ADDR);
 }
 
