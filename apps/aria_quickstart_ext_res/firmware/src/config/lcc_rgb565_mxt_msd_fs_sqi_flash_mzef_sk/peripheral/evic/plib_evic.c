@@ -56,9 +56,9 @@ void EVIC_Initialize( void )
     /* Set up priority / subpriority of enabled interrupts */
     IPC0SET = 0x4 | 0x0;  /* CORE_TIMER:  Priority 1 / Subpriority 0 */
     IPC2SET = 0x400 | 0x0;  /* TIMER_2:  Priority 1 / Subpriority 0 */
-    IPC33SET = 0x10 | 0x0;  /* USB:  Priority 4 / Subpriority 0 */
-    IPC33SET = 0x1000 | 0x0;  /* USB_DMA:  Priority 4 / Subpriority 0 */
-    IPC33SET = 0x1c0000 | 0x0;  /* DMA0:  Priority 7 / Subpriority 0 */
+    IPC33SET = 0x4 | 0x0;  /* USB:  Priority 1 / Subpriority 0 */
+    IPC33SET = 0x400 | 0x0;  /* USB_DMA:  Priority 1 / Subpriority 0 */
+    IPC33SET = 0x40000 | 0x0;  /* DMA0:  Priority 1 / Subpriority 0 */
     IPC42SET = 0x400 | 0x0;  /* SQI1:  Priority 1 / Subpriority 0 */
 }
 

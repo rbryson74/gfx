@@ -79,17 +79,17 @@ void __ISR(_TIMER_2_VECTOR, ipl1AUTO) TIMER_2_Handler (void)
     TIMER_2_InterruptHandler();
 }
 
-void __ISR(_USB_VECTOR, ipl4AUTO) USB_Handler (void)
+void __ISR(_USB_VECTOR, ipl1AUTO) USB_Handler (void)
 {
     DRV_USBHS_InterruptHandler();
 }
 
-void __ISR(_USB_DMA_VECTOR, ipl4AUTO) USB_DMA_Handler (void)
+void __ISR(_USB_DMA_VECTOR, ipl1AUTO) USB_DMA_Handler (void)
 {
     DRV_USBHS_DMAInterruptHandler();
 }
 
-void __ISR(_DMA0_VECTOR, ipl7AUTO) DMA0_Handler (void)
+void __ISR(_DMA0_VECTOR, ipl1AUTO) DMA0_Handler (void)
 {
     DMA0_InterruptHandler();
 }

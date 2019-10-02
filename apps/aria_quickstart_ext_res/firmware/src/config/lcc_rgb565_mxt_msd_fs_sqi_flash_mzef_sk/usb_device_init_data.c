@@ -171,11 +171,11 @@ const USB_DEVICE_DESCRIPTOR deviceDescriptor =
 
     USB_DEVICE_EP0_BUFFER_SIZE,                             // Max packet size for EP0, see configuration.h
     0x04D8,                                                 // Vendor ID
-    0x0000,                                                 // Product ID				
+    0x0009,                                                 // Product ID				
     0x0100,                                                 // Device release number in BCD format
     0x01,                                                   // Manufacturer string index
     0x02,                                                   // Product string index
-	0x00,                                                   // Device serial number string index
+    0x03,                                                   // Device serial number string index
     0x01                                                    // Number of possible configurations
 };
 
@@ -371,16 +371,38 @@ USB_DEVICE_CONFIGURATION_DESCRIPTORS_TABLE fullSpeedConfigDescSet[1] =
     {
         sizeof(sd002),
         USB_DESCRIPTOR_STRING,
-		{'E','n','t','e','r',' ','P','r','o','d','u','c','t',' ','s','t','r','i','n','g',' ','h','e','r','e'}
+		{'M','S','D',' ','S','P','I',' ','F','l','a','s','h',' ','D','e','v','i','c','e',' ','D','e','m','o'}
     }; 
+/******************************************************************************
+ * Serial number string descriptor.  Note: This should be unique for each unit
+ * built on the assembly line.  Plugging in two units simultaneously with the
+ * same serial number into a single machine can cause problems.  Additionally,
+ * not all hosts support all character values in the serial number string.  The
+ * MSD Bulk Only Transport (BOT) specs v1.0 restrict the serial number to
+ * consist only of ASCII characters "0" through "9" and capital letters "A"
+ * through "F".
+ ******************************************************************************/
+const struct
+{
+    uint8_t bLength;
+    uint8_t bDscType;
+    uint16_t string[12];
+}
+sd003 =
+{
+    sizeof(sd003),
+    USB_DESCRIPTOR_STRING,
+    {'1','2','3','4','5','6','7','8','9','9','9','9'}
+};
 /***************************************
  * Array of string descriptors
  ***************************************/
-USB_DEVICE_STRING_DESCRIPTORS_TABLE stringDescriptors[3]=
+ USB_DEVICE_STRING_DESCRIPTORS_TABLE stringDescriptors[4]=
 {
     (const uint8_t *const)&sd000,
     (const uint8_t *const)&sd001,
-    (const uint8_t *const)&sd002
+    (const uint8_t *const)&sd002,
+    (const uint8_t *const)&sd003
 };
 
 /*******************************************
@@ -394,7 +416,7 @@ const USB_DEVICE_MASTER_DESCRIPTOR usbMasterDescriptor =
     &deviceDescriptor,                                      // High speed device descriptor
     1,                                                      // Total number of high speed configurations available
     highSpeedConfigDescSet,                                 // Pointer to array of high speed configurations descriptors
-    3,														// Total number of string descriptors available.
+	4,  													// Total number of string descriptors available.
     stringDescriptors,                                      // Pointer to array of string descriptors.
     &deviceQualifierDescriptor1,                            // Pointer to full speed dev qualifier.
     &deviceQualifierDescriptor1                             // Pointer to high speed dev qualifier.

@@ -19,8 +19,8 @@
           <Name dnOrder="1">bsp.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/bsp/</LogicalPath>
           <PhysicalPath dnOrder="3">/bsp/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">0956A61D3BED3654FD782DB3CEE31085</GeneratedChecksum>
-          <UserChecksum dnOrder="5">0956A61D3BED3654FD782DB3CEE31085</UserChecksum>
+          <GeneratedChecksum dnOrder="4">64D0F9C57F1452BD074A574237B811D7</GeneratedChecksum>
+          <UserChecksum dnOrder="5">64D0F9C57F1452BD074A574237B811D7</UserChecksum>
         </File>
         <File dnOrder="2">
           <Type dnOrder="0">SOURCE</Type>
@@ -43,16 +43,16 @@
           <Name dnOrder="1">drv_i2c.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/driver/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/i2c/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">00BE2152C659AE45DBA8630ACD809BD2</GeneratedChecksum>
-          <UserChecksum dnOrder="5">00BE2152C659AE45DBA8630ACD809BD2</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6076FC7677C4756E36D944DCBDB0A998</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6076FC7677C4756E36D944DCBDB0A998</UserChecksum>
         </File>
         <File dnOrder="5">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">drv_i2c_local.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/driver/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/i2c/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">56728194E73D695E178AF2B34855ADBB</GeneratedChecksum>
-          <UserChecksum dnOrder="5">56728194E73D695E178AF2B34855ADBB</UserChecksum>
+          <GeneratedChecksum dnOrder="4">5EB905590CA7087C5CC181ABFFFB5765</GeneratedChecksum>
+          <UserChecksum dnOrder="5">5EB905590CA7087C5CC181ABFFFB5765</UserChecksum>
         </File>
         <File dnOrder="6">
           <Type dnOrder="0">SOURCE</Type>
@@ -131,8 +131,8 @@
           <Name dnOrder="1">gfx_assets.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/gfx</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">53D0797AD85CEE04D3078F7C19DDA254</GeneratedChecksum>
-          <UserChecksum dnOrder="5">53D0797AD85CEE04D3078F7C19DDA254</UserChecksum>
+          <GeneratedChecksum dnOrder="4">9339F89D6D2CD6587727D02CE2022DE0</GeneratedChecksum>
+          <UserChecksum dnOrder="5">9339F89D6D2CD6587727D02CE2022DE0</UserChecksum>
         </File>
         <File dnOrder="16">
           <Type dnOrder="0">SOURCE</Type>
@@ -515,24 +515,24 @@
           <Name dnOrder="1">i2c_bb.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/library/i2cbb/</LogicalPath>
           <PhysicalPath dnOrder="3">/library/i2cbb/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">1B912BDF7F96EA826DF0F6E5F7AFED10</GeneratedChecksum>
-          <UserChecksum dnOrder="5">1B912BDF7F96EA826DF0F6E5F7AFED10</UserChecksum>
+          <GeneratedChecksum dnOrder="4">E51AADA816F4E05753B07D4427BD04A8</GeneratedChecksum>
+          <UserChecksum dnOrder="5">E51AADA816F4E05753B07D4427BD04A8</UserChecksum>
         </File>
         <File dnOrder="64">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">initialization.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">114FB926AA8E686962A9F0C42761DB5A</GeneratedChecksum>
-          <UserChecksum dnOrder="5">114FB926AA8E686962A9F0C42761DB5A</UserChecksum>
+          <GeneratedChecksum dnOrder="4">BEC4B020BDE31FD7167D021C5D97D548</GeneratedChecksum>
+          <UserChecksum dnOrder="5">BEC4B020BDE31FD7167D021C5D97D548</UserChecksum>
         </File>
         <File dnOrder="65">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">interrupts.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">81D7A43EC3F86C512F3E75206E0A045F</GeneratedChecksum>
-          <UserChecksum dnOrder="5">81D7A43EC3F86C512F3E75206E0A045F</UserChecksum>
+          <GeneratedChecksum dnOrder="4">48CA187C7C15013EFD604FFBF6C368C3</GeneratedChecksum>
+          <UserChecksum dnOrder="5">48CA187C7C15013EFD604FFBF6C368C3</UserChecksum>
         </File>
         <File dnOrder="66">
           <Type dnOrder="0">SOURCE</Type>
@@ -1219,8 +1219,8 @@
           <Name dnOrder="1">plib_clk.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/peripheral/clk/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/clk/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">1634DFEBDA4F7E14D2CD0A3B4FE4171B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">1634DFEBDA4F7E14D2CD0A3B4FE4171B</UserChecksum>
+          <GeneratedChecksum dnOrder="4">676C3B793F310D4311766B55936D850C</GeneratedChecksum>
+          <UserChecksum dnOrder="5">676C3B793F310D4311766B55936D850C</UserChecksum>
         </File>
         <File dnOrder="152">
           <Type dnOrder="0">SOURCE</Type>
@@ -1251,16 +1251,16 @@
           <Name dnOrder="1">plib_evic.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/peripheral/evic/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/evic/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">C8EBD72FBEEABE7DF5C21F7378E723F6</GeneratedChecksum>
-          <UserChecksum dnOrder="5">C8EBD72FBEEABE7DF5C21F7378E723F6</UserChecksum>
+          <GeneratedChecksum dnOrder="4">0A06D64DD6D03A74B4597EB9AA787AC3</GeneratedChecksum>
+          <UserChecksum dnOrder="5">0A06D64DD6D03A74B4597EB9AA787AC3</UserChecksum>
         </File>
         <File dnOrder="156">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_gpio.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/peripheral/gpio/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/gpio/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">0BC32291AD84846D956DE89CA17C6481</GeneratedChecksum>
-          <UserChecksum dnOrder="5">0BC32291AD84846D956DE89CA17C6481</UserChecksum>
+          <GeneratedChecksum dnOrder="4">E8EE77AB0C36CFF2B437E9F7E3CA1349</GeneratedChecksum>
+          <UserChecksum dnOrder="5">E8EE77AB0C36CFF2B437E9F7E3CA1349</UserChecksum>
         </File>
         <File dnOrder="157">
           <Type dnOrder="0">SOURCE</Type>
@@ -1347,8 +1347,8 @@
           <Name dnOrder="1">usb_device_init_data.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">92E1E4ACAD5C3088E1CBFE9F5375F657</GeneratedChecksum>
-          <UserChecksum dnOrder="5">92E1E4ACAD5C3088E1CBFE9F5375F657</UserChecksum>
+          <GeneratedChecksum dnOrder="4">7CD686368CF789944F3361C831C05FC4</GeneratedChecksum>
+          <UserChecksum dnOrder="5">7CD686368CF789944F3361C831C05FC4</UserChecksum>
         </File>
         <File dnOrder="168">
           <Type dnOrder="0">SOURCE</Type>
@@ -1379,8 +1379,8 @@
           <Name dnOrder="1">bsp.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/bsp/</LogicalPath>
           <PhysicalPath dnOrder="3">/bsp/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">CFB805555FA33BCE0E5FB259B8C87C41</GeneratedChecksum>
-          <UserChecksum dnOrder="5">CFB805555FA33BCE0E5FB259B8C87C41</UserChecksum>
+          <GeneratedChecksum dnOrder="4">A9C595E0E5A92D2B85C18D2A27597B84</GeneratedChecksum>
+          <UserChecksum dnOrder="5">A9C595E0E5A92D2B85C18D2A27597B84</UserChecksum>
         </File>
         <File dnOrder="172">
           <Type dnOrder="0">HEADER</Type>
@@ -1388,15 +1388,15 @@
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">B1BF1D7906CE912EE47201BBA4673B55</GeneratedChecksum>
-          <UserChecksum dnOrder="5">8AA78216313885C10A1D15AE4A89D3A9</UserChecksum>
+          <UserChecksum dnOrder="5">3B23227A83B0792D6A8590FA58D56A1A</UserChecksum>
         </File>
         <File dnOrder="173">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">definitions.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A516FC260D3D9BB2829AE1AB0C847C5A</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A516FC260D3D9BB2829AE1AB0C847C5A</UserChecksum>
+          <GeneratedChecksum dnOrder="4">29BA3F6C43B154FE225347A936B63950</GeneratedChecksum>
+          <UserChecksum dnOrder="5">29BA3F6C43B154FE225347A936B63950</UserChecksum>
         </File>
         <File dnOrder="174">
           <Type dnOrder="0">HEADER</Type>
@@ -1443,16 +1443,16 @@
           <Name dnOrder="1">drv_i2c.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/driver/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/i2c/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">7DC093674665965E223A7AD52F7BAF83</GeneratedChecksum>
-          <UserChecksum dnOrder="5">7DC093674665965E223A7AD52F7BAF83</UserChecksum>
+          <GeneratedChecksum dnOrder="4">C57076A27820E4EDE93AD2DA070AA748</GeneratedChecksum>
+          <UserChecksum dnOrder="5">C57076A27820E4EDE93AD2DA070AA748</UserChecksum>
         </File>
         <File dnOrder="180">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">drv_i2c_definitions.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/driver/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/i2c/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A2D12C1907596C873BA91F3009960CF0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A2D12C1907596C873BA91F3009960CF0</UserChecksum>
+          <GeneratedChecksum dnOrder="4">2872C68B45CE75A8BBBC1DD7F7287282</GeneratedChecksum>
+          <UserChecksum dnOrder="5">2872C68B45CE75A8BBBC1DD7F7287282</UserChecksum>
         </File>
         <File dnOrder="181">
           <Type dnOrder="0">HEADER</Type>
@@ -1515,24 +1515,24 @@
           <Name dnOrder="1">drv_usb.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/driver/usb/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/usb/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">CFBD2D9BDB4D18C841A9A2F4E9870E0C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">CFBD2D9BDB4D18C841A9A2F4E9870E0C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">38148410A4C123F6D3C8D2A5684C2D2D</GeneratedChecksum>
+          <UserChecksum dnOrder="5">38148410A4C123F6D3C8D2A5684C2D2D</UserChecksum>
         </File>
         <File dnOrder="189">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">drv_usb_external_dependencies.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/driver/usb/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/usb/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">AC352A9B0E4A4B622674870B8738E826</GeneratedChecksum>
-          <UserChecksum dnOrder="5">AC352A9B0E4A4B622674870B8738E826</UserChecksum>
+          <GeneratedChecksum dnOrder="4">5E2621860496A1FD0821B43178B3C75A</GeneratedChecksum>
+          <UserChecksum dnOrder="5">5E2621860496A1FD0821B43178B3C75A</UserChecksum>
         </File>
         <File dnOrder="190">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">drv_usbhs.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/driver/usb/usbhs</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/usb/usbhs/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">06C61DD08D7A60EF3EEBF4168A957B44</GeneratedChecksum>
-          <UserChecksum dnOrder="5">06C61DD08D7A60EF3EEBF4168A957B44</UserChecksum>
+          <GeneratedChecksum dnOrder="4">28999752D72713FD357EC84F99871D93</GeneratedChecksum>
+          <UserChecksum dnOrder="5">28999752D72713FD357EC84F99871D93</UserChecksum>
         </File>
         <File dnOrder="191">
           <Type dnOrder="0">HEADER</Type>
@@ -1867,16 +1867,16 @@
           <Name dnOrder="1">i2c_bb.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/library/i2cbb/</LogicalPath>
           <PhysicalPath dnOrder="3">/library/i2cbb/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B5805DB9014AF6B17B69DB1FB708AC1C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B5805DB9014AF6B17B69DB1FB708AC1C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">FB4AF2A058582909E8A72A6364445FB6</GeneratedChecksum>
+          <UserChecksum dnOrder="5">FB4AF2A058582909E8A72A6364445FB6</UserChecksum>
         </File>
         <File dnOrder="233">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">i2c_bb_local.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/library/i2cbb/</LogicalPath>
           <PhysicalPath dnOrder="3">/library/i2cbb/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">EA2F6DDF5C4F2F73C66EA4462B6056F1</GeneratedChecksum>
-          <UserChecksum dnOrder="5">EA2F6DDF5C4F2F73C66EA4462B6056F1</UserChecksum>
+          <GeneratedChecksum dnOrder="4">97349A2BD4907ED4342E0E07AE5FFAA0</GeneratedChecksum>
+          <UserChecksum dnOrder="5">97349A2BD4907ED4342E0E07AE5FFAA0</UserChecksum>
         </File>
         <File dnOrder="234">
           <Type dnOrder="0">HEADER</Type>
@@ -2371,8 +2371,8 @@
           <Name dnOrder="1">plib_coretimer.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/peripheral/coretimer/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/coretimer/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B56E73929AA8C9899F0BA761F7053A87</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B56E73929AA8C9899F0BA761F7053A87</UserChecksum>
+          <GeneratedChecksum dnOrder="4">77E2C83A700CD1F724CFD90ED3AA2B71</GeneratedChecksum>
+          <UserChecksum dnOrder="5">77E2C83A700CD1F724CFD90ED3AA2B71</UserChecksum>
         </File>
         <File dnOrder="296">
           <Type dnOrder="0">HEADER</Type>
@@ -2707,8 +2707,8 @@
           <Name dnOrder="1">usb_external_dependencies.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/usb/src</LogicalPath>
           <PhysicalPath dnOrder="3">/usb/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">EC508303014905CAA66CE126A0FE7297</GeneratedChecksum>
-          <UserChecksum dnOrder="5">EC508303014905CAA66CE126A0FE7297</UserChecksum>
+          <GeneratedChecksum dnOrder="4">5AAF69767C8CBB1A9952695AAF110C43</GeneratedChecksum>
+          <UserChecksum dnOrder="5">5AAF69767C8CBB1A9952695AAF110C43</UserChecksum>
         </File>
         <File dnOrder="338">
           <Type dnOrder="0">HEADER</Type>
@@ -3339,36 +3339,36 @@
           <Color dnOrder="254">-454761217</Color>
           <Color dnOrder="255">-286331137</Color>
         </GlobalPalette>
-        <Font antialias="false" bold="false" dnOrder="2" italic="false" location="1" name="ArialUnicodeMS" size="16" sourceName="Arial Unicode MS">
+        <Font antialias="false" bold="false" dnOrder="2" italic="false" location="3" name="ArialUnicodeMS" size="16" sourceName="Arial Unicode MS">
           <Data dnOrder="0">rO0ABXNyAA1qYXZhLmF3dC5Gb250xaE15szeVnMDAAZJABlmb250U2VyaWFsaXplZERhdGFWZXJzaW9uRgAJcG9pbnRTaXplSQAEc2l6ZUkABXN0eWxlTAAUZlJlcXVlc3RlZEF0dHJpYnV0ZXN0ABVMamF2YS91dGlsL0hhc2h0YWJsZTtMAARuYW1ldAASTGphdmEvbGFuZy9TdHJpbmc7eHAAAAABQTAAAAAAAAsAAAAAcHQAEEFyaWFsIFVuaWNvZGUgTVN4</Data>
           <Strings dnOrder="1">
             <String dnOrder="0" name="ImageIsRaw">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="1" name="ImageIsRLE">
+            <String dnOrder="1" name="TitleString">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="2" name="TitleString">
+            <String dnOrder="2" name="ImageIsDirectBlit">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="3" name="ImageIsJPEG">
+            <String dnOrder="3" name="ImageIsRLE">
               <Language dnOrder="0" index="0"/>
             </String>
             <String dnOrder="4" name="ImageFromExternal">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="5" name="PressButton">
+            <String dnOrder="5" name="ImageIsPNG">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="6" name="ImageIsPNG">
+            <String dnOrder="6" name="ImageIsJPEG">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="7" name="ImageIsDirectBlit">
+            <String dnOrder="7" name="PressButton">
               <Language dnOrder="0" index="0"/>
             </String>
           </Strings>
         </Font>
-        <Font antialias="false" bold="false" dnOrder="3" italic="false" location="1" name="ArialUnicodeMS_Large1" size="20" sourceName="Arial Unicode MS">
+        <Font antialias="false" bold="false" dnOrder="3" italic="false" location="3" name="ArialUnicodeMS_Large1" size="20" sourceName="Arial Unicode MS">
           <Data dnOrder="0">rO0ABXNyAA1qYXZhLmF3dC5Gb250xaE15szeVnMDAAZJABlmb250U2VyaWFsaXplZERhdGFWZXJzaW9uRgAJcG9pbnRTaXplSQAEc2l6ZUkABXN0eWxlTAAUZlJlcXVlc3RlZEF0dHJpYnV0ZXN0ABVMamF2YS91dGlsL0hhc2h0YWJsZTtMAARuYW1ldAASTGphdmEvbGFuZy9TdHJpbmc7eHAAAAABQTAAAAAAAAsAAAAAcHQAEEFyaWFsIFVuaWNvZGUgTVN4</Data>
           <Ranges dnOrder="1">
             <Range dnOrder="0" end="30462" name="CJK_UI" start="19968"/>
@@ -3377,19 +3377,19 @@
             <String dnOrder="0" name="ImageIsRaw">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="1" name="DrawPNG">
+            <String dnOrder="1" name="DrawJpeg">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="2" name="ImageIsRLE">
+            <String dnOrder="2" name="ImageIsDirectBlit">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="3" name="TitleString">
+            <String dnOrder="3" name="DrawPNG">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="4" name="ImageFromExternal">
+            <String dnOrder="4" name="ImageIsPNG">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="5" name="PressButton">
+            <String dnOrder="5" name="DrawDirectBlit">
               <Language dnOrder="0" index="1"/>
             </String>
             <String dnOrder="6" name="DrawRaw">
@@ -3398,19 +3398,19 @@
             <String dnOrder="7" name="ImageIsJPEG">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="8" name="DrawRLE">
+            <String dnOrder="8" name="TitleString">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="9" name="DrawJpeg">
+            <String dnOrder="9" name="ImageIsRLE">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="10" name="ImageIsPNG">
+            <String dnOrder="10" name="ImageFromExternal">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="11" name="DrawDirectBlit">
+            <String dnOrder="11" name="DrawRLE">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="12" name="ImageIsDirectBlit">
+            <String dnOrder="12" name="PressButton">
               <Language dnOrder="0" index="1"/>
             </String>
           </Strings>
@@ -3432,25 +3432,25 @@
             </String>
           </Strings>
         </Font>
-        <Font antialias="false" bold="false" dnOrder="5" italic="false" location="3" name="ArialUnicodeMS_Large2" size="20" sourceName="Arial Unicode MS">
+        <Font antialias="false" bold="false" dnOrder="5" italic="false" location="4" name="ArialUnicodeMS_Large2" size="20" sourceName="Arial Unicode MS">
           <Data dnOrder="0">rO0ABXNyAA1qYXZhLmF3dC5Gb250xaE15szeVnMDAAZJABlmb250U2VyaWFsaXplZERhdGFWZXJzaW9uRgAJcG9pbnRTaXplSQAEc2l6ZUkABXN0eWxlTAAUZlJlcXVlc3RlZEF0dHJpYnV0ZXN0ABVMamF2YS91dGlsL0hhc2h0YWJsZTtMAARuYW1ldAASTGphdmEvbGFuZy9TdHJpbmc7eHAAAAABQTAAAAAAAAsAAAAAcHQAEEFyaWFsIFVuaWNvZGUgTVN4</Data>
           <Ranges dnOrder="1">
             <Range dnOrder="0" end="40959" name="CJK_UI" start="30463"/>
           </Ranges>
         </Font>
-        <Font antialias="false" bold="true" dnOrder="6" italic="false" location="3" name="ArialUnicodeMS_Bold" size="16" sourceName="Arial Unicode MS">
+        <Font antialias="false" bold="true" dnOrder="6" italic="false" location="4" name="ArialUnicodeMS_Bold" size="16" sourceName="Arial Unicode MS">
           <Data dnOrder="0">rO0ABXNyAA1qYXZhLmF3dC5Gb250xaE15szeVnMDAAZJABlmb250U2VyaWFsaXplZERhdGFWZXJzaW9uRgAJcG9pbnRTaXplSQAEc2l6ZUkABXN0eWxlTAAUZlJlcXVlc3RlZEF0dHJpYnV0ZXN0ABVMamF2YS91dGlsL0hhc2h0YWJsZTtMAARuYW1ldAASTGphdmEvbGFuZy9TdHJpbmc7eHAAAAABQTAAAAAAAAsAAAAAcHQAEEFyaWFsIFVuaWNvZGUgTVN4</Data>
           <Strings dnOrder="1">
-            <String dnOrder="0" name="DrawPNG">
+            <String dnOrder="0" name="DrawJpeg">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="1" name="DrawRLE">
+            <String dnOrder="1" name="DrawPNG">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="2" name="DrawJpeg">
+            <String dnOrder="2" name="DrawDirectBlit">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="3" name="DrawDirectBlit">
+            <String dnOrder="3" name="DrawRLE">
               <Language dnOrder="0" index="0"/>
             </String>
             <String dnOrder="4" name="DrawRaw">

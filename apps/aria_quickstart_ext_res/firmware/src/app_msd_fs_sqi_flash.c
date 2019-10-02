@@ -411,6 +411,11 @@ void APP_MSD_FS_SQI_FLASH_Tasks ( void )
         /* Application's initial state. */
         case APP_STATE_INIT:
         {
+            if (laContext_IsDrawing() || laContext_GetActiveScreenIndex() != LoadingScreen_ID)
+                break;
+
+            laWidget_SetVisible((laWidget*)ButtonWidget_MainScreen, LA_FALSE);
+
             appData.state = APP_STATE_USB_INIT;
             break;
         }
@@ -426,6 +431,7 @@ void APP_MSD_FS_SQI_FLASH_Tasks ( void )
 
         case APP_STATE_MOUNT_DISK:
         {
+
             /* Mount the disk */
             if(SYS_FS_Mount(APP_DEVICE_NAME, APP_MOUNT_NAME, APP_FS_TYPE, 0, NULL) != SYS_FS_RES_SUCCESS)
             {
