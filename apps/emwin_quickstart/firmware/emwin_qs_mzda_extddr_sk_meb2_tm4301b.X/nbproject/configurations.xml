@@ -33,6 +33,8 @@
               </logicalFolder>
             </logicalFolder>
             <logicalFolder name="f3" displayName="emwin" projectFiles="true">
+              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/rotary.h</itemPath>
+              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/rotary_private.h</itemPath>
               <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/emwin_config.h</itemPath>
               <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/config/lcdconf.h</itemPath>
               <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/config/guiconf.h</itemPath>
@@ -123,6 +125,8 @@
               <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/progbar_private.h</itemPath>
               <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/radio.h</itemPath>
               <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/radio_private.h</itemPath>
+              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/rotary.h</itemPath>
+              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/rotary_private.h</itemPath>
               <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/scrollbar.h</itemPath>
               <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/scrollbar_private.h</itemPath>
               <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/segger.h</itemPath>
@@ -387,8 +391,9 @@
       <compileType>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/driver/processor/2dgpu/lib/libnano2d.a</linkerLibFileItem>
             <linkerLibFileItem>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/lib/libemwin.a</linkerLibFileItem>
+            <linkerLibFileItem>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/driver/processor/2dgpu/lib/libnano2d.a</linkerLibFileItem>
+            <linkerLibFileItem>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/lib/emwin_nofp.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>

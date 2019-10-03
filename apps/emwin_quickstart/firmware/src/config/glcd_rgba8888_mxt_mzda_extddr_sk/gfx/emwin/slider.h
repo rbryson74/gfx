@@ -3,13 +3,13 @@
 *        Solutions for real time microcontroller applications        *
 **********************************************************************
 *                                                                    *
-*        (c) 1996 - 2018  SEGGER Microcontroller GmbH                *
+*        (c) 1996 - 2019  SEGGER Microcontroller GmbH                *
 *                                                                    *
 *        Internet: www.segger.com    Support:  support@segger.com    *
 *                                                                    *
 **********************************************************************
 
-** emWin V5.48 - Graphical user interface for embedded applications **
+** emWin V5.50 - Graphical user interface for embedded applications **
 All  Intellectual Property rights  in the Software belongs to  SEGGER.
 emWin is protected by  international copyright laws.  Knowledge of the
 source code may not be used to write a similar product.  This file may
@@ -150,6 +150,7 @@ void      SLIDER_Inc            (SLIDER_Handle hObj);
 void      SLIDER_SetBarColor    (SLIDER_Handle hObj, GUI_COLOR Color);
 void      SLIDER_SetBkColor     (SLIDER_Handle hObj, GUI_COLOR Color);
 GUI_COLOR SLIDER_SetFocusColor  (SLIDER_Handle hObj, GUI_COLOR Color);
+void      SLIDER_SetInvertDir   (SLIDER_Handle hObj, int OnOff);
 void      SLIDER_SetNumTicks    (SLIDER_Handle hObj, int NumTicks);
 void      SLIDER_SetRange       (SLIDER_Handle hObj, int Min, int Max);
 void      SLIDER_SetTickColor   (SLIDER_Handle hObj, GUI_COLOR Color);

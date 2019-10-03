@@ -3,13 +3,13 @@
 *        Solutions for real time microcontroller applications        *
 **********************************************************************
 *                                                                    *
-*        (c) 1996 - 2018  SEGGER Microcontroller GmbH                *
+*        (c) 1996 - 2019  SEGGER Microcontroller GmbH                *
 *                                                                    *
 *        Internet: www.segger.com    Support:  support@segger.com    *
 *                                                                    *
 **********************************************************************
 
-** emWin V5.48 - Graphical user interface for embedded applications **
+** emWin V5.50 - Graphical user interface for embedded applications **
 All  Intellectual Property rights  in the Software belongs to  SEGGER.
 emWin is protected by  international copyright laws.  Knowledge of the
 source code may not be used to write a similar product.  This file may
@@ -94,6 +94,13 @@ Purpose     : SPINBOX header file
 
 /*********************************************************************
 *
+*       Timer indices
+*/
+#define SPINBOX_TI_TIMERSTART       0  // Timer for starting auto increment
+#define SPINBOX_TI_TIMERINC         1  // Timer for period between two increments
+
+/*********************************************************************
+*
 *       Skinning property indices
 */
 #define SPINBOX_SKIN_FLEX            SPINBOX_DrawSkinFlex
@@ -152,6 +159,7 @@ GUI_COLOR        SPINBOX_GetButtonBkColor(SPINBOX_Handle hObj, unsigned int Inde
 EDIT_Handle      SPINBOX_GetEditHandle   (SPINBOX_Handle hObj);
 const GUI_FONT * SPINBOX_GetFont         (SPINBOX_Handle hObj);
 GUI_COLOR        SPINBOX_GetTextColor    (SPINBOX_Handle hObj, unsigned int Index);
+U32              SPINBOX_GetTimerPeriod  (SPINBOX_Handle hObj, U32 Index);
 int              SPINBOX_GetUserData     (SPINBOX_Handle hObj, void * pDest, int NumBytes);
 I32              SPINBOX_GetValue        (SPINBOX_Handle hObj);
 void             SPINBOX_SetBkColor      (SPINBOX_Handle hObj, unsigned int Index, GUI_COLOR Color);
@@ -163,6 +171,7 @@ void             SPINBOX_SetFont         (SPINBOX_Handle hObj, const GUI_FONT * 
 void             SPINBOX_SetRange        (SPINBOX_Handle hObj, I32 Min, I32 Max);
 U16              SPINBOX_SetStep         (SPINBOX_Handle hObj, U16 Step);
 void             SPINBOX_SetTextColor    (SPINBOX_Handle hObj, unsigned int Index, GUI_COLOR Color);
+void             SPINBOX_SetTimerPeriod  (SPINBOX_Handle hObj, U32 Index, U32 Period);
 int              SPINBOX_SetUserData     (SPINBOX_Handle hObj, const void * pSrc, int NumBytes);
 void             SPINBOX_SetValue        (SPINBOX_Handle hObj, I32 Value);
 

@@ -3,13 +3,13 @@
 *        Solutions for real time microcontroller applications        *
 **********************************************************************
 *                                                                    *
-*        (c) 1996 - 2017  SEGGER Microcontroller GmbH & Co. KG       *
+*        (c) 1996 - 2019  SEGGER Microcontroller GmbH                *
 *                                                                    *
 *        Internet: www.segger.com    Support:  support@segger.com    *
 *                                                                    *
 **********************************************************************
 
-** emWin V5.44 - Graphical user interface for embedded applications **
+** emWin V5.50 - Graphical user interface for embedded applications **
 All  Intellectual Property rights  in the Software belongs to  SEGGER.
 emWin is protected by  international copyright laws.  Knowledge of the
 source code may not be used to write a similar product.  This file may
@@ -98,6 +98,9 @@ static void _FillRectOpt24(GUI_DEVICE * pDevice, int x0, int y0, int x1, int y1)
           //
           // no break at this position required...
           //
+          //lint -fallthrough // No break here.
+          // Avoid GCC warning '-Wimplicit-fallthrough':
+          // fall through
         case 2:
           Data ^= 0xFFFF0000;
           WRITE_MEM32(pContext->VRAMAddr, Off, Data);
@@ -112,6 +115,9 @@ static void _FillRectOpt24(GUI_DEVICE * pDevice, int x0, int y0, int x1, int y1)
           //
           // no break at this position required...
           //
+          //lint -fallthrough // No break here.
+          // Avoid GCC warning '-Wimplicit-fallthrough':
+          // fall through
         case 3:
           Data ^= 0xFFFFFF00;
           RemItems--;
@@ -204,6 +210,9 @@ static void _FillRectOpt24(GUI_DEVICE * pDevice, int x0, int y0, int x1, int y1)
           //
           // no break at this position required...
           //
+          //lint -fallthrough // No break here.
+          // Avoid GCC warning '-Wimplicit-fallthrough':
+          // fall through
         case 2:
           Data &= 0x0000FFFF;
           Data |= ColorIndex << 16;
@@ -220,6 +229,9 @@ static void _FillRectOpt24(GUI_DEVICE * pDevice, int x0, int y0, int x1, int y1)
           //
           // no break at this position required...
           //
+          //lint -fallthrough // No break here.
+          // Avoid GCC warning '-Wimplicit-fallthrough':
+          // fall through
         case 3:
           Data &= 0x000000FF;
           Data |= ColorIndex << 8;
@@ -314,6 +326,9 @@ static void _FillRectOpt24(GUI_DEVICE * pDevice, int x0, int y0, int x1, int y1)
           //
           // no break at this position required...
           //
+          //lint -fallthrough // No break here.
+          // Avoid GCC warning '-Wimplicit-fallthrough':
+          // fall through
         case 2:
           Data ^= 0x0000FFFF;
           WRITE_MEM32(pContext->VRAMAddr, Off, Data);
@@ -328,6 +343,9 @@ static void _FillRectOpt24(GUI_DEVICE * pDevice, int x0, int y0, int x1, int y1)
           //
           // no break at this position required...
           //
+          //lint -fallthrough // No break here.
+          // Avoid GCC warning '-Wimplicit-fallthrough':
+          // fall through
         case 3:
           Data ^= 0x00FFFFFF;
           RemItems--;
@@ -421,6 +439,9 @@ static void _FillRectOpt24(GUI_DEVICE * pDevice, int x0, int y0, int x1, int y1)
           //
           // no break at this position required...
           //
+          //lint -fallthrough // No break here.
+          // Avoid GCC warning '-Wimplicit-fallthrough':
+          // fall through
         case 2:
           Data &= 0xFFFF0000;
           Data |= ColorIndex >> 8;
@@ -437,6 +458,9 @@ static void _FillRectOpt24(GUI_DEVICE * pDevice, int x0, int y0, int x1, int y1)
           //
           // no break at this position required...
           //
+          //lint -fallthrough // No break here.
+          // Avoid GCC warning '-Wimplicit-fallthrough':
+          // fall through
         case 3:
           Data &= 0xFF000000;
           Data |= ColorIndex;

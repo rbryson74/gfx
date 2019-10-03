@@ -3,13 +3,13 @@
 *        Solutions for real time microcontroller applications        *
 **********************************************************************
 *                                                                    *
-*        (c) 1996 - 2018  SEGGER Microcontroller GmbH                *
+*        (c) 1996 - 2019  SEGGER Microcontroller GmbH                *
 *                                                                    *
 *        Internet: www.segger.com    Support:  support@segger.com    *
 *                                                                    *
 **********************************************************************
 
-** emWin V5.48 - Graphical user interface for embedded applications **
+** emWin V5.50 - Graphical user interface for embedded applications **
 All  Intellectual Property rights  in the Software belongs to  SEGGER.
 emWin is protected by  international copyright laws.  Knowledge of the
 source code may not be used to write a similar product.  This file may
@@ -136,7 +136,6 @@ int              CHECKBOX_GetDefaultAlign     (void);
 GUI_COLOR        CHECKBOX_GetDefaultBkColor   (void);
 const GUI_FONT * CHECKBOX_GetDefaultFont      (void);
 int              CHECKBOX_GetDefaultSpacing   (void);
-int              CHECKBOX_GetDefaultTextAlign (void);
 GUI_COLOR        CHECKBOX_GetDefaultTextColor (void);
 int              CHECKBOX_GetUserData         (CHECKBOX_Handle hObj, void * pDest, int NumBytes);
 void             CHECKBOX_SetDefaultAlign     (int Align);
@@ -145,8 +144,10 @@ GUI_COLOR        CHECKBOX_SetDefaultFocusColor(GUI_COLOR Color);
 void             CHECKBOX_SetDefaultFont      (const GUI_FONT * pFont);
 void             CHECKBOX_SetDefaultImage     (const GUI_BITMAP * pBitmap, unsigned int Index);
 void             CHECKBOX_SetDefaultSpacing   (int Spacing);
-void             CHECKBOX_SetDefaultTextAlign (int Align);
 void             CHECKBOX_SetDefaultTextColor (GUI_COLOR Color);
+
+#define          CHECKBOX_GetDefaultTextAlign CHECKBOX_GetDefaultAlign
+#define          CHECKBOX_SetDefaultTextAlign CHECKBOX_SetDefaultAlign
 
 /*********************************************************************
 *

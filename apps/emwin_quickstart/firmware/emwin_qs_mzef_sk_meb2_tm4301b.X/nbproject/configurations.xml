@@ -119,6 +119,8 @@
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/gfx/emwin/progbar_private.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/gfx/emwin/radio.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/gfx/emwin/radio_private.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/gfx/emwin/rotary.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/gfx/emwin/rotary_private.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/gfx/emwin/scrollbar.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/gfx/emwin/scrollbar_private.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_sk/gfx/emwin/segger.h</itemPath>
@@ -400,6 +402,7 @@
         <linkerTool>
           <linkerLibItems>
             <linkerLibFileItem>../src/config/lcc_rgb565_mxt_mzef_sk/gfx/emwin/lib/libemwin.a</linkerLibFileItem>
+            <linkerLibFileItem>../src/config/lcc_rgb565_mxt_mzef_sk/gfx/emwin/lib/emWin.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>

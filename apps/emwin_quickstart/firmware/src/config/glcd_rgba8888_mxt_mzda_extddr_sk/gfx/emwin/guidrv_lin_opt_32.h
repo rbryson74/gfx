@@ -3,13 +3,13 @@
 *        Solutions for real time microcontroller applications        *
 **********************************************************************
 *                                                                    *
-*        (c) 1996 - 2017  SEGGER Microcontroller GmbH & Co. KG       *
+*        (c) 1996 - 2019  SEGGER Microcontroller GmbH                *
 *                                                                    *
 *        Internet: www.segger.com    Support:  support@segger.com    *
 *                                                                    *
 **********************************************************************
 
-** emWin V5.44 - Graphical user interface for embedded applications **
+** emWin V5.50 - Graphical user interface for embedded applications **
 All  Intellectual Property rights  in the Software belongs to  SEGGER.
 emWin is protected by  international copyright laws.  Knowledge of the
 source code may not be used to write a similar product.  This file may
@@ -72,7 +72,7 @@ static void _FillRectOpt32(GUI_DEVICE * pDevice, int x0, int y0, int x1, int y1)
   OffLine   = pContext->vxSizePhys;
   pDest     = NULL;
   if (GUI_pContext->DrawMode & LCD_DRAWMODE_XOR) {
-    IndexMask = pDevice->pColorConvAPI->pfGetIndexMask();
+    IndexMask = pDevice->pColorConvAPI->pfGetIndexMask() & 0x00FFFFFF;
     Off0      = XY2OFF32(pContext->vxSizePhys, x0, y0);
     if (RemPixels) {
       for (RemLines = NumLines; RemLines; RemLines--) {

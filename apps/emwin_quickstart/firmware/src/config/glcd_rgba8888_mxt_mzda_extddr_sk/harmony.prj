@@ -19,8 +19,8 @@
           <Name dnOrder="1">bsp.c</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/bsp/</LogicalPath>
           <PhysicalPath dnOrder="3">/bsp/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">2F6CC050E57B9E5BA8A6C6C9A2D8F09A</GeneratedChecksum>
-          <UserChecksum dnOrder="5">2F6CC050E57B9E5BA8A6C6C9A2D8F09A</UserChecksum>
+          <GeneratedChecksum dnOrder="4">3E90A7268114D314B037DE660DB74C27</GeneratedChecksum>
+          <UserChecksum dnOrder="5">3E90A7268114D314B037DE660DB74C27</UserChecksum>
         </File>
         <File dnOrder="2">
           <Type dnOrder="0">SOURCE</Type>
@@ -35,24 +35,24 @@
           <Name dnOrder="1">drv_i2c.c</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/driver/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/i2c/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">00BE2152C659AE45DBA8630ACD809BD2</GeneratedChecksum>
-          <UserChecksum dnOrder="5">00BE2152C659AE45DBA8630ACD809BD2</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6076FC7677C4756E36D944DCBDB0A998</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6076FC7677C4756E36D944DCBDB0A998</UserChecksum>
         </File>
         <File dnOrder="4">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">drv_i2c_local.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/driver/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/i2c/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">56728194E73D695E178AF2B34855ADBB</GeneratedChecksum>
-          <UserChecksum dnOrder="5">56728194E73D695E178AF2B34855ADBB</UserChecksum>
+          <GeneratedChecksum dnOrder="4">5EB905590CA7087C5CC181ABFFFB5765</GeneratedChecksum>
+          <UserChecksum dnOrder="5">5EB905590CA7087C5CC181ABFFFB5765</UserChecksum>
         </File>
         <File dnOrder="5">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">drv_maxtouch.c</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/driver/input</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/input/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">4131161BDCB6C6BC3623214A9ABAE2B8</GeneratedChecksum>
-          <UserChecksum dnOrder="5">4131161BDCB6C6BC3623214A9ABAE2B8</UserChecksum>
+          <GeneratedChecksum dnOrder="4">A86BDB5CFCA302B3F14CD9186F740EF6</GeneratedChecksum>
+          <UserChecksum dnOrder="5">A86BDB5CFCA302B3F14CD9186F740EF6</UserChecksum>
         </File>
         <File dnOrder="6">
           <Type dnOrder="0">SOURCE</Type>
@@ -339,8 +339,8 @@
           <Name dnOrder="1">initialization.c</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">45539E025DA7B4B19C2090CAD07996D9</GeneratedChecksum>
-          <UserChecksum dnOrder="5">45539E025DA7B4B19C2090CAD07996D9</UserChecksum>
+          <GeneratedChecksum dnOrder="4">5760BDB39775BD76E904C28A60CF52E3</GeneratedChecksum>
+          <UserChecksum dnOrder="5">5760BDB39775BD76E904C28A60CF52E3</UserChecksum>
         </File>
         <File dnOrder="42">
           <Type dnOrder="0">SOURCE</Type>
@@ -379,8 +379,8 @@
           <Name dnOrder="1">plib_clk.c</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/peripheral/clk/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/clk/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">CAC2DFA2E335E4E4CFDC664637F15E52</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B50FE8D8084B331961B32396941D91DE</UserChecksum>
+          <GeneratedChecksum dnOrder="4">36A24CA52D8FF15D80151A2085606BCC</GeneratedChecksum>
+          <UserChecksum dnOrder="5">36A24CA52D8FF15D80151A2085606BCC</UserChecksum>
         </File>
         <File dnOrder="47">
           <Type dnOrder="0">SOURCE</Type>
@@ -427,8 +427,8 @@
           <Name dnOrder="1">plib_i2c1.c</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/peripheral/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/i2c/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B0AF41CBF63437FA69AC87CA03AB26C0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B0AF41CBF63437FA69AC87CA03AB26C0</UserChecksum>
+          <GeneratedChecksum dnOrder="4">3EC57DF1D78983DC1EF6EB158EE20105</GeneratedChecksum>
+          <UserChecksum dnOrder="5">3EC57DF1D78983DC1EF6EB158EE20105</UserChecksum>
         </File>
         <File dnOrder="53">
           <Type dnOrder="0">SOURCE</Type>
@@ -491,64 +491,64 @@
           <Name dnOrder="1">bsp.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/bsp/</LogicalPath>
           <PhysicalPath dnOrder="3">/bsp/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">BC76C0DD72D583F1AA6AE5900FFA3437</GeneratedChecksum>
-          <UserChecksum dnOrder="5">BC76C0DD72D583F1AA6AE5900FFA3437</UserChecksum>
+          <GeneratedChecksum dnOrder="4">61C968603B4BF599D47ABD843C9B0016</GeneratedChecksum>
+          <UserChecksum dnOrder="5">61C968603B4BF599D47ABD843C9B0016</UserChecksum>
         </File>
         <File dnOrder="61">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">button.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">566731CD57A38BB286128439341663EA</GeneratedChecksum>
-          <UserChecksum dnOrder="5">566731CD57A38BB286128439341663EA</UserChecksum>
+          <GeneratedChecksum dnOrder="4">2C5A9A2659613734E151ECE2F4149DF6</GeneratedChecksum>
+          <UserChecksum dnOrder="5">2C5A9A2659613734E151ECE2F4149DF6</UserChecksum>
         </File>
         <File dnOrder="62">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">button_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">FC776CD06317635C88B0063C626319EB</GeneratedChecksum>
-          <UserChecksum dnOrder="5">FC776CD06317635C88B0063C626319EB</UserChecksum>
+          <GeneratedChecksum dnOrder="4">8A9718BEF949E91984A74C007802B094</GeneratedChecksum>
+          <UserChecksum dnOrder="5">8A9718BEF949E91984A74C007802B094</UserChecksum>
         </File>
         <File dnOrder="63">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">calendar.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">303BF2452A4B6F0BF04D964793D1D1EE</GeneratedChecksum>
-          <UserChecksum dnOrder="5">303BF2452A4B6F0BF04D964793D1D1EE</UserChecksum>
+          <GeneratedChecksum dnOrder="4">02F65CD5B08AFA10990E063281E37EA2</GeneratedChecksum>
+          <UserChecksum dnOrder="5">02F65CD5B08AFA10990E063281E37EA2</UserChecksum>
         </File>
         <File dnOrder="64">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">checkbox.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">39799082C7F125EF0B319A5734D3D492</GeneratedChecksum>
-          <UserChecksum dnOrder="5">39799082C7F125EF0B319A5734D3D492</UserChecksum>
+          <GeneratedChecksum dnOrder="4">2EBAE82D50D1672814F36E2DFCCB5E75</GeneratedChecksum>
+          <UserChecksum dnOrder="5">2EBAE82D50D1672814F36E2DFCCB5E75</UserChecksum>
         </File>
         <File dnOrder="65">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">checkbox_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">1FA6FA87DF42BC45317633188962AAA4</GeneratedChecksum>
-          <UserChecksum dnOrder="5">1FA6FA87DF42BC45317633188962AAA4</UserChecksum>
+          <GeneratedChecksum dnOrder="4">C6F35D5865D9539ED2A8CB9A802BC343</GeneratedChecksum>
+          <UserChecksum dnOrder="5">C6F35D5865D9539ED2A8CB9A802BC343</UserChecksum>
         </File>
         <File dnOrder="66">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">choosecolor.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">4AFE286A0FF5F7617530EC2751B27862</GeneratedChecksum>
-          <UserChecksum dnOrder="5">4AFE286A0FF5F7617530EC2751B27862</UserChecksum>
+          <GeneratedChecksum dnOrder="4">DCBB9FD40FD98739E48C555231E2E5F0</GeneratedChecksum>
+          <UserChecksum dnOrder="5">DCBB9FD40FD98739E48C555231E2E5F0</UserChecksum>
         </File>
         <File dnOrder="67">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">choosefile.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">5D9584FEF198BC37FB827F337B9AD044</GeneratedChecksum>
-          <UserChecksum dnOrder="5">5D9584FEF198BC37FB827F337B9AD044</UserChecksum>
+          <GeneratedChecksum dnOrder="4">1BC6AFD5B6609096FC7910ABBE16647D</GeneratedChecksum>
+          <UserChecksum dnOrder="5">1BC6AFD5B6609096FC7910ABBE16647D</UserChecksum>
         </File>
         <File dnOrder="68">
           <Type dnOrder="0">HEADER</Type>
@@ -579,16 +579,16 @@
           <Name dnOrder="1">dialog.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">C1674107319E1ABF7EC7ED554C3026DE</GeneratedChecksum>
-          <UserChecksum dnOrder="5">C1674107319E1ABF7EC7ED554C3026DE</UserChecksum>
+          <GeneratedChecksum dnOrder="4">146AD4B94080799B9B00658CFFCAC6FF</GeneratedChecksum>
+          <UserChecksum dnOrder="5">146AD4B94080799B9B00658CFFCAC6FF</UserChecksum>
         </File>
         <File dnOrder="72">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">dialog_intern.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">BB8FFC8CA83E9F8DB50236F5D84FE30B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">BB8FFC8CA83E9F8DB50236F5D84FE30B</UserChecksum>
+          <GeneratedChecksum dnOrder="4">07FB0514835D625790833CB2E7009305</GeneratedChecksum>
+          <UserChecksum dnOrder="5">07FB0514835D625790833CB2E7009305</UserChecksum>
         </File>
         <File dnOrder="73">
           <Type dnOrder="0">HEADER</Type>
@@ -611,16 +611,16 @@
           <Name dnOrder="1">dropdown.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">93EF8E02DCD3B75F81B1AE81BF20639C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">93EF8E02DCD3B75F81B1AE81BF20639C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">FF5C3A4EDD175D6FE35712A13EC64E30</GeneratedChecksum>
+          <UserChecksum dnOrder="5">FF5C3A4EDD175D6FE35712A13EC64E30</UserChecksum>
         </File>
         <File dnOrder="76">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">dropdown_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">1E6DB68B104067AC995399040FAF8E7E</GeneratedChecksum>
-          <UserChecksum dnOrder="5">1E6DB68B104067AC995399040FAF8E7E</UserChecksum>
+          <GeneratedChecksum dnOrder="4">F19E572B5F609AC59BAB26172D5BB073</GeneratedChecksum>
+          <UserChecksum dnOrder="5">F19E572B5F609AC59BAB26172D5BB073</UserChecksum>
         </File>
         <File dnOrder="77">
           <Type dnOrder="0">HEADER</Type>
@@ -635,16 +635,16 @@
           <Name dnOrder="1">drv_i2c.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/driver/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/i2c/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">7DC093674665965E223A7AD52F7BAF83</GeneratedChecksum>
-          <UserChecksum dnOrder="5">7DC093674665965E223A7AD52F7BAF83</UserChecksum>
+          <GeneratedChecksum dnOrder="4">C57076A27820E4EDE93AD2DA070AA748</GeneratedChecksum>
+          <UserChecksum dnOrder="5">C57076A27820E4EDE93AD2DA070AA748</UserChecksum>
         </File>
         <File dnOrder="79">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">drv_i2c_definitions.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/driver/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/i2c/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A2D12C1907596C873BA91F3009960CF0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A2D12C1907596C873BA91F3009960CF0</UserChecksum>
+          <GeneratedChecksum dnOrder="4">2872C68B45CE75A8BBBC1DD7F7287282</GeneratedChecksum>
+          <UserChecksum dnOrder="5">2872C68B45CE75A8BBBC1DD7F7287282</UserChecksum>
         </File>
         <File dnOrder="80">
           <Type dnOrder="0">HEADER</Type>
@@ -659,16 +659,16 @@
           <Name dnOrder="1">edit.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">7E2F5D24A3886EEBC41CD6537D30B62E</GeneratedChecksum>
-          <UserChecksum dnOrder="5">7E2F5D24A3886EEBC41CD6537D30B62E</UserChecksum>
+          <GeneratedChecksum dnOrder="4">C4C84C96A7274C3C392A756CDB2A9013</GeneratedChecksum>
+          <UserChecksum dnOrder="5">C4C84C96A7274C3C392A756CDB2A9013</UserChecksum>
         </File>
         <File dnOrder="82">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">edit_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">EACE86E467D1E9C379EB10EF6D64DF80</GeneratedChecksum>
-          <UserChecksum dnOrder="5">EACE86E467D1E9C379EB10EF6D64DF80</UserChecksum>
+          <GeneratedChecksum dnOrder="4">AC129004E2E5A002AFDB2D6D2E4F9DF7</GeneratedChecksum>
+          <UserChecksum dnOrder="5">AC129004E2E5A002AFDB2D6D2E4F9DF7</UserChecksum>
         </File>
         <File dnOrder="83">
           <Type dnOrder="0">HEADER</Type>
@@ -715,16 +715,16 @@
           <Name dnOrder="1">framewin.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">6C2886D916FFB5C64DED50A9153D7A9B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">6C2886D916FFB5C64DED50A9153D7A9B</UserChecksum>
+          <GeneratedChecksum dnOrder="4">C2F8E6C4E152FF4229D6FE0C7824B85B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">C2F8E6C4E152FF4229D6FE0C7824B85B</UserChecksum>
         </File>
         <File dnOrder="89">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">framewin_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">F2AF9507121B65A2FE3D45F02252E35B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">F2AF9507121B65A2FE3D45F02252E35B</UserChecksum>
+          <GeneratedChecksum dnOrder="4">66460EE2714F97D121BBE7BDA9DDE1EC</GeneratedChecksum>
+          <UserChecksum dnOrder="5">66460EE2714F97D121BBE7BDA9DDE1EC</UserChecksum>
         </File>
         <File dnOrder="90">
           <Type dnOrder="0">HEADER</Type>
@@ -931,184 +931,184 @@
           <Name dnOrder="1">global.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">9740963EA9DF44F3081C174FAC33D20B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">9740963EA9DF44F3081C174FAC33D20B</UserChecksum>
+          <GeneratedChecksum dnOrder="4">0087D164A5460935F94EAC9F83858ADC</GeneratedChecksum>
+          <UserChecksum dnOrder="5">0087D164A5460935F94EAC9F83858ADC</UserChecksum>
         </File>
         <File dnOrder="116">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">graph.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A865EE93C12F2710EF56EFAFF9F508A2</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A865EE93C12F2710EF56EFAFF9F508A2</UserChecksum>
+          <GeneratedChecksum dnOrder="4">829EFCE326D006D68F87196387F03B81</GeneratedChecksum>
+          <UserChecksum dnOrder="5">829EFCE326D006D68F87196387F03B81</UserChecksum>
         </File>
         <File dnOrder="117">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">graph_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">D00070D8266D8444A430600BE47E46DE</GeneratedChecksum>
-          <UserChecksum dnOrder="5">D00070D8266D8444A430600BE47E46DE</UserChecksum>
+          <GeneratedChecksum dnOrder="4">C05F0D6732110B7F0805DFD6463AF237</GeneratedChecksum>
+          <UserChecksum dnOrder="5">C05F0D6732110B7F0805DFD6463AF237</UserChecksum>
         </File>
         <File dnOrder="118">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">gui.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">3E80FA7D53C27392E2DD92B0D9553A48</GeneratedChecksum>
-          <UserChecksum dnOrder="5">3E80FA7D53C27392E2DD92B0D9553A48</UserChecksum>
+          <GeneratedChecksum dnOrder="4">0C714DCABF9B2ED86252FF36A4EC5222</GeneratedChecksum>
+          <UserChecksum dnOrder="5">0C714DCABF9B2ED86252FF36A4EC5222</UserChecksum>
         </File>
         <File dnOrder="119">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">gui_array.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">7DA2DB5FF28ABDBFD975737CA00E8187</GeneratedChecksum>
-          <UserChecksum dnOrder="5">7DA2DB5FF28ABDBFD975737CA00E8187</UserChecksum>
+          <GeneratedChecksum dnOrder="4">CB442FA08D6D1D2A2A46A065A22F00A9</GeneratedChecksum>
+          <UserChecksum dnOrder="5">CB442FA08D6D1D2A2A46A065A22F00A9</UserChecksum>
         </File>
         <File dnOrder="120">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">gui_array_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">EB3D52B22963B68C095033F9D95C886F</GeneratedChecksum>
-          <UserChecksum dnOrder="5">EB3D52B22963B68C095033F9D95C886F</UserChecksum>
+          <GeneratedChecksum dnOrder="4">02A0A096ED5B7FA0BDF5EC64513DEBB0</GeneratedChecksum>
+          <UserChecksum dnOrder="5">02A0A096ED5B7FA0BDF5EC64513DEBB0</UserChecksum>
         </File>
         <File dnOrder="121">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">gui_bidi2_brackets_800.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A329BA85C50FA87A68C258DBDBD2D491</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A329BA85C50FA87A68C258DBDBD2D491</UserChecksum>
+          <GeneratedChecksum dnOrder="4">DD5FB7D5891C37D0C9AE4FB8817F8845</GeneratedChecksum>
+          <UserChecksum dnOrder="5">DD5FB7D5891C37D0C9AE4FB8817F8845</UserChecksum>
         </File>
         <File dnOrder="122">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">gui_bidi2_types_800.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">CDC3E1ADA27106BBA8F3FDD6ED58B58C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">CDC3E1ADA27106BBA8F3FDD6ED58B58C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">8E4460109A183817A41EB69859037EB1</GeneratedChecksum>
+          <UserChecksum dnOrder="5">8E4460109A183817A41EB69859037EB1</UserChecksum>
         </File>
         <File dnOrder="123">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">gui_bmp_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">F9CB3195598F86A95D1DD72A03BC1BF0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">F9CB3195598F86A95D1DD72A03BC1BF0</UserChecksum>
+          <GeneratedChecksum dnOrder="4">C1D27FF6556C64B12E1E62AFA0787739</GeneratedChecksum>
+          <UserChecksum dnOrder="5">C1D27FF6556C64B12E1E62AFA0787739</UserChecksum>
         </File>
         <File dnOrder="124">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">gui_confdefaults.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">37A558D766F0F809FB044CD8E1EC841D</GeneratedChecksum>
-          <UserChecksum dnOrder="5">37A558D766F0F809FB044CD8E1EC841D</UserChecksum>
+          <GeneratedChecksum dnOrder="4">247538DE702DC64727FE4F6A395A852C</GeneratedChecksum>
+          <UserChecksum dnOrder="5">247538DE702DC64727FE4F6A395A852C</UserChecksum>
         </File>
         <File dnOrder="125">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">gui_debug.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">FB34B5D2AEDC314E4CF874F924790D1A</GeneratedChecksum>
-          <UserChecksum dnOrder="5">FB34B5D2AEDC314E4CF874F924790D1A</UserChecksum>
+          <GeneratedChecksum dnOrder="4">AAA3E105D0665F03961A66DC923D0F95</GeneratedChecksum>
+          <UserChecksum dnOrder="5">AAA3E105D0665F03961A66DC923D0F95</UserChecksum>
         </File>
         <File dnOrder="126">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">gui_fontintern.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B254D606AC820D51E6BCC47B4F29D29A</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B254D606AC820D51E6BCC47B4F29D29A</UserChecksum>
+          <GeneratedChecksum dnOrder="4">BD724BF99E8E4376411DBC1F52AA5951</GeneratedChecksum>
+          <UserChecksum dnOrder="5">BD724BF99E8E4376411DBC1F52AA5951</UserChecksum>
         </File>
         <File dnOrder="127">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">gui_gcache_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B2D4EAA627AD4FB9A6457C93432A5071</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B2D4EAA627AD4FB9A6457C93432A5071</UserChecksum>
+          <GeneratedChecksum dnOrder="4">A42C5E2ADB1A8AB22FB7820FFB0B8545</GeneratedChecksum>
+          <UserChecksum dnOrder="5">A42C5E2ADB1A8AB22FB7820FFB0B8545</UserChecksum>
         </File>
         <File dnOrder="128">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">gui_gif_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">23100494E6BCB83480B3CE1B19781F63</GeneratedChecksum>
-          <UserChecksum dnOrder="5">23100494E6BCB83480B3CE1B19781F63</UserChecksum>
+          <GeneratedChecksum dnOrder="4">7DF18488152C7856B97C07DF7C7D1FD1</GeneratedChecksum>
+          <UserChecksum dnOrder="5">7DF18488152C7856B97C07DF7C7D1FD1</UserChecksum>
         </File>
         <File dnOrder="129">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">gui_hook.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">D47AF129A83F8F76991A062573B27236</GeneratedChecksum>
-          <UserChecksum dnOrder="5">D47AF129A83F8F76991A062573B27236</UserChecksum>
+          <GeneratedChecksum dnOrder="4">2F8285AE00D570DAA827305B761C222F</GeneratedChecksum>
+          <UserChecksum dnOrder="5">2F8285AE00D570DAA827305B761C222F</UserChecksum>
         </File>
         <File dnOrder="130">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">gui_jpeg_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">8F3935A63A1B66B6DA5CB3AEC3CE12EC</GeneratedChecksum>
-          <UserChecksum dnOrder="5">8F3935A63A1B66B6DA5CB3AEC3CE12EC</UserChecksum>
+          <GeneratedChecksum dnOrder="4">A082094CDA905EA20CDE2E08BF9E5029</GeneratedChecksum>
+          <UserChecksum dnOrder="5">A082094CDA905EA20CDE2E08BF9E5029</UserChecksum>
         </File>
         <File dnOrder="131">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">gui_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">D0512765C8CC56106C45C3AD54AC4864</GeneratedChecksum>
-          <UserChecksum dnOrder="5">D0512765C8CC56106C45C3AD54AC4864</UserChecksum>
+          <GeneratedChecksum dnOrder="4">5DE4984D1BFE3357094E18E9B83CFE35</GeneratedChecksum>
+          <UserChecksum dnOrder="5">5DE4984D1BFE3357094E18E9B83CFE35</UserChecksum>
         </File>
         <File dnOrder="132">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">gui_setorientation.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">2D48BAE7CC697A48279CA5E925C7EE45</GeneratedChecksum>
-          <UserChecksum dnOrder="5">2D48BAE7CC697A48279CA5E925C7EE45</UserChecksum>
+          <GeneratedChecksum dnOrder="4">3DF60D16D645640126CC2939172023A3</GeneratedChecksum>
+          <UserChecksum dnOrder="5">3DF60D16D645640126CC2939172023A3</UserChecksum>
         </File>
         <File dnOrder="133">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">gui_setorientation_cx.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">831663AAD12BD62286508CFAD5AA7EAC</GeneratedChecksum>
-          <UserChecksum dnOrder="5">831663AAD12BD62286508CFAD5AA7EAC</UserChecksum>
+          <GeneratedChecksum dnOrder="4">92A4325382DC8A3D407991D4F072D7E9</GeneratedChecksum>
+          <UserChecksum dnOrder="5">92A4325382DC8A3D407991D4F072D7E9</UserChecksum>
         </File>
         <File dnOrder="134">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">gui_sprite_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">D02F767458E630AFA061C5E1C6B2F69A</GeneratedChecksum>
-          <UserChecksum dnOrder="5">D02F767458E630AFA061C5E1C6B2F69A</UserChecksum>
+          <GeneratedChecksum dnOrder="4">1B58E54F2AF49A662695F0D6809D519C</GeneratedChecksum>
+          <UserChecksum dnOrder="5">1B58E54F2AF49A662695F0D6809D519C</UserChecksum>
         </File>
         <File dnOrder="135">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">gui_type.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">032247E8CB91FEB720B2D1422455916C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">032247E8CB91FEB720B2D1422455916C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">5A254EF23A0C325F8DD56016420C7A14</GeneratedChecksum>
+          <UserChecksum dnOrder="5">5A254EF23A0C325F8DD56016420C7A14</UserChecksum>
         </File>
         <File dnOrder="136">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">gui_version.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B2896B9EB73A2074FAF9059D86DBC81B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B2896B9EB73A2074FAF9059D86DBC81B</UserChecksum>
+          <GeneratedChecksum dnOrder="4">3321EA87663CD84AA8197D70DC2A02C8</GeneratedChecksum>
+          <UserChecksum dnOrder="5">3321EA87663CD84AA8197D70DC2A02C8</UserChecksum>
         </File>
         <File dnOrder="137">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">gui_vnc.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">DE791EEF3CD3EB714A28D6F34BB77F3D</GeneratedChecksum>
-          <UserChecksum dnOrder="5">DE791EEF3CD3EB714A28D6F34BB77F3D</UserChecksum>
+          <GeneratedChecksum dnOrder="4">B1E5427841C188B36588DACA6000AD7C</GeneratedChecksum>
+          <UserChecksum dnOrder="5">B1E5427841C188B36588DACA6000AD7C</UserChecksum>
         </File>
         <File dnOrder="138">
           <Type dnOrder="0">HEADER</Type>
@@ -1123,232 +1123,232 @@
           <Name dnOrder="1">guidrv_dcache.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">FDE08CD2BC21132DCBFD6545DD5B8A76</GeneratedChecksum>
-          <UserChecksum dnOrder="5">FDE08CD2BC21132DCBFD6545DD5B8A76</UserChecksum>
+          <GeneratedChecksum dnOrder="4">66C2DA19CC0A1FE99F0ECDBCAC7B227C</GeneratedChecksum>
+          <UserChecksum dnOrder="5">66C2DA19CC0A1FE99F0ECDBCAC7B227C</UserChecksum>
         </File>
         <File dnOrder="140">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">guidrv_dcache_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">FDE08CD2BC21132DCBFD6545DD5B8A76</GeneratedChecksum>
-          <UserChecksum dnOrder="5">FDE08CD2BC21132DCBFD6545DD5B8A76</UserChecksum>
+          <GeneratedChecksum dnOrder="4">66C2DA19CC0A1FE99F0ECDBCAC7B227C</GeneratedChecksum>
+          <UserChecksum dnOrder="5">66C2DA19CC0A1FE99F0ECDBCAC7B227C</UserChecksum>
         </File>
         <File dnOrder="141">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">guidrv_dist.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">51C351E76E8B85CC9CCF341A3EBB42EF</GeneratedChecksum>
-          <UserChecksum dnOrder="5">51C351E76E8B85CC9CCF341A3EBB42EF</UserChecksum>
+          <GeneratedChecksum dnOrder="4">5BA17D3605D827E85E07D9624E96CBE9</GeneratedChecksum>
+          <UserChecksum dnOrder="5">5BA17D3605D827E85E07D9624E96CBE9</UserChecksum>
         </File>
         <File dnOrder="142">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">guidrv_flexcolor.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">70DDE54361E4EB4A6422655939925F2A</GeneratedChecksum>
-          <UserChecksum dnOrder="5">70DDE54361E4EB4A6422655939925F2A</UserChecksum>
+          <GeneratedChecksum dnOrder="4">ACCA932E715D00CFD69E85728B421843</GeneratedChecksum>
+          <UserChecksum dnOrder="5">ACCA932E715D00CFD69E85728B421843</UserChecksum>
         </File>
         <File dnOrder="143">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">guidrv_lin.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">30B211B4829F92D45FF6B7ADD7D28BFD</GeneratedChecksum>
-          <UserChecksum dnOrder="5">30B211B4829F92D45FF6B7ADD7D28BFD</UserChecksum>
+          <GeneratedChecksum dnOrder="4">7657EE7D0727E2C7BF0806C27EBF0177</GeneratedChecksum>
+          <UserChecksum dnOrder="5">7657EE7D0727E2C7BF0806C27EBF0177</UserChecksum>
         </File>
         <File dnOrder="144">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">guidrv_lin_noopt_1_8.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">7FDC3298AB1289A53CBEB4831FBF26CF</GeneratedChecksum>
-          <UserChecksum dnOrder="5">7FDC3298AB1289A53CBEB4831FBF26CF</UserChecksum>
+          <GeneratedChecksum dnOrder="4">634BBE584B649AA6BC33DB97E984020D</GeneratedChecksum>
+          <UserChecksum dnOrder="5">634BBE584B649AA6BC33DB97E984020D</UserChecksum>
         </File>
         <File dnOrder="145">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">guidrv_lin_opt_16.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">31DA8268D3FB9C03199EC8709C253B2E</GeneratedChecksum>
-          <UserChecksum dnOrder="5">31DA8268D3FB9C03199EC8709C253B2E</UserChecksum>
+          <GeneratedChecksum dnOrder="4">B9B0EEFEDAE903503960F6964ED8FD2E</GeneratedChecksum>
+          <UserChecksum dnOrder="5">B9B0EEFEDAE903503960F6964ED8FD2E</UserChecksum>
         </File>
         <File dnOrder="146">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">guidrv_lin_opt_24.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">577028A7CAA120A4E5642DDB1025A2B9</GeneratedChecksum>
-          <UserChecksum dnOrder="5">577028A7CAA120A4E5642DDB1025A2B9</UserChecksum>
+          <GeneratedChecksum dnOrder="4">8573384159E5ABEE0A4558CE2B399B30</GeneratedChecksum>
+          <UserChecksum dnOrder="5">8573384159E5ABEE0A4558CE2B399B30</UserChecksum>
         </File>
         <File dnOrder="147">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">guidrv_lin_opt_32.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">F0D35652BF77F1E67158098DF8264235</GeneratedChecksum>
-          <UserChecksum dnOrder="5">F0D35652BF77F1E67158098DF8264235</UserChecksum>
+          <GeneratedChecksum dnOrder="4">F73496A7B399DC94D59B341A187FDE0D</GeneratedChecksum>
+          <UserChecksum dnOrder="5">F73496A7B399DC94D59B341A187FDE0D</UserChecksum>
         </File>
         <File dnOrder="148">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">guidrv_lin_opt_8.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E2BA107F48FDB27FDD0103B31A188BB5</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E2BA107F48FDB27FDD0103B31A188BB5</UserChecksum>
+          <GeneratedChecksum dnOrder="4">7272742BF0AFA950DB11F0C5C588D156</GeneratedChecksum>
+          <UserChecksum dnOrder="5">7272742BF0AFA950DB11F0C5C588D156</UserChecksum>
         </File>
         <File dnOrder="149">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">guidrv_lin_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">1A2ED5644EA1381A164F46C07A94AC57</GeneratedChecksum>
-          <UserChecksum dnOrder="5">1A2ED5644EA1381A164F46C07A94AC57</UserChecksum>
+          <GeneratedChecksum dnOrder="4">19D5D04EBE56A180EE5E030A0871DCEF</GeneratedChecksum>
+          <UserChecksum dnOrder="5">19D5D04EBE56A180EE5E030A0871DCEF</UserChecksum>
         </File>
         <File dnOrder="150">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">guidrv_s1d13517.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">7953332274167391F42DF3D78C70EC75</GeneratedChecksum>
-          <UserChecksum dnOrder="5">7953332274167391F42DF3D78C70EC75</UserChecksum>
+          <GeneratedChecksum dnOrder="4">628E2C0EB71AF2807AB3E26AB609A927</GeneratedChecksum>
+          <UserChecksum dnOrder="5">628E2C0EB71AF2807AB3E26AB609A927</UserChecksum>
         </File>
         <File dnOrder="151">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">guidrv_s1d13517_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">8615BEA482B57363A87218B8FD5EC37C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">8615BEA482B57363A87218B8FD5EC37C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">4913698F9AEAD2EB823DDBC915017FAD</GeneratedChecksum>
+          <UserChecksum dnOrder="5">4913698F9AEAD2EB823DDBC915017FAD</UserChecksum>
         </File>
         <File dnOrder="152">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">guidrv_template.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">F8BC568E37261C177CE5CC203449858F</GeneratedChecksum>
-          <UserChecksum dnOrder="5">F8BC568E37261C177CE5CC203449858F</UserChecksum>
+          <GeneratedChecksum dnOrder="4">9932B7EE50F9B2314684DCFB8A3DAA62</GeneratedChecksum>
+          <UserChecksum dnOrder="5">9932B7EE50F9B2314684DCFB8A3DAA62</UserChecksum>
         </File>
         <File dnOrder="153">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">guidrv_templatei.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">851244E3727CABBBB577B2C6D23A02A7</GeneratedChecksum>
-          <UserChecksum dnOrder="5">851244E3727CABBBB577B2C6D23A02A7</UserChecksum>
+          <GeneratedChecksum dnOrder="4">92BEEFA0A348FA4E780859849CF7B9A1</GeneratedChecksum>
+          <UserChecksum dnOrder="5">92BEEFA0A348FA4E780859849CF7B9A1</UserChecksum>
         </File>
         <File dnOrder="154">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">guidrv_templatei_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">FD67D05F6871BA0CAB129E14A96C84C4</GeneratedChecksum>
-          <UserChecksum dnOrder="5">FD67D05F6871BA0CAB129E14A96C84C4</UserChecksum>
+          <GeneratedChecksum dnOrder="4">59FF521A9D55A4AABD367F204B4534D8</GeneratedChecksum>
+          <UserChecksum dnOrder="5">59FF521A9D55A4AABD367F204B4534D8</UserChecksum>
         </File>
         <File dnOrder="155">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">header.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">4AAA37C0F60732AF25468B490532B8EF</GeneratedChecksum>
-          <UserChecksum dnOrder="5">4AAA37C0F60732AF25468B490532B8EF</UserChecksum>
+          <GeneratedChecksum dnOrder="4">95F39D0D8AE9265CA0C5E1F49F24EC62</GeneratedChecksum>
+          <UserChecksum dnOrder="5">95F39D0D8AE9265CA0C5E1F49F24EC62</UserChecksum>
         </File>
         <File dnOrder="156">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">header_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A42CCE0D81E0FA4B039C6A93997C92DD</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A42CCE0D81E0FA4B039C6A93997C92DD</UserChecksum>
+          <GeneratedChecksum dnOrder="4">EA5DD4E91E1B4FA659D1F9227065CD77</GeneratedChecksum>
+          <UserChecksum dnOrder="5">EA5DD4E91E1B4FA659D1F9227065CD77</UserChecksum>
         </File>
         <File dnOrder="157">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">iconview.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">4217CF2A76A4A6296B118395A0210C30</GeneratedChecksum>
-          <UserChecksum dnOrder="5">4217CF2A76A4A6296B118395A0210C30</UserChecksum>
+          <GeneratedChecksum dnOrder="4">FAA1DC0E4D48165D4D340D052EDBB4C2</GeneratedChecksum>
+          <UserChecksum dnOrder="5">FAA1DC0E4D48165D4D340D052EDBB4C2</UserChecksum>
         </File>
         <File dnOrder="158">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">iconview_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">DC053CFE9A264AE645BC0F62AD650AAA</GeneratedChecksum>
-          <UserChecksum dnOrder="5">DC053CFE9A264AE645BC0F62AD650AAA</UserChecksum>
+          <GeneratedChecksum dnOrder="4">396A0FF39F1617518B1C1B370D0C2DAF</GeneratedChecksum>
+          <UserChecksum dnOrder="5">396A0FF39F1617518B1C1B370D0C2DAF</UserChecksum>
         </File>
         <File dnOrder="159">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">image.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">76BEB52B1A1A24A0A8A9F4BE5013DF97</GeneratedChecksum>
-          <UserChecksum dnOrder="5">76BEB52B1A1A24A0A8A9F4BE5013DF97</UserChecksum>
+          <GeneratedChecksum dnOrder="4">979C9044A4D8BF4275E8095A9F51F7DF</GeneratedChecksum>
+          <UserChecksum dnOrder="5">979C9044A4D8BF4275E8095A9F51F7DF</UserChecksum>
         </File>
         <File dnOrder="160">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">image_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">9AAB0160D11DFA88FF917D691BBB4F9B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">9AAB0160D11DFA88FF917D691BBB4F9B</UserChecksum>
+          <GeneratedChecksum dnOrder="4">2563EFB630461CC802CC870444044FB0</GeneratedChecksum>
+          <UserChecksum dnOrder="5">2563EFB630461CC802CC870444044FB0</UserChecksum>
         </File>
         <File dnOrder="161">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">ip_fs.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">44B108C4793353C6FF1428EFA8536F61</GeneratedChecksum>
-          <UserChecksum dnOrder="5">44B108C4793353C6FF1428EFA8536F61</UserChecksum>
+          <GeneratedChecksum dnOrder="4">0E8C3F378009A7D9E7D7BC2005B5F1AC</GeneratedChecksum>
+          <UserChecksum dnOrder="5">0E8C3F378009A7D9E7D7BC2005B5F1AC</UserChecksum>
         </File>
         <File dnOrder="162">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">knob.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">8CD1712BE32A3298A990BEB1790996AA</GeneratedChecksum>
-          <UserChecksum dnOrder="5">8CD1712BE32A3298A990BEB1790996AA</UserChecksum>
+          <GeneratedChecksum dnOrder="4">510EC05B35CB15089CDD8C39EECB2B86</GeneratedChecksum>
+          <UserChecksum dnOrder="5">510EC05B35CB15089CDD8C39EECB2B86</UserChecksum>
         </File>
         <File dnOrder="163">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">knob_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">2FB43A8800FD3945FC339DC68E64A7EC</GeneratedChecksum>
-          <UserChecksum dnOrder="5">2FB43A8800FD3945FC339DC68E64A7EC</UserChecksum>
+          <GeneratedChecksum dnOrder="4">B1E21048D2F7D117994D92C27DA97AF8</GeneratedChecksum>
+          <UserChecksum dnOrder="5">B1E21048D2F7D117994D92C27DA97AF8</UserChecksum>
         </File>
         <File dnOrder="164">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">lcd.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">5BDC99335E595B6D22F20230FFCF5EB2</GeneratedChecksum>
-          <UserChecksum dnOrder="5">5BDC99335E595B6D22F20230FFCF5EB2</UserChecksum>
+          <GeneratedChecksum dnOrder="4">D39A477F17478BE5783AAFA88868CF96</GeneratedChecksum>
+          <UserChecksum dnOrder="5">D39A477F17478BE5783AAFA88868CF96</UserChecksum>
         </File>
         <File dnOrder="165">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">lcd_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">66A10D55C8B9FE1099EBC5E7F2AFE42E</GeneratedChecksum>
-          <UserChecksum dnOrder="5">66A10D55C8B9FE1099EBC5E7F2AFE42E</UserChecksum>
+          <GeneratedChecksum dnOrder="4">7A293BC87582F435711164B8B474713E</GeneratedChecksum>
+          <UserChecksum dnOrder="5">7A293BC87582F435711164B8B474713E</UserChecksum>
         </File>
         <File dnOrder="166">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">lcd_protected.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">58C75DC9CD08B37C5DBEE2DA11801003</GeneratedChecksum>
-          <UserChecksum dnOrder="5">58C75DC9CD08B37C5DBEE2DA11801003</UserChecksum>
+          <GeneratedChecksum dnOrder="4">56DA8F427A780F1E5F95304C1733C603</GeneratedChecksum>
+          <UserChecksum dnOrder="5">56DA8F427A780F1E5F95304C1733C603</UserChecksum>
         </File>
         <File dnOrder="167">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">lcd_sim.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">CA0A39A07D246FFA2CDA83AFCDD49553</GeneratedChecksum>
-          <UserChecksum dnOrder="5">CA0A39A07D246FFA2CDA83AFCDD49553</UserChecksum>
+          <GeneratedChecksum dnOrder="4">09D91C377C403159C514C9BC1FAE9174</GeneratedChecksum>
+          <UserChecksum dnOrder="5">09D91C377C403159C514C9BC1FAE9174</UserChecksum>
         </File>
         <File dnOrder="168">
           <Type dnOrder="0">HEADER</Type>
@@ -1371,96 +1371,96 @@
           <Name dnOrder="1">listbox.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E21580D54B5D7D904B0FC35C89A8A281</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E21580D54B5D7D904B0FC35C89A8A281</UserChecksum>
+          <GeneratedChecksum dnOrder="4">335399B9A471796998BF33B643C98A50</GeneratedChecksum>
+          <UserChecksum dnOrder="5">335399B9A471796998BF33B643C98A50</UserChecksum>
         </File>
         <File dnOrder="171">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">listbox_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">103645506C86EF577FA360703D8A608C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">103645506C86EF577FA360703D8A608C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">891F257E4EC38E33061DC45A05B57AF4</GeneratedChecksum>
+          <UserChecksum dnOrder="5">891F257E4EC38E33061DC45A05B57AF4</UserChecksum>
         </File>
         <File dnOrder="172">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">listview.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">5E52EF6547CDEEB7E9D0AD3B0D3752D9</GeneratedChecksum>
-          <UserChecksum dnOrder="5">5E52EF6547CDEEB7E9D0AD3B0D3752D9</UserChecksum>
+          <GeneratedChecksum dnOrder="4">A54A959A79A312A0DA50B6B637F2D70C</GeneratedChecksum>
+          <UserChecksum dnOrder="5">A54A959A79A312A0DA50B6B637F2D70C</UserChecksum>
         </File>
         <File dnOrder="173">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">listview_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">103645506C86EF577FA360703D8A608C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">103645506C86EF577FA360703D8A608C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">891F257E4EC38E33061DC45A05B57AF4</GeneratedChecksum>
+          <UserChecksum dnOrder="5">891F257E4EC38E33061DC45A05B57AF4</UserChecksum>
         </File>
         <File dnOrder="174">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">listwheel.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B21B61462C2589B8C4124C6FBEC5D391</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B21B61462C2589B8C4124C6FBEC5D391</UserChecksum>
+          <GeneratedChecksum dnOrder="4">927E9EC6E62321EECFBD2BB011F5A11F</GeneratedChecksum>
+          <UserChecksum dnOrder="5">927E9EC6E62321EECFBD2BB011F5A11F</UserChecksum>
         </File>
         <File dnOrder="175">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">listwheel_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">103645506C86EF577FA360703D8A608C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">103645506C86EF577FA360703D8A608C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">891F257E4EC38E33061DC45A05B57AF4</GeneratedChecksum>
+          <UserChecksum dnOrder="5">891F257E4EC38E33061DC45A05B57AF4</UserChecksum>
         </File>
         <File dnOrder="176">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">menu.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">0B1499ABC82BAB4D879FB6540A952C55</GeneratedChecksum>
-          <UserChecksum dnOrder="5">0B1499ABC82BAB4D879FB6540A952C55</UserChecksum>
+          <GeneratedChecksum dnOrder="4">BB5C32B35177270F2CECA6B5890902E2</GeneratedChecksum>
+          <UserChecksum dnOrder="5">BB5C32B35177270F2CECA6B5890902E2</UserChecksum>
         </File>
         <File dnOrder="177">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">menu_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E98C304CB6849CB88363673088C58088</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E98C304CB6849CB88363673088C58088</UserChecksum>
+          <GeneratedChecksum dnOrder="4">A3937EDBD003BDDC637B0A334C5BC033</GeneratedChecksum>
+          <UserChecksum dnOrder="5">A3937EDBD003BDDC637B0A334C5BC033</UserChecksum>
         </File>
         <File dnOrder="178">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">messagebox.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">620DDDF843E6E7FFA3553926CAA1CB26</GeneratedChecksum>
-          <UserChecksum dnOrder="5">620DDDF843E6E7FFA3553926CAA1CB26</UserChecksum>
+          <GeneratedChecksum dnOrder="4">ABE4373BE33F8C5604DA7B97800DF6D4</GeneratedChecksum>
+          <UserChecksum dnOrder="5">ABE4373BE33F8C5604DA7B97800DF6D4</UserChecksum>
         </File>
         <File dnOrder="179">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">multiedit.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">03676DA8527CADD1223D99EE9889E9E4</GeneratedChecksum>
-          <UserChecksum dnOrder="5">03676DA8527CADD1223D99EE9889E9E4</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6A5BB9C8843924E1D4FEBFCFF0B1AE9D</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6A5BB9C8843924E1D4FEBFCFF0B1AE9D</UserChecksum>
         </File>
         <File dnOrder="180">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">multipage.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">610D50EADE104E6C934E0B38AECCE481</GeneratedChecksum>
-          <UserChecksum dnOrder="5">610D50EADE104E6C934E0B38AECCE481</UserChecksum>
+          <GeneratedChecksum dnOrder="4">1CDBF6DE226DCE6EE1D606CDC10C674E</GeneratedChecksum>
+          <UserChecksum dnOrder="5">1CDBF6DE226DCE6EE1D606CDC10C674E</UserChecksum>
         </File>
         <File dnOrder="181">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">multipage_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A149A0FBCF86318FE9EF400463155EBC</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A149A0FBCF86318FE9EF400463155EBC</UserChecksum>
+          <GeneratedChecksum dnOrder="4">7E74E1A221B2932876242B88B98BF4D2</GeneratedChecksum>
+          <UserChecksum dnOrder="5">7E74E1A221B2932876242B88B98BF4D2</UserChecksum>
         </File>
         <File dnOrder="182">
           <Type dnOrder="0">HEADER</Type>
@@ -1499,8 +1499,8 @@
           <Name dnOrder="1">plib_coretimer.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/peripheral/coretimer/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/coretimer/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B56E73929AA8C9899F0BA761F7053A87</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B56E73929AA8C9899F0BA761F7053A87</UserChecksum>
+          <GeneratedChecksum dnOrder="4">77E2C83A700CD1F724CFD90ED3AA2B71</GeneratedChecksum>
+          <UserChecksum dnOrder="5">77E2C83A700CD1F724CFD90ED3AA2B71</UserChecksum>
         </File>
         <File dnOrder="187">
           <Type dnOrder="0">HEADER</Type>
@@ -1539,122 +1539,138 @@
           <Name dnOrder="1">plib_i2c1.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/peripheral/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/i2c/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">6B7CE55C6287B6BC5FB3FE9E26DC7BB8</GeneratedChecksum>
-          <UserChecksum dnOrder="5">6B7CE55C6287B6BC5FB3FE9E26DC7BB8</UserChecksum>
+          <GeneratedChecksum dnOrder="4">D9FABFEA435EFF1F4FD9B61917E54CD1</GeneratedChecksum>
+          <UserChecksum dnOrder="5">D9FABFEA435EFF1F4FD9B61917E54CD1</UserChecksum>
         </File>
         <File dnOrder="192">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_i2c_master.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/peripheral/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/i2c/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">FE1F77611D435D0C55012B2886CFBD69</GeneratedChecksum>
-          <UserChecksum dnOrder="5">FE1F77611D435D0C55012B2886CFBD69</UserChecksum>
+          <GeneratedChecksum dnOrder="4">0CE7018D4B951DF14C45D3AC2E8F9B19</GeneratedChecksum>
+          <UserChecksum dnOrder="5">0CE7018D4B951DF14C45D3AC2E8F9B19</UserChecksum>
         </File>
         <File dnOrder="193">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">progbar.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">5CCC5BA34A6DD09439AAC9FD1B9247ED</GeneratedChecksum>
-          <UserChecksum dnOrder="5">5CCC5BA34A6DD09439AAC9FD1B9247ED</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6D3354553F2AFADA7435E40F0737DAEF</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6D3354553F2AFADA7435E40F0737DAEF</UserChecksum>
         </File>
         <File dnOrder="194">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">progbar_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">1C29B9CF5D04C30A9FECEB0205452278</GeneratedChecksum>
-          <UserChecksum dnOrder="5">1C29B9CF5D04C30A9FECEB0205452278</UserChecksum>
+          <GeneratedChecksum dnOrder="4">7E8CEC6DEB6CE03B82D3DBE13A27F80C</GeneratedChecksum>
+          <UserChecksum dnOrder="5">7E8CEC6DEB6CE03B82D3DBE13A27F80C</UserChecksum>
         </File>
         <File dnOrder="195">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">radio.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">D725EA53D6E912DA481C2104BF82608F</GeneratedChecksum>
-          <UserChecksum dnOrder="5">D725EA53D6E912DA481C2104BF82608F</UserChecksum>
+          <GeneratedChecksum dnOrder="4">CB7E6037E8BA37603BAE8043726A589F</GeneratedChecksum>
+          <UserChecksum dnOrder="5">CB7E6037E8BA37603BAE8043726A589F</UserChecksum>
         </File>
         <File dnOrder="196">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">radio_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">9052667AAF085A1D3EEB490E32AE27D3</GeneratedChecksum>
-          <UserChecksum dnOrder="5">9052667AAF085A1D3EEB490E32AE27D3</UserChecksum>
+          <GeneratedChecksum dnOrder="4">705BA7E04D38ACADFFB88C4958301656</GeneratedChecksum>
+          <UserChecksum dnOrder="5">705BA7E04D38ACADFFB88C4958301656</UserChecksum>
         </File>
         <File dnOrder="197">
+          <Type dnOrder="0">HEADER</Type>
+          <Name dnOrder="1">rotary.h</Name>
+          <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
+          <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
+          <GeneratedChecksum dnOrder="4">5E88816B17B4D2A6BD4C23517A69A805</GeneratedChecksum>
+          <UserChecksum dnOrder="5">5E88816B17B4D2A6BD4C23517A69A805</UserChecksum>
+        </File>
+        <File dnOrder="198">
+          <Type dnOrder="0">HEADER</Type>
+          <Name dnOrder="1">rotary_private.h</Name>
+          <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
+          <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
+          <GeneratedChecksum dnOrder="4">7C6935C521D73067A8CF27D59FBD41D2</GeneratedChecksum>
+          <UserChecksum dnOrder="5">7C6935C521D73067A8CF27D59FBD41D2</UserChecksum>
+        </File>
+        <File dnOrder="199">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">scrollbar.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">EAB987F7EED95610E4F605B378B14A09</GeneratedChecksum>
-          <UserChecksum dnOrder="5">EAB987F7EED95610E4F605B378B14A09</UserChecksum>
+          <GeneratedChecksum dnOrder="4">E1FC8C68E7D8B73261E2297DEDC29BA8</GeneratedChecksum>
+          <UserChecksum dnOrder="5">E1FC8C68E7D8B73261E2297DEDC29BA8</UserChecksum>
         </File>
-        <File dnOrder="198">
+        <File dnOrder="200">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">scrollbar_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">5BE9F47622C01068B584796ED58F73C4</GeneratedChecksum>
-          <UserChecksum dnOrder="5">5BE9F47622C01068B584796ED58F73C4</UserChecksum>
+          <GeneratedChecksum dnOrder="4">73A9B23CA013A89B0C4B7B2B23E8BA55</GeneratedChecksum>
+          <UserChecksum dnOrder="5">73A9B23CA013A89B0C4B7B2B23E8BA55</UserChecksum>
         </File>
-        <File dnOrder="199">
+        <File dnOrder="201">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">segger.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">3A67421B0EB3577F713D9F01FC20DF9B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">3A67421B0EB3577F713D9F01FC20DF9B</UserChecksum>
+          <GeneratedChecksum dnOrder="4">8FE490CE71EA33704AF61513F57CDDCB</GeneratedChecksum>
+          <UserChecksum dnOrder="5">8FE490CE71EA33704AF61513F57CDDCB</UserChecksum>
         </File>
-        <File dnOrder="200">
+        <File dnOrder="202">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">slider.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">09B896F42232F3C1139873CCD47D7933</GeneratedChecksum>
-          <UserChecksum dnOrder="5">09B896F42232F3C1139873CCD47D7933</UserChecksum>
+          <GeneratedChecksum dnOrder="4">7B916E9F0E199CF42597B4466D529655</GeneratedChecksum>
+          <UserChecksum dnOrder="5">7B916E9F0E199CF42597B4466D529655</UserChecksum>
         </File>
-        <File dnOrder="201">
+        <File dnOrder="203">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">slider_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">1D885F3B3E3A3E39D9B85E3FA95E7BBD</GeneratedChecksum>
-          <UserChecksum dnOrder="5">1D885F3B3E3A3E39D9B85E3FA95E7BBD</UserChecksum>
+          <GeneratedChecksum dnOrder="4">5649D8D1B1478E8B22B8082536F61784</GeneratedChecksum>
+          <UserChecksum dnOrder="5">5649D8D1B1478E8B22B8082536F61784</UserChecksum>
         </File>
-        <File dnOrder="202">
+        <File dnOrder="204">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">spinbox.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">7170458445A4F824990E3A5F9973BD3C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">7170458445A4F824990E3A5F9973BD3C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">3B84FDA06BF636983AC8A2FE4A748D83</GeneratedChecksum>
+          <UserChecksum dnOrder="5">3B84FDA06BF636983AC8A2FE4A748D83</UserChecksum>
         </File>
-        <File dnOrder="203">
+        <File dnOrder="205">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">spinbox_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">3B321EDB4F7280B457B2009D1BE20B9A</GeneratedChecksum>
-          <UserChecksum dnOrder="5">3B321EDB4F7280B457B2009D1BE20B9A</UserChecksum>
+          <GeneratedChecksum dnOrder="4">E42769F784DD1D9268D9F5521D004D94</GeneratedChecksum>
+          <UserChecksum dnOrder="5">E42769F784DD1D9268D9F5521D004D94</UserChecksum>
         </File>
-        <File dnOrder="204">
+        <File dnOrder="206">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">swipelist.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">FBABFA2AAE27AD957F1A041BA0F27E63</GeneratedChecksum>
-          <UserChecksum dnOrder="5">FBABFA2AAE27AD957F1A041BA0F27E63</UserChecksum>
+          <GeneratedChecksum dnOrder="4">A98EB93A3E96046672D4F8171E7DBB05</GeneratedChecksum>
+          <UserChecksum dnOrder="5">A98EB93A3E96046672D4F8171E7DBB05</UserChecksum>
         </File>
-        <File dnOrder="205">
+        <File dnOrder="207">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">swipelist_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">238B667FE9DFC4E69421573F51A68093</GeneratedChecksum>
-          <UserChecksum dnOrder="5">238B667FE9DFC4E69421573F51A68093</UserChecksum>
+          <GeneratedChecksum dnOrder="4">17E18E0453D5B546A1A5BFC88E9CF586</GeneratedChecksum>
+          <UserChecksum dnOrder="5">17E18E0453D5B546A1A5BFC88E9CF586</UserChecksum>
         </File>
-        <File dnOrder="206">
+        <File dnOrder="208">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_input.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/system/input</LogicalPath>
@@ -1662,7 +1678,7 @@
           <GeneratedChecksum dnOrder="4">E46CD03317E52EB0289EEDFD75955911</GeneratedChecksum>
           <UserChecksum dnOrder="5">E46CD03317E52EB0289EEDFD75955911</UserChecksum>
         </File>
-        <File dnOrder="207">
+        <File dnOrder="209">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_input_gesture.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/system/input</LogicalPath>
@@ -1670,7 +1686,7 @@
           <GeneratedChecksum dnOrder="4">A863ECB93BE89231B0C73CF6EBBD8E8D</GeneratedChecksum>
           <UserChecksum dnOrder="5">A863ECB93BE89231B0C73CF6EBBD8E8D</UserChecksum>
         </File>
-        <File dnOrder="208">
+        <File dnOrder="210">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_input_keyboard.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/system/input</LogicalPath>
@@ -1678,7 +1694,7 @@
           <GeneratedChecksum dnOrder="4">B849D1EDFFC06E0D56A93A80AE8A76D1</GeneratedChecksum>
           <UserChecksum dnOrder="5">B849D1EDFFC06E0D56A93A80AE8A76D1</UserChecksum>
         </File>
-        <File dnOrder="209">
+        <File dnOrder="211">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_input_listener.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/system/input</LogicalPath>
@@ -1686,7 +1702,7 @@
           <GeneratedChecksum dnOrder="4">AADAC81B4AD8450C9E63F467185E6071</GeneratedChecksum>
           <UserChecksum dnOrder="5">AADAC81B4AD8450C9E63F467185E6071</UserChecksum>
         </File>
-        <File dnOrder="210">
+        <File dnOrder="212">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_input_mouse.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/system/input</LogicalPath>
@@ -1694,7 +1710,7 @@
           <GeneratedChecksum dnOrder="4">6F84622A4CCDDC262324A8CBD73C8137</GeneratedChecksum>
           <UserChecksum dnOrder="5">6F84622A4CCDDC262324A8CBD73C8137</UserChecksum>
         </File>
-        <File dnOrder="211">
+        <File dnOrder="213">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_input_touch.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/system/input</LogicalPath>
@@ -1702,7 +1718,7 @@
           <GeneratedChecksum dnOrder="4">B7CD2C89CC5063C931217935D7FA1460</GeneratedChecksum>
           <UserChecksum dnOrder="5">B7CD2C89CC5063C931217935D7FA1460</UserChecksum>
         </File>
-        <File dnOrder="212">
+        <File dnOrder="214">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_int.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/system/int/</LogicalPath>
@@ -1710,7 +1726,7 @@
           <GeneratedChecksum dnOrder="4">47330C2D8F204B2B69F8A86240A564B6</GeneratedChecksum>
           <UserChecksum dnOrder="5">47330C2D8F204B2B69F8A86240A564B6</UserChecksum>
         </File>
-        <File dnOrder="213">
+        <File dnOrder="215">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_int_mapping.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/system/int/</LogicalPath>
@@ -1718,7 +1734,7 @@
           <GeneratedChecksum dnOrder="4">FC7B55936A09E0CA1395AE4DFB1A188F</GeneratedChecksum>
           <UserChecksum dnOrder="5">FC7B55936A09E0CA1395AE4DFB1A188F</UserChecksum>
         </File>
-        <File dnOrder="214">
+        <File dnOrder="216">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_time.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/system/time/</LogicalPath>
@@ -1726,7 +1742,7 @@
           <GeneratedChecksum dnOrder="4">5B1C0201624F17531B457421E59F38CD</GeneratedChecksum>
           <UserChecksum dnOrder="5">5B1C0201624F17531B457421E59F38CD</UserChecksum>
         </File>
-        <File dnOrder="215">
+        <File dnOrder="217">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_time_definitions.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/system/time/</LogicalPath>
@@ -1734,7 +1750,7 @@
           <GeneratedChecksum dnOrder="4">F8165EAB8A02643100386E92CD7EB3C6</GeneratedChecksum>
           <UserChecksum dnOrder="5">F8165EAB8A02643100386E92CD7EB3C6</UserChecksum>
         </File>
-        <File dnOrder="216">
+        <File dnOrder="218">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_time_local.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/system/time/</LogicalPath>
@@ -1742,7 +1758,7 @@
           <GeneratedChecksum dnOrder="4">62F39464265EC34979649F761FB4FE57</GeneratedChecksum>
           <UserChecksum dnOrder="5">62F39464265EC34979649F761FB4FE57</UserChecksum>
         </File>
-        <File dnOrder="217">
+        <File dnOrder="219">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">system.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/system/</LogicalPath>
@@ -1750,7 +1766,7 @@
           <GeneratedChecksum dnOrder="4">BE95B4F134C5C929787B9DA6FDBF3501</GeneratedChecksum>
           <UserChecksum dnOrder="5">BE95B4F134C5C929787B9DA6FDBF3501</UserChecksum>
         </File>
-        <File dnOrder="218">
+        <File dnOrder="220">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">system_common.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/system/</LogicalPath>
@@ -1758,7 +1774,7 @@
           <GeneratedChecksum dnOrder="4">C3F5136D520DAC4416512EBFCCA023C3</GeneratedChecksum>
           <UserChecksum dnOrder="5">C3F5136D520DAC4416512EBFCCA023C3</UserChecksum>
         </File>
-        <File dnOrder="219">
+        <File dnOrder="221">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">system_module.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/system/</LogicalPath>
@@ -1766,23 +1782,23 @@
           <GeneratedChecksum dnOrder="4">1C75A8A6B60598A2FD0D533F57839B72</GeneratedChecksum>
           <UserChecksum dnOrder="5">1C75A8A6B60598A2FD0D533F57839B72</UserChecksum>
         </File>
-        <File dnOrder="220">
+        <File dnOrder="222">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">text.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">677350633E049C76EDB0768E387FE422</GeneratedChecksum>
-          <UserChecksum dnOrder="5">677350633E049C76EDB0768E387FE422</UserChecksum>
+          <GeneratedChecksum dnOrder="4">8F1BE5A72AB076DFD48780AF3AE05728</GeneratedChecksum>
+          <UserChecksum dnOrder="5">8F1BE5A72AB076DFD48780AF3AE05728</UserChecksum>
         </File>
-        <File dnOrder="221">
+        <File dnOrder="223">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">text_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B8D709E7C7430EA92D8DBA8ECC76FC55</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B8D709E7C7430EA92D8DBA8ECC76FC55</UserChecksum>
+          <GeneratedChecksum dnOrder="4">59F907D6DDE204392A6837AD8DF4EFA4</GeneratedChecksum>
+          <UserChecksum dnOrder="5">59F907D6DDE204392A6837AD8DF4EFA4</UserChecksum>
         </File>
-        <File dnOrder="222">
+        <File dnOrder="224">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">toolchain_specifics.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/</LogicalPath>
@@ -1790,23 +1806,23 @@
           <GeneratedChecksum dnOrder="4">F7924D60AC5CC08996AB2DAEC62D3C54</GeneratedChecksum>
           <UserChecksum dnOrder="5">F7924D60AC5CC08996AB2DAEC62D3C54</UserChecksum>
         </File>
-        <File dnOrder="223">
+        <File dnOrder="225">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">treeview.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">ADB195B04B94070F78734DAB82424516</GeneratedChecksum>
-          <UserChecksum dnOrder="5">ADB195B04B94070F78734DAB82424516</UserChecksum>
+          <GeneratedChecksum dnOrder="4">4802F7685151705C5EFDE2F0C3B8D3E8</GeneratedChecksum>
+          <UserChecksum dnOrder="5">4802F7685151705C5EFDE2F0C3B8D3E8</UserChecksum>
         </File>
-        <File dnOrder="224">
+        <File dnOrder="226">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">treeview_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">4A3DCC4864BE4F1ADD7C1DD794D2E7B4</GeneratedChecksum>
-          <UserChecksum dnOrder="5">4A3DCC4864BE4F1ADD7C1DD794D2E7B4</UserChecksum>
+          <GeneratedChecksum dnOrder="4">1097AAF5B8DA7D4005FC78C60BDBC0D8</GeneratedChecksum>
+          <UserChecksum dnOrder="5">1097AAF5B8DA7D4005FC78C60BDBC0D8</UserChecksum>
         </File>
-        <File dnOrder="225">
+        <File dnOrder="227">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">user.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/</LogicalPath>
@@ -1814,45 +1830,45 @@
           <GeneratedChecksum dnOrder="4"/>
           <UserChecksum dnOrder="5"/>
         </File>
-        <File dnOrder="226">
+        <File dnOrder="228">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">widget.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">AD2F6A398692C1A3FBFF45D5876CA240</GeneratedChecksum>
-          <UserChecksum dnOrder="5">AD2F6A398692C1A3FBFF45D5876CA240</UserChecksum>
+          <GeneratedChecksum dnOrder="4">3C998ADDD09298ED4275E06C213F69AA</GeneratedChecksum>
+          <UserChecksum dnOrder="5">3C998ADDD09298ED4275E06C213F69AA</UserChecksum>
         </File>
-        <File dnOrder="227">
+        <File dnOrder="229">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">window_private.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">DDCF8344E72E41ED5CFE65BD9AB14C54</GeneratedChecksum>
-          <UserChecksum dnOrder="5">DDCF8344E72E41ED5CFE65BD9AB14C54</UserChecksum>
+          <GeneratedChecksum dnOrder="4">C922414A93D1E9700C60049E90D218DF</GeneratedChecksum>
+          <UserChecksum dnOrder="5">C922414A93D1E9700C60049E90D218DF</UserChecksum>
         </File>
-        <File dnOrder="228">
+        <File dnOrder="230">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">wm.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A00C58D047F9610FF77D11D0EF96AADB</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A00C58D047F9610FF77D11D0EF96AADB</UserChecksum>
+          <GeneratedChecksum dnOrder="4">55EA17E75710D737CDA659EA5DD3D429</GeneratedChecksum>
+          <UserChecksum dnOrder="5">55EA17E75710D737CDA659EA5DD3D429</UserChecksum>
         </File>
-        <File dnOrder="229">
+        <File dnOrder="231">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">wm_gui.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">972128997A61994EAF3FEFD39895DEBF</GeneratedChecksum>
-          <UserChecksum dnOrder="5">972128997A61994EAF3FEFD39895DEBF</UserChecksum>
+          <GeneratedChecksum dnOrder="4">99621593EF8698A4EFF33BDDE1E9FEFE</GeneratedChecksum>
+          <UserChecksum dnOrder="5">99621593EF8698A4EFF33BDDE1E9FEFE</UserChecksum>
         </File>
-        <File dnOrder="230">
+        <File dnOrder="232">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">wm_intern.h</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/emwin/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">50334EC18277A177B58C448268D091DE</GeneratedChecksum>
-          <UserChecksum dnOrder="5">50334EC18277A177B58C448268D091DE</UserChecksum>
+          <GeneratedChecksum dnOrder="4">28C28009BCB5C5EE1625C970A788A926</GeneratedChecksum>
+          <UserChecksum dnOrder="5">28C28009BCB5C5EE1625C970A788A926</UserChecksum>
         </File>
       </Files>
       <Libraries dnOrder="1">
