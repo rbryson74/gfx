@@ -132,7 +132,7 @@ typedef struct
     bool isUsbConnected;
     
     /* Flag to track the File System Connect Status */
-    bool isFsConnected;
+    bool isUsbConfigured;
 
     SYS_TIME_HANDLE timerHandle;
     

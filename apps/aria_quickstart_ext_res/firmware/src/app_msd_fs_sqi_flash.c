@@ -146,8 +146,11 @@ void APP_USBDeviceEventHandler ( USB_DEVICE_EVENT event, void * pEventData, uint
     switch (event)
     {
         case USB_DEVICE_EVENT_RESET:
+        case USB_DEVICE_EVENT_SUSPENDED:
         case USB_DEVICE_EVENT_DECONFIGURED:
         {
+            appData->isUsbConnected = false;
+
             /* Device was reset or deconfigured. */
             LED1_Off(); 
             break;
@@ -158,13 +161,7 @@ void APP_USBDeviceEventHandler ( USB_DEVICE_EVENT event, void * pEventData, uint
             /* Endpoint is configured. */
             LED1_On();
 
-            appData->isFsConnected = true;
-            break;
-        }
-
-        case USB_DEVICE_EVENT_SUSPENDED:
-        {
-            /* Device is suspended. */
+            appData->isUsbConfigured = true;
             break;
         }
 
@@ -172,8 +169,8 @@ void APP_USBDeviceEventHandler ( USB_DEVICE_EVENT event, void * pEventData, uint
         {
             /* Indicate Device is attached to Host */ 
             appData->isUsbConnected = true;
-            
-            if (appData->isFsConnected == true)
+
+            if (appData->isUsbConfigured == true)
             {
                 /* VBUS is detected. Since FS is running defer the event
                  * handling to the Task Routine. */
@@ -244,7 +241,8 @@ void APP_USBInitialize ( void )
     appData.usbDeviceHandle = USB_DEVICE_HANDLE_INVALID;
     
     /* USB is not connected */
-    appData.isUsbConnected = false; 
+    appData.isUsbConnected = false;
+    appData.isUsbConfigured = false;
 }
 
 /******************************************************************************
@@ -283,7 +281,7 @@ bool APP_USBTasks (void)
         {
             /* VBUS detect event handling was deferred to the task routine.
              * Attach the device. */
-            if (appData.isFsConnected == false)
+            if (appData.isUsbConfigured == false)
             {
                 USB_DEVICE_Attach(appData.usbDeviceHandle);
                 appData.usbState = APP_USB_STATE_RUNNING;
@@ -431,7 +429,10 @@ void APP_MSD_FS_SQI_FLASH_Tasks ( void )
 
         case APP_STATE_MOUNT_DISK:
         {
-
+            //Do not access the SQI if USB is connected, user may be copying files
+            if (appData.isUsbConnected == true)
+                break;
+            
             /* Mount the disk */
             if(SYS_FS_Mount(APP_DEVICE_NAME, APP_MOUNT_NAME, APP_FS_TYPE, 0, NULL) != SYS_FS_RES_SUCCESS)
             {
@@ -450,6 +451,10 @@ void APP_MSD_FS_SQI_FLASH_Tasks ( void )
 
         case APP_STATE_READ_FILES:
         {
+            //Do not access the SQI if USB is connected, user may be copying files
+            if (appData.isUsbConnected == true)
+                break;
+
             if (laContext_IsDrawing() || laContext_GetActiveScreenIndex() != LoadingScreen_ID)
                 break;
             
@@ -484,7 +489,7 @@ void APP_MSD_FS_SQI_FLASH_Tasks ( void )
         {
             if (appData.timerHandle == SYS_TIME_HANDLE_INVALID)
             {
-                appData.timerHandle = SYS_TIME_CallbackRegisterMS(APP_SysTimerCallback, 0, 60000, SYS_TIME_SINGLE );
+                appData.timerHandle = SYS_TIME_CallbackRegisterMS(APP_SysTimerCallback, 0, 10000, SYS_TIME_SINGLE );
                 appData.state = APP_STATE_IDLE;
             }
             break;
@@ -505,6 +510,14 @@ void APP_MSD_FS_SQI_FLASH_Tasks ( void )
 
         case APP_STATE_IDLE:
         {
+            if (!laContext_IsDrawing() && laContext_GetActiveScreenIndex() == LoadingScreen_ID)
+            {
+                if (appData.isUsbConnected == true)
+                {
+                    laWidget_SetVisible((laWidget*)ButtonWidget_MainScreen, LA_FALSE);
+                }
+            }
+
             break;
         }
 

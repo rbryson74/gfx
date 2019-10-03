@@ -103,8 +103,8 @@ void CLK_Initialize( void )
     /* REFO2CON register */
     /* ROSEL =  SYSCLK */
     /* DIVSWEN = 1 */
-    /* RODIV = 2 */
-    REFO2CON = 0x20200;
+    /* RODIV = 5 */
+    REFO2CON = 0x50200;
 
     /* Enable oscillator (ON bit) */
     REFO2CONSET = 0x00008000;
@@ -115,8 +115,8 @@ void CLK_Initialize( void )
     PMD1 = 0x1001;
     PMD2 = 0x3;
     PMD3 = 0x1ff01ff;
-    PMD4 = 0xfffffffd;
-    PMD5 = 0xfeffffff;
+    PMD4 = 0xffffffff;
+    PMD5 = 0xfefeffff;
     PMD6 = 0xff7df0ff;
     PMD7 = 0xffffffef;
 

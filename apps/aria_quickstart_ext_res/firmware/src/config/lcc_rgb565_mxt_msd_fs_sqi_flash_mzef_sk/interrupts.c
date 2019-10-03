@@ -60,7 +60,8 @@
 
 
 void CORE_TIMER_InterruptHandler( void );
-void TIMER_2_InterruptHandler( void );
+void I2C1_BUS_InterruptHandler( void );
+void I2C1_MASTER_InterruptHandler( void );
 void DRV_USBHS_InterruptHandler( void );
 void DRV_USBHS_DMAInterruptHandler( void );
 void DMA0_InterruptHandler( void );
@@ -74,17 +75,22 @@ void __ISR(_CORE_TIMER_VECTOR, ipl1AUTO) CORE_TIMER_Handler (void)
     CORE_TIMER_InterruptHandler();
 }
 
-void __ISR(_TIMER_2_VECTOR, ipl1AUTO) TIMER_2_Handler (void)
+void __ISR(_I2C1_BUS_VECTOR, ipl1AUTO) I2C1_BUS_Handler (void)
 {
-    TIMER_2_InterruptHandler();
+    I2C1_BUS_InterruptHandler();
 }
 
-void __ISR(_USB_VECTOR, ipl1AUTO) USB_Handler (void)
+void __ISR(_I2C1_MASTER_VECTOR, ipl1AUTO) I2C1_MASTER_Handler (void)
+{
+    I2C1_MASTER_InterruptHandler();
+}
+
+void __ISR(_USB_VECTOR, ipl5AUTO) USB_Handler (void)
 {
     DRV_USBHS_InterruptHandler();
 }
 
-void __ISR(_USB_DMA_VECTOR, ipl1AUTO) USB_DMA_Handler (void)
+void __ISR(_USB_DMA_VECTOR, ipl5AUTO) USB_DMA_Handler (void)
 {
     DRV_USBHS_DMAInterruptHandler();
 }
