@@ -52,7 +52,7 @@ Attention : Do not modify this file ! If you do, you will not
 #ifndef  GUI_CONFDEFAULTS_H
 #define  GUI_CONFDEFAULTS_H
 
-#include "GUIConf.h"
+#include "config/guiconf.h"
 
 #ifndef   GUI_SUPPORT_BIDI
   #define GUI_SUPPORT_BIDI 1
