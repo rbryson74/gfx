@@ -68,7 +68,6 @@ extern "C" {
 
 
 extern laScheme WhiteScheme;
-extern laScheme defaultPaletteScheme;
 extern laButtonWidget* ButtonWidget_Wait;
 extern laLabelWidget* LabelWidget_Wait;
 extern laButtonWidget* ButtonWidget_MainScreen;

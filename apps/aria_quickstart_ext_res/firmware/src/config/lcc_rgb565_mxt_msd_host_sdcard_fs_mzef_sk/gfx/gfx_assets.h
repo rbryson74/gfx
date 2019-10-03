@@ -67,7 +67,7 @@ extern "C" {
  * GFX Image Asset
  * Name:   MHGS_logo_small_jpeg
  * Size:   141x132 pixels
- * Mode:   GS_8
+ * Mode:   RGB_565
  * Format: RAW
  ***********************************/
 extern GFXU_ImageAsset MHGS_logo_small_jpeg;
@@ -76,7 +76,7 @@ extern GFXU_ImageAsset MHGS_logo_small_jpeg;
  * GFX Image Asset
  * Name:   MHGS_logo_small_raw
  * Size:   141x132 pixels
- * Mode:   GS_8
+ * Mode:   RGB_565
  * Format: RAW
  ***********************************/
 extern GFXU_ImageAsset MHGS_logo_small_raw;
@@ -85,7 +85,7 @@ extern GFXU_ImageAsset MHGS_logo_small_raw;
  * GFX Image Asset
  * Name:   MHGS_logo_small_raw_direct_blit
  * Size:   141x132 pixels
- * Mode:   GS_8
+ * Mode:   RGB_565
  * Format: RAW
  ***********************************/
 extern GFXU_ImageAsset MHGS_logo_small_raw_direct_blit;
@@ -94,7 +94,7 @@ extern GFXU_ImageAsset MHGS_logo_small_raw_direct_blit;
  * GFX Image Asset
  * Name:   MHGS_logo_small_raw_rle
  * Size:   141x132 pixels
- * Mode:   GS_8
+ * Mode:   RGB_565
  * Format: RAW
  ***********************************/
 extern GFXU_ImageAsset MHGS_logo_small_raw_rle;
@@ -293,11 +293,6 @@ extern GFXU_FontAsset ArialUnicodeMS_Bold;
  
 extern GFXU_StringTableAsset stringTable;
 
-/*****************************************************************************
- * MPLAB Harmony Graphics Global Palette
- *****************************************************************************/
-
-extern uint16_t globalColorPalette[256];
 //DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 }

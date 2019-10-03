@@ -101,7 +101,7 @@ int32_t LibAria_Initialize(void)
     memIntf.read = (GFXU_MediaReadRequest_FnPtr) &LibAria_MediaReadRequest;
     memIntf.close = (GFXU_MediaCloseRequest_FnPtr) &LibAria_MediaCloseRequest;
 
-    libariaObj.context = laContext_Create(0, 0, 0, GFX_COLOR_MODE_GS_8, &memIntf);
+    libariaObj.context = laContext_Create(0, 0, 0, GFX_COLOR_MODE_RGB_565, &memIntf);
 
     if(libariaObj.context == NULL)
         return -1;
