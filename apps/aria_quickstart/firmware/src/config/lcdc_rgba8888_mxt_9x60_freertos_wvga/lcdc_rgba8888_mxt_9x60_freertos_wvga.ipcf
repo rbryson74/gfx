@@ -130,7 +130,6 @@
             <path>\..\..\packs\SAM9X60_DFP\component\xdmac.h</path>
             <path>\..\..\packs\SAM9X60_DFP\sam9x60.h</path>
             <path>\..\..\packs\SAM9X60_DFP\pio\sam9x60.h</path>
-            <path>\peripheral\gfx2d\plib_gfx2d.h</path>
             <path>\FreeRTOSConfig.h</path>
             <path>\..\..\third_party\rtos\FreeRTOS\Source\include\croutine.h</path>
             <path>\..\..\third_party\rtos\FreeRTOS\Source\include\event_groups.h</path>
@@ -149,6 +148,7 @@
             <path>\..\..\third_party\rtos\FreeRTOS\Source\include\stream_buffer.h</path>
             <path>\..\..\third_party\rtos\FreeRTOS\Source\include\message_buffer.h</path>
             <path>\..\..\third_party\rtos\FreeRTOS\Source\portable\IAR\SAM\ARM926\portmacro.h</path>
+            <path>\peripheral\gfx2d\plib_gfx2d.h</path>
             <path>\gfx\utils\gfx_utils.h</path>
             <path>\gfx\utils\gfxu_config.h</path>
             <path>\gfx\utils\inc\gfxu_binary.h</path>
@@ -291,7 +291,6 @@
             <path>\system\time\src\sys_time.c</path>
             <path>\system\input\sys_input.c</path>
             <path>\system\input\sys_input_listener.c</path>
-            <path>\peripheral\gfx2d\plib_gfx2d.c</path>
             <path>\freertos_hooks.c</path>
             <path>\..\..\third_party\rtos\FreeRTOS\Source\croutine.c</path>
             <path>\..\..\third_party\rtos\FreeRTOS\Source\list.c</path>
@@ -304,6 +303,7 @@
             <path>\..\..\third_party\rtos\FreeRTOS\Source\portable\IAR\SAM\ARM926\port.c</path>
             <path>\..\..\third_party\rtos\FreeRTOS\Source\portable\IAR\SAM\ARM926\portASM.s</path>
             <path>\..\..\third_party\rtos\FreeRTOS\Source\portable\IAR\SAM\ARM926\FreeRTOS_tick_config.c</path>
+            <path>\peripheral\gfx2d\plib_gfx2d.c</path>
             <path>\gfx\utils\src\gfxu_image_jpg_common.c</path>
             <path>\gfx\utils\src\gfxu_image_jpg_internal.c</path>
             <path>\gfx\utils\src\gfxu_image_jpg_external.c</path>
