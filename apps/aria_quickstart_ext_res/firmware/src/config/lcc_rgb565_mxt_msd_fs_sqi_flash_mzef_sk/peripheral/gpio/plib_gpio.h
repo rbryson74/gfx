@@ -101,6 +101,22 @@
 #define GFX_DISP_INTF_PIN_BACKLIGHT_OutputEnable()      (TRISFCLR = (1<<13))
 #define GFX_DISP_INTF_PIN_BACKLIGHT_InputEnable()       (TRISFSET = (1<<13))
 #define GFX_DISP_INTF_PIN_BACKLIGHT_PIN                  GPIO_PIN_RF13
+/*** Macros for I2C_BB_SCL pin ***/
+#define I2C_BB_SCL_Set()               (LATASET = (1<<14))
+#define I2C_BB_SCL_Clear()             (LATACLR = (1<<14))
+#define I2C_BB_SCL_Toggle()            (LATAINV= (1<<14))
+#define I2C_BB_SCL_Get()               ((PORTA >> 14) & 0x1)
+#define I2C_BB_SCL_OutputEnable()      (TRISACLR = (1<<14))
+#define I2C_BB_SCL_InputEnable()       (TRISASET = (1<<14))
+#define I2C_BB_SCL_PIN                  GPIO_PIN_RA14
+/*** Macros for I2C_BB_SDA pin ***/
+#define I2C_BB_SDA_Set()               (LATASET = (1<<15))
+#define I2C_BB_SDA_Clear()             (LATACLR = (1<<15))
+#define I2C_BB_SDA_Toggle()            (LATAINV= (1<<15))
+#define I2C_BB_SDA_Get()               ((PORTA >> 15) & 0x1)
+#define I2C_BB_SDA_OutputEnable()      (TRISACLR = (1<<15))
+#define I2C_BB_SDA_InputEnable()       (TRISASET = (1<<15))
+#define I2C_BB_SDA_PIN                  GPIO_PIN_RA15
 /*** Macros for GFX_DISP_INTF_PIN_RESET pin ***/
 #define GFX_DISP_INTF_PIN_RESET_Set()               (LATJSET = (1<<3))
 #define GFX_DISP_INTF_PIN_RESET_Clear()             (LATJCLR = (1<<3))
