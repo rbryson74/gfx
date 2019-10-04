@@ -35,24 +35,24 @@
           <Name dnOrder="1">drv_i2c.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_sk/driver/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/i2c/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">00BE2152C659AE45DBA8630ACD809BD2</GeneratedChecksum>
-          <UserChecksum dnOrder="5">00BE2152C659AE45DBA8630ACD809BD2</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6076FC7677C4756E36D944DCBDB0A998</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6076FC7677C4756E36D944DCBDB0A998</UserChecksum>
         </File>
         <File dnOrder="4">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">drv_i2c_local.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_sk/driver/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/i2c/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">56728194E73D695E178AF2B34855ADBB</GeneratedChecksum>
-          <UserChecksum dnOrder="5">56728194E73D695E178AF2B34855ADBB</UserChecksum>
+          <GeneratedChecksum dnOrder="4">5EB905590CA7087C5CC181ABFFFB5765</GeneratedChecksum>
+          <UserChecksum dnOrder="5">5EB905590CA7087C5CC181ABFFFB5765</UserChecksum>
         </File>
         <File dnOrder="5">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">drv_maxtouch.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_sk/driver/input</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/input/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">4131161BDCB6C6BC3623214A9ABAE2B8</GeneratedChecksum>
-          <UserChecksum dnOrder="5">4131161BDCB6C6BC3623214A9ABAE2B8</UserChecksum>
+          <GeneratedChecksum dnOrder="4">A86BDB5CFCA302B3F14CD9186F740EF6</GeneratedChecksum>
+          <UserChecksum dnOrder="5">A86BDB5CFCA302B3F14CD9186F740EF6</UserChecksum>
         </File>
         <File dnOrder="6">
           <Type dnOrder="0">SOURCE</Type>
@@ -339,8 +339,8 @@
           <Name dnOrder="1">gfxu_image_jpg_external.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_sk/gfx/utils/src</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/utils/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">4CCEEADB094FAF24CCEB9BCC3271E0D6</GeneratedChecksum>
-          <UserChecksum dnOrder="5">4CCEEADB094FAF24CCEB9BCC3271E0D6</UserChecksum>
+          <GeneratedChecksum dnOrder="4">260BA1B904486D53AE8C65AF8164CD4B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">260BA1B904486D53AE8C65AF8164CD4B</UserChecksum>
         </File>
         <File dnOrder="42">
           <Type dnOrder="0">SOURCE</Type>
@@ -467,16 +467,16 @@
           <Name dnOrder="1">i2c_bb.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_sk/library/i2cbb/</LogicalPath>
           <PhysicalPath dnOrder="3">/library/i2cbb/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">1B912BDF7F96EA826DF0F6E5F7AFED10</GeneratedChecksum>
-          <UserChecksum dnOrder="5">1B912BDF7F96EA826DF0F6E5F7AFED10</UserChecksum>
+          <GeneratedChecksum dnOrder="4">E51AADA816F4E05753B07D4427BD04A8</GeneratedChecksum>
+          <UserChecksum dnOrder="5">E51AADA816F4E05753B07D4427BD04A8</UserChecksum>
         </File>
         <File dnOrder="58">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">initialization.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_sk/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">84E610457B6B1C0C456F9A6B07E1144D</GeneratedChecksum>
-          <UserChecksum dnOrder="5">84E610457B6B1C0C456F9A6B07E1144D</UserChecksum>
+          <GeneratedChecksum dnOrder="4">4300AC742C3D39F74416D5534A322E53</GeneratedChecksum>
+          <UserChecksum dnOrder="5">4300AC742C3D39F74416D5534A322E53</UserChecksum>
         </File>
         <File dnOrder="59">
           <Type dnOrder="0">SOURCE</Type>
@@ -1163,8 +1163,8 @@
           <Name dnOrder="1">plib_clk.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_sk/peripheral/clk/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/clk/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">DAC83279B9C5777E9F12EAFAED7FE5E7</GeneratedChecksum>
-          <UserChecksum dnOrder="5">DAC83279B9C5777E9F12EAFAED7FE5E7</UserChecksum>
+          <GeneratedChecksum dnOrder="4">676C3B793F310D4311766B55936D850C</GeneratedChecksum>
+          <UserChecksum dnOrder="5">676C3B793F310D4311766B55936D850C</UserChecksum>
         </File>
         <File dnOrder="145">
           <Type dnOrder="0">SOURCE</Type>
@@ -1339,16 +1339,16 @@
           <Name dnOrder="1">drv_i2c.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_sk/driver/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/i2c/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">7DC093674665965E223A7AD52F7BAF83</GeneratedChecksum>
-          <UserChecksum dnOrder="5">7DC093674665965E223A7AD52F7BAF83</UserChecksum>
+          <GeneratedChecksum dnOrder="4">C57076A27820E4EDE93AD2DA070AA748</GeneratedChecksum>
+          <UserChecksum dnOrder="5">C57076A27820E4EDE93AD2DA070AA748</UserChecksum>
         </File>
         <File dnOrder="167">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">drv_i2c_definitions.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_sk/driver/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/i2c/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A2D12C1907596C873BA91F3009960CF0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A2D12C1907596C873BA91F3009960CF0</UserChecksum>
+          <GeneratedChecksum dnOrder="4">2872C68B45CE75A8BBBC1DD7F7287282</GeneratedChecksum>
+          <UserChecksum dnOrder="5">2872C68B45CE75A8BBBC1DD7F7287282</UserChecksum>
         </File>
         <File dnOrder="168">
           <Type dnOrder="0">HEADER</Type>
@@ -1683,16 +1683,16 @@
           <Name dnOrder="1">i2c_bb.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_sk/library/i2cbb/</LogicalPath>
           <PhysicalPath dnOrder="3">/library/i2cbb/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B5805DB9014AF6B17B69DB1FB708AC1C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B5805DB9014AF6B17B69DB1FB708AC1C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">FB4AF2A058582909E8A72A6364445FB6</GeneratedChecksum>
+          <UserChecksum dnOrder="5">FB4AF2A058582909E8A72A6364445FB6</UserChecksum>
         </File>
         <File dnOrder="210">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">i2c_bb_local.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_sk/library/i2cbb/</LogicalPath>
           <PhysicalPath dnOrder="3">/library/i2cbb/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">EA2F6DDF5C4F2F73C66EA4462B6056F1</GeneratedChecksum>
-          <UserChecksum dnOrder="5">EA2F6DDF5C4F2F73C66EA4462B6056F1</UserChecksum>
+          <GeneratedChecksum dnOrder="4">97349A2BD4907ED4342E0E07AE5FFAA0</GeneratedChecksum>
+          <UserChecksum dnOrder="5">97349A2BD4907ED4342E0E07AE5FFAA0</UserChecksum>
         </File>
         <File dnOrder="211">
           <Type dnOrder="0">HEADER</Type>
@@ -2171,8 +2171,8 @@
           <Name dnOrder="1">plib_coretimer.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_sk/peripheral/coretimer/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/coretimer/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B56E73929AA8C9899F0BA761F7053A87</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B56E73929AA8C9899F0BA761F7053A87</UserChecksum>
+          <GeneratedChecksum dnOrder="4">77E2C83A700CD1F724CFD90ED3AA2B71</GeneratedChecksum>
+          <UserChecksum dnOrder="5">77E2C83A700CD1F724CFD90ED3AA2B71</UserChecksum>
         </File>
         <File dnOrder="271">
           <Type dnOrder="0">HEADER</Type>
@@ -2392,7 +2392,7 @@
     </Manifest>
     <Settings dnOrder="4">
       <Setting dnOrder="0" key="CMSISPath" value=".\dev_packs\arm\CMSIS\5.5.1"/>
-      <Setting dnOrder="1" key="DFPPath" value=".\dev_packs\Microchip\PIC32MZ_EF_DFP\1.0.29\atdf\PIC32MZ2048EFH144.atdf"/>
+      <Setting dnOrder="1" key="DFPPath" value=".\dev_packs\Microchip\PIC32MZ_EF_DFP\1.0.39\atdf\PIC32MZ2048EFH144.atdf"/>
       <Setting dnOrder="2" key="FORCE_OPTIMIZATION" value="false"/>
       <Setting dnOrder="3" key="GENERATE_BACKUP" value="true"/>
       <Setting dnOrder="4" key="MERGE_STRATEGY" value="USER_ALL"/>
