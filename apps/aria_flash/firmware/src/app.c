@@ -133,7 +133,7 @@ USB_HOST_EVENT_RESPONSE APP_USBHostEventHandler (USB_HOST_EVENT event,
 
 static void deviceConnectionStateChanged()
 {
-    if(usbDeviceConnected != 0 || sdcardDeviceConnected != 0)
+    if((usbDeviceConnected != 0 || sdcardDeviceConnected != 0) && (appData.state == APP_STATE_DONE))
     {
         laWidget_SetVisible(ErrorMsgPanel, LA_FALSE);
     }
@@ -142,8 +142,8 @@ static void deviceConnectionStateChanged()
         laWidget_SetVisible(ErrorMsgPanel, LA_TRUE);
     }
     
-    laWidget_SetVisible((laWidget*)USBButton, usbDeviceConnected != 0);
-    laWidget_SetVisible((laWidget*)SDCardButton, sdcardDeviceConnected != 0);
+    laWidget_SetVisible((laWidget*)USBButton, usbDeviceConnected != 0 && appData.state == APP_STATE_DONE);
+    laWidget_SetVisible((laWidget*)SDCardButton, sdcardDeviceConnected != 0 && appData.state == APP_STATE_DONE);
 }
 
 void APP_SYSFSEventHandler(SYS_FS_EVENT event,
@@ -389,11 +389,31 @@ void APP_Tasks ( void )
         {
             if (DRV_SST26_GeometryGet(appData.handle, &appData.geometry) != true)
             {
-                appData.state = APP_STATE_ERROR;
+                if (DRV_SST26_ChipErase(appData.handle) != true)
+	            {
+	                appData.state = APP_STATE_ERROR;
+                    break;
+	            }
+                appData.state = APP_STATE_BOOT_ERASE_WAIT;
             }
             else
             {
                 appData.state = APP_STATE_DONE;
+            }
+            break;
+        }
+
+        case APP_STATE_BOOT_ERASE_WAIT:
+        {
+            transferStatus = DRV_SST26_TransferStatusGet(appData.handle);
+
+            if(transferStatus == DRV_SST26_TRANSFER_COMPLETED)
+            {
+				appData.state = APP_INIT_GEOMETRY;
+            }
+            else if (transferStatus == DRV_SST26_TRANSFER_ERROR_UNKNOWN)
+            {
+                appData.state = APP_STATE_ERROR;
             }
             break;
         }
