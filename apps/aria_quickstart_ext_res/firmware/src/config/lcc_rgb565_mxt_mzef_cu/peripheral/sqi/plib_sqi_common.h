@@ -93,9 +93,12 @@ Interface definition of SQI PLIB.
 
 #define SQI_BDCTRL_SCHECK                       0x08000000
 
-#define SQI_BDCTRL_SQICS_CS0                    0x00000000
-#define SQI_BDCTRL_SQICS_CS1                    0x10000000
-
+//CUSTOM CODE - DO NOT REMOVE        
+//Override SST26 to use CS1 instead of CS0 for MZ EF Curiosity 2.0
+#define SQI_BDCTRL_SQICS_CS0                    0x10000000
+#define SQI_BDCTRL_SQICS_CS1                    0x00000000
+//CUSTOM CODE ENDS
+        
 #define SQI_BDCTRL_DEASSERT                     0x40000000
 
 #define SQI_BDCTRL_DESCEN                       0x80000000

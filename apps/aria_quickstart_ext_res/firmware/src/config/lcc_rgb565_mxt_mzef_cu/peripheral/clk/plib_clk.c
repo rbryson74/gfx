@@ -99,12 +99,22 @@ void CLK_Initialize( void )
     }
 
 
+    /* Set up Reference Clock 2 */
+    /* REFO2CON register */
+    /* ROSEL =  SYSCLK */
+    /* DIVSWEN = 1 */
+    /* RODIV = 5 */
+    REFO2CON = 0x50200;
+
+    /* Enable oscillator (ON bit) */
+    REFO2CONSET = 0x00008000;
+
   
 
     /* Peripheral Module Disable Configuration */
-    PMD1 = 0xffffffff;
-    PMD2 = 0xffffffff;
-    PMD3 = 0xffffffff;
+    PMD1 = 0x1001;
+    PMD2 = 0x3;
+    PMD3 = 0x1ff01ff;
     PMD4 = 0xffffffff;
     PMD5 = 0xfefdffff;
     PMD6 = 0xff7df0ff;

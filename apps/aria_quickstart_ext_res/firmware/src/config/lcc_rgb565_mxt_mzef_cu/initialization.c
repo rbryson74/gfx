@@ -58,7 +58,7 @@
 /*** DEVCFG0 ***/
 #pragma config DEBUG =      OFF
 #pragma config JTAGEN =     OFF
-#pragma config ICESEL =     ICS_PGx1
+#pragma config ICESEL =     ICS_PGx2
 #pragma config TRCEN =      OFF
 #pragma config BOOTISA =    MIPS32
 #pragma config FECCCON =    OFF_UNLOCKED
@@ -77,7 +77,7 @@
 #pragma config DMTINTV =    WIN_127_128
 #pragma config FSOSCEN =    OFF
 #pragma config IESO =       OFF
-#pragma config POSCMOD =    OFF
+#pragma config POSCMOD =    EC
 #pragma config OSCIOFNC =   OFF
 #pragma config FCKSM =      CSECME
 #pragma config WDTPS =      PS1048576
@@ -90,11 +90,11 @@
 
 /*** DEVCFG2 ***/
 #pragma config FPLLIDIV =   DIV_1
-#pragma config FPLLRNG =    RANGE_5_10_MHZ
-#pragma config FPLLICLK =   PLL_FRC
-#pragma config FPLLMULT =   MUL_50
+#pragma config FPLLRNG =    RANGE_8_16_MHZ
+#pragma config FPLLICLK =   PLL_POSC
+#pragma config FPLLMULT =   MUL_33
 #pragma config FPLLODIV =   DIV_2
-#pragma config UPLLFSEL =   FREQ_24MHZ
+#pragma config UPLLFSEL =   FREQ_12MHZ
 
 /*** DEVCFG3 ***/
 #pragma config USERID =     0xffff
@@ -136,11 +136,15 @@ const DRV_I2C_PLIB_INTERFACE drvI2C0PLibAPI = {
     /* I2C PLib Transfer Write Add function */
     .write = (DRV_I2C_PLIB_WRITE)I2C2_Write,
 
+
     /* I2C PLib Transfer Write Read Add function */
     .writeRead = (DRV_I2C_PLIB_WRITE_READ)I2C2_WriteRead,
 
     /* I2C PLib Transfer Status function */
     .errorGet = (DRV_I2C_PLIB_ERROR_GET)I2C2_ErrorGet,
+
+    /* I2C PLib Transfer Setup function */
+    .transferSetup = (DRV_I2C_PLIB_TRANSFER_SETUP)I2C2_TransferSetup,
 
     /* I2C PLib Callback Register */
     .callbackRegister = (DRV_I2C_PLIB_CALLBACK_REGISTER)I2C2_CallbackRegister,
