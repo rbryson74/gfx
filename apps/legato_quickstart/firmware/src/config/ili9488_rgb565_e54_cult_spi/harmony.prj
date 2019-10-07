@@ -35,8 +35,8 @@
           <Name dnOrder="1">drv_gfx_ili9488.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_spi/gfx/driver/ili9488</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/ili9488/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">2D2504EC74CFF50E4DE1D71C3E4A03D9</GeneratedChecksum>
-          <UserChecksum dnOrder="5">2D2504EC74CFF50E4DE1D71C3E4A03D9</UserChecksum>
+          <GeneratedChecksum dnOrder="4">0FFFFD8F6C50C6FDAAADC15741594BAD</GeneratedChecksum>
+          <UserChecksum dnOrder="5">0FFFFD8F6C50C6FDAAADC15741594BAD</UserChecksum>
         </File>
         <File dnOrder="4">
           <Type dnOrder="0">SOURCE</Type>
