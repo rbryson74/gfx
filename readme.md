@@ -2,7 +2,7 @@
 
 MPLAB® Harmony 3 is an extension of the MPLAB® ecosystem for creating
 embedded firmware solutions for Microchip 32-bit SAM and PIC microcontroller
-and microprocessor devices.  Refer to the following links for more information.
+and microprocessor devices.  Refer to the following links for more information:
  - [Microchip 32-bit MCUs](https://www.microchip.com/design-centers/32-bit)
  - [Microchip 32-bit MPUs](https://www.microchip.com/design-centers/32-bit-mpus)
  - [Microchip MPLAB® X IDE](https://www.microchip.com/mplab/mplab-x-ide)
@@ -12,7 +12,7 @@ and microprocessor devices.  Refer to the following links for more information.
 This repository contains the MPLAB® Harmony Graphics Suite.  The
 suite supports a free fast to market, graphics software development environment for Microchip MPLAB® 32-bit SAM and PIC microprocessor devices.  Refer to
 the following graphics links for release notes, home page, training materials, framework and application help.
-Find multiple graphics application examples in the gfx_apps repo also on github.
+Find multiple graphics application examples in the [gfx_apps](https://github.com/Microchip-MPLAB-Harmony/gfx_apps/tree/master/apps) repository.
  - [Release Notes](./release_notes.md)
  - [MPLAB® Harmony License](mplab_harmony_license.md)
  - [MPLAB® Harmony 3 Graphics Wiki](https://github.com/Microchip-MPLAB-Harmony/gfx/wiki)
@@ -43,13 +43,13 @@ The key features of the MPLAB® Harmony Graphics Suite are the following:
 
 | Folder     | Description                                  |
 |------------|----------------------------------------------|
-| apps       | Example quickstart application |
-| display    | Supported Displays |
-| doc        | Microsoft Compiled (CHM) Help documentation |
+| apps       | Example quickstart and utility applications |
+| display    | Supported displays |
+| doc        | Microsoft Compiled (CHM) help documentation |
 | docs       | HTML Help documentation                   |
 | driver     | Display controller and graphics processor unit drivers |
-| hal        | Hardware Abstraction Layer between middleware and hardware drivers |
+| hal        | Hardware Abstraction Layer (HAL) between middleware and hardware drivers |
 | input      | Input System and its associated drivers and services |
-| middleware | Supported User Interface Libraries |
-| templates | Complete Project support components |
+| middleware | Supported User Interface (UI) libraries |
+| templates | Complete project support components |
 
