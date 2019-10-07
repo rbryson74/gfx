@@ -1,12 +1,12 @@
 # Microchip MPLAB® Harmony 3 Graphics Release Notes
-## Graphics Release v3.4.0
+## Graphics Release v3.5.0
 ### NEW FEATURES
 
 
 - **Graphics Contents** - This graphics release consist of Graphics Libraries and apps, displays, drivers, hardware abstractions, input, middleware, and templates. The following table lists the contents in this graphics release.
 
-| Category | Component | Description | Release Type |
-| --- | --- | ---- |---- |
+| Library | Category | Component | Description | Release Type |
+| --- | --- | ---- |---- |---- |
 | aria | apps | aria_flash | Aria UI library interface to external flash assests | N/A |
 |      |      | aria_quickstart | Aria UI library quickstart example | N/A|
 |      |      | aria_quickstart_ext_res | Aria UI library external resource example | N/A|
