@@ -43,8 +43,8 @@
           <Name dnOrder="1">drv_gfx_glcd.c</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_intddr_sk_freertos_wvga/gfx/driver/glcd</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/glcd/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">81C948F671CE17E6E91B8CBF51249CE9</GeneratedChecksum>
-          <UserChecksum dnOrder="5">81C948F671CE17E6E91B8CBF51249CE9</UserChecksum>
+          <GeneratedChecksum dnOrder="4">3CF1291051E5A08F62BF0B096D97F6F5</GeneratedChecksum>
+          <UserChecksum dnOrder="5">3CF1291051E5A08F62BF0B096D97F6F5</UserChecksum>
         </File>
         <File dnOrder="5">
           <Type dnOrder="0">SOURCE</Type>
@@ -2647,10 +2647,17 @@
   </Configurator>
   <MHGC>
     <GAC dnOrder="0">
-      <Locations dnOrder="0">
+      <MemoryManager address="2818572288" dnOrder="0" size="33554432">
+        <Blocks dnOrder="0">
+          <FrameBufferBlock address="0" buffer="0" dnOrder="0" layer="0" movable="true" name="Frame Layer 0 Buffer 0" renameable="false" resizable="false" size="768000"/>
+          <FrameBufferBlock address="768000" buffer="0" dnOrder="1" layer="2" movable="true" name="Frame Layer 2 Buffer 0" renameable="false" resizable="false" size="768000"/>
+          <FrameBufferBlock address="1536000" buffer="0" dnOrder="2" layer="1" movable="true" name="Frame Layer 1 Buffer 0" renameable="false" resizable="false" size="768000"/>
+        </Blocks>
+      </MemoryManager>
+      <Locations dnOrder="1">
         <Location dnOrder="0" fileName="gfx_assets" index="0" maxSize="512000"/>
       </Locations>
-      <Assets dnOrder="1">
+      <Assets dnOrder="2">
         <StringTable dnOrder="0" encoding="ASCII" location="0" name="stringTable">
           <Languages default="0" dnOrder="0">
             <Language dnOrder="0" enabled="true" name="English"/>
@@ -2958,7 +2965,7 @@
           </Strings>
         </Font>
       </Assets>
-      <FolderTree dnOrder="2">
+      <FolderTree dnOrder="3">
         <ImageTree dnOrder="0"/>
         <StringTree dnOrder="1"/>
       </FolderTree>
