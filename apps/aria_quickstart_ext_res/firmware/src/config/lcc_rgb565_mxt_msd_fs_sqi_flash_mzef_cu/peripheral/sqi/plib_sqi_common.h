@@ -93,10 +93,8 @@ Interface definition of SQI PLIB.
 
 #define SQI_BDCTRL_SCHECK                       0x08000000
 
-/* Custom Code */
-#define SQI_BDCTRL_SQICS_CS0                    0x10000000
-#define SQI_BDCTRL_SQICS_CS1                    0x00000000
-/* Custom Code - End Code */
+#define SQI_BDCTRL_SQICS_CS0                    0x00000000
+#define SQI_BDCTRL_SQICS_CS1                    0x10000000
 
 #define SQI_BDCTRL_DEASSERT                     0x40000000
 

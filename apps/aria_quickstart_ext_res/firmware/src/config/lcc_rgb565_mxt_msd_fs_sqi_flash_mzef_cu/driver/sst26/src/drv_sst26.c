@@ -129,11 +129,14 @@ static void DRV_SST26_ResetFlash(void)
 
     dObj->curOpType = DRV_SST26_OPERATION_TYPE_CMD;
 
+/* CUSTOM CODE - DO NOT REMOVE */
+/* Use SQI_BDCTRL_SQICS_CS0 instead of SQI_BDCTRL_SQICS_CS1 for MZ EF Curiosity 2.0 */
     sqiCmdDesc[0].bd_ctrl       = ( SQI_BDCTRL_BUFFLEN_VAL(1) | SQI_BDCTRL_PKTINTEN |
                                     SQI_BDCTRL_LASTPKT | SQI_BDCTRL_LASTBD |
-                                    SQI_BDCTRL_SQICS_CS1 | SQI_BDCTRL_DEASSERT |
+                                    SQI_BDCTRL_SQICS_CS0 | SQI_BDCTRL_DEASSERT |
                                     SQI_BDCTRL_DESCEN);
-
+/* CUSTOM CODE END */
+    
     sqiCmdDesc[0].bd_bufaddr    = (uint32_t *)KVA_TO_PA(&sqi_cmd_rsten);
     sqiCmdDesc[0].bd_stat       = 0;
     sqiCmdDesc[0].bd_nxtptr     = 0x00000000;
@@ -144,11 +147,14 @@ static void DRV_SST26_ResetFlash(void)
 
     dObj->isTransferDone = false;
 
+/* CUSTOM CODE - DO NOT REMOVE */
+/* Use SQI_BDCTRL_SQICS_CS0 instead of SQI_BDCTRL_SQICS_CS1 for MZ EF Curiosity 2.0 */
     sqiCmdDesc[1].bd_ctrl       = ( SQI_BDCTRL_BUFFLEN_VAL(1) | SQI_BDCTRL_PKTINTEN |
                                     SQI_BDCTRL_LASTPKT | SQI_BDCTRL_LASTBD |
-                                    SQI_BDCTRL_SQICS_CS1 | SQI_BDCTRL_DEASSERT |
+                                    SQI_BDCTRL_SQICS_CS0 | SQI_BDCTRL_DEASSERT |
                                     SQI_BDCTRL_DESCEN);
-
+/* CUSTOM CODE END */
+    
     sqiCmdDesc[1].bd_bufaddr    = (uint32_t *)KVA_TO_PA(&sqi_cmd_rst);
     sqiCmdDesc[1].bd_stat       = 0;
     sqiCmdDesc[1].bd_nxtptr     = 0x00000000;
@@ -162,11 +168,14 @@ static void DRV_SST26_EnableQuadIO(void)
 {
     dObj->isTransferDone = false;
 
+/* CUSTOM CODE - DO NOT REMOVE */
+/* Use SQI_BDCTRL_SQICS_CS0 instead of SQI_BDCTRL_SQICS_CS1 for MZ EF Curiosity 2.0 */
     sqiCmdDesc[0].bd_ctrl       = ( SQI_BDCTRL_BUFFLEN_VAL(1) | SQI_BDCTRL_PKTINTEN |
                                     SQI_BDCTRL_LASTPKT | SQI_BDCTRL_LASTBD |
-                                    SQI_BDCTRL_SQICS_CS1 | SQI_BDCTRL_DEASSERT |
+                                    SQI_BDCTRL_SQICS_CS0 | SQI_BDCTRL_DEASSERT |
                                     SQI_BDCTRL_DESCEN);
-
+/* CUSTOM CODE END */
+    
     sqiCmdDesc[0].bd_bufaddr    = (uint32_t *)KVA_TO_PA(&sqi_cmd_eqio);
     sqiCmdDesc[0].bd_stat       = 0;
     sqiCmdDesc[0].bd_nxtptr     = 0x00000000;
@@ -180,10 +189,13 @@ static void DRV_SST26_EnableQuadIO(void)
 
 static void DRV_SST26_WriteEnable(void)
 {
+/* CUSTOM CODE - DO NOT REMOVE */
+/* Use SQI_BDCTRL_SQICS_CS0 instead of SQI_BDCTRL_SQICS_CS1 for MZ EF Curiosity 2.0 */
     sqiCmdDesc[0].bd_ctrl       = ( SQI_BDCTRL_BUFFLEN_VAL(1) | SQI_BDCTRL_MODE_QUAD_LANE |
-                                    SQI_BDCTRL_SQICS_CS1 | SQI_BDCTRL_DEASSERT |
+                                    SQI_BDCTRL_SQICS_CS0 | SQI_BDCTRL_DEASSERT |
                                     SQI_BDCTRL_DESCEN);
-
+/* CUSTOM CODE END */
+    
     sqiCmdDesc[0].bd_bufaddr    = (uint32_t *)KVA_TO_PA(&sqi_cmd_wren);
     sqiCmdDesc[0].bd_stat       = 0;
     sqiCmdDesc[0].bd_nxtptr     = (sqi_dma_desc_t *)KVA_TO_PA(&sqiCmdDesc[1]);
@@ -218,11 +230,14 @@ bool DRV_SST26_UnlockFlash( const DRV_HANDLE handle )
 
     DRV_SST26_WriteEnable();
 
+/* CUSTOM CODE - DO NOT REMOVE */
+/* Use SQI_BDCTRL_SQICS_CS0 instead of SQI_BDCTRL_SQICS_CS1 for MZ EF Curiosity 2.0 */
     sqiCmdDesc[1].bd_ctrl       = ( SQI_BDCTRL_BUFFLEN_VAL(1) | SQI_BDCTRL_PKTINTEN |
                                     SQI_BDCTRL_LASTPKT | SQI_BDCTRL_LASTBD |
-                                    SQI_BDCTRL_MODE_QUAD_LANE | SQI_BDCTRL_SQICS_CS1 |
+                                    SQI_BDCTRL_MODE_QUAD_LANE | SQI_BDCTRL_SQICS_CS0 |
                                     SQI_BDCTRL_DEASSERT | SQI_BDCTRL_DESCEN);
-
+/* CUSTOM CODE END */
+    
     sqiCmdDesc[1].bd_bufaddr    = (uint32_t *)KVA_TO_PA(&sqi_cmd_ULBPR);
     sqiCmdDesc[1].bd_stat       = 0;
     sqiCmdDesc[1].bd_nxtptr     = 0x00000000;
@@ -247,19 +262,25 @@ bool DRV_SST26_ReadJedecId( const DRV_HANDLE handle, void *jedec_id)
 
     sqi_cmd_jedec[1] = DUMMY_BYTE;
 
+/* CUSTOM CODE - DO NOT REMOVE */
+/* Use SQI_BDCTRL_SQICS_CS0 instead of SQI_BDCTRL_SQICS_CS1 for MZ EF Curiosity 2.0 */
     sqiCmdDesc[0].bd_ctrl       = ( SQI_BDCTRL_BUFFLEN_VAL(2) | SQI_BDCTRL_MODE_QUAD_LANE |
-                                    SQI_BDCTRL_SQICS_CS1 | SQI_BDCTRL_DESCEN);
+                                    SQI_BDCTRL_SQICS_CS0 | SQI_BDCTRL_DESCEN);
+/* CUSTOM CODE END */
 
     sqiCmdDesc[0].bd_bufaddr    = (uint32_t *)KVA_TO_PA(&sqi_cmd_jedec);
     sqiCmdDesc[0].bd_stat       = 0;
     sqiCmdDesc[0].bd_nxtptr     = (sqi_dma_desc_t *)KVA_TO_PA(&sqiBufDesc[0]);
 
+/* CUSTOM CODE - DO NOT REMOVE */
+/* Use SQI_BDCTRL_SQICS_CS0 instead of SQI_BDCTRL_SQICS_CS1 for MZ EF Curiosity 2.0 */
     sqiBufDesc[0].bd_ctrl       = ( SQI_BDCTRL_BUFFLEN_VAL(4) | SQI_BDCTRL_PKTINTEN |
                                     SQI_BDCTRL_LASTPKT | SQI_BDCTRL_LASTBD |
                                     SQI_BDCTRL_MODE_QUAD_LANE | SQI_BDCTRL_DIR_READ |
-                                    SQI_BDCTRL_SQICS_CS1 | SQI_BDCTRL_DEASSERT |
+                                    SQI_BDCTRL_SQICS_CS0 | SQI_BDCTRL_DEASSERT |
                                     SQI_BDCTRL_DESCEN);
-
+/* CUSTOM CODE END */
+    
     sqiBufDesc[0].bd_bufaddr    = (uint32_t *)KVA_TO_PA(jedec_id);
     sqiBufDesc[0].bd_stat       = 0;
     sqiBufDesc[0].bd_nxtptr     = 0x00000000;
@@ -287,19 +308,25 @@ bool DRV_SST26_ReadStatus( const DRV_HANDLE handle, void *rx_data, uint32_t rx_d
 
     sqi_cmd_rdsr[1] = DUMMY_BYTE;
 
+/* CUSTOM CODE - DO NOT REMOVE */
+/* Use SQI_BDCTRL_SQICS_CS0 instead of SQI_BDCTRL_SQICS_CS1 for MZ EF Curiosity 2.0 */
     sqiCmdDesc[0].bd_ctrl       = ( SQI_BDCTRL_BUFFLEN_VAL(2) | SQI_BDCTRL_MODE_QUAD_LANE |
-                                    SQI_BDCTRL_SQICS_CS1 | SQI_BDCTRL_DESCEN);
-
+                                    SQI_BDCTRL_SQICS_CS0 | SQI_BDCTRL_DESCEN);
+/* CUSTOM CODE END */
+    
     sqiCmdDesc[0].bd_bufaddr    = (uint32_t *)KVA_TO_PA(&sqi_cmd_rdsr);
     sqiCmdDesc[0].bd_stat       = 0;
     sqiCmdDesc[0].bd_nxtptr     = (sqi_dma_desc_t *)KVA_TO_PA(&sqiBufDesc[0]);
 
+/* CUSTOM CODE - DO NOT REMOVE */
+/* Use SQI_BDCTRL_SQICS_CS0 instead of SQI_BDCTRL_SQICS_CS1 for MZ EF Curiosity 2.0 */
     sqiBufDesc[0].bd_ctrl       = ( SQI_BDCTRL_BUFFLEN_VAL(rx_data_length) | SQI_BDCTRL_PKTINTEN |
                                     SQI_BDCTRL_LASTPKT | SQI_BDCTRL_LASTBD |
                                     SQI_BDCTRL_MODE_QUAD_LANE | SQI_BDCTRL_DIR_READ |
-                                    SQI_BDCTRL_SQICS_CS1 | SQI_BDCTRL_DEASSERT |
+                                    SQI_BDCTRL_SQICS_CS0 | SQI_BDCTRL_DEASSERT |
                                     SQI_BDCTRL_DESCEN);
-
+/* CUSTOM CODE END */
+    
     sqiBufDesc[0].bd_bufaddr    = (uint32_t *)KVA_TO_PA(&statusRegVal);
     sqiBufDesc[0].bd_stat       = 0;
     sqiBufDesc[0].bd_nxtptr     = 0x00000000;
@@ -362,16 +389,22 @@ bool DRV_SST26_Read( const DRV_HANDLE handle, void *rx_data, uint32_t rx_data_le
     sqi_cmd_hsr[3] = (0xff & (address>>0));
     sqi_cmd_hsr[4] = 0;
 
+/* CUSTOM CODE - DO NOT REMOVE */
+/* Use SQI_BDCTRL_SQICS_CS0 instead of SQI_BDCTRL_SQICS_CS1 for MZ EF Curiosity 2.0 */
     sqiCmdDesc[0].bd_ctrl       = ( SQI_BDCTRL_BUFFLEN_VAL(5) | SQI_BDCTRL_MODE_QUAD_LANE |
-                                    SQI_BDCTRL_SQICS_CS1 | SQI_BDCTRL_DESCEN);
-
+                                    SQI_BDCTRL_SQICS_CS0 | SQI_BDCTRL_DESCEN);
+/* CUSTOM CODE END */
+    
     sqiCmdDesc[0].bd_bufaddr    = (uint32_t *)KVA_TO_PA(&sqi_cmd_hsr);
     sqiCmdDesc[0].bd_stat       = 0;
     sqiCmdDesc[0].bd_nxtptr     = (sqi_dma_desc_t *)KVA_TO_PA(&sqiCmdDesc[1]);
 
+/* CUSTOM CODE - DO NOT REMOVE */
+/* Use SQI_BDCTRL_SQICS_CS0 instead of SQI_BDCTRL_SQICS_CS1 for MZ EF Curiosity 2.0 */
     sqiCmdDesc[1].bd_ctrl       = ( SQI_BDCTRL_BUFFLEN_VAL(2) | SQI_BDCTRL_MODE_QUAD_LANE |
-                                    SQI_BDCTRL_SQICS_CS1 | SQI_BDCTRL_DESCEN);
-
+                                    SQI_BDCTRL_SQICS_CS0 | SQI_BDCTRL_DESCEN);
+/* CUSTOM CODE END */
+    
     sqiCmdDesc[1].bd_bufaddr    = (uint32_t *)KVA_TO_PA(&sqi_cmd_dummy);
     sqiCmdDesc[1].bd_stat       = 0;
     sqiCmdDesc[1].bd_nxtptr     = (sqi_dma_desc_t *)KVA_TO_PA(&sqiBufDesc[0]);
@@ -387,10 +420,13 @@ bool DRV_SST26_Read( const DRV_HANDLE handle, void *rx_data, uint32_t rx_data_le
             numBytes = pendingBytes;
         }
 
+/* CUSTOM CODE - DO NOT REMOVE */
+/* Use SQI_BDCTRL_SQICS_CS0 instead of SQI_BDCTRL_SQICS_CS1 for MZ EF Curiosity 2.0 */
         sqiBufDesc[i].bd_ctrl       = ( SQI_BDCTRL_BUFFLEN_VAL(numBytes) | SQI_BDCTRL_PKTINTEN |
                                         SQI_BDCTRL_MODE_QUAD_LANE | SQI_BDCTRL_DIR_READ |
-                                        SQI_BDCTRL_SQICS_CS1 | SQI_BDCTRL_DESCEN);
-
+                                        SQI_BDCTRL_SQICS_CS0 | SQI_BDCTRL_DESCEN);
+/* CUSTOM CODE END */
+        
         sqiBufDesc[i].bd_bufaddr    = (uint32_t *)KVA_TO_PA(readBuffer);
         sqiBufDesc[i].bd_stat       = 0;
         sqiBufDesc[i].bd_nxtptr     = (sqi_dma_desc_t *)KVA_TO_PA(&sqiBufDesc[i+1]);
@@ -429,19 +465,25 @@ bool DRV_SST26_PageWrite( const DRV_HANDLE handle, void *tx_data, uint32_t addre
     sqi_cmd_pp[2] = (0xff & (address>>8));
     sqi_cmd_pp[3] = (0xff & (address>>0));
 
+/* CUSTOM CODE - DO NOT REMOVE */
+/* Use SQI_BDCTRL_SQICS_CS0 instead of SQI_BDCTRL_SQICS_CS1 for MZ EF Curiosity 2.0 */
     sqiCmdDesc[1].bd_ctrl       = ( SQI_BDCTRL_BUFFLEN_VAL(4) | SQI_BDCTRL_MODE_QUAD_LANE |
-                                    SQI_BDCTRL_SQICS_CS1 | SQI_BDCTRL_DESCEN);
-
+                                    SQI_BDCTRL_SQICS_CS0 | SQI_BDCTRL_DESCEN);
+/* CUSTOM CODE END */
+    
     sqiCmdDesc[1].bd_bufaddr    = (uint32_t *)KVA_TO_PA(&sqi_cmd_pp);
     sqiCmdDesc[1].bd_stat       = 0;
     sqiCmdDesc[1].bd_nxtptr     = (sqi_dma_desc_t *)KVA_TO_PA(&sqiBufDesc[0]);
 
+/* CUSTOM CODE - DO NOT REMOVE */
+/* Use SQI_BDCTRL_SQICS_CS0 instead of SQI_BDCTRL_SQICS_CS1 for MZ EF Curiosity 2.0 */
     sqiBufDesc[0].bd_ctrl       = ( SQI_BDCTRL_BUFFLEN_VAL(DRV_SST26_PAGE_SIZE) | SQI_BDCTRL_PKTINTEN |
                                     SQI_BDCTRL_LASTPKT | SQI_BDCTRL_LASTBD |
                                     SQI_BDCTRL_MODE_QUAD_LANE | SQI_BDCTRL_SCHECK |
-                                    SQI_BDCTRL_SQICS_CS1 | SQI_BDCTRL_DEASSERT |
+                                    SQI_BDCTRL_SQICS_CS0 | SQI_BDCTRL_DEASSERT |
                                     SQI_BDCTRL_DESCEN);
-
+/* CUSTOM CODE END */
+    
     sqiBufDesc[0].bd_bufaddr    = (uint32_t *)KVA_TO_PA(tx_data);
     sqiBufDesc[0].bd_stat       = 0;
     sqiBufDesc[0].bd_nxtptr     = 0x00000000;
@@ -460,12 +502,15 @@ static bool DRV_SST26_Erase( uint8_t *instruction, uint32_t length )
 
     DRV_SST26_WriteEnable();
 
+/* CUSTOM CODE - DO NOT REMOVE */
+/* Use SQI_BDCTRL_SQICS_CS0 instead of SQI_BDCTRL_SQICS_CS1 for MZ EF Curiosity 2.0 */
     sqiCmdDesc[1].bd_ctrl       = ( SQI_BDCTRL_BUFFLEN_VAL(length) | SQI_BDCTRL_PKTINTEN |
                                     SQI_BDCTRL_LASTPKT | SQI_BDCTRL_LASTBD |
                                     SQI_BDCTRL_MODE_QUAD_LANE | SQI_BDCTRL_SCHECK |
-                                    SQI_BDCTRL_SQICS_CS1 | SQI_BDCTRL_DEASSERT |
+                                    SQI_BDCTRL_SQICS_CS0 | SQI_BDCTRL_DEASSERT |
                                     SQI_BDCTRL_DESCEN);
-
+/* CUSTOM CODE END */
+    
     sqiCmdDesc[1].bd_bufaddr    = (uint32_t *)KVA_TO_PA(instruction);
     sqiCmdDesc[1].bd_stat       = 0;
     sqiCmdDesc[1].bd_nxtptr     = 0x00000000;

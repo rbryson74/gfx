@@ -131,10 +131,6 @@ extern "C" {
 #define DRV_MEMORY_INDEX_0                   0
 #define DRV_MEMORY_CLIENTS_NUMBER_IDX0       2
 #define DRV_MEMORY_BUFFER_QUEUE_SIZE_IDX0    1
-    
-/* Custom Code */
-#define DRV_MEMORY_DEVICE_PROGRAM_SIZE      2048
-/* Custom Code - End Code */
 
 
 
@@ -198,6 +194,7 @@ extern "C" {
 #define USB_DEVICE_MSD_INSTANCES_NUMBER     1 
 
 #define USB_DEVICE_MSD_NUM_SECTOR_BUFFERS 1
+
 
 /* Number of Logical Units */
 #define USB_DEVICE_MSD_LUNS_NUMBER      1

@@ -1355,8 +1355,8 @@
           <Name dnOrder="1">usb_device_init_data.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">83DD34968A0BCE87621C0DA894BC04F7</GeneratedChecksum>
-          <UserChecksum dnOrder="5">83DD34968A0BCE87621C0DA894BC04F7</UserChecksum>
+          <GeneratedChecksum dnOrder="4">62943B8A782FFE3E8E920FE06209ABDB</GeneratedChecksum>
+          <UserChecksum dnOrder="5">62943B8A782FFE3E8E920FE06209ABDB</UserChecksum>
         </File>
         <File dnOrder="169">
           <Type dnOrder="0">SOURCE</Type>

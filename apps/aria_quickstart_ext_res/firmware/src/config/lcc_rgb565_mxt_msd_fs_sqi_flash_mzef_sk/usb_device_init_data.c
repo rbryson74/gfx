@@ -60,37 +60,30 @@ uint8_t sectorBuffer[512 * USB_DEVICE_MSD_NUM_SECTOR_BUFFERS] USB_ALIGN;
  ***********************************************/
 USB_MSD_CBW msdCBW0 USB_ALIGN;
 USB_MSD_CSW msdCSW0 USB_ALIGN;
-/***********************************************
- * Because the PIC32MZ flash row size if 2048
- * and the media sector size if 512 bytes, we
- * have to allocate a buffer of size 2048
- * to backup the row. A pointer to this row
- * is passed in the media initialization data
- * structure.
- ***********************************************/
-uint8_t flashRowBackupBuffer [DRV_MEMORY_DEVICE_PROGRAM_SIZE] USB_ALIGN;
+
 
 /*******************************************
  * MSD Function Driver initialization
  *******************************************/
 USB_DEVICE_MSD_MEDIA_INIT_DATA USB_ALIGN  msdMediaInit0[1] =
 {
+    /* LUN 0 */ 
     {
         DRV_MEMORY_INDEX_0,
         512,
         sectorBuffer,
-		flashRowBackupBuffer,
         NULL,
+        0,
         {
             0x00,    // peripheral device is connected, direct access block device
-            0x80,    // removable
+            0x80,   // removable
             0x04,    // version = 00=> does not conform to any standard, 4=> SPC-2
             0x02,    // response is in format specified by SPC-2
             0x1F,    // additional length
             0x00,    // sccs etc.
-            0x00,    // bque=1 and cmdque=0,indicates simple queuing 00 is obsolete,
+            0x00,    // bque=1 and cmdque=0,indicates simple queueing 00 is obsolete,
                      // but as in case of other device, we are just using 00
-            0x00,    // 00 obsolete, 0x80 for basic task queuing
+            0x00,    // 00 obsolete, 0x80 for basic task queueing
             {
                 'M','i','c','r','o','c','h','p'
             },
@@ -113,12 +106,8 @@ USB_DEVICE_MSD_MEDIA_INIT_DATA USB_ALIGN  msdMediaInit0[1] =
             NULL
         }
     },
-    
-    
-    
 };
-
-    
+  
 /**************************************************
  * USB Device Function Driver Init Data
  **************************************************/
@@ -171,11 +160,11 @@ const USB_DEVICE_DESCRIPTOR deviceDescriptor =
 
     USB_DEVICE_EP0_BUFFER_SIZE,                             // Max packet size for EP0, see configuration.h
     0x04D8,                                                 // Vendor ID
-    0x0009,                                                 // Product ID				
+    0x0000,                                                 // Product ID				
     0x0100,                                                 // Device release number in BCD format
     0x01,                                                   // Manufacturer string index
     0x02,                                                   // Product string index
-    0x03,                                                   // Device serial number string index
+	0x00,                                                   // Device serial number string index
     0x01                                                    // Number of possible configurations
 };
 
@@ -371,38 +360,16 @@ USB_DEVICE_CONFIGURATION_DESCRIPTORS_TABLE fullSpeedConfigDescSet[1] =
     {
         sizeof(sd002),
         USB_DESCRIPTOR_STRING,
-		{'M','S','D',' ','S','P','I',' ','F','l','a','s','h',' ','D','e','v','i','c','e',' ','D','e','m','o'}
+		{'E','n','t','e','r',' ','P','r','o','d','u','c','t',' ','s','t','r','i','n','g',' ','h','e','r','e'}
     }; 
-/******************************************************************************
- * Serial number string descriptor.  Note: This should be unique for each unit
- * built on the assembly line.  Plugging in two units simultaneously with the
- * same serial number into a single machine can cause problems.  Additionally,
- * not all hosts support all character values in the serial number string.  The
- * MSD Bulk Only Transport (BOT) specs v1.0 restrict the serial number to
- * consist only of ASCII characters "0" through "9" and capital letters "A"
- * through "F".
- ******************************************************************************/
-const struct
-{
-    uint8_t bLength;
-    uint8_t bDscType;
-    uint16_t string[12];
-}
-sd003 =
-{
-    sizeof(sd003),
-    USB_DESCRIPTOR_STRING,
-    {'1','2','3','4','5','6','7','8','9','9','9','9'}
-};
 /***************************************
  * Array of string descriptors
  ***************************************/
- USB_DEVICE_STRING_DESCRIPTORS_TABLE stringDescriptors[4]=
+USB_DEVICE_STRING_DESCRIPTORS_TABLE stringDescriptors[3]=
 {
     (const uint8_t *const)&sd000,
     (const uint8_t *const)&sd001,
-    (const uint8_t *const)&sd002,
-    (const uint8_t *const)&sd003
+    (const uint8_t *const)&sd002
 };
 
 /*******************************************
@@ -416,7 +383,7 @@ const USB_DEVICE_MASTER_DESCRIPTOR usbMasterDescriptor =
     &deviceDescriptor,                                      // High speed device descriptor
     1,                                                      // Total number of high speed configurations available
     highSpeedConfigDescSet,                                 // Pointer to array of high speed configurations descriptors
-	4,  													// Total number of string descriptors available.
+    3,														// Total number of string descriptors available.
     stringDescriptors,                                      // Pointer to array of string descriptors.
     &deviceQualifierDescriptor1,                            // Pointer to full speed dev qualifier.
     &deviceQualifierDescriptor1                             // Pointer to high speed dev qualifier.

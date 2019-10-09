@@ -186,8 +186,6 @@
             <logicalFolder name="f1" displayName="i2cbb" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/library/i2cbb/i2c_bb_local.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/library/i2cbb/i2c_bb.h</itemPath>
-              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/library/i2cbb/i2c_bb_local.h</itemPath>
-              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/library/i2cbb/i2c_bb.h</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f5" displayName="peripheral" projectFiles="true">
@@ -214,8 +212,6 @@
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/peripheral/sqi/plib_sqi1.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f3" displayName="tmr" projectFiles="true">
-              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/peripheral/tmr/plib_tmr_common.h</itemPath>
-              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/peripheral/tmr/plib_tmr2.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/peripheral/tmr/plib_tmr_common.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/peripheral/tmr/plib_tmr2.h</itemPath>
             </logicalFolder>
@@ -253,8 +249,6 @@
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/system/int/sys_int_mapping.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f3" displayName="ports" projectFiles="true">
-              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/system/ports/sys_ports.h</itemPath>
-              <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/system/ports/sys_ports_mapping.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/system/ports/sys_ports.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/system/ports/sys_ports_mapping.h</itemPath>
             </logicalFolder>
@@ -668,9 +662,6 @@
         <property key="preprocessor-macros" value=""/>
         <property key="warning-level" value=""/>
       </C32-AS>
-      <C32-CO>
-        <property key="coverage-enable" value=""/>
-      </C32-CO>
       <C32-LD>
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>

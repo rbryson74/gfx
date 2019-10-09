@@ -68,7 +68,7 @@
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/driver/sst26/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/sst26/src/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">360A8A432BC785D4690FB197A25AB6C2</GeneratedChecksum>
-          <UserChecksum dnOrder="5">360A8A432BC785D4690FB197A25AB6C2</UserChecksum>
+          <UserChecksum dnOrder="5">864ECC377DC97AA7467947124FE54A7C</UserChecksum>
         </File>
         <File dnOrder="8">
           <Type dnOrder="0">SOURCE</Type>
@@ -2380,7 +2380,7 @@
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/peripheral/sqi/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/sqi/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">BA2AAEA19E581F59C1E78E73982F7C78</GeneratedChecksum>
-          <UserChecksum dnOrder="5">58B9E4A11B639A006D9459A820DEB27F</UserChecksum>
+          <UserChecksum dnOrder="5">BA2AAEA19E581F59C1E78E73982F7C78</UserChecksum>
         </File>
         <File dnOrder="297">
           <Type dnOrder="0">HEADER</Type>

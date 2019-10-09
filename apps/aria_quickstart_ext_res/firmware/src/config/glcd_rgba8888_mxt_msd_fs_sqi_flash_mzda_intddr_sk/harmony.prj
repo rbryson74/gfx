@@ -1347,8 +1347,8 @@
           <Name dnOrder="1">usb_device_init_data.c</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_msd_fs_sqi_flash_mzda_intddr_sk/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">7CD686368CF789944F3361C831C05FC4</GeneratedChecksum>
-          <UserChecksum dnOrder="5">7CD686368CF789944F3361C831C05FC4</UserChecksum>
+          <GeneratedChecksum dnOrder="4">48BF409BBF79A5742FE96A105CB7D148</GeneratedChecksum>
+          <UserChecksum dnOrder="5">48BF409BBF79A5742FE96A105CB7D148</UserChecksum>
         </File>
         <File dnOrder="168">
           <Type dnOrder="0">SOURCE</Type>
@@ -1388,7 +1388,7 @@
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_msd_fs_sqi_flash_mzda_intddr_sk/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">B1BF1D7906CE912EE47201BBA4673B55</GeneratedChecksum>
-          <UserChecksum dnOrder="5">817D9CD4AA026D81D1D2C4B60112E5CD</UserChecksum>
+          <UserChecksum dnOrder="5">B1BF1D7906CE912EE47201BBA4673B55</UserChecksum>
         </File>
         <File dnOrder="173">
           <Type dnOrder="0">HEADER</Type>

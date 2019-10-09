@@ -84,7 +84,7 @@
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_cu/driver/sst26/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/sst26/src/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">360A8A432BC785D4690FB197A25AB6C2</GeneratedChecksum>
-          <UserChecksum dnOrder="5">360A8A432BC785D4690FB197A25AB6C2</UserChecksum>
+          <UserChecksum dnOrder="5">864ECC377DC97AA7467947124FE54A7C</UserChecksum>
         </File>
         <File dnOrder="10">
           <Type dnOrder="0">SOURCE</Type>
@@ -1339,8 +1339,8 @@
           <Name dnOrder="1">usb_device_init_data.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_cu/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">7CD686368CF789944F3361C831C05FC4</GeneratedChecksum>
-          <UserChecksum dnOrder="5">7CD686368CF789944F3361C831C05FC4</UserChecksum>
+          <GeneratedChecksum dnOrder="4">48BF409BBF79A5742FE96A105CB7D148</GeneratedChecksum>
+          <UserChecksum dnOrder="5">48BF409BBF79A5742FE96A105CB7D148</UserChecksum>
         </File>
         <File dnOrder="167">
           <Type dnOrder="0">SOURCE</Type>
@@ -1379,8 +1379,8 @@
           <Name dnOrder="1">configuration.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_cu/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">9313461501C64E8FE6EEB2A9D90E1499</GeneratedChecksum>
-          <UserChecksum dnOrder="5">34CF89420BF0C1D81CB6184F6EDC7092</UserChecksum>
+          <GeneratedChecksum dnOrder="4">0E269BA8DAC43625615E4CA3EBECAB95</GeneratedChecksum>
+          <UserChecksum dnOrder="5">0E269BA8DAC43625615E4CA3EBECAB95</UserChecksum>
         </File>
         <File dnOrder="172">
           <Type dnOrder="0">HEADER</Type>
@@ -2412,7 +2412,7 @@
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_cu/peripheral/sqi/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/sqi/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">BA2AAEA19E581F59C1E78E73982F7C78</GeneratedChecksum>
-          <UserChecksum dnOrder="5">3050BE1ED3A5264D1B4F1126BBC9BF97</UserChecksum>
+          <UserChecksum dnOrder="5">BA2AAEA19E581F59C1E78E73982F7C78</UserChecksum>
         </File>
         <File dnOrder="301">
           <Type dnOrder="0">HEADER</Type>
