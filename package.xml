@@ -3,5 +3,6 @@
     <Dependencies>
         <Dependency name="core" version="3.5.0"/>
         <Dependency name="bsp" version="3.5.0"/>
+        <Dependency name="usb" version="3.4.0"/>
     </Dependencies>
 </Package>
