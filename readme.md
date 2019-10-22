@@ -24,20 +24,23 @@ Find multiple graphics application examples in the [gfx_apps](https://github.com
 
 The key features of the MPLAB® Harmony Graphics Suite are the following:
 
-- Supports both Microchip 32-bit SAM and PIC microprocessor devices
-- Conforms to the Harmony 3 Software Framework
-- MISRA C (Mandatory) compliant
-- Designed for integration with both RTOS and non-RTOS based systems
-- Tightly-coupled with Microchip MPLAB® X IDE and tools
-- Powerful building block widgets: buttons, labels, lists, sliders, images, graphing and more
-- Color Modes RGB 32-bit, 16-bit 8-bit
-- Multi-language font support with UTF-8 encoding
+- Hardware optimized for use with Microchip 32-bit SAM and PIC devices
+- Compatible component for use with Microchip Harmony 3 Configurator (MHC)
+- Written in C with MISRA C (Mandatory) compliancy
+- RTOS and non-RTOS support
+- Configurable widget building blocks buttons, labels, lists, sliders, and images
+- Rich tool set: Heap Estimator, Event Manager, Palette generator, Asset Manager, String and Font interface, DDR memory organizer
+- Hardware integrated for Microchip GPU and display controller peripherals
 - Support for single and double frame buffers
-- WYSWYG UI design editor - Graphics Composer
-- Variety of support tools - Heap Estimator, Event Manager, Palette generator, Asset Manager, String and Font interface, DDR memory organizer
-- Supports GPU and multi-layer functionality (hardware dependent)
-- Integrated image support: multiple formats, integrated editing, compression choices, memory storage targets
-- Demonstrations and quick-starts to enable new development
+- Multi-language font support
+- External input support for use with capacitive, resistive and other devices
+- UI design editor for what-you-see-what-you-get (WYSWYG) graphics layouts
+- Fluid-UI support for alpha-blending, animations, scaling
+- Pixel format support for RGBA8888, RGB888, RGB565, RGB5551, RGB332, GS8
+- Multi-image support for industry standard formats, compression choices, external memory accessibility
+- Fully functional demonstrations and quick-starts to enable new development
+- Low memory and low power configurable
+
 
 # Contents Summary
 
