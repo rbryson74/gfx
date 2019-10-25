@@ -3,7 +3,8 @@
 
 - **Graphics Contents** - This graphics release consists of graphics libraries, applications, utilities, drivers, hardware abstractions, input, middleware, templates, and documentation. The following table lists the contents:
 
-### Aria graphics library
+**Aria graphics library** - the standard graphics library within MPLAB Harmony Graphics Suite. Supports PIC32 and SAM microcontroller and microprocessors.
+
 | Category | Item | Description | Release Type |
 | --- | --- | ---- |---- |
 | apps |  aria_flash  | Aria UI library flash writer | Beta |
@@ -27,7 +28,8 @@
 | library    | aria | Graphics Library | Production |
 | designer | Aria MHGC  | Harmony Graphics Composer for Aria| Production|
 
-### Legato graphics library
+**Legato graphics library** - the performance improved graphics library for MPLAB Harmony Graphics Suite. Supports PIC32 and SAM microcontrollers.
+
 | Category | Item | Description | Release Type |
 | --- | --- | ---- |---- |
 |  apps | legato_quickstart | Legato UI library quickstart example | Production |
@@ -43,7 +45,8 @@
 | library    | legato | Graphics Library | Production |
 | designer | Legato MHGC |Harmony Graphics Composer for for Legato| Beta|
 
-### SEGGER emWin graphics library
+**SEGGER emWin graphics library** - emWin V5.48 - Graphical user interface middleware for embedded applications. It is licensed for PIC32MX and PIC32MZ microcontrollers.
+
 | Category | Item | Description | Release Type |
 | --- | --- | ---- |---- |
 | apps | emwin_quickstart | Legato UI library quickstart example |Beta |
@@ -54,7 +57,8 @@
 |      | templates   | aria_gfx_pda_tm4301b| MHC config for pda 4.3" display | Production |
 | designer | emWin | SEGGER emWin v5.50 - Graphical UI for embedded applications| Beta|
 
-### Blank graphics library
+**Blank graphics library** - the library interface which easily allows a third-party graphics direct access to the display framebuffer.
+
 | Category | Item | Description | Release Type |
 | --- | --- | ---- |---- |
 | apps | blank_quickstart | Blank UI-less library quickstart example | Beta|
@@ -64,7 +68,8 @@
 | library    | blank | Pixel operations | Beta |
 
 
-### Misc items
+**Misc items** - items associated with the entire library.
+
 | Category | Item | Description | Release Type |
 | --- | --- | ---- |---- |
 |input | generic | Generic Touch Input Driver | Production |
@@ -122,7 +127,7 @@
 
 - **Development kit support** - The following table lists  applications available for different development kits.
 
-| Applications | [SAM D21N Xplained Pro Evaluation Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/ATSAMD21-XPRO) |[SAM C21N Xplained Pro Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAMC21-XPRO) | [SAM E54 Xplained Pro Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAME54-XPRO) | [SAM E70 Xplained Ultra Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAME70-XPLD) | [SAM A5D2 Xplained Ultra Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/atsama5d2c-xult) | [Multimedia Expansion Board II](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320005-5) |SAM 9x60 Evaluation Kit |[PIC32MZ EF Curiosity Kit](https://www.microchip.com/Developmenttools/ProductDetails/DM320209) |
+| Applications | [SAM D21N Xplained Pro](https://www.microchip.com/DevelopmentTools/ProductDetails/ATSAMD21-XPRO) |[SAM C21N Xplained Pro](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAMC21-XPRO) | [SAM E54 Xplained Pro](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAME54-XPRO) | [SAM E70 Xplained Ultra](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAME70-XPLD) | [SAM A5D2 Xplained Ultra](https://www.microchip.com/developmenttools/ProductDetails/atsama5d2c-xult) | [Multimedia Expansion Board II](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320005-5) |SAM 9x60 Evaluation Kit |[Curiosity PIC32MZ EF 2.0](https://www.microchip.com/Developmenttools/ProductDetails/DM320209) |
 | --- | --- |--- | --- | --- | --- | --- | --- |--- |
 | aria_flash                   |   |   |   | x | x | x |   | x |
 | aria_quickstart              | x | x | x | x | x | x | x | x |
@@ -142,7 +147,7 @@ In gfx.c the variable args is falsely detected in violation of Code 530: &quot;S
 * The Heap Estimator can be inaccurate with estimating PNG images that have high pixel fidelity.
 * Project regeneration from command line can remove Aria generated screens and widgets.
 * MHGC GAC does not generated a 2DGPU comaptible palette table. A translation step is required to create word values from little endian byte array.
-* When regenerating demo applications, keep all code between comments //CUSTOM CODE and //END OF CUSTOM CODE. Custom code is added to perform specific functionality.
+* When regenerating demo applications, keep all code between comments “//CUSTOM CODE…” and “//END OF CUSTOM CODE…”. Custom code is added to perform specific functionality.
 * PKOB4 debugging requires MPLAB v5.20.
 
 ### DEVELOPMENT TOOLS
