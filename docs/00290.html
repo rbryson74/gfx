@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>GFX_FrameBuffer Structure</title>
+<title>GFX_DrawStretchBlit Function</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,23 +18,23 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00360.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00454.html" target="topic">Middleware Library</a> &gt; <a href="00450.html" target="topic">Hardware Abstraction Layer (HAL)</a> &gt; <a href="00460.html" target="topic">Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="00290.html" target="topic">GFX_FrameBuffer Structure</a></div>
+<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00535.html" target="topic">Graphics Library</a> &gt; <a href="00516.html" target="topic">Aria Graphics Library</a> &gt; <a href="00520.html" target="topic">Aria Hardware Abstraction Layer (HAL)</a> &gt; <a href="00541.html" target="topic">Library Interface</a> &gt; a) Functions &gt; <a href="00290.html" target="topic">GFX_DrawStretchBlit Function</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
 <div class="Element1">
-MPLAB Harmony Graphics Library Help</div>
+MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00360.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="00240.html" target="topic">Previous</a> | <a href="00460.html" target="topic">Up</a> | <a href="00296.html" target="topic">Next</a></div>
+<a href="00264.html" target="topic">Previous</a> | <a href="00541.html" target="topic">Up</a> | <a href="00381.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_FrameBuffer Topic Title: GFX_FrameBuffer Structure)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_DrawStretchBlit@GFX_PixelBuffer*@int32_t@int32_t@int32_t@int32_t@int32_t@int32_t@int32_t@int32_t Topic Title: GFX_DrawStretchBlit Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-GFX_FrameBuffer Structure</div>
+GFX_DrawStretchBlit Function</div>
 </div>
 </div>
 
@@ -49,45 +49,103 @@ GFX_FrameBuffer Structure</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-Structure: GFX_FrameBuffer_t&nbsp;</p>
-<p class="Element10">
-pb - The pixel buffer description of the frame buffer. state - The state of the frame buffer. coherent - Indicates if the frame buffer is allocated from coherent dynamic memory</p></div>
+A pixel buffer is an array of pixel data that can be applied in bulk, or 'blit'ed, to the frame buffer. Pixel buffers may be of a different color mode and will be converted to match the destination frame buffer before application. This version can resize the source data before blitting. The option GFXF_RESIZE_METHOD selects the resize technique.</p></div>
 </div>
 <a name="43"></a><div class="Element99">
 C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100"><strong><span style="color: #000080">typedef</span></strong> <strong><span style="color: #000080">struct</span></strong> <strong><span style="color: #000000">GFX_FrameBuffer_t</span></strong> {
-  <a href="00373.html" target="topic">GFX_PixelBuffer</a> <strong><span style="color: #000000">pb</span></strong>;
-  <a href="00045.html" target="topic">GFX_BufferState</a> <strong><span style="color: #000000">state</span></strong>;
-  GFX_Bool <strong><span style="color: #000000">coherent</span></strong>;
-  <strong><span style="color: #000080">void</span></strong>* <strong><span style="color: #000000">driver_data</span></strong>;
-} GFX_FrameBuffer;</pre></div></div>
-<a name="52656D61726B73"></a><div class="Element14">
-Remarks</div>
+<div class="Element101"><div class="Element100"><pre class="Element100"><a href="02944.html" target="topic">LIB_EXPORT</a> GFX_Result <strong><span style="color: #000000">GFX_DrawStretchBlit</span></strong>(
+    <a href="00431.html" target="topic">GFX_PixelBuffer</a>* <strong><span style="color: #000000">buffer</span></strong>, 
+    <a href="00558.html" target="topic">int32_t</a> <strong><span style="color: #000000">src_x</span></strong>, 
+    <a href="00558.html" target="topic">int32_t</a> <strong><span style="color: #000000">src_y</span></strong>, 
+    <a href="00558.html" target="topic">int32_t</a> <strong><span style="color: #000000">src_width</span></strong>, 
+    <a href="00558.html" target="topic">int32_t</a> <strong><span style="color: #000000">src_height</span></strong>, 
+    <a href="00558.html" target="topic">int32_t</a> <strong><span style="color: #000000">dest_x</span></strong>, 
+    <a href="00558.html" target="topic">int32_t</a> <strong><span style="color: #000000">dest_y</span></strong>, 
+    <a href="00558.html" target="topic">int32_t</a> <strong><span style="color: #000000">dest_width</span></strong>, 
+    <a href="00558.html" target="topic">int32_t</a> <strong><span style="color: #000000">dest_height</span></strong>
+);</pre></div></div>
+<a name="506172616D6574657273"></a><div class="Element14">
+Parameters</div>
+<div class="Element11">
+<div class="Element10">
+<div class="Element312">
+<div class="TableDiv">
+<table cellspacing="0" class="Table3">
+<tr>
+<td class="Element300" valign="top" width="35%">
+<div class="Element301">
+Parameters&nbsp;</div></td><td class="Element304" valign="top" width="65%">
+<div class="Element305">
+Description&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+buffer&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+the pointer to the source pixel buffer<br>&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+src_x&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+the x component of the rectangle of the buffer to blit, usually 0<br>&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+src_y&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+the y component of the rectangle of the buffer to blit, usually 0<br>&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+src_width&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+width of the rectangle of the buffer to blit, usually the entire with of the source buffer<br>&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+src_height&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+height of the rectangle of the buffer to blit, usually the entire height of the source buffer<br>&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+dest_x&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+the x position to blit the source rectangle in the destination buffer<br> the y position to blit the source rectangle in the destination buffer<br>&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+dest_width&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+the desired resize width<br>&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+dest_height&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+the desired resize height&nbsp;</div></td></tr></table></div></div>
+</div>
+</div>
+<a name="52657475726E73"></a><div class="Element14">
+Returns</div>
 <div class="Element11">
 <div class="Element10">
 <p class="Element10">
-None.</p></div>
+GFX_Result - Returns GFX_TRUE if the blit was drawn successfully. Otherwise returns GFX_FALSE.</p></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00360.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00454.html" target="topic">Middleware Library</a> &gt; <a href="00450.html" target="topic">Hardware Abstraction Layer (HAL)</a> &gt; <a href="00460.html" target="topic">Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="00290.html" target="topic">GFX_FrameBuffer Structure</a></div>
+<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00535.html" target="topic">Graphics Library</a> &gt; <a href="00516.html" target="topic">Aria Graphics Library</a> &gt; <a href="00520.html" target="topic">Aria Hardware Abstraction Layer (HAL)</a> &gt; <a href="00541.html" target="topic">Library Interface</a> &gt; a) Functions &gt; <a href="00290.html" target="topic">GFX_DrawStretchBlit Function</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
 <div class="Element3">
-MPLAB Harmony Graphics Library Help</div>
+MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00360.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="00240.html" target="topic">Previous</a> | <a href="00460.html" target="topic">Up</a> | <a href="00296.html" target="topic">Next</a></div>
+<a href="00264.html" target="topic">Previous</a> | <a href="00541.html" target="topic">Up</a> | <a href="00381.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_FrameBuffer Topic Title: GFX_FrameBuffer Structure)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_DrawStretchBlit@GFX_PixelBuffer*@int32_t@int32_t@int32_t@int32_t@int32_t@int32_t@int32_t@int32_t Topic Title: GFX_DrawStretchBlit Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

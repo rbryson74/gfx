@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>laArcWidget Structure</title>
+<title>Display Drivers</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00359.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00475.html" target="topic">Graphics Library</a> &gt; <a href="00456.html" target="topic">Aria User Interface Library</a> &gt; <a href="00455.html" target="topic">Aria User Interface Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="00495.html" target="topic">laArcWidget Structure</a></div>
+<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00535.html" target="topic">Graphics Library</a> &gt; <a href="00516.html" target="topic">Aria Graphics Library</a> &gt; <a href="00497.html" target="topic">Aria Drivers</a> &gt; <a href="00495.html" target="topic">Display Drivers</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00359.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02891.html" target="topic">Previous</a> | <a href="00455.html" target="topic">Up</a> | <a href="00515.html" target="topic">Next</a></div>
+<a href="00497.html" target="topic">Previous</a> | <a href="00497.html" target="topic">Up</a> | <a href="00499.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laArcWidget Topic Title: laArcWidget Structure)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_Suite_Display Topic Title: Display Drivers)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-laArcWidget Structure</div>
+Display Drivers</div>
 </div>
 </div>
 
@@ -49,88 +49,60 @@ laArcWidget Structure</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-Structure: laArcWidget_t&nbsp;</p>
+The graphics display drivers are generated source code. The <a href="00556.html" target="topic">Display Manager</a> is the tool responsible for creating and configuring each display driver.&nbsp;</p>
 <p class="Element10">
-A arc widget draws a arc of the specified origin and radius inside the widget bounds. All coordinates are expressed in local widget space.&nbsp;</p>
-<p class="Element10">
-The color of the arc is determined by the widget scheme's 'foreground' color.</p></div>
-</div>
-<a name="43"></a><div class="Element99">
-C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100"><strong><span style="color: #000080">typedef</span></strong> <strong><span style="color: #000080">struct</span></strong> <strong><span style="color: #000000">laArcWidget_t</span></strong> {
-  <a href="02252.html" target="topic">laWidget</a> <strong><span style="color: #000000">widget</span></strong>;
-  uint32_t <strong><span style="color: #000000">radius</span></strong>;
-  uint32_t <strong><span style="color: #000000">startAngle</span></strong>;
-  int32_t <strong><span style="color: #000000">centerAngle</span></strong>;
-  uint32_t <strong><span style="color: #000000">endAngle</span></strong>;
-  uint32_t <strong><span style="color: #000000">thickness</span></strong>;
-  <a href="00621.html" target="topic">laBool</a> <strong><span style="color: #000000">roundEdge</span></strong>;
-} laArcWidget;</pre></div></div>
-<a name="4D656D62657273"></a><div class="Element14">
-Members</div>
-<div class="Element11">
-<div class="Element10">
-<div class="Element272">
+&nbsp;</p><div class="Element63">
 <div class="TableDiv">
-<table cellspacing="0" class="Table4">
+<table cellspacing="0" class="Table2">
 <tr>
-<td class="Element260" valign="top" width="35%">
-<div class="Element261">
-Members&nbsp;</div></td><td class="Element264" valign="top" width="65%">
-<div class="Element265">
-Description&nbsp;</div></td></tr><tr>
-<td class="Element262" valign="top" width="35%">
-<div class="Element263">
-laWidget widget;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
-<div class="Element267">
-base widget header&nbsp;</div></td></tr><tr>
-<td class="Element262" valign="top" width="35%">
-<div class="Element263">
-uint32_t radius;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
-<div class="Element267">
-the radius of the arc&nbsp;</div></td></tr><tr>
-<td class="Element262" valign="top" width="35%">
-<div class="Element263">
-uint32_t startAngle;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
-<div class="Element267">
-the start angle of the arc&nbsp;</div></td></tr><tr>
-<td class="Element262" valign="top" width="35%">
-<div class="Element263">
-int32_t centerAngle;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
-<div class="Element267">
-the center angle of the arc&nbsp;</div></td></tr><tr>
-<td class="Element262" valign="top" width="35%">
-<div class="Element263">
-uint32_t endAngle;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
-<div class="Element267">
-the end angle of the arc&nbsp;</div></td></tr><tr>
-<td class="Element262" valign="top" width="35%">
-<div class="Element263">
-uint32_t thickness;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
-<div class="Element267">
-the thickness of the arc&nbsp;</div></td></tr><tr>
-<td class="Element262" valign="top" width="35%">
-<div class="Element263">
-laBool roundEdge;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
-<div class="Element267">
-draws round edge if true.&nbsp;</div></td></tr></table></div></div>
+<td class="Element65" valign="top" width="22%">
+<div class="Element66">
+Display Driver Name&nbsp;</div></td><td class="Element65" valign="top" width="78%">
+<div class="Element66">
+Location&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="22%">
+<div class="Element68">
+generic&nbsp;</div></td><td class="Element67" valign="top" width="78%">
+<div class="Element68">
+Generic display template driver&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="22%">
+<div class="Element68">
+glcd&nbsp;</div></td><td class="Element67" valign="top" width="78%">
+<div class="Element68">
+MZDA graphics lcd driver&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="22%">
+<div class="Element68">
+ili9488&nbsp;</div></td><td class="Element67" valign="top" width="78%">
+<div class="Element68">
+Ilitek ili9488 driver&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="22%">
+<div class="Element68">
+lcc&nbsp;</div></td><td class="Element67" valign="top" width="78%">
+<div class="Element68">
+Low-Cost Controllerless driver (pic32)&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="22%">
+<div class="Element68">
+lcdc&nbsp;</div></td><td class="Element67" valign="top" width="78%">
+<div class="Element68">
+Low-cost display driver (sam)&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="22%">
+<div class="Element68">
+ssd1306&nbsp;</div></td><td class="Element67" valign="top" width="78%">
+<div class="Element68">
+Solomon Systech ssd1306 driver&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="22%">
+<div class="Element68">
+ssd1963&nbsp;</div></td><td class="Element67" valign="top" width="78%">
+<div class="Element68">
+Solomon Systech ssd1963 driver&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
-<a name="52656D61726B73"></a><div class="Element14">
-Remarks</div>
-<div class="Element11">
-<div class="Element10">
-<p class="Element10">
-None.</p></div>
-</div>
-<div class="Element62">
-Created with a commercial version of <a href="#" onclick="openExternalLink('http://www.doc-o-matic.com');"><img src="indicator_external_link.gif" border="0" alt="" title="">Doc-O-Matic</a>. In order to make this message disappear you need to register this software. If you have problems registering this software please contact us at <a href="#" onclick="openExternalLink('mailto:support@toolsfactory.com');"><img src="indicator_external_link.gif" border="0" alt="" title="">support@toolsfactory.com</a>.</div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00359.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00475.html" target="topic">Graphics Library</a> &gt; <a href="00456.html" target="topic">Aria User Interface Library</a> &gt; <a href="00455.html" target="topic">Aria User Interface Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="00495.html" target="topic">laArcWidget Structure</a></div>
+<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00535.html" target="topic">Graphics Library</a> &gt; <a href="00516.html" target="topic">Aria Graphics Library</a> &gt; <a href="00497.html" target="topic">Aria Drivers</a> &gt; <a href="00495.html" target="topic">Display Drivers</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -138,13 +110,13 @@ Created with a commercial version of <a href="#" onclick="openExternalLink('http
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00359.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02891.html" target="topic">Previous</a> | <a href="00455.html" target="topic">Up</a> | <a href="00515.html" target="topic">Next</a></div>
+<a href="00497.html" target="topic">Previous</a> | <a href="00497.html" target="topic">Up</a> | <a href="00499.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laArcWidget Topic Title: laArcWidget Structure)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_Suite_Display Topic Title: Display Drivers)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

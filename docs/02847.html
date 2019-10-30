@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>aria_coffeemaker Demonstration Example</title>
+<title>leRectsAreSimilar Function</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00359.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="02846.html" target="topic">Advanced Topics</a> &gt; <a href="02872.html" target="topic">Improved Touch Performance with Phantom Buttons</a> &gt; <a href="02847.html" target="topic">aria_coffeemaker Demonstration Example</a></div>
+<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00535.html" target="topic">Graphics Library</a> &gt; <a href="00533.html" target="topic">Legato Graphics Library</a> &gt; <a href="00549.html" target="topic">Legato Interface</a> &gt; a) Common Functions &gt; <a href="02847.html" target="topic">leRectsAreSimilar Function</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00359.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02872.html" target="topic">Previous</a> | <a href="02872.html" target="topic">Up</a> | <a href="02882.html" target="topic">Next</a></div>
+<a href="02846.html" target="topic">Previous</a> | <a href="00549.html" target="topic">Up</a> | <a href="02848.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG aria_coffeemaker Demonstration Example Topic Title: aria_coffeemaker Demonstration Example)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: leRectsAreSimilar@leRect*@leRect* Topic Title: leRectsAreSimilar Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-aria_coffeemaker Demonstration Example</div>
+leRectsAreSimilar Function</div>
 </div>
 </div>
 
@@ -46,42 +46,50 @@ aria_coffeemaker Demonstration Example</div>
 
 <!-- Begin Page Content -->
 <a name="PageContent"></a><div class="Element58">
-<a name="4465736372697074696F6E"></a><div class="Element11">
+<a name="43"></a><div class="Element99">
+C</div>
+<div class="Element101"><div class="Element100"><pre class="Element100"><a href="02944.html" target="topic">LIB_EXPORT</a> leBool <strong><span style="color: #000000">leRectsAreSimilar</span></strong>(
+    <strong><span style="color: #000080">const</span></strong> leRect* <strong><span style="color: #000000">l</span></strong>, 
+    <strong><span style="color: #000080">const</span></strong> leRect* <strong><span style="color: #000000">r</span></strong>
+);</pre></div></div>
+<a name="506172616D6574657273"></a><div class="Element14">
+Parameters</div>
+<div class="Element11">
+<div class="Element10">
+<div class="Element312">
+<div class="TableDiv">
+<table cellspacing="0" class="Table3">
+<tr>
+<td class="Element300" valign="top" width="35%">
+<div class="Element301">
+Parameters&nbsp;</div></td><td class="Element304" valign="top" width="65%">
+<div class="Element305">
+Description&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+const leRect* l&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+the first rectangle&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+const leRect* r&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+the second rectangle&nbsp;</div></td></tr></table></div></div>
+</div>
+</div>
+<a name="52657475726E73"></a><div class="Element14">
+Returns</div>
+<div class="Element11">
 <div class="Element10">
 <p class="Element10">
-Small buttons are hard to activate on the screen. The use of phantom (invisible) buttons can improve touch performance without increasing the size of the visible footprint of the button on the display.&nbsp;</p>
-<p class="Element10">
-The aria_coffee_maker has a sliding tray on each side of the display. Sliding a tray in, or out, is accomplished by a phantom (invisible) button. Looking at the left tray, we see the three parts of this phantom button.</p>
-<ol class="Element630">
-<li value="1" class="Element600"><i>LeftTrayLid</i>: An invisible button widget, whose outline is shown in blue. This area is the touch field.</li>
-<li value="2" class="Element600"><i>ImageWidget5</i>: An image widget containing a hand icon, providing a visual clue as to how to manipulate the tray.</li>
-<li value="3" class="Element600"><i>The Release Image and Pressed Image</i>: These are defined as part of the button widget properties. The Pressed Image has a darker coloring than the Released Image. This difference is what shows the user that the button has been pressed.</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Lefttraylid.png" border="0" alt="" title=""></p><p class="Element10">
-The drawing hierarchy for this part of the design is shows that ImageWidget5 is a daughter widget to the LeftTrayLid button widget. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Lefttray widget.png" border="0" alt="" title=""></p><p class="Element10">
-Examining the properties of the LeftTrayLid button widget reveals more about how this works. The following figure demonstrates these three properties.&nbsp;</p>
-<p class="Element10">
-1. The <i>Border</i> is defined as <i>None</i>.&nbsp;</p>
-<p class="Element10">
-2. <i>Background Type</i> is defined as <i>None</i>.&nbsp;</p>
-<p class="Element10">
-3. The different images used will show when the button is <i>Pressed</i> or <i>Released</i>.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Left tray lid properties editor.png" border="0" alt="" title="">&nbsp;</p><p class="Element10">
-By setting the border and background to <i>None</i>, the button is invisible. Only by providing different images for <i>Released</i> versus <i>Pressed</i> does the user know when the button has been pressed.&nbsp;</p>
-<p class="Element10">
-The actual touch region defined by the button is much larger than the images shown on the display. This extra area increases the touch response of the display.</p></div>
+leBool</p></div>
 </div>
-<div class="Element62">
-Created with a commercial version of <a href="#" onclick="openExternalLink('http://www.doc-o-matic.com');"><img src="indicator_external_link.gif" border="0" alt="" title="">Doc-O-Matic</a>. In order to make this message disappear you need to register this software. If you have problems registering this software please contact us at <a href="#" onclick="openExternalLink('mailto:support@toolsfactory.com');"><img src="indicator_external_link.gif" border="0" alt="" title="">support@toolsfactory.com</a>.</div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00359.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="02846.html" target="topic">Advanced Topics</a> &gt; <a href="02872.html" target="topic">Improved Touch Performance with Phantom Buttons</a> &gt; <a href="02847.html" target="topic">aria_coffeemaker Demonstration Example</a></div>
+<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00535.html" target="topic">Graphics Library</a> &gt; <a href="00533.html" target="topic">Legato Graphics Library</a> &gt; <a href="00549.html" target="topic">Legato Interface</a> &gt; a) Common Functions &gt; <a href="02847.html" target="topic">leRectsAreSimilar Function</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -89,13 +97,13 @@ Created with a commercial version of <a href="#" onclick="openExternalLink('http
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00359.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02872.html" target="topic">Previous</a> | <a href="02872.html" target="topic">Up</a> | <a href="02882.html" target="topic">Next</a></div>
+<a href="02846.html" target="topic">Previous</a> | <a href="00549.html" target="topic">Up</a> | <a href="02848.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG aria_coffeemaker Demonstration Example Topic Title: aria_coffeemaker Demonstration Example)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: leRectsAreSimilar@leRect*@leRect* Topic Title: leRectsAreSimilar Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>GFX_ColorMask Enumeration</title>
+<title>(4) GFX Core Component</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,23 +18,23 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00360.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00454.html" target="topic">Middleware Library</a> &gt; <a href="00450.html" target="topic">Hardware Abstraction Layer (HAL)</a> &gt; <a href="00460.html" target="topic">Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="00069.html" target="topic">GFX_ColorMask Enumeration</a></div>
+<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00494.html" target="topic">Configurator</a> &gt; <a href="00075.html" target="topic">MHC GFX Components</a> &gt; <a href="00074.html" target="topic">Exploring Aria Quickstart</a> &gt; <a href="00069.html" target="topic">(4) GFX Core Component</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
 <div class="Element1">
-MPLAB Harmony Graphics Library Help</div>
+MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00360.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="00067.html" target="topic">Previous</a> | <a href="00460.html" target="topic">Up</a> | <a href="00080.html" target="topic">Next</a></div>
+<a href="00068.html" target="topic">Previous</a> | <a href="00074.html" target="topic">Up</a> | <a href="00070.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_ColorMask Topic Title: GFX_ColorMask Enumeration)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX CMP (4) GFX Core Component Topic Title: (4) GFX Core Component)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-GFX_ColorMask Enumeration</div>
+(4) GFX Core Component</div>
 </div>
 </div>
 
@@ -49,41 +49,50 @@ GFX_ColorMask Enumeration</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-Enumeration: GFX_ColorMask_t</p></div>
+ &nbsp;</p>
+<p class="Element10">
+The GFX Core component adds to the application the <a href="00520.html" target="topic">Hardware Abstraction Layer (HAL)</a>:&nbsp;</p>
+<p class="Element10">
+&nbsp;</p><p class="Element10" style="text-align: center;">
+<img src="GFX CMP GFX Core Component.png" border="0" alt="" title="">&nbsp;</p><p class="Element10">
+Only the Display Driver connection is required (it is shown in red above).&nbsp;</p>
+<p class="Element10">
+The GFX Core component has many options: </p><p class="Element10" style="text-align: center;">
+<img src="GFX CMP GFX Core Config Options.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+<img src="GFX CMP GFX Core Back Light options.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+<img src="GFX CMP GFX Core Remaining Options.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p><p class="Element10">
+When connected to a display the Display Settings part of the GFX Core’s configuration options inherits timing information from the display: </p><p class="Element10" style="text-align: center;">
+<img src="GFX CMP GFX Core Inherited Options.png" border="0" alt="" title=""></p><p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+For more information see : <a href="00520.html" target="topic">Hardware Abstraction Layer (HAL)</a></p></div>
 </div>
-<a name="43"></a><div class="Element99">
-C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100"><strong><span style="color: #000080">typedef</span></strong> <strong><span style="color: #000080">enum</span></strong> <strong><span style="color: #000000">GFX_ColorMask_t</span></strong> {
-  <strong><span style="color: #000000">GFX_COLOR_MASK_GS_8</span></strong> = 0x1,
-  <strong><span style="color: #000000">GFX_COLOR_MASK_RGB_332</span></strong> = 0x4,
-  <strong><span style="color: #000000">GFX_COLOR_MASK_RGB_565</span></strong> = 0x8,
-  <strong><span style="color: #000000">GFX_COLOR_MASK_RGBA_5551</span></strong> = 0x10,
-  <strong><span style="color: #000000">GFX_COLOR_MASK_RGB_888</span></strong> = 0x20,
-  <strong><span style="color: #000000">GFX_COLOR_MASK_RGBA_8888</span></strong> = 0x40,
-  <strong><span style="color: #000000">GFX_COLOR_MASK_ARGB_8888</span></strong> = 0x80,
-  <strong><span style="color: #000000">GFX_COLOR_MASK_YUV</span></strong> = 0x100,
-  <strong><span style="color: #000000">GFX_COLOR_MASK_ALL</span></strong> = GFX_COLOR_MASK_GS_8|GFX_COLOR_MASK_RGB_332|GFX_COLOR_MASK_RGB_565|GFX_COLOR_MASK_RGBA_5551|GFX_COLOR_MASK_RGB_888|GFX_COLOR_MASK_RGBA_8888|GFX_COLOR_MASK_ARGB_8888|GFX_COLOR_MASK_YUV
-} GFX_ColorMask;</pre></div></div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00360.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00454.html" target="topic">Middleware Library</a> &gt; <a href="00450.html" target="topic">Hardware Abstraction Layer (HAL)</a> &gt; <a href="00460.html" target="topic">Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="00069.html" target="topic">GFX_ColorMask Enumeration</a></div>
+<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00494.html" target="topic">Configurator</a> &gt; <a href="00075.html" target="topic">MHC GFX Components</a> &gt; <a href="00074.html" target="topic">Exploring Aria Quickstart</a> &gt; <a href="00069.html" target="topic">(4) GFX Core Component</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
 <div class="Element3">
-MPLAB Harmony Graphics Library Help</div>
+MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00360.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="00067.html" target="topic">Previous</a> | <a href="00460.html" target="topic">Up</a> | <a href="00080.html" target="topic">Next</a></div>
+<a href="00068.html" target="topic">Previous</a> | <a href="00074.html" target="topic">Up</a> | <a href="00070.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_ColorMask Topic Title: GFX_ColorMask Enumeration)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX CMP (4) GFX Core Component Topic Title: (4) GFX Core Component)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>GFXU_ImageAsset Structure</title>
+<title>Using the Library</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00357.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00450.html" target="topic">Graphics Library</a> &gt; <a href="00452.html" target="topic">Graphics Utilities Library</a> &gt; <a href="00451.html" target="topic">Graphics Utilities Interface</a> &gt; b) Data Types and Constants &gt; <a href="00547.html" target="topic">GFXU_ImageAsset Structure</a></div>
+<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00535.html" target="topic">Graphics Library</a> &gt; <a href="00516.html" target="topic">Aria Graphics Library</a> &gt; <a href="00520.html" target="topic">Aria Hardware Abstraction Layer (HAL)</a> &gt; <a href="00514.html" target="topic">Aria HAL Driver Examples</a> &gt; <a href="00543.html" target="topic">ILI9488 Display Controller Driver Library</a> &gt; <a href="00547.html" target="topic">Using the Library</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00357.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="00529.html" target="topic">Previous</a> | <a href="00451.html" target="topic">Up</a> | <a href="00560.html" target="topic">Next</a></div>
+<a href="00545.html" target="topic">Previous</a> | <a href="00543.html" target="topic">Up</a> | <a href="00542.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFXU_ImageAsset Topic Title: GFXU_ImageAsset Structure)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFXLIB ILI9488 Using the Library Topic Title: Using the Library)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-GFXU_ImageAsset Structure</div>
+Using the Library</div>
 </div>
 </div>
 
@@ -49,29 +49,46 @@ GFXU_ImageAsset Structure</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-Structure: GFXU_ImageAsset_t</p></div>
+<strong>Interface Header File:</strong> <span class="Element146">drv_gfx_ili9488.h</span>&nbsp;</p>
+<p class="Element10">
+The top-level interface to the ILI9488 Display Controller Driver Library is defined in the <span class="Element146">drv_gfx_ili9488.h</span> header file. Any C language source (<span class="Element146">.c</span>), particularly in the graphics framework, file that uses the ILI9488 Display Controller Driver Library should include <span class="Element146">drv_gfx_ili9488.h</span>.</p></div>
 </div>
-<a name="43"></a><div class="Element99">
-C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100"><strong><span style="color: #000080">typedef</span></strong> <strong><span style="color: #000080">struct</span></strong> <strong><span style="color: #000000">GFXU_ImageAsset_t</span></strong> {
-  <a href="00464.html" target="topic">GFXU_AssetHeader</a> <strong><span style="color: #000000">header</span></strong>;
-  <a href="00569.html" target="topic">GFXU_ImageFormat</a> <strong><span style="color: #000000">format</span></strong>;
-  uint32_t <strong><span style="color: #000000">width</span></strong>;
-  uint32_t <strong><span style="color: #000000">height</span></strong>;
-  uint32_t <strong><span style="color: #000000">bufferWidth</span></strong>;
-  uint32_t <strong><span style="color: #000000">bufferHeight</span></strong>;
-  <a href="00077.html" target="topic">GFX_ColorMode</a> <strong><span style="color: #000000">colorMode</span></strong>;
-  <a href="00560.html" target="topic">GFXU_ImageCompressionType</a> <strong><span style="color: #000000">compType</span></strong>;
-  <a href="00564.html" target="topic">GFXU_ImageFlags</a> <strong><span style="color: #000000">flags</span></strong>;
-  GFX_Color <strong><span style="color: #000000">mask</span></strong>;
-  <a href="00585.html" target="topic">GFXU_PaletteAsset</a>* <strong><span style="color: #000000">palette</span></strong>;
-} GFXU_ImageAsset;</pre></div></div>
+<a name="546F70696373"></a><div class="Element14">
+Topics</div>
+<div class="Element11">
+<div class="Element10">
+<div class="Element212">
+<div class="TableDiv">
+<table cellspacing="0" class="Table1">
+<tr>
+<td class="Element200" valign="top" width="35%">
+<div class="Element201">
+Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
+<div class="Element205">
+Description&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00542.html" target="topic">Abstraction Model</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This section describes how the ILI9488 Display Controller Driver Library provides the APIs that abstracts the interface-specific implementation from the application layer.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00546.html" target="topic">LIbrary Overview</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Refer to the <span class="Element145">Driver Library Overview</span> section for information on how the driver operates in a system.<br><span style="color: #000000">The library interface routines are divided into various </span>sub-sections<span style="color: #000000">, which address one of the blocks or the overall operation of the ILI9488 Display Controller Driver.</span> &nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00544.html" target="topic">How the Library Works</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This section describes how the ILI9488 Display Controller Driver Library works .&nbsp;</div></td></tr></table></div></div>
+</div>
+</div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00357.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00450.html" target="topic">Graphics Library</a> &gt; <a href="00452.html" target="topic">Graphics Utilities Library</a> &gt; <a href="00451.html" target="topic">Graphics Utilities Interface</a> &gt; b) Data Types and Constants &gt; <a href="00547.html" target="topic">GFXU_ImageAsset Structure</a></div>
+<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00535.html" target="topic">Graphics Library</a> &gt; <a href="00516.html" target="topic">Aria Graphics Library</a> &gt; <a href="00520.html" target="topic">Aria Hardware Abstraction Layer (HAL)</a> &gt; <a href="00514.html" target="topic">Aria HAL Driver Examples</a> &gt; <a href="00543.html" target="topic">ILI9488 Display Controller Driver Library</a> &gt; <a href="00547.html" target="topic">Using the Library</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -79,13 +96,13 @@ C</div>
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00357.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="00529.html" target="topic">Previous</a> | <a href="00451.html" target="topic">Up</a> | <a href="00560.html" target="topic">Next</a></div>
+<a href="00545.html" target="topic">Previous</a> | <a href="00543.html" target="topic">Up</a> | <a href="00542.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFXU_ImageAsset Topic Title: GFXU_ImageAsset Structure)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFXLIB ILI9488 Using the Library Topic Title: Using the Library)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

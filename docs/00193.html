@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>GFX_DrawDirectBlit Function</title>
+<title>GFX_Context Structure</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00359.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00475.html" target="topic">Graphics Library</a> &gt; <a href="00456.html" target="topic">Aria User Interface Library</a> &gt; <a href="00460.html" target="topic">Aria Hardware Abstraction Layer (HAL)</a> &gt; <a href="00481.html" target="topic">Library Interface</a> &gt; a) Functions &gt; <a href="00193.html" target="topic">GFX_DrawDirectBlit Function</a></div>
+<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00535.html" target="topic">Graphics Library</a> &gt; <a href="00516.html" target="topic">Aria Graphics Library</a> &gt; <a href="00520.html" target="topic">Aria Hardware Abstraction Layer (HAL)</a> &gt; <a href="00541.html" target="topic">Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="00193.html" target="topic">GFX_Context Structure</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00359.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="00192.html" target="topic">Previous</a> | <a href="00481.html" target="topic">Up</a> | <a href="00195.html" target="topic">Next</a></div>
+<a href="00170.html" target="topic">Previous</a> | <a href="00541.html" target="topic">Up</a> | <a href="00217.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_DrawDirectBlit@GFX_PixelBuffer*@int32_t@int32_t@int32_t@int32_t@int32_t@int32_t Topic Title: GFX_DrawDirectBlit Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_Context Topic Title: GFX_Context Structure)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-GFX_DrawDirectBlit Function</div>
+GFX_Context Structure</div>
 </div>
 </div>
 
@@ -49,79 +49,85 @@ GFX_DrawDirectBlit Function</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-A pixel buffer is an array of pixel data that can be applied in bulk, or 'blit'ed, to the frame buffer. This method will not perform per-pixel operations on the incoming data. The incoming pixel data color format must match the format of the current target buffer. Area clipping operations are still performed if enabled.</p></div>
+Stucture: GFX_Context_t&nbsp;</p>
+<p class="Element10">
+The context is an instance of the hardware abstraction layer. It is essentially the marriage between a graphics driver, a display description, and possibly a graphics processor. It contains the data that describes the layout of the display, the buffers that store the display data, the current draw state, and the function map that controls everything.&nbsp;</p>
+<p class="Element10">
+Members: display_idx - the display associated with this context display_info - a pointer to the information for the display for this context&nbsp;</p>
+<p class="Element10">
+layer.count - the number of existing layers layer.active_idx - the index of the active layer layer.active - the pointer to the active layer layer.layers - the array of layers for this context&nbsp;</p>
+<p class="Element10">
+brightness - the brightness setting for this context orientation - the orientation mode for this context mirrored - the mirror mode for this context&nbsp;</p>
+<p class="Element10">
+colorMode - the color mode for this context, all buffers of all layers use this mode&nbsp;</p>
+<p class="Element10">
+draw - the current draw state of this context&nbsp;</p>
+<p class="Element10">
+vsyncCB - the callback to invoke when the driver enters vsync mode hsyncCB - the callback to invoke when the driver enters hsync mode&nbsp;</p>
+<p class="Element10">
+hal - the function table for this context&nbsp;</p>
+<p class="Element10">
+memory - the memory management interface for this context&nbsp;</p>
+<p class="Element10">
+driver_data - a pointer that can be used for driver-specific data purposes</p></div>
 </div>
 <a name="43"></a><div class="Element99">
 C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100">LIB_EXPORT GFX_Result <strong><span style="color: #000000">GFX_DrawDirectBlit</span></strong>(
-    <a href="00372.html" target="topic">GFX_PixelBuffer</a>* <strong><span style="color: #000000">buffer</span></strong>, 
-    int32_t <strong><span style="color: #000000">src_x</span></strong>, 
-    int32_t <strong><span style="color: #000000">src_y</span></strong>, 
-    int32_t <strong><span style="color: #000000">src_width</span></strong>, 
-    int32_t <strong><span style="color: #000000">src_height</span></strong>, 
-    int32_t <strong><span style="color: #000000">dest_x</span></strong>, 
-    int32_t <strong><span style="color: #000000">dest_y</span></strong>
-);</pre></div></div>
-<a name="506172616D6574657273"></a><div class="Element14">
-Parameters</div>
+<div class="Element101"><div class="Element100"><pre class="Element100"><strong><span style="color: #000080">typedef</span></strong> <strong><span style="color: #000080">struct</span></strong> <strong><span style="color: #000000">GFX_Context_t</span></strong> {
+  GFX_Display <strong><span style="color: #000000">display_idx</span></strong>;
+  <a href="00219.html" target="topic">GFX_DisplayInfo</a>* <strong><span style="color: #000000">display_info</span></strong>;
+  <strong><span style="color: #000080">struct</span></strong> {
+    <a href="03061.html" target="topic">uint32_t</a> <strong><span style="color: #000000">count</span></strong>;
+    <a href="03061.html" target="topic">uint32_t</a> <strong><span style="color: #000000">active_idx</span></strong>;
+    <a href="00357.html" target="topic">GFX_Layer</a>* <strong><span style="color: #000000">active</span></strong>;
+    <a href="00357.html" target="topic">GFX_Layer</a>* <strong><span style="color: #000000">layers</span></strong>;
+  } layer;
+  <a href="03061.html" target="topic">uint32_t</a> <strong><span style="color: #000000">brightness</span></strong>;
+  <a href="00412.html" target="topic">GFX_Orientation</a> <strong><span style="color: #000000">orientation</span></strong>;
+  GFX_Bool <strong><span style="color: #000000">mirrored</span></strong>;
+  GFX_Bool <strong><span style="color: #000000">layerSwapSync</span></strong>;
+  <a href="00138.html" target="topic">GFX_ColorMode</a> <strong><span style="color: #000000">colorMode</span></strong>;
+  GFX_GlobalPalette <strong><span style="color: #000000">globalPalette</span></strong>;
+  <a href="00265.html" target="topic">GFX_DrawState</a> <strong><span style="color: #000000">draw</span></strong>;
+  GFX_SyncCallback_FnPtr <strong><span style="color: #000000">vsyncCB</span></strong>;
+  GFX_SyncCallback_FnPtr <strong><span style="color: #000000">hsyncCB</span></strong>;
+  GFX_HAL <strong><span style="color: #000000">hal</span></strong>;
+  <a href="00397.html" target="topic">GFX_MemoryIntf</a> <strong><span style="color: #000000">memory</span></strong>;
+  <strong><span style="color: #000080">void</span></strong>* <strong><span style="color: #000000">driver_data</span></strong>;
+} GFX_Context;</pre></div></div>
+<a name="4D656D62657273"></a><div class="Element14">
+Members</div>
 <div class="Element11">
 <div class="Element10">
-<div class="Element312">
+<div class="Element272">
 <div class="TableDiv">
-<table cellspacing="0" class="Table3">
+<table cellspacing="0" class="Table4">
 <tr>
-<td class="Element300" valign="top" width="35%">
-<div class="Element301">
-Parameters&nbsp;</div></td><td class="Element304" valign="top" width="65%">
-<div class="Element305">
+<td class="Element260" valign="top" width="35%">
+<div class="Element261">
+Members&nbsp;</div></td><td class="Element264" valign="top" width="65%">
+<div class="Element265">
 Description&nbsp;</div></td></tr><tr>
-<td class="Element302" valign="top" width="35%">
-<div class="Element303">
-buffer&nbsp;</div></td><td class="Element306" valign="top" width="65%">
-<div class="Element307">
-the pointer to the source pixel buffer<br>&nbsp;</div></td></tr><tr>
-<td class="Element302" valign="top" width="35%">
-<div class="Element303">
-src_x&nbsp;</div></td><td class="Element306" valign="top" width="65%">
-<div class="Element307">
-the x component of the rectangle of the buffer to blit, usually 0<br>&nbsp;</div></td></tr><tr>
-<td class="Element302" valign="top" width="35%">
-<div class="Element303">
-src_y&nbsp;</div></td><td class="Element306" valign="top" width="65%">
-<div class="Element307">
-the y component of the rectangle of the buffer to blit, usually 0<br>&nbsp;</div></td></tr><tr>
-<td class="Element302" valign="top" width="35%">
-<div class="Element303">
-src_width&nbsp;</div></td><td class="Element306" valign="top" width="65%">
-<div class="Element307">
-width of the rectangle of the buffer to blit, usually the entire with of the source buffer<br>&nbsp;</div></td></tr><tr>
-<td class="Element302" valign="top" width="35%">
-<div class="Element303">
-src_height&nbsp;</div></td><td class="Element306" valign="top" width="65%">
-<div class="Element307">
-height of the rectangle of the buffer to blit, usually the entire height of the source buffer<br>&nbsp;</div></td></tr><tr>
-<td class="Element302" valign="top" width="35%">
-<div class="Element303">
-dest_x&nbsp;</div></td><td class="Element306" valign="top" width="65%">
-<div class="Element307">
-the x position to blit the source rectangle in the destination buffer<br> the y position to blit the source rectangle in the destination buffer&nbsp;</div></td></tr></table></div></div>
+<td class="Element262" valign="top" width="35%">
+<div class="Element263">
+GFX_SyncCallback_FnPtr vsyncCB;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+<div class="Element267">
+GFX_DRAW_PIPELINE_ENABLED&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
-<a name="52657475726E73"></a><div class="Element14">
-Returns</div>
+<a name="52656D61726B73"></a><div class="Element14">
+Remarks</div>
 <div class="Element11">
 <div class="Element10">
 <p class="Element10">
-GFX_Result - Returns GFX_TRUE if the blit was drawn successfully. Otherwise returns GFX_FALSE.</p></div>
+None.</p></div>
 </div>
-<div class="Element62">
-Created with a commercial version of <a href="#" onclick="openExternalLink('http://www.doc-o-matic.com');"><img src="indicator_external_link.gif" border="0" alt="" title="">Doc-O-Matic</a>. In order to make this message disappear you need to register this software. If you have problems registering this software please contact us at <a href="#" onclick="openExternalLink('mailto:support@toolsfactory.com');"><img src="indicator_external_link.gif" border="0" alt="" title="">support@toolsfactory.com</a>.</div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00359.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00475.html" target="topic">Graphics Library</a> &gt; <a href="00456.html" target="topic">Aria User Interface Library</a> &gt; <a href="00460.html" target="topic">Aria Hardware Abstraction Layer (HAL)</a> &gt; <a href="00481.html" target="topic">Library Interface</a> &gt; a) Functions &gt; <a href="00193.html" target="topic">GFX_DrawDirectBlit Function</a></div>
+<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00535.html" target="topic">Graphics Library</a> &gt; <a href="00516.html" target="topic">Aria Graphics Library</a> &gt; <a href="00520.html" target="topic">Aria Hardware Abstraction Layer (HAL)</a> &gt; <a href="00541.html" target="topic">Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="00193.html" target="topic">GFX_Context Structure</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -129,13 +135,13 @@ Created with a commercial version of <a href="#" onclick="openExternalLink('http
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00359.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="00192.html" target="topic">Previous</a> | <a href="00481.html" target="topic">Up</a> | <a href="00195.html" target="topic">Next</a></div>
+<a href="00170.html" target="topic">Previous</a> | <a href="00541.html" target="topic">Up</a> | <a href="00217.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_DrawDirectBlit@GFX_PixelBuffer*@int32_t@int32_t@int32_t@int32_t@int32_t@int32_t Topic Title: GFX_DrawDirectBlit Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_Context Topic Title: GFX_Context Structure)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

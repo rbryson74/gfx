@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>Building the Application</title>
+<title>aria_quickstart</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00359.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00493.html" target="topic">Examples and Demonstrations</a> &gt; <a href="00491.html" target="topic">Aria Applications</a> &gt; <a href="00000.html" target="topic">aria_quickstart</a> &gt; <a href="00001.html" target="topic">Building the Application</a></div>
+<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00554.html" target="topic">Examples and Demonstrations</a> &gt; <a href="00552.html" target="topic">Aria Applications</a> &gt; <a href="00001.html" target="topic">aria_quickstart</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00359.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="00000.html" target="topic">Previous</a> | <a href="00000.html" target="topic">Up</a> | <a href="00002.html" target="topic">Next</a></div>
+<a href="00552.html" target="topic">Previous</a> | <a href="00552.html" target="topic">Up</a> | <a href="00013.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: APPS GFX aria_quickstart_build Topic Title: Building the Application)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: APPS GFX aria_quickstart Topic Title: aria_quickstart)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-Building the Application</div>
+aria_quickstart</div>
 </div>
 </div>
 
@@ -48,290 +48,161 @@ Building the Application</div>
 <a name="PageContent"></a><div class="Element58">
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
-<p class="Element10">
-The parent directory for this application is gfx/apps/aria_quickstart. To build this application, open the gfx/apps/aria_quickstart/firmware/*.X project file in MPLABX IDE that corresponds to the hardware configuration.&nbsp;</p>
-<p class="Element10">
-<strong>MPLAB X IDE Project Configurations</strong>&nbsp;</p>
-<p class="Element10">
-The following table lists and describes the supported configurations: </p><div class="Element63">
+<p class="Element10" style="text-align: center;">
+<img src="aria_quickstart_screen.png" border="0" alt="" title=""></p><p class="Element10">
+This demonstration serves as a preconfigured starting point for a touch-enabled application powered by the Aria User Interface Library. The design contains an image widget, a label widget and a button widget. To create this project from scratch, the getting started guide <a href="#" onclick="openExternalLink('https://github.com/Microchip-MPLAB-Harmony/gfx/wiki/Creating-a-New-Graphics-Application');"><img src="indicator_external_link.gif" border="0" alt="" title="">Creating a New Graphics Application</a>.</p></div>
+</div>
+<a name="546F70696373"></a><div class="Element14">
+Topics</div>
+<div class="Element11">
+<div class="Element10">
+<div class="Element212">
 <div class="TableDiv">
-<table cellspacing="0" class="Table2">
+<table cellspacing="0" class="Table1">
 <tr>
-<td class="Element65" valign="top" width="25%">
-<div class="Element66">
-Project Name&nbsp;</div></td><td class="Element65" valign="top" width="12%">
-<div class="Element66">
-BSP Used&nbsp;</div></td><td class="Element65" valign="top" width="19%">
-<div class="Element66">
-Graphics Template Used&nbsp;</div></td><td class="Element65" valign="top" width="44%">
-<div class="Element66">
+<td class="Element200" valign="top" width="35%">
+<div class="Element201">
+Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
+<div class="Element205">
 Description&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-aria_qs_e70_xu_tm4301b.X&nbsp;</div></td><td class="Element67" valign="top" width="12%">
-<div class="Element68">
-sam_e70_xplained_ultra&nbsp;</div></td><td class="Element67" valign="top" width="19%">
-<div class="Element68">
-Aria Graphics w/ PDA TM4301B Display&nbsp;</div></td><td class="Element67" valign="top" width="44%">
-<div class="Element68">
-SAM E70 Xplained Ultra board with PDA TM4301B 480x272 (WQVGA) Display&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-aria_qs_e70_xu_xpro_spi.X&nbsp;</div></td><td class="Element67" valign="top" width="12%">
-<div class="Element68">
-sam_e70_xplained_ultra&nbsp;</div></td><td class="Element67" valign="top" width="19%">
-<div class="Element68">
-Aria Graphics w/ Xplained Pro Display&nbsp;</div></td><td class="Element67" valign="top" width="44%">
-<div class="Element68">
-Aria GFX on SAM E70 Xplained Ultra Board and Xplained Pro Display with ILI9488 SPI display driver&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-aria_qs_c21_xpld_oled1.X&nbsp;</div></td><td class="Element67" valign="top" width="12%">
-<div class="Element68">
-SAM C21 Xplained Pro&nbsp;</div></td><td class="Element67" valign="top" width="19%">
-<div class="Element68">
-Aria Graphics w/ OLED1 Xplained Pro Display&nbsp;</div></td><td class="Element67" valign="top" width="44%">
-<div class="Element68">
-Aria GFX on SAM C21 Xplained Pro Board and OLED1 Xplained Pro Display with SSD1306 SPI display driver&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-aria_qs_C21_xpld_xpro.X&nbsp;</div></td><td class="Element67" valign="top" width="12%">
-<div class="Element68">
-SAM C21 Xplained Pro&nbsp;</div></td><td class="Element67" valign="top" width="19%">
-<div class="Element68">
-Aria Graphics w/ Xplained Pro Display&nbsp;</div></td><td class="Element67" valign="top" width="44%">
-<div class="Element68">
-Aria GFX on SAM C21 Xplained Pro Board and Xplained Pro Display with ILI9488 SPI display driver&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-aria_qs_e54_xpld_oled1.X&nbsp;</div></td><td class="Element67" valign="top" width="12%">
-<div class="Element68">
-SAM E54 Xplained Pro&nbsp;</div></td><td class="Element67" valign="top" width="19%">
-<div class="Element68">
-Aria Graphics w/ OLED1 Xplained Pro Display&nbsp;</div></td><td class="Element67" valign="top" width="44%">
-<div class="Element68">
-Aria GFX on SAM E54 Xplained Pro Board and OLED1 Xplained Pro Display with SSD1306 SPI display driver&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-aria_qs_e54_xpld_xpro.X&nbsp;</div></td><td class="Element67" valign="top" width="12%">
-<div class="Element68">
-SAM E54 Xplained Pro&nbsp;</div></td><td class="Element67" valign="top" width="19%">
-<div class="Element68">
-Aria Graphics w/ Xplained Pro Display&nbsp;</div></td><td class="Element67" valign="top" width="44%">
-<div class="Element68">
-Aria GFX on SAM E54 Xplained Pro Board and Xplained Pro Display with ILI9488 SPI display driver&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-aria_qs_e70_xu_tm4301b_ssd1963.X&nbsp;</div></td><td class="Element67" valign="top" width="12%">
-<div class="Element68">
-SAM E70 Xplained Ultra&nbsp;</div></td><td class="Element67" valign="top" width="19%">
-<div class="Element68">
-Aria Graphics w/ PDA TM4301B Display&nbsp;</div></td><td class="Element67" valign="top" width="44%">
-<div class="Element68">
-Aria GFX on SAM E70 Xplained Ultra board with PDA TM4301B 480x272 (WQVGA) Display and SSD1963 display driver&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-aria_qs_a5d2_xu_tm4301b.eww&nbsp;</div></td><td class="Element67" valign="top" width="12%">
-<div class="Element68">
-SAM A5D2 Xplained Pro&nbsp;</div></td><td class="Element67" valign="top" width="19%">
-<div class="Element68">
-Aria Graphics w/ Xplained Pro Display&nbsp;</div></td><td class="Element67" valign="top" width="44%">
-<div class="Element68">
-Aria GFX on SAM A5D2 Xplained Ultra Board and PDA TM4301 Display&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-aria_qs_a5d2_xu_tm5000_freertos.eww&nbsp;</div></td><td class="Element67" valign="top" width="12%">
-<div class="Element68">
-SAM A5D2 Xplained Ultra&nbsp;</div></td><td class="Element67" valign="top" width="19%">
-<div class="Element68">
-Aria Graphics w/ PDA TM5000 Display&nbsp;</div></td><td class="Element67" valign="top" width="44%">
-<div class="Element68">
-Aria GFX on SAM A5D2 Xplained Ultra Board and PDA TM5000 WVGA Display with FreeRTOS&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-aria_qs_D21_xpld_oled1.X&nbsp;</div></td><td class="Element67" valign="top" width="12%">
-<div class="Element68">
-SAM D21 Xplained Pro&nbsp;</div></td><td class="Element67" valign="top" width="19%">
-<div class="Element68">
-Aria Graphics w/ OLED1 Xplained Pro Display&nbsp;</div></td><td class="Element67" valign="top" width="44%">
-<div class="Element68">
-Aria GFX on SAM D21 Xplained Pro Board and OLED1 Xplained Pro Display with SSD1306 SPI display driver&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-aria_quickstart_e54_cult_wqvga_ssd1963.X&nbsp;</div></td><td class="Element67" valign="top" width="12%">
-<div class="Element68">
-SAM E54 Curiosity Ultra&nbsp;</div></td><td class="Element67" valign="top" width="19%">
-<div class="Element68">
-Aria Graphics w/ PDA TM4301b Display&nbsp;</div></td><td class="Element67" valign="top" width="44%">
-<div class="Element68">
-Aria GFX on SAM E54 CULT Board and PDA TM4301b Display, using SSD1963 external controller&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-aria_quickstart_e54_xu_tm5000_ssd1963_freertos.X&nbsp;</div></td><td class="Element67" valign="top" width="12%">
-<div class="Element68">
-SAM E54 Xplained Ultra&nbsp;</div></td><td class="Element67" valign="top" width="19%">
-<div class="Element68">
-Aria Graphics w/ PDA TM5000 Display&nbsp;</div></td><td class="Element67" valign="top" width="44%">
-<div class="Element68">
-Aria GFX on SAM E70 XULT Board and PDA TM5000 Display, using SSD1963 external controller, with FreeRTOS&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-aria_quickstart_e70_cult_wvga_ssd1963_freertos.X&nbsp;</div></td><td class="Element67" valign="top" width="12%">
-<div class="Element68">
-SAM E70 Curiosity Ultra&nbsp;</div></td><td class="Element67" valign="top" width="19%">
-<div class="Element68">
-Aria Graphics w/ PDA TM5000 Display&nbsp;</div></td><td class="Element67" valign="top" width="44%">
-<div class="Element68">
-Aria GFX on SAM E54 CULT Board and PDA TM5000 Display, using SSD1963 external controller, with FreeRTOS&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-aria_qs_mzda_intddr_sk_meb2_tm4301b.X&nbsp;</div></td><td class="Element67" valign="top" width="12%">
-<div class="Element68">
-PIC32MZ DA Starter Kit&nbsp;</div></td><td class="Element67" valign="top" width="19%">
-<div class="Element68">
-Aria Graphics w/ PDA TM4301b Display&nbsp;</div></td><td class="Element67" valign="top" width="44%">
-<div class="Element68">
-Aria GFX on PIC32MZ DA with Internal DDR Starter Kit, MEBII and PDA TM4301b Display&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-aria_qs_mzda_extddr_sk_meb2_tm4301b.X&nbsp;</div></td><td class="Element67" valign="top" width="12%">
-<div class="Element68">
-PIC32MZ DA Starter Kit&nbsp;</div></td><td class="Element67" valign="top" width="19%">
-<div class="Element68">
-Aria Graphics w/ PDA TM4301b Display&nbsp;</div></td><td class="Element67" valign="top" width="44%">
-<div class="Element68">
-Aria GFX on PIC32MZ DA with External DDR Starter Kit, MEBII and PDA TM4301b Display&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-aria_qs_9x60_ek_tm4301b&nbsp;</div></td><td class="Element67" valign="top" width="12%">
-<div class="Element68">
-SAM 9x60 Evaluation Kit&nbsp;</div></td><td class="Element67" valign="top" width="19%">
-<div class="Element68">
-Aria Graphics w/ PDA TM401b Display&nbsp;</div></td><td class="Element67" valign="top" width="44%">
-<div class="Element68">
-Aria GFX on SAM 9x60 Evaluation Kit Board and PDA TM4301b WQVGA Display&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-aria_qs_9x60_ek_tm5000_freertos&nbsp;</div></td><td class="Element67" valign="top" width="12%">
-<div class="Element68">
-SAM 9x60 Evaluation Kit&nbsp;</div></td><td class="Element67" valign="top" width="19%">
-<div class="Element68">
-Aria Graphics w/ PDA TM5000 Display&nbsp;</div></td><td class="Element67" valign="top" width="44%">
-<div class="Element68">
-Aria GFX on SAM 9x60 Evaluation Kit Board and PDA TM5000 WVGA Display with FreeRTOS&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-aria_qs_e54_cult_xpro_parallel.X&nbsp;</div></td><td class="Element67" valign="top" width="12%">
-<div class="Element68">
-SAM E54 Curiosity Ultra BSP&nbsp;</div></td><td class="Element67" valign="top" width="19%">
-<div class="Element68">
-Aria Graphics w/ Xplained Pro Display&nbsp;</div></td><td class="Element67" valign="top" width="44%">
-<div class="Element68">
-SAM E54 Curiosity Ultra w/ maXTouch Xplained Pro display via 8-bit parallel interface&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-aria_qs_e70_xult_xpro_parallel.X&nbsp;</div></td><td class="Element67" valign="top" width="12%">
-<div class="Element68">
-SAM E70 Xplained Ultra BSP&nbsp;</div></td><td class="Element67" valign="top" width="19%">
-<div class="Element68">
-Aria Graphics w/ Xplained Pro Display&nbsp;</div></td><td class="Element67" valign="top" width="44%">
-<div class="Element68">
-SAM E70 Xplained Ultra w/ maXTouch Xplained Pro display via 16-bit parallel interface&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-aria_qs_mzda_intddr_sk_meb2_tm5000_freertos.X&nbsp;</div></td><td class="Element67" valign="top" width="12%">
-<div class="Element68">
-PIC32MZ DA Starter Kit&nbsp;</div></td><td class="Element67" valign="top" width="19%">
-<div class="Element68">
-Aria Graphics w/ PDA TM5000 Display&nbsp;</div></td><td class="Element67" valign="top" width="44%">
-<div class="Element68">
-Aria GFX on PIC32MZ DA with Internal DDR Starter Kit, MEBII and PDA TM5000 Display&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-aria_qs_mzda_extddr_sk_meb2_tm5000_freertos.X&nbsp;</div></td><td class="Element67" valign="top" width="12%">
-<div class="Element68">
-PIC32MZ DA Starter Kit&nbsp;</div></td><td class="Element67" valign="top" width="19%">
-<div class="Element68">
-Aria Graphics w/ PDA TM5000 Display&nbsp;</div></td><td class="Element67" valign="top" width="44%">
-<div class="Element68">
-Aria GFX on PIC32MZ DA with External DDR Starter Kit, MEBII and PDA TM5000 Display&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-aria_qs_mzef_cu_tm4301b.X&nbsp;</div></td><td class="Element67" valign="top" width="12%">
-<div class="Element68">
-PIC32MZ EF Curiosity 2.0&nbsp;</div></td><td class="Element67" valign="top" width="19%">
-<div class="Element68">
-Aria Graphics w/ PDA TM4301B Display&nbsp;</div></td><td class="Element67" valign="top" width="44%">
-<div class="Element68">
-PIC32MZ EF Curiosity 2.0 with RGB565 GFX Interface and 4.3” WQVGA PCAP Touch display&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-aria_qs_mzef_cu_tm4301b_ssd1963.X&nbsp;</div></td><td class="Element67" valign="top" width="12%">
-<div class="Element68">
-PIC32MZ EF Curiosity 2.0&nbsp;</div></td><td class="Element67" valign="top" width="19%">
-<div class="Element68">
-Aria Graphics w/ PDA TM4301B Display&nbsp;</div></td><td class="Element67" valign="top" width="44%">
-<div class="Element68">
-PIC32MZ EF Curiosity 2.0 with SSD1963 GFX Interface and 4.3” WQVGA PCAP Touch display&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-aria_qs_e70_xult_xpro_parallel.X&nbsp;</div></td><td class="Element67" valign="top" width="12%">
-<div class="Element68">
-SAM E70 Xplained Ultra BSP&nbsp;</div></td><td class="Element67" valign="top" width="19%">
-<div class="Element68">
-Aria Graphics w/ Xplained Pro Display&nbsp;</div></td><td class="Element67" valign="top" width="44%">
-<div class="Element68">
-SAM E70 Xplained Ultra w/ maXTouch Xplained Pro display via 16-bit parallel interface&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-aria_qs_mzef_cu_xpro_spi.X&nbsp;</div></td><td class="Element67" valign="top" width="12%">
-<div class="Element68">
-PIC32MZ EF Curiosity 2.0&nbsp;</div></td><td class="Element67" valign="top" width="19%">
-<div class="Element68">
-Aria Graphics w/ Xplained Pro Display&nbsp;</div></td><td class="Element67" valign="top" width="44%">
-<div class="Element68">
-PIC32MZ EF Curiosity 2.0 with maXTouch Xplained Pro display via SPI&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-aria_qs_mzef_sk_meb2_tm4301b.X&nbsp;</div></td><td class="Element67" valign="top" width="12%">
-<div class="Element68">
-PIC32MZ EF Starter Kit&nbsp;</div></td><td class="Element67" valign="top" width="19%">
-<div class="Element68">
-Aria Graphics w/ PDA TM4301B Display&nbsp;</div></td><td class="Element67" valign="top" width="44%">
-<div class="Element68">
-PIC32MZ EF Starter Kit with MEBII and 4.3” WQVGA PCAP Touch display&nbsp;</div></td></tr></table></div></div>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-For all SAMA5D2 configurations, see <span class="Element145">Getting started with Harmony 3 on the SAMA5D2</span>.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-For<strong> aria_qs_a5d2_xu_tm4301b</strong>, the build will generate a binary file harmony.bin. Copy harmony.bin to a FAT32-formatted SD card. The SD card must also contain the supplied bootloader binary needed to boot Harmony applications. Insert the card to the SDMMC1 port on the SAM A5D2 Xplained Ultra board&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-For<strong> aria_qs_a5d2_xu_tm5000_freertos.eww</strong>, the build will generate a binary file harmony.bin. Copy harmony.bin to a FAT32-formatted SD card. The SD card must also contain the supplied bootloader binary needed to boot Harmony applications. Insert the card to the SDMMC1 port on the SAM A5D2 Xplained Ultra board.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><div class="Element63">
-<div class="TableDiv">
-<table cellspacing="0" class="Table0">
-<tr>
-<td class="Element67" valign="top" width="10%" style="border:none;">
-<div class="Element68">
-<img src="Important Star.png" border="0" alt="" title=""><strong> Important!</strong>&nbsp;</div></td><td class="Element67" valign="top" width="90%" style="border:none;">
-<div class="Element68">
-This application may contain custom code that is marked by the comments <span class="Element146">// START OF CUSTOM CODE ...</span> and <span class="Element146">// END OF CUSTOM CODE</span>. When using the MPLAB Harmony Configurator to regenerate the application code, use the &quot;ALL&quot; merging strategy and <i>do not</i> remove or replace the custom code.&nbsp;</div></td></tr></table></div></div>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00013.html" target="topic">aria_qs_9x60_ek_tm4301b</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This application runs on the 9x60 Development Board using LCDC display controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/AC320005-4');"><img src="indicator_external_link.gif" border="0" alt="" title="">High-Performance 4.3&quot; WQVGA Display Module with maXTouch® Technology</a>.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00014.html" target="topic">aria_qs_9x60_ek_tm5000_freertos</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This application runs on the 9x60 Development Board using LCDC display controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/AC320005-4');"><img src="indicator_external_link.gif" border="0" alt="" title="">High-Performance WVGA LCD Display Module with maXTouch ® Technology</a>.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00015.html" target="topic">aria_qs_a5d2_xu_tm4301b.eww</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This application runs on the <a href="#" onclick="openExternalLink('https://www.microchip.com/developmenttools/ProductDetails/atsama5d2c-xult');"><img src="indicator_external_link.gif" border="0" alt="" title="">ATSAMA5D2C-XULT</a> development board using LCDC display controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/AC320005-4');"><img src="indicator_external_link.gif" border="0" alt="" title="">High-Performance 4.3&quot; WQVGA Display Module with maXTouch® Technology</a>.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00016.html" target="topic">aria_qs_a5d2_xu_tm5000_freertos.eww</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This application runs on the <a href="#" onclick="openExternalLink('https://www.microchip.com/developmenttools/ProductDetails/atsama5d2c-xult');"><img src="indicator_external_link.gif" border="0" alt="" title="">ATSAMA5D2C-XULT</a> development board using LCDC display controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/AC320005-4');"><img src="indicator_external_link.gif" border="0" alt="" title="">High-Performance WVGA LCD Display Module with maXTouch ® Technology</a>.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00017.html" target="topic">aria_qs_c21_xpld_oled1.X</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This demonstration runs on the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/ATSAMC21-XPRO');"><img src="indicator_external_link.gif" border="0" alt="" title="">SAM C21 Xplained Pro Evaluation Kit</a> using an external SSD1306 display controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/developmenttools/ProductDetails/atoled1-xpro');"><img src="indicator_external_link.gif" border="0" alt="" title="">OLED1 Xplained Pro Extension Kit</a>.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00018.html" target="topic">aria_qs_c21_xpld_xpro.X</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This demonstration runs on the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/ATSAMC21-XPRO');"><img src="indicator_external_link.gif" border="0" alt="" title="">SAM C21 Xplained Pro Evaluation Kit</a> using an external ILI9488 display controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/ATMXT-XPRO');"><img src="indicator_external_link.gif" border="0" alt="" title="">maXTouch Xplained Pro Extension Kit</a>.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00019.html" target="topic">aria_qs_d21_xpld_oled1.X</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This demonstration runs on the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/ATSAMD21-XPRO');"><img src="indicator_external_link.gif" border="0" alt="" title="">SAM D21 Xplained Pro Evaluation Kit</a> using an external SSD1306 display controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/developmenttools/ProductDetails/atoled1-xpro');"><img src="indicator_external_link.gif" border="0" alt="" title="">OLED1 Xplained Pro Extension Kit</a>.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00020.html" target="topic">aria_qs_e54_cu_tm4301b_ssd1963.X</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This application runs on the <a href="#" onclick="openExternalLink('https://www.microchip.com/Developmenttools/ProductDetails/DM320210');"><img src="indicator_external_link.gif" border="0" alt="" title="">SAM E54 Curiosity Ultra Development Board</a> using external ssd1963 controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/AC320005-4');"><img src="indicator_external_link.gif" border="0" alt="" title="">High-Performance 4.3&quot; WQVGA Display Module with maXTouch® Technology</a>.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00021.html" target="topic">aria_qs_e54_cult_xpro_parallel.X</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This demonstration runs on the <a href="#" onclick="openExternalLink('https://www.microchip.com/Developmenttools/ProductDetails/DM320210');"><img src="indicator_external_link.gif" border="0" alt="" title="">SAM E54 Curiosity Ultra Development Board</a> using an external ILI9488 display controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/ATMXT-XPRO');"><img src="indicator_external_link.gif" border="0" alt="" title="">maXTouch Xplained Pro Extension Kit</a>.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00022.html" target="topic">aria_qs_e54_xpld_oled1.X</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This demonstration runs on the <a href="#" onclick="openExternalLink('https://www.microchip.com/developmenttools/ProductDetails/ATSAME54-XPRO');"><img src="indicator_external_link.gif" border="0" alt="" title="">SAM E54 Xplained Pro</a> using an external SSD1306 display controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/developmenttools/ProductDetails/atoled1-xpro');"><img src="indicator_external_link.gif" border="0" alt="" title="">OLED1 Xplained Pro Extension Kit</a>.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00023.html" target="topic">aria_qs_e54_xpld_xpro.X</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This demonstration runs on the <a href="#" onclick="openExternalLink('https://www.microchip.com/developmenttools/ProductDetails/ATSAME54-XPRO');"><img src="indicator_external_link.gif" border="0" alt="" title="">SAM E54 Xplained Pro</a> using an external ILI9488 display controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/ATMXT-XPRO');"><img src="indicator_external_link.gif" border="0" alt="" title="">maXTouch Xplained Pro Extension Kit</a>.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00024.html" target="topic">aria_qs_e54_xu_tm5000_ssd1963_freertos.X</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This demonstration runs on the <a href="#" onclick="openExternalLink('https://www.microchip.com/developmenttools/ProductDetails/ATSAME54-XPRO');"><img src="indicator_external_link.gif" border="0" alt="" title="">SAM E54 Xplained Pro</a> using an external SSD1963 display controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/AC320005-5');"><img src="indicator_external_link.gif" border="0" alt="" title="">High-Performance WVGA LCD Display Module with maXTouch ® Technology</a>.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00025.html" target="topic">aria_qs_e70_xu_tm4301b.X</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This application runs on the <a href="#" onclick="openExternalLink('https://www.microchip.com/Developmenttools/ProductDetails/DM320113');"><img src="indicator_external_link.gif" border="0" alt="" title="">SAM E70 Xplained Ultra Evaluation Kit</a> using LCC software display controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/AC320005-4');"><img src="indicator_external_link.gif" border="0" alt="" title="">High-Performance 4.3&quot; WQVGA Display Module with maXTouch® Technology</a>.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00026.html" target="topic">aria_qs_e70_xu_tm4301b_freertos.X</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This application runs on the <a href="#" onclick="openExternalLink('https://www.microchip.com/Developmenttools/ProductDetails/DM320113');"><img src="indicator_external_link.gif" border="0" alt="" title="">SAM E70 Xplained Ultra Evaluation Kit</a> using LCC software display controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/AC320005-4');"><img src="indicator_external_link.gif" border="0" alt="" title="">High-Performance 4.3&quot; WQVGA Display Module with maXTouch® Technology</a>.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00027.html" target="topic">aria_qs_e70_xu_tm4301b_ssd1963.X</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This application runs on the <a href="#" onclick="openExternalLink('https://www.microchip.com/Developmenttools/ProductDetails/DM320113');"><img src="indicator_external_link.gif" border="0" alt="" title="">SAM E70 Xplained Ultra Evaluation Kit</a> using an external ssd1963 display controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/AC320005-4');"><img src="indicator_external_link.gif" border="0" alt="" title="">High-Performance 4.3&quot; WQVGA Display Module with maXTouch® Technology</a>.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00028.html" target="topic">aria_qs_e70_xu_tm5000_ssd1963_freertos.X</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This application runs on the <a href="#" onclick="openExternalLink('https://www.microchip.com/Developmenttools/ProductDetails/DM320113');"><img src="indicator_external_link.gif" border="0" alt="" title="">SAM E70 Xplained Ultra Evaluation Kit</a> using LCC software display controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/AC320005-5');"><img src="indicator_external_link.gif" border="0" alt="" title="">High-Performance WVGA LCD Display Module with maXTouch ® Technology</a>.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00029.html" target="topic">aria_qs_e70_xu_xpro_spi.X</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This application runs on the <a href="#" onclick="openExternalLink('https://www.microchip.com/Developmenttools/ProductDetails/DM320113');"><img src="indicator_external_link.gif" border="0" alt="" title="">SAM E70 Xplained Ultra Evaluation Kit</a> using an external ILI94888 display controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/ATMXT-XPRO');"><img src="indicator_external_link.gif" border="0" alt="" title="">maXTouch Xplained Pro Extension Kit</a>.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00030.html" target="topic">aria_qs_e70_xult_xpro_parallel.X</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This application runs on the <a href="#" onclick="openExternalLink('https://www.microchip.com/Developmenttools/ProductDetails/DM320113');"><img src="indicator_external_link.gif" border="0" alt="" title="">SAM E70 Xplained Ultra Evaluation Kit</a> using an external ILI94888 display controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/ATMXT-XPRO');"><img src="indicator_external_link.gif" border="0" alt="" title="">maXTouch Xplained Pro Extension Kit</a>.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00039.html" target="topic">aria_qs_mzda_extddr_sk_meb2_tm4301b.X</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This application runs on the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/DM320008');"><img src="indicator_external_link.gif" border="0" alt="" title="">PIC32MZ Embedded Graphics with External DRAM (DA) Starter Kit</a> attached to the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320005-5');"><img src="indicator_external_link.gif" border="0" alt="" title="">Multimedia Expansion Board II</a> using GLCD peripheral display controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/AC320005-4');"><img src="indicator_external_link.gif" border="0" alt="" title="">High-Performance 4.3&quot; WQVGA Display Module with maXTouch® Technology</a>.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00040.html" target="topic">aria_qs_mzda_extddr_sk_meb2_tm5000_freertos.X</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This application runs on the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/DM320008');"><img src="indicator_external_link.gif" border="0" alt="" title="">PIC32MZ Embedded Graphics with External DRAM (DA) Starter Kit</a> attached to the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320005-5');"><img src="indicator_external_link.gif" border="0" alt="" title="">Multimedia Expansion Board II</a> using GLCD peripheral display controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/AC320005-4');"><img src="indicator_external_link.gif" border="0" alt="" title="">High-Performance WVGA LCD Display Module with maXTouch ® Technology</a>.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00041.html" target="topic">aria_qs_mzda_intddr_sk_meb2_tm4301b.X</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This application runs on the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/DM320010');"><img src="indicator_external_link.gif" border="0" alt="" title="">PIC32MZ Embedded Graphics with Stacked DRAM (DA) Starter Kit</a> attached to the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320005-5');"><img src="indicator_external_link.gif" border="0" alt="" title="">Multimedia Expansion Board II</a> using GLCD peripheral display controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/AC320005-4');"><img src="indicator_external_link.gif" border="0" alt="" title="">High-Performance 4.3&quot; WQVGA Display Module with maXTouch® Technology</a>.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00042.html" target="topic">aria_qs_mzda_intddr_sk_meb2_tm5000_freertos.X</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This application runs on the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/DM320010');"><img src="indicator_external_link.gif" border="0" alt="" title="">PIC32MZ Embedded Graphics with Stacked DRAM (DA) Starter Kit</a> attached to the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320005-5');"><img src="indicator_external_link.gif" border="0" alt="" title="">Multimedia Expansion Board II</a> using GLCD peripheral display controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/AC320005-4');"><img src="indicator_external_link.gif" border="0" alt="" title="">High-Performance WVGA LCD Display Module with maXTouch ® Technology</a>.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00043.html" target="topic">aria_qs_mzef_cu_tm4301b.X</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This application runs on the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320104');"><img src="indicator_external_link.gif" border="0" alt="" title="">Curiosity PIC32MZEF Development Board</a> using LCC software display controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/AC320005-4');"><img src="indicator_external_link.gif" border="0" alt="" title="">High-Performance 4.3&quot; WQVGA Display Module with maXTouch® Technology</a>.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00044.html" target="topic">aria_qs_mzef_cu_tm4301b_ssd1963.X</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This application runs on the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320104');"><img src="indicator_external_link.gif" border="0" alt="" title="">Curiosity PIC32MZEF Development Board</a> using an external SSD1963 display controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/AC320005-4');"><img src="indicator_external_link.gif" border="0" alt="" title="">High-Performance 4.3&quot; WQVGA Display Module with maXTouch® Technology</a>.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00045.html" target="topic">aria_qs_mzef_cu_xpro_spi.X</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This application runs on the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320104');"><img src="indicator_external_link.gif" border="0" alt="" title="">Curiosity PIC32MZEF Development Board</a> using an external ILI94888 display controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/ATMXT-XPRO');"><img src="indicator_external_link.gif" border="0" alt="" title="">maXTouch Xplained Pro Extension Kit</a>.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00046.html" target="topic">aria_qs_mzef_sk_meb2_tm4301b.X</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This application runs on the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/dm320007#utm_medium=Press-Release&amp;utm_term=PIC32MZEF%20Launch_PR_9-14-15&amp;utm_content=MCU32&amp;utm_campaign=FPU+Kit');"><img src="indicator_external_link.gif" border="0" alt="" title="">PIC32MZ Embedded Connectivity with FPU (EF) Starter Kit</a> attached to the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320005-5');"><img src="indicator_external_link.gif" border="0" alt="" title="">Multimedia Expansion Board II</a> using LCC software display controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/AC320005-4');"><img src="indicator_external_link.gif" border="0" alt="" title="">High-Performance 4.3&quot; WQVGA Display Module with maXTouch® Technology</a>.&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
-<div class="Element62">
-Created with a commercial version of <a href="#" onclick="openExternalLink('http://www.doc-o-matic.com');"><img src="indicator_external_link.gif" border="0" alt="" title="">Doc-O-Matic</a>. In order to make this message disappear you need to register this software. If you have problems registering this software please contact us at <a href="#" onclick="openExternalLink('mailto:support@toolsfactory.com');"><img src="indicator_external_link.gif" border="0" alt="" title="">support@toolsfactory.com</a>.</div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00359.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00493.html" target="topic">Examples and Demonstrations</a> &gt; <a href="00491.html" target="topic">Aria Applications</a> &gt; <a href="00000.html" target="topic">aria_quickstart</a> &gt; <a href="00001.html" target="topic">Building the Application</a></div>
+<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00554.html" target="topic">Examples and Demonstrations</a> &gt; <a href="00552.html" target="topic">Aria Applications</a> &gt; <a href="00001.html" target="topic">aria_quickstart</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -339,13 +210,13 @@ Created with a commercial version of <a href="#" onclick="openExternalLink('http
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00359.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="00000.html" target="topic">Previous</a> | <a href="00000.html" target="topic">Up</a> | <a href="00002.html" target="topic">Next</a></div>
+<a href="00552.html" target="topic">Previous</a> | <a href="00552.html" target="topic">Up</a> | <a href="00013.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: APPS GFX aria_quickstart_build Topic Title: Building the Application)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: APPS GFX aria_quickstart Topic Title: aria_quickstart)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

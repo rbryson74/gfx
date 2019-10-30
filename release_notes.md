@@ -3,7 +3,7 @@
 
 - **Graphics Contents** - This graphics release consists of graphics libraries, applications, utilities, drivers, hardware abstractions, input, middleware, templates, and documentation. The following table lists the contents:
 
-**Aria graphics library** - the standard graphics library within MPLAB Harmony Graphics Suite. Supports PIC32 and SAM microcontroller and microprocessors.
+**Aria graphics library** - the current production library within MPLAB Harmony Graphics Suite. Supports PIC32 and SAM microcontroller and microprocessors.
 
 | Category | Item | Description | Release Type |
 | --- | --- | ---- |---- |
@@ -32,7 +32,7 @@
 
 | Category | Item | Description | Release Type |
 | --- | --- | ---- |---- |
-|  apps | legato_quickstart | Legato UI library quickstart example | Production |
+|  apps | legato_quickstart | Legato UI library quickstart example | Beta |
 |      |  legato_quickstart_ext_res | Legato UI library external resource example | Beta|
 | drivers|  external_controller | User generate-able external display driver | Beta |
 |      |   ili9488| Display Driver for the ili9488 Controller |Beta |
@@ -42,18 +42,18 @@
 |      |   parallel_portgroup | Inteface to the parallel portgroup registers | Beta |
 |      |   parallel_smc | Interface to the parallel smc registers | Beta |
 |      |   spi | Interface to the spi registers | Beta |
-| library    | legato | Graphics Library | Production |
+| library    | legato | Graphics Library | Beta |
 | designer | Legato MHGC |Harmony Graphics Composer for for Legato| Beta|
 
 **SEGGER emWin graphics library** - emWin V5.48 - Graphical user interface middleware for embedded applications. It is licensed for PIC32MX and PIC32MZ microcontrollers.
 
 | Category | Item | Description | Release Type |
 | --- | --- | ---- |---- |
-| apps | emwin_quickstart | Legato UI library quickstart example |Beta |
+| apps | emwin_quickstart | emWin UI library quickstart example |Beta |
 | drivers|  glcd | Graphics 3 Layer Display Driver | Production |
 |      |      LCC | Display Driver for the LCC software Controller| Production |
 |      | parallel_ebi | Interface to the parallel EBI registers | Beta |
-| library    | emWin | SEGGER emWin Graphics Library | Production |
+| library    | emWin | SEGGER emWin Graphics Library | Beta |
 |      | templates   | aria_gfx_pda_tm4301b| MHC config for pda 4.3" display | Production |
 | designer | emWin | SEGGER emWin v5.50 - Graphical UI for embedded applications| Beta|
 
@@ -68,12 +68,12 @@
 | library    | blank | Pixel operations | Beta |
 
 
-**Misc items** - items associated with the entire library.
+**Misc items** - items associated with the entire graphics suite.
 
 | Category | Item | Description | Release Type |
 | --- | --- | ---- |---- |
-|input | generic | Generic Touch Input Driver | Production |
-|      | maxtouch | Microchip maXTouch Touch Input Driver | Production |
+|input | generic | Generic Touch Input Driver | Beta |
+|      | maxtouch | Microchip maXTouch Touch Input Driver | Beta |
 | doc | Help | Application Help Documentation| Production |
 | docs| Help | Application Help Documentation HTML| Production |
 | templates   |  middleware | Board configuration scripts| Production |
@@ -149,6 +149,7 @@ In gfx.c the variable args is falsely detected in violation of Code 530: &quot;S
 * MHGC GAC does not generated a 2DGPU comaptible palette table. A translation step is required to create word values from little endian byte array.
 * When regenerating demo applications, keep all code between comments “//CUSTOM CODE…” and “//END OF CUSTOM CODE…”. Custom code is added to perform specific functionality.
 * PKOB4 debugging requires MPLAB v5.20.
+* Applications running on SAM E70 in combination with LCC will observe visual rendering artifacts on display during SD card R/W access. There is no loss in SD Card data.
 
 ### DEVELOPMENT TOOLS
 

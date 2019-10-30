@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>(2) Display Component</title>
+<title>Aria Drivers</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00359.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00435.html" target="topic">Configurator</a> &gt; <a href="00016.html" target="topic">MHC GFX Components</a> &gt; <a href="00015.html" target="topic">Exploring Aria Quickstart</a> &gt; <a href="00008.html" target="topic">(2) Display Component</a></div>
+<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00496.html" target="topic">Drivers</a> &gt; <a href="00008.html" target="topic">Aria Drivers</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00359.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="00007.html" target="topic">Previous</a> | <a href="00015.html" target="topic">Up</a> | <a href="00009.html" target="topic">Next</a></div>
+<a href="00496.html" target="topic">Previous</a> | <a href="00496.html" target="topic">Up</a> | <a href="02622.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX CMP (2) Display Component Topic Title: (2) Display Component)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: Aria Drivers Topic Title: Aria Drivers)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-(2) Display Component</div>
+Aria Drivers</div>
 </div>
 </div>
 
@@ -48,28 +48,42 @@ MPLAB® Harmony Graphics Suite</div>
 <a name="PageContent"></a><div class="Element58">
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
+<div class="Element15">
+Display Controller Drivers</div>
 <p class="Element10">
-The PDA TM4301B component has two “Consumer” connections. A right click on a connection will bring up a list of the available consumers. Selecting one will add the consumer component to the project’s graph: </p><p class="Element10" style="text-align: center;">
-<img src="GFX CMP PDA TM4301B Display.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+
+<ul class="Element630">
+<li class="Element600">Low-Cost Controller-less (LCC) - This driver creates a direct interface between the microcontroller and the display. It directly accesses the frame memory to to send pixels to the display using micrcontroller's DMA.</li>
+<li class="Element600">GLCD - Graphics 3 layer display driver</li>
+<li class="Element600">ili9488 - Display driver for the ili9488 controller</li>
+<li class="Element600">LCDC - Display driver for the LCDC controller</li>
+<li class="Element600">ssd1306 - Display driver for the ssd1306 controller</li>
+<li class="Element600">ssd1309 - Display driver for the ssd1309 controller</li>
+<li class="Element600">ssd1963 - Display driver for the ssd1963 controller</li>
+</ul><p class="Element10">
+&nbsp;</p>
+<div class="Element15">
+Graphics Accelerator Drivers</div>
+
+<ul class="Element630">
+<li class="Element600">2dgpu - Graphics process driver for the 2DGPU peripheral</li>
+<li class="Element600">gfx2d - Graphics process driver for the GFX2D peripheral</li>
+</ul><p class="Element10">
 &nbsp;</p>
 <p class="Element10">
-A click on the display component will bring up its configuration options in the Configuration Options panel. In this case all options are fixed (grayed out): </p><p class="Element10" style="text-align: center;">
-<img src="GFX CMP Display Config Options.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10">
-When connected to the GFX Core component, most of these options are handed off to the GFX Core: </p><p class="Element10" style="text-align: center;">
-<img src="GFX CMP display options handed off to GFX.png" border="0" alt="" title=""></p></div>
+<strong>Touch Drivers</strong></p>
+<ul class="Element630">
+<li class="Element600">maXTouch - Microchip maXTouch input driver</li>
+<li class="Element600">generic - Generic touch input driver</li>
+</ul></div>
 </div>
-<div class="Element62">
-Created with a commercial version of <a href="#" onclick="openExternalLink('http://www.doc-o-matic.com');"><img src="indicator_external_link.gif" border="0" alt="" title="">Doc-O-Matic</a>. In order to make this message disappear you need to register this software. If you have problems registering this software please contact us at <a href="#" onclick="openExternalLink('mailto:support@toolsfactory.com');"><img src="indicator_external_link.gif" border="0" alt="" title="">support@toolsfactory.com</a>.</div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00359.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00435.html" target="topic">Configurator</a> &gt; <a href="00016.html" target="topic">MHC GFX Components</a> &gt; <a href="00015.html" target="topic">Exploring Aria Quickstart</a> &gt; <a href="00008.html" target="topic">(2) Display Component</a></div>
+<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00496.html" target="topic">Drivers</a> &gt; <a href="00008.html" target="topic">Aria Drivers</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -77,13 +91,13 @@ Created with a commercial version of <a href="#" onclick="openExternalLink('http
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00359.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="00007.html" target="topic">Previous</a> | <a href="00015.html" target="topic">Up</a> | <a href="00009.html" target="topic">Next</a></div>
+<a href="00496.html" target="topic">Previous</a> | <a href="00496.html" target="topic">Up</a> | <a href="02622.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX CMP (2) Display Component Topic Title: (2) Display Component)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: Aria Drivers Topic Title: Aria Drivers)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->
