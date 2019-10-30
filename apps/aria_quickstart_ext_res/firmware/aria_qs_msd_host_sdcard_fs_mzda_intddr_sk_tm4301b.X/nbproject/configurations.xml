@@ -566,7 +566,7 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC32MZ-DA_DFP" vendor="Microchip" version="1.0.42"/>
+        <pack name="PIC32MZ-DA_DFP" vendor="Microchip" version="1.0.69"/>
       </packs>
       <compileType>
         <linkerTool>

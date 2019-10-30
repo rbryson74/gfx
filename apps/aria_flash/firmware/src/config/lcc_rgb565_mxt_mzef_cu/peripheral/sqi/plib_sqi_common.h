@@ -95,7 +95,7 @@ Interface definition of SQI PLIB.
 
 #define SQI_BDCTRL_SQICS_CS0                    0x00000000
 #define SQI_BDCTRL_SQICS_CS1                    0x10000000
-        
+
 #define SQI_BDCTRL_DEASSERT                     0x40000000
 
 #define SQI_BDCTRL_DESCEN                       0x80000000

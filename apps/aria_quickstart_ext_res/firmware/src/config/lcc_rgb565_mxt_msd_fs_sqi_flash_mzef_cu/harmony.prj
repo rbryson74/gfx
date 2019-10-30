@@ -1339,8 +1339,8 @@
           <Name dnOrder="1">usb_device_init_data.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_cu/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">48BF409BBF79A5742FE96A105CB7D148</GeneratedChecksum>
-          <UserChecksum dnOrder="5">48BF409BBF79A5742FE96A105CB7D148</UserChecksum>
+          <GeneratedChecksum dnOrder="4">C86AF79FC28BE29D9F49CB1AFB8F989E</GeneratedChecksum>
+          <UserChecksum dnOrder="5">C86AF79FC28BE29D9F49CB1AFB8F989E</UserChecksum>
         </File>
         <File dnOrder="167">
           <Type dnOrder="0">SOURCE</Type>
@@ -2611,8 +2611,8 @@
           <Name dnOrder="1">usb_common.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_cu/usb/</LogicalPath>
           <PhysicalPath dnOrder="3">/usb/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">ACC8AF90F98B09095480B6B1F07082A0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">ACC8AF90F98B09095480B6B1F07082A0</UserChecksum>
+          <GeneratedChecksum dnOrder="4">2AAF1AB3341FB7F74004B6C7EFF8929C</GeneratedChecksum>
+          <UserChecksum dnOrder="5">2AAF1AB3341FB7F74004B6C7EFF8929C</UserChecksum>
         </File>
         <File dnOrder="326">
           <Type dnOrder="0">HEADER</Type>

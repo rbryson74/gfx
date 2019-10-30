@@ -1347,8 +1347,8 @@
           <Name dnOrder="1">usb_device_init_data.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">902F0581FC2446CA45314631B2064F16</GeneratedChecksum>
-          <UserChecksum dnOrder="5">902F0581FC2446CA45314631B2064F16</UserChecksum>
+          <GeneratedChecksum dnOrder="4">F52F3C2849B691C7100224232AC3410B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">F52F3C2849B691C7100224232AC3410B</UserChecksum>
         </File>
         <File dnOrder="168">
           <Type dnOrder="0">SOURCE</Type>
@@ -2651,8 +2651,8 @@
           <Name dnOrder="1">usb_common.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/usb/</LogicalPath>
           <PhysicalPath dnOrder="3">/usb/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">ACC8AF90F98B09095480B6B1F07082A0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">ACC8AF90F98B09095480B6B1F07082A0</UserChecksum>
+          <GeneratedChecksum dnOrder="4">2AAF1AB3341FB7F74004B6C7EFF8929C</GeneratedChecksum>
+          <UserChecksum dnOrder="5">2AAF1AB3341FB7F74004B6C7EFF8929C</UserChecksum>
         </File>
         <File dnOrder="331">
           <Type dnOrder="0">HEADER</Type>
@@ -2969,14 +2969,19 @@
   </Configurator>
   <MHGC>
     <GAC dnOrder="0">
-      <Locations dnOrder="0">
+      <MemoryManager address="2818572288" dnOrder="0" size="33554432">
+        <Blocks dnOrder="0">
+          <FrameBufferBlock address="0" buffer="0" dnOrder="0" layer="0" movable="true" name="Frame Layer 0 Buffer 0" renameable="false" resizable="false" size="261120"/>
+        </Blocks>
+      </MemoryManager>
+      <Locations dnOrder="1">
         <Location dnOrder="0" fileName="gfx_assets" index="0" maxSize="2000000"/>
         <Location dnOrder="1" fileName="Fonts" format="BIN" index="1" maxSize="3000000" name="Fonts" offset="0"/>
         <Location dnOrder="2" fileName="Images" format="BIN" index="2" maxSize="2000000" name="Images" offset="0"/>
         <Location dnOrder="3" fileName="Fonts1" format="BIN" index="3" maxSize="1000000" name="Fonts1" offset="0"/>
         <Location dnOrder="4" fileName="Fonts2" format="BIN" index="4" maxSize="1000000" name="Fonts2" offset="0"/>
       </Locations>
-      <Assets dnOrder="1">
+      <Assets dnOrder="2">
         <StringTable dnOrder="0" encoding="UTF16" location="0" name="stringTable">
           <Languages default="0" dnOrder="0">
             <Language dnOrder="0" enabled="true" name="English"/>
@@ -3342,28 +3347,28 @@
         <Font antialias="false" bold="false" dnOrder="2" italic="false" location="3" name="ArialUnicodeMS" size="16" sourceName="Arial Unicode MS">
           <Data dnOrder="0">rO0ABXNyAA1qYXZhLmF3dC5Gb250xaE15szeVnMDAAZJABlmb250U2VyaWFsaXplZERhdGFWZXJzaW9uRgAJcG9pbnRTaXplSQAEc2l6ZUkABXN0eWxlTAAUZlJlcXVlc3RlZEF0dHJpYnV0ZXN0ABVMamF2YS91dGlsL0hhc2h0YWJsZTtMAARuYW1ldAASTGphdmEvbGFuZy9TdHJpbmc7eHAAAAABQTAAAAAAAAsAAAAAcHQAEEFyaWFsIFVuaWNvZGUgTVN4</Data>
           <Strings dnOrder="1">
-            <String dnOrder="0" name="ImageIsPNG">
+            <String dnOrder="0" name="ImageFromExternal">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="1" name="TitleString">
+            <String dnOrder="1" name="ImageIsRLE">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="2" name="ImageIsDirectBlit">
+            <String dnOrder="2" name="ImageIsRaw">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="3" name="ImageFromExternal">
+            <String dnOrder="3" name="ImageIsDirectBlit">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="4" name="ImageIsRLE">
+            <String dnOrder="4" name="ImageIsJPEG">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="5" name="ImageIsRaw">
+            <String dnOrder="5" name="PressButton">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="6" name="ImageIsJPEG">
+            <String dnOrder="6" name="ImageIsPNG">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="7" name="PressButton">
+            <String dnOrder="7" name="TitleString">
               <Language dnOrder="0" index="0"/>
             </String>
           </Strings>
@@ -3374,43 +3379,43 @@
             <Range dnOrder="0" end="30462" name="CJK_UI" start="19968"/>
           </Ranges>
           <Strings dnOrder="2">
-            <String dnOrder="0" name="ImageIsPNG">
+            <String dnOrder="0" name="ImageIsRLE">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="1" name="DrawDirectBlit">
+            <String dnOrder="1" name="DrawPNG">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="2" name="DrawJpeg">
+            <String dnOrder="2" name="DrawRLE">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="3" name="DrawRLE">
+            <String dnOrder="3" name="ImageIsPNG">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="4" name="DrawPNG">
+            <String dnOrder="4" name="TitleString">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="5" name="ImageIsJPEG">
+            <String dnOrder="5" name="ImageFromExternal">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="6" name="PressButton">
+            <String dnOrder="6" name="DrawJpeg">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="7" name="TitleString">
+            <String dnOrder="7" name="DrawDirectBlit">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="8" name="ImageIsDirectBlit">
+            <String dnOrder="8" name="ImageIsRaw">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="9" name="DrawRaw">
+            <String dnOrder="9" name="ImageIsJPEG">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="10" name="ImageFromExternal">
+            <String dnOrder="10" name="ImageIsDirectBlit">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="11" name="ImageIsRLE">
+            <String dnOrder="11" name="PressButton">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="12" name="ImageIsRaw">
+            <String dnOrder="12" name="DrawRaw">
               <Language dnOrder="0" index="1"/>
             </String>
           </Strings>
@@ -3418,7 +3423,7 @@
         <Font antialias="false" bold="false" dnOrder="4" italic="false" location="0" name="ArialUnicodeMS_Internal" size="16" sourceName="Arial Unicode MS">
           <Data dnOrder="0">rO0ABXNyAA1qYXZhLmF3dC5Gb250xaE15szeVnMDAAZJABlmb250U2VyaWFsaXplZERhdGFWZXJzaW9uRgAJcG9pbnRTaXplSQAEc2l6ZUkABXN0eWxlTAAUZlJlcXVlc3RlZEF0dHJpYnV0ZXN0ABVMamF2YS91dGlsL0hhc2h0YWJsZTtMAARuYW1ldAASTGphdmEvbGFuZy9TdHJpbmc7eHAAAAABQTAAAAAAAAsAAAAAcHQAEEFyaWFsIFVuaWNvZGUgTVN4</Data>
           <Strings dnOrder="1">
-            <String dnOrder="0" name="PressToMainScreen">
+            <String dnOrder="0" name="WaitForUSB">
               <Language dnOrder="0" index="0"/>
               <Language dnOrder="1" index="1"/>
             </String>
@@ -3426,7 +3431,7 @@
               <Language dnOrder="0" index="0"/>
               <Language dnOrder="1" index="1"/>
             </String>
-            <String dnOrder="2" name="WaitForUSB">
+            <String dnOrder="2" name="PressToMainScreen">
               <Language dnOrder="0" index="0"/>
               <Language dnOrder="1" index="1"/>
             </String>
@@ -3441,19 +3446,19 @@
         <Font antialias="false" bold="true" dnOrder="6" italic="false" location="4" name="ArialUnicodeMS_Bold" size="16" sourceName="Arial Unicode MS">
           <Data dnOrder="0">rO0ABXNyAA1qYXZhLmF3dC5Gb250xaE15szeVnMDAAZJABlmb250U2VyaWFsaXplZERhdGFWZXJzaW9uRgAJcG9pbnRTaXplSQAEc2l6ZUkABXN0eWxlTAAUZlJlcXVlc3RlZEF0dHJpYnV0ZXN0ABVMamF2YS91dGlsL0hhc2h0YWJsZTtMAARuYW1ldAASTGphdmEvbGFuZy9TdHJpbmc7eHAAAAABQTAAAAAAAAsAAAAAcHQAEEFyaWFsIFVuaWNvZGUgTVN4</Data>
           <Strings dnOrder="1">
-            <String dnOrder="0" name="DrawDirectBlit">
+            <String dnOrder="0" name="DrawJpeg">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="1" name="DrawJpeg">
+            <String dnOrder="1" name="DrawPNG">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="2" name="DrawRLE">
+            <String dnOrder="2" name="DrawDirectBlit">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="3" name="DrawRaw">
+            <String dnOrder="3" name="DrawRLE">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="4" name="DrawPNG">
+            <String dnOrder="4" name="DrawRaw">
               <Language dnOrder="0" index="0"/>
             </String>
           </Strings>
@@ -3519,7 +3524,7 @@
           </GACImage>
         </Image>
       </Assets>
-      <FolderTree dnOrder="2">
+      <FolderTree dnOrder="3">
         <ImageTree dnOrder="0"/>
         <StringTree dnOrder="1"/>
       </FolderTree>

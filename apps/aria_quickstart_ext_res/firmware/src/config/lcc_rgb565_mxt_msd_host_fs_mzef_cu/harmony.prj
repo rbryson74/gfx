@@ -499,8 +499,8 @@
           <Name dnOrder="1">initialization.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_host_fs_mzef_cu/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">519DAFF0900FCF713888243F7A09B37C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">519DAFF0900FCF713888243F7A09B37C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">B1729EEE340E580C62BC5E0D792EC9D3</GeneratedChecksum>
+          <UserChecksum dnOrder="5">B1729EEE340E580C62BC5E0D792EC9D3</UserChecksum>
         </File>
         <File dnOrder="62">
           <Type dnOrder="0">SOURCE</Type>
@@ -2579,8 +2579,8 @@
           <Name dnOrder="1">usb_common.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_host_fs_mzef_cu/usb/</LogicalPath>
           <PhysicalPath dnOrder="3">/usb/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">ACC8AF90F98B09095480B6B1F07082A0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">ACC8AF90F98B09095480B6B1F07082A0</UserChecksum>
+          <GeneratedChecksum dnOrder="4">2AAF1AB3341FB7F74004B6C7EFF8929C</GeneratedChecksum>
+          <UserChecksum dnOrder="5">2AAF1AB3341FB7F74004B6C7EFF8929C</UserChecksum>
         </File>
         <File dnOrder="322">
           <Type dnOrder="0">HEADER</Type>
