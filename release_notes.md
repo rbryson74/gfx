@@ -150,6 +150,7 @@ In gfx.c the variable args is falsely detected in violation of Code 530: &quot;S
 * When regenerating demo applications, keep all code between comments “//CUSTOM CODE…” and “//END OF CUSTOM CODE…”. Custom code is added to perform specific functionality.
 * PKOB4 debugging requires MPLAB v5.20.
 * Applications running on SAM E70 in combination with LCC will observe visual rendering artifacts on display during SD card R/W access. There is no loss in SD Card data.
+* Applications formatting SQI FAT in Linux use the following command: mkfs.fat -F12 /dev/$(device name)
 
 ### DEVELOPMENT TOOLS
 
