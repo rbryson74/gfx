@@ -53,8 +53,8 @@
 #define EBI_BASE_ADDR  EBI_CS0_ADDR
 
 
-#define FRAMEBUFFER_COLOR_MODE GFX_COLOR_MODE_GS_8
-#define FRAMEBUFFER_TYPE uint8_t
+#define FRAMEBUFFER_COLOR_MODE GFX_COLOR_MODE_RGB_565
+#define FRAMEBUFFER_TYPE uint16_t
 #define FRAMEBUFFER_PIXEL_BYTES 2
 
 const char* DRIVER_NAME = "LCC SMC";
@@ -62,9 +62,8 @@ static uint32_t supported_color_formats = (GFX_COLOR_MASK_RGB_565 | GFX_COLOR_MA
 
 #define FRAMEBUFFER_ATTRIBUTE __attribute__((aligned(FRAMEBUFFER_PIXEL_BYTES*8)))
 
-FRAMEBUFFER_TYPE frameBuffer[BUFFER_COUNT][DISPLAY_WIDTH * DISPLAY_HEIGHT];
+FRAMEBUFFER_TYPE FRAMEBUFFER_ATTRIBUTE frameBuffer[BUFFER_COUNT][DISPLAY_WIDTH * DISPLAY_HEIGHT];
 
-uint16_t FRAMEBUFFER_ATTRIBUTE frameLine[DISPLAY_WIDTH];
 
 #define DRV_GFX_LCC_DMA_CHANNEL_INDEX XDMAC_CHANNEL_1
 #define DRV_GFX_DMA_EVENT_TYPE XDMAC_TRANSFER_EVENT
@@ -306,8 +305,8 @@ static int DRV_GFX_LCC_Start()
 {
     XDMAC_ChannelCallbackRegister(DRV_GFX_LCC_DMA_CHANNEL_INDEX, dmaIntHandler, 0);
 
-    lccDMAStartTransfer(frameLine,
-                        2,
+    lccDMAStartTransfer(frameBuffer, 
+                        FRAMEBUFFER_PIXEL_BYTES,
                         (const void *) EBI_BASE_ADDR);
 
     return 0;
@@ -317,9 +316,7 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
 {
     GFX_Point drawPoint;
     GFX_PixelBuffer* buffer;
-    uint8_t * bufferPtr;
-    uint16_t* palette;
-    uint32_t i;
+    GFX_Buffer* buffer_to_tx = (GFX_Buffer *) frameBuffer;
 
     typedef enum
     {
@@ -441,12 +438,7 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
 
                 buffer = &cntxt->layer.active->buffers[cntxt->layer.active->buffer_read_idx].pb;
 
-                bufferPtr = GFX_PixelBufferOffsetGet_Unsafe(buffer, &drawPoint);
-                
-                palette = (uint16_t*)GFX_ActiveContext()->globalPalette;
-                
-                for(i = 0; i < DISPLAY_WIDTH; i++)
-                    frameLine[i] = palette[bufferPtr[i]];
+                buffer_to_tx = GFX_PixelBufferOffsetGet_Unsafe(buffer, &drawPoint);
 
             }
 
@@ -463,8 +455,8 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
         }
     }
 
-    lccDMAStartTransfer(frameLine,
-                        (pixels * 2), //2 bytes per pixel
+    lccDMAStartTransfer(buffer_to_tx,
+                        (pixels * FRAMEBUFFER_PIXEL_BYTES), //2 bytes per pixel
                         (uint32_t*) EBI_BASE_ADDR);
 }
 

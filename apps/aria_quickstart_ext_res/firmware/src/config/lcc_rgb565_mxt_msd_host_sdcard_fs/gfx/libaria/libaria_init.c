@@ -43,7 +43,6 @@
 #include "gfx/libaria/inc/libaria_utils.h"
 
 laScheme WhiteScheme;
-laScheme defaultPaletteScheme;
 laButtonWidget* ButtonWidget_Wait;
 laLabelWidget* LabelWidget_Wait;
 laButtonWidget* ButtonWidget_MainScreen;
@@ -65,43 +64,24 @@ int32_t libaria_initialize(void)
     laScreen* screen;
 
     laScheme_Initialize(&WhiteScheme, GFX_COLOR_MODE_RGB_565);
-    WhiteScheme.base = 0xFC;
-    WhiteScheme.highlight = 0xFC;
-    WhiteScheme.highlightLight = 0xF;
-    WhiteScheme.shadow = 0x8;
-    WhiteScheme.shadowDark = 0xED;
+    WhiteScheme.base = 0xC67A;
+    WhiteScheme.highlight = 0xC67A;
+    WhiteScheme.highlightLight = 0xFFFF;
+    WhiteScheme.shadow = 0x8410;
+    WhiteScheme.shadowDark = 0x4208;
     WhiteScheme.foreground = 0x0;
-    WhiteScheme.foregroundInactive = 0xFE;
-    WhiteScheme.foregroundDisabled = 0x8;
-    WhiteScheme.background = 0xF;
-    WhiteScheme.backgroundInactive = 0xFE;
-    WhiteScheme.backgroundDisabled = 0xFC;
+    WhiteScheme.foregroundInactive = 0xD71C;
+    WhiteScheme.foregroundDisabled = 0x8410;
+    WhiteScheme.background = 0xFFFF;
+    WhiteScheme.backgroundInactive = 0xD71C;
+    WhiteScheme.backgroundDisabled = 0xC67A;
     WhiteScheme.text = 0x0;
-    WhiteScheme.textHighlight = 0xC;
-    WhiteScheme.textHighlightText = 0xF;
-    WhiteScheme.textInactive = 0xFE;
-    WhiteScheme.textDisabled = 0xF6;
-
-    laScheme_Initialize(&defaultPaletteScheme, GFX_COLOR_MODE_RGB_565);
-    defaultPaletteScheme.base = 0xFC;
-    defaultPaletteScheme.highlight = 0xFC;
-    defaultPaletteScheme.highlightLight = 0xF;
-    defaultPaletteScheme.shadow = 0x8;
-    defaultPaletteScheme.shadowDark = 0xED;
-    defaultPaletteScheme.foreground = 0x0;
-    defaultPaletteScheme.foregroundInactive = 0xFE;
-    defaultPaletteScheme.foregroundDisabled = 0x8;
-    defaultPaletteScheme.background = 0xF;
-    defaultPaletteScheme.backgroundInactive = 0xFE;
-    defaultPaletteScheme.backgroundDisabled = 0xFC;
-    defaultPaletteScheme.text = 0x0;
-    defaultPaletteScheme.textHighlight = 0xC;
-    defaultPaletteScheme.textHighlightText = 0xF;
-    defaultPaletteScheme.textInactive = 0xFE;
-    defaultPaletteScheme.textDisabled = 0xF6;
+    WhiteScheme.textHighlight = 0x1F;
+    WhiteScheme.textHighlightText = 0xFFFF;
+    WhiteScheme.textInactive = 0xD71C;
+    WhiteScheme.textDisabled = 0x8C92;
 
     GFX_Set(GFXF_DRAW_PIPELINE_MODE, GFX_PIPELINE_GCUGPU);
-    GFX_Set(GFXF_GLOBAL_PALETTE, globalColorPalette);
     laContext_SetStringTable(&stringTable);
 
     screen = laScreen_New(LA_FALSE, LA_FALSE, &ScreenCreate_LoadingScreen);
@@ -131,7 +111,6 @@ static void ScreenCreate_LoadingScreen(laScreen* screen)
 
     ButtonWidget_Wait = laButtonWidget_New();
     laWidget_SetSize((laWidget*)ButtonWidget_Wait, 480, 272);
-    laWidget_SetScheme((laWidget*)ButtonWidget_Wait, &defaultPaletteScheme);
     laWidget_SetBackgroundType((laWidget*)ButtonWidget_Wait, LA_WIDGET_BACKGROUND_NONE);
     laWidget_SetBorderType((laWidget*)ButtonWidget_Wait, LA_WIDGET_BORDER_NONE);
     laButtonWidget_SetText(ButtonWidget_Wait, laString_CreateFromID(string_WaitForUSB));
@@ -142,7 +121,6 @@ static void ScreenCreate_LoadingScreen(laScreen* screen)
     LabelWidget_Wait = laLabelWidget_New();
     laWidget_SetPosition((laWidget*)LabelWidget_Wait, 9, 7);
     laWidget_SetSize((laWidget*)LabelWidget_Wait, 463, 92);
-    laWidget_SetScheme((laWidget*)LabelWidget_Wait, &defaultPaletteScheme);
     laWidget_SetBackgroundType((laWidget*)LabelWidget_Wait, LA_WIDGET_BACKGROUND_NONE);
     laWidget_SetBorderType((laWidget*)LabelWidget_Wait, LA_WIDGET_BORDER_NONE);
     laLabelWidget_SetText(LabelWidget_Wait, laString_CreateFromID(string_WaitForUSBAlt));
@@ -151,8 +129,6 @@ static void ScreenCreate_LoadingScreen(laScreen* screen)
     ButtonWidget_MainScreen = laButtonWidget_New();
     laWidget_SetPosition((laWidget*)ButtonWidget_MainScreen, 51, 182);
     laWidget_SetSize((laWidget*)ButtonWidget_MainScreen, 380, 54);
-    laWidget_SetVisible((laWidget*)ButtonWidget_MainScreen, LA_FALSE);
-    laWidget_SetScheme((laWidget*)ButtonWidget_MainScreen, &defaultPaletteScheme);
     laWidget_SetBackgroundType((laWidget*)ButtonWidget_MainScreen, LA_WIDGET_BACKGROUND_FILL);
     laWidget_SetBorderType((laWidget*)ButtonWidget_MainScreen, LA_WIDGET_BORDER_BEVEL);
     laButtonWidget_SetText(ButtonWidget_MainScreen, laString_CreateFromID(string_PressToMainScreen));
@@ -179,7 +155,6 @@ static void ScreenCreate_MainScreen(laScreen* screen)
     TitleLabel = laLabelWidget_New();
     laWidget_SetPosition((laWidget*)TitleLabel, 13, 4);
     laWidget_SetSize((laWidget*)TitleLabel, 455, 55);
-    laWidget_SetScheme((laWidget*)TitleLabel, &defaultPaletteScheme);
     laWidget_SetBackgroundType((laWidget*)TitleLabel, LA_WIDGET_BACKGROUND_NONE);
     laWidget_SetBorderType((laWidget*)TitleLabel, LA_WIDGET_BORDER_NONE);
     laLabelWidget_SetText(TitleLabel, laString_CreateFromID(string_TitleString));
@@ -188,7 +163,6 @@ static void ScreenCreate_MainScreen(laScreen* screen)
     SloganButton = laButtonWidget_New();
     laWidget_SetPosition((laWidget*)SloganButton, 14, 207);
     laWidget_SetSize((laWidget*)SloganButton, 450, 50);
-    laWidget_SetScheme((laWidget*)SloganButton, &defaultPaletteScheme);
     laWidget_SetBackgroundType((laWidget*)SloganButton, LA_WIDGET_BACKGROUND_FILL);
     laWidget_SetBorderType((laWidget*)SloganButton, LA_WIDGET_BORDER_BEVEL);
     laButtonWidget_SetReleasedEventCallback(SloganButton, &SloganButton_ReleasedEvent);
@@ -198,7 +172,6 @@ static void ScreenCreate_MainScreen(laScreen* screen)
     LabelWidget1 = laLabelWidget_New();
     laWidget_SetPosition((laWidget*)LabelWidget1, 5, 10);
     laWidget_SetSize((laWidget*)LabelWidget1, 78, 30);
-    laWidget_SetScheme((laWidget*)LabelWidget1, &defaultPaletteScheme);
     laWidget_SetBackgroundType((laWidget*)LabelWidget1, LA_WIDGET_BACKGROUND_NONE);
     laWidget_SetBorderType((laWidget*)LabelWidget1, LA_WIDGET_BORDER_NONE);
     laLabelWidget_SetText(LabelWidget1, laString_CreateFromID(string_PressButton));
@@ -208,7 +181,6 @@ static void ScreenCreate_MainScreen(laScreen* screen)
     LabelWidget2 = laLabelWidget_New();
     laWidget_SetPosition((laWidget*)LabelWidget2, 7, 10);
     laWidget_SetSize((laWidget*)LabelWidget2, 398, 30);
-    laWidget_SetScheme((laWidget*)LabelWidget2, &defaultPaletteScheme);
     laWidget_SetBackgroundType((laWidget*)LabelWidget2, LA_WIDGET_BACKGROUND_NONE);
     laWidget_SetBorderType((laWidget*)LabelWidget2, LA_WIDGET_BORDER_NONE);
     laLabelWidget_SetText(LabelWidget2, laString_CreateFromID(string_DrawDirectBlit));
@@ -217,7 +189,6 @@ static void ScreenCreate_MainScreen(laScreen* screen)
     LabelWidget3 = laLabelWidget_New();
     laWidget_SetPosition((laWidget*)LabelWidget3, 331, 10);
     laWidget_SetSize((laWidget*)LabelWidget3, 116, 30);
-    laWidget_SetScheme((laWidget*)LabelWidget3, &defaultPaletteScheme);
     laWidget_SetBackgroundType((laWidget*)LabelWidget3, LA_WIDGET_BACKGROUND_NONE);
     laWidget_SetBorderType((laWidget*)LabelWidget3, LA_WIDGET_BORDER_NONE);
     laLabelWidget_SetText(LabelWidget3, laString_CreateFromID(string_ImageFromExternal));
@@ -227,7 +198,6 @@ static void ScreenCreate_MainScreen(laScreen* screen)
     LogoButton = laButtonWidget_New();
     laWidget_SetPosition((laWidget*)LogoButton, 96, 62);
     laWidget_SetSize((laWidget*)LogoButton, 141, 132);
-    laWidget_SetScheme((laWidget*)LogoButton, &defaultPaletteScheme);
     laWidget_SetBackgroundType((laWidget*)LogoButton, LA_WIDGET_BACKGROUND_NONE);
     laWidget_SetBorderType((laWidget*)LogoButton, LA_WIDGET_BORDER_NONE);
     laButtonWidget_SetPressedImage(LogoButton, &MHGS_logo_small_raw_direct_blit);
@@ -240,7 +210,6 @@ static void ScreenCreate_MainScreen(laScreen* screen)
     ImageTypeLabelWidget = laLabelWidget_New();
     laWidget_SetPosition((laWidget*)ImageTypeLabelWidget, 251, 95);
     laWidget_SetSize((laWidget*)ImageTypeLabelWidget, 215, 51);
-    laWidget_SetScheme((laWidget*)ImageTypeLabelWidget, &defaultPaletteScheme);
     laWidget_SetBackgroundType((laWidget*)ImageTypeLabelWidget, LA_WIDGET_BACKGROUND_NONE);
     laWidget_SetBorderType((laWidget*)ImageTypeLabelWidget, LA_WIDGET_BORDER_NONE);
     laLabelWidget_SetText(ImageTypeLabelWidget, laString_CreateFromID(string_ImageIsDirectBlit));

@@ -161,8 +161,8 @@ extern GFXU_FontAsset ArialUnicodeMS_Internal;
  * Name:         ArialUnicodeMS
  * Height:       23
  * Style:        Plain
- * Glyph Count:  38
- * Range Count:  17
+ * Glyph Count:  35
+ * Range Count:  19
  * Glyph Ranges: 0x20
 			     0x2B
 			     0x41-0x42
@@ -171,12 +171,14 @@ extern GFXU_FontAsset ArialUnicodeMS_Internal;
 			     0x49-0x4A
 			     0x4C
 			     0x4E
-			     0x50-0x53
+			     0x50
+			     0x52
 			     0x55
 			     0x57
 			     0x5C
 			     0x61
-			     0x63-0x69
+			     0x63-0x65
+			     0x67-0x69
 			     0x6C-0x70
 			     0x72-0x76
 			     0x78-0x79

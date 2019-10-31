@@ -35,8 +35,8 @@
           <Name dnOrder="1">drv_gfx_lcc.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_host_sdcard_fs/gfx/driver/lcc</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/lcc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">0933241CC291F1F5DAB2DF712F9A8FA1</GeneratedChecksum>
-          <UserChecksum dnOrder="5">0933241CC291F1F5DAB2DF712F9A8FA1</UserChecksum>
+          <GeneratedChecksum dnOrder="4">EEEA36D9C66BDDB6D4929A94C5DBAE11</GeneratedChecksum>
+          <UserChecksum dnOrder="5">EEEA36D9C66BDDB6D4929A94C5DBAE11</UserChecksum>
         </File>
         <File dnOrder="4">
           <Type dnOrder="0">SOURCE</Type>
@@ -123,8 +123,8 @@
           <Name dnOrder="1">gfx_assets.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_host_sdcard_fs/gfx</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">8EBBA908A45A092CFC708F95B7F2946D</GeneratedChecksum>
-          <UserChecksum dnOrder="5">8EBBA908A45A092CFC708F95B7F2946D</UserChecksum>
+          <GeneratedChecksum dnOrder="4">FD1C38C3CB6F4FA91C0D2074DDC568E4</GeneratedChecksum>
+          <UserChecksum dnOrder="5">FD1C38C3CB6F4FA91C0D2074DDC568E4</UserChecksum>
         </File>
         <File dnOrder="15">
           <Type dnOrder="0">SOURCE</Type>
@@ -595,16 +595,16 @@
           <Name dnOrder="1">libaria_harmony.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_host_sdcard_fs/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">3BBA369974D7E3CD635D5B93C8CB025E</GeneratedChecksum>
-          <UserChecksum dnOrder="5">3BBA369974D7E3CD635D5B93C8CB025E</UserChecksum>
+          <GeneratedChecksum dnOrder="4">13EDCD2EE1AC74000C47A50F8878D379</GeneratedChecksum>
+          <UserChecksum dnOrder="5">13EDCD2EE1AC74000C47A50F8878D379</UserChecksum>
         </File>
         <File dnOrder="74">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_init.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_host_sdcard_fs/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A624D5B739DA93B2EF461E2FE28BB3E5</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A624D5B739DA93B2EF461E2FE28BB3E5</UserChecksum>
+          <GeneratedChecksum dnOrder="4">4B4E3D9A2801FA0CB0052BC3CA94BA7C</GeneratedChecksum>
+          <UserChecksum dnOrder="5">4B4E3D9A2801FA0CB0052BC3CA94BA7C</UserChecksum>
         </File>
         <File dnOrder="75">
           <Type dnOrder="0">SOURCE</Type>
@@ -1243,8 +1243,8 @@
           <Name dnOrder="1">plib_pio.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_host_sdcard_fs/peripheral/pio/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/pio/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">27D2643F0A984E563F9EF5867767C2BF</GeneratedChecksum>
-          <UserChecksum dnOrder="5">27D2643F0A984E563F9EF5867767C2BF</UserChecksum>
+          <GeneratedChecksum dnOrder="4">798013C3D1603A252B7BD6E364F9D515</GeneratedChecksum>
+          <UserChecksum dnOrder="5">798013C3D1603A252B7BD6E364F9D515</UserChecksum>
         </File>
         <File dnOrder="155">
           <Type dnOrder="0">SOURCE</Type>
@@ -1739,8 +1739,8 @@
           <Name dnOrder="1">gfx_assets.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_host_sdcard_fs/gfx</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">96249C8D15D2C7B3E3EDC5F42EA7961C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">96249C8D15D2C7B3E3EDC5F42EA7961C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">1D85F0FAC3D90D88042130E925420150</GeneratedChecksum>
+          <UserChecksum dnOrder="5">1D85F0FAC3D90D88042130E925420150</UserChecksum>
         </File>
         <File dnOrder="217">
           <Type dnOrder="0">HEADER</Type>
@@ -2163,8 +2163,8 @@
           <Name dnOrder="1">libaria_init.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_host_sdcard_fs/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">CAB6DD8AF0481087581DCDED0187D654</GeneratedChecksum>
-          <UserChecksum dnOrder="5">CAB6DD8AF0481087581DCDED0187D654</UserChecksum>
+          <GeneratedChecksum dnOrder="4">9CF317015031C545A6C34B758C8E9C39</GeneratedChecksum>
+          <UserChecksum dnOrder="5">9CF317015031C545A6C34B758C8E9C39</UserChecksum>
         </File>
         <File dnOrder="270">
           <Type dnOrder="0">HEADER</Type>
@@ -3246,7 +3246,7 @@
             </String>
             <String desc="" dnOrder="5" folder="\" name="ImageFromExternal">
               <Entries dnOrder="0">
-                <Entry dnOrder="0" index="0">image&amp;#160;from&amp;#160;SQI</Entry>
+                <Entry dnOrder="0" index="0">image</Entry>
                 <Entry dnOrder="1" index="1"/>
               </Entries>
             </String>
@@ -3573,28 +3573,28 @@
         <Font antialias="false" bold="false" dnOrder="2" italic="false" location="1" name="ArialUnicodeMS" size="16" sourceName="Arial Unicode MS">
           <Data dnOrder="0">rO0ABXNyAA1qYXZhLmF3dC5Gb250xaE15szeVnMDAAZJABlmb250U2VyaWFsaXplZERhdGFWZXJzaW9uRgAJcG9pbnRTaXplSQAEc2l6ZUkABXN0eWxlTAAUZlJlcXVlc3RlZEF0dHJpYnV0ZXN0ABVMamF2YS91dGlsL0hhc2h0YWJsZTtMAARuYW1ldAASTGphdmEvbGFuZy9TdHJpbmc7eHAAAAABQTAAAAAAAAsAAAAAcHQAEEFyaWFsIFVuaWNvZGUgTVN4</Data>
           <Strings dnOrder="1">
-            <String dnOrder="0" name="ImageIsDirectBlit">
+            <String dnOrder="0" name="ImageIsRLE">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="1" name="PressButton">
+            <String dnOrder="1" name="ImageIsDirectBlit">
               <Language dnOrder="0" index="0"/>
             </String>
             <String dnOrder="2" name="ImageFromExternal">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="3" name="ImageIsPNG">
+            <String dnOrder="3" name="TitleString">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="4" name="TitleString">
+            <String dnOrder="4" name="ImageIsRaw">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="5" name="ImageIsRaw">
+            <String dnOrder="5" name="ImageIsJPEG">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="6" name="ImageIsRLE">
+            <String dnOrder="6" name="PressButton">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="7" name="ImageIsJPEG">
+            <String dnOrder="7" name="ImageIsPNG">
               <Language dnOrder="0" index="0"/>
             </String>
           </Strings>
@@ -3605,43 +3605,43 @@
             <Range dnOrder="0" end="30462" name="CJK_UI" start="19968"/>
           </Ranges>
           <Strings dnOrder="2">
-            <String dnOrder="0" name="PressButton">
+            <String dnOrder="0" name="DrawPNG">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="1" name="ImageIsPNG">
+            <String dnOrder="1" name="ImageIsRLE">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="2" name="ImageIsRLE">
+            <String dnOrder="2" name="DrawRaw">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="3" name="DrawJpeg">
+            <String dnOrder="3" name="ImageFromExternal">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="4" name="DrawRaw">
+            <String dnOrder="4" name="DrawDirectBlit">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="5" name="ImageIsDirectBlit">
+            <String dnOrder="5" name="TitleString">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="6" name="ImageFromExternal">
+            <String dnOrder="6" name="ImageIsJPEG">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="7" name="DrawDirectBlit">
+            <String dnOrder="7" name="ImageIsPNG">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="8" name="DrawPNG">
+            <String dnOrder="8" name="ImageIsDirectBlit">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="9" name="ImageIsRaw">
+            <String dnOrder="9" name="DrawJpeg">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="10" name="TitleString">
+            <String dnOrder="10" name="ImageIsRaw">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="11" name="DrawRLE">
+            <String dnOrder="11" name="PressButton">
               <Language dnOrder="0" index="1"/>
             </String>
-            <String dnOrder="12" name="ImageIsJPEG">
+            <String dnOrder="12" name="DrawRLE">
               <Language dnOrder="0" index="1"/>
             </String>
           </Strings>
@@ -3649,15 +3649,15 @@
         <Font antialias="false" bold="false" dnOrder="4" italic="false" location="0" name="ArialUnicodeMS_Internal" size="16" sourceName="Arial Unicode MS">
           <Data dnOrder="0">rO0ABXNyAA1qYXZhLmF3dC5Gb250xaE15szeVnMDAAZJABlmb250U2VyaWFsaXplZERhdGFWZXJzaW9uRgAJcG9pbnRTaXplSQAEc2l6ZUkABXN0eWxlTAAUZlJlcXVlc3RlZEF0dHJpYnV0ZXN0ABVMamF2YS91dGlsL0hhc2h0YWJsZTtMAARuYW1ldAASTGphdmEvbGFuZy9TdHJpbmc7eHAAAAABQTAAAAAAAAsAAAAAcHQAEEFyaWFsIFVuaWNvZGUgTVN4</Data>
           <Strings dnOrder="1">
-            <String dnOrder="0" name="WaitForUSB">
+            <String dnOrder="0" name="WaitForUSBAlt">
               <Language dnOrder="0" index="0"/>
               <Language dnOrder="1" index="1"/>
             </String>
-            <String dnOrder="1" name="WaitForUSBAlt">
+            <String dnOrder="1" name="PressToMainScreen">
               <Language dnOrder="0" index="0"/>
               <Language dnOrder="1" index="1"/>
             </String>
-            <String dnOrder="2" name="PressToMainScreen">
+            <String dnOrder="2" name="WaitForUSB">
               <Language dnOrder="0" index="0"/>
               <Language dnOrder="1" index="1"/>
             </String>
@@ -3672,19 +3672,19 @@
         <Font antialias="false" bold="true" dnOrder="6" italic="false" location="3" name="ArialUnicodeMS_Bold" size="16" sourceName="Arial Unicode MS">
           <Data dnOrder="0">rO0ABXNyAA1qYXZhLmF3dC5Gb250xaE15szeVnMDAAZJABlmb250U2VyaWFsaXplZERhdGFWZXJzaW9uRgAJcG9pbnRTaXplSQAEc2l6ZUkABXN0eWxlTAAUZlJlcXVlc3RlZEF0dHJpYnV0ZXN0ABVMamF2YS91dGlsL0hhc2h0YWJsZTtMAARuYW1ldAASTGphdmEvbGFuZy9TdHJpbmc7eHAAAAABQTAAAAAAAAsAAAAAcHQAEEFyaWFsIFVuaWNvZGUgTVN4</Data>
           <Strings dnOrder="1">
-            <String dnOrder="0" name="DrawDirectBlit">
+            <String dnOrder="0" name="DrawPNG">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="1" name="DrawPNG">
+            <String dnOrder="1" name="DrawRaw">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="2" name="DrawJpeg">
+            <String dnOrder="2" name="DrawDirectBlit">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="3" name="DrawRLE">
+            <String dnOrder="3" name="DrawJpeg">
               <Language dnOrder="0" index="0"/>
             </String>
-            <String dnOrder="4" name="DrawRaw">
+            <String dnOrder="4" name="DrawRLE">
               <Language dnOrder="0" index="0"/>
             </String>
           </Strings>
@@ -3764,7 +3764,7 @@
         <GRID_COLOR dnOrder="4">2138552974</GRID_COLOR>
         <CLIP_TOGGLED dnOrder="5">false</CLIP_TOGGLED>
         <INFO_TOGGLED dnOrder="6">true</INFO_TOGGLED>
-        <PREVIEW_LANGUAGE dnOrder="7">1</PREVIEW_LANGUAGE>
+        <PREVIEW_LANGUAGE dnOrder="7">0</PREVIEW_LANGUAGE>
         <PROJECT_COLOR_MODE dnOrder="8">RGB_565</PROJECT_COLOR_MODE>
         <GENERATE_GLOBAL_PALETTE dnOrder="9">false</GENERATE_GLOBAL_PALETTE>
         <EXTERNAL_MEDIA_OPEN dnOrder="10">app_externalMediaOpen</EXTERNAL_MEDIA_OPEN>
@@ -3792,7 +3792,7 @@
           <HideEvent dnOrder="7">false</HideEvent>
           <Export dnOrder="8">true</Export>
           <Primary dnOrder="9">true</Primary>
-          <Active dnOrder="10">true</Active>
+          <Active dnOrder="10">false</Active>
           <Visible dnOrder="11">true</Visible>
         </Properties>
         <Events dnOrder="1">
@@ -3957,7 +3957,7 @@
                     <Height dnOrder="1">54</Height>
                   </Size>
                   <Enabled dnOrder="5">true</Enabled>
-                  <Visible dnOrder="6">false</Visible>
+                  <Visible dnOrder="6">true</Visible>
                   <BorderType dnOrder="7">Bevel</BorderType>
                   <MarginLeft dnOrder="8">4</MarginLeft>
                   <MarginTop dnOrder="9">4</MarginTop>
@@ -4016,7 +4016,7 @@
           <HideEvent dnOrder="7">false</HideEvent>
           <Export dnOrder="8">true</Export>
           <Primary dnOrder="9">false</Primary>
-          <Active dnOrder="10">false</Active>
+          <Active dnOrder="10">true</Active>
           <Visible dnOrder="11">true</Visible>
         </Properties>
         <Events dnOrder="1">

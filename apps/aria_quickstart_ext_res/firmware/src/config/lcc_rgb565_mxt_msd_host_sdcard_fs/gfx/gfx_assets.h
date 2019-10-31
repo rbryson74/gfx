@@ -67,7 +67,7 @@ extern "C" {
  * GFX Image Asset
  * Name:   MHGS_logo_small_jpeg
  * Size:   141x132 pixels
- * Mode:   GS_8
+ * Mode:   RGB_565
  * Format: RAW
  ***********************************/
 extern GFXU_ImageAsset MHGS_logo_small_jpeg;
@@ -76,7 +76,7 @@ extern GFXU_ImageAsset MHGS_logo_small_jpeg;
  * GFX Image Asset
  * Name:   MHGS_logo_small_raw
  * Size:   141x132 pixels
- * Mode:   GS_8
+ * Mode:   RGB_565
  * Format: RAW
  ***********************************/
 extern GFXU_ImageAsset MHGS_logo_small_raw;
@@ -85,7 +85,7 @@ extern GFXU_ImageAsset MHGS_logo_small_raw;
  * GFX Image Asset
  * Name:   MHGS_logo_small_raw_direct_blit
  * Size:   141x132 pixels
- * Mode:   GS_8
+ * Mode:   RGB_565
  * Format: RAW
  ***********************************/
 extern GFXU_ImageAsset MHGS_logo_small_raw_direct_blit;
@@ -94,7 +94,7 @@ extern GFXU_ImageAsset MHGS_logo_small_raw_direct_blit;
  * GFX Image Asset
  * Name:   MHGS_logo_small_raw_rle
  * Size:   141x132 pixels
- * Mode:   GS_8
+ * Mode:   RGB_565
  * Format: RAW
  ***********************************/
 extern GFXU_ImageAsset MHGS_logo_small_raw_rle;
@@ -165,8 +165,8 @@ extern GFXU_FontAsset ArialUnicodeMS_Internal;
  * Name:         ArialUnicodeMS
  * Height:       23
  * Style:        Plain
- * Glyph Count:  38
- * Range Count:  17
+ * Glyph Count:  35
+ * Range Count:  19
  * Glyph Ranges: 0x20
 			     0x2B
 			     0x41-0x42
@@ -175,12 +175,14 @@ extern GFXU_FontAsset ArialUnicodeMS_Internal;
 			     0x49-0x4A
 			     0x4C
 			     0x4E
-			     0x50-0x53
+			     0x50
+			     0x52
 			     0x55
 			     0x57
 			     0x5C
 			     0x61
-			     0x63-0x69
+			     0x63-0x65
+			     0x67-0x69
 			     0x6C-0x70
 			     0x72-0x76
 			     0x78-0x79
@@ -293,11 +295,6 @@ extern GFXU_FontAsset ArialUnicodeMS_Bold;
  
 extern GFXU_StringTableAsset stringTable;
 
-/*****************************************************************************
- * MPLAB Harmony Graphics Global Palette
- *****************************************************************************/
-
-extern uint16_t globalColorPalette[256];
 //DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 }
