@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>libaria_rectarray.h</title>
+<title>libaria_widget_arc.h</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00535.html" target="topic">Graphics Library</a> &gt; <a href="00516.html" target="topic">Aria Graphics Library</a> &gt; <a href="00518.html" target="topic">Files</a> &gt; <a href="02964.html" target="topic">libaria_rectarray.h</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00530.html" target="topic">Graphics Library</a> &gt; <a href="00511.html" target="topic">Aria Graphics Library</a> &gt; <a href="00513.html" target="topic">Files</a> &gt; <a href="02964.html" target="topic">libaria_widget_arc.h</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02963.html" target="topic">Previous</a> | <a href="00518.html" target="topic">Up</a> | <a href="02966.html" target="topic">Next</a></div>
+<a href="02963.html" target="topic">Previous</a> | <a href="00513.html" target="topic">Up</a> | <a href="02966.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: libaria_rectarray.h Topic Title: libaria_rectarray.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: libaria_widget_arc.h Topic Title: libaria_widget_arc.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-libaria_rectarray.h</div>
+libaria_widget_arc.h</div>
 </div>
 </div>
 
@@ -56,7 +56,7 @@ File Name</div>
 <div class="Element11">
 <div class="Element10">
 <p class="Element10">
-libaria_rectarray.h</p></div>
+libaria_widget_arc.h</p></div>
 </div>
 <a name="4465736372697074696F6E"></a><div class="Element14">
 Description</div>
@@ -65,7 +65,7 @@ Description</div>
 <p class="Element10">
 Module for Microchip Graphics Library - Aria User Interface Library&nbsp;</p>
 <p class="Element10">
-This is an array implementation that is used internally by the Aria user interface library. All of the memory operations are handled by the memory interface that is provided by the active libaria context. Applications that wish to use this implementation must ensure that the appropriate libaria context is active when calling these functions.</p></div>
+This module implements arc drawing widget functions.</p></div>
 </div>
 <a name="46756E6374696F6E73"></a><div class="Element14">
 Functions</div>
@@ -86,107 +86,103 @@ Description&nbsp;</div></td></tr><tr>
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02038.html" target="topic">laRectArray_Clear</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00555.html" target="topic">laArcWidget_GetCenterAngle</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Removes all values from a given array. Array capacity remains the same.&nbsp;</div></td></tr><tr>
+Gets the center angle of the arc widget&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02039.html" target="topic">laRectArray_Copy</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00556.html" target="topic">laArcWidget_GetRadius</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Creates a duplicate of an existing array&nbsp;</div></td></tr><tr>
+Gets the radius of a arc widget&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02040.html" target="topic">laRectArray_Create</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00557.html" target="topic">laArcWidget_GetRoundEdge</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Initializes a new rectangle array.&nbsp;</div></td></tr><tr>
+Returns true if the arc has round edges&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02041.html" target="topic">laRectArray_Destroy</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00558.html" target="topic">laArcWidget_GetStartAngle</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Removes all nodes from a given array and frees the memory owned by the array. Resets array capacity to zero.&nbsp;</div></td></tr><tr>
+Returns the start angle of a arc widget&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02042.html" target="topic">laRectArray_InsertAt</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00559.html" target="topic">laArcWidget_GetThickness</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Inserts a rectangle into an array at a given index. All existing nodes from index are shifted right one place.&nbsp;</div></td></tr><tr>
+Gets the thickness of the arc&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02043.html" target="topic">laRectArray_MergeSimilar</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00560.html" target="topic">laArcWidget_New</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Analyzes an array and merges any rectangles similar in size.&nbsp;</div></td></tr><tr>
+Allocates memory for and initializes a new widget of this type. The application is responsible for the management of this memory until the widget is added to a widget tree.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02044.html" target="topic">laRectArray_PopBack</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00561.html" target="topic">laArcWidget_SetCenterAngle</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Removes the last rectangle from the array&nbsp;</div></td></tr><tr>
+Sets the center angle of the arc widget&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02045.html" target="topic">laRectArray_PopFront</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00562.html" target="topic">laArcWidget_SetRadius</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Removes the first value from the array. Shuffles all other nodes forward one index.&nbsp;</div></td></tr><tr>
+Sets the radius of a arc widget&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02046.html" target="topic">laRectArray_PushBack</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00563.html" target="topic">laArcWidget_SetRoundEdge</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Pushes a new rectangle onto the back of the array&nbsp;</div></td></tr><tr>
+Sets the arc edge to round&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02047.html" target="topic">laRectArray_PushFront</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00564.html" target="topic">laArcWidget_SetStartAngle</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Pushes a new rectangle onto the front of the array. Shuffles all other nodes backward one index.&nbsp;</div></td></tr><tr>
+Sets the start angle of a arc widget&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02048.html" target="topic">laRectArray_RemoveAt</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00565.html" target="topic">laArcWidget_SetThickness</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Removes a rectangle from the array at an index&nbsp;</div></td></tr><tr>
+Sets the thickness of the arc widget&nbsp;</div></td></tr></table></div></div>
+</div>
+</div>
+<a name="4D6163726F73"></a><div class="Element14">
+Macros</div>
+<div class="Element11">
+<div class="Element10">
+<div class="Element212">
+<div class="TableDiv">
+<table cellspacing="0" class="Table1">
+<tr>
+<td class="Element200" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element201">
+ &nbsp;</div></td><td class="Element200" valign="top" width="25%">
+<div class="Element201">
+Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
+<div class="Element205">
+Description&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<img src="indicator_interface.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02049.html" target="topic">laRectArray_RemoveDuplicates</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02965.html" target="topic">LIBARIA_WIDGET_ARC_H</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Removes any duplicate rectangles from an array.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="02050.html" target="topic">laRectArray_RemoveOverlapping</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Sorts the array by size and then removes any rectangles that are completely overlapped by another larger rectangle.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="02051.html" target="topic">laRectArray_Resize</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Resizes the capacity of the array. If the array shrinks, any nodes beyond the new capacity will be discarded.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="02052.html" target="topic">laRectArray_SortBySize</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Sorts a given array largest to smallest.&nbsp;</div></td></tr></table></div></div>
+This is macro LIBARIA_WIDGET_ARC_H.&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 <a name="53747275637475726573"></a><div class="Element14">
@@ -208,9 +204,16 @@ Description&nbsp;</div></td></tr><tr>
 <div class="Element203">
 <img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02053.html" target="topic">laRectArray_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00554.html" target="topic">laArcWidget_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Rectangle array definition&nbsp;</div></td></tr></table></div></div>
+Implementation of a arc widget.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00554.html" target="topic">laArcWidget</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Implementation of a arc widget.&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 </div>
@@ -218,7 +221,7 @@ Rectangle array definition&nbsp;</div></td></tr></table></div></div>
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00535.html" target="topic">Graphics Library</a> &gt; <a href="00516.html" target="topic">Aria Graphics Library</a> &gt; <a href="00518.html" target="topic">Files</a> &gt; <a href="02964.html" target="topic">libaria_rectarray.h</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00530.html" target="topic">Graphics Library</a> &gt; <a href="00511.html" target="topic">Aria Graphics Library</a> &gt; <a href="00513.html" target="topic">Files</a> &gt; <a href="02964.html" target="topic">libaria_widget_arc.h</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -226,13 +229,13 @@ Rectangle array definition&nbsp;</div></td></tr></table></div></div>
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02963.html" target="topic">Previous</a> | <a href="00518.html" target="topic">Up</a> | <a href="02966.html" target="topic">Next</a></div>
+<a href="02963.html" target="topic">Previous</a> | <a href="00513.html" target="topic">Up</a> | <a href="02966.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: libaria_rectarray.h Topic Title: libaria_rectarray.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: libaria_widget_arc.h Topic Title: libaria_widget_arc.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

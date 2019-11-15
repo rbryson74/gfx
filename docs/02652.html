@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>legato_rectarray.h</title>
+<title>legato_stream.h</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00535.html" target="topic">Graphics Library</a> &gt; <a href="00533.html" target="topic">Legato Graphics Library</a> &gt; <a href="00548.html" target="topic">Files</a> &gt; <a href="02652.html" target="topic">legato_rectarray.h</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00530.html" target="topic">Graphics Library</a> &gt; <a href="00528.html" target="topic">Legato Graphics Library</a> &gt; <a href="00543.html" target="topic">Files</a> &gt; <a href="02652.html" target="topic">legato_stream.h</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02644.html" target="topic">Previous</a> | <a href="00548.html" target="topic">Up</a> | <a href="02638.html" target="topic">Next</a></div>
+<a href="02650.html" target="topic">Previous</a> | <a href="00543.html" target="topic">Up</a> | <a href="02654.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: legato_rectarray.h Topic Title: legato_rectarray.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: legato_stream.h Topic Title: legato_stream.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-legato_rectarray.h</div>
+legato_stream.h</div>
 </div>
 </div>
 
@@ -46,26 +46,10 @@ legato_rectarray.h</div>
 
 <!-- Begin Page Content -->
 <a name="PageContent"></a><div class="Element58">
-<a name="436F6D70616E79"></a><div class="Element11">
+<a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-Microchip Technology Inc.</p></div>
-</div>
-<a name="46696C65204E616D65"></a><div class="Element14">
-File Name</div>
-<div class="Element11">
-<div class="Element10">
-<p class="Element10">
-legato_rectarray.h</p></div>
-</div>
-<a name="4465736372697074696F6E"></a><div class="Element14">
-Description</div>
-<div class="Element11">
-<div class="Element10">
-<p class="Element10">
-Module for Microchip Graphics Library - Legato User Interface Library&nbsp;</p>
-<p class="Element10">
-This is an array implementation that is used internally by the Legato user interface library.</p></div>
+This is file legato_stream.h.</p></div>
 </div>
 <a name="46756E6374696F6E73"></a><div class="Element14">
 Functions</div>
@@ -86,128 +70,120 @@ Description&nbsp;</div></td></tr><tr>
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02821.html" target="topic">leRectArray_Clear</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02520.html" target="topic">leApplication_MediaCloseRequest</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Removes all values from a given array. Array capacity remains the same.&nbsp;</div></td></tr><tr>
+A callback that indicates that a stream is finished with a given media location and that the application can close if it.<br>reader - the reader that was streaming data.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02822.html" target="topic">leRectArray_Copy</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02521.html" target="topic">leApplication_MediaOpenRequest</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Creates a duplicate of an existing array&nbsp;</div></td></tr><tr>
+A callback that indicates that a stream wishes to read from an external source and that the application should prepare that source.<br>If the result is false then the stream will abort.<br>stream - the reader that is requesting to stream data&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02823.html" target="topic">leRectArray_Create</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02522.html" target="topic">leApplication_MediaReadRequest</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Initializes a new rectangle array.&nbsp;</div></td></tr><tr>
+dest buffer);&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02824.html" target="topic">leRectArray_CropToArea</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02865.html" target="topic">leStream_Close</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Crops all rectangles to a given width and height. Any remainder will be moved into a new rectangle and will be cropped again if needed.&nbsp;</div></td></tr><tr>
+Closes a stream.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02825.html" target="topic">leRectArray_CropToSize</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02866.html" target="topic">leStream_DataReady</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-This is function leRectArray_CropToSize.&nbsp;</div></td></tr><tr>
+Notifies a stream that its data is ready.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02826.html" target="topic">leRectArray_Destroy</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02868.html" target="topic">leStream_Init</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Removes all nodes from a given array and frees the memory owned by the array. Resets array capacity to zero.&nbsp;</div></td></tr><tr>
+Initialize a stream object&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02827.html" target="topic">leRectArray_InsertAt</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02869.html" target="topic">leStream_IsDataReady</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Inserts a rectangle into an array at a given index. All existing nodes from index are shifted right one place.&nbsp;</div></td></tr><tr>
+Polls the state of the stream to see if the data request is read. Used if a data ready callback was not provided.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02828.html" target="topic">leRectArray_MergeSimilar</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02870.html" target="topic">leStream_Open</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Analyzes an array and merges any rectangles similar in size.&nbsp;</div></td></tr><tr>
+Opens a stream object&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02829.html" target="topic">leRectArray_PopBack</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02871.html" target="topic">leStream_Read</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Removes the last rectangle from the array&nbsp;</div></td></tr><tr>
+Read from a stream object.&nbsp;</div></td></tr></table></div></div>
+</div>
+</div>
+<a name="4D6163726F73"></a><div class="Element14">
+Macros</div>
+<div class="Element11">
+<div class="Element10">
+<div class="Element212">
+<div class="TableDiv">
+<table cellspacing="0" class="Table1">
+<tr>
+<td class="Element200" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element201">
+ &nbsp;</div></td><td class="Element200" valign="top" width="25%">
+<div class="Element201">
+Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
+<div class="Element205">
+Description&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<img src="indicator_interface.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02830.html" target="topic">leRectArray_PopFront</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02508.html" target="topic">LE_STREAM_H</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Removes the first value from the array. Shuffles all other nodes forward one index.&nbsp;</div></td></tr><tr>
+This is macro LE_STREAM_H.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<img src="indicator_interface.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02831.html" target="topic">leRectArray_PushBack</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02509.html" target="topic">LE_STREAM_LOCATION_ID_INTERNAL</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Pushes a new rectangle onto the back of the array&nbsp;</div></td></tr><tr>
+This is macro LE_STREAM_LOCATION_ID_INTERNAL.&nbsp;</div></td></tr></table></div></div>
+</div>
+</div>
+<a name="5479706573"></a><div class="Element14">
+Types</div>
+<div class="Element11">
+<div class="Element10">
+<div class="Element212">
+<div class="TableDiv">
+<table cellspacing="0" class="Table1">
+<tr>
+<td class="Element200" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element201">
+ &nbsp;</div></td><td class="Element200" valign="top" width="25%">
+<div class="Element201">
+Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
+<div class="Element205">
+Description&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02832.html" target="topic">leRectArray_PushFront</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02867.html" target="topic">leStream_DataReadyCallback</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Pushes a new rectangle onto the front of the array. Shuffles all other nodes backward one index.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="02833.html" target="topic">leRectArray_RemoveAt</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Removes a rectangle from the array at an index&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="02834.html" target="topic">leRectArray_RemoveDuplicates</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Removes any duplicate rectangles from an array.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="02835.html" target="topic">leRectArray_RemoveOverlapping</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Sorts the array by size and then removes any rectangles that are completely overlapped by another larger rectangle.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="02836.html" target="topic">leRectArray_Resize</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Resizes the capacity of the array. If the array shrinks, any nodes beyond the new capacity will be discarded.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="02837.html" target="topic">leRectArray_SortBySize</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Sorts a given array largest to smallest.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="02838.html" target="topic">leRectArray_SortByY</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Sorts a given array in order of the Y coordinate.&nbsp;</div></td></tr></table></div></div>
+This is type leStream_DataReadyCallback.&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 </div>
@@ -215,7 +191,7 @@ Sorts a given array in order of the Y coordinate.&nbsp;</div></td></tr></table><
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00535.html" target="topic">Graphics Library</a> &gt; <a href="00533.html" target="topic">Legato Graphics Library</a> &gt; <a href="00548.html" target="topic">Files</a> &gt; <a href="02652.html" target="topic">legato_rectarray.h</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00530.html" target="topic">Graphics Library</a> &gt; <a href="00528.html" target="topic">Legato Graphics Library</a> &gt; <a href="00543.html" target="topic">Files</a> &gt; <a href="02652.html" target="topic">legato_stream.h</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -223,13 +199,13 @@ Sorts a given array in order of the Y coordinate.&nbsp;</div></td></tr></table><
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02644.html" target="topic">Previous</a> | <a href="00548.html" target="topic">Up</a> | <a href="02638.html" target="topic">Next</a></div>
+<a href="02650.html" target="topic">Previous</a> | <a href="00543.html" target="topic">Up</a> | <a href="02654.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: legato_rectarray.h Topic Title: legato_rectarray.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: legato_stream.h Topic Title: legato_stream.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

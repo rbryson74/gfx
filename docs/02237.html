@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>laUtils_PreprocessImage Function</title>
+<title>laTextFieldWidget Structure</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00359.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00475.html" target="topic">Graphics Library</a> &gt; <a href="00456.html" target="topic">Aria User Interface Library</a> &gt; <a href="00455.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="02237.html" target="topic">laUtils_PreprocessImage Function</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00530.html" target="topic">Graphics Library</a> &gt; <a href="00511.html" target="topic">Aria Graphics Library</a> &gt; <a href="00510.html" target="topic">Aria User Interface Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="02237.html" target="topic">laTextFieldWidget Structure</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00359.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="00952.html" target="topic">Previous</a> | <a href="00455.html" target="topic">Up</a> | <a href="02281.html" target="topic">Next</a></div>
+<a href="02195.html" target="topic">Previous</a> | <a href="00510.html" target="topic">Up</a> | <a href="02268.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laUtils_PreprocessImage@GFXU_ImageAsset*@uint32_t@GFX_ColorMode@GFX_Bool@GFXU_MemoryIntf * Topic Title: laUtils_PreprocessImage Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laTextFieldWidget Topic Title: laTextFieldWidget Structure)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-laUtils_PreprocessImage Function</div>
+laTextFieldWidget Structure</div>
 </div>
 </div>
 
@@ -49,80 +49,114 @@ laUtils_PreprocessImage Function</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-This function preprocesses an image asset through the HAL pipeline and renders it to a given address, in a given color mode, and can pad the image buffer dimensions to be powers of 2 as required by some graphics accelerators.&nbsp;</p>
+Enumeration: laTextFieldWidget_t&nbsp;</p>
 <p class="Element10">
-This function is also useful for pre-staging images into run-time memory locations.&nbsp;</p>
-<p class="Element10">
-The caller is required to ensure that the destination address is capable of containing the result. The size can be calculated by using the method:&nbsp;</p>
-<p class="Element10">
-<a href="00066.html" target="topic">GFX_ColorInfo</a>[destMode].size * img-&gt;width * img-&gt;height&nbsp;</p>
-<p class="Element10">
-This function only works with images that are located in a core accessible memory location like SRAM or DDR. If the image is located in an external source then GFXU_DrawImage should be called directly. The caller will then need to service the media streaing state machine. Once finished the image asset descriptor must be changed manually. This function can be used as a reference on how to accomplish this.</p></div>
+A text field widget is a widget that is capable of displaying a single line of editable text. This widget is capable of receiving edit events from the Aria edit event system. It can also display a blinking cursor.</p></div>
 </div>
 <a name="43"></a><div class="Element99">
 C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100"><a href="01985.html" target="topic">laResult</a> <strong><span style="color: #000000">laUtils_PreprocessImage</span></strong>(
-    GFXU_ImageAsset* <strong><span style="color: #000000">img</span></strong>, 
-    uint32_t <strong><span style="color: #000000">destAddress</span></strong>, 
-    <a href="00079.html" target="topic">GFX_ColorMode</a> <strong><span style="color: #000000">destMode</span></strong>, 
-    GFX_Bool <strong><span style="color: #000000">padBuffer</span></strong>, 
-    GFXU_MemoryIntf * <strong><span style="color: #000000">memIntf</span></strong>
-);</pre></div></div>
-<a name="506172616D6574657273"></a><div class="Element14">
-Parameters</div>
+<div class="Element101"><div class="Element100"><pre class="Element100"><strong><span style="color: #000080">typedef</span></strong> <strong><span style="color: #000080">struct</span></strong> <strong><span style="color: #000000">laTextFieldWidget_t</span></strong> {
+  <a href="01066.html" target="topic">laEditWidget</a> <strong><span style="color: #000000">editWidget</span></strong>;
+  <a href="02195.html" target="topic">laString</a> <strong><span style="color: #000000">text</span></strong>;
+  <a href="01130.html" target="topic">laHAlignment</a> <strong><span style="color: #000000">halign</span></strong>;
+  <a href="03053.html" target="topic">uint32_t</a> <strong><span style="color: #000000">cursorPos</span></strong>;
+  <a href="03053.html" target="topic">uint32_t</a> <strong><span style="color: #000000">cursorDelay</span></strong>;
+  <a href="03053.html" target="topic">uint32_t</a> <strong><span style="color: #000000">cursorTime</span></strong>;
+  <a href="00681.html" target="topic">laBool</a> <strong><span style="color: #000000">cursorEnable</span></strong>;
+  <a href="00681.html" target="topic">laBool</a> <strong><span style="color: #000000">cursorVisible</span></strong>;
+  <a href="00681.html" target="topic">laBool</a> <strong><span style="color: #000000">clearOnFirstEdit</span></strong>;
+  <a href="02268.html" target="topic">laTextFieldWidget_TextChangedCallback</a> <strong><span style="color: #000000">textChangedEvent</span></strong>;
+  <a href="02238.html" target="topic">laTextFieldWidget_FocusChangedCallback</a> <strong><span style="color: #000000">focusChangedEvent</span></strong>;
+  GFXU_ExternalAssetReader* <strong><span style="color: #000000">reader</span></strong>;
+} laTextFieldWidget;</pre></div></div>
+<a name="4D656D62657273"></a><div class="Element14">
+Members</div>
 <div class="Element11">
 <div class="Element10">
-<div class="Element312">
+<div class="Element272">
 <div class="TableDiv">
-<table cellspacing="0" class="Table3">
+<table cellspacing="0" class="Table4">
 <tr>
-<td class="Element300" valign="top" width="35%">
-<div class="Element301">
-Parameters&nbsp;</div></td><td class="Element304" valign="top" width="65%">
-<div class="Element305">
+<td class="Element260" valign="top" width="35%">
+<div class="Element261">
+Members&nbsp;</div></td><td class="Element264" valign="top" width="65%">
+<div class="Element265">
 Description&nbsp;</div></td></tr><tr>
-<td class="Element302" valign="top" width="35%">
-<div class="Element303">
-GFXU_ImageAsset* img&nbsp;</div></td><td class="Element306" valign="top" width="65%">
-<div class="Element307">
-pointer to the image asset to draw&nbsp;</div></td></tr><tr>
-<td class="Element302" valign="top" width="35%">
-<div class="Element303">
-uint32_t destAddress&nbsp;</div></td><td class="Element306" valign="top" width="65%">
-<div class="Element307">
-the address to render the image to&nbsp;</div></td></tr><tr>
-<td class="Element302" valign="top" width="35%">
-<div class="Element303">
-GFX_ColorMode destMode&nbsp;</div></td><td class="Element306" valign="top" width="65%">
-<div class="Element307">
-the desired output mode of the image&nbsp;</div></td></tr><tr>
-<td class="Element302" valign="top" width="35%">
-<div class="Element303">
-GFX_Bool padBuffer&nbsp;</div></td><td class="Element306" valign="top" width="65%">
-<div class="Element307">
-indicates that the image buffer dimensions should be padded to equal powers of 2 (required by some GPUs)&nbsp;</div></td></tr><tr>
-<td class="Element302" valign="top" width="35%">
-<div class="Element303">
-GFXU_MemoryIntf* memtIntf&nbsp;</div></td><td class="Element306" valign="top" width="65%">
-<div class="Element307">
-a pointer to a memory interface to use for memory operations, not needed for internal assets&nbsp;</div></td></tr></table></div></div>
+<td class="Element262" valign="top" width="35%">
+<div class="Element263">
+laEditWidget editWidget;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+<div class="Element267">
+edit widget base class&nbsp;</div></td></tr><tr>
+<td class="Element262" valign="top" width="35%">
+<div class="Element263">
+laString text;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+<div class="Element267">
+the text to edit&nbsp;</div></td></tr><tr>
+<td class="Element262" valign="top" width="35%">
+<div class="Element263">
+laHAlignment halign;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+<div class="Element267">
+horizontal alignment&nbsp;</div></td></tr><tr>
+<td class="Element262" valign="top" width="35%">
+<div class="Element263">
+uint32_t cursorPos;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+<div class="Element267">
+current cursor position&nbsp;</div></td></tr><tr>
+<td class="Element262" valign="top" width="35%">
+<div class="Element263">
+uint32_t cursorDelay;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+<div class="Element267">
+cursor blink delay&nbsp;</div></td></tr><tr>
+<td class="Element262" valign="top" width="35%">
+<div class="Element263">
+uint32_t cursorTime;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+<div class="Element267">
+current cursor tick counter&nbsp;</div></td></tr><tr>
+<td class="Element262" valign="top" width="35%">
+<div class="Element263">
+laBool cursorEnable;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+<div class="Element267">
+cursor enabled flag&nbsp;</div></td></tr><tr>
+<td class="Element262" valign="top" width="35%">
+<div class="Element263">
+laBool cursorVisible;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+<div class="Element267">
+cursor visbility flag&nbsp;</div></td></tr><tr>
+<td class="Element262" valign="top" width="35%">
+<div class="Element263">
+laBool clearOnFirstEdit;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+<div class="Element267">
+needs clear on first edit&nbsp;</div></td></tr><tr>
+<td class="Element262" valign="top" width="35%">
+<div class="Element263">
+laTextFieldWidget_TextChangedCallback textChangedEvent;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+<div class="Element267">
+text changed event&nbsp;</div></td></tr><tr>
+<td class="Element262" valign="top" width="35%">
+<div class="Element263">
+laTextFieldWidget_FocusChangedCallback focusChangedEvent;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+<div class="Element267">
+focus changed event&nbsp;</div></td></tr><tr>
+<td class="Element262" valign="top" width="35%">
+<div class="Element263">
+GFXU_ExternalAssetReader* reader;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+<div class="Element267">
+asset reader&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
-<a name="52657475726E73"></a><div class="Element14">
-Returns</div>
+<a name="52656D61726B73"></a><div class="Element14">
+Remarks</div>
 <div class="Element11">
 <div class="Element10">
 <p class="Element10">
-<a href="01985.html" target="topic">laResult</a> - the result of the operation</p></div>
+None.</p></div>
 </div>
-<div class="Element62">
-Created with a commercial version of <a href="#" onclick="openExternalLink('http://www.doc-o-matic.com');"><img src="indicator_external_link.gif" border="0" alt="" title="">Doc-O-Matic</a>. In order to make this message disappear you need to register this software. If you have problems registering this software please contact us at <a href="#" onclick="openExternalLink('mailto:support@toolsfactory.com');"><img src="indicator_external_link.gif" border="0" alt="" title="">support@toolsfactory.com</a>.</div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00359.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00475.html" target="topic">Graphics Library</a> &gt; <a href="00456.html" target="topic">Aria User Interface Library</a> &gt; <a href="00455.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="02237.html" target="topic">laUtils_PreprocessImage Function</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00530.html" target="topic">Graphics Library</a> &gt; <a href="00511.html" target="topic">Aria Graphics Library</a> &gt; <a href="00510.html" target="topic">Aria User Interface Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="02237.html" target="topic">laTextFieldWidget Structure</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -130,13 +164,13 @@ Created with a commercial version of <a href="#" onclick="openExternalLink('http
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00359.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="00952.html" target="topic">Previous</a> | <a href="00455.html" target="topic">Up</a> | <a href="02281.html" target="topic">Next</a></div>
+<a href="02195.html" target="topic">Previous</a> | <a href="00510.html" target="topic">Up</a> | <a href="02268.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laUtils_PreprocessImage@GFXU_ImageAsset*@uint32_t@GFX_ColorMode@GFX_Bool@GFXU_MemoryIntf * Topic Title: laUtils_PreprocessImage Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laTextFieldWidget Topic Title: laTextFieldWidget Structure)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

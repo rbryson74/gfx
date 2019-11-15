@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>laUtils_ListOcclusionCullTest Function</title>
+<title>laUtils_PreprocessImage Function</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00535.html" target="topic">Graphics Library</a> &gt; <a href="00516.html" target="topic">Aria Graphics Library</a> &gt; <a href="00515.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="02308.html" target="topic">laUtils_ListOcclusionCullTest Function</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00530.html" target="topic">Graphics Library</a> &gt; <a href="00511.html" target="topic">Aria Graphics Library</a> &gt; <a href="00510.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="02308.html" target="topic">laUtils_PreprocessImage Function</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02307.html" target="topic">Previous</a> | <a href="00515.html" target="topic">Up</a> | <a href="02309.html" target="topic">Next</a></div>
+<a href="01017.html" target="topic">Previous</a> | <a href="00510.html" target="topic">Up</a> | <a href="02352.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laUtils_ListOcclusionCullTest@laList*@GFX_Rect Topic Title: laUtils_ListOcclusionCullTest Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laUtils_PreprocessImage@GFXU_ImageAsset*@uint32_t@GFX_ColorMode@GFX_Bool@GFXU_MemoryIntf * Topic Title: laUtils_PreprocessImage Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-laUtils_ListOcclusionCullTest Function</div>
+laUtils_PreprocessImage Function</div>
 </div>
 </div>
 
@@ -46,11 +46,27 @@ laUtils_ListOcclusionCullTest Function</div>
 
 <!-- Begin Page Content -->
 <a name="PageContent"></a><div class="Element58">
+<a name="4465736372697074696F6E"></a><div class="Element11">
+<div class="Element10">
+<p class="Element10">
+This function preprocesses an image asset through the HAL pipeline and renders it to a given address, in a given color mode, and can pad the image buffer dimensions to be powers of 2 as required by some graphics accelerators.&nbsp;</p>
+<p class="Element10">
+This function is also useful for pre-staging images into run-time memory locations.&nbsp;</p>
+<p class="Element10">
+The caller is required to ensure that the destination address is capable of containing the result. The size can be calculated by using the method:&nbsp;</p>
+<p class="Element10">
+<a href="00120.html" target="topic">GFX_ColorInfo</a>[destMode].size * img-&gt;width * img-&gt;height&nbsp;</p>
+<p class="Element10">
+This function only works with images that are located in a core accessible memory location like SRAM or DDR. If the image is located in an external source then GFXU_DrawImage should be called directly. The caller will then need to service the media streaing state machine. Once finished the image asset descriptor must be changed manually. This function can be used as a reference on how to accomplish this.</p></div>
+</div>
 <a name="43"></a><div class="Element99">
 C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100"><strong><span style="color: #000080">void</span></strong> <strong><span style="color: #000000">laUtils_ListOcclusionCullTest</span></strong>(
-    <a href="01621.html" target="topic">laList</a>* <strong><span style="color: #000000">list</span></strong>, 
-    <a href="00464.html" target="topic">GFX_Rect</a> <strong><span style="color: #000000">rect</span></strong>
+<div class="Element101"><div class="Element100"><pre class="Element100"><a href="02056.html" target="topic">laResult</a> <strong><span style="color: #000000">laUtils_PreprocessImage</span></strong>(
+    GFXU_ImageAsset* <strong><span style="color: #000000">img</span></strong>, 
+    <a href="03053.html" target="topic">uint32_t</a> <strong><span style="color: #000000">destAddress</span></strong>, 
+    <a href="00133.html" target="topic">GFX_ColorMode</a> <strong><span style="color: #000000">destMode</span></strong>, 
+    GFX_Bool <strong><span style="color: #000000">padBuffer</span></strong>, 
+    GFXU_MemoryIntf * <strong><span style="color: #000000">memIntf</span></strong>
 );</pre></div></div>
 <a name="506172616D6574657273"></a><div class="Element14">
 Parameters</div>
@@ -67,14 +83,29 @@ Parameters&nbsp;</div></td><td class="Element304" valign="top" width="65%">
 Description&nbsp;</div></td></tr><tr>
 <td class="Element302" valign="top" width="35%">
 <div class="Element303">
-laList* list&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+GFXU_ImageAsset* img&nbsp;</div></td><td class="Element306" valign="top" width="65%">
 <div class="Element307">
-the widget list to test&nbsp;</div></td></tr><tr>
+pointer to the image asset to draw&nbsp;</div></td></tr><tr>
 <td class="Element302" valign="top" width="35%">
 <div class="Element303">
-GFX_Rect rect&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+uint32_t destAddress&nbsp;</div></td><td class="Element306" valign="top" width="65%">
 <div class="Element307">
-the occlusion area&nbsp;</div></td></tr></table></div></div>
+the address to render the image to&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+GFX_ColorMode destMode&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+the desired output mode of the image&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+GFX_Bool padBuffer&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+indicates that the image buffer dimensions should be padded to equal powers of 2 (required by some GPUs)&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+GFXU_MemoryIntf* memtIntf&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+a pointer to a memory interface to use for memory operations, not needed for internal assets&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 <a name="52657475726E73"></a><div class="Element14">
@@ -82,14 +113,14 @@ Returns</div>
 <div class="Element11">
 <div class="Element10">
 <p class="Element10">
-void</p></div>
+<a href="02056.html" target="topic">laResult</a> - the result of the operation</p></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00535.html" target="topic">Graphics Library</a> &gt; <a href="00516.html" target="topic">Aria Graphics Library</a> &gt; <a href="00515.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="02308.html" target="topic">laUtils_ListOcclusionCullTest Function</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00530.html" target="topic">Graphics Library</a> &gt; <a href="00511.html" target="topic">Aria Graphics Library</a> &gt; <a href="00510.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="02308.html" target="topic">laUtils_PreprocessImage Function</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -97,13 +128,13 @@ void</p></div>
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02307.html" target="topic">Previous</a> | <a href="00515.html" target="topic">Up</a> | <a href="02309.html" target="topic">Next</a></div>
+<a href="01017.html" target="topic">Previous</a> | <a href="00510.html" target="topic">Up</a> | <a href="02352.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laUtils_ListOcclusionCullTest@laList*@GFX_Rect Topic Title: laUtils_ListOcclusionCullTest Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laUtils_PreprocessImage@GFXU_ImageAsset*@uint32_t@GFX_ColorMode@GFX_Bool@GFXU_MemoryIntf * Topic Title: laUtils_PreprocessImage Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

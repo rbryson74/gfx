@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>Examples and Demonstrations</title>
+<title>laArcWidget Structure</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00554.html" target="topic">Examples and Demonstrations</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00530.html" target="topic">Graphics Library</a> &gt; <a href="00511.html" target="topic">Aria Graphics Library</a> &gt; <a href="00510.html" target="topic">Aria User Interface Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="00554.html" target="topic">laArcWidget Structure</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="03013.html" target="topic">Previous</a> | <a href="00418.html" target="topic">Up</a> | <a href="03055.html" target="topic">Next</a></div>
+<a href="03050.html" target="topic">Previous</a> | <a href="00510.html" target="topic">Up</a> | <a href="00574.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: Graphics Demonstrations Topic Title: Examples and Demonstrations)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laArcWidget Topic Title: laArcWidget Structure)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-Examples and Demonstrations</div>
+laArcWidget Structure</div>
 </div>
 </div>
 
@@ -49,62 +49,86 @@ Examples and Demonstrations</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-This section provides example quickstart and utility applications available in the MPLAB Harmony Graphics Suite. These graphics applications are found under apps folder the MPLAB Harmony <a href="#" onclick="openExternalLink('https://github.com/Microchip-MPLAB-Harmony/gfx');"><img src="indicator_external_link.gif" border="0" alt="" title="">gfx</a> repository. They are meant to be either a quickstart solution or utility application.&nbsp;</p>
+Structure: laArcWidget_t&nbsp;</p>
 <p class="Element10">
-&nbsp;</p>
+A arc widget draws a arc of the specified origin and radius inside the widget bounds. All coordinates are expressed in local widget space.&nbsp;</p>
 <p class="Element10">
-Visit MPLAB Harmony <a href="#" onclick="openExternalLink('https://github.com/Microchip-MPLAB-Harmony/gfx_apps');"><img src="indicator_external_link.gif" border="0" alt="" title="">gfx_apps</a> for applications which are demonstrations of features, best practices, or signature UI illustration.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-All MPLAB Harmony Graphics Suite applications provide functionality that customers can use immediately in their solution.</p></div>
+The color of the arc is determined by the widget scheme's 'foreground' color.</p></div>
 </div>
-<a name="546F70696373"></a><div class="Element14">
-Topics</div>
+<a name="43"></a><div class="Element99">
+C</div>
+<div class="Element101"><div class="Element100"><pre class="Element100"><strong><span style="color: #000080">typedef</span></strong> <strong><span style="color: #000080">struct</span></strong> <strong><span style="color: #000000">laArcWidget_t</span></strong> {
+  <a href="02323.html" target="topic">laWidget</a> <strong><span style="color: #000000">widget</span></strong>;
+  <a href="03053.html" target="topic">uint32_t</a> <strong><span style="color: #000000">radius</span></strong>;
+  <a href="03053.html" target="topic">uint32_t</a> <strong><span style="color: #000000">startAngle</span></strong>;
+  <a href="00551.html" target="topic">int32_t</a> <strong><span style="color: #000000">centerAngle</span></strong>;
+  <a href="03053.html" target="topic">uint32_t</a> <strong><span style="color: #000000">endAngle</span></strong>;
+  <a href="03053.html" target="topic">uint32_t</a> <strong><span style="color: #000000">thickness</span></strong>;
+  <a href="00681.html" target="topic">laBool</a> <strong><span style="color: #000000">roundEdge</span></strong>;
+} laArcWidget;</pre></div></div>
+<a name="4D656D62657273"></a><div class="Element14">
+Members</div>
 <div class="Element11">
 <div class="Element10">
-<div class="Element212">
+<div class="Element272">
 <div class="TableDiv">
-<table cellspacing="0" class="Table1">
+<table cellspacing="0" class="Table4">
 <tr>
-<td class="Element200" valign="top" width="35%">
-<div class="Element201">
-Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
-<div class="Element205">
+<td class="Element260" valign="top" width="35%">
+<div class="Element261">
+Members&nbsp;</div></td><td class="Element264" valign="top" width="65%">
+<div class="Element265">
 Description&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="03055.html" target="topic">Naming Conventions</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-This topic describes naming convention of projects, configurations, applications and the other file elements.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="00552.html" target="topic">Aria Applications</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Examples and demonstrations using Aria graphics library.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="00553.html" target="topic">Legato Applications</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Examples and demonstrations using Legato graphics library.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="00555.html" target="topic">Emwin Applications</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Examples and demonstrations using SEGGER’s emWin GUIBuilder graphics library.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="00052.html" target="topic">Blank Applications</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Examples and demonstrations using no (blank) graphics library.&nbsp;</div></td></tr></table></div></div>
+<td class="Element262" valign="top" width="35%">
+<div class="Element263">
+laWidget widget;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+<div class="Element267">
+base widget header&nbsp;</div></td></tr><tr>
+<td class="Element262" valign="top" width="35%">
+<div class="Element263">
+uint32_t radius;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+<div class="Element267">
+the radius of the arc&nbsp;</div></td></tr><tr>
+<td class="Element262" valign="top" width="35%">
+<div class="Element263">
+uint32_t startAngle;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+<div class="Element267">
+the start angle of the arc&nbsp;</div></td></tr><tr>
+<td class="Element262" valign="top" width="35%">
+<div class="Element263">
+int32_t centerAngle;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+<div class="Element267">
+the center angle of the arc&nbsp;</div></td></tr><tr>
+<td class="Element262" valign="top" width="35%">
+<div class="Element263">
+uint32_t endAngle;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+<div class="Element267">
+the end angle of the arc&nbsp;</div></td></tr><tr>
+<td class="Element262" valign="top" width="35%">
+<div class="Element263">
+uint32_t thickness;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+<div class="Element267">
+the thickness of the arc&nbsp;</div></td></tr><tr>
+<td class="Element262" valign="top" width="35%">
+<div class="Element263">
+laBool roundEdge;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+<div class="Element267">
+draws round edge if true.&nbsp;</div></td></tr></table></div></div>
 </div>
+</div>
+<a name="52656D61726B73"></a><div class="Element14">
+Remarks</div>
+<div class="Element11">
+<div class="Element10">
+<p class="Element10">
+None.</p></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00554.html" target="topic">Examples and Demonstrations</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00530.html" target="topic">Graphics Library</a> &gt; <a href="00511.html" target="topic">Aria Graphics Library</a> &gt; <a href="00510.html" target="topic">Aria User Interface Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="00554.html" target="topic">laArcWidget Structure</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -112,13 +136,13 @@ Examples and demonstrations using no (blank) graphics library.&nbsp;</div></td><
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="03013.html" target="topic">Previous</a> | <a href="00418.html" target="topic">Up</a> | <a href="03055.html" target="topic">Next</a></div>
+<a href="03050.html" target="topic">Previous</a> | <a href="00510.html" target="topic">Up</a> | <a href="00574.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: Graphics Demonstrations Topic Title: Examples and Demonstrations)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laArcWidget Topic Title: laArcWidget Structure)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

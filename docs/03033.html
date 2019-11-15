@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>Heap Estimator</title>
+<title>New Project Wizard</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="03054.html" target="topic">Designer</a> &gt; <a href="03029.html" target="topic">Microchip Aria Designer</a> &gt; <a href="03039.html" target="topic">MHGC Tools</a> &gt; <a href="03033.html" target="topic">Heap Estimator</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="03047.html" target="topic">Designer</a> &gt; <a href="03022.html" target="topic">Microchip Aria Designer</a> &gt; <a href="03033.html" target="topic">New Project Wizard</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="03027.html" target="topic">Previous</a> | <a href="03039.html" target="topic">Up</a> | <a href="03052.html" target="topic">Next</a></div>
+<a href="03031.html" target="topic">Previous</a> | <a href="03022.html" target="topic">Up</a> | <a href="03043.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Heap Estimator Topic Title: Heap Estimator)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG New Project Wizard Topic Title: New Project Wizard)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-Heap Estimator</div>
+New Project Wizard</div>
 </div>
 </div>
 
@@ -48,30 +48,11 @@ Heap Estimator</div>
 <a name="PageContent"></a><div class="Element58">
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
+<div class="Element15">
+Welcome Dialog window</div>
 <p class="Element10">
-Many parts of a graphics design are implemented using memory allocated from the application’s heap space. Therefore, it is important to allocate sufficient memory for the heap. This tool can estimate heap usage by the allocation based on the widgets, layers, screens, and decoders currently in the design.&nbsp;</p>
-<p class="Element10">
-When launching the tool from the Tools menu, the Heap Configuration window appears. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Heap Configuration.png" border="0" alt="" title=""></p><p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-Clicking <strong>Calculate</strong> estimates heap usage. The following figure shows what occurs within the <a href="00001.html" target="topic">Aria Quickstart</a> demonstration if the heap space is only 4096 bytes: </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Heap Configuration Insufficient Memory Alert.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p><p class="Element10">
-The Summary tab shows how the estimated heap requirements was derived by summing up all the sizes shown under the “Size (Bytes)” column. Note that the largest contribution comes from the screen requiring the largest heap allocation (in this case MainMenu).&nbsp;</p>
-<p class="Element10">
-If there is insufficient memory allocated to the heap, an exclamation point ( ! ) appears in the window. Hovering the mouse pointer over this icon and the following message appears: </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Insufficient Heap Value.png" border="0" alt="" title=""></p><p class="Element10">
-The user can click <strong>Set MHC Heap Value</strong> to reset the heap allocation to match the estimated requirements. Selecting <strong>Add to MHC Heap Value</strong> adds the estimated heap requirements to the current heap value. (In the case above, this would change the heap allocation to 4096+10664 bytes.)&nbsp;</p>
-<p class="Element10">
-Alternately, the user can set the heap allocation to a larger value by going to MHC's Project Graph panel, clicking on the System component, and then editing the Heap Size shown under the Configuration Options panel: </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Setting Heap Size.png" border="0" alt="" title=""></p><p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-The Screen Details tab (from the Aria Showcase demonstration) shows screen-by-screen the heap space needed for each layer and widget on the screen selected. </p><div class="Element63">
+The Welcome dialog is launched when the Graphics Composer is chosen from the MPLAB Harmony Configurator (MHC) Tools menu. The window has three options: </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Welcome Dialog Graphics Composer.png" border="0" alt="" title=""></p><div class="Element63">
 <div class="TableDiv">
 <table cellspacing="0" class="Table0">
 <tr>
@@ -79,27 +60,35 @@ The Screen Details tab (from the Aria Showcase demonstration) shows screen-by-sc
 <div class="Element68">
 <img src="Note Icon.png" border="0" alt="" title=""> <strong>Note:</strong>&nbsp;</div></td><td class="Element67" valign="top" width="90%" style="border:none;">
 <div class="Element68">
-After you have updated the Heap Size, either using the Heap Estimator tool or by directly editing the value as shown above, you must regenerate the project using the Generate Code button. This will update the actual heap size value used in building the application.&nbsp;</div></td></tr></table></div></div>
-<p class="Element10" style="text-align: center;">
-<img src="MHGC UG Heap Configuration Details.png" border="0" alt="" title=""></p><p class="Element10">
-&nbsp;</p>
+If this window does not appear, it can be re-enabled from MHGC’s <i>File &gt; Settings &gt; General</i> menu.<br><img src="MHGC UG Re-enable Welcome Dialog.png" border="0" alt="" title="">&nbsp;</div></td></tr></table></div></div>
+<div class="Element15">
+New Project Wizard Windows</div>
 <p class="Element10">
-Clicking the “Name” column will alphabetize the list. Clicking the “Size (Bytes)” column sorts the assets by size, with the largest at the top and smallest at the bottom.&nbsp;</p>
+Selecting the first icon in the Welcome dialog launches the New Project Wizard. There are four stages in the New Project Wizard: Color Mode, Memory Size, Project Type, and Finish.&nbsp;</p>
 <p class="Element10">
-This sub-tab can help in managing the application’s utilization of heap space. For example, excess use of cached backgrounds for widgets can become ruinously expensive, expanding the application’s need for heap well beyond the capabilities of the device. As an example, consider a screen label from the Aria Showcase demonstration. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG List Wheel Widget Demo.png" border="0" alt="" title=""></p><p class="Element10">
-&nbsp;</p>
+The New Project Wizard can also be launched from the first icon (Create New Design) of MHGC’s tool bar: </p><p class="Element10" style="text-align: center;">
+<img src="MHGC launch from MHGC Toolbar.png" border="0" alt="" title=""></p><p class="Element10">
+In the Color Mode stage, choose the Display Color Mode for the new graphics design: </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Display Color Mode.png" border="0" alt="" title=""></p><p class="Element10">
+This choice must be supported by the graphics controller defined in the board support package of the project configuration. (If a mistake is made, it can be corrected using MHGC’s <i>File &gt; Settings &gt; </i> Color Settings &gt; Project Color Mode.) Click <strong>Next</strong> moves the wizard on to the next stage.&nbsp;</p>
 <p class="Element10">
-The Heap Estimator tool shows that if caching is enabled for the label’s background, this widget requires 23699 bytes of heap to store the widget. Note that the label is twice the size of the text it contains, so one way of reducing the cost of the widget is to make it smaller, thereby reducing the number of background pixels that must be stored. If the label is resized, the heap allocation is reduced to 11688 bytes, which is a drop of appoximately 50%. Finally, if the background is changed from “Cache” to “Fill” the widget only needs 188 bytes.&nbsp;</p>
+The Memory Size stage configures the Program Flash allocated to memory use. This value is only used by the Graphics Composer’s Asset menu Memory Configuration tool. The value used in the Memory Size stage can be updated using the Configuration sub-tab of the Memory Configuration tool window. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Memory Configuration.png" border="0" alt="" title=""></p><p class="Element10">
+Clicking <strong>Previous</strong> returns to the Color Mode stage and clicking <strong>Next</strong> moves the wizard to the Project Type stage.&nbsp;</p>
 <p class="Element10">
-The lesson learned is to use Cache as a background only for widgets where it is absolutely necessary and to make the “cached” widgets as small as possible.</p></div>
+There are two choices at the Project Type stage: A completely blank design, and a template design with a few predefined widgets. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Project Type.png" border="0" alt="" title=""></p><p class="Element10">
+Clicking <strong>Previous</strong> returns to the Memory Size stage, and clicking <strong>Next</strong> moves the wizard to the Finish stage. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Finish screen.png" border="0" alt="" title=""></p><p class="Element10">
+If the “Template” project type was chosen, MHGC’s Screen Designer will show: </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Screen designer.png" border="0" alt="" title=""></p></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="03054.html" target="topic">Designer</a> &gt; <a href="03029.html" target="topic">Microchip Aria Designer</a> &gt; <a href="03039.html" target="topic">MHGC Tools</a> &gt; <a href="03033.html" target="topic">Heap Estimator</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="03047.html" target="topic">Designer</a> &gt; <a href="03022.html" target="topic">Microchip Aria Designer</a> &gt; <a href="03033.html" target="topic">New Project Wizard</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -107,13 +96,13 @@ The lesson learned is to use Cache as a background only for widgets where it is 
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="03027.html" target="topic">Previous</a> | <a href="03039.html" target="topic">Up</a> | <a href="03052.html" target="topic">Next</a></div>
+<a href="03031.html" target="topic">Previous</a> | <a href="03022.html" target="topic">Up</a> | <a href="03043.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Heap Estimator Topic Title: Heap Estimator)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG New Project Wizard Topic Title: New Project Wizard)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>emwin_qs_mzef_sk_meb2_tm4301b.X</title>
+<title>(5) Aria Graphics Library Component</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00554.html" target="topic">Examples and Demonstrations</a> &gt; <a href="00555.html" target="topic">Emwin Applications</a> &gt; <a href="00003.html" target="topic">emwin_quickstart</a> &gt; <a href="00065.html" target="topic">emwin_qs_mzef_sk_meb2_tm4301b.X</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00489.html" target="topic">Configurator</a> &gt; <a href="00070.html" target="topic">MHC GFX Components</a> &gt; <a href="00069.html" target="topic">Exploring Aria Quickstart</a> &gt; <a href="00065.html" target="topic">(5) Aria Graphics Library Component</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="00003.html" target="topic">Previous</a> | <a href="00003.html" target="topic">Up</a> | <a href="00064.html" target="topic">Next</a></div>
+<a href="00064.html" target="topic">Previous</a> | <a href="00069.html" target="topic">Up</a> | <a href="00066.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: emwin_qs_mzef_sk_meb2_tm4301b.X Topic Title: emwin_qs_mzef_sk_meb2_tm4301b.X)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX CMP (5) Aria Graphics LIbrary Component Topic Title: (5) Aria Graphics Library Component)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-emwin_qs_mzef_sk_meb2_tm4301b.X</div>
+(5) Aria Graphics Library Component</div>
 </div>
 </div>
 
@@ -48,147 +48,29 @@ emwin_qs_mzef_sk_meb2_tm4301b.X</div>
 <a name="PageContent"></a><div class="Element58">
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
-<div class="Element15">
-Defining the Architecture</div>
-<p class="Element10" style="text-align: center;">
-<img src="APPS GFX emwin_quickstart pic32mz_ef_sk_meb2 for SEGGER emWin.png" border="0" alt="" title=""></p><p class="Element10">
-This is a simple graphics application with basic building blocks – a widget, an image and some text, which demonstrates the use of the third-party SEGGER emWin Graphics Library being used inside the MPLAB Harmony framework.&nbsp;</p>
 <p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-The application uses the SEGGER emWin graphics library to render graphics to the display. This library replaces the Aria graphics library, but continues to use display and touch interface APIs provided by the Aria hal library.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><div class="Element15">
-Demonstration Features</div>
-
-<ul class="Element630">
-<li class="Element600">Third Party SEGGER emWin graphics library</li>
-<li class="Element600"> Input system service and touch driver</li>
-<li class="Element600">Time system service, timer-counter peripheral library and driver</li>
-<li class="Element600"> Low-Cost Controller-less (LCC) display driver</li>
-<li class="Element600">16-bit RGB565 color depth support (65535 unique colors)</li>
-<li class="Element600"> EBI peripheral library and driver</li>
-<li class="Element600"> I2C driver</li>
-</ul><p class="Element10">
-&nbsp;</p>
-<div class="Element15">
-Configuring the Project Graph</div>
-<p class="Element10" style="text-align: center;">
-<img src="emwin_qs_mzef_sk_meb2_tm4301b_pg.png" border="0" alt="" title=""></p><p class="Element10">
-&nbsp;</p>
-<div class="Element15">
-Building the Application</div>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-The parent directory for this application is gfx/apps/emwin_quickstart. To build this application, open the gfx/apps/emwin_quickstart/firmware/emwin_qs_mzef_sk_meb2_tm4301b.X project file.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-The following table lists configuration properties: </p><div class="Element63">
-<div class="TableDiv">
-<table cellspacing="0" class="Table2">
-<tr>
-<td class="Element65" valign="top" width="25%">
-<div class="Element66">
-Project Name&nbsp;</div></td><td class="Element65" valign="top" width="13%">
-<div class="Element66">
-BSP Used&nbsp;</div></td><td class="Element65" valign="top" width="26%">
-<div class="Element66">
-Graphics Template Used&nbsp;</div></td><td class="Element65" valign="top" width="36%">
-<div class="Element66">
-Description&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="25%">
-<div class="Element68">
-emwin_qs_mzef_sk_meb2_tm4301b.X&nbsp;</div></td><td class="Element67" valign="top" width="13%">
-<div class="Element68">
-PIC32MZ EF Starter Kit&nbsp;</div></td><td class="Element67" valign="top" width="26%">
-<div class="Element68">
-Aria Graphics w/ PDA TM4301B Display&nbsp;</div></td><td class="Element67" valign="top" width="36%">
-<div class="Element68">
-PIC32MZ EF Starter Kit with MEBII and 4.3” WQVGA PCAP Touch display&nbsp;</div></td></tr></table></div></div>
-<p class="Element10">
-&nbsp;</p>
-<div class="Element15">
-Configuring the Hardware</div>
-<p class="Element10">
-&nbsp;</p>
-
-<ul class="Element630">
-<li class="Element600">This configuration requires that the J9 jumper be set to enable internal SRAM for the frame buffer. Set the J9 jumper to connect the EBIOE and LCD_PCLK pins. The J9 jumper is located on the bottom of the MEB II board, beneath where the starter kit is plugged into the board. Refer to the following figure for the exact location.</li>
-<li class="Element600">Connect the PIC32MZ EF Starter Kit board to the MEB II board</li>
-<li class="Element600">Power up the board by connecting the power adapter to J3 power connector on the MEB II board or a powered USB cable to the USB DEBUG port on the Starter Kit board</li>
-</ul><p class="Element10" style="text-align: center;">
-<img src="APPS GFX aria_scrolling MEB II J9 Internal.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<div class="Element15">
-Running the Demonstration</div>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-The demonstration consists of three screens created using the SEGGER emWin GUIBuilder utility:</p>
-<ol class="Element630">
-<li value="1" class="Element600">Home</li>
-<li value="2" class="Element600">Number Churning</li>
-<li value="3" class="Element600">Text Alignment</li>
-</ol><p class="Element10">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-<strong>Home Screen</strong></p><p class="Element10">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-<img src="APPS GFX aria_external_resources Demo Screen 1.png" border="0" alt="" title="">&nbsp;</p>
+The Aria Graphics Library component adds to the application the <a href="00511.html" target="topic">Aria User Interface Library</a>. It requires a connection to the GFX Core component to provide <a href="00515.html" target="topic">Hardware Abstraction Layer (HAL)</a> support. If the “Enable Input Event Interface?” configuration is enabled, then it will also need an implied connection to the Input System Service component: </p><p class="Element10" style="text-align: center;">
+<img src="GFX CMP Aria Lib Component.png" border="0" alt="" title=""><img src="GFX CMP Enable Input Event Interface.png" border="0" alt="" title="">&nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p>
 <p class="Element10">
-<strong>Demonstration Process</strong></p>
-<ol class="Element630">
-<li value="1" class="Element600">Touch the <strong>Next</strong> button to navigate from the Home screen to the Number Churning screen. The Number Churning screen uses the following widgets:
-<ul class="Element631">
-<li class="Element601">Framewin: Number Churning</li>
-<li class="Element601">Slider: Single Slider with 10 divisions. The Slider position is updated by both touch input and spinbox.</li>
-<li class="Element601">Spinbox : Three-digit spinbox with value updated by both arrow buttons and slider</li>
-<li class="Element601">Button: Previous and Next</li>
-<li class="Element601">Text: Move the slider or press up/down arrow button to change the number</li>
-</ul></li>
-</ol><p class="Element10">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-<strong>Number Churning</strong>&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-<img src="APPS GFX aria_external_resources Demo Screen 2.png" border="0" alt="" title="">&nbsp;</p>
+The configuration options for this component are: </p><p class="Element10" style="text-align: center;">
+<img src="GFX CMP Aria Lib Config Options.png" border="0" alt="" title="">&nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p>
-
-<ol class="Element630">
-<li value="2" class="Element600">Touch the <strong>Next</strong> button to navigate from Number Churning Screen to Text Alignment screen. Similarly, press the <strong>Previous</strong> button to navigate from Number Churning Screen back to the Home screen. The Text Alignment screen consists of the following widgets:
-<ul class="Element631">
-<li class="Element601">Framewin: Text Alignment</li>
-<li class="Element601">Radio: Six radio buttons with each radio button affecting the alignment of the Alignment text</li>
-<li class="Element601">Text: Horizontal Alignment, Vertical Alignment, center, left, top, right, bottom, and Change text alignment by pressing the radio button</li>
-</ul></li>
-</ol><p class="Element10" style="text-align: center;">
+<p class="Element10">
+The Widget Configuration sub-menu allows disabling graphics widgets that are not used to reduce code size: </p><p class="Element10" style="text-align: center;">
+<img src="GFX CMP Aria Lib Widget Config Options.png" border="0" alt="" title=""></p><p class="Element10">
 &nbsp;</p>
-<p class="Element10" style="text-align: center;">
-<strong> Text Alignment</strong>&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-<img src="APPS GFX aria_external_resources Demo Screen 3.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-
-<ol class="Element630">
-<li value="3" class="Element600">Touch the <strong>Previous</strong> button to navigate from Text Alignment screen back to the Number Churning screen.</li>
-</ol><p class="Element10" style="text-align: center;">
-&nbsp;</p>
-</div>
+<p class="Element10">
+For more information see : <a href="00511.html" target="topic">Aria User Interface Library</a></p></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00554.html" target="topic">Examples and Demonstrations</a> &gt; <a href="00555.html" target="topic">Emwin Applications</a> &gt; <a href="00003.html" target="topic">emwin_quickstart</a> &gt; <a href="00065.html" target="topic">emwin_qs_mzef_sk_meb2_tm4301b.X</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00489.html" target="topic">Configurator</a> &gt; <a href="00070.html" target="topic">MHC GFX Components</a> &gt; <a href="00069.html" target="topic">Exploring Aria Quickstart</a> &gt; <a href="00065.html" target="topic">(5) Aria Graphics Library Component</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -196,13 +78,13 @@ The demonstration consists of three screens created using the SEGGER emWin GUIBu
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="00003.html" target="topic">Previous</a> | <a href="00003.html" target="topic">Up</a> | <a href="00064.html" target="topic">Next</a></div>
+<a href="00064.html" target="topic">Previous</a> | <a href="00069.html" target="topic">Up</a> | <a href="00066.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: emwin_qs_mzef_sk_meb2_tm4301b.X Topic Title: emwin_qs_mzef_sk_meb2_tm4301b.X)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX CMP (5) Aria Graphics LIbrary Component Topic Title: (5) Aria Graphics Library Component)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

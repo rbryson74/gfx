@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>aria_qs_e70_xu_xpro_spi.X</title>
+<title>aria_qs_e70_xult_xpro_parallel.X</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00554.html" target="topic">Examples and Demonstrations</a> &gt; <a href="00552.html" target="topic">Aria Applications</a> &gt; <a href="00001.html" target="topic">aria_quickstart</a> &gt; <a href="00029.html" target="topic">aria_qs_e70_xu_xpro_spi.X</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00548.html" target="topic">Examples and Demonstrations</a> &gt; <a href="00546.html" target="topic">Aria Applications</a> &gt; <a href="00001.html" target="topic">aria_quickstart</a> &gt; <a href="00029.html" target="topic">aria_qs_e70_xult_xpro_parallel.X</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="00028.html" target="topic">Previous</a> | <a href="00001.html" target="topic">Up</a> | <a href="00030.html" target="topic">Next</a></div>
+<a href="00028.html" target="topic">Previous</a> | <a href="00001.html" target="topic">Up</a> | <a href="00038.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: aria_qs_e70_xu_xpro_spi.X Topic Title: aria_qs_e70_xu_xpro_spi.X)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: aria_qs_e70_xult_xpro_parallel.X Topic Title: aria_qs_e70_xult_xpro_parallel.X)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-aria_qs_e70_xu_xpro_spi.X</div>
+aria_qs_e70_xult_xpro_parallel.X</div>
 </div>
 </div>
 
@@ -51,49 +51,52 @@ aria_qs_e70_xu_xpro_spi.X</div>
 <div class="Element15">
 Defining the Architecture</div>
 <p class="Element10" style="text-align: center;">
-<img src="APPS GFX aria_quickstart aria_qs_e70_xu_xpro_spi block diagram.png" border="0" alt="" title=""></p><p class="Element10">
-This aria_quickstart project uses a maXTouch Xplained Pro display panel that is connected to the E70 Xplained Ultra board. The display panel has an ILI9488 display controller that communicates to the E70 using the SPI peripheral. The ILI9488 contains a graphics memory (GRAM) that is used as frame buffer and the Aria graphics library uses the ILI9488 SPI driver to write pixel data to the ILI9488 GRAM. The maXTouch Xplained Pro board has a touch controller, but that is not supported in this project.&nbsp;</p>
+<img src="sam_e70_par_arch.png" border="0" alt="" title=""></p><p class="Element10">
+The application uses the Aria Graphics library to render text on a label widget, an image and a user-interactive button to the screen. Touching the button on the screen will show the button being pressed.&nbsp;</p>
 <p class="Element10">
-&nbsp;</p><div class="Element15">
-Demonstration Features</div>
-<p class="Element10">
-• ILI9488 SPI display driver&nbsp;</p>
-<p class="Element10">
-• 16-bit RGB565 color depth support&nbsp;</p>
-<p class="Element10">
-• JPEG image support&nbsp;</p>
-<p class="Element10">
-• SPI driver&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><div class="Element15">
-Creating the Project Graph</div>
-<p class="Element10" style="text-align: center;">
-<img src="ili9488_parallel_rgb565_pg.png" border="0" alt="" title=""></p><p class="Element10">
-The Project Graph diagram the Harmony components that are included in this application. Lines between components are drawn to satisfy components that depend on a capability that another component provides.&nbsp;</p>
-<p class="Element10">
-Adding the “SAM E70 XPlained Ultra BSP” and “Aria Graphics w/ PDA TM4301B Display” Graphics Template component into the project graph will automatically add the components needed for a graphics project and resolve their dependencies. It will also configure the pins needed to drive the external peripherals like the display and the touch controller. </p><p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p><p class="Element10">
-The Display Interface in the “Aria Graphics w/ Xplained Pro Display” template is configured to “SPI” mode.&nbsp;</p>
+The block diagram(s) below show(s) the various software and hardware blocks used in this application:&nbsp;</p>
 <p class="Element10">
 &nbsp;</p><p class="Element10" style="text-align: center;">
-<img src="APPS GFX aria_quickstart aria_qs_e70_xu_xpro_spi spi 4-line.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
 &nbsp;</p>
 <p class="Element10" style="text-align: center;">
+&nbsp;</p><div class="Element15">
+Demonstration Features</div>
+
+<ul class="Element630">
+<li class="Element600">Aria Graphics Library</li>
+<li class="Element600">ILI9488 display 16-bit parallel mode driver</li>
+<li class="Element600">Time system service, timer-counter peripheral library and driver</li>
+<li class="Element600">16-bit RGB565 color depth support (65535 unique colors)</li>
+<li class="Element600">SMC/EBI peripheral</li>
+</ul><p class="Element10">
+&nbsp;</p>
+<div class="Element15">
+Creating the Project Graph</div>
+<p class="Element10" style="text-align: center;">
+<img src="sam_e70_par_pg.png" border="0" alt="" title=""></p><p class="Element10">
+The Project Graph diagram shows the Harmony components that are included in this application. Lines between components are drawn to satisfy components that depend on a capability that another component provides.&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+Adding the “SAM E70 Xplained Ultra BSP” and “Aria Graphics w/ Xplained Pro Display” Graphics Template component into the project graph will automatically add the components needed for a graphics project and resolve their dependencies. It will also configure the pins needed to drive the external peripherals like the display.&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+The Display Interface in the “Aria Graphics w/ Xplained Pro Display” template is configured to “Parallel” mode. </p><p class="Element10" style="text-align: center;">
+<img src="legato_graphics_mxt.png" border="0" alt="" title=""></p><p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+The heap size is set to 16384 bytes. The heap is set in Device &amp; Project Configuration -&gt; Project Configuration -&gt; XC32 (Global Options) Linker -&gt; General -&gt; Heap Size option in the “System” component. </p><p class="Element10" style="text-align: center;">
 &nbsp;</p>
 <p class="Element10" style="text-align: center;">
-<img src="ili9488_rgb565_e54_cult_parallel_cf2.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
+<img src="config_options_heap_16.png" border="0" alt="" title="">&nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p><div class="Element15">
 Building the Application</div>
 <p class="Element10">
-The parent directory for this application is gfx/apps/aria_quickstart. To build this application, open the gfx/apps/aria_quickstart/firmware/aria_qs_e70_xu_xpro_spi.X project file.&nbsp;</p>
+The parent directory for this application is gfx/apps/aria_quickstart. To build this application, open the gfx/apps/aria_quickstart/firmware/aria_qs_e70_xult_xpro_parallel.X project file.&nbsp;</p>
 <p class="Element10">
 &nbsp;</p>
 <p class="Element10">
@@ -103,22 +106,22 @@ The following table lists configuration properties: </p><div class="Element63">
 <tr>
 <td class="Element65" valign="top" width="25%">
 <div class="Element66">
-Project Name&nbsp;</div></td><td class="Element65" valign="top" width="11%">
+Project Name&nbsp;</div></td><td class="Element65" valign="top" width="13%">
 <div class="Element66">
-BSP Used&nbsp;</div></td><td class="Element65" valign="top" width="23%">
+BSP Used&nbsp;</div></td><td class="Element65" valign="top" width="24%">
 <div class="Element66">
-Graphics Template Used&nbsp;</div></td><td class="Element65" valign="top" width="41%">
+Graphics Template Used&nbsp;</div></td><td class="Element65" valign="top" width="38%">
 <div class="Element66">
 Description&nbsp;</div></td></tr><tr>
 <td class="Element67" valign="top" width="25%">
 <div class="Element68">
-aria_qs_e70_xu_xpro_spi.X&nbsp;</div></td><td class="Element67" valign="top" width="11%">
+aria_qs_e70_xult_xpro_parallel.X&nbsp;</div></td><td class="Element67" valign="top" width="13%">
 <div class="Element68">
-sam_e70_xplained_ultra&nbsp;</div></td><td class="Element67" valign="top" width="23%">
+SAM E70 Xplained Ultra BSP&nbsp;</div></td><td class="Element67" valign="top" width="24%">
 <div class="Element68">
-Aria Graphics w/ PDA TM4301b Display&nbsp;</div></td><td class="Element67" valign="top" width="41%">
+Aria Graphics w/ Xplained Pro Display&nbsp;</div></td><td class="Element67" valign="top" width="38%">
 <div class="Element68">
-Aria GFX on SAM E70 Xplained Ultra Board and Xplained Pro Display with ILI9488 SPI display driver&nbsp;</div></td></tr></table></div></div>
+SAM E70 Xplained Ultra w/ maXTouch Xplained Pro display via 16-bit parallel interface&nbsp;</div></td></tr></table></div></div>
 <p class="Element10">
 &nbsp;</p>
 <div class="Element63">
@@ -137,23 +140,20 @@ Configuring the Hardware</div>
 <p class="Element10">
 &nbsp;</p>
 <p class="Element10">
-On the backside of the maXTouch Xplained Pro display, set the IM[2:0] switches to ‘010’ for 16-bit MCU mode.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><p class="Element10" style="text-align: center;">
-<img src="ili9488_rgb565_e54_cult_parallel_cf3.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
+The final setup should be: </p><p class="Element10" style="text-align: center;">
 &nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p><p class="Element10">
+On the backside of the maXTouch Xplained Pro display, set the IM[2:0] switches to ‘010’ for 16-bit MCU mode. </p><p class="Element10" style="text-align: center;">
+<img src="ili9488_rgb565_e54_cult_parallel_cf3.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+<p class="Element10">
 Connect display to the 24-bit Passthrough GFX interface board. Make sure that the S1 switch on the GFX interface board is set to 1. The final hardware set-up should be:&nbsp;</p>
 <p class="Element10">
 &nbsp;</p><p class="Element10" style="text-align: center;">
-<img src="ili9488_parallel_rgb565_cf2.png" border="0" alt="" title="">&nbsp;</p><p class="Element10">
+<img src="ili9488_rgb565_mxt_mzef_cu_xpro_parallel_cf1.png" border="0" alt="" title="">&nbsp;</p><p class="Element10">
 Power up the board by connecting the power adapter to power connector or a powered USB cable to the DEBUG USB port on the board.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
 <p class="Element10">
 &nbsp;</p><div class="Element15">
 Running the Demonstration</div>
@@ -161,18 +161,14 @@ Running the Demonstration</div>
 &nbsp;</p>
 <p class="Element10">
 When power-on is successful, the demonstration will display a similar menu to that shown in the following figure (different configurations may have slight variation in the screen aspect ratio): </p><p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-<img src="APPS GFX e70_run.png" border="0" alt="" title="">&nbsp;</p></div>
+<img src="APPS GFX e70_run.png" border="0" alt="" title=""></p></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00554.html" target="topic">Examples and Demonstrations</a> &gt; <a href="00552.html" target="topic">Aria Applications</a> &gt; <a href="00001.html" target="topic">aria_quickstart</a> &gt; <a href="00029.html" target="topic">aria_qs_e70_xu_xpro_spi.X</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00548.html" target="topic">Examples and Demonstrations</a> &gt; <a href="00546.html" target="topic">Aria Applications</a> &gt; <a href="00001.html" target="topic">aria_quickstart</a> &gt; <a href="00029.html" target="topic">aria_qs_e70_xult_xpro_parallel.X</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -180,13 +176,13 @@ When power-on is successful, the demonstration will display a similar menu to th
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="00028.html" target="topic">Previous</a> | <a href="00001.html" target="topic">Up</a> | <a href="00030.html" target="topic">Next</a></div>
+<a href="00028.html" target="topic">Previous</a> | <a href="00001.html" target="topic">Up</a> | <a href="00038.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: aria_qs_e70_xu_xpro_spi.X Topic Title: aria_qs_e70_xu_xpro_spi.X)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: aria_qs_e70_xult_xpro_parallel.X Topic Title: aria_qs_e70_xult_xpro_parallel.X)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

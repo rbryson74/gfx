@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>legato_math.h</title>
+<title>legato_rectarray.h</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00535.html" target="topic">Graphics Library</a> &gt; <a href="00533.html" target="topic">Legato Graphics Library</a> &gt; <a href="00548.html" target="topic">Files</a> &gt; <a href="02645.html" target="topic">legato_math.h</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00530.html" target="topic">Graphics Library</a> &gt; <a href="00528.html" target="topic">Legato Graphics Library</a> &gt; <a href="00543.html" target="topic">Files</a> &gt; <a href="02645.html" target="topic">legato_rectarray.h</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02647.html" target="topic">Previous</a> | <a href="00548.html" target="topic">Up</a> | <a href="02648.html" target="topic">Next</a></div>
+<a href="02637.html" target="topic">Previous</a> | <a href="00543.html" target="topic">Up</a> | <a href="02631.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: legato_math.h Topic Title: legato_math.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: legato_rectarray.h Topic Title: legato_rectarray.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-legato_math.h</div>
+legato_rectarray.h</div>
 </div>
 </div>
 
@@ -56,7 +56,7 @@ File Name</div>
 <div class="Element11">
 <div class="Element10">
 <p class="Element10">
-legato_math.h</p></div>
+legato_rectarray.h</p></div>
 </div>
 <a name="4465736372697074696F6E"></a><div class="Element14">
 Description</div>
@@ -65,7 +65,7 @@ Description</div>
 <p class="Element10">
 Module for Microchip Graphics Library - Legato User Interface Library&nbsp;</p>
 <p class="Element10">
-Math support functions.</p></div>
+This is an array implementation that is used internally by the Legato user interface library.</p></div>
 </div>
 <a name="46756E6374696F6E73"></a><div class="Element14">
 Functions</div>
@@ -86,208 +86,128 @@ Description&nbsp;</div></td></tr><tr>
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02525.html" target="topic">leAbsoluteValue</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02814.html" target="topic">leRectArray_Clear</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Calculates the absolute value of a signed integer.&nbsp;</div></td></tr><tr>
+Removes all values from a given array. Array capacity remains the same.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02531.html" target="topic">leArcsOverlapQuadrant</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02815.html" target="topic">leRectArray_Copy</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns true if arc overlaps with quadrant&nbsp;</div></td></tr><tr>
+Creates a duplicate of an existing array&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02546.html" target="topic">leAtan</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02816.html" target="topic">leRectArray_Create</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Performs the inverse tangent operation&nbsp;</div></td></tr><tr>
+Initializes a new rectangle array.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02569.html" target="topic">leClampf</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02817.html" target="topic">leRectArray_CropToArea</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Clamps a float between a min and max&nbsp;</div></td></tr><tr>
+Crops all rectangles to a given width and height. Any remainder will be moved into a new rectangle and will be cropped again if needed.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02570.html" target="topic">leClampi</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02818.html" target="topic">leRectArray_CropToSize</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Clamps an integer between a min and max&nbsp;</div></td></tr><tr>
+This is function leRectArray_CropToSize.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02582.html" target="topic">leDivideRounding</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02819.html" target="topic">leRectArray_Destroy</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Calculates integer division of num/denom with rounding based on LSB/2.&nbsp;</div></td></tr><tr>
+Removes all nodes from a given array and frees the memory owned by the array. Resets array capacity to zero.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02595.html" target="topic">leEllipsePoint</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02820.html" target="topic">leRectArray_InsertAt</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Performs a cosine lookup to determine the points in an arc at specified radius and angle (polar &gt; cartesian conversion)&nbsp;</div></td></tr><tr>
+Inserts a rectangle into an array at a given index. All existing nodes from index are shifted right one place.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02714.html" target="topic">leGetXGivenYOnLine</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02821.html" target="topic">leRectArray_MergeSimilar</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Projects a point onto another point given a y coordinate.&nbsp;</div></td></tr><tr>
+Analyzes an array and merges any rectangles similar in size.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02715.html" target="topic">leGetYGivenXOnLine</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02822.html" target="topic">leRectArray_PopBack</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Projects a point onto another point given a x coordinate.&nbsp;</div></td></tr><tr>
+Removes the last rectangle from the array&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02744.html" target="topic">leLerp</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02823.html" target="topic">leRectArray_PopFront</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Performs a linear interpolation of an integer based on a percentage between two signed points.&nbsp;</div></td></tr><tr>
+Removes the first value from the array. Shuffles all other nodes forward one index.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02771.html" target="topic">leMaxf</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02824.html" target="topic">leRectArray_PushBack</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns the larger of two floats.&nbsp;</div></td></tr><tr>
+Pushes a new rectangle onto the back of the array&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02772.html" target="topic">leMaxi</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02825.html" target="topic">leRectArray_PushFront</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns the larger of two integers.&nbsp;</div></td></tr><tr>
+Pushes a new rectangle onto the front of the array. Shuffles all other nodes backward one index.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02777.html" target="topic">leMinf</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02826.html" target="topic">leRectArray_RemoveAt</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns the smaller of two floats.&nbsp;</div></td></tr><tr>
+Removes a rectangle from the array at an index&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02778.html" target="topic">leMini</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02827.html" target="topic">leRectArray_RemoveDuplicates</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns the smaller of two integers.&nbsp;</div></td></tr><tr>
+Removes any duplicate rectangles from an array.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02779.html" target="topic">leNormalizeAngle</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02828.html" target="topic">leRectArray_RemoveOverlapping</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-normalize an angle between 0 - 360&nbsp;</div></td></tr><tr>
+Sorts the array by size and then removes any rectangles that are completely overlapped by another larger rectangle.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02781.html" target="topic">lePercent</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02829.html" target="topic">leRectArray_Resize</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Calculates the percentage of one number when applied to another. Integer based. Accuracy for higher numbers is not guaranteed.<br>The result is the decimal percentage multiplied by 100.&nbsp;</div></td></tr><tr>
+Resizes the capacity of the array. If the array shrinks, any nodes beyond the new capacity will be discarded.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02782.html" target="topic">lePercentOf</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02830.html" target="topic">leRectArray_SortBySize</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Calculates the percentage of a number. Returns a whole number with no decimal component.&nbsp;</div></td></tr><tr>
+Sorts a given array largest to smallest.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02783.html" target="topic">lePercentOfDec</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02831.html" target="topic">leRectArray_SortByY</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Calculates the percentage of a number. Returns a whole number and the tenths digit decimal component.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="02784.html" target="topic">lePercentWholeRounded</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Calculates the percentage of one number when applied to another. Integer based. Accuracy for higher numbers is not guaranteed.<br>The difference between this and <a href="02781.html" target="topic">lePercent</a> is that the decimal portion of the whole number is rounded off.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="02801.html" target="topic">lePolarToXY</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Performs a cosine lookup to determine the points in an arc at specified radius and angle (polar to Cartesian conversion)&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="02853.html" target="topic">leScaleInteger</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Scales an integer from one number range of 0 -&gt; n0 to another range 0 -&gt; n1 based on percentages.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="02854.html" target="topic">leScaleIntegerSigned</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Scales a signed integer from one number range of 0 -&gt; n0 to another range 0 -&gt; n1 based on percentages.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="02869.html" target="topic">leSortPointsX</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Sorts two points on the X axis.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="02870.html" target="topic">leSortPointsY</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Sorts two points on the Y axis.&nbsp;</div></td></tr></table></div></div>
-</div>
-</div>
-<a name="5479706573"></a><div class="Element14">
-Types</div>
-<div class="Element11">
-<div class="Element10">
-<div class="Element212">
-<div class="TableDiv">
-<table cellspacing="0" class="Table1">
-<tr>
-<td class="Element200" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element201">
- &nbsp;</div></td><td class="Element200" valign="top" width="25%">
-<div class="Element201">
-Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
-<div class="Element205">
-Description&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="02512.html" target="topic">LE_QUADRANT</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-This is type LE_QUADRANT.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="02522.html" target="topic">LE_TRIG_FUNCTION_TYPE</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-This is type LE_TRIG_FUNCTION_TYPE.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="02530.html" target="topic">leArcDir</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-This is type leArcDir.&nbsp;</div></td></tr></table></div></div>
+Sorts a given array in order of the Y coordinate.&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 </div>
@@ -295,7 +215,7 @@ This is type leArcDir.&nbsp;</div></td></tr></table></div></div>
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00535.html" target="topic">Graphics Library</a> &gt; <a href="00533.html" target="topic">Legato Graphics Library</a> &gt; <a href="00548.html" target="topic">Files</a> &gt; <a href="02645.html" target="topic">legato_math.h</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00530.html" target="topic">Graphics Library</a> &gt; <a href="00528.html" target="topic">Legato Graphics Library</a> &gt; <a href="00543.html" target="topic">Files</a> &gt; <a href="02645.html" target="topic">legato_rectarray.h</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -303,13 +223,13 @@ This is type leArcDir.&nbsp;</div></td></tr></table></div></div>
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02647.html" target="topic">Previous</a> | <a href="00548.html" target="topic">Up</a> | <a href="02648.html" target="topic">Next</a></div>
+<a href="02637.html" target="topic">Previous</a> | <a href="00543.html" target="topic">Up</a> | <a href="02631.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: legato_math.h Topic Title: legato_math.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: legato_rectarray.h Topic Title: legato_rectarray.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

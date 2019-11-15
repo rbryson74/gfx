@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>legato_string.h</title>
+<title>legato_utils.h</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00535.html" target="topic">Graphics Library</a> &gt; <a href="00533.html" target="topic">Legato Graphics Library</a> &gt; <a href="00548.html" target="topic">Files</a> &gt; <a href="02660.html" target="topic">legato_string.h</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00530.html" target="topic">Graphics Library</a> &gt; <a href="00528.html" target="topic">Legato Graphics Library</a> &gt; <a href="00543.html" target="topic">Files</a> &gt; <a href="02660.html" target="topic">legato_utils.h</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02646.html" target="topic">Previous</a> | <a href="00548.html" target="topic">Up</a> | <a href="02628.html" target="topic">Next</a></div>
+<a href="02648.html" target="topic">Previous</a> | <a href="00543.html" target="topic">Up</a> | <a href="02625.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: legato_string.h Topic Title: legato_string.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: legato_utils.h Topic Title: legato_utils.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-legato_string.h</div>
+legato_utils.h</div>
 </div>
 </div>
 
@@ -56,18 +56,14 @@ File Name</div>
 <div class="Element11">
 <div class="Element10">
 <p class="Element10">
-legato_string.h</p></div>
+legato_utils.h</p></div>
 </div>
 <a name="4465736372697074696F6E"></a><div class="Element14">
 Description</div>
 <div class="Element11">
 <div class="Element10">
 <p class="Element10">
-Module for Microchip Graphics Library - Legato User Interface Library&nbsp;</p>
-<p class="Element10">
-This is a string library implementation that is used internally by the Legato user interface library.&nbsp;</p>
-<p class="Element10">
-This implementation relies on the <a href="02554.html" target="topic">leChar</a> definition for characters. This chararcter definition is 16 bits in size and allows the library to support international character code points and Unicode encoding standards.</p></div>
+Module for Microchip Graphics Library - Legato User Interface Library</p></div>
 </div>
 <a name="46756E6374696F6E73"></a><div class="Element14">
 Functions</div>
@@ -88,9 +84,86 @@ Description&nbsp;</div></td></tr><tr>
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02879.html" target="topic">leString_Delete</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02907.html" target="topic">leUtils_ArrangeRectangle</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Frees the memory that was allocated using the la{TYPE}String_New type allocator functions&nbsp;</div></td></tr></table></div></div>
+Calculates the position of a rectangle within the given bounds and in accordance with the given parameters. A use case for this is when an image and a text rectangle must be arranged in a button box. This version of the algorithm will calculate the location of the image rectangle.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02908.html" target="topic">leUtils_ArrangeRectangleRelative</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Calculates the position of a rectangle within the given bounds and in accordance with the given parameters. A use case for this is when an image and a text rectangle must be arranged in a button box. This version of the algorithm will calculate the location of the text rectangle.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02909.html" target="topic">leUtils_ChildIntersectsParent</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Performs an intersection test between a parent widget and a child widget&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02910.html" target="topic">leUtils_ClipRectToParent</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Clips a rectangle to the parent of a widget&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02911.html" target="topic">leUtils_GetNextHighestWidget</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Gets the next highest Z order widget in the tree from 'wgt'&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02912.html" target="topic">leUtils_Pick</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Finds the top-most visible widget in the tree at the given coordinates.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02913.html" target="topic">leUtils_PickFromWidget</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Finds the top-most visible widget in a layer at the given coordinates.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02914.html" target="topic">leUtils_PointScreenToLocalSpace</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Converts a point from layer space into the local space of a widget&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02915.html" target="topic">leUtils_PointToScreenSpace</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Converts a point from widget space into screen space&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02916.html" target="topic">leUtils_RectFromParentSpace</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Converts a rectangle from widget parent space to widget local space&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02917.html" target="topic">leUtils_RectToParentSpace</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Converts a rectangle from widget local space to widget parent space. Widget must be a child of a layer for this to function.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02918.html" target="topic">leUtils_RectToScreenSpace</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Converts a rectangle from widget local space to screen space&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 </div>
@@ -98,7 +171,7 @@ Frees the memory that was allocated using the la{TYPE}String_New type allocator 
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00535.html" target="topic">Graphics Library</a> &gt; <a href="00533.html" target="topic">Legato Graphics Library</a> &gt; <a href="00548.html" target="topic">Files</a> &gt; <a href="02660.html" target="topic">legato_string.h</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00530.html" target="topic">Graphics Library</a> &gt; <a href="00528.html" target="topic">Legato Graphics Library</a> &gt; <a href="00543.html" target="topic">Files</a> &gt; <a href="02660.html" target="topic">legato_utils.h</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -106,13 +179,13 @@ Frees the memory that was allocated using the la{TYPE}String_New type allocator 
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02646.html" target="topic">Previous</a> | <a href="00548.html" target="topic">Up</a> | <a href="02628.html" target="topic">Next</a></div>
+<a href="02648.html" target="topic">Previous</a> | <a href="00543.html" target="topic">Up</a> | <a href="02625.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: legato_string.h Topic Title: legato_string.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: legato_utils.h Topic Title: legato_utils.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

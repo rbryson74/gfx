@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>leFixedHeap_Init Function</title>
+<title>leFont_DrawUnknownGlyph Function</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00535.html" target="topic">Graphics Library</a> &gt; <a href="00533.html" target="topic">Legato Graphics Library</a> &gt; <a href="00549.html" target="topic">Legato Interface</a> &gt; f) Memory Functions &gt; <a href="02608.html" target="topic">leFixedHeap_Init Function</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00530.html" target="topic">Graphics Library</a> &gt; <a href="00528.html" target="topic">Legato Graphics Library</a> &gt; <a href="00544.html" target="topic">Legato Interface</a> &gt; d) Font Functions &gt; <a href="02608.html" target="topic">leFont_DrawUnknownGlyph Function</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02607.html" target="topic">Previous</a> | <a href="00549.html" target="topic">Up</a> | <a href="02609.html" target="topic">Next</a></div>
+<a href="02607.html" target="topic">Previous</a> | <a href="00544.html" target="topic">Up</a> | <a href="02609.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: leFixedHeap_Init@leFixedHeap*@uint32_t@uint32_t@uint8_t* Topic Title: leFixedHeap_Init Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: leFont_DrawUnknownGlyph@int32_t@int32_t@leFontGlyph*@leColor@uint32_t Topic Title: leFont_DrawUnknownGlyph Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-leFixedHeap_Init Function</div>
+leFont_DrawUnknownGlyph Function</div>
 </div>
 </div>
 
@@ -46,18 +46,14 @@ leFixedHeap_Init Function</div>
 
 <!-- Begin Page Content -->
 <a name="PageContent"></a><div class="Element58">
-<a name="4465736372697074696F6E"></a><div class="Element11">
-<div class="Element10">
-<p class="Element10">
-A fixed heap is a memory storage manager that relies on fixed blocks of data to fulfull allocation requests. Fixed blocks do not suffer from memory fragmentation and fulfill allocation requests faster than a variable heap but often use memory less efficiently.</p></div>
-</div>
 <a name="43"></a><div class="Element99">
 C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100">leResult <strong><span style="color: #000000">leFixedHeap_Init</span></strong>(
-    leFixedHeap* <strong><span style="color: #000000">heap</span></strong>, 
-    <a href="03061.html" target="topic">uint32_t</a> <strong><span style="color: #000000">size</span></strong>, 
-    <a href="03061.html" target="topic">uint32_t</a> <strong><span style="color: #000000">count</span></strong>, 
-    <a href="03063.html" target="topic">uint8_t</a>* <strong><span style="color: #000000">data</span></strong>
+<div class="Element101"><div class="Element100"><pre class="Element100"><strong><span style="color: #000080">void</span></strong> <strong><span style="color: #000000">leFont_DrawUnknownGlyph</span></strong>(
+    <a href="00551.html" target="topic">int32_t</a> <strong><span style="color: #000000">x</span></strong>, 
+    <a href="00551.html" target="topic">int32_t</a> <strong><span style="color: #000000">y</span></strong>, 
+    <strong><span style="color: #000080">const</span></strong> leFontGlyph* <strong><span style="color: #000000">glyph</span></strong>, 
+    leColor <strong><span style="color: #000000">clr</span></strong>, 
+    <a href="03053.html" target="topic">uint32_t</a> <strong><span style="color: #000000">a</span></strong>
 );</pre></div></div>
 <a name="506172616D6574657273"></a><div class="Element14">
 Parameters</div>
@@ -74,39 +70,37 @@ Parameters&nbsp;</div></td><td class="Element304" valign="top" width="65%">
 Description&nbsp;</div></td></tr><tr>
 <td class="Element302" valign="top" width="35%">
 <div class="Element303">
-leFixedHeap* heap&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+int32_t x&nbsp;</div></td><td class="Element306" valign="top" width="65%">
 <div class="Element307">
-pointer to the heap object&nbsp;</div></td></tr><tr>
+the screen x location to draw&nbsp;</div></td></tr><tr>
 <td class="Element302" valign="top" width="35%">
 <div class="Element303">
-uint32_t size&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+int32_t y&nbsp;</div></td><td class="Element306" valign="top" width="65%">
 <div class="Element307">
-the size a heap block in bytes&nbsp;</div></td></tr><tr>
+the screen y location to draw&nbsp;</div></td></tr><tr>
 <td class="Element302" valign="top" width="35%">
 <div class="Element303">
-uint32_t count&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+const leFontGlyph* glyph&nbsp;</div></td><td class="Element306" valign="top" width="65%">
 <div class="Element307">
-the number of blocks in the heap&nbsp;</div></td></tr><tr>
+the glyph kerning information&nbsp;</div></td></tr><tr>
 <td class="Element302" valign="top" width="35%">
 <div class="Element303">
-uint8_t* data&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+leColor clr&nbsp;</div></td><td class="Element306" valign="top" width="65%">
 <div class="Element307">
-pointer to the data buffer to use for the heap&nbsp;</div></td></tr></table></div></div>
+the glyph render color&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+uint32_t alpha&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+a global alpha value to apply&nbsp;</div></td></tr></table></div></div>
 </div>
-</div>
-<a name="52657475726E73"></a><div class="Element14">
-Returns</div>
-<div class="Element11">
-<div class="Element10">
-<p class="Element10">
-leResult</p></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00535.html" target="topic">Graphics Library</a> &gt; <a href="00533.html" target="topic">Legato Graphics Library</a> &gt; <a href="00549.html" target="topic">Legato Interface</a> &gt; f) Memory Functions &gt; <a href="02608.html" target="topic">leFixedHeap_Init Function</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00530.html" target="topic">Graphics Library</a> &gt; <a href="00528.html" target="topic">Legato Graphics Library</a> &gt; <a href="00544.html" target="topic">Legato Interface</a> &gt; d) Font Functions &gt; <a href="02608.html" target="topic">leFont_DrawUnknownGlyph Function</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -114,13 +108,13 @@ leResult</p></div>
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02607.html" target="topic">Previous</a> | <a href="00549.html" target="topic">Up</a> | <a href="02609.html" target="topic">Next</a></div>
+<a href="02607.html" target="topic">Previous</a> | <a href="00544.html" target="topic">Up</a> | <a href="02609.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: leFixedHeap_Init@leFixedHeap*@uint32_t@uint32_t@uint8_t* Topic Title: leFixedHeap_Init Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: leFont_DrawUnknownGlyph@int32_t@int32_t@leFontGlyph*@leColor@uint32_t Topic Title: leFont_DrawUnknownGlyph Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

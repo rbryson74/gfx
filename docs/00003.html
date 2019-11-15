@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>emwin_quickstart</title>
+<title>legato_quickstart</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00554.html" target="topic">Examples and Demonstrations</a> &gt; <a href="00555.html" target="topic">Emwin Applications</a> &gt; <a href="00003.html" target="topic">emwin_quickstart</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00548.html" target="topic">Examples and Demonstrations</a> &gt; <a href="00547.html" target="topic">Legato Applications</a> &gt; <a href="00003.html" target="topic">legato_quickstart</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="00555.html" target="topic">Previous</a> | <a href="00555.html" target="topic">Up</a> | <a href="00065.html" target="topic">Next</a></div>
+<a href="00547.html" target="topic">Previous</a> | <a href="00547.html" target="topic">Up</a> | <a href="00004.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: APPS GFX emwin_quickstart Topic Title: emwin_quickstart)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: APPS GFX legato_quickstart Topic Title: legato_quickstart)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-emwin_quickstart</div>
+legato_quickstart</div>
 </div>
 </div>
 
@@ -49,39 +49,8 @@ emwin_quickstart</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10" style="text-align: center;">
-<img src="APPS GFX aria_external_resources Demo Screen 1.png" border="0" alt="" title=""></p><p class="Element10">
-This demonstration is a Graphical User Interface (GUI) application that uses SEGGER emWin and integrates it with MPLAB Harmony on PIC32 development hardware.&nbsp;</p>
-<p class="Element10">
-This is a simple graphics application with the basic building blocks – a widget, an image and some text, which demonstrates the use of the third-party SEGGER emWin Graphics Library being used inside the MPLAB Harmony framework.&nbsp;</p>
-<p class="Element10">
-The SEGGER emWin Graphics Library is offered free for use on PIC32 devices with the MPLAB Harmony installation. The application has three screens that transition between each other using buttons. Each screen demonstrates some basic features, different widgets, and image rendering available in the SEGGER emWin Graphics Library&nbsp;</p>
-<p class="Element10">
-A step-by-step guide to how this application was developed is provided in <span class="Element145">Start-to-End Example of SEGGER emWin Graphics with MPLAB Harmony</span> under <span class="Element145">SEGGER emWin Graphics Library Help</span>. </p><p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p><p class="Element10">
-SEGGER emWin provides user interface tools like <span class="Element145">GUIBuilder</span> to create the graphic UI design, which is then imported into the project as C files. This UI design includes widget creation, placement and look and feel; however, it does not include incorporated events, such as touch, etc. supported by the MPLAB Harmony <a href="00516.html" target="topic">Aria User Interface Library</a>.&nbsp;</p>
-<p class="Element10">
-The application also features user touch input through the integrated touch screen on the display panel. Touch input from the touch controller goes through the I2C port, and the <span class="Element145">Input System Service</span> acquires the touch input information from the Touch and I2C drivers. The Input System Service sends touch events to the graphics library, which processes these events and updates the frame data accordingly.&nbsp;</p>
-<p class="Element10">
-Another important part is the integration of the display controller.&nbsp;</p>
-<p class="Element10">
-This demonstration has multiple configurations and each requires a suitable display controller/driver strategy for driving the pixel information from the emWin graphics library to the display. These configurations require appropriate APIs to be available to the emWin graphics library to drive the pixel information to the display. Currently, this is handled by the wrapper layer provided in MPLAB Harmony, which generates the suitable APIs in the lcdconf.c file. This file will be generated by the emWin GUI Wrapper and will be added within the project logical folder config\&lt;configuration&gt;\gfx\emwin\config. We will discuss this in more detail within the individual configuration. </p><p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p><div class="Element15">
-SEGGER emWin and MPLAB Harmony Integration</div>
-<p class="Element10">
-<strong>C File Integration</strong>&nbsp;</p>
-<p class="Element10">
-The SEGGER emWin GUIBuilder utility has generated three C files with one file per screen. All files are added to the project within the logical folder <span class="Element146">src\emwin_gui</span>. To integrate the generated files with MPLAB Harmony, the application uses the emWin GUI Wrapper. On selection of the emWin GUI Wrapper within MHC, the MHC code generation tool will generate the required wrapper library. Similarly, for Touch integration, an emWin Touch Wrapper Library is also available. The appropriate emWin GUI Wrapper and emWin Touch Wrapper APIs need to be called under the application code. Refer to <span class="Element145">GUI and Touch Wrapper Library for SEGGER emWIN</span> for more information.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><div class="Element15">
-Tools Setup Differences</div>
-<p class="Element10">
-The MPLAB Harmony Graphics Stack still provides the display configuration and the display driver for the project.&nbsp;</p>
-<p class="Element10">
-The graphics library selected is the third-party SEGGER emWin Graphics Library. Also note the Color format needs to be specified depending on the microcontroller used in the project and the display driver supported</p></div>
+<img src="aria_quickstart_screen.png" border="0" alt="" title=""></p><p class="Element10">
+This demonstration serves as a preconfigured starting point for a touch-enabled application powered by the Aria User Interface Library. The design contains an image widget, a label widget and a button widget. To create this project from scratch, the getting started guide <a href="#" onclick="openExternalLink('https://github.com/Microchip-MPLAB-Harmony/gfx/wiki/Creating-a-New-Graphics-Application');"><img src="indicator_external_link.gif" border="0" alt="" title="">Creating a New Graphics Application</a>.</p></div>
 </div>
 <a name="546F70696373"></a><div class="Element14">
 Topics</div>
@@ -98,14 +67,14 @@ Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
 Description&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="35%">
 <div class="Element203">
-<a href="00065.html" target="topic">emwin_qs_mzef_sk_meb2_tm4301b.X</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00004.html" target="topic">legato_qs_e54_cult_xpro_parallel.X</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-This application runs on the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/dm320007#utm_medium=Press-Release&amp;utm_term=PIC32MZEF%20Launch_PR_9-14-15&amp;utm_content=MCU32&amp;utm_campaign=FPU+Kit');"><img src="indicator_external_link.gif" border="0" alt="" title="">PIC32MZ Embedded Connectivity with FPU (EF) Starter Kit</a> attached to the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320005-5');"><img src="indicator_external_link.gif" border="0" alt="" title="">Multimedia Expansion Board II</a> using LCC software display controller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/AC320005-4');"><img src="indicator_external_link.gif" border="0" alt="" title="">High-Performance 4.3&quot; WQVGA Display Module with maXTouch® Technology</a>.&nbsp;</div></td></tr><tr>
+This application runs on the SAM E54 Curiosity Ultra board with a 24-bit passthrough GFX interface card and a maXTouch Xplained Pro display&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="35%">
 <div class="Element203">
-<a href="00064.html" target="topic">emwin_qs_mzda_extddr_sk_meb2_tm4301b.X</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02642.html" target="topic">legato_qs_e54_cu_cpro_spi.X</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-This application runs on the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/DM320008');"><img src="indicator_external_link.gif" border="0" alt="" title="">PIC32MZ Embedded Graphics with External DRAM (DA) Starter Kit</a> attached to the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320005-5');"><img src="indicator_external_link.gif" border="0" alt="" title="">Multimedia Expansion Board II</a> using GLCD peripheral display ontroller to drive the <a href="#" onclick="openExternalLink('https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/AC320005-4');"><img src="indicator_external_link.gif" border="0" alt="" title="">High-Performance 4.3&quot; WQVGA Display Module with maXTouch® Technology</a>.&nbsp;</div></td></tr></table></div></div>
+This application runs on the SAM E54 Curiosity Ultra board with a 24-bit pass-through GFX interface card and a maXTouch Curiosity Pro display.&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 </div>
@@ -113,7 +82,7 @@ This application runs on the <a href="#" onclick="openExternalLink('https://www.
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00554.html" target="topic">Examples and Demonstrations</a> &gt; <a href="00555.html" target="topic">Emwin Applications</a> &gt; <a href="00003.html" target="topic">emwin_quickstart</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00548.html" target="topic">Examples and Demonstrations</a> &gt; <a href="00547.html" target="topic">Legato Applications</a> &gt; <a href="00003.html" target="topic">legato_quickstart</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -121,13 +90,13 @@ This application runs on the <a href="#" onclick="openExternalLink('https://www.
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="00555.html" target="topic">Previous</a> | <a href="00555.html" target="topic">Up</a> | <a href="00065.html" target="topic">Next</a></div>
+<a href="00547.html" target="topic">Previous</a> | <a href="00547.html" target="topic">Up</a> | <a href="00004.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: APPS GFX emwin_quickstart Topic Title: emwin_quickstart)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: APPS GFX legato_quickstart Topic Title: legato_quickstart)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

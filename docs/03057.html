@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>NUM_KEYS Macro</title>
+<title>USB Media Storage</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00535.html" target="topic">Graphics Library</a> &gt; <a href="00516.html" target="topic">Aria Graphics Library</a> &gt; <a href="00515.html" target="topic">Aria User Interface Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="03057.html" target="topic">NUM_KEYS Macro</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00548.html" target="topic">Examples and Demonstrations</a> &gt; <a href="00546.html" target="topic">Aria Applications</a> &gt; <a href="00050.html" target="topic">aria_quickstart_ext_res</a> &gt; <a href="03057.html" target="topic">USB Media Storage</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="03056.html" target="topic">Previous</a> | <a href="00515.html" target="topic">Up</a> | <a href="00561.html" target="topic">Next</a></div>
+<a href="03056.html" target="topic">Previous</a> | <a href="00050.html" target="topic">Up</a> | <a href="00057.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: NUM_KEYS Topic Title: NUM_KEYS Macro)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: USB Media Storage Topic Title: USB Media Storage)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-NUM_KEYS Macro</div>
+USB Media Storage</div>
 </div>
 </div>
 
@@ -49,17 +49,69 @@ NUM_KEYS Macro</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-This is macro NUM_KEYS.</p></div>
+The external resources are stored on SQI Flash that is presented as a FAT32 USB mass storage device (MSD). This allows a user to copy the assets files directly into the SQI Flash using a USB connection to a host PC.&nbsp;</p>
+<p class="Element10">
+The intent of aria_quickstart_external_resources (MSD media storage) application is to demonstrate Aria Graphics Library’s ability to support assets stored on external NVM. Another intent is to highlight possible draw performance drawbacks with these techniques and to serve as a guiding post for UI application designers on their judicious use.&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+Applications requiring multiple images or non-alphabet-based languages with large number of glyphs, have a very large NVM requirement for their graphics resources. In such applications, storing these graphics resources on-chip may be inefficient or impossible. The solution is to store the graphics resources to off-chip NVM, thereby preserving the on-chip NVM for program memory and allowing for more complex functional features.&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+The aria_quickstart_external_resources (MSD media storage) application populates some of its user interface from assets stored on on-chip NVM and other parts of it from assets stored as binary data on an external NVM. The resources are stored on SQI Flash that is presented as a FAT32 USB mass storage device (MSD). This allows a user to copy the assets files directly into the SQI Flash using a USB connection to a host PC.&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+To demonstrate how to access graphics resources stored on an external memory device, two components are needed:&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+• File Packaging&nbsp;</p>
+<p class="Element10">
+• Fetch Application&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+The following figure shows the external resources process diagram. </p><p class="Element10" style="text-align: center;">
+<img src="usb_media_storage_img1.png" border="0" alt="" title=""></p><p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+The same image, stored externally as four different encoding formats, are demonstrated: Uncompressed RAW, Run-Length Encoded (RLE), Uncompressed RAW with direct blit enabled, and JPEG compressed. </p><p class="Element10" style="text-align: center;">
+<img src="usb_media_storage_img2.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p><p class="Element10">
+The image files are generated into an external binary data file called Images.bin. This file is to be copied from a PC host directly into external SQI Flash, which is presented as FAT32 formatted USB MSD device.&nbsp;</p>
+<p class="Element10">
+&nbsp;</p><p class="Element10" style="text-align: center;">
+<img src="usb_media_storage_img3.png" border="0" alt="" title="">&nbsp;</p><p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+The aria_quickstart_external_resources (MSD media storage) application also demonstrates the ability of the Aria Graphics Library to support multiple languages in the same application build. One language is alphabetic (English) and the other is non-alphabetic (Chinese). English is supported via the Basic Latin Unicode Range (ASCII 32 to 127). </p><p class="Element10" style="text-align: center;">
+<img src="usb_mass_storage_img4.png" border="0" alt="" title=""></p><p class="Element10">
+For Chinese, the MPLAB Harmony Graphics Composer’s built-in automatic glyph filter is overridden to use the enter CJK Unified Ideographs Extension 1 (UTC 13,312 to 19,903). This covers 6591 most commonly used kanji glyphs. The glyphs for both languages are retrieved and displayed from external memory at runtime. </p><p class="Element10" style="text-align: center;">
+<img src="usb_mass_storage_img5.png" border="0" alt="" title=""></p><p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+The font data is to be generated into two separate files: Fonts1.bin and Fonts2.bin. The files are to be copied from a PC host directly into external SQI Flash, which is presented as FAT32 formatted USB MSD device.&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+This is to demonstrate the ability for the graphics library to retrieve data for the same font for two separate binary resource repositories.&nbsp;</p>
+<p class="Element10">
+&nbsp;</p><p class="Element10" style="text-align: center;">
+<img src="usb_mass_storage_img6.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+<img src="usb_mass_storage_img7.png" border="0" alt="" title="">&nbsp;</p></div>
 </div>
-<a name="43"></a><div class="Element99">
-C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100"><strong><span style="color: #000080">#define</span></strong> <strong><span style="color: #000000">NUM_KEYS</span></strong> KEY_LAST + 1</pre></div></div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00535.html" target="topic">Graphics Library</a> &gt; <a href="00516.html" target="topic">Aria Graphics Library</a> &gt; <a href="00515.html" target="topic">Aria User Interface Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="03057.html" target="topic">NUM_KEYS Macro</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00548.html" target="topic">Examples and Demonstrations</a> &gt; <a href="00546.html" target="topic">Aria Applications</a> &gt; <a href="00050.html" target="topic">aria_quickstart_ext_res</a> &gt; <a href="03057.html" target="topic">USB Media Storage</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -67,13 +119,13 @@ C</div>
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="03056.html" target="topic">Previous</a> | <a href="00515.html" target="topic">Up</a> | <a href="00561.html" target="topic">Next</a></div>
+<a href="03056.html" target="topic">Previous</a> | <a href="00050.html" target="topic">Up</a> | <a href="00057.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: NUM_KEYS Topic Title: NUM_KEYS Macro)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: USB Media Storage Topic Title: USB Media Storage)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

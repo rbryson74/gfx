@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>libaria_widget_arc.h</title>
+<title>libaria_widget_circular_gauge.h</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00535.html" target="topic">Graphics Library</a> &gt; <a href="00516.html" target="topic">Aria Graphics Library</a> &gt; <a href="00518.html" target="topic">Files</a> &gt; <a href="02971.html" target="topic">libaria_widget_arc.h</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00530.html" target="topic">Graphics Library</a> &gt; <a href="00511.html" target="topic">Aria Graphics Library</a> &gt; <a href="00513.html" target="topic">Files</a> &gt; <a href="02971.html" target="topic">libaria_widget_circular_gauge.h</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02970.html" target="topic">Previous</a> | <a href="00518.html" target="topic">Up</a> | <a href="02973.html" target="topic">Next</a></div>
+<a href="02970.html" target="topic">Previous</a> | <a href="00513.html" target="topic">Up</a> | <a href="02973.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: libaria_widget_arc.h Topic Title: libaria_widget_arc.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: libaria_widget_circular_gauge.h Topic Title: libaria_widget_circular_gauge.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-libaria_widget_arc.h</div>
+libaria_widget_circular_gauge.h</div>
 </div>
 </div>
 
@@ -56,7 +56,7 @@ File Name</div>
 <div class="Element11">
 <div class="Element10">
 <p class="Element10">
-libaria_widget_arc.h</p></div>
+libaria_widget_circular_gauge.h</p></div>
 </div>
 <a name="4465736372697074696F6E"></a><div class="Element14">
 Description</div>
@@ -65,7 +65,66 @@ Description</div>
 <p class="Element10">
 Module for Microchip Graphics Library - Aria User Interface Library&nbsp;</p>
 <p class="Element10">
-This module implements arc drawing widget functions.</p></div>
+This module implements circular gauge drawing widget functions.</p></div>
+</div>
+<a name="456E756D65726174696F6E73"></a><div class="Element14">
+Enumerations</div>
+<div class="Element11">
+<div class="Element10">
+<div class="Element212">
+<div class="TableDiv">
+<table cellspacing="0" class="Table1">
+<tr>
+<td class="Element200" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element201">
+ &nbsp;</div></td><td class="Element200" valign="top" width="25%">
+<div class="Element201">
+Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
+<div class="Element205">
+Description&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_enum.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00890.html" target="topic">laCircularGaugeWidgetArcType_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Type of arc&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_enum.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00894.html" target="topic">laCircularGaugeWidgetDir_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Direction of the gauge&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_enum.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00898.html" target="topic">laCircularGaugeWidgetLabelPosition_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Direction of the gauge&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00890.html" target="topic">laCircularGaugeWidgetArcType</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Type of arc&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00894.html" target="topic">laCircularGaugeWidgetDir</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Direction of the gauge&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00898.html" target="topic">laCircularGaugeWidgetLabelPosition</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Direction of the gauge&nbsp;</div></td></tr></table></div></div>
+</div>
 </div>
 <a name="46756E6374696F6E73"></a><div class="Element14">
 Functions</div>
@@ -86,79 +145,296 @@ Description&nbsp;</div></td></tr><tr>
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00562.html" target="topic">laArcWidget_GetCenterAngle</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00823.html" target="topic">laCircularGaugeWidget_AddAngularArc</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Gets the center angle of the arc widget&nbsp;</div></td></tr><tr>
+Adds an 'angular arc' in the gauge.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00563.html" target="topic">laArcWidget_GetRadius</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00824.html" target="topic">laCircularGaugeWidget_AddMinorTickLabels</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Gets the radius of a arc widget&nbsp;</div></td></tr><tr>
+Adds minor tick labels in the gauge.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00564.html" target="topic">laArcWidget_GetRoundEdge</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00825.html" target="topic">laCircularGaugeWidget_AddMinorTicks</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns true if the arc has round edges&nbsp;</div></td></tr><tr>
+Adds minor ticks in the gauge.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00565.html" target="topic">laArcWidget_GetStartAngle</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00826.html" target="topic">laCircularGaugeWidget_AddValueArc</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns the start angle of a arc widget&nbsp;</div></td></tr><tr>
+Adds a 'value arc' in the gauge.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00566.html" target="topic">laArcWidget_GetThickness</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00827.html" target="topic">laCircularGaugeWidget_DeleteArcs</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Gets the thickness of the arc&nbsp;</div></td></tr><tr>
+Deletes all arcs in the gauge widget&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00567.html" target="topic">laArcWidget_New</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00828.html" target="topic">laCircularGaugeWidget_DeleteMinorTickLabels</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Deletes all the minor tick labels in the gauge widget&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00829.html" target="topic">laCircularGaugeWidget_DeleteMinorTicks</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Deletes all the minor ticks in the gauge widget&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00830.html" target="topic">laCircularGaugeWidget_GetCenterAngle</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns the center angle of the circular gauge&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00831.html" target="topic">laCircularGaugeWidget_GetCenterCircleRadius</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns radius of the center circle&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00832.html" target="topic">laCircularGaugeWidget_GetCenterCircleThickness</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns thickness of the center circle&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00833.html" target="topic">laCircularGaugeWidget_GetCenterCircleVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns GFX_TRUE if the center circle is visible&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00834.html" target="topic">laCircularGaugeWidget_GetDirection</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns the direction of the gauge.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00835.html" target="topic">laCircularGaugeWidget_GetEndValue</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns the end value of the gauge&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00836.html" target="topic">laCircularGaugeWidget_GetHandRadius</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns the radius/length of the gauge hand in pixels&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00837.html" target="topic">laCircularGaugeWidget_GetHandVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns GFX_TRUE if the gauge hand is visible&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00838.html" target="topic">laCircularGaugeWidget_GetRadius</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Gets the radius of a gauge widget&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00839.html" target="topic">laCircularGaugeWidget_GetStartAngle</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns the start angle of the circular gauge&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00840.html" target="topic">laCircularGaugeWidget_GetStartValue</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns the start value of the gauge&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00841.html" target="topic">laCircularGaugeWidget_GetTickLabelsVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns GFX_TRUE if the tick labels are visible&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00842.html" target="topic">laCircularGaugeWidget_GetTickLength</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns the length of the ticks in the gauge in pixels&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00843.html" target="topic">laCircularGaugeWidget_GetTicksVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns GFX_TRUE if the ticks in the gauge are visible&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00844.html" target="topic">laCircularGaugeWidget_GetTickValue</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns the tick increment value in the gauge&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00845.html" target="topic">laCircularGaugeWidget_GetValue</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns the value of the gauge hand&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00846.html" target="topic">laCircularGaugeWidget_New</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
 Allocates memory for and initializes a new widget of this type. The application is responsible for the management of this memory until the widget is added to a widget tree.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00568.html" target="topic">laArcWidget_SetCenterAngle</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00847.html" target="topic">laCircularGaugeWidget_SetCenterAngle</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets the center angle of the arc widget&nbsp;</div></td></tr><tr>
+Sets the center angle of the gauge.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00569.html" target="topic">laArcWidget_SetRadius</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00848.html" target="topic">laCircularGaugeWidget_SetCenterCircleRadius</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets the radius of a arc widget&nbsp;</div></td></tr><tr>
+Sets the center radius of the center circle&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00570.html" target="topic">laArcWidget_SetRoundEdge</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00849.html" target="topic">laCircularGaugeWidget_SetCenterCircleThickness</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets the arc edge to round&nbsp;</div></td></tr><tr>
+Sets the thickness of the center circle&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00571.html" target="topic">laArcWidget_SetStartAngle</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00850.html" target="topic">laCircularGaugeWidget_SetCenterCircleVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets the start angle of a arc widget&nbsp;</div></td></tr><tr>
+Sets the center circle visible/invisible&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00572.html" target="topic">laArcWidget_SetThickness</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00851.html" target="topic">laCircularGaugeWidget_SetEndValue</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets the thickness of the arc widget&nbsp;</div></td></tr></table></div></div>
+Sets the end value of the gauge&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00852.html" target="topic">laCircularGaugeWidget_SetHandRadius</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the radius/length of the hand&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00853.html" target="topic">laCircularGaugeWidget_SetHandVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the hand visible/invisible&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00854.html" target="topic">laCircularGaugeWidget_SetRadius</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the radius of a gauge widget&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00855.html" target="topic">laCircularGaugeWidget_SetStartAngle</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the start angle of the gauge.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00856.html" target="topic">laCircularGaugeWidget_SetStartValue</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the start value of the gauge&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00857.html" target="topic">laCircularGaugeWidget_SetStringTable</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the string table to be used for the tick labels&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00858.html" target="topic">laCircularGaugeWidget_SetTickLabelsVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the tick labels visible/invisible&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00859.html" target="topic">laCircularGaugeWidget_SetTickLength</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the length of the ticks&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00860.html" target="topic">laCircularGaugeWidget_SetTicksLabelsStringID</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the ID of the string character superset to be used for the tick labels&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00861.html" target="topic">laCircularGaugeWidget_SetTicksVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the increments/distance between ticks&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00862.html" target="topic">laCircularGaugeWidget_SetTickValue</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the increments/distance between ticks&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00863.html" target="topic">laCircularGaugeWidget_SetValue</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the value of the gauge hand&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00864.html" target="topic">laCircularGaugeWidget_SetValueChangedEventCallback</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the function to be called back when the gauge value changes.&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 <a name="4D6163726F73"></a><div class="Element14">
@@ -180,9 +456,9 @@ Description&nbsp;</div></td></tr><tr>
 <div class="Element203">
 <img src="indicator_interface.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02972.html" target="topic">LIBARIA_WIDGET_ARC_H</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02972.html" target="topic">LIBARIA_WIDGET_CIRCULAR_GAUGE_H</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-This is macro LIBARIA_WIDGET_ARC_H.&nbsp;</div></td></tr></table></div></div>
+This is macro LIBARIA_WIDGET_CIRCULAR_GAUGE_H.&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 <a name="53747275637475726573"></a><div class="Element14">
@@ -204,16 +480,82 @@ Description&nbsp;</div></td></tr><tr>
 <div class="Element203">
 <img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00561.html" target="topic">laArcWidget_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00796.html" target="topic">laCircularGaugeArc_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Implementation of a arc widget.&nbsp;</div></td></tr><tr>
+Internal structure for the arcs in the circular gauge widget&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00561.html" target="topic">laArcWidget</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00806.html" target="topic">laCircularGaugeLabel_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Implementation of a arc widget.&nbsp;</div></td></tr></table></div></div>
+Label object for the circular gauge&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00814.html" target="topic">laCircularGaugeTick_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Tick object for the circular gauge&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00822.html" target="topic">laCircularGaugeWidget_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Implementation of a circular gauge widget.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00796.html" target="topic">laCircularGaugeArc</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Internal structure for the arcs in the circular gauge widget&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00806.html" target="topic">laCircularGaugeLabel</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Label object for the circular gauge&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00814.html" target="topic">laCircularGaugeTick</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Tick object for the circular gauge&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00822.html" target="topic">laCircularGaugeWidget</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Implementation of a circular gauge widget.&nbsp;</div></td></tr></table></div></div>
+</div>
+</div>
+<a name="5479706573"></a><div class="Element14">
+Types</div>
+<div class="Element11">
+<div class="Element10">
+<div class="Element212">
+<div class="TableDiv">
+<table cellspacing="0" class="Table1">
+<tr>
+<td class="Element200" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element201">
+ &nbsp;</div></td><td class="Element200" valign="top" width="25%">
+<div class="Element201">
+Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
+<div class="Element205">
+Description&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00889.html" target="topic">laCircularGaugeWidget_ValueChangedEvent</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Value changed event function callback type&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 </div>
@@ -221,7 +563,7 @@ Implementation of a arc widget.&nbsp;</div></td></tr></table></div></div>
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00535.html" target="topic">Graphics Library</a> &gt; <a href="00516.html" target="topic">Aria Graphics Library</a> &gt; <a href="00518.html" target="topic">Files</a> &gt; <a href="02971.html" target="topic">libaria_widget_arc.h</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00530.html" target="topic">Graphics Library</a> &gt; <a href="00511.html" target="topic">Aria Graphics Library</a> &gt; <a href="00513.html" target="topic">Files</a> &gt; <a href="02971.html" target="topic">libaria_widget_circular_gauge.h</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -229,13 +571,13 @@ Implementation of a arc widget.&nbsp;</div></td></tr></table></div></div>
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02970.html" target="topic">Previous</a> | <a href="00518.html" target="topic">Up</a> | <a href="02973.html" target="topic">Next</a></div>
+<a href="02970.html" target="topic">Previous</a> | <a href="00513.html" target="topic">Up</a> | <a href="02973.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: libaria_widget_arc.h Topic Title: libaria_widget_arc.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: libaria_widget_circular_gauge.h Topic Title: libaria_widget_circular_gauge.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

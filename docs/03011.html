@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>aria_coffeemaker Demonstration Example</title>
+<title>Dynamics Graphics Overview</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="03010.html" target="topic">Advanced Topics</a> &gt; <a href="03036.html" target="topic">Improved Touch Performance with Phantom Buttons</a> &gt; <a href="03011.html" target="topic">aria_coffeemaker Demonstration Example</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="03003.html" target="topic">Advanced Topics</a> &gt; <a href="03010.html" target="topic">Dynamic Graphics</a> &gt; <a href="03011.html" target="topic">Dynamics Graphics Overview</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="03036.html" target="topic">Previous</a> | <a href="03036.html" target="topic">Up</a> | <a href="03046.html" target="topic">Next</a></div>
+<a href="03010.html" target="topic">Previous</a> | <a href="03010.html" target="topic">Up</a> | <a href="03012.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG aria_coffeemaker Demonstration Example Topic Title: aria_coffeemaker Demonstration Example)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Dynamic Graphics Overview Topic Title: Dynamics Graphics Overview)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-aria_coffeemaker Demonstration Example</div>
+Dynamics Graphics Overview</div>
 </div>
 </div>
 
@@ -49,37 +49,65 @@ aria_coffeemaker Demonstration Example</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-Small buttons are hard to activate on the screen. The use of phantom (invisible) buttons can improve touch performance without increasing the size of the visible footprint of the button on the display.&nbsp;</p>
+ &nbsp;</p>
 <p class="Element10">
-The aria_coffee_maker has a sliding tray on each side of the display. Sliding a tray in, or out, is accomplished by a phantom (invisible) button. Looking at the left tray, we see the three parts of this phantom button.</p>
-<ol class="Element630">
-<li value="1" class="Element600"><i>LeftTrayLid</i>: An invisible button widget, whose outline is shown in blue. This area is the touch field.</li>
-<li value="2" class="Element600"><i>ImageWidget5</i>: An image widget containing a hand icon, providing a visual clue as to how to manipulate the tray.</li>
-<li value="3" class="Element600"><i>The Release Image and Pressed Image</i>: These are defined as part of the button widget properties. The Pressed Image has a darker coloring than the Released Image. This difference is what shows the user that the button has been pressed.</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Lefttraylid.png" border="0" alt="" title=""></p><p class="Element10">
-The drawing hierarchy for this part of the design is shows that ImageWidget5 is a daughter widget to the LeftTrayLid button widget. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Lefttray widget.png" border="0" alt="" title=""></p><p class="Element10">
-Examining the properties of the LeftTrayLid button widget reveals more about how this works. The following figure demonstrates these three properties.&nbsp;</p>
+Introduction&nbsp;</p>
 <p class="Element10">
-1. The <i>Border</i> is defined as <i>None</i>.&nbsp;</p>
+The MPLAB Harmony Graphics Configurator (MHGC) makes it easy to create static (i.e. non-changing) graphics. Creating dynamic (i.e. changing) graphics is slightly more difficult. The purpose of this Advanced Topic is to explore how to add dynamic graphics to a simple graphics application, in this case Aria Quickstart.&nbsp;</p>
 <p class="Element10">
-2. <i>Background Type</i> is defined as <i>None</i>.&nbsp;</p>
+&nbsp;</p>
 <p class="Element10">
-3. The different images used will show when the button is <i>Pressed</i> or <i>Released</i>.&nbsp;</p>
+Examples of Dynamic Graphics&nbsp;</p>
 <p class="Element10">
-&nbsp;</p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Left tray lid properties editor.png" border="0" alt="" title="">&nbsp;</p><p class="Element10">
-By setting the border and background to <i>None</i>, the button is invisible. Only by providing different images for <i>Released</i> versus <i>Pressed</i> does the user know when the button has been pressed.&nbsp;</p>
+The Quick Start tutorial Adding an Event to The Aria Quickstart Demonstration shows how to use the press of a button to change the button’s text using Aria Events.&nbsp;</p>
 <p class="Element10">
-The actual touch region defined by the button is much larger than the images shown on the display. This extra area increases the touch response of the display.</p></div>
+There are many examples of non-static, i.e. dynamic graphics, in the graphics demos found in&nbsp;</p>
+<p class="Element10">
+the ./gfx_apps/apps folder:&nbsp;</p>
+<p class="Element10">
+• <span class="Element145">aria_benchmark</span>: This project shows an opening splash screen and three separate screens. One display calculates performance of text updates. The next display calculates performance of one or more moving squares. The final display calculates performance for image rendering.&nbsp;</p>
+<p class="Element10">
+• <span class="Element145">aria_showcase</span>: This project shows an opening splash screen and five screens, with each screen demonstrating a different widget. It also provides support for both English and Chinese text. There is an additional help screen as well.&nbsp;</p>
+<p class="Element10">
+• <span class="Element145">aria_showcase_reloaded</span>: This project shows an opening splash screen and seven separate screens: a main menu screen and six additional screens with each screen demonstrating a different advanced widget.&nbsp;</p>
+<p class="Element10">
+• <span class="Element145">aria_weather_forecast</span>: This project shows an opening splash screen and three additional screens, each screen showing the weather for a different city using the language native to that city&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+This project demonstrates the following events/macros </p><div class="Element63">
+<div class="TableDiv">
+<table cellspacing="0" class="Table2">
+<tr>
+<td class="Element65" valign="top" width="7%">
+<div class="Element66">
+Source&nbsp;</div></td><td class="Element65" valign="top" width="45%">
+<div class="Element66">
+Internal Destination&nbsp;</div></td><td class="Element65" valign="top" width="48%">
+<div class="Element66">
+External Destination&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="7%">
+<div class="Element68">
+Inside of Graphics&nbsp;</div></td><td class="Element67" valign="top" width="45%">
+<div class="Element68">
+&quot;Event&quot; - Lesson 1: Dynamic Images<br>Button widget press event hides MPLAB Harmony Logo.&nbsp;</div></td><td class="Element67" valign="top" width="48%">
+<div class="Element68">
+&quot;Event&quot; - Lesson 2: Buttons and LEDs, Real and Virtual Switch widget events change board LEDs in APP_Tasks via a boolean semaphore.&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="7%">
+<div class="Element68">
+Outside of Graphics&nbsp;</div></td><td class="Element67" valign="top" width="45%">
+<div class="Element68">
+&quot;Macro&quot; - Lesson 2. Buttons and LEDs, Real and Virtual Button widget press is polled in APP_Tasks to change color scheme for Virtual LEDs, mirroring board LEDs.&nbsp;</div></td><td class="Element67" valign="top" width="48%">
+<div class="Element68">
+<strong>Not supported by Event Manager Tool</strong><br>Lesson 2. Buttons and LEDs, Real and Virtual Board switch changes board LEDs in APP_Tasks.&nbsp;</div></td></tr></table></div></div>
+</div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00418.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="03010.html" target="topic">Advanced Topics</a> &gt; <a href="03036.html" target="topic">Improved Touch Performance with Phantom Buttons</a> &gt; <a href="03011.html" target="topic">aria_coffeemaker Demonstration Example</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="03003.html" target="topic">Advanced Topics</a> &gt; <a href="03010.html" target="topic">Dynamic Graphics</a> &gt; <a href="03011.html" target="topic">Dynamics Graphics Overview</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -87,13 +115,13 @@ The actual touch region defined by the button is much larger than the images sho
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00418.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="03036.html" target="topic">Previous</a> | <a href="03036.html" target="topic">Up</a> | <a href="03046.html" target="topic">Next</a></div>
+<a href="03010.html" target="topic">Previous</a> | <a href="03010.html" target="topic">Up</a> | <a href="03012.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG aria_coffeemaker Demonstration Example Topic Title: aria_coffeemaker Demonstration Example)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Dynamic Graphics Overview Topic Title: Dynamics Graphics Overview)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

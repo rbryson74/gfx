@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>laBackgroundType Enumeration</title>
+<title>Graphics Utilities Interface</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00359.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00475.html" target="topic">Graphics Library</a> &gt; <a href="00456.html" target="topic">Aria User Interface Library</a> &gt; <a href="00455.html" target="topic">Aria User Interface Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="00531.html" target="topic">laBackgroundType Enumeration</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00530.html" target="topic">Graphics Library</a> &gt; <a href="00511.html" target="topic">Aria Graphics Library</a> &gt; <a href="00532.html" target="topic">Aria Graphics Utilities Library</a> &gt; <a href="00531.html" target="topic">Graphics Utilities Interface</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00359.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="00405.html" target="topic">Previous</a> | <a href="00455.html" target="topic">Up</a> | <a href="00621.html" target="topic">Next</a></div>
+<a href="00532.html" target="topic">Previous</a> | <a href="00532.html" target="topic">Up</a> | <a href="00071.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laBackgroundType Topic Title: laBackgroundType Enumeration)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFXLIB Graphics Utilities Interface Topic Title: Graphics Utilities Interface)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-laBackgroundType Enumeration</div>
+Graphics Utilities Interface</div>
 </div>
 </div>
 
@@ -49,39 +49,237 @@ laBackgroundType Enumeration</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-Enumeration: laBackgroundType_t&nbsp;</p>
-<p class="Element10">
-Specifies the different background types used for the widgets in the library&nbsp;</p>
-<p class="Element10">
-None - No background fill. Widget must defer to its parent to erase dirty pixels. This may cause additional overhead as clean pixels may be repainted as well.&nbsp;</p>
-<p class="Element10">
-Fill - a scheme color is used to fill the widget rectangle.&nbsp;</p>
-<p class="Element10">
-Cache - a local framebuffer cache is maintained by the widget and used to clean up dirty pixels. Will not cause a parent repaint event but will use additional memory to contain the cache.</p></div>
+This section describes the interface for the Graphics Utilities Library.</p></div>
 </div>
-<a name="43"></a><div class="Element99">
-C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100"><strong><span style="color: #000080">typedef</span></strong> <strong><span style="color: #000080">enum</span></strong> <strong><span style="color: #000000">laBackgroundType_t</span></strong> {
-  <strong><span style="color: #000000">LA_WIDGET_BACKGROUND_NONE</span></strong>,
-  <strong><span style="color: #000000">LA_WIDGET_BACKGROUND_FILL</span></strong>,
-  <strong><span style="color: #000000">LA_WIDGET_BACKGROUND_CACHE</span></strong>,
-  <strong><span style="color: #000000">LA_WIDGET_BACKGROUND_LAST</span></strong> = LA_WIDGET_BACKGROUND_CACHE
-} laBackgroundType;</pre></div></div>
-<a name="52656D61726B73"></a><div class="Element14">
-Remarks</div>
+<a name="61292046756E6374696F6E73"></a><div class="Element14">
+a) Functions</div>
 <div class="Element11">
 <div class="Element10">
-<p class="Element10">
-None.</p></div>
+<div class="Element212">
+<div class="TableDiv">
+<table cellspacing="0" class="Table1">
+<tr>
+<td class="Element200" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element201">
+ &nbsp;</div></td><td class="Element200" valign="top" width="25%">
+<div class="Element201">
+Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
+<div class="Element205">
+Description&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00071.html" target="topic">GFX_AbsoluteValue</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Calculates the absolute value of a signed integer.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00079.html" target="topic">GFX_Atan</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Performs the inverse tangent operation&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00105.html" target="topic">GFX_Clampf</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Clamps a float between a min and max&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00106.html" target="topic">GFX_Clampi</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Clamps an integer between a min and max&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00233.html" target="topic">GFX_DivideRounding</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Calculates integer division of num/denom with rounding based on LSB/2.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00244.html" target="topic">GFX_DrawArc</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Draws a filled arc from using the specified dimensions and the current draw state.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00248.html" target="topic">GFX_DrawEllipse</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Draws a filled ellipse from using the specified dimensions and the current draw state.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00258.html" target="topic">GFX_DrawPixelByDrawState</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the pixel at X and Y using a specified draw state.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00292.html" target="topic">GFX_EllipsePoint</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Performs a cosine lookup to determine the points in an arc at specified radius and angle (polar &gt; cartesian conversion)&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00386.html" target="topic">GFX_Lerp</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Performs a linear interpolation of an integer based on a percentage between two signed points.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00389.html" target="topic">GFX_Maxf</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns the larger of two floats.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00390.html" target="topic">GFX_Maxi</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns the larger of two integers.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00403.html" target="topic">GFX_Minf</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns the smaller of two floats.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00404.html" target="topic">GFX_Mini</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns the smaller of two integers.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00405.html" target="topic">GFX_Normalize360</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+normalize an angle between 0 - 360&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00414.html" target="topic">GFX_Percent</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Calculates the percentage of one number when applied to another. Integer based. Accuracy for higher numbers is not guaranteed.<br>The result is the decimal percentage multiplied by 100.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00415.html" target="topic">GFX_PercentOf</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Calculates the percentage of a number. Returns a whole number with no decimal component.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00416.html" target="topic">GFX_PercentOfDec</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Calculates the percentage of a number. Returns a whole number and the tenths digit decimal component.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00417.html" target="topic">GFX_PercentWholeRounded</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Calculates the percentage of one number when applied to another. Integer based. Accuracy for higher numbers is not guaranteed.<br>The difference between this and <a href="00414.html" target="topic">GFX_Percent</a> is that the decimal portion of the whole number is rounded off.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00455.html" target="topic">GFX_PolarToXY</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Performs a cosine lookup to determine the points in an arc at specified radius and angle (polar to Cartesian conversion)&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00481.html" target="topic">GFX_ScaleInteger</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Scales an integer from one number range of 0 -&gt; n0 to another range 0 -&gt; n1 based on percentages.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00482.html" target="topic">GFX_ScaleIntegerSigned</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Scales a signed integer from one number range of 0 -&gt; n0 to another range 0 -&gt; n1 based on percentages.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00483.html" target="topic">GFX_SineCosineGet</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Performs a cosine lookup to determine the result of sine/cosine&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00499.html" target="topic">GFX_UtilGetXGivenYOnLine</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Gets X given Y and two points on a line&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00500.html" target="topic">GFX_UtilGetYGivenXOnLine</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Gets Y given X and two points on a line&nbsp;</div></td></tr></table></div></div>
 </div>
-<div class="Element62">
-Created with a commercial version of <a href="#" onclick="openExternalLink('http://www.doc-o-matic.com');"><img src="indicator_external_link.gif" border="0" alt="" title="">Doc-O-Matic</a>. In order to make this message disappear you need to register this software. If you have problems registering this software please contact us at <a href="#" onclick="openExternalLink('mailto:support@toolsfactory.com');"><img src="indicator_external_link.gif" border="0" alt="" title="">support@toolsfactory.com</a>.</div>
+</div>
+<a name="6229204461746120547970657320616E6420436F6E7374616E7473"></a><div class="Element14">
+b) Data Types and Constants</div>
+<div class="Element11">
+<div class="Element10">
+<div class="Element212">
+<div class="TableDiv">
+<table cellspacing="0" class="Table1">
+<tr>
+<td class="Element200" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element201">
+ &nbsp;</div></td><td class="Element200" valign="top" width="25%">
+<div class="Element201">
+Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
+<div class="Element205">
+Description&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00495.html" target="topic">GFX_TRIG_FUNCTION_TYPE</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This is type GFX_TRIG_FUNCTION_TYPE.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00545.html" target="topic">GFXU_StringTableAsset</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This is type GFXU_StringTableAsset.&nbsp;</div></td></tr></table></div></div>
+</div>
+</div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00359.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00475.html" target="topic">Graphics Library</a> &gt; <a href="00456.html" target="topic">Aria User Interface Library</a> &gt; <a href="00455.html" target="topic">Aria User Interface Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="00531.html" target="topic">laBackgroundType Enumeration</a></div>
+<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00530.html" target="topic">Graphics Library</a> &gt; <a href="00511.html" target="topic">Aria Graphics Library</a> &gt; <a href="00532.html" target="topic">Aria Graphics Utilities Library</a> &gt; <a href="00531.html" target="topic">Graphics Utilities Interface</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -89,13 +287,13 @@ Created with a commercial version of <a href="#" onclick="openExternalLink('http
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00359.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="00405.html" target="topic">Previous</a> | <a href="00455.html" target="topic">Up</a> | <a href="00621.html" target="topic">Next</a></div>
+<a href="00532.html" target="topic">Previous</a> | <a href="00532.html" target="topic">Up</a> | <a href="00071.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laBackgroundType Topic Title: laBackgroundType Enumeration)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFXLIB Graphics Utilities Interface Topic Title: Graphics Utilities Interface)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->
