@@ -1,5 +1,5 @@
 # Microchip MPLAB® Harmony 3 Graphics Release Notes
-## Graphics Release v3.5.0
+## Graphics Release v3.5.1
 
 - **Graphics Contents** - This graphics release consists of graphics libraries, applications, utilities, drivers, hardware abstractions, input, middleware, templates, and documentation. The following table lists the contents:
 
@@ -45,18 +45,6 @@
 | library    | legato | Graphics Library | Beta |
 | designer | Legato MHGC |Harmony Graphics Composer for for Legato| Beta|
 
-**SEGGER emWin graphics library** - emWin V5.48 - Graphical user interface middleware for embedded applications. It is licensed for PIC32MX and PIC32MZ microcontrollers.
-
-| Category | Item | Description | Release Type |
-| --- | --- | ---- |---- |
-| apps | emwin_quickstart | emWin UI library quickstart example |Beta |
-| drivers|  glcd | Graphics 3 Layer Display Driver | Production |
-|      |      LCC | Display Driver for the LCC software Controller| Production |
-|      | parallel_ebi | Interface to the parallel EBI registers | Beta |
-| library    | emWin | SEGGER emWin Graphics Library | Beta |
-|      | templates   | aria_gfx_pda_tm4301b| MHC config for pda 4.3" display | Production |
-| designer | emWin | SEGGER emWin v5.50 - Graphical UI for embedded applications| Beta|
-
 **Blank graphics library** - the library interface which easily allows a third-party graphics direct access to the display framebuffer.
 
 | Category | Item | Description | Release Type |
@@ -78,7 +66,7 @@
 | docs| Help | Application Help Documentation HTML| Production |
 | templates   |  middleware | Board configuration scripts| Production |
 
-### Changes for v3.5
+### Changes for v3.5.1
 
 - **Driver support** - The following table provides the list of updates for graphics and input drivers.
 
@@ -100,7 +88,7 @@
 
 | Middleware/HAL | Description |
 | --- | --- |
-| SEGGER emWin| Added graphics library |
+| none | |
 
 
 - **Graphics Application Templates** - The following table provides the list of updates for graphics templates use within MHC.
@@ -133,7 +121,6 @@
 | aria_quickstart              | x | x | x | x | x | x | x | x |
 | aria_quickstart_ext_res      |   |   |   | x |   | x |   | x |
 | blank_quickstart             |   |   |   |   |   | x |   |  |
-| emwin_quickstart             |   |   |   |   |   | x |   |  |
 | legato_quickstart            |   |   | x | x |   | x | x | x |
 
 ### KNOWN ISSUES
@@ -152,6 +139,7 @@ In gfx.c the variable args is falsely detected in violation of Code 530: &quot;S
 * Applications running on SAM E70 in combination with LCC will observe visual rendering artifacts on display during SD card R/W access. There is no loss in SD Card data.
 * Applications formatting SQI FAT in Linux use the following command: mkfs.fat -F12 /dev/$(device name)
 * aria_quickstart_ext_res applications using mzda may show external memory starter kit image. The demonstration only uses internal stack DDR starter kit.
+
 ### DEVELOPMENT TOOLS
 
 | Tool | Version |
@@ -163,7 +151,7 @@ In gfx.c the variable args is falsely detected in violation of Code 530: &quot;S
 | [Harmony 3 BSP](https://github.com/Microchip-MPLAB-Harmony/bsp)   | v3.5.0 |
 | [Harmony 3 CSP](https://github.com/Microchip-MPLAB-Harmony/csp)  | v3.5.0 |
 | [Harmony 3 Core](https://github.com/Microchip-MPLAB-Harmony/core)  | v3.5.0 |
-| [Harmony 3 Graphics ](https://github.com/Microchip-MPLAB-Harmony/gfx)   | v3.5.0 |
+| [Harmony 3 Graphics ](https://github.com/Microchip-MPLAB-Harmony/gfx)   | v3.5.1 |
 | [Harmony 3 Dev_Packs](https://github.com/Microchip-MPLAB-Harmony/dev_packs)   | v3.5.0 |
 | [Harmony 3 USB](https://github.com/Microchip-MPLAB-Harmony/usb)   | v3.4.0 |
 | [Harmony 3 CMSIS-FreeRTOS](https://github.com/ARM-software/CMSIS-FreeRTOS)   | v10.2.0 |
