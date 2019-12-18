@@ -114,7 +114,8 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 </#if>
 </#if>
 
-<#if Val_FrameBufferColorMode == "GFX_COLOR_MODE_GS_8">
+<#if Val_FrameBufferColorMode == "GFX_COLOR_MODE_GS_8" || 
+	 Val_FrameBufferColorMode == "LUT8">
 #define LCDC_DEFAULT_GFX_COLOR_MODE GFX_COLOR_MODE_GS_8
 #define FRAMEBUFFER_PTR_TYPE    uint8_t*
 #define FRAMEBUFFER_PIXEL_TYPE    uint8_t
