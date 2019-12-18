@@ -115,7 +115,7 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 </#if>
 
 <#if Val_FrameBufferColorMode == "GFX_COLOR_MODE_GS_8" || 
-	 Val_FrameBufferColorMode == "LUT8">
+	 Val_PaletteMode == true>
 #define LCDC_DEFAULT_GFX_COLOR_MODE GFX_COLOR_MODE_GS_8
 #define FRAMEBUFFER_PTR_TYPE    uint8_t*
 #define FRAMEBUFFER_PIXEL_TYPE    uint8_t
@@ -332,8 +332,8 @@ static GFX_Result globalPaletteSet(GFX_GlobalPalette palette)
         lut[colorIndex] = GFX_ColorConvert(GFX_COLOR_MODE_RGBA_8888, GFX_COLOR_MODE_RGB_888, pal[colorIndex]);
     }
 
-    PLIB_GLCD_GlobalColorLUTSet(GLCD_ID_0, lut );
-    PLIB_GLCD_PaletteGammaRampEnable(GLCD_ID_0);
+    PLIB_GLCD_GlobalColorLUTSet(lut);
+    PLIB_GLCD_PaletteGammaRampEnable();
 
 	return GFX_SUCCESS;
 }
@@ -445,12 +445,12 @@ static GFX_Result layerBufferAllocate(uint32_t idx)
     {
         for(j = 0; j < layer->rect.display.width; j++)
     {
-<#if Val_FrameBufferColorMode == "GFX_COLOR_MODE_RGBA_8888">
+<#if Val_FrameBufferColorMode == "GFX_COLOR_MODE_GS_8" || Val_PaletteMode == true>
+            *(uint8_t*)(drvLayer[layer->id].baseaddr[idx] + i*layer->rect.display.width + j) = color;
+<#elseif Val_FrameBufferColorMode == "GFX_COLOR_MODE_RGBA_8888">
             *(uint32_t*)(drvLayer[layer->id].baseaddr[idx] + i*layer->rect.display.width + j) = color;
 <#elseif Val_FrameBufferColorMode == "GFX_COLOR_MODE_RGB_565">
             *(uint16_t*)(drvLayer[layer->id].baseaddr[idx] + i*layer->rect.display.width + j) = color;
-<#elseif Val_FrameBufferColorMode == "GFX_COLOR_MODE_GS_8">
-            *(uint8_t*)(drvLayer[layer->id].baseaddr[idx] + i*layer->rect.display.width + j) = color;
 </#if>
     }
     }
@@ -580,7 +580,7 @@ static GFX_Result glcdInitialize(GFX_Context* context)
     context->hal.layerAlphaAmountGet = &layerAlphaAmountGet;
 
     context->hal.colorModeSet = &colorModeSet;
-<#if Val_FrameBufferColorMode == "LUT8">
+<#if Val_PaletteMode == true>
     context->hal.globalPaletteSet = &globalPaletteSet;
 </#if>
 
@@ -659,20 +659,22 @@ static GFX_Result glcdInitialize(GFX_Context* context)
         {
             for(j = 0; j < context->layer.layers[layerCount].rect.display.width; j++)
             {
-<#if Val_FrameBufferColorMode == "GFX_COLOR_MODE_RGBA_8888">
-    <#if Val_DoubleBuffer == true>
-        *(uint32_t*)(drvLayer[layerCount].baseaddr[0] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
-        *(uint32_t*)(drvLayer[layerCount].baseaddr[1] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
-    <#else>
-        *(uint32_t*)(drvLayer[layerCount].baseaddr[0] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
-    </#if>
-<#elseif Val_FrameBufferColorMode == "GFX_COLOR_MODE_RGB_565">
-    <#if Val_DoubleBuffer == true>
-        *(uint16_t*)(drvLayer[layerCount].baseaddr[0] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
-        *(uint16_t*)(drvLayer[layerCount].baseaddr[1] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
-    <#else>
-        *(uint16_t*)(drvLayer[layerCount].baseaddr[0] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
-    </#if>
+<#if Val_PaletteMode == false>
+	<#if Val_FrameBufferColorMode == "GFX_COLOR_MODE_RGBA_8888">
+		<#if Val_DoubleBuffer == true>
+			*(uint32_t*)(drvLayer[layerCount].baseaddr[0] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
+			*(uint32_t*)(drvLayer[layerCount].baseaddr[1] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
+		<#else>
+			*(uint32_t*)(drvLayer[layerCount].baseaddr[0] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
+		</#if>
+	<#elseif Val_FrameBufferColorMode == "GFX_COLOR_MODE_RGB_565">
+		<#if Val_DoubleBuffer == true>
+			*(uint16_t*)(drvLayer[layerCount].baseaddr[0] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
+			*(uint16_t*)(drvLayer[layerCount].baseaddr[1] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
+		<#else>
+			*(uint16_t*)(drvLayer[layerCount].baseaddr[0] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
+		</#if>
+	</#if>
 </#if>
             }
         }
