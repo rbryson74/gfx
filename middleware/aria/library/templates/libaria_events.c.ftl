@@ -41,7 +41,7 @@
 
 #include "gfx/libaria/libaria_events.h"
 <#if enableAppSupport == true>
-#include "app.h"
+#include "${genAriaEventAppHeaderName}"
 </#if>
 
 <#if ARIA_EVENT_FUNCTIONS??>

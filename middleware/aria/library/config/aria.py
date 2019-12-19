@@ -150,3 +150,7 @@ def enableAriaRTOSTask(symbol, event):
 
 def onAppFileEnabled(symbol, event):
 	symbol.setValue(event["value"])
+
+def onAppNameChanged(symbol, event):
+	appHeaderName = event["value"] + ".h"
+	symbol.setValue(appHeaderName)

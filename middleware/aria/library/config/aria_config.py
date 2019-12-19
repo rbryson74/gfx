@@ -65,12 +65,23 @@ genAriaMediaIntf.setLabel("Generate External Media Interface?")
 genAriaMediaIntf.setDefaultValue(True)
 genAriaMediaIntf.setDescription("Indicates that the code generator should create the binding code to allow Aria to request external media data.")
 
-
 enableInput = component.createBooleanSymbol("enableInput", codeGenerationMenu)
 enableInput.setLabel("Enable Input Event Interface?")
 enableInput.setDefaultValue(False)
 enableInput.setDescription("Indicates that Aria should interface with the Input System Service for input events.")
 enableInput.setDependencies(onEnableInputChanged, ["enableInput"])
+
+enableAppSupport = component.createBooleanSymbol("enableAppSupport", codeGenerationMenu)
+enableAppSupport.setLabel("Include application header in libaria_event.c?")
+enableAppSupport.setDescription("Generate libaria_event.c with #include the header file of the application file")
+enableAppSupport.setDefaultValue(True)
+enableAppSupport.setDependencies(onAppFileEnabled, ["HarmonyCore.ENABLE_APP_FILE","HarmonyCore.GEN_APP_TASK_COUNT"])
+
+genAriaEventAppHeaderName = component.createStringSymbol("genAriaEventAppHeaderName", enableAppSupport)
+genAriaEventAppHeaderName.setLabel("Application Header Name")
+genAriaEventAppHeaderName.setDefaultValue("app.h")
+genAriaEventAppHeaderName.setDependencies(onAppNameChanged, ["HarmonyCore.ENABLE_APP_FILE","HarmonyCore.GEN_APP_TASK_COUNT","HarmonyCore.GEN_APP_TASK_NAME_0"])
+genAriaEventAppHeaderName.setUseSingleDynamicValue(True)
 
 widgetMenu = component.createMenuSymbol("widgetMenu", None)
 widgetMenu.setLabel("Widget Configuration")
@@ -249,12 +260,6 @@ enableWindowWidget.setLabel("Enable Window Widget?")
 enableWindowWidget.setDefaultValue(True)
 enableWindowWidget.setDescription("Enables the Aria Window widget.  Disabling this will remove the code for this widget and it will not be available for use.")
 enableWindowWidget.setHelp("IDH_HTML_MHGC_UG_Widget_Tool_Box_Panel")
-
-enableAppSupport = component.createBooleanSymbol("enableAppSupport", None)
-enableAppSupport.setLabel("enableAppSupport")
-enableAppSupport.setDescription("Enable App Support")
-enableAppSupport.setVisible(False)
-enableAppSupport.setDependencies(onAppFileEnabled, ["HarmonyCore.ENABLE_APP_FILE"])
 
 global onAriaHeapChanged
 def onAriaHeapChanged(sym, event):
