@@ -84,3 +84,15 @@ DisableHardwareLayerCountHint = halComponent.createBooleanSymbol("DisableHardwar
 DisableHardwareLayerCountHint.setDefaultValue(False)
 DisableHardwareLayerCountHint.setVisible(False)
 DisableHardwareLayerCountHint.setDependencies(onDisableHint, ["DisableHardwareLayerCountHint"])
+
+PixelClockHint = halComponent.createIntegerSymbol("PixelClockHint", DriverHintMenu)
+PixelClockHint.setLabel("Pixel Clock (Hz)")
+PixelClockHint.setDefaultValue(50000000)
+PixelClockHint.setDescription("Indicates pixel clock frequency.")
+PixelClockHint.setReadOnly(True)
+PixelClockHint.setUseSingleDynamicValue(True)
+
+DisablePixelClockHint = halComponent.createBooleanSymbol("DisablePixelClockHint", DriverHintMenu)
+DisablePixelClockHint.setDefaultValue(False)
+DisablePixelClockHint.setVisible(False)
+DisablePixelClockHint.setDependencies(onDisableHint, ["DisablePixelClockHint"])

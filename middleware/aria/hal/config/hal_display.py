@@ -68,7 +68,7 @@ PixelClock.setDefaultValue(0)
 PixelClock.setMin(0)
 PixelClock.setReadOnly(True)
 PixelClock.setVisible(False)
-PixelClock.setDependencies(onPixelClockSet, ["PixelClock"])
+PixelClock.setDependencies(onPixelClockSet, ["PixelClockHint"])
 PixelClock.setUseSingleDynamicValue(True)
 
 RefreshRate = halComponent.createIntegerSymbol("RefreshRate", DisplayMenu)

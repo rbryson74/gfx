@@ -30,7 +30,7 @@ def onPixelClockSet(pixelClockSet, event):
 	strValue = str(float("{0:.4f}".format(prescalerValue)))
 	pixelClockSet.getComponent().getSymbolByID("PixelClockPreScaler").setValue(strValue, 1)
 	if (pixelClockSet.getComponent().getSymbolValue("HALConnected") == True):
-		Database.setSymbolValue("gfx_hal", "PixelClock", event["value"], 1)
+		Database.setSymbolValue("gfx_hal", "PixelClockHint", event["value"], 1)
 		
 def onBacklightPWMFrequencySet(pixelClockSet, event):
 	MasterClock = pixelClockSet.getComponent().getSymbolValue("MasterClock")

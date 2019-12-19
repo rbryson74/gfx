@@ -354,4 +354,4 @@ def OnLayersEnabled(layerEnabled, event):
 
 def onPixelClockSet(pixelClockSet, event):
 	if (pixelClockSet.getComponent().getSymbolValue("HALConnected") == True):
-		Database.setSymbolValue("gfx_hal", "PixelClock", event["value"], 1)
+		Database.setSymbolValue("gfx_hal", "PixelClockHint", event["value"], 1)

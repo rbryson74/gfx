@@ -229,6 +229,7 @@ def onUpdateDisplayTiming(symbol, event):
 
 def onPixelClockSet(symbol, event):
 	halComponent = event["source"]
+	halComponent.setSymbolValue("PixelClock", event["value"], 1)
 	updateRefreshRate(halComponent)
 
 def onDisableHint(symbol, event):
