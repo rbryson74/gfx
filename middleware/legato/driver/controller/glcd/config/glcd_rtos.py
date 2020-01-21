@@ -1,6 +1,6 @@
 # coding: utf-8
 ##############################################################################
-# Copyright (C) 2019-2020 Microchip Technology Inc. and its subsidiaries.
+# Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 #
 # Subject to your compliance with these terms, you may use Microchip software
 # and any derivatives exclusively with Microchip products. It is your
@@ -22,11 +22,24 @@
 # THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 ##############################################################################
 
-def loadModule():
-	component = Module.CreateComponent("gfx_legato", "Legato", "/Graphics/Middleware/", "config/le.py")
-	component.setDisplayType("Graphics Library")
-	component.addDependency("gfx_driver", "LE Display Driver", False, True)
-        component.addDependency("gpu_driver", "LE GPU Driver", False, False)
-	component.addDependency("sys_input", "Input System Service", True, True)
-	component.setDependencyEnabled("sys_input", False)
-	component.addPlugin("plugins/legato.jar")
+rtosMenu = comp.createMenuSymbol("rtosMenu", None)
+rtosMenu.setLabel("RTOS Settings")
+rtosMenu.setDescription("RTOS Settings")
+rtosMenu.setVisible(Database.getSymbolValue("HarmonyCore", "SELECT_RTOS") != "BareMetal")
+rtosMenu.setDependencies(showRTOSMenu, ["HarmonyCore.SELECT_RTOS"])
+
+rtosTaskSize = comp.createIntegerSymbol("rtosTaskSize", rtosMenu)
+rtosTaskSize.setLabel("Stack Size")
+rtosTaskSize.setDefaultValue(1024)
+
+rtosTaskPriority = comp.createIntegerSymbol("rtosTaskPriority", rtosMenu)
+rtosTaskPriority.setLabel("Task Priority")
+rtosTaskPriority.setDefaultValue(1)
+
+rtosEnableTaskDelay = comp.createBooleanSymbol("rtosEnableTaskDelay", rtosMenu)
+rtosEnableTaskDelay.setLabel("Use Task Delay?")
+rtosEnableTaskDelay.setDefaultValue(True)
+
+rtosTaskDelay = comp.createIntegerSymbol("rtosTaskDelay", rtosMenu)
+rtosTaskDelay.setLabel("Task Delay")
+rtosTaskDelay.setDefaultValue(10)
