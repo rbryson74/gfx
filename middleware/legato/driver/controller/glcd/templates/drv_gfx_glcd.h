@@ -62,7 +62,8 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 */
 
 #include "gfx/driver/controller/glcd/plib_glcd.h"
-#include "gfx/driver/controller/display_controller.h"
+//#include "gfx/driver/controller/display_controller.h"
+#include "gfx/driver/gfx_driver.h"
 
 #ifdef __cplusplus
     extern "C" {
@@ -402,6 +403,36 @@ void  DRV_GFX_GLCD_GammaPaletteSet(uint32_t * gammaPalette);
 // *****************************************************************************
 void DRV_GLCD_Initialize(void);
 //void DRV_GLCD_Update(void);
+gfxColorMode DRV_GLCD_GetColorMode(void);
+uint32_t DRV_GLCD_GetBufferCount(void);
+uint32_t DRV_GLCD_GetDisplayWidth(void);
+uint32_t DRV_GLCD_GetDisplayHeight(void);
+void DRV_GLCD_Update(void);
+uint32_t DRV_GLCD_GetLayerCount();
+uint32_t DRV_GLCD_GetActiveLayer();
+gfxResult DRV_GLCD_SetActiveLayer(uint32_t idx);
+gfxResult DRV_GLCD_BlitBuffer(int32_t x, int32_t y, gfxPixelBuffer* buf);
+gfxResult DRV_GLCD_BlitBufferAccel(int32_t x, int32_t y, gfxPixelBuffer* buf);
+void DRV_GLCD_Swap(void);
+uint32_t DRV_GLCD_GetVSYNCCount(void);
+gfxPixelBuffer * DRV_GLCD_GetFrameBuffer(void);
+
+
+static const leDisplayDriver glcdDisplayDriver =
+{
+    DRV_GLCD_GetColorMode,
+    DRV_GLCD_GetBufferCount,
+    DRV_GLCD_GetDisplayWidth,
+    DRV_GLCD_GetDisplayHeight,
+    DRV_GLCD_Update,
+    DRV_GLCD_GetLayerCount,
+    DRV_GLCD_GetActiveLayer,
+    DRV_GLCD_SetActiveLayer,
+    DRV_GLCD_BlitBuffer,
+	DRV_GLCD_BlitBufferAccel,
+    DRV_GLCD_Swap,
+    DRV_GLCD_GetVSYNCCount
+};
 
 #ifdef __cplusplus
     }

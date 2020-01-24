@@ -1,6 +1,6 @@
 # coding: utf-8
 ##############################################################################
-# Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
+# Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 #
 # Subject to your compliance with these terms, you may use Microchip software
 # and any derivatives exclusively with Microchip products. It is your
@@ -22,8 +22,5 @@
 # THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 ##############################################################################
 
-def loadModule():	
-	cntlComponent = Module.CreateComponent("le_gfx_driver_glcd", "LE GLCD ", "/Graphics/Driver", "config/glcd.py")
-	cntlComponent.setDisplayType("LE GLCD Display Controller")
-	cntlComponent.addCapability("gfx_driver_glcd", "LE Display Driver", False)
-        cntlComponent.addDependency("Graphics Display", "Graphics Display", False)
+def instantiateComponent(ctrlComponent):
+	print("Instantiated generic driver component")

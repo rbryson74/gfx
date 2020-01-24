@@ -1,6 +1,6 @@
 # coding: utf-8
 ##############################################################################
-# Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
+# Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries.
 #
 # Subject to your compliance with these terms, you may use Microchip software
 # and any derivatives exclusively with Microchip products. It is your
@@ -22,8 +22,15 @@
 # THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 ##############################################################################
 
-def loadModule():	
-	cntlComponent = Module.CreateComponent("le_gfx_driver_glcd", "LE GLCD ", "/Graphics/Driver", "config/glcd.py")
-	cntlComponent.setDisplayType("LE GLCD Display Controller")
-	cntlComponent.addCapability("gfx_driver_glcd", "LE Display Driver", False)
-        cntlComponent.addDependency("Graphics Display", "Graphics Display", False)
+import os.path
+
+
+def loadModule():
+
+        # load 2DGPU module
+	cntlComponent = Module.CreateComponent("le_gfx_driver_2dgpu", "LE 2DGPU", "/Graphics/Processor", "2dgpu.py")
+	cntlComponent.setDisplayType("LE 2D-GPU Graphics Processor")
+	cntlComponent.addCapability("gfx_driver_2dgpu", "LE GPU Driver", False)
+        #cntlComponent.addDependency("legato_library", "Legato", True, True)
+
+

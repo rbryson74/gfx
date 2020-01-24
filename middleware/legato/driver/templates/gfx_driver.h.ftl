@@ -5,7 +5,7 @@
     Microchip Technology Inc.
 
   File Name:
-    driver_common.h
+    gfx_driver.h
 
   Summary:
     This file defines the common macros and definitions used by MPLAB Harmony Graphics
@@ -42,8 +42,8 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-#ifndef DISPLAY_DRIVER_COMMON_H
-#define DISPLAY_DRIVER_COMMON_H
+#ifndef GFX_DRIVER_H
+#define GFX_DRIVER_H
 //DOM-IGNORE-END
 
 #include <stddef.h>
@@ -583,69 +583,6 @@ typedef struct gfxPixelBuffer
 
     uint32_t flags;
 } gfxPixelBuffer;
-
-
-// *****************************************************************************
-/* Structure:
-    struct gfxDisplayDriver
-
-  Summary:
-    Defines the interface for a Legato display driver.  All drivers must,
-    at a minimum, implement these interfaces
-
-    getColorMode - returns the supported color mode for the driver
-
-    getBufferCount - returns the number of buffers the driver is configured to use
-
-    getDisplayWidth - returns the width of the driver frame buffer
-
-    getDisplayHeight - returns the height of the driver frame buffer
-
-    update - the driver tasks/update function
-
-    getLayerCount - the number of hardware layers the driver supports
-
-    getActiveLayer - the current active hardware layer
-
-    setActiveLayer - sets the current active hardware layer
-                     all buffer writes should go to this layer
-
-    blitBuffer - instructs the driver to blit a buffer (buf) at
-                 location (x, y)
-
-    swap - instructs the driver to swap its buffer chain
-
-    getVSYNCCount - queries the driver for its VSYNC counter
-                    if a driver implements this counter this value
-                    can be used to do frame rate calculations
-
-*/
-typedef struct leDisplayDriver
-{
-    gfxColorMode (*getColorMode)(void);
-    
-    uint32_t (*getBufferCount)(void);
-    
-    uint32_t (*getDisplayWidth)(void);
-    
-    uint32_t (*getDisplayHeight)(void);
-    
-    void (*update)(void);
-    
-    uint32_t (*getLayerCount)(void);
-    
-    uint32_t (*getActiveLayer)(void);
-    
-    gfxResult (*setActiveLayer)(uint32_t idx);
-    
-    gfxResult (*blitBuffer)(int32_t x,
-                           int32_t y,
-                           gfxPixelBuffer* buf);
-                           
-    void (*swap)(void);
-    
-    uint32_t (*getVSYNCCount)(void);
-} leDisplayDriver;
 
 
 // *****************************************************************************
@@ -1441,32 +1378,117 @@ LIB_EXPORT gfxBool gfxPixelBuffer_IsLocked(const gfxPixelBuffer* const buffer);
 LIB_EXPORT gfxResult gfxPixelBuffer_SetLocked(gfxPixelBuffer* buffer,
                                             gfxBool locked);
 
-gfxColorMode DRV_GLCD_GetColorMode(void);
-uint32_t DRV_GLCD_GetBufferCount(void);
-uint32_t DRV_GLCD_GetDisplayWidth(void);
-uint32_t DRV_GLCD_GetDisplayHeight(void);
-void DRV_GLCD_Update(void);
-uint32_t DRV_GLCD_GetLayerCount();
-uint32_t DRV_GLCD_GetActiveLayer();
-gfxResult DRV_GLCD_SetActiveLayer(uint32_t idx);
-gfxResult DRV_GLCD_BlitBuffer(int32_t x, int32_t y, gfxPixelBuffer* buf);
-void DRV_GLCD_Swap(void);
-uint32_t DRV_GLCD_GetVSYNCCount(void);
 
-static const leDisplayDriver gcldDisplayDriver =
+
+
+// *****************************************************************************
+/* Structure:
+    struct gfxDisplayDriver
+
+  Summary:
+    Defines the interface for a Legato display driver.  All drivers must,
+    at a minimum, implement these interfaces
+
+    getColorMode - returns the supported color mode for the driver
+
+    getBufferCount - returns the number of buffers the driver is configured to use
+
+    getDisplayWidth - returns the width of the driver frame buffer
+
+    getDisplayHeight - returns the height of the driver frame buffer
+
+    update - the driver tasks/update function
+
+    getLayerCount - the number of hardware layers the driver supports
+
+    getActiveLayer - the current active hardware layer
+
+    setActiveLayer - sets the current active hardware layer
+                     all buffer writes should go to this layer
+
+    blitBuffer - instructs the driver to blit a buffer (buf) at
+                 location (x, y)
+
+    swap - instructs the driver to swap its buffer chain
+
+    getVSYNCCount - queries the driver for its VSYNC counter
+                    if a driver implements this counter this value
+                    can be used to do frame rate calculations
+
+*/
+typedef struct leDisplayDriver
 {
-    DRV_GLCD_GetColorMode,
-    DRV_GLCD_GetBufferCount,
-    DRV_GLCD_GetDisplayWidth,
-    DRV_GLCD_GetDisplayHeight,
-    DRV_GLCD_Update,
-    DRV_GLCD_GetLayerCount,
-    DRV_GLCD_GetActiveLayer,
-    DRV_GLCD_SetActiveLayer,
-    DRV_GLCD_BlitBuffer,
-    DRV_GLCD_Swap,
-    DRV_GLCD_GetVSYNCCount
-};
+    gfxColorMode (*getColorMode)(void);
+
+    uint32_t (*getBufferCount)(void);
+
+    uint32_t (*getDisplayWidth)(void);
+
+    uint32_t (*getDisplayHeight)(void);
+
+    void (*update)(void);
+
+    uint32_t (*getLayerCount)(void);
+
+    uint32_t (*getActiveLayer)(void);
+
+    gfxResult (*setActiveLayer)(uint32_t idx);
+
+    gfxResult (*blitBuffer)(int32_t x,
+                           int32_t y,
+                           gfxPixelBuffer* buf);
+
+	gfxResult (*blitBufferAccel)(int32_t x,
+                       int32_t y,
+                       gfxPixelBuffer* buf);
+
+    void (*swap)(void);
+
+    uint32_t (*getVSYNCCount)(void);
+} leDisplayDriver;
+
+// *****************************************************************************
+/* Structure:
+    struct gfxGraphicsProcessor
+
+  Summary:
+    Defines the interface for a Legato display driver.  All drivers must,
+    at a minimum, implement these interfaces
+
+    getColorMode - returns the supported color mode for the driver
+
+    getBufferCount - returns the number of buffers the driver is configured to use
+
+    getDisplayWidth - returns the width of the driver frame buffer
+
+    getDisplayHeight - returns the height of the driver frame buffer
+
+    update - the driver tasks/update function
+
+    getLayerCount - the number of hardware layers the driver supports
+
+    getActiveLayer - the current active hardware layer
+
+    setActiveLayer - sets the current active hardware layer
+                     all buffer writes should go to this layer
+
+    blitBuffer - instructs the driver to blit a buffer (buf) at
+                 location (x, y)
+
+    swap - instructs the driver to swap its buffer chain
+
+    getVSYNCCount - queries the driver for its VSYNC counter
+                    if a driver implements this counter this value
+                    can be used to do frame rate calculations
+
+*/
+typedef struct gfxGraphicsProcessor
+{
+    gfxResult (*blitBuffer)(const gfxRect* rect,
+                           const gfxRect* clipRect,
+                           const gfxColor color,
+                           gfxPixelBuffer * dest);
+} gfxGraphicsProcessor;
 
 //DOM-IGNORE-BEGIN
 #ifdef __cplusplus
@@ -1474,7 +1496,7 @@ static const leDisplayDriver gcldDisplayDriver =
 #endif
 // DOM-IGNORE-END
      
-#endif // DISPLAY_DRIVER_COMMON_H
+#endif // GFX_DRIVER_H
 
 /*******************************************************************************
  End of File

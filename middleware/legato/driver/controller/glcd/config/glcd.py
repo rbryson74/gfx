@@ -81,22 +81,39 @@ def instantiateComponent(comp):
 
 	execfile(Module.getPath() + "/config/glcd_rtos.py")
 
-        # common display controller header
-	DISPLAY_CONTROLLER_H = comp.createFileSymbol("DISPLAY_CONTROLLER_H", None)
-	DISPLAY_CONTROLLER_H.setSourcePath("../templates/display_controller.h.ftl")
-	DISPLAY_CONTROLLER_H.setDestPath("gfx/driver/controller/")
-	DISPLAY_CONTROLLER_H.setOutputName("display_controller.h")
-	DISPLAY_CONTROLLER_H.setProjectPath(projectPath)
-	DISPLAY_CONTROLLER_H.setType("HEADER")
-        DISPLAY_CONTROLLER_H.setMarkup(True)
+        # common gfx driver header
+	GFX_DRIVER_H = comp.createFileSymbol("GFX_DRIVER_H", None)
+	GFX_DRIVER_H.setSourcePath("../../templates/gfx_driver.h.ftl")
+	GFX_DRIVER_H.setDestPath("gfx/driver/")
+	GFX_DRIVER_H.setOutputName("gfx_driver.h")
+	GFX_DRIVER_H.setProjectPath(projectPath)
+	GFX_DRIVER_H.setType("HEADER")
+        GFX_DRIVER_H.setMarkup(True)
 
-	DISPLAY_CONTROLLER_C = comp.createFileSymbol("DISPLAY_CONTROLLER_C", None)
-	DISPLAY_CONTROLLER_C.setSourcePath("../templates/display_controller.c.ftl")
-	DISPLAY_CONTROLLER_C.setDestPath("gfx/driver/controller/")
-	DISPLAY_CONTROLLER_C.setOutputName("display_controller.c")
-	DISPLAY_CONTROLLER_C.setProjectPath(projectPath)
-	DISPLAY_CONTROLLER_C.setType("SOURCE")
-        DISPLAY_CONTROLLER_C.setMarkup(True)
+	GFX_DRIVER_C = comp.createFileSymbol("GFX_DRIVER_C", None)
+	GFX_DRIVER_C.setSourcePath("../../templates/gfx_driver.c.ftl")
+	GFX_DRIVER_C.setDestPath("gfx/driver/")
+	GFX_DRIVER_C.setOutputName("gfx_driver.c")
+	GFX_DRIVER_C.setProjectPath(projectPath)
+	GFX_DRIVER_C.setType("SOURCE")
+        GFX_DRIVER_C.setMarkup(True)
+
+        # common display controller header
+	#DISPLAY_CONTROLLER_H = comp.createFileSymbol("DISPLAY_CONTROLLER_H", None)
+	#DISPLAY_CONTROLLER_H.setSourcePath("../templates/display_controller.h.ftl")
+	#DISPLAY_CONTROLLER_H.setDestPath("gfx/driver/controller/")
+	#DISPLAY_CONTROLLER_H.setOutputName("display_controller.h")
+	#DISPLAY_CONTROLLER_H.setProjectPath(projectPath)
+	#DISPLAY_CONTROLLER_H.setType("HEADER")
+        #DISPLAY_CONTROLLER_H.setMarkup(True)
+
+	#DISPLAY_CONTROLLER_C = comp.createFileSymbol("DISPLAY_CONTROLLER_C", None)
+	#DISPLAY_CONTROLLER_C.setSourcePath("../templates/display_controller.c.ftl")
+	#DISPLAY_CONTROLLER_C.setDestPath("gfx/driver/controller/")
+	#DISPLAY_CONTROLLER_C.setOutputName("display_controller.c")
+	#DISPLAY_CONTROLLER_C.setProjectPath(projectPath)
+	#DISPLAY_CONTROLLER_C.setType("SOURCE")
+        #DISPLAY_CONTROLLER_C.setMarkup(True)
 	
 	# configuration options
 	DisplayWidth = comp.createIntegerSymbol("DisplayWidth", None)

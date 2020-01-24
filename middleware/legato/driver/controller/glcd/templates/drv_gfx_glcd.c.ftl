@@ -63,6 +63,7 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 #include "gfx/driver/controller/glcd/plib_glcd.h"
 #include "gfx/driver/controller/glcd/drv_gfx_glcd.h"
 #include "definitions.h"
+#include "gfx/driver/processor/2dgpu/libnano2d.h"
 
 // *****************************************************************************
 // *****************************************************************************
@@ -318,7 +319,7 @@ static gfxResult globalPaletteSet(GFX_GlobalPalette palette)
 //    PLIB_GLCD_LayerStrideSet(layerId, drvLayer[layerId].resx * stride);
 
 //    return GFX_SUCCESS;
-}
+//}
 
 //static gfxResult colorModeSet(gfxColorMode mode)
 //{
@@ -645,6 +646,12 @@ void DRV_GLCD_Initialize()
 
 }
 
+gfxPixelBuffer * DRV_GLCD_GetFrameBuffer(void)
+{
+    return &pixelBuffer;
+}
+
+
 //static void layerSwapPending(GFX_Layer* layer)
 //{
 //    uint32_t l;
@@ -675,8 +682,8 @@ void DRV_GLCD_Initialize()
 //    { }
 //}
 
-//void GLCD_Interrupt_Handler(void)
-//{
+void GLCD_Interrupt_Handler(void)
+{
 //    uint32_t i;
 //    GFX_Context* context = GFX_ActiveContext();
     
@@ -701,7 +708,7 @@ void DRV_GLCD_Initialize()
 //    }
     
 //    waitingForVSync = GFX_FALSE;
-//}
+}
 
 /**** End Hardware Abstraction Interfaces ****/
 
@@ -776,6 +783,28 @@ gfxResult DRV_GLCD_BlitBuffer(int32_t x,
 
         memcpy(destPtr, srcPtr, rowSize);
     }
+
+    return LE_SUCCESS;
+}
+
+gfxResult DRV_GLCD_BlitBufferAccel(int32_t x,
+                             int32_t y,
+                             gfxPixelBuffer* buf)
+{
+//    gfxRect srcRect, destRect;
+//    destRect.x = x;
+//    destRect.y = y;
+//    destRect.height = buf->size.height;
+//    destRect.width = buf->size.width;
+
+//    srcRect.x = 0;
+//    srcRect.y = 0;
+//    srcRect.height = buf->size.height;
+//    srcRect.width = buf->size.width;
+
+//    dest = processor->getFrameBuffer();
+
+//    processor->blitBuffer(buf, &srcRect,  dest,  &destRect);
 
     return LE_SUCCESS;
 }
