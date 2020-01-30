@@ -36,6 +36,55 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
 *******************************************************************************/
 // DOM-IGNORE-END
+
+<#if gfx_hal_le??>
+
+<#assign Val_Width = gfx_hal_le.DisplayWidth>
+<#assign Val_Height = gfx_hal_le.DisplayHeight>
+<#assign Val_UseReset = gfx_hal_le.DisplayUseReset>
+<#assign Val_ResetPolarity = gfx_hal_le.DisplayResetPolarity>
+<#assign Val_UseChipSelect = gfx_hal_le.DisplayUseChipSelect>
+<#assign Val_ChipSelectPolarity = gfx_hal_le.DisplayChipSelectPolarity>
+<#assign Val_BacklightEnable = gfx_hal_le.DisplayBacklightEnable>
+<#assign Val_VSYNCNegative = !gfx_hal_le.DisplayVSYNCNegative>
+<#assign Val_HSYNCNegative = !gfx_hal_le.DisplayHSYNCNegative>
+<#assign Val_UseDataEnable = gfx_hal_le.DisplayDataEnable>
+<#assign Val_DataEnablePolarity = gfx_hal_le.DisplayDataEnablePolarity>
+<#assign Val_DoubleBuffer = gfx_hal_le.DoubleBufferHint>
+<#assign Val_PaletteMode = gfx_hal_le.GlobalPaletteModeHint>
+<#assign Val_FrameBufferColorMode = gfx_hal_le.ColorModeHint>
+<#assign Val_HorzFrontPorch = gfx_hal_le.DisplayHorzFrontPorch>
+<#assign Val_HorzBackPorch = gfx_hal_le.DisplayHorzBackPorch>
+<#assign Val_HorzPulseWidth = gfx_hal_le.DisplayHorzPulseWidth>
+<#assign Val_VertFrontPorch = gfx_hal_le.DisplayVertFrontPorch>
+<#assign Val_VertBackPorch = gfx_hal_le.DisplayVertBackPorch>
+<#assign Val_VertPulseWidth = gfx_hal_le.DisplayVertPulseWidth>
+
+<#else>
+
+<#assign Val_Width = DisplayWidth>
+<#assign Val_Height = DisplayHeight>
+<#assign Val_UseReset = DisplayUseReset>
+<#assign Val_ResetPolarity = DisplayResetPolarity>
+<#assign Val_UseChipSelect = DisplayUseChipSelect>
+<#assign Val_ChipSelectPolarity = DisplayChipSelectPolarity>
+<#assign Val_BacklightEnable = DisplayBacklightEnable>
+<#assign Val_VSYNCNegative = !DisplayVSYNCNegative>
+<#assign Val_HSYNCNegative = !DisplayHSYNCNegative>
+<#assign Val_UseDataEnable = DisplayDataEnable>
+<#assign Val_DataEnablePolarity = DisplayDataEnablePolarity>
+<#assign Val_DoubleBuffer = DoubleBuffer>
+<#assign Val_PaletteMode = PaletteMode>
+<#assign Val_FrameBufferColorMode = FrameBufferColorMode>
+<#assign Val_HorzFrontPorch = DisplayHorzFrontPorch>
+<#assign Val_HorzBackPorch = DisplayHorzBackPorch>
+<#assign Val_HorzPulseWidth = DisplayHorzPulseWidth>
+<#assign Val_VertFrontPorch = DisplayVertFrontPorch>
+<#assign Val_VertBackPorch = DisplayVertBackPorch>
+<#assign Val_VertPulseWidth = DisplayVertPulseWidth>
+
+</#if>
+
 #include "definitions.h"
 
 #include "gfx/interface/drv_gfx_disp_intf.h"
@@ -52,17 +101,17 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #define DISPLAY_DEFAULT_WIDTH   480
 #define DISPLAY_DEFAULT_HEIGHT  800
 
-#define DISPLAY_WIDTH   ${DisplayWidth}
-#define DISPLAY_HEIGHT  ${DisplayHeight}
+#define DISPLAY_WIDTH   ${Val_Width}
+#define DISPLAY_HEIGHT  ${Val_Height}
 
 #define DISP_HOR_RESOLUTION DISPLAY_WIDTH
 #define DISP_VER_RESOLUTION DISPLAY_HEIGHT
-#define DISP_HOR_PULSE_WIDTH ${DisplayHorzPulseWidth}
-#define DISP_HOR_FRONT_PORCH ${DisplayHorzFrontPorch}
-#define DISP_HOR_BACK_PORCH ${DisplayHorzBackPorch}
-#define DISP_VER_PULSE_WIDTH ${DisplayVertPulseWidth}
-#define DISP_VER_FRONT_PORCH ${DisplayHorzFrontPorch}
-#define DISP_VER_BACK_PORCH ${DisplayVertBackPorch}
+#define DISP_HOR_PULSE_WIDTH ${Val_HorzPulseWidth}
+#define DISP_HOR_FRONT_PORCH ${Val_HorzFrontPorch}
+#define DISP_HOR_BACK_PORCH ${Val_HorzBackPorch}
+#define DISP_VER_PULSE_WIDTH ${Val_VertPulseWidth}
+#define DISP_VER_FRONT_PORCH ${Val_HorzFrontPorch}
+#define DISP_VER_BACK_PORCH ${Val_VertBackPorch}
 
 #define PIXEL_BUFFER_COLOR_MODE LE_COLOR_MODE_RGB_565
 #define SCREEN_WIDTH DISPLAY_WIDTH

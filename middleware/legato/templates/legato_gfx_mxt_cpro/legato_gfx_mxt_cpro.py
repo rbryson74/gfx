@@ -22,7 +22,7 @@
 # THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 ##############################################################################
 
-componentsIDTable = ["HarmonyCore", "gfx_legato", "gfx_disp_mxt_cpro_320x480", "le_gfx_driver_ili9488", "sys_input", "gfx_maxtouch_controller"]
+componentsIDTable = ["HarmonyCore", "gfx_legato", "gfx_hal_le", "gfx_disp_mxt_cpro_320x480", "le_gfx_driver_ili9488", "sys_input", "gfx_maxtouch_controller"]
 autoConnectTable = [["le_gfx_driver_ili9488", "Graphics Display", "gfx_disp_mxt_cpro_320x480", "gfx_display"],
 					["gfx_legato", "gfx_driver", "le_gfx_driver_ili9488", "gfx_driver_ili9488"],
 					["gfx_maxtouch_controller", "touch_panel", "gfx_disp_mxt_cpro_320x480", "touch_panel"]]

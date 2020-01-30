@@ -40,16 +40,53 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 *******************************************************************************/
 //DOM-IGNORE-END
 
+<#if gfx_hal_le??>
+
+<#assign Val_Width = gfx_hal_le.DisplayWidth>
+<#assign Val_Height = gfx_hal_le.DisplayHeight>
+<#assign Val_UseReset = gfx_hal_le.DisplayUseReset>
+<#assign Val_ResetPolarity = gfx_hal_le.DisplayResetPolarity>
+<#assign Val_UseChipSelect = gfx_hal_le.DisplayUseChipSelect>
+<#assign Val_ChipSelectPolarity = gfx_hal_le.DisplayChipSelectPolarity>
+<#assign Val_BacklightEnable = gfx_hal_le.DisplayBacklightEnable>
+<#assign Val_VSYNCNegative = !gfx_hal_le.DisplayVSYNCNegative>
+<#assign Val_HSYNCNegative = !gfx_hal_le.DisplayHSYNCNegative>
+<#assign Val_UseDataEnable = gfx_hal_le.DisplayDataEnable>
+<#assign Val_DataEnablePolarity = gfx_hal_le.DisplayDataEnablePolarity>
+<#assign Val_DoubleBuffer = gfx_hal_le.DoubleBufferHint>
+<#assign Val_PaletteMode = gfx_hal_le.GlobalPaletteModeHint>
+<#assign Val_FrameBufferColorMode = gfx_hal_le.ColorModeHint>
+<#assign Val_HorzFrontPorch = gfx_hal_le.DisplayHorzFrontPorch>
+<#assign Val_HorzBackPorch = gfx_hal_le.DisplayHorzBackPorch>
+<#assign Val_HorzPulseWidth = gfx_hal_le.DisplayHorzPulseWidth>
+<#assign Val_VertFrontPorch = gfx_hal_le.DisplayVertFrontPorch>
+<#assign Val_VertBackPorch = gfx_hal_le.DisplayVertBackPorch>
+<#assign Val_VertPulseWidth = gfx_hal_le.DisplayVertPulseWidth>
+
+<#else>
+
 <#assign Val_Width = DisplayWidth>
 <#assign Val_Height = DisplayHeight>
+<#assign Val_UseReset = DisplayUseReset>
+<#assign Val_ResetPolarity = DisplayResetPolarity>
+<#assign Val_UseChipSelect = DisplayUseChipSelect>
+<#assign Val_ChipSelectPolarity = DisplayChipSelectPolarity>
 <#assign Val_BacklightEnable = DisplayBacklightEnable>
-<#assign Val_VSYNCNegative = DisplayVSYNCNegative>
-<#assign Val_HSYNCNegative = DisplayHSYNCNegative>
+<#assign Val_VSYNCNegative = !DisplayVSYNCNegative>
+<#assign Val_HSYNCNegative = !DisplayHSYNCNegative>
 <#assign Val_UseDataEnable = DisplayDataEnable>
 <#assign Val_DataEnablePolarity = DisplayDataEnablePolarity>
 <#assign Val_DoubleBuffer = DoubleBuffer>
 <#assign Val_PaletteMode = PaletteMode>
 <#assign Val_FrameBufferColorMode = FrameBufferColorMode>
+<#assign Val_HorzFrontPorch = DisplayHorzFrontPorch>
+<#assign Val_HorzBackPorch = DisplayHorzBackPorch>
+<#assign Val_HorzPulseWidth = DisplayHorzPulseWidth>
+<#assign Val_VertFrontPorch = DisplayVertFrontPorch>
+<#assign Val_VertBackPorch = DisplayVertBackPorch>
+<#assign Val_VertPulseWidth = DisplayVertPulseWidth>
+
+</#if>
 
 // *****************************************************************************
 // *****************************************************************************
@@ -524,14 +561,14 @@ void DRV_GLCD_Initialize()
 
 
     /* set temporary information */
-    xResolution     = 480;
-    yResolution     = 272;
-    rightMargin     = 2;
-    leftMargin      = 2;
-    hsyncLength     = 42;
-    vsyncLength     = 10;
-    upperMargin     = 2;
-    lowerMargin     = 2;
+    xResolution     = ${Val_Width};
+    yResolution     = ${Val_Height};
+    rightMargin     = ${Val_HorzFrontPorch};
+    leftMargin      = ${Val_HorzBackPorch};
+    hsyncLength     = ${Val_HorzPulseWidth};
+    vsyncLength     = ${Val_VertPulseWidth};
+    upperMargin     = ${Val_VertBackPorch};
+    lowerMargin     = ${Val_VertPulseWidth};
 
 
     /* glcd initialization */

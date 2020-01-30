@@ -31,14 +31,12 @@ def loadModule():
 		cntlComponent.addDependency("EBI_CS", "EBI_CS", False, True)
 		cntlComponent.addDependency("Graphics Display", "Graphics Display", False)
 		cntlComponent.addDependency("sys_dma", "sys_dma", True)
-		cntlComponent.addDependency("legato_library", "Legato", True, True)
 	else:
 		cntlComponent = Module.CreateComponent("le_gfx_driver_lcc", "LE LCC ", "/Graphics/Driver", "config/lcc_controller.py")
 		cntlComponent.setDisplayType("LE LCC Display Driver")
 		cntlComponent.addCapability("gfx_driver_lcc", "LE Display Driver", False)
 		cntlComponent.addDependency("Graphics Display", "Graphics Display", False)
 		cntlComponent.addDependency("SMC_CS", "SMC_CS", False, True)
-		cntlComponent.addDependency("legato_library", "Legato", True, True)
 		### TMR dependency for PWM backlight control
 		cntlComponent.addDependency("TMR", "TMR", False, True)
 		cntlComponent.setDependencyEnabled("TMR", False)

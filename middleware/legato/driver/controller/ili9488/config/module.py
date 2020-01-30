@@ -27,8 +27,6 @@ def loadModule():
 	cntlComponent.setDisplayType("ILI9488 Display Driver")
 	cntlComponent.addCapability("gfx_driver_ili9488", "LE Display Driver", False)
 	cntlComponent.addDependency("Graphics Display", "Graphics Display", False, False)
-	cntlComponent.addDependency("legato_library", "Legato", True, True)
-	
 	cntlComponent.addDependency("Parallel Display Interface", "Parallel Display Interface", False, True)
 	cntlComponent.addDependency("SPI Display Interface", "SPI Display Interface", False, True)
 	cntlComponent.addDependency("SYS_TIME", "SYS_TIME", True, True)

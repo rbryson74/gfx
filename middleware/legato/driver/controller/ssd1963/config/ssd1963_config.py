@@ -49,6 +49,11 @@ ParallelInterfaceWidth.setDefaultValue("16-bit")
 DriverComment = comp.createCommentSymbol("DriverComment", None)
 DriverComment.setLabel("The settings for this driver are limited to displays that support 16-bit RGB 565 format. For other display types, the driver may need to be modified manually.")
 
+# configuration options
+HALComment = comp.createCommentSymbol("HALComment", None)
+HALComment.setLabel("Some settings are being managed by the GFX Core LE and have been hidden.")
+HALComment.setVisible(False)
+
 ## Display Settings Menu
 DisplaySettingsMenu = comp.createMenuSymbol("DisplaySettingsMenu", None)
 DisplaySettingsMenu.setLabel("Display Settings")

@@ -27,7 +27,5 @@ def loadModule():
 	cntlComponent.setDisplayType("SSD1963 Display Driver")
 	cntlComponent.addCapability("gfx_driver_ssd1963", "LE Display Driver", False)
 	cntlComponent.addDependency("Graphics Display", "Graphics Display", False, False)
-	cntlComponent.addDependency("legato_library", "Legato", True, True)
-	
 	cntlComponent.addDependency("Display Interface", "Parallel Display Interface", False, True)
 	cntlComponent.addDependency("SYS_TIME", "SYS_TIME", True, True)

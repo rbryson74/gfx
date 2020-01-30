@@ -116,17 +116,9 @@ def instantiateComponent(comp):
         #DISPLAY_CONTROLLER_C.setMarkup(True)
 	
 	# configuration options
-	DisplayWidth = comp.createIntegerSymbol("DisplayWidth", None)
-	DisplayWidth.setLabel("Width")
-	DisplayWidth.setDescription("The width of the frame buffer in pixels.")
-	DisplayWidth.setDefaultValue(480)
-	DisplayWidth.setMin(1)
-
-	DisplayHeight = comp.createIntegerSymbol("DisplayHeight", None)
-	DisplayHeight.setLabel("Height")
-	DisplayHeight.setDescription("The height of the frame buffer in pixels.")
-	DisplayHeight.setDefaultValue(272)
-	DisplayHeight.setMin(1)
+	HALComment = comp.createCommentSymbol("HALComment", None)
+	HALComment.setLabel("Some settings are being managed by the GFX Core LE and have been hidden.")
+	HALComment.setVisible(False)
 
 	DisplayTimingOptionsEnabled = comp.createBooleanSymbol("DisplayTimingOptionsEnabled", None)
 	DisplayTimingOptionsEnabled.setLabel("Display Timing Options Enabled")
@@ -234,6 +226,62 @@ def instantiateComponent(comp):
 	DisplaySettingsMenu = comp.createMenuSymbol("DisplaySettingsMenu", None)
 	DisplaySettingsMenu.setLabel("Display Settings")
 
+	DisplayWidth = comp.createIntegerSymbol("DisplayWidth", DisplaySettingsMenu)
+	DisplayWidth.setLabel("Width")
+	DisplayWidth.setDescription("The width of the frame buffer in pixels.")
+	DisplayWidth.setDefaultValue(480)
+	DisplayWidth.setMin(1)
+
+	DisplayHeight = comp.createIntegerSymbol("DisplayHeight", DisplaySettingsMenu)
+	DisplayHeight.setLabel("Height")
+	DisplayHeight.setDescription("The height of the frame buffer in pixels.")
+	DisplayHeight.setDefaultValue(272)
+	DisplayHeight.setMin(1)
+
+	DisplayHorzMenu = comp.createMenuSymbol("DisplayHorzMenu", DisplaySettingsMenu)
+	DisplayHorzMenu.setLabel("Horizontal Attributes")
+	DisplayHorzMenu.setDescription("Contains the display horizontal refresh values.")
+
+	DisplayHorzPulseWidth = comp.createIntegerSymbol("DisplayHorzPulseWidth", DisplayHorzMenu)
+	DisplayHorzPulseWidth.setLabel("Horizontal Pulse Width")
+	DisplayHorzPulseWidth.setDescription("The horizontal pulse width.")
+	DisplayHorzPulseWidth.setDefaultValue(41)
+	DisplayHorzPulseWidth.setMin(0)
+
+	DisplayHorzBackPorch = comp.createIntegerSymbol("DisplayHorzBackPorch", DisplayHorzMenu)
+	DisplayHorzBackPorch.setLabel("Horizontal Back Porch")
+	DisplayHorzBackPorch.setDescription("The horizontal back porch size in pixels.")
+	DisplayHorzBackPorch.setDefaultValue(2)
+	DisplayHorzBackPorch.setMin(0)
+
+	DisplayHorzFrontPorch = comp.createIntegerSymbol("DisplayHorzFrontPorch", DisplayHorzMenu)
+	DisplayHorzFrontPorch.setLabel("Horizontal Front Porch")
+	DisplayHorzFrontPorch.setDescription("The horizontal front porch size in pixels.")
+	DisplayHorzFrontPorch.setDefaultValue(2)
+	DisplayHorzFrontPorch.setMin(0)
+
+	DisplayVertMenu = comp.createMenuSymbol("DisplayVertMenu", DisplaySettingsMenu)
+	DisplayVertMenu.setLabel("Vertical Attributes")
+	DisplayVertMenu.setDescription("Contains the display vertical refresh values.")
+
+	DisplayVertPulseWidth = comp.createIntegerSymbol("DisplayVertPulseWidth", DisplayVertMenu)
+	DisplayVertPulseWidth.setLabel("Vertical Pulse Width")
+	DisplayVertPulseWidth.setDescription("The vertical pulse width.")
+	DisplayVertPulseWidth.setDefaultValue(10)
+	DisplayVertPulseWidth.setMin(0)
+
+	DisplayVertBackPorch = comp.createIntegerSymbol("DisplayVertBackPorch", DisplayVertMenu)
+	DisplayVertBackPorch.setLabel("Vertical Back Porch")
+	DisplayVertBackPorch.setDescription("The vertical back porch size in pixels.")
+	DisplayVertBackPorch.setDefaultValue(2)
+	DisplayVertBackPorch.setMin(0)
+
+	DisplayVertFrontPorch = comp.createIntegerSymbol("DisplayVertFrontPorch", DisplayVertMenu)
+	DisplayVertFrontPorch.setLabel("Vertical Front Porch")
+	DisplayVertFrontPorch.setDescription("The vertical front porch size in pixels.")
+	DisplayVertFrontPorch.setDefaultValue(2)
+	DisplayVertFrontPorch.setMin(0)
+	
 	DisplayBacklightEnable = comp.createIntegerSymbol("DisplayBacklightEnable", DisplaySettingsMenu)
 	DisplayBacklightEnable.setLabel("Back Light Enable Value")
 	DisplayBacklightEnable.setDescription("The value used to enable the display back light.")
@@ -379,6 +427,13 @@ def instantiateComponent(comp):
 ###	numLayers = halConnected.getComponent().getSymbolValue("TotalNumLayers")
 ###	Database.setSymbolValue("gfx_hal", "HardwareLayerCountHint", numLayers, 1)
 	
+def onAttachmentConnected(source, target):
+	print("dependency Connected = " + str(target['id']))
+	gfxCoreComponentTable = ["gfx_hal_le"]
+	if (Database.getComponentByID("gfx_hal_le") is None):
+		Database.activateComponents(gfxCoreComponentTable)
+	updateDisplayManager(source["component"], target["component"])
+
 def OnCacheEnabled(cacheEnabled, event):
 	cacheEnabled.getComponent().setSymbolValue("UseCachedFrameBuffer", event["value"] == True, 1)
 	
@@ -391,12 +446,12 @@ def OnLayersEnabled(layerEnabled, event):
 	if (layerEnabled.getComponent().getSymbolValue("Layer2Enable") == True):
 		numLayers += 1
 	layerEnabled.getComponent().setSymbolValue("TotalNumLayers", numLayers, 1)
-	if (layerEnabled.getComponent().getSymbolValue("HALConnected") == True):
-		Database.setSymbolValue("gfx_hal", "HardwareLayerCountHint", numLayers, 1)
+	if (Database.getComponentByID("gfx_hal_le") is not None):
+		Database.setSymbolValue("gfx_hal_le", "HardwareLayerCountHint", numLayers, 1)
 
 def onPixelClockSet(pixelClockSet, event):
-	if (pixelClockSet.getComponent().getSymbolValue("HALConnected") == True):
-		Database.setSymbolValue("gfx_hal", "PixelClock", event["value"], 1)
+	if (Database.getComponentByID("gfx_hal_le") is not None):
+		Database.setSymbolValue("gfx_hal_le", "PixelClock", event["value"], 1)
 
 def onPixelDividerSet(pixelDividerSet, event):
 	clockValue = int(pixelDividerSet.getComponent().getSymbolValue("MasterClockSourceValue")) / int(pixelDividerSet.getComponent().getSymbolValue("PixelClockDivider"))
@@ -404,3 +459,24 @@ def onPixelDividerSet(pixelDividerSet, event):
 	
 def showRTOSMenu(symbol, event):
 	symbol.setVisible(event["value"] != "BareMetal")
+
+def updateDisplayManager(component, source):
+	if (Database.getComponentByID("gfx_hal_le") is not None):
+		Database.setSymbolValue("gfx_hal_le", "DisplayHorzPulseWidth", component.getSymbolValue("DisplayHorzPulseWidth"), 1)    
+		Database.setSymbolValue("gfx_hal_le", "DisplayHorzBackPorch", component.getSymbolValue("DisplayHorzBackPorch"), 1)
+		Database.setSymbolValue("gfx_hal_le", "DisplayHorzFrontPorch", component.getSymbolValue("DisplayHorzFrontPorch"), 1)    
+		Database.setSymbolValue("gfx_hal_le", "DisplayVertPulseWidth", component.getSymbolValue("DisplayVertPulseWidth"), 1)
+		Database.setSymbolValue("gfx_hal_le", "DisplayVertBackPorch", component.getSymbolValue("DisplayVertBackPorch"), 1)    
+		Database.setSymbolValue("gfx_hal_le", "DisplayVertFrontPorch", component.getSymbolValue("DisplayVertFrontPorch"), 1)
+		Database.setSymbolValue("gfx_hal_le", "DisplayWidth", component.getSymbolValue("DisplayWidth"), 1)    
+		Database.setSymbolValue("gfx_hal_le", "DisplayHeight", component.getSymbolValue("DisplayHeight"), 1)
+		Database.setSymbolValue("gfx_hal_le", "PixelClock", component.getSymbolValue("PixelClock"), 1)
+		Database.setSymbolValue("gfx_hal_le", "DisplayDataEnablePolarity", component.getSymbolValue("DisplayDataEnablePolarity"), 1)
+		Database.setSymbolValue("gfx_hal_le", "DisplayVSYNCNegative", component.getSymbolValue("DisplayVSYNCNegative"), 1)
+		Database.setSymbolValue("gfx_hal_le", "DisplayHSYNCNegative", component.getSymbolValue("DisplayHSYNCNegative"), 1)
+		Database.setSymbolValue("gfx_hal_le", "gfx_driver", component.getID(), 1)
+		Database.setSymbolValue("gfx_hal_le", "gfx_display", component.getDependencyComponent("Graphics Display").getID(), 1)
+		Database.setSymbolValue("gfx_hal_le", "DriverName", component.getDisplayName(), 1)
+		Database.setSymbolValue("gfx_hal_le", "DisplayName", component.getDependencyComponent("Graphics Display").getDisplayName(), 1)
+		component.getSymbolByID("DisplaySettingsMenu").setVisible(False)
+		component.getSymbolByID("HALComment").setVisible(True)

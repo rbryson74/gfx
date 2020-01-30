@@ -37,6 +37,8 @@ def configureDisplaySettings(lccComponent, displayComponent):
 	lccComponent.setSymbolValue("DisplayVertFrontPorch", displayComponent.getSymbolByID("VertFrontPorch").getValue())
 	lccComponent.setSymbolValue("DisplayWidth", displayComponent.getSymbolByID("DisplayWidth").getValue())
 	lccComponent.setSymbolValue("DisplayHeight", displayComponent.getSymbolByID("DisplayHeight").getValue())
+	if (Database.getComponentByID("gfx_hal_le") is not None):
+		Database.setSymbolValue("gfx_hal_le", "gfx_display", displayComponent.getDisplayName(), 1)
 	
 def resetDisplaySettings(lccComponent, displayComponent):
 	lccComponent.clearSymbolValue("DisplayHorzPulseWidth")
@@ -49,6 +51,11 @@ def resetDisplaySettings(lccComponent, displayComponent):
 	lccComponent.clearSymbolValue("DisplayHeight")
 
 def onAttachmentConnected(source, target):
+	print("dependency Connected = " + str(target['id']))
+	gfxCoreComponentTable = ["gfx_hal_le"]
+	if (Database.getComponentByID("gfx_hal_le") is None):
+		Database.activateComponents(gfxCoreComponentTable)
+	updateDisplayManager(source["component"], target["component"])
 	if source["id"] == "Display Interface":
 		print(source["component"].getID() + ": Using " + target["component"].getID() + " interface ")
 		InterfaceType = str(target["component"].getSymbolByID("InterfaceType").getValue())
@@ -73,8 +80,8 @@ def onPixelClockSet(pixelClockSet, event):
 	prescalerValue = float(MasterClock/float(event["value"]))
 	strValue = str(float("{0:.4f}".format(prescalerValue)))
 	pixelClockSet.getComponent().getSymbolByID("PixelClockPreScaler").setValue(strValue, 1)
-	if (pixelClockSet.getComponent().getSymbolValue("HALConnected") == True):
-		Database.setSymbolValue("gfx_hal", "PixelClock", event["value"], 1)
+	if (Database.getComponentByID("gfx_hal_le") is not None):
+		Database.setSymbolValue("gfx_hal_le", "PixelClock", event["value"], 1)
 		
 def onBacklightPWMFrequencySet(pixelClockSet, event):
 	MasterClock = pixelClockSet.getComponent().getSymbolValue("MasterClock")
@@ -84,3 +91,25 @@ def onBacklightPWMFrequencySet(pixelClockSet, event):
 
 def showRTOSMenu(symbol, event):
 	symbol.setVisible(event["value"] != "BareMetal")
+
+def updateDisplayManager(component, source):
+	if (Database.getComponentByID("gfx_hal_le") is not None):
+		Database.setSymbolValue("gfx_hal_le", "DisplayHorzPulseWidth", component.getSymbolValue("DisplayHorzPulseWidth"), 1)    
+		Database.setSymbolValue("gfx_hal_le", "DisplayHorzBackPorch", component.getSymbolValue("DisplayHorzBackPorch"), 1)
+		Database.setSymbolValue("gfx_hal_le", "DisplayHorzFrontPorch", component.getSymbolValue("DisplayHorzFrontPorch"), 1)    
+		Database.setSymbolValue("gfx_hal_le", "DisplayVertPulseWidth", component.getSymbolValue("DisplayVertPulseWidth"), 1)
+		Database.setSymbolValue("gfx_hal_le", "DisplayVertBackPorch", component.getSymbolValue("DisplayVertBackPorch"), 1)    
+		Database.setSymbolValue("gfx_hal_le", "DisplayVertFrontPorch", component.getSymbolValue("DisplayVertFrontPorch"), 1)
+		Database.setSymbolValue("gfx_hal_le", "DisplayWidth", component.getSymbolValue("DisplayWidth"), 1)    
+		Database.setSymbolValue("gfx_hal_le", "DisplayHeight", component.getSymbolValue("DisplayHeight"), 1)
+		Database.setSymbolValue("gfx_hal_le", "PixelClock", component.getSymbolValue("PixelClock"), 1)
+		Database.setSymbolValue("gfx_hal_le", "DisplayDataEnablePolarity", component.getSymbolValue("DisplayDataEnablePolarity"), 1)
+		Database.setSymbolValue("gfx_hal_le", "DisplayVSYNCNegative", component.getSymbolValue("DisplayVSYNCNegative"), 1)
+		Database.setSymbolValue("gfx_hal_le", "DisplayHSYNCNegative", component.getSymbolValue("DisplayHSYNCNegative"), 1)
+		Database.setSymbolValue("gfx_hal_le", "gfx_driver", component.getID(), 1)
+		Database.setSymbolValue("gfx_hal_le", "gfx_display", component.getDependencyComponent("Graphics Display").getID(), 1)
+		Database.setSymbolValue("gfx_hal_le", "DriverName", component.getDisplayName(), 1)
+		Database.setSymbolValue("gfx_hal_le", "DisplayName", component.getDependencyComponent("Graphics Display").getDisplayName(), 1)
+		component.getSymbolByID("DisplaySettingsMenu").setVisible(False)
+		component.getSymbolByID("HALComment").setVisible(True)
+    

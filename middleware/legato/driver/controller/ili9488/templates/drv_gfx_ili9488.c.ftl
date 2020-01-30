@@ -37,6 +37,17 @@
 *******************************************************************************/
 //DOM-IGNORE-END
 
+<#if gfx_hal_le??>
+
+<#assign Val_Width = gfx_hal_le.DisplayWidth>
+<#assign Val_Height = gfx_hal_le.DisplayHeight>
+
+<#else>
+
+<#assign Val_Width = DisplayWidth>
+<#assign Val_Height = DisplayHeight>
+
+</#if>
 
 #include "definitions.h"
 
@@ -48,8 +59,8 @@
 #define DISPLAY_DEFAULT_WIDTH   320
 #define DISPLAY_DEFAULT_HEIGHT  480
 
-#define DISPLAY_WIDTH   ${DisplayWidth}
-#define DISPLAY_HEIGHT  ${DisplayHeight}
+#define DISPLAY_WIDTH   ${Val_Width}
+#define DISPLAY_HEIGHT  ${Val_Height}
 
 #define PIXEL_BUFFER_COLOR_MODE LE_COLOR_MODE_RGB_565
 

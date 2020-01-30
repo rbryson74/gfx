@@ -26,7 +26,7 @@ def loadModule():
 	component = Module.CreateComponent("gfx_legato", "Legato", "/Graphics/Middleware/", "config/le.py")
 	component.setDisplayType("Graphics Library")
 	component.addDependency("gfx_driver", "LE Display Driver", False, True)
-        component.addDependency("gpu_driver", "LE GPU Driver", False, False)
+	component.addDependency("gpu_driver", "LE GPU Driver", False, False)
 	component.addDependency("sys_input", "Input System Service", True, True)
 	component.setDependencyEnabled("sys_input", False)
 	component.addPlugin("plugins/legato.jar")

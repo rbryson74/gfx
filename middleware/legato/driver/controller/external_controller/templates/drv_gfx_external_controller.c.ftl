@@ -36,6 +36,19 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
 *******************************************************************************/
 // DOM-IGNORE-END
+
+<#if gfx_hal_le??>
+
+<#assign Val_Width = gfx_hal_le.DisplayWidth>
+<#assign Val_Height = gfx_hal_le.DisplayHeight>
+
+<#else>
+
+<#assign Val_Width = DisplayWidth>
+<#assign Val_Height = DisplayHeight>
+
+</#if>
+
 #include "definitions.h"
 
 #include "gfx/interface/drv_gfx_disp_intf.h"
@@ -48,8 +61,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #define DISPLAY_DEFAULT_WIDTH   480
 #define DISPLAY_DEFAULT_HEIGHT  800
 
-#define DISPLAY_WIDTH   ${DisplayWidth}
-#define DISPLAY_HEIGHT  ${DisplayHeight}
+#define DISPLAY_WIDTH   ${Val_Width}
+#define DISPLAY_HEIGHT  ${Val_Height}
 
 #define PIXEL_BUFFER_COLOR_MODE LE_COLOR_MODE_RGB_565
 #define SCREEN_WIDTH DISPLAY_WIDTH

@@ -55,6 +55,11 @@ def instantiateComponent(comp):
 	execfile(Module.getPath() + "/config/ili9488_rtos.py")
 
 def onAttachmentConnected(source, target):
+	print("dependency Connected = " + str(target['id']))
+	gfxCoreComponentTable = ["gfx_hal_le"]
+	if (Database.getComponentByID("gfx_hal_le") is None):
+		Database.activateComponents(gfxCoreComponentTable)
+	updateDisplayManager(source["component"], target["component"])
 	source["component"].getSymbolByID("ParallelInterfaceWidth").setVisible(False)
 	if source["id"] == "Parallel Display Interface":
 		print(source["component"].getID() + ": Using " + target["component"].getID() + " interface ")
@@ -71,3 +76,13 @@ def onAttachmentDisconnected(source, target):
 
 def showRTOSMenu(symbol, event):
 	symbol.setVisible(event["value"] != "BareMetal")
+
+def updateDisplayManager(component, source):
+	if (Database.getComponentByID("gfx_hal_le") is not None):
+		Database.setSymbolValue("gfx_hal_le", "DisplayWidth", component.getSymbolValue("DisplayWidth"), 1)    
+		Database.setSymbolValue("gfx_hal_le", "DisplayHeight", component.getSymbolValue("DisplayHeight"), 1)
+		Database.setSymbolValue("gfx_hal_le", "gfx_driver", component.getID(), 1)
+		Database.setSymbolValue("gfx_hal_le", "gfx_display", component.getDependencyComponent("Graphics Display").getID(), 1)
+		Database.setSymbolValue("gfx_hal_le", "DriverName", component.getDisplayName(), 1)
+		Database.setSymbolValue("gfx_hal_le", "DisplayName", component.getDependencyComponent("Graphics Display").getDisplayName(), 1)
+    

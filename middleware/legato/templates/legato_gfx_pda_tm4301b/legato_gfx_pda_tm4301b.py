@@ -87,7 +87,7 @@ def onDisplayInterfaceSelected(interfaceSelected, event):
 	configureDisplayInterface(bspID, str(newDisplayInterface))
 
 def instantiateComponent(templateComponent):
-	componentsIDTable = ["HarmonyCore", "sys_input", "gfx_legato", "gfx_disp_pdatm4301b_480x272", "gfx_maxtouch_controller"]
+	componentsIDTable = ["HarmonyCore", "sys_input", "gfx_legato", "gfx_hal_le", "gfx_disp_pdatm4301b_480x272", "gfx_maxtouch_controller"]
 	autoConnectTable = [["gfx_maxtouch_controller", "touch_panel", "gfx_disp_pdatm4301b_480x272", "touch_panel"]]
 	deactivateIDTable = ["FreeRTOS"]
 
