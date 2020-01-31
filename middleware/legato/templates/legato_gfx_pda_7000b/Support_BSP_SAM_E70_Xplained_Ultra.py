@@ -25,7 +25,7 @@
 ssd1963ActivateList = ["smc", "le_gfx_intf_parallel_smc", "le_gfx_driver_ssd1963", "twihs0", "drv_i2c", "drv_i2c0", "tc0", "sys_time"]
 ssd1963AutoConnectList = [["le_gfx_driver_ssd1963", "Display Interface", "le_gfx_intf_parallel_smc", "le_gfx_intf_parallel_smc"],
 						["le_gfx_intf_parallel_smc", "SMC_CS", "smc", "smc_cs0"],
-						["le_gfx_driver_ssd1963", "Graphics Display", "gfx_disp_pdatm5000_800x480", "gfx_display"],
+						["le_gfx_driver_ssd1963", "Graphics Display", "gfx_disp_pdatm7000b_800x480", "gfx_display"],
 						["gfx_legato", "gfx_driver", "le_gfx_driver_ssd1963", "gfx_driver_ssd1963"],
 						["drv_i2c_0", "drv_i2c_I2C_dependency", "twihs0", "TWIHS0_I2C"],
 						["gfx_maxtouch_controller", "i2c", "drv_i2c_0", "drv_i2c"],

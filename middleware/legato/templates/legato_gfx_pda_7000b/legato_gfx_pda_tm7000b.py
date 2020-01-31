@@ -85,8 +85,8 @@ def onDisplayInterfaceSelected(interfaceSelected, event):
 	configureDisplayInterface(bspID, str(newDisplayInterface))
 
 def instantiateComponent(templateComponent):
-	componentsIDTable = ["HarmonyCore", "sys_input", "gfx_legato", "gfx_hal_le", "gfx_disp_pdatm5000_800x480", "gfx_maxtouch_controller"]
-	autoConnectTable = [["gfx_maxtouch_controller", "touch_panel", "gfx_disp_pdatm5000_800x480", "touch_panel"]]
+	componentsIDTable = ["HarmonyCore", "sys_input", "gfx_legato", "gfx_hal_le", "gfx_disp_pdatm7000b_800x480", "gfx_maxtouch_controller"]
+	autoConnectTable = [["gfx_maxtouch_controller", "touch_panel", "gfx_disp_pdatm7000b_800x480", "touch_panel"]]
 	deactivateIDTable = ["FreeRTOS"]
 
 	#Check if a supported BSP is loaded
@@ -106,7 +106,7 @@ def instantiateComponent(templateComponent):
 
 	DisplayInterface = templateComponent.createComboSymbol("DisplayInterface", None, DisplayInterfaceList)
 	DisplayInterface.setLabel("Display Interface")
-	DisplayInterface.setDescription("Configures the display controller interface to the PDA TM5000.")
+	DisplayInterface.setDescription("Configures the display controller interface to the PDA TM7000B.")
 	DisplayInterface.setDependencies(onDisplayInterfaceSelected, ["DisplayInterface"])
 	DisplayInterface.setVisible(True)
 
