@@ -1052,7 +1052,7 @@ void ${GFX2D_INSTANCE_NAME}_IRQ_CallbackRegister(PLIB_GFX2D_IRQ_CALLBACK callbac
 
 // *****************************************************************************
 /* Function:
-    void ${GFX2D_INSTANCE_NAME}_GFX2D_Initialize( void )
+    void ${GFX2D_INSTANCE_NAME}_Initialize( void )
 
    Summary:
     Initializes the GFX2D controller
@@ -1072,11 +1072,11 @@ void ${GFX2D_INSTANCE_NAME}_IRQ_CallbackRegister(PLIB_GFX2D_IRQ_CALLBACK callbac
    Remarks:
     Convenience routine for drivers
 */
-void ${GFX2D_INSTANCE_NAME}_GFX2D_Initialize( void );
+void ${GFX2D_INSTANCE_NAME}_Initialize( void );
 
 // *****************************************************************************
 /* Function:
-    void ${GFX2D_INSTANCE_NAME}_GFX2D_Enable( void );
+    void ${GFX2D_INSTANCE_NAME}_Enable( void );
 
    Summary:
     Enables the GFX2D controller
@@ -1096,11 +1096,11 @@ void ${GFX2D_INSTANCE_NAME}_GFX2D_Initialize( void );
    Remarks:
     Convenience routine for drivers
 */
-void ${GFX2D_INSTANCE_NAME}_GFX2D_Enable( void );
+void ${GFX2D_INSTANCE_NAME}_Enable( void );
 
 // *****************************************************************************
 /* Function:
-    void ${GFX2D_INSTANCE_NAME}_GFX2D_Disable( void );
+    void ${GFX2D_INSTANCE_NAME}_Disable( void );
 
    Summary:
     Disables the GFX2D controller
@@ -1120,11 +1120,11 @@ void ${GFX2D_INSTANCE_NAME}_GFX2D_Enable( void );
    Remarks:
     Convenience routine for drivers
 */
-void ${GFX2D_INSTANCE_NAME}_GFX2D_Disable( void );
+void ${GFX2D_INSTANCE_NAME}_Disable( void );
 
 // *****************************************************************************
 /* Function:
-    GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_GFX2D_Fill(LCDC_SIGNAL_POLARITY polarity)
+    GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_Fill(LCDC_SIGNAL_POLARITY polarity)
 
    Summary:
     Sets the pixel clock signal polarity
@@ -1144,7 +1144,7 @@ void ${GFX2D_INSTANCE_NAME}_GFX2D_Disable( void );
    Remarks:
     Convenience routine for drivers
 */
-GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_GFX2D_Fill(GFX2D_BUFFER *dst, GFX2D_RECTANGLE *rect, gpu_color_t color);
+GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_Fill(GFX2D_BUFFER *dst, GFX2D_RECTANGLE *rect, gpu_color_t color);
 
 // *****************************************************************************
 /* Function:
@@ -1172,12 +1172,12 @@ GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_GFX2D_Fill(GFX2D_BUFFER *dst, GFX2D_RECTANGL
    Remarks:
     Convenience routine for drivers
 */
-GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_GFX2D_Copy(GFX2D_BUFFER *dst, GFX2D_RECTANGLE *dst_rect, GFX2D_BUFFER *src,
+GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_Copy(GFX2D_BUFFER *dst, GFX2D_RECTANGLE *dst_rect, GFX2D_BUFFER *src,
                         GFX2D_RECTANGLE *src_rect);
 
 // *****************************************************************************
 /* Function:
-    GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_GFX2D_Blend(GFX2D_BUFFER *dst, GFX2D_RECTANGLE *dst_rect, GFX2D_BUFFER *fg,
+    GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_Blend(GFX2D_BUFFER *dst, GFX2D_RECTANGLE *dst_rect, GFX2D_BUFFER *fg,
                          GFX2D_RECTANGLE *fg_rect, GFX2D_BUFFER *bg, GFX2D_RECTANGLE *bg_rect,
                          GFX2D_BLEND blend)
 
@@ -1206,13 +1206,13 @@ GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_GFX2D_Copy(GFX2D_BUFFER *dst, GFX2D_RECTANGL
    Remarks:
     Convenience routine for drivers
 */
-GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_GFX2D_Blend(GFX2D_BUFFER *dst, GFX2D_RECTANGLE *dst_rect, GFX2D_BUFFER *fg,
+GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_Blend(GFX2D_BUFFER *dst, GFX2D_RECTANGLE *dst_rect, GFX2D_BUFFER *fg,
                          GFX2D_RECTANGLE *fg_rect, GFX2D_BUFFER *bg, GFX2D_RECTANGLE *bg_rect,
                          GFX2D_BLEND blend);
 
 // *****************************************************************************
 /* Function:
-    GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_GFX2D_Rop(GFX2D_BUFFER *dst, GFX2D_RECTANGLE *dst_rect, GFX2D_BUFFER *s1,
+    GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_Rop(GFX2D_BUFFER *dst, GFX2D_RECTANGLE *dst_rect, GFX2D_BUFFER *s1,
                          GFX2D_RECTANGLE *s1_rect, GFX2D_BUFFER *s2, GFX2D_RECTANGLE *s2_rect,
                          GFX2D_BUFFER *pmask, struct gpu_rop rop)
 
@@ -1238,13 +1238,13 @@ GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_GFX2D_Blend(GFX2D_BUFFER *dst, GFX2D_RECTANG
    Remarks:
     Convenience routine for drivers
 */
-GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_GFX2D_Rop(GFX2D_BUFFER *dst, GFX2D_RECTANGLE *dst_rect, GFX2D_BUFFER *s1,
+GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_Rop(GFX2D_BUFFER *dst, GFX2D_RECTANGLE *dst_rect, GFX2D_BUFFER *s1,
                          GFX2D_RECTANGLE *s1_rect, GFX2D_BUFFER *s2, GFX2D_RECTANGLE *s2_rect,
                          GFX2D_BUFFER *pmask, struct gpu_rop rop);
 
 // *****************************************************************************
 /* Function:
-    GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_GFX2D_Copy(GFX2D_BUFFER *dst, GFX2D_RECTANGLE *dst_rect, GFX2D_BUFFER *src,
+    GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_Copy(GFX2D_BUFFER *dst, GFX2D_RECTANGLE *dst_rect, GFX2D_BUFFER *src,
                         GFX2D_RECTANGLE *src_rect)
 
    Summary:
@@ -1268,11 +1268,11 @@ GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_GFX2D_Rop(GFX2D_BUFFER *dst, GFX2D_RECTANGLE
    Remarks:
     Convenience routine for drivers
 */
-bool ${GFX2D_INSTANCE_NAME}_GFX2D_IsBusy(void);
+bool ${GFX2D_INSTANCE_NAME}_IsBusy(void);
 
 // *****************************************************************************
 /* Function:
-    GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_GFX2D_StatusGet(void)
+    GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_StatusGet(void)
 
    Summary:
     Returns the general availability of the controller
@@ -1292,7 +1292,7 @@ bool ${GFX2D_INSTANCE_NAME}_GFX2D_IsBusy(void);
    Remarks:
     Convenience routine for drivers
 */
-GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_GFX2D_StatusGet(void);
+GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_StatusGet(void);
 
 
 // DOM-IGNORE-BEGIN
