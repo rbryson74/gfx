@@ -63,8 +63,13 @@ def generateInitFile():
 	file.write('{')
 	file.write('    legato_initialize_schemes();')
 	file.writeNewLine()
-	file.write('    leSetStringTable(&stringTable);')
-	file.writeNewLine()
+
+	global stringTableMatrix
+
+	if stringTableMatrix.stringIDList.size() > 0:
+		file.write('    leSetStringTable(&stringTable);')
+		file.writeNewLine()
+	
 	file.write('    currentScreen = -1;');
 
 	if len(screenList) > 0:

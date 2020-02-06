@@ -285,10 +285,15 @@ static leResult preFrame()
         
         addRectToFrameList(&rect);
     }
-    
+
+#if LE_RENDER_LEFTRIGHT == 0
     // sort frame rects by Y
     leRectArray_SortByY(&_rendererState.frameRectList);
-    
+#else
+    // sort frame rects by X
+    leRectArray_SortByX(&_rendererState.frameRectList);
+#endif
+
     _rendererState.frameRectIdx = 0;
     _rendererState.frameDrawCount = 0;
     _rendererState.renderBuffer = &renderBuffer;

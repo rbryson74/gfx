@@ -280,6 +280,21 @@ LIB_EXPORT leResult leRectArray_SortBySize(leRectArray* arr);
 
 // *****************************************************************************
 /* Function:
+    leResult leRectArray_SortByX(leRectArray* arr)
+
+   Summary:
+    Sorts a given array in order of the X coordinate.
+
+   Parameters:
+    leRectArray* arr - the array to analyze
+
+   Returns:
+    leResult - the result of the operation
+*/
+LIB_EXPORT leResult leRectArray_SortByX(leRectArray* arr);
+
+// *****************************************************************************
+/* Function:
     leResult leRectArray_SortByY(leRectArray* arr)
 
    Summary:

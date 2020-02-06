@@ -1,6 +1,9 @@
 def generateStringTableFile():
 	global stringTableMatrix
-	
+
+	if stringTableMatrix.stringIDList.size() == 0:
+		return
+
 	file = File("generated/le_gen_stringtable.c")
 	
 	file.write('#include "gfx/legato/generated/le_gen_assets.h"')
@@ -39,7 +42,7 @@ def generateStringTableFile():
 	file.write(" * 'length' number of codepoints - the string data (encoding dependent")
 	file.write(" ****************************************************************************/")
 	file.writeNewLine()
-	
+
 	stringTableData = stringTableMatrix.generateStringTableData()
 	stringTableDataLength = len(stringTableData)
 	
@@ -50,23 +53,24 @@ def generateStringTableFile():
 	
 	file.write("};")
 	file.writeNewLine()
-	
+
 	fontList = FontManager.getFontList()
 
-	file.write("/* font asset pointer list */")
-	file.write("leFont* fontList[%d] =" % (fontList.size()))
-	file.write("{")
-	
-	for font in fontList:
-		fontData = font.generateFontData()
+	if stringTableMatrix.fontList > 0:
+		file.write("/* font asset pointer list */")
+		file.write("leFont* fontList[%d] =" % (fontList.size()))
+		file.write("{")
+		
+		for font in fontList:
+			fontData = font.generateFontData()
 
-		if fontData.glyphs.size() == 0:
-			continue
+			if fontData.glyphs.size() == 0:
+				continue
 
-		file.write("    (leFont*)&%s," % (font.getName()))
-	
-	file.write("};")
-	file.writeNewLine()
+			file.write("    (leFont*)&%s," % (font.getName()))
+		
+		file.write("};")
+		file.writeNewLine()
 	
 	file.write("const leStringTable stringTable =")
 	file.write("{")
@@ -77,7 +81,12 @@ def generateStringTableFile():
 	file.write("        %d, // data size" % (stringTableDataLength))
 	file.write("    },")
 	file.write("    (void*)stringTable_data, // string table data")
-	file.write("    fontList, // font lookup table")
+
+	if fontList.size() > 0:
+		file.write("    fontList, // font lookup table")
+	else:
+		file.write("    NULL, // font lookup table")
+
 	file.write("    LE_STRING_ENCODING_%s // encoding standard" % (StringTable.getEncoding()))
 	file.write("};")
 	file.close()

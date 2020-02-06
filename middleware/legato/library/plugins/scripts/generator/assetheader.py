@@ -187,7 +187,10 @@ def generateFontIDList(astHdr):
 	
 def generateStringIDList(astHdr):
 	global stringTableMatrix
-	
+
+	if stringTableMatrix.stringIDList.size() == 0:
+		return
+
 	languageList = StringTable.getLanguageList()
 	stringList = StringTable.getStringList()
 	

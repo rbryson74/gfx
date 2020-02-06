@@ -122,6 +122,7 @@ def generateConfigFile():
 	configFile.write("#define LE_SCRATCH_BUFFER_SIZE_KB          %d" % StateManager.getInteger("SCRATCH_BUFFER_SIZE"))
 	configFile.write("#define LE_USE_ARC_SCAN_FILL               1")
 	configFile.write("#define LE_ARC_SMOOTH_EDGE                 LE_FALSE")
+	configFile.write("#define LE_RENDER_LEFTRIGHT                %d" % int(StateManager.getBoolean("RENDER_LEFTRIGHT")))
 	configFile.writeNewLine()
 	configFile.writeNewLine()
 	configFile.write("//DOM-IGNORE-BEGIN")
