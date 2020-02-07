@@ -32,6 +32,11 @@ def instantiateComponent(comp):
 
         nano2d_default_mode = "Synchronous"
 
+	DriverInitName = comp.createStringSymbol("DriverInitName", None)
+        DriverInitName.setLabel("Driver Name")
+      	DriverInitName.setDefaultValue("_2dgpuGraphicsProcessor")
+        DriverInitName.setReadOnly(True)
+
     	Nano2DSymLIB = comp.createStringSymbol("DRV_NANO2D_LIB", None)
     	Nano2DSymLIB.setLabel("LIB Used")
 	Nano2DSymLIB.setDefaultValue("libnano2d.a")
@@ -94,17 +99,6 @@ def instantiateComponent(comp):
 	ProcInfoFunction.setDefaultValue("procNANO2DInfoGet")
 	ProcInfoFunction.setReadOnly(True)
 	ProcInfoFunction.setVisible(False)
-
-	ProcInitFunction = comp.createStringSymbol("ProcInitFunction", None)
-	ProcInitFunction.setLabel("Processor Init Function Name")
-	ProcInitFunction.setDefaultValue("procNANO2DContextInitialize")
-	ProcInitFunction.setReadOnly(True)
-	ProcInfoFunction.setVisible(False)
-
-	ProcInitName = comp.createStringSymbol("ProcInitName", None)
-	ProcInitName.setVisible(False)
-	ProcInitName.setReadOnly(True)
-	ProcInitName.setDefaultValue("_2dgpuGraphicsProcessor")
 
 	# System level 
 	ProcSysDefinitions = comp.createFileSymbol("SYS_DEFINITIONS_H", None)

@@ -40,20 +40,6 @@ def instantiateComponent(comp):
 	DriverInitName.setReadOnly(True)
 	DriverInitName.setDefaultValue("glcdDisplayDriver")
 
-	# these two symbols are read by the HAL for initialization purposes
-	# they must match the function names in the actual driver code
-	DriverInfoFunction = comp.createStringSymbol("DriverInfoFunction", None)
-	DriverInfoFunction.setLabel("Driver Info Function Name")
-	DriverInfoFunction.setReadOnly(True)
-	DriverInfoFunction.setDefaultValue("driverGLCDInfoGet")
-	DriverInfoFunction.setVisible(False)
-	
-	DriverInitFunction = comp.createStringSymbol("DriverInitFunction", None)
-	DriverInitFunction.setLabel("Driver Init Function Name")
-	DriverInitFunction.setReadOnly(True)
-	DriverInitFunction.setDefaultValue("driverGLCDContextInitialize")
-	DriverInitFunction.setVisible(False)
-
 	# System level 
 	SYS_DEFINITIONS_H = comp.createFileSymbol("SYS_DEFINITIONS_H", None)
 	SYS_DEFINITIONS_H.setType("STRING")

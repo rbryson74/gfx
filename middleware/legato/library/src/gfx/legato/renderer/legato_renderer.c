@@ -7,7 +7,6 @@
 #include "gfx/legato/common/legato_utils.h"
 #include "gfx/legato/core/legato_state.h"
 #include "gfx/legato/datastructure/legato_rectarray.h"
-#include "gfx/legato/renderer/legato_driver.h"
 
 leRenderState _rendererState;
 
@@ -89,7 +88,7 @@ void leRenderer_ClipDrawRect(const leRect* rect,
     leRectClip(rect, &_rendererState.drawRect, res);
 }
 
-leResult leRenderer_Initialize(const leDisplayDriver* dispDriver)
+leResult leRenderer_Initialize(const gfxDisplayDriver* dispDriver)
 {
     memset(&_rendererState, 0, sizeof(leRenderState));
  
@@ -609,7 +608,7 @@ static leResult postRect()
     leRect frameRect = _rendererState.frameRectList.rects[_rendererState.frameRectIdx];
 
     /* render buffer may be locked by something or display driver may not be ready */
-    if(_rendererState.dispDriver->blitBuffer(frameRect.x, frameRect.y, &renderBuffer) == LE_FAILURE)
+    if(_rendererState.dispDriver->blitBuffer(frameRect.x, frameRect.y, (gfxPixelBuffer*)&renderBuffer, GFX_BLEND_NONE) == GFX_FAILURE)
     {
         return LE_FAILURE;
     }

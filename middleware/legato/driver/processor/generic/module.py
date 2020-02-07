@@ -23,6 +23,6 @@
 ##############################################################################
 
 def loadModule():
-	cntlComponent = Module.CreateComponent("gfx_generic_gpu", "Generic GPU", "/Graphics/Processor", "generic.py")
-	cntlComponent.setDisplayType("Graphics Processor")
-	cntlComponent.addCapability("gfx_controller", "Graphics Processor", False)
+	cntlComponent = Module.CreateComponent("le_gfx_generic_gpu", "LE Generic GPU", "/Graphics/Processor", "generic.py")
+	cntlComponent.setDisplayType("LE Graphics Processor")
+	cntlComponent.addCapability("gfx_controller", "LE GPU Driver", False)

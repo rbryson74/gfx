@@ -14,7 +14,7 @@
 *******************************************************************************/
 //DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2018-2020 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -124,11 +124,11 @@
 </#if>
 
 <#if (Val_PaletteMode??) && (Val_PaletteMode == true)>
-#define FRAMEBUFFER_COLOR_MODE LE_COLOR_MODE_GS_8
+#define FRAMEBUFFER_COLOR_MODE GFX_COLOR_MODE_GS_8
 #define FRAMEBUFFER_TYPE uint8_t
 #define FRAMEBUFFER_PIXEL_BYTES 2
 <#else>
-#define FRAMEBUFFER_COLOR_MODE LE_COLOR_MODE_RGB_565
+#define FRAMEBUFFER_COLOR_MODE GFX_COLOR_MODE_RGB_565
 #define FRAMEBUFFER_TYPE uint16_t
 #define FRAMEBUFFER_PIXEL_BYTES 2
 </#if>
@@ -137,7 +137,7 @@
 
 FRAMEBUFFER_TYPE FRAMEBUFFER_ATTRIBUTE frameBuffer[BUFFER_COUNT][DISPLAY_WIDTH * DISPLAY_HEIGHT];
 
-lePixelBuffer pixelBuffer;
+gfxPixelBuffer pixelBuffer;
 
 #ifndef GFX_DISP_INTF_PIN_RESET_Set
 #error "GFX_DISP_INTF_PIN_RESET GPIO must be defined in the Pin Settings"
@@ -200,7 +200,7 @@ unsigned int vsyncCount = 0;
 
 static uint32_t state;
 
-leColorMode DRV_LCC_GetColorMode()
+gfxColorMode DRV_LCC_GetColorMode()
 {
     return FRAMEBUFFER_COLOR_MODE;
 }
@@ -243,9 +243,9 @@ uint32_t DRV_LCC_GetActiveLayer()
 	return 0;
 }
 
-leResult DRV_LCC_SetActiveLayer(uint32_t idx)
+gfxResult DRV_LCC_SetActiveLayer(uint32_t idx)
 {
-	return LE_SUCCESS;
+        return GFX_SUCCESS;
 }
 
 void DRV_LCC_Swap(void)
@@ -258,31 +258,32 @@ uint32_t DRV_LCC_GetVSYNCCount(void)
 	return vsyncCount;
 }
 
-leResult DRV_LCC_BlitBuffer(int32_t x,
+gfxResult DRV_LCC_BlitBuffer(int32_t x,
                              int32_t y,
-                             lePixelBuffer* buf)
+                             gfxPixelBuffer* buf,
+                             gfxBlend gfx)
 {
     void* srcPtr;
     void* destPtr;
     uint32_t row, rowSize;
 
     if (state != RUN)
-        return LE_FAILURE;
+        return GFX_FAILURE;
     
-    rowSize = buf->size.width * leColorInfoTable[buf->mode].size;
+    rowSize = buf->size.width * gfxColorInfoTable[buf->mode].size;
     
     for(row = 0; row < buf->size.height; row++)
     {
-        srcPtr = lePixelBufferOffsetGet(buf, 0, row);
-        destPtr = lePixelBufferOffsetGet(&pixelBuffer, x, y + row);
+        srcPtr = gfxPixelBufferOffsetGet(buf, 0, row);
+        destPtr = gfxPixelBufferOffsetGet(&pixelBuffer, x, y + row);
         
         memcpy(destPtr, srcPtr, rowSize);
     }
     
-    return LE_SUCCESS;   
+    return GFX_SUCCESS;
 }
 
-static leResult lccBacklightBrightnessSet(uint32_t brightness)
+static gfxResult lccBacklightBrightnessSet(uint32_t brightness)
 {
     if (brightness == 0)
     {
@@ -293,15 +294,15 @@ static leResult lccBacklightBrightnessSet(uint32_t brightness)
         GFX_DISP_INTF_PIN_BACKLIGHT_Set();
     }
 
-    return LE_SUCCESS;
+    return GFX_SUCCESS;
 
 }
 
-leResult DRV_LCC_Initialize(void)
+gfxResult DRV_LCC_Initialize(void)
 {
     state = INIT;
 
-    lePixelBufferCreate(DISP_HOR_RESOLUTION,
+    gfxPixelBufferCreate(DISP_HOR_RESOLUTION,
                         DISP_VER_RESOLUTION,
                         FRAMEBUFFER_COLOR_MODE,
                         frameBuffer,
@@ -323,7 +324,7 @@ leResult DRV_LCC_Initialize(void)
 
     lccBacklightBrightnessSet(100);
 
-    return LE_SUCCESS;
+    return GFX_SUCCESS;
 }
 
 /**** End Hardware Abstraction Interfaces ****/
@@ -378,13 +379,13 @@ static int DRV_GFX_LCC_Start()
 
 static void DRV_GFX_LCC_DisplayRefresh(void)
 {
-    lePoint drawPoint;
+    gfxPoint drawPoint;
 <#if (Val_PaletteMode??) && (Val_PaletteMode == true)>
     uint8_t * bufferPtr;
     uint16_t* palette;
     uint32_t i;
 <#else>
-    leBuffer* buffer_to_tx = (void*) frameBuffer;
+    gfxBuffer* buffer_to_tx = (void*) frameBuffer;
 </#if>
 
     typedef enum
@@ -536,14 +537,14 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
                 drawPoint.y = line++;
 
 <#if (Val_PaletteMode??) && (Val_PaletteMode == true)>
-                bufferPtr = lePixelBufferOffsetGet_Unsafe(buffer, &drawPoint);
+                bufferPtr = gfxPixelBufferOffsetGet_Unsafe(buffer, &drawPoint);
                 
                 palette = (uint16_t*)GFX_ActiveContext()->globalPalette;
                 
                 for(i = 0; i < DISPLAY_WIDTH; i++)
                     frameLine[i] = palette[bufferPtr[i]];
 <#else>
-                buffer_to_tx = lePixelBufferOffsetGet_Unsafe(&pixelBuffer, drawPoint.x, drawPoint.y);
+                buffer_to_tx = gfxPixelBufferOffsetGet_Unsafe(&pixelBuffer, drawPoint.x, drawPoint.y);
 </#if>
             }
 

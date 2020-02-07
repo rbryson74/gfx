@@ -218,7 +218,7 @@ vtableFn vtableFnTable[] =
     NULL
 };
 
-leResult leInitialize(const leDisplayDriver* dispDriver)
+leResult leInitialize(const gfxDisplayDriver* dispDriver)
 {
     uint32_t idx;
     leWidget* root;

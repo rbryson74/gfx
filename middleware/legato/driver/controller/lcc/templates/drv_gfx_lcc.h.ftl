@@ -18,7 +18,7 @@
 *******************************************************************************/
 //DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2018-2020 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -44,7 +44,7 @@
 #ifndef _DRV_GFX_LCC_H
 #define _DRV_GFX_LCC_H
 
-#include "gfx/legato/renderer/legato_driver.h"
+#include "gfx/driver/gfx_driver.h"
 
 #ifdef __cplusplus
 extern "C"
@@ -65,22 +65,25 @@ extern "C"
 // *****************************************************************************
 // *****************************************************************************
 
-leResult DRV_LCC_Initialize(void);
+gfxResult DRV_LCC_Initialize(void);
 
-leColorMode DRV_LCC_GetColorMode(void);
+gfxColorMode DRV_LCC_GetColorMode(void);
 uint32_t DRV_LCC_GetBufferCount(void);
 uint32_t DRV_LCC_GetDisplayWidth(void);
 uint32_t DRV_LCC_GetDisplayHeight(void);
 void DRV_LCC_Update(void);
 uint32_t DRV_LCC_GetLayerCount();
 uint32_t DRV_LCC_GetActiveLayer();
-leResult DRV_LCC_SetActiveLayer(uint32_t idx);
-leResult DRV_LCC_BlitBuffer(int32_t x, int32_t y, lePixelBuffer* buf);
+gfxResult DRV_LCC_SetActiveLayer(uint32_t idx);
+gfxResult DRV_LCC_BlitBuffer(int32_t x,
+                            int32_t y,
+                            gfxPixelBuffer* buf,
+                            gfxBlend gfx);
 void DRV_LCC_Swap(void);
 uint32_t DRV_LCC_GetVSYNCCount(void);
 
 
-static const leDisplayDriver lccDisplayDriver =
+static const gfxDisplayDriver lccDisplayDriver =
 {
     DRV_LCC_GetColorMode,
     DRV_LCC_GetBufferCount,

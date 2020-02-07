@@ -14,7 +14,7 @@
 *******************************************************************************/
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-Copyright (c) 2013-2017 released Microchip Technology Inc.  All rights reserved.
+Copyright (c) 2013-2020 released Microchip Technology Inc.  All rights reserved.
 
 Microchip licenses to you the right to use, modify, copy and distribute
 Software only when embedded on a Microchip microcontroller or digital signal
@@ -37,15 +37,11 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 *******************************************************************************/
 // DOM-IGNORE-END
 
-//#include "gfx/hal/inc/gfx_common.h"
-//#include "gfx/hal/inc/gfx_processor_interface.h"
 #include "gfx/driver/processor/2dgpu/libnano2D.h"
 
 #include <xc.h>
 #include <sys/attribs.h>
 #include <sys/kmem.h>
-
-const char* driverName = "Nano 2D";
 
 #define CMD_BUFFER_SIZE  8192
 uint32_t __attribute__((coherent, aligned(32))) commandBuffer[CMD_BUFFER_SIZE];
@@ -58,27 +54,28 @@ n2d_buffer_format_t gpu_format = N2D_RGB565;
 n2d_buffer_format_t gpu_blend = N2D_BLEND_SRC_OVER;
 n2d_orientation_t gpu_orientation = N2D_0;
 
-gfxResult GFX_2DGPU_Line(const gfxPoint* p1,
+gfxResult DRV_2DGPU_Line(gfxPixelBuffer * dest,
+                         const gfxPoint* p1,
                            const gfxPoint* p2,
                            const gfxRect* clipRect,
                            const gfxColor color,
-                           gfxPixelBuffer * dest)
+                         const gfxBlend blend)
 {
-    n2d_buffer_t buffer;
+    n2d_buffer_t dest_buffer;
     n2d_point_t np1, np2;
 
         // trivial cases that are better handled by the CPU
     if(p1->x == p2->x || p1->y == p2->y)
         return GFX_FAILURE;
 
-    buffer.width = dest->size.width;
-    buffer.height = dest->size.height;
-    buffer.stride = dest->size.width * 2;//GFX_ColorInfo[state->colorMode].size;
-    buffer.format = gpu_format;
-    buffer.orientation = gpu_orientation;
-    buffer.handle = NULL;
-    buffer.memory = dest->pixels;
-    buffer.gpu = KVA_TO_PA(dest->pixels);
+    dest_buffer.width = dest->size.width;
+    dest_buffer.height = dest->size.height;
+    dest_buffer.stride = dest->size.width * gfxColorInfoTable[dest->mode].size;
+    dest_buffer.format = gpu_format;
+    dest_buffer.orientation = gpu_orientation;
+    dest_buffer.handle = NULL;
+    dest_buffer.memory = dest->pixels;
+    dest_buffer.gpu = KVA_TO_PA(dest->pixels);
 
     np1.x = p1->x;
     np1.y = p1->y;
@@ -103,49 +100,47 @@ gfxResult GFX_2DGPU_Line(const gfxPoint* p1,
             np1.x--;
     }
 
-    n2d_line(&buffer,
+    n2d_line(&dest_buffer,
              np1,
              np2,
              (n2d_rectangle_t*)clipRect,
              gfxColorConvert(dest->mode, GFX_COLOR_MODE_ARGB_8888, color),
-             N2D_BLEND_NONE);
+             blend);
 
     return GFX_SUCCESS;
 }
 
-gfxResult DRV_2DGPU_Fill(const gfxRect* rect,
+gfxResult DRV_2DGPU_Fill(gfxPixelBuffer * dest,
                            const gfxRect* clipRect,
                            const gfxColor color,
-                           gfxPixelBuffer * dest)
+                         const gfxBlend blend)
 {
-    n2d_buffer_t buffer;
+    n2d_buffer_t dest_buffer;
 
-    buffer.width = dest->size.width;
-    buffer.height = dest->size.height;
-    buffer.stride = dest->size.width * 2;//GFX_ColorInfo[state->colorMode].size;
-    buffer.format = gpu_format;
-    buffer.orientation = gpu_orientation;
-    buffer.handle = NULL;
-    buffer.memory = dest->pixels;
-    buffer.gpu = KVA_TO_PA(dest->pixels);
+    dest_buffer.width = dest->size.width;
+    dest_buffer.height = dest->size.height;
+    dest_buffer.stride = dest->size.width * gfxColorInfoTable[dest->mode].size;
+    dest_buffer.format = gpu_format;
+    dest_buffer.orientation = gpu_orientation;
+    dest_buffer.handle = NULL;
+    dest_buffer.memory = dest->pixels;
+    dest_buffer.gpu = KVA_TO_PA(dest->pixels);
 
-    n2d_fill(&buffer,
+    n2d_fill(&dest_buffer,
              (n2d_rectangle_t*)clipRect,
              gfxColorConvert(dest->mode, GFX_COLOR_MODE_ARGB_8888, color),
-             N2D_BLEND_NONE);
+             blend);
 
     return GFX_SUCCESS;
 }
 
 gfxResult DRV_2DGPU_Blit(const gfxPixelBuffer* source,
                            const gfxRect* srcRect,
-                           const gfxPoint* drawPoint,
                            const gfxPixelBuffer* dest,
-                           const gfxRect* destRect)
+                         const gfxRect* destRect,
+                         const gfxBlend blend)
 {
     n2d_buffer_t src_buffer, dest_buffer;
-//    gfxRect dest_rect;
-    n2d_blend_t blend = N2D_BLEND_NONE;
 
     // the source address must reside in KSEG1 (cache coherent) memory
     // and the source buffer must be raw pixels as the the GPU doesn't
@@ -161,7 +156,7 @@ gfxResult DRV_2DGPU_Blit(const gfxPixelBuffer* source,
     // craft source buffer descriptor
     src_buffer.width = source->size.width;
     src_buffer.height = source->size.height;
-    src_buffer.stride = source->size.width * 2;//GFX_ColorInfo[source->mode].size;
+    src_buffer.stride = source->size.width * gfxColorInfoTable[source->mode].size;
     src_buffer.format = gpu_format;
     src_buffer.orientation = gpu_orientation;
     src_buffer.handle = NULL;
@@ -171,17 +166,12 @@ gfxResult DRV_2DGPU_Blit(const gfxPixelBuffer* source,
     // craft dest buffer descriptor
     dest_buffer.width = dest->size.width;
     dest_buffer.height = dest->size.height;
-    dest_buffer.stride = dest->size.width * 2;//GFX_ColorInfo[state->colorMode].size;
+    dest_buffer.stride = dest->size.width * gfxColorInfoTable[dest->mode].size;
     dest_buffer.format = gpu_format;
     dest_buffer.orientation = gpu_orientation;
     dest_buffer.handle = NULL;
     dest_buffer.memory = dest->pixels;
     dest_buffer.gpu = KVA_TO_PA(dest->pixels);
-
-//    dest_rect.x = drawPoint->x;
-//    dest_rect.y = drawPoint->y;
-//    dest_rect.width = srcRect->width;
-//    dest_rect.height = srcRect->height;
 
 //    if(state->maskEnable == GFX_TRUE)
 //    {
@@ -201,7 +191,7 @@ gfxResult DRV_2DGPU_Blit(const gfxPixelBuffer* source,
 //    }
 
     n2d_blit(&dest_buffer,
-             (n2d_rectangle_t*)&destRect,
+             (n2d_rectangle_t*)destRect,
              &src_buffer,
              (n2d_rectangle_t*)srcRect,
              blend);
@@ -221,13 +211,13 @@ gfxResult DRV_2DGPU_Blit(const gfxPixelBuffer* source,
     return GFX_SUCCESS;
 }
 
-gfxResult GFX_2DGPU_BlitStretch(const gfxPixelBuffer* source,
+gfxResult DRV_2DGPU_BlitStretch(const gfxPixelBuffer* source,
                            const gfxRect* srcRect,
                            const gfxPixelBuffer* dest,
-                           const gfxRect* destRect)
+                                const gfxRect* destRect,
+                                const gfxBlend blend)
 {
     n2d_buffer_t src_buffer, dest_buffer;
-    n2d_blend_t blend = N2D_BLEND_NONE;
 
     // the source address must reside in KSEG1 (cache coherent) memory
     // and the source buffer must be raw pixels as the the GPU doesn't
@@ -243,7 +233,7 @@ gfxResult GFX_2DGPU_BlitStretch(const gfxPixelBuffer* source,
     // craft source buffer descriptor
     src_buffer.width = source->size.width;
     src_buffer.height = source->size.height;
-    src_buffer.stride = source->size.width * 2;//GFX_ColorInfo[source->mode].size;
+    src_buffer.stride = source->size.width * gfxColorInfoTable[dest->mode].size;
     src_buffer.format = gpu_format;
     src_buffer.orientation = gpu_orientation;
     src_buffer.handle = NULL;
@@ -253,7 +243,7 @@ gfxResult GFX_2DGPU_BlitStretch(const gfxPixelBuffer* source,
     // craft dest buffer descriptor
     dest_buffer.width = dest->size.width;
     dest_buffer.height = dest->size.height;
-    dest_buffer.stride = dest->size.width * 2;//GFX_ColorInfo[state->colorMode].size;
+    dest_buffer.stride = dest->size.width * gfxColorInfoTable[dest->mode].size;
     dest_buffer.format = gpu_format;
     dest_buffer.orientation = gpu_orientation;
     dest_buffer.handle = NULL;
@@ -298,19 +288,6 @@ gfxResult GFX_2DGPU_BlitStretch(const gfxPixelBuffer* source,
     return GFX_SUCCESS;
 }
 
-//// function that returns the information for this driver
-//gfxResult procNANO2DInfoGet(GFX_ProcessorInfo* info)
-//{
-//	if(info == NULL)
-//        return GFX_FAILURE;
-//
-//	// populate info struct
-//    strcpy(info->name, driverName);
-//    info->color_formats = GFX_COLOR_MASK_ARGB_8888;
-//
-//    return GFX_SUCCESS;
-//}
-
 // function that initialized the driver context
 void DRV_2DGPU_Initialize(void)
 {
@@ -326,27 +303,4 @@ void DRV_2DGPU_Initialize(void)
     /* open and initialize gpu software  */
     if (N2D_IS_ERROR(n2d_open()))
         return ;
-
-//	// GPU Pipeline
-//	context->hal.drawPipeline[GFX_PIPELINE_GPU].drawLine[GFX_DRAW_LINE][GFX_ANTIALIAS_OFF] = &drawLine;
-//	context->hal.drawPipeline[GFX_PIPELINE_GPU].drawLine[GFX_DRAW_FILL][GFX_ANTIALIAS_OFF] = &drawLine;
-//
-//	context->hal.drawPipeline[GFX_PIPELINE_GPU].drawRect[GFX_DRAW_FILL][GFX_ANTIALIAS_OFF] = &fillRect;
-//
-//	context->hal.drawPipeline[GFX_PIPELINE_GPU].drawBlit = &drawBlit;
-//
-//    // according to nano2d documentation the stretch blit is a fast resize, override nearest neighbor version
-//    context->hal.drawPipeline[GFX_PIPELINE_GPU].drawStretchBlit[GFX_RESIZE_NEARESTNEIGHBOR] = &drawStretchBlit;
-//
-//	// GCU/GPU Pipeline
-//	context->hal.drawPipeline[GFX_PIPELINE_GCUGPU].drawLine[GFX_DRAW_LINE][GFX_ANTIALIAS_OFF] = &drawLine;
-//	context->hal.drawPipeline[GFX_PIPELINE_GCUGPU].drawLine[GFX_DRAW_FILL][GFX_ANTIALIAS_OFF] = &drawLine;
-//
-//	context->hal.drawPipeline[GFX_PIPELINE_GCUGPU].drawRect[GFX_DRAW_FILL][GFX_ANTIALIAS_OFF] = &fillRect;
-//
-//	context->hal.drawPipeline[GFX_PIPELINE_GCUGPU].drawBlit = &drawBlit;
-//
-//    // according to nano2d documentation the stretch blit is a fast resize, override nearest neighbor version
-//    context->hal.drawPipeline[GFX_PIPELINE_GCUGPU].drawStretchBlit[GFX_RESIZE_NEARESTNEIGHBOR] = &drawStretchBlit;
-
 }

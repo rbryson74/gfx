@@ -21,7 +21,7 @@
 
 //DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -544,6 +544,23 @@ typedef enum gfxColorName
     GFX_COLOR_LAST
 } gfxColorName;
 
+// *****************************************************************************
+/* Structure:
+    gfxBlend
+
+  Summary:
+    Blend name reference table
+*/
+typedef enum gfxBlend
+{
+    GFX_BLEND_NONE,
+    GFX_BLEND_SRC_OVER,
+    GFX_BLEND_DST_OVER,
+    GFX_BLEND_SRC_IN,
+    GFX_BLEND_DST_IN,
+    GFX_BLEND_ADDITIVE,
+    GFX_BLEND_SUBTRACT,
+} gfxBlend;
 
 
 enum gfxBufferFlags
@@ -1416,7 +1433,7 @@ LIB_EXPORT gfxResult gfxPixelBuffer_SetLocked(gfxPixelBuffer* buffer,
                     can be used to do frame rate calculations
 
 */
-typedef struct leDisplayDriver
+typedef struct gfxDisplayDriver
 {
     gfxColorMode (*getColorMode)(void);
 
@@ -1436,16 +1453,13 @@ typedef struct leDisplayDriver
 
     gfxResult (*blitBuffer)(int32_t x,
                            int32_t y,
-                           gfxPixelBuffer* buf);
-
-	gfxResult (*blitBufferAccel)(int32_t x,
-                       int32_t y,
-                       gfxPixelBuffer* buf);
+                           gfxPixelBuffer* buf,
+                           gfxBlend gfx);
 
     void (*swap)(void);
 
     uint32_t (*getVSYNCCount)(void);
-} leDisplayDriver;
+} gfxDisplayDriver;
 
 // *****************************************************************************
 /* Structure:
@@ -1484,10 +1498,30 @@ typedef struct leDisplayDriver
 */
 typedef struct gfxGraphicsProcessor
 {
-    gfxResult (*blitBuffer)(const gfxRect* rect,
+    gfxResult (*drawLine)(gfxPixelBuffer * dest,
+                        const gfxPoint* p1,
+                        const gfxPoint* p2,
                            const gfxRect* clipRect,
                            const gfxColor color,
-                           gfxPixelBuffer * dest);
+                        const gfxBlend blend);
+
+    gfxResult (*fillRect)(gfxPixelBuffer * dest,
+                        const gfxRect* clipRect,
+                        const gfxColor color,
+                        const gfxBlend blend);
+
+    gfxResult (*blitBuffer)(const gfxPixelBuffer* source,
+                        const gfxRect* srcRect,
+                        const gfxPixelBuffer* dest,
+                        const gfxRect* destRect,
+                        const gfxBlend blend);
+
+    gfxResult (*blitStretchBuffer)(const gfxPixelBuffer* source,
+                        const gfxRect* srcRect,
+                        const gfxPixelBuffer* dest,
+                        const gfxRect* destRect,
+                        const gfxBlend blend);
+
 } gfxGraphicsProcessor;
 
 //DOM-IGNORE-BEGIN

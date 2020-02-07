@@ -176,12 +176,10 @@ FRAMEBUFFER_PIXEL_TYPE  __attribute__ ((coherent, aligned (32))) framebuffer1_${
 </#list>
 </#if>
 </#if>
-uint32_t state;
-unsigned int vsyncCount = 0;
-uint32_t alphaAmt;
-gfxPixelBuffer pixelBuffer;
-uint32_t layerId;
-uint32_t bufferCount;
+static uint32_t state;
+static gfxBool useGPU=true;
+static unsigned int vsyncCount = 0;
+static gfxPixelBuffer pixelBuffer;
 
 
 volatile int32_t waitForAlphaSetting[GFX_GLCD_LAYERS] = {0};
@@ -586,13 +584,13 @@ void DRV_GLCD_Initialize()
     PLIB_GLCD_ResolutionXYSet(xResolution, yResolution);
 
     <#if Val_VSYNCNegative == true && Val_HSYNCNegative == false>
-    PLIB_GLCD_SignalPolaritySet(  GLCD_ID_0, GLCD_VSYNC_POLARITY_NEGATIVE );
+    PLIB_GLCD_SignalPolaritySet( GLCD_VSYNC_POLARITY_NEGATIVE );
     </#if>
     <#if Val_HSYNCNegative == true && Val_VSYNCNegative == false>
-    PLIB_GLCD_SignalPolaritySet(  GLCD_ID_0, GLCD_HSYNC_POLARITY_NEGATIVE );
+    PLIB_GLCD_SignalPolaritySet( GLCD_HSYNC_POLARITY_NEGATIVE );
     </#if>
     <#if Val_HSYNCNegative == true && Val_VSYNCNegative == true>
-    PLIB_GLCD_SignalPolaritySet(  GLCD_ID_0, GLCD_VSYNC_POLARITY_NEGATIVE | GLCD_HSYNC_POLARITY_NEGATIVE );
+    PLIB_GLCD_SignalPolaritySet( GLCD_VSYNC_POLARITY_NEGATIVE | GLCD_HSYNC_POLARITY_NEGATIVE );
     </#if>
     PLIB_GLCD_PaletteGammaRampDisable();
 
@@ -800,51 +798,56 @@ uint32_t DRV_GLCD_GetVSYNCCount(void)
         return vsyncCount;
 }
 
+void DRV_GLCD_SetUseGPU(gfxBool onOff)
+{
+        useGPU = onOff;
+}
+
 gfxResult DRV_GLCD_BlitBuffer(int32_t x,
                              int32_t y,
-                             gfxPixelBuffer* buf)
+                             gfxPixelBuffer* buf,
+                             gfxBlend blend)
 {
-    void* srcPtr;
-    void* destPtr;
-    uint32_t row, rowSize;
 
-//    if (state != RUN)
-//        return LE_FAILURE;
+    if (state != RUN)
+        return GFX_FAILURE;
 
-    rowSize = buf->size.width * 2;//gfxColorInfoTable[buf->mode].size;
-
-    for(row = 0; row < buf->size.height; row++)
+    if ( useGPU )
     {
-        srcPtr = gfxPixelBufferOffsetGet(buf, 0, row);
-        destPtr = gfxPixelBufferOffsetGet(&pixelBuffer, x, y + row);
+        gfxRect srcRect, destRect;
 
-        memcpy(destPtr, srcPtr, rowSize);
+        srcRect.x = 0;
+        srcRect.y = 0;
+        srcRect.height = buf->size.height;
+        srcRect.width = buf->size.width;
+
+        destRect.x = x;
+        destRect.y = y;
+        destRect.height = buf->size.height;
+        destRect.width = buf->size.width;
+
+        _2dgpuGraphicsProcessor.blitBuffer(buf, &srcRect, &pixelBuffer, &destRect, blend );
+    }
+    else
+    {
+    	void* srcPtr;
+    	void* destPtr;
+    	uint32_t row, rowSize;
+
+        rowSize = buf->size.width * gfxColorInfoTable[buf->mode].size;
+
+    	for(row = 0; row < buf->size.height; row++)
+    	{
+        	srcPtr = gfxPixelBufferOffsetGet(buf, 0, row);
+        	destPtr = gfxPixelBufferOffsetGet(&pixelBuffer, x, y + row);
+
+        	memcpy(destPtr, srcPtr, rowSize);
+    	}
     }
 
-    return LE_SUCCESS;
+    return GFX_SUCCESS;
 }
 
-gfxResult DRV_GLCD_BlitBufferAccel(int32_t x,
-                             int32_t y,
-                             gfxPixelBuffer* buf)
-{
-//    gfxRect srcRect, destRect;
-//    destRect.x = x;
-//    destRect.y = y;
-//    destRect.height = buf->size.height;
-//    destRect.width = buf->size.width;
-
-//    srcRect.x = 0;
-//    srcRect.y = 0;
-//    srcRect.height = buf->size.height;
-//    srcRect.width = buf->size.width;
-
-//    dest = processor->getFrameBuffer();
-
-//    processor->blitBuffer(buf, &srcRect,  dest,  &destRect);
-
-    return LE_SUCCESS;
-}
 /*******************************************************************************
  End of File
 */

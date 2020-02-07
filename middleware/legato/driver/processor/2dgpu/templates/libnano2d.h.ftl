@@ -862,32 +862,38 @@ n2d_error_t n2d_init_hardware(
     );
 
 void DRV_2DGPU_Initialize(void);
-gfxResult GFX_2DGPU_Line(const gfxPoint* p1,
+gfxResult DRV_2DGPU_Line(gfxPixelBuffer * dest,
+                        const gfxPoint* p1,
                            const gfxPoint* p2,
                            const gfxRect* clipRect,
                            const gfxColor color,
-                           gfxPixelBuffer * dest);
+                        const gfxBlend blend);
 
-gfxResult DRV_2DGPU_Fill(const gfxRect* rect,
+gfxResult DRV_2DGPU_Fill(gfxPixelBuffer * dest,
                            const gfxRect* clipRect,
                            const gfxColor color,
-                           gfxPixelBuffer * dest);
+                        const gfxBlend blend);
 
-gfxResult GFX_2DGPU_Blit(const gfxPixelBuffer* source,
+gfxResult DRV_2DGPU_Blit(const gfxPixelBuffer* source,
                            const gfxRect* srcRect,
                            const gfxPixelBuffer* dest,
-                           const gfxRect* destRect);
+                        const gfxRect* destRect,
+                        const gfxBlend blend);
 
-gfxResult GFX_2DGPU_BlitStretch(const gfxPixelBuffer* source,
+gfxResult DRV_2DGPU_BlitStretch(const gfxPixelBuffer* source,
                            const gfxRect* srcRect,
                            const gfxPixelBuffer* dest,
-                           const gfxRect* destRect);
+                        const gfxRect* destRect,
+                        const gfxBlend blend);
 
 gfxPixelBuffer * DRV_2DGPU_GetFrameBuffer(void);
 
-static const gfxGraphicsProcessor _2dgpuDisplayDriver =
+static const gfxGraphicsProcessor _2dgpuGraphicsProcessor =
 {
-//    DRV_2DGPU_Blit
+    DRV_2DGPU_Line,
+    DRV_2DGPU_Fill,
+    DRV_2DGPU_Blit,
+    DRV_2DGPU_BlitStretch
 };
 
 //DOM-IGNORE-BEGIN

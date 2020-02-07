@@ -14,7 +14,7 @@
 *******************************************************************************/
 //DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -139,7 +139,7 @@ typedef struct ILI9488_DRV
     {
         int32_t x;
         int32_t y;
-        lePixelBuffer* buf;
+        gfxPixelBuffer* buf;
     } blitParms;
 
 } ILI9488_DRV;
@@ -298,11 +298,11 @@ static int ILI9488_Init(ILI9488_DRV *drv,
     return returnValue;
 }
 
-leResult DRV_ILI9488_Initialize(void)
+gfxResult DRV_ILI9488_Initialize(void)
 {
     drv.state = INIT;
 
-    //Open interface to ILI9488 controller
+    //Open interface to ILI9488 controlgfxR
     drv.port_priv = (void*) GFX_Disp_Intf_Open();
     if (drv.port_priv == 0)
         return LE_FAILURE;
@@ -310,7 +310,7 @@ leResult DRV_ILI9488_Initialize(void)
     return LE_SUCCESS;
 }
 
-leColorMode DRV_ILI9488_GetColorMode(void)
+gfxColorMode DRV_ILI9488_GetColorMode(void)
 {
     return PIXEL_BUFFER_COLOR_MODE;
 }
@@ -469,7 +469,7 @@ void DRV_ILI9488_Update(void)
             if (row < drv.blitParms.buf->size.height)
 </#if>
             {
-                ptr = lePixelBufferOffsetGet_Unsafe(drv.blitParms.buf, 0, row);
+                ptr = gfxPixelBufferOffsetGet_Unsafe(drv.blitParms.buf, 0, row);
 
 <#if ParallelInterfaceWidth == "16-bit" && DisplayInterfaceType != "SPI 4-line">
                 GFX_Disp_Intf_WriteData16(intf,
@@ -482,13 +482,13 @@ void DRV_ILI9488_Update(void)
 
 <#if DisplayInterfaceType == "SPI 4-line">
                     // red channel
-                    pixelBuffer[dataIdx++] = (leColorChannelRed(clr, PIXEL_BUFFER_COLOR_MODE) << 3);
+                    pixelBuffer[dataIdx++] = (gfxColorChannelRed(clr, PIXEL_BUFFER_COLOR_MODE) << 3);
                     
                     // green channel
-                    pixelBuffer[dataIdx++] = (leColorChannelGreen(clr, PIXEL_BUFFER_COLOR_MODE) << 2);
+                    pixelBuffer[dataIdx++] = (gfxColorChannelGreen(clr, PIXEL_BUFFER_COLOR_MODE) << 2);
                     
                     // blue channel
-                    pixelBuffer[dataIdx++] = (leColorChannelBlue(clr, PIXEL_BUFFER_COLOR_MODE) << 3);
+                    pixelBuffer[dataIdx++] = (gfxColorChannelBlue(clr, PIXEL_BUFFER_COLOR_MODE) << 3);
 <#else>
                     pixelBuffer[dataIdx++] = (uint8_t) (clr >> 8);
                     pixelBuffer[dataIdx++] = (uint8_t) (uint8_t) (clr & 0xff);
@@ -510,7 +510,7 @@ void DRV_ILI9488_Update(void)
             else if (row >= drv.blitParms.buf->size.height)
             {
                 ILI9488_NCSDeassert(intf); 
-                lePixelBuffer_SetLocked(drv.blitParms.buf, LE_FALSE);
+                gfxixelBuffer_SetLocked(drv.blitParms.buf, LE_FALSE);
                 drv.state = IDLE;
             }
 </#if>
@@ -536,14 +536,15 @@ uint32_t DRV_ILI9488_GetActiveLayer()
     return 0;
 }
 
-leResult DRV_ILI9488_SetActiveLayer(uint32_t idx)
+gfxResult DRV_ILI9488_SetActiveLayer(uint32_t idx)
 {
     return LE_SUCCESS;
 }
 
-leResult DRV_ILI9488_BlitBuffer(int32_t x,
-                                int32_t y,
-                                lePixelBuffer* buf)
+gfxResult DRV_ILI9488_BlitBuffer(int32_t x,
+                                 int32_t y,
+                                 gfxPixelBuffer* buf,
+                                 gfxBlend gfx)
 {
     if(drv.state != IDLE)
         return LE_FAILURE;
@@ -559,7 +560,7 @@ leResult DRV_ILI9488_BlitBuffer(int32_t x,
         DRV_ILI9488_Update();
     }
 <#else>
-    lePixelBuffer_SetLocked(buf, LE_TRUE);
+    gfxPixelBuffer_SetLocked(buf, LE_TRUE);
 </#if>
     
     return LE_SUCCESS;

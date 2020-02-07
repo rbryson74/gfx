@@ -59,7 +59,7 @@
 #include "gfx/legato/image/legato_image.h"
 #include "gfx/legato/image/legato_palette.h"
 #include "gfx/legato/memory/legato_memory.h"
-#include "gfx/legato/renderer/legato_driver.h"
+#include "gfx/driver/gfx_driver.h"
 #include "gfx/legato/renderer/legato_renderer.h"
 #include "gfx/legato/string/legato_dynamicstring.h"
 #include "gfx/legato/string/legato_fixedstring.h"

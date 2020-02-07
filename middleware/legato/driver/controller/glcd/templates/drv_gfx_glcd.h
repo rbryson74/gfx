@@ -62,7 +62,6 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 */
 
 #include "gfx/driver/controller/glcd/plib_glcd.h"
-//#include "gfx/driver/controller/display_controller.h"
 #include "gfx/driver/gfx_driver.h"
 
 #ifdef __cplusplus
@@ -411,14 +410,13 @@ void DRV_GLCD_Update(void);
 uint32_t DRV_GLCD_GetLayerCount();
 uint32_t DRV_GLCD_GetActiveLayer();
 gfxResult DRV_GLCD_SetActiveLayer(uint32_t idx);
-gfxResult DRV_GLCD_BlitBuffer(int32_t x, int32_t y, gfxPixelBuffer* buf);
-gfxResult DRV_GLCD_BlitBufferAccel(int32_t x, int32_t y, gfxPixelBuffer* buf);
+gfxResult DRV_GLCD_BlitBuffer(int32_t x, int32_t y, gfxPixelBuffer* buf, gfxBlend blend);
 void DRV_GLCD_Swap(void);
 uint32_t DRV_GLCD_GetVSYNCCount(void);
 gfxPixelBuffer * DRV_GLCD_GetFrameBuffer(void);
+void DRV_GLCD_SetUseGPU(gfxBool onOff);
 
-
-static const leDisplayDriver glcdDisplayDriver =
+static const gfxDisplayDriver glcdDisplayDriver =
 {
     DRV_GLCD_GetColorMode,
     DRV_GLCD_GetBufferCount,
@@ -429,7 +427,6 @@ static const leDisplayDriver glcdDisplayDriver =
     DRV_GLCD_GetActiveLayer,
     DRV_GLCD_SetActiveLayer,
     DRV_GLCD_BlitBuffer,
-	DRV_GLCD_BlitBufferAccel,
     DRV_GLCD_Swap,
     DRV_GLCD_GetVSYNCCount
 };
