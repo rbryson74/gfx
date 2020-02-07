@@ -184,7 +184,7 @@ static void drawFill(leProgressBarWidget* bar)
     _leProgressBarWidget_GetBarRect(bar, 0, bar->value, &barRect);
     
     leRenderer_RectFill(&barRect,
-                        bar->widget.scheme->textHighlight,
+                        bar->widget.scheme->background,
                         paintState.alpha);
              
     nextState(bar);
