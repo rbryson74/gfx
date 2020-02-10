@@ -510,7 +510,7 @@ void DRV_ILI9488_Update(void)
             else if (row >= drv.blitParms.buf->size.height)
             {
                 ILI9488_NCSDeassert(intf); 
-                gfxixelBuffer_SetLocked(drv.blitParms.buf, LE_FALSE);
+                gfxPixelBuffer_SetLocked(drv.blitParms.buf, LE_FALSE);
                 drv.state = IDLE;
             }
 </#if>
