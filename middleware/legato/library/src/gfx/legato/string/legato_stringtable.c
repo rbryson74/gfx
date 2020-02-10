@@ -17,8 +17,8 @@ typedef struct leStringTableIndex
 
 typedef struct leStringTableEntry
 {
-    uint16_t length;
-    uint8_t  data;
+    uint32_t length;
+    uint8_t* data;
 } leStringTableEntry;
 
 uint32_t leStringTable_GetStringCount(const leStringTable* table)
@@ -148,7 +148,9 @@ static uint16_t stringIndexLookup(const leStringTable* table,
 leResult leStringTable_StringLookup(const leStringTable* table,
                                     leStringInfo* info)
 {
-    leStringTableEntry* entry;
+    leStringTableEntry entry;
+    entry.length = 0;
+    entry.data = NULL;
     
     if(table == NULL || info == NULL)
         return LE_FAILURE;
@@ -157,10 +159,11 @@ leResult leStringTable_StringLookup(const leStringTable* table,
                                                  info->stringIndex,
                                                  info->languageID);
 
-    entry = (leStringTableEntry*)((uint8_t*)table->stringTableData + info->offset);
+    memcpy(&entry.length, (uint8_t*)table->stringTableData + info->offset, 2);
+    entry.data = (uint8_t*)table->stringTableData + info->offset + 2;
 
-    info->data = (void*)&entry->data;
-    info->dataSize = entry->length;
+    info->data = entry.data;
+    info->dataSize = entry.length;
     info->length = 0;
 
     return LE_SUCCESS;

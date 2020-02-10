@@ -7,8 +7,8 @@ import com.microchip.gfx.composer.state.StateManager as StateManager
 import com.microchip.gfx.composer.asset.stringtable.StringTable as StringTable
 import com.microchip.gfx.composer.asset.stringtable.StringTableMatrix as StringTableMatrix
 import com.microchip.gfx.composer.asset.stringtable.StringTableMatrix.StringData as StringData
-import com.microchip.gfx.composer.asset.stringtable.StringTableMatrix.StringIndexTable as StringIndexTable
-import com.microchip.gfx.composer.asset.stringtable.StringTableMatrix.FontIndexTable as FontIndexTable
+#import com.microchip.gfx.composer.asset.stringtable.StringTableMatrix.StringIndexTable as StringIndexTable
+#import com.microchip.gfx.composer.asset.stringtable.StringTableMatrix.FontIndexTable as FontIndexTable
 
 execfile(_SCRIPTPATH + "utils.py")
 
