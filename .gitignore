@@ -14,3 +14,9 @@
 **/*.IAR/*.dep
 **/*.IAR/*.custom_argvars
 .idea
+/apps/aria_quickstart/firmware/aria_qs_e54_cult_xpro_parallel.X/build/
+/apps/aria_quickstart/firmware/aria_qs_e54_cult_xpro_parallel.X/dist/
+/apps/legato_quickstart/firmware/legato_qs_e54_cult_cpro_parallel.X/build/
+/apps/legato_quickstart/firmware/legato_qs_e54_cult_cpro_parallel.X/dist/
+/apps/legato_quickstart/firmware/legato_quickstart_c21_xpro_cpro.X/build/
+/apps/legato_quickstart/firmware/legato_quickstart_c21_xpro_cpro.X/dist/

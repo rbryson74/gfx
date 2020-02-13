@@ -92,7 +92,7 @@ def generateConfigFile():
 	configFile.write("// variable heap configuration")
 	configFile.write("#define LE_VARIABLEHEAP_DEBUGLEVEL         %d" % StateManager.getInteger("VARIABLE_HEAP_DEBUG_LEVEL"))
 	configFile.write("#define LE_VARIABLEHEAP_SIZE               %d" % StateManager.getInteger("VARIABLE_HEAP_SIZE"))
-	configFile.write("#define LE_VARIABLEHEAP_MINALLOCSIZE       32")
+	configFile.write("#define LE_VARIABLEHEAP_MINALLOCSIZE       4")
 	configFile.write("#define LE_VARIABLEHEAP_ALIGNMENT          4")
 	configFile.write("#define LE_VARIABLEHEAP_BESTFIT            %d" % int(StateManager.getBoolean("VARIABLE_HEAP_USE_BEST_FIT")))
 	configFile.writeNewLine()
