@@ -57,8 +57,8 @@ leResult screenShow_screen1()
     root0->fn->addChild(root0, (leWidget*)TitleLabel);
 
     SloganButton = leButtonWidget_New();
-    SloganButton->fn->setPosition(SloganButton, 127, 211);
-    SloganButton->fn->setSize(SloganButton, 216, 37);
+    SloganButton->fn->setPosition(SloganButton, 119, 211);
+    SloganButton->fn->setSize(SloganButton, 238, 37);
     SloganButton->fn->setString(SloganButton, (leString*)&tableString_Slogan);
     root0->fn->addChild(root0, (leWidget*)SloganButton);
 

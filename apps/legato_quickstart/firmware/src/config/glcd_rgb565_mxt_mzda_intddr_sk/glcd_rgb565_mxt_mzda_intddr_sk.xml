@@ -1615,37 +1615,46 @@
     </UniqueComponent>
     <UniqueComponent dnOrder="12" id="le_gfx_driver_glcd">
       <Symbols dnOrder="0">
-        <KeyValueSet dnOrder="0" id="FrameBufferColorMode">
+        <Menu dnOrder="0" id="DisplaySettingsMenu">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">false</Value>
+            </Boolean>
+          </Attributes>
+        </Menu>
+        <KeyValueSet dnOrder="1" id="FrameBufferColorMode">
           <Values dnOrder="0">
             <User dnOrder="0" value="1"/>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="1" id="FrameBufferMemoryMode">
+        <KeyValueSet dnOrder="2" id="FrameBufferMemoryMode">
           <Values dnOrder="0">
             <User dnOrder="0" value="0"/>
           </Values>
         </KeyValueSet>
-        <Boolean dnOrder="2" id="Layer1Enable">
+        <Comment dnOrder="3" id="HALComment">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+        </Comment>
+        <Boolean dnOrder="4" id="Layer1Enable">
           <Values dnOrder="0">
             <User dnOrder="0" value="false"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="3" id="Layer2Enable">
+        <Boolean dnOrder="5" id="Layer2Enable">
           <Values dnOrder="0">
             <User dnOrder="0" value="false"/>
           </Values>
         </Boolean>
-        <Integer dnOrder="4" id="PixelClock">
+        <Integer dnOrder="6" id="PixelClock">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_driver_glcd" value="33333333"/>
           </Values>
         </Integer>
-        <Integer dnOrder="5" id="PixelClockDivider">
-          <Values dnOrder="0">
-            <User dnOrder="0" value="6"/>
-          </Values>
-        </Integer>
-        <Integer dnOrder="6" id="TotalNumLayers">
+        <Integer dnOrder="7" id="TotalNumLayers">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_driver_glcd" value="1"/>
           </Values>
@@ -1716,25 +1725,25 @@
     </UniqueComponent>
   </Components>
   <UserData>
-    <GraphSettings canvasHeight="400" canvasWidth="400" dnOrder="0"/>
-    <ComponentGraph dnOrder="1" id="__ROOTVIEW">
+    <ComponentGraph dnOrder="0" id="__ROOTVIEW">
       <ElementPositions dnOrder="0">
         <ElementPosition dnOrder="0" id="BSP_PIC32MZ_DA_Starter_Kit" x="30" y="60"/>
         <ElementPosition dnOrder="1" id="HarmonyCore" x="31" y="100"/>
         <ElementPosition dnOrder="2" id="core" x="240" y="20"/>
         <ElementPosition dnOrder="3" id="core_timer" x="30" y="200"/>
         <ElementPosition dnOrder="4" id="dfp" x="20" y="20"/>
-        <ElementPosition dnOrder="5" id="drv_i2c" x="710" y="120"/>
-        <ElementPosition dnOrder="6" id="gfx_disp_pdatm4301b_480x272" x="901" y="20"/>
+        <ElementPosition dnOrder="5" id="drv_i2c" x="353" y="236"/>
+        <ElementPosition dnOrder="6" id="gfx_disp_pdatm4301b_480x272" x="357" y="141"/>
         <ElementPosition dnOrder="7" id="gfx_hal_le" x="340" y="20"/>
-        <ElementPosition dnOrder="8" id="gfx_legato" x="520" y="20"/>
-        <ElementPosition dnOrder="9" id="gfx_maxtouch_controller" x="490" y="120"/>
-        <ElementPosition dnOrder="10" id="i2c1" x="870" y="120"/>
-        <ElementPosition dnOrder="11" id="le_gfx_driver_2dgpu" x="270" y="80"/>
-        <ElementPosition dnOrder="12" id="le_gfx_driver_glcd" x="701" y="20"/>
-        <ElementPosition dnOrder="13" id="sys_input" x="384" y="249"/>
-        <ElementPosition dnOrder="14" id="sys_time" x="210" y="160"/>
+        <ElementPosition dnOrder="8" id="gfx_legato" x="793" y="165"/>
+        <ElementPosition dnOrder="9" id="gfx_maxtouch_controller" x="540" y="236"/>
+        <ElementPosition dnOrder="10" id="i2c1" x="221" y="299"/>
+        <ElementPosition dnOrder="11" id="le_gfx_driver_2dgpu" x="552" y="361"/>
+        <ElementPosition dnOrder="12" id="le_gfx_driver_glcd" x="539" y="141"/>
+        <ElementPosition dnOrder="13" id="sys_input" x="483" y="23"/>
+        <ElementPosition dnOrder="14" id="sys_time" x="185" y="115"/>
       </ElementPositions>
     </ComponentGraph>
+    <GraphSettings canvasHeight="400" canvasWidth="400" dnOrder="1"/>
   </UserData>
 </Configuration>

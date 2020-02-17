@@ -46,7 +46,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #define CMD_BUFFER_SIZE  8192
 uint32_t __attribute__((coherent, aligned(32))) commandBuffer[CMD_BUFFER_SIZE];
 
-#define SCRATCH_SIZE ${SCRATCHBUFFER_SIZE}
+#define SCRATCH_SIZE 4096
 
 static volatile uint8_t __attribute__ ((coherent, aligned (32))) scratchBuffer[8192];
 
@@ -54,7 +54,7 @@ static volatile uint8_t __attribute__ ((coherent, aligned (32))) scratchBuffer[8
 #define CMD_BUFFER_DDR_ADDRESS 0xA9E00000
 
 n2d_module_parameters_t gpu_params;
-n2d_buffer_format_t gpu_format = N2D_RGBA8888;
+n2d_buffer_format_t gpu_format = N2D_RGB565;
 n2d_buffer_format_t gpu_blend = N2D_BLEND_SRC_OVER;
 n2d_orientation_t gpu_orientation = N2D_0;
 
@@ -138,8 +138,6 @@ gfxResult DRV_2DGPU_Fill(gfxPixelBuffer * dest,
     return GFX_SUCCESS;
 }
 
-
-
 static gfxBool createPaddedBuffer(const gfxPixelBuffer* src)
 {
     int pixelSize = gfxColorInfoTable[src->mode].size;
@@ -164,8 +162,8 @@ static gfxBool createPaddedBuffer(const gfxPixelBuffer* src)
 }
 
 gfxResult DRV_2DGPU_Blit(const gfxPixelBuffer* source,
-                         const gfxRect* srcRect,
-                         const gfxPixelBuffer* dest,
+                           const gfxRect* srcRect,
+                           const gfxPixelBuffer* dest,
                          const gfxRect* destRect,
                          const gfxBlend blend)
 {
@@ -215,8 +213,8 @@ gfxResult DRV_2DGPU_Blit(const gfxPixelBuffer* source,
 }
 
 gfxResult DRV_2DGPU_BlitStretch(const gfxPixelBuffer* source,
-                                const gfxRect* srcRect,
-                                const gfxPixelBuffer* dest,
+                           const gfxRect* srcRect,
+                           const gfxPixelBuffer* dest,
                                 const gfxRect* destRect,
                                 const gfxBlend blend)
 {
