@@ -17,8 +17,8 @@ typedef struct leStringTableIndex
 
 typedef struct leStringTableEntry
 {
-    uint16_t length;
-    uint8_t  data;
+    uint32_t length;
+    uint8_t* data;
 } leStringTableEntry;
 
 uint32_t leStringTable_GetStringCount(const leStringTable* table)
@@ -51,6 +51,7 @@ uint32_t leStringTable_GetStringOffset(const leStringTable* table,
 {
     leStringTableHeader* hdr;
     leStringTableIndex* idxTable;
+    uint8_t* ptr;
     uint32_t offs = 0;
 
     if(table == NULL)
@@ -63,7 +64,13 @@ uint32_t leStringTable_GetStringOffset(const leStringTable* table,
 
     idxTable = (leStringTableIndex*)(table->stringTableData + sizeof(leStringTableHeader));
 
-    memcpy(&offs, &idxTable[stringID + languageID].offset, 3);
+    ptr = (uint8_t*)(&idxTable[stringID + languageID].offset);
+
+    offs = ptr[0];
+    offs |= ptr[1] << 8;
+    offs |= ptr[2] << 16;
+
+    //memcpy(&offs, &idxTable[stringID + languageID].offset, 3);
 
     return offs;
 }
@@ -148,7 +155,11 @@ static uint16_t stringIndexLookup(const leStringTable* table,
 leResult leStringTable_StringLookup(const leStringTable* table,
                                     leStringInfo* info)
 {
-    leStringTableEntry* entry;
+    leStringTableEntry entry;
+    uint8_t* ptr;
+
+    entry.length = 0;
+    entry.data = NULL;
     
     if(table == NULL || info == NULL)
         return LE_FAILURE;
@@ -157,10 +168,16 @@ leResult leStringTable_StringLookup(const leStringTable* table,
                                                  info->stringIndex,
                                                  info->languageID);
 
-    entry = (leStringTableEntry*)((uint8_t*)table->stringTableData + info->offset);
+    ptr = (uint8_t*)(table->stringTableData + info->offset);
 
-    info->data = (void*)&entry->data;
-    info->dataSize = entry->length;
+    entry.length = ptr[0];
+    entry.length |= ptr[1] << 8;
+
+    //memcpy(&entry.length, (uint8_t*)table->stringTableData + info->offset, 2);
+    entry.data = (uint8_t*)table->stringTableData + info->offset + 2;
+
+    info->data = entry.data;
+    info->dataSize = entry.length;
     info->length = 0;
 
     return LE_SUCCESS;

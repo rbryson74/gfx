@@ -73,6 +73,9 @@ static leChar totalStrBuff[12] = {0};
 static leFixedString counterStr;
 static leFixedString totalStr;
 
+#define FILENAME             "/SQI.hex"
+#define USB_MOUNT_NAME       "/mnt/usb"
+#define USB_DEV_NAME         "/dev/sda1"
 #define SDCARD_MOUNT_NAME       "/mnt/myDrive1"
 #define SDCARD_DEV_NAME         "/dev/mmcblka1"
 
@@ -152,7 +155,7 @@ void APP_SYSFSEventHandler(SYS_FS_EVENT event,
     {
         case SYS_FS_EVENT_MOUNT:
         {
-            if(strcmp((const char *)eventData,"/mnt/usb") == 0)
+            if(strcmp((const char *)eventData, USB_MOUNT_NAME) == 0)
             {
                 usbDeviceConnected = 1;
                 LED1_On();
@@ -172,7 +175,7 @@ void APP_SYSFSEventHandler(SYS_FS_EVENT event,
         }    
         case SYS_FS_EVENT_UNMOUNT:
         {
-            if(strcmp((const char *)eventData,"/mnt/usb") == 0)
+            if(strcmp((const char *)eventData, USB_MOUNT_NAME) == 0)
             {
                 usbDeviceConnected = 0;
                 LED1_Off();
@@ -196,7 +199,7 @@ void APP_SDCardButtonPressed(leButtonWidget* btn)
 {
     SYS_FS_CurrentDriveSet(SDCARD_MOUNT_NAME);
 
-    fileHandle = SYS_FS_FileOpen("SQI.hex", (SYS_FS_FILE_OPEN_READ));
+    fileHandle = SYS_FS_FileOpen( FILENAME, (SYS_FS_FILE_OPEN_READ));
     
     if(fileHandle != SYS_FS_HANDLE_INVALID)
     {
@@ -210,9 +213,9 @@ void APP_SDCardButtonPressed(leButtonWidget* btn)
 
 void APP_USBButtonPressed(leButtonWidget* btn)
 {
-    SYS_FS_CurrentDriveSet("/mnt/usb");
+    SYS_FS_CurrentDriveSet(USB_MOUNT_NAME);
 
-    fileHandle = SYS_FS_FileOpen("SQI.hex", (SYS_FS_FILE_OPEN_READ));
+    fileHandle = SYS_FS_FileOpen( FILENAME, (SYS_FS_FILE_OPEN_READ));
     
     if(fileHandle != SYS_FS_HANDLE_INVALID)
     {
@@ -340,10 +343,6 @@ void APP_Initialize ( void )
 
     usbDeviceConnected = 0;
     
-//    SYS_FS_EventHandlerSet(APP_SYSFSEventHandler, (uintptr_t)NULL);
-//    USB_HOST_EventHandlerSet(&APP_USBHostEventHandler, 0);
-//    USB_HOST_BusEnable(0);
-    
     appData.screenShown = false;    
 }
 
@@ -454,31 +453,14 @@ void APP_Tasks ( void )
         {
             if(USB_HOST_BusIsEnabled(0))
             {
-                appData.state = APP_STATE_MOUNT_DISK;
+                appData.state = APP_STATE_DONE;
             }
             break;
         }
 		
-        case APP_STATE_MOUNT_DISK:
-            if( SYS_FS_Mount( SDCARD_DEV_NAME, SDCARD_MOUNT_NAME, FAT, 1, NULL) == SYS_FS_RES_SUCCESS )
-            {
-                appData.state = APP_STATE_DEVICE_CONNECTED;
-                sdcardDeviceConnected = 1;
-                LED2_On();
-            }
-            break;
-
-        case APP_STATE_DEVICE_CONNECTED:
-            if (appData.screenShown == true)
-            {
-                appData.state = APP_STATE_DONE;
-            }
-            deviceConnectionStateChanged();
-            break;
-
 		case APP_OPEN_FILE:
 		{
-			fileHandle = SYS_FS_FileOpen("/SQI.hex", SYS_FS_FILE_OPEN_READ);
+			fileHandle = SYS_FS_FileOpen( FILENAME, SYS_FS_FILE_OPEN_READ);
 
 			if (fileHandle == SYS_FS_HANDLE_INVALID)
 			{
@@ -821,7 +803,25 @@ void APP_Tasks ( void )
 #endif
             break;
         }
+        
 		case APP_STATE_DONE:
+        {
+            if( SYS_FS_Mount( USB_DEV_NAME, USB_MOUNT_NAME, FAT, 0, NULL) == SYS_FS_RES_SUCCESS )
+            {
+                usbDeviceConnected = 1;
+                LED1_On();
+            }
+            
+            if( SYS_FS_Mount( SDCARD_DEV_NAME, SDCARD_MOUNT_NAME, FAT, 1, NULL) == SYS_FS_RES_SUCCESS )
+            {
+                sdcardDeviceConnected = 1;
+                LED2_On();
+            }
+
+            deviceConnectionStateChanged();
+            break;
+        }
+        
         default:
 		{
             break;
