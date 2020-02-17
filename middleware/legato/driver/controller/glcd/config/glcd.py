@@ -327,9 +327,9 @@ def instantiateComponent(comp):
 	FrameBufferColorMode.setLabel("Frame Buffer Color Mode")
 	FrameBufferColorMode.setOutputMode("Value")
 	FrameBufferColorMode.setDescription("FrameBuffer Color Mode")
-	FrameBufferColorMode.addKey("LUT8", "GFX_COLOR_MODE_GS_8", "LUT Palette 8bpp")
-	FrameBufferColorMode.addKey("RGB_565", "GFX_COLOR_MODE_RGB_565", "RGB565 16bpp")
-	FrameBufferColorMode.addKey("RGBA_8888", "GFX_COLOR_MODE_RGBA_8888", "RGBA8888 32bpp")
+	FrameBufferColorMode.addKey("GS_8", "GS_8", "LUT Palette 8bpp")
+	FrameBufferColorMode.addKey("RGB_565", "RGB_565", "RGB565 16bpp")
+	FrameBufferColorMode.addKey("RGBA_8888", "RGBA_8888", "RGBA8888 32bpp")
 	FrameBufferColorMode.setDefaultValue(2)
 
 	DoubleBuffer = comp.createBooleanSymbol("DoubleBuffer", FrameBufferSettingsMenu)
@@ -350,6 +350,15 @@ def instantiateComponent(comp):
 	PaletteMode.setDefaultValue(False)
 	PaletteMode.setVisible(True)	
 	### End of frame buffer settings
+
+	### Other Timing Settings
+	OtherSettingsMenu = comp.createMenuSymbol("OtherMenu", None)
+	OtherSettingsMenu.setLabel("Other Settings")
+
+	UseGPU = comp.createBooleanSymbol("UseGPU", OtherSettingsMenu)
+	UseGPU.setLabel("Use GPU for Blits?")
+	UseGPU.setDefaultValue(True)
+	UseGPU.setDescription("<html>Uses the Nano2D GPU for buffer blits.</html>")
 	
 	### Unsupported symbols, but may be queried by GFX HAL
 	UnsupportedOptionsMenu = comp.createMenuSymbol("UnsupportedOptionsMenu", None)

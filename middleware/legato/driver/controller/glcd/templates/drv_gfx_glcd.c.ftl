@@ -53,9 +53,6 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 <#assign Val_HSYNCNegative = !gfx_hal_le.DisplayHSYNCNegative>
 <#assign Val_UseDataEnable = gfx_hal_le.DisplayDataEnable>
 <#assign Val_DataEnablePolarity = gfx_hal_le.DisplayDataEnablePolarity>
-<#assign Val_DoubleBuffer = gfx_hal_le.DoubleBufferHint>
-<#assign Val_PaletteMode = gfx_hal_le.GlobalPaletteModeHint>
-<#assign Val_FrameBufferColorMode = gfx_hal_le.ColorModeHint>
 <#assign Val_HorzFrontPorch = gfx_hal_le.DisplayHorzFrontPorch>
 <#assign Val_HorzBackPorch = gfx_hal_le.DisplayHorzBackPorch>
 <#assign Val_HorzPulseWidth = gfx_hal_le.DisplayHorzPulseWidth>
@@ -76,9 +73,6 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 <#assign Val_HSYNCNegative = !DisplayHSYNCNegative>
 <#assign Val_UseDataEnable = DisplayDataEnable>
 <#assign Val_DataEnablePolarity = DisplayDataEnablePolarity>
-<#assign Val_DoubleBuffer = DoubleBuffer>
-<#assign Val_PaletteMode = PaletteMode>
-<#assign Val_FrameBufferColorMode = FrameBufferColorMode>
 <#assign Val_HorzFrontPorch = DisplayHorzFrontPorch>
 <#assign Val_HorzBackPorch = DisplayHorzBackPorch>
 <#assign Val_HorzPulseWidth = DisplayHorzPulseWidth>
@@ -108,7 +102,7 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 // *****************************************************************************
 // *****************************************************************************
 
-<#if Val_DoubleBuffer == true>
+<#if DoubleBuffer == true>
 #define BUFFER_PER_LAYER    2
 <#else>
 #define BUFFER_PER_LAYER    1
@@ -139,24 +133,22 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 </#if>
 </#if>
 
-<#if Val_FrameBufferColorMode == "GFX_COLOR_MODE_GS_8">
-#define LCDC_DEFAULT_GFX_COLOR_MODE GFX_COLOR_MODE_GS_8
+<#if FrameBufferColorMode == "GS_8">
+#define LCDC_DEFAULT_GFX_COLOR_MODE GLCD_LAYER_COLOR_MODE_LUT8
 #define FRAMEBUFFER_PTR_TYPE    uint8_t*
 #define FRAMEBUFFER_PIXEL_TYPE    uint8_t
-<#elseif Val_FrameBufferColorMode == "GFX_COLOR_MODE_RGB_565">
-#define LCDC_DEFAULT_GFX_COLOR_MODE GFX_COLOR_MODE_RGB_565
+<#elseif FrameBufferColorMode == "RGB_565">
+#define LCDC_DEFAULT_GFX_COLOR_MODE GLCD_LAYER_COLOR_MODE_RGB565
 #define FRAMEBUFFER_PTR_TYPE    uint16_t*
 #define FRAMEBUFFER_PIXEL_TYPE    uint16_t
-<#elseif FrameBufferColorMode == "GFX_COLOR_MODE_RGB_888" ||
-         FrameBufferColorMode == "GFX_COLOR_MODE_RGBA_8888" ||
-         FrameBufferColorMode == "GFX_COLOR_MODE_ARGB_8888">
-#define LCDC_DEFAULT_GFX_COLOR_MODE ${Val_FrameBufferColorMode}
+<#elseif FrameBufferColorMode == "RGBA_8888">
+#define LCDC_DEFAULT_GFX_COLOR_MODE GLCD_LAYER_COLOR_MODE_RGBA8888
 #define FRAMEBUFFER_PTR_TYPE    uint32_t*
 #define FRAMEBUFFER_PIXEL_TYPE    uint32_t
 <#else>
 //Unsupported  framebuffer type specified, default to RGBA8888
-#define LCDC_DEFAULT_GFX_COLOR_MODE GFX_COLOR_MODE_RGBA_8888
-#define FRAMEBUFFER_PTR_TYPE    uint32_t*
+#define LCDC_DEFAULT_GFX_COLOR_MODE GLCD_LAYER_COLOR_MODE_RGBA8888
+#define FRAMEBUFFER_PTR_TYPE      uint32_t*
 #define FRAMEBUFFER_PIXEL_TYPE    uint32_t
 </#if>
 
@@ -170,17 +162,21 @@ const char* DRIVER_NAME = "GLCD";
 FRAMEBUFFER_PIXEL_TYPE  __attribute__ ((coherent, aligned (32))) framebuffer_${i}[DISPLAY_WIDTH * DISPLAY_HEIGHT];
 </#list>
 
-<#if Val_DoubleBuffer == true>
+<#if DoubleBuffer == true>
 <#list 0..(TotalNumLayers-1) as i>
 FRAMEBUFFER_PIXEL_TYPE  __attribute__ ((coherent, aligned (32))) framebuffer1_${i}[DISPLAY_WIDTH * DISPLAY_HEIGHT];
 </#list>
 </#if>
 </#if>
 static uint32_t state;
-static gfxBool useGPU=true;
+<#if DoubleBuffer == true>
+static gfxBool useGPU = true;
+<#else>
+static gfxBool useGPU = false;
+</#if>
 static unsigned int vsyncCount = 0;
 static gfxPixelBuffer pixelBuffer;
-
+static gfxRect srcRect, destRect;
 
 volatile int32_t waitForAlphaSetting[GFX_GLCD_LAYERS] = {0};
 
@@ -230,83 +226,22 @@ void DRV_GLCD_Update()
     }
 }
 
-static GLCD_LAYER_COLOR_MODE convertColorModeGfxToGLCD(gfxColorMode mode)
-{
-    switch(mode)
-    {
-        case GFX_COLOR_MODE_GS_8:
-            return GLCD_LAYER_COLOR_MODE_LUT8;
-            break;
-        case GFX_COLOR_MODE_RGB_332:
-            return GLCD_LAYER_COLOR_MODE_RGB332;
-            break;
-        case GFX_COLOR_MODE_RGB_565:
-            return GLCD_LAYER_COLOR_MODE_RGB565;
-            break;
-        case GFX_COLOR_MODE_RGB_888:
-            return GLCD_LAYER_COLOR_MODE_RGB888;
-            break;
-        case GFX_COLOR_MODE_RGBA_8888:
-            return GLCD_LAYER_COLOR_MODE_RGBA8888;
-            break;
-        case GFX_COLOR_MODE_ARGB_8888:
-            return GLCD_LAYER_COLOR_MODE_ARGB8888;
-            break;
-        case GFX_COLOR_MODE_INDEX_1:
-            return GLCD_LAYER_COLOR_MODE_L1;
-            break;
-        case GFX_COLOR_MODE_INDEX_4:
-            return GLCD_LAYER_COLOR_MODE_L4;
-            break;
-        case GFX_COLOR_MODE_INDEX_8:
-            return GLCD_LAYER_COLOR_MODE_L8;
-            break;
-        default:
-            return GLCD_LAYER_COLOR_MODE_RGBA8888;
-            break;
-
-    }
-}
-
 static uint32_t getColorModeStrideSize(GLCD_LAYER_COLOR_MODE mode)
 {
-    switch(mode)
-    {
-        case GLCD_LAYER_COLOR_MODE_LUT8:
-            return sizeof(uint8_t);
-            break;
-        case GLCD_LAYER_COLOR_MODE_RGB332:
-            return sizeof(uint8_t);
-            break;
-        case GLCD_LAYER_COLOR_MODE_RGB565:
-            return sizeof(uint16_t);
-            break;
-        case GLCD_LAYER_COLOR_MODE_RGB888:
-            return sizeof(uint32_t);
-            break;
-        case GLCD_LAYER_COLOR_MODE_RGBA8888:
-            return sizeof(uint32_t);
-            break;
-        case GLCD_LAYER_COLOR_MODE_ARGB8888:
-            return sizeof(uint32_t);
-            break;
-        case GLCD_LAYER_COLOR_MODE_L1:
-            return sizeof(uint8_t);
-            break;
-        case GLCD_LAYER_COLOR_MODE_L4:
-            return sizeof(uint8_t);
-            break;
-        case GLCD_LAYER_COLOR_MODE_L8:
-            return sizeof(uint8_t);
-            break;
-        default:
-            return sizeof(uint32_t);
-            break;
-                        
-    }
+<#if FrameBufferColorMode == "GS_8">
+	return 1;
+<#elseif FrameBufferColorMode == "RGB_565">
+	return 2;
+<#elseif FrameBufferColorMode == "RGB_888">
+	return 3;
+<#elseif FrameBufferColorMode == "RGBA_8888" ||
+         FrameBufferColorMode == "RGBA_8888" ||
+         FrameBufferColorMode == "ARGB_8888">
+	return 4;
+</#if>
 }
 
-<#if Val_PaletteMode == true>
+<#if PaletteMode == true>
 static gfxResult globalPaletteSet(GFX_GlobalPalette palette)
 {
     uint32_t lut[GFX_GLOBAL_PALETTE_SIZE];
@@ -331,214 +266,6 @@ static gfxResult globalPaletteSet(GFX_GlobalPalette palette)
 }
 </#if>
 
-//static gfxResult colorModeSet(gfxColorMode mode)
-//{
-//    GLCD_LAYER_COLOR_MODE glcdMode;
-//    uint32_t stride = 0;
-
-//    // use default implementation to initialize buffer struct
-//    defColorModeSet(mode);
-    
-//    // ensure all buffers are marked as managed by the driver so application
-//    // can't delete or modify them
-    
-//    //Translate
-//    //GFX->GLCD
-//    glcdMode = convertColorModeGfxToGLCD(mode);
-//    stride = getColorModeStrideSize(glcdMode);
-    
-//    //Update the active layer's color mode and stride
-//    drvLayer[layerId].colorspace = glcdMode;
-
-//    PLIB_GLCD_LayerColorModeSet(layerId, drvLayer[layerId].colorspace);
-//    PLIB_GLCD_LayerStrideSet(layerId, drvLayer[layerId].resx * stride);
-
-//    return GFX_SUCCESS;
-//}
-
-//static gfxResult colorModeSet(gfxColorMode mode)
-//{
-//    GLCD_LAYER_COLOR_MODE glcdMode;
-//    uint32_t stride = 0;
-//
-//    // use default implementation to initialize buffer struct
-//    defColorModeSet(mode);
-//
-//    // ensure all buffers are marked as managed by the driver so application
-//    // can't delete or modify them
-//
-//    //Translate
-//    //GFX->GLCD
-//    glcdMode = convertColorModeGfxToGLCD(mode);
-//    stride = getColorModeStrideSize(glcdMode);
-//
-//    //Update the active layer's color mode and stride
-//    drvLayer[layerId].colorspace = glcdMode;
-//
-//    PLIB_GLCD_LayerColorModeSet(layerId, drvLayer[layerId].colorspace);
-//    PLIB_GLCD_LayerStrideSet(layerId, drvLayer[layerId].resx * stride);
-//
-//    return LE_SUCCESS;
-//}
-
-//static gfxResult layerBufferCountSet(uint32_t count)
-//{
-//    uint32_t i;
-//
-//    if(count > BUFFER_PER_LAYER)
-//    {
-//        count = BUFFER_PER_LAYER;
-//    }
-//
-//    // use default implementation to initialize buffer struct
-//    defLayerBufferCountSet(count);
-//
-//    // ensure all buffers are marked as managed by the driver so application
-//    // can't delete or modify them
-//    for(i = 0; i < bufferCount; i++)
-//    {
-//        GFX_PixelBufferCreate(layer->rect.display.width,
-//                  layer->rect.display.height,
-//                  context->colorMode,
-//                  drvLayer[layer->id].baseaddr[i],
-//                  &layer->buffers[i].pb);
-//
-//        layer->buffers[i].state = GFX_BS_MANAGED;
-//    }
-//
-//    // ensure GLCD buffers are in-sync with the library
-//    PLIB_GLCD_LayerBaseAddressSet(layerId, (uint32_t)drvLayer[layer->id].baseaddr[layer->buffer_read_idx]);
-//
-//    return LE_SUCCESS;
-//}
-
-//static gfxResult layerBufferAddressSet(uint32_t idx, uint32_t address)
-//{
-//    if (address == NULL || idx >= BUFFER_PER_LAYER)
-//    {
-//        return LE_FAILURE;
-//    }
-//
-//    //No need to call default address set as this is driver managed
-//    //defLayerBufferAddressSet(idx, address);
-//
-//    drvLayer[layer->id].baseaddr[idx] = address;
-//
-//    PLIB_GLCD_LayerBaseAddressSet(layer->id, (uint32_t)drvLayer[layer->id].baseaddr[idx]);
-//
-//    return LE_SUCCESS;
-//}
-
-//static gfxResult layerBufferAllocate(uint32_t idx)
-//{
-//    GFX_Layer* layer;
-//    GFX_Context* context = GFX_ActiveContext();
-//    uint32_t  i,j;
-//    uint32_t  color = 0;
-//
-//    layer = context->layer.active;
-//
-//    if (layer->id == 0)
-//    {
-//        color = GFX_GLCD_BACKGROUND_COLOR;
-//    }
-//
-//    for(i = 0; i < layer->rect.display.height; i++)
-//    {
-//        for(j = 0; j < layer->rect.display.width; j++)
-//    {
-//            *(uint32_t*)(drvLayer[layer->id].baseaddr[idx] + i*layer->rect.display.width + j) = color;
-//    }
-//    }
-//    return LE_SUCCESS;
-//}
-
-//static gfxResult layerBufferFree(uint32_t idx)
-//{
-//    return GFX_UNSUPPORTED;
-//}
-//
-//static gfxResult layerPositionSet(int32_t x, int32_t y)
-//{
-//    uint32_t idx;
-//
-//    idx = GFX_ActiveContext()->layer.active->id;
-//
-//    defLayerPositionSet(x, y);
-//
-//    PLIB_GLCD_LayerStartXYSet(idx,
-//                              GFX_ActiveContext()->layer.active->rect.display.x,
-//                              GFX_ActiveContext()->layer.active->rect.display.y);
-//
-//    return LE_SUCCESS;
-//}
-//
-//static gfxResult layerSizeSet(int32_t width, int32_t height)
-//{
-//    uint32_t idx;
-//
-//    idx = GFX_ActiveContext()->layer.active->id;
-//
-//    defLayerSizeSet(width, height);
-//
-//    PLIB_GLCD_LayerSizeXYSet(idx,
-//                             GFX_ActiveContext()->layer.active->rect.display.width,
-//                             GFX_ActiveContext()->layer.active->rect.display.height);
-//
-//    return LE_SUCCESS;
-//}
-//
-//static gfxResult layerAlphaAmountSet(uint32_t alpha, gfxBool wait)
-//{
-//    uint32_t idx;
-//
-//    idx = GFX_ActiveContext()->layer.active->id;
-//
-//    if(wait == GFX_TRUE)
-//    {
-//        waitForAlphaSetting[idx] = alpha;
-//    }
-//    else
-//    {
-//        waitForAlphaSetting[idx] = -1;
-//
-//        defLayerAlphaAmountSet(alpha, wait);
-//
-//        PLIB_GLCD_LayerGlobalAlphaSet(idx, alpha);
-//    }
-//
-//    return LE_SUCCESS;
-//}
-//
-//static uint32_t layerAlphaAmountGet(void)
-//{
-//    uint32_t idx;
-//
-//    idx = GFX_ActiveContext()->layer.active->id;
-//
-//    return PLIB_GLCD_LayerGlobalAlphaGet(idx);
-//}
-//
-//void layerSwapped(GFX_Layer* layer)
-//{
-//    if (layer->buffer_count > BUFFER_PER_LAYER)
-//        return;
-//
-//    PLIB_GLCD_LayerBaseAddressSet(layer->id, (uint32_t)drvLayer[layer->id].baseaddr[layer->buffer_read_idx]);
-//}
-
-//static gfxResult layerEnabledSet(gfxBool val)
-//{
-//    GFX_ActiveContext()->layer.active->enabled = val;
-//
-//    if(val == GFX_TRUE)
-//        PLIB_GLCD_LayerEnable(GFX_ActiveContext()->layer.active->id);
-//    else
-//        PLIB_GLCD_LayerDisable(GFX_ActiveContext()->layer.active->id);
-//
-//    return LE_SUCCESS;
-//}
-
 void DRV_GLCD_Initialize()
 {
     uint32_t      xResolution;
@@ -551,7 +278,7 @@ void DRV_GLCD_Initialize()
     uint32_t      upperMargin;
     uint32_t      stride;
     uint32_t      layerCount;
-    uint32_t      i,j;
+    uint32_t      bufferCount;
 
     // general default initialization
     //if(defInitialize(context) == LE_FAILURE)
@@ -600,14 +327,14 @@ void DRV_GLCD_Initialize()
     <#list 0..(TotalNumLayers-1) as i>
     drvLayer[${i}].baseaddr[0] = framebuffer_${i};
     </#list>
-    <#if Val_DoubleBuffer == true>
+    <#if DoubleBuffer == true>
     <#list 0..(TotalNumLayers-1) as i>
     drvLayer[${i}].baseaddr[1] = framebuffer1_${i};
     </#list>
 </#if>
 <#else>
     <#list 0..(TotalNumLayers-1) as i>
-    <#if Val_DoubleBuffer == true>
+    <#if DoubleBuffer == true>
     drvLayer[${i}].baseaddr[0] = (FRAMEBUFFER_PTR_TYPE)GFX_GLCD_LAYER${i}_BASEADDR;
     drvLayer[${i}].baseaddr[1] = (FRAMEBUFFER_PTR_TYPE)GFX_GLCD_LAYER${i}_DBL_BASEADDR;
     <#else>
@@ -627,29 +354,12 @@ void DRV_GLCD_Initialize()
         drvLayer[layerCount].alpha      = 255;
         drvLayer[layerCount].dblend     = GLCD_LAYER_DEST_BLEND_INV_SRCGBL;
         drvLayer[layerCount].sblend     = GLCD_LAYER_SRC_BLEND_ALPHA_SRCGBL;
-        drvLayer[layerCount].colorspace = convertColorModeGfxToGLCD(LCDC_DEFAULT_GFX_COLOR_MODE);
+        drvLayer[layerCount].colorspace = LCDC_DEFAULT_GFX_COLOR_MODE;
 
         //Clear frame buffer
-        for(i = 0; i < yResolution; i++)
+        for(bufferCount = 0; bufferCount < BUFFER_PER_LAYER; ++bufferCount)
         {
-            for(j = 0; j < xResolution; j++)
-            {
-<#if Val_FrameBufferColorMode == "GFX_COLOR_MODE_RGBA_8888">
-    <#if Val_DoubleBuffer == true>
-        *(uint32_t*)(drvLayer[layerCount].baseaddr[0] + i*xResolution + j) = 0;
-        *(uint32_t*)(drvLayer[layerCount].baseaddr[1] + i*xResolution + j) = 0;
-    <#else>
-        *(uint32_t*)(drvLayer[layerCount].baseaddr[0] + i*xResolution + j) = 0;
-    </#if>
-<#elseif Val_FrameBufferColorMode == "GFX_COLOR_MODE_RGB_565">
-    <#if Val_DoubleBuffer == true>
-        *(uint16_t*)(drvLayer[layerCount].baseaddr[0] + i*xResolution + j) = 0;
-        *(uint16_t*)(drvLayer[layerCount].baseaddr[1] + i*xResolution + j) = 0;
-    <#else>
-        *(uint16_t*)(drvLayer[layerCount].baseaddr[0] + i*xResolution + j) = 0;
-    </#if>
-</#if>
-            }
+            memset(drvLayer[layerCount].baseaddr[bufferCount], 0, sizeof(FRAMEBUFFER_PIXEL_TYPE) * DISPLAY_WIDTH * DISPLAY_HEIGHT);
         }
         
         stride = getColorModeStrideSize(drvLayer[layerCount].colorspace);
@@ -668,7 +378,7 @@ void DRV_GLCD_Initialize()
 
         gfxPixelBufferCreate(xResolution,
                     yResolution,
-                    LCDC_DEFAULT_GFX_COLOR_MODE,
+                    DRV_GLCD_GetColorMode(),
                     drvLayer[0].baseaddr[0],
                     &pixelBuffer);
 
@@ -686,63 +396,17 @@ gfxPixelBuffer * DRV_GLCD_GetFrameBuffer(void)
     return &pixelBuffer;
 }
 
-
-//static void layerSwapPending(GFX_Layer* layer)
-//{
-//    uint32_t l;
-//    GFX_Layer* lyr;
-    
-//    if(context->layerSwapSync)
-//    {
-//    for(l = 0; l < context->layer.count; l++)
-//    {
-//            lyr = &context->layer.layers[l];
-            
-//            if(lyr->enabled == GFX_TRUE)
-//            {
-//                if(lyr->invalid == GFX_TRUE && lyr->swap == GFX_FALSE)
-//                    return;
-//            }
-//    }
-//    }
-
-//    waitingForVSync = GFX_TRUE;
-
-//    PLIB_GLCD_VSyncInterruptEnable(); // enable vsync interrupt
-
-    // need to spin until vsync happens to ensure content does not get
-    // drawn to the wrong frame buffer
-//    while(waitingForVSync == GFX_TRUE ||
-//          PLIB_GLCD_IsVerticalBlankingActive() == true)
-//    { }
-//}
-
 void GLCD_Interrupt_Handler(void)
 {
-//    uint32_t i;
-//    GFX_Context* context = GFX_ActiveContext();
-    
-    // disable vsync interrupt
-//    PLIB_GLCD_VSyncInterruptDisable();
+	// disable vsync interrupt
+    //PLIB_GLCD_VSyncInterruptDisable();
 
     // clear interrupt flag
-//    EVIC_SourceStatusClear(INT_SOURCE_GLCD);
+    //EVIC_SourceStatusClear(INT_SOURCE_GLCD);
 
-    // swap all pending layers
-//    for(i = 0; i < context->layer.count; i++)
-//    {
-//        if(context->layer.layers[i].swap == GFX_TRUE)
-//            GFX_LayerSwap(&context->layer.layers[i]);
-            
-//        if(waitForAlphaSetting[i] >= 0)
-//        {
-//            context->layer.layers[i].alphaAmount = waitForAlphaSetting[i];
-
-//            PLIB_GLCD_LayerGlobalAlphaSet(i, (uint8_t)waitForAlphaSetting[i]);
-//        }
-//    }
+    //_2dgpuGraphicsProcessor.blitBuffer(&scratchBuffer, &srcRect, &pixelBuffer, &destRect, blendMode );
     
-//    waitingForVSync = GFX_FALSE;
+    //waitingForVSync = GFX_FALSE;
 }
 
 /**** End Hardware Abstraction Interfaces ****/
@@ -755,7 +419,19 @@ static int DRV_GFX_GLCD_Start()
 
 gfxColorMode DRV_GLCD_GetColorMode()
 {
-    return GFX_COLOR_MODE_RGB_565;
+<#if FrameBufferColorMode == "GS_8">
+	return GFX_COLOR_MODE_GS_8;
+<#elseif FrameBufferColorMode == "RGB_332">
+	return GFX_COLOR_MODE_RGB_332;
+<#elseif FrameBufferColorMode == "RGB_565">
+	return GFX_COLOR_MODE_RGB_565;
+<#elseif FrameBufferColorMode == "RGB_888">
+	return GFX_COLOR_MODE_RGB_888;
+<#elseif FrameBufferColorMode == "RGBA_8888">
+	return GFX_COLOR_MODE_RGBA_8888;
+<#elseif FrameBufferColorMode == "ARGB_8888">
+	return GFX_COLOR_MODE_ARGB_8888;
+</#if>
 }
 
 uint32_t DRV_GLCD_GetBufferCount()
@@ -775,17 +451,17 @@ uint32_t DRV_GLCD_GetDisplayHeight()
 
 uint32_t DRV_GLCD_GetLayerCount()
 {
-        return 1;
+	return 1;
 }
 
 uint32_t DRV_GLCD_GetActiveLayer()
 {
-        return 0;
+	return 0;
 }
 
 gfxResult DRV_GLCD_SetActiveLayer(uint32_t idx)
 {
-        return GFX_SUCCESS;
+	return GFX_SUCCESS;
 }
 
 void DRV_GLCD_Swap(void)
@@ -795,12 +471,12 @@ void DRV_GLCD_Swap(void)
 
 uint32_t DRV_GLCD_GetVSYNCCount(void)
 {
-        return vsyncCount;
+	return vsyncCount;
 }
 
 void DRV_GLCD_SetUseGPU(gfxBool onOff)
 {
-        useGPU = onOff;
+	useGPU = onOff;
 }
 
 gfxResult DRV_GLCD_BlitBuffer(int32_t x,
@@ -808,14 +484,11 @@ gfxResult DRV_GLCD_BlitBuffer(int32_t x,
                              gfxPixelBuffer* buf,
                              gfxBlend blend)
 {
-
     if (state != RUN)
         return GFX_FAILURE;
 
-    if ( useGPU )
+    if(useGPU)
     {
-        gfxRect srcRect, destRect;
-
         srcRect.x = 0;
         srcRect.y = 0;
         srcRect.height = buf->size.height;

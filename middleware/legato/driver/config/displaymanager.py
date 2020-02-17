@@ -107,15 +107,6 @@ def onPixelClockSet(symbol, event):
 def onDisableHint(symbol, event):
 	halComponent = event["source"]
 	
-	ColorModeHint = halComponent.getSymbolByID("ColorModeHint")
-	ColorModeHint.setReadOnly(halComponent.getSymbolValue("DisableColorModeHint"))
-	
-	GlobalPaletteModeHint = halComponent.getSymbolByID("GlobalPaletteModeHint")
-	GlobalPaletteModeHint.setReadOnly(halComponent.getSymbolValue("DisableGlobalPaletteModeHint"))
-	
-	DoubleBufferHint = halComponent.getSymbolByID("DoubleBufferHint")
-	DoubleBufferHint.setReadOnly(halComponent.getSymbolValue("DisableDoubleBufferHint"))
-	
 	LCCRefreshHint = halComponent.getSymbolByID("LCCRefreshHint")
 	LCCRefreshHint.setReadOnly(halComponent.getSymbolValue("DisableLCCRefreshHint"))
 	

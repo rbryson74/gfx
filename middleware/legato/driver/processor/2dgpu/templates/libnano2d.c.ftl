@@ -37,7 +37,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 *******************************************************************************/
 // DOM-IGNORE-END
 
-#include "gfx/driver/processor/2dgpu/libnano2D.h"
+#include "gfx/driver/processor/2dgpu/libnano2d.h"
 
 #include <xc.h>
 #include <sys/attribs.h>
@@ -45,6 +45,10 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #define CMD_BUFFER_SIZE  8192
 uint32_t __attribute__((coherent, aligned(32))) commandBuffer[CMD_BUFFER_SIZE];
+
+#define SCRATCH_SIZE ${SCRATCHBUFFER_SIZE}
+
+static volatile uint8_t __attribute__ ((coherent, aligned (32))) scratchBuffer[8192];
 
 // GPU command buffer seems to work better when placed in DDR
 #define CMD_BUFFER_DDR_ADDRESS 0xA9E00000
@@ -134,6 +138,29 @@ gfxResult DRV_2DGPU_Fill(gfxPixelBuffer * dest,
     return GFX_SUCCESS;
 }
 
+static gfxBool createPaddedBuffer(const gfxPixelBuffer* src)
+{
+    int pixelSize = gfxColorInfoTable[src->mode].size;
+    int rowSize = src->size.width;
+    int newRowSize = rowSize + (4 - (src->size.width % 4));
+    int totalSize = newRowSize * src->size.height * pixelSize;
+    int row;
+    
+    if(totalSize > SCRATCH_SIZE)
+        return GFX_FALSE;
+    
+    memset((uint8_t*)scratchBuffer, 0, SCRATCH_SIZE);
+
+    for(row = 0; row < src->size.height; ++row)
+    {
+        memcpy(((uint8_t*)scratchBuffer) + (newRowSize * row * pixelSize),
+               ((uint8_t*)src->pixels) + (rowSize * row * pixelSize),
+               rowSize * pixelSize);
+    }
+    
+    return GFX_TRUE;
+}
+
 gfxResult DRV_2DGPU_Blit(const gfxPixelBuffer* source,
                            const gfxRect* srcRect,
                            const gfxPixelBuffer* dest,
@@ -141,17 +168,6 @@ gfxResult DRV_2DGPU_Blit(const gfxPixelBuffer* source,
                          const gfxBlend blend)
 {
     n2d_buffer_t src_buffer, dest_buffer;
-
-    // the source address must reside in KSEG1 (cache coherent) memory
-    // and the source buffer must be raw pixels as the the GPU doesn't
-    // understand palettized blits
-    // if this fails then fall back to software mode
-    if(IS_KVA1(source->pixels) == GFX_FALSE ||
-       GFX_COLOR_MODE_IS_INDEX(source->mode) == GFX_TRUE ||
-       GFX_COLOR_MODE_IS_INDEX(dest->mode) == GFX_TRUE ||
-       gpu_format == -1 ||
-       gpu_format == -1)
-        return GFX_SUCCESS;
 
     // craft source buffer descriptor
     src_buffer.width = source->size.width;
@@ -163,6 +179,20 @@ gfxResult DRV_2DGPU_Blit(const gfxPixelBuffer* source,
     src_buffer.memory = source->pixels;
     src_buffer.gpu = KVA_TO_PA(source->pixels);
 
+    // the source address must reside in KSEG1 (cache coherent) memory
+    // and the source buffer must be padded properly
+    if(IS_KVA1(source->pixels) == GFX_FALSE || 
+       (source->size.width) % 4 > 0)
+    {
+        if(createPaddedBuffer(source) == GFX_FALSE)
+            return GFX_FAILURE;
+        
+        src_buffer.width = source->size.width + (4 - (source->size.width % 4));
+        src_buffer.stride = (src_buffer.width * gfxColorInfoTable[source->mode].size);
+        src_buffer.memory = (uint8_t*)scratchBuffer;
+        src_buffer.gpu = KVA_TO_PA((uint8_t*)scratchBuffer);
+    }
+    
     // craft dest buffer descriptor
     dest_buffer.width = dest->size.width;
     dest_buffer.height = dest->size.height;
@@ -173,40 +203,11 @@ gfxResult DRV_2DGPU_Blit(const gfxPixelBuffer* source,
     dest_buffer.memory = dest->pixels;
     dest_buffer.gpu = KVA_TO_PA(dest->pixels);
 
-//    if(state->maskEnable == GFX_TRUE)
-//    {
-//        n2d_color_t color = (n2d_color_t)gfxColorConvert(state->colorMode, GFX_COLOR_MODE_ARGB_8888, state->maskValue);
-//
-//        n2d_draw_state(N2D_TRANSPARENCY_SOURCE,
-//                       color,
-//                       0xA,
-//                       0xC);
-//    }
-
-//    if ((state->alphaEnable == GFX_TRUE) &&
-//        ((state->blendMode & GFX_BLEND_CHANNEL) == 0))
-//    {
-//        n2d_set_global_alpha(N2D_GLOBAL_ALPHA_ON, N2D_GLOBAL_ALPHA_OFF, state->globalAlphaValue, 0xff);
-//        blend = N2D_BLEND_SRC_OVER;
-//    }
-
     n2d_blit(&dest_buffer,
              (n2d_rectangle_t*)destRect,
              &src_buffer,
              (n2d_rectangle_t*)srcRect,
              blend);
-
-//    if(state->maskEnable == GFX_TRUE)
-//    {
-//        n2d_draw_state(N2D_TRANSPARENCY_NONE, 0, 0xC, 0xC);
-//    }
-//
-//    if ((state->alphaEnable == GFX_TRUE) &&
-//        ((state->blendMode & GFX_BLEND_CHANNEL) == 0))
-//    {
-//        n2d_set_global_alpha(N2D_GLOBAL_ALPHA_OFF, N2D_GLOBAL_ALPHA_OFF, 0xff, 0xff);
-//        blend = N2D_BLEND_NONE;
-//    }
 
     return GFX_SUCCESS;
 }
@@ -219,17 +220,6 @@ gfxResult DRV_2DGPU_BlitStretch(const gfxPixelBuffer* source,
 {
     n2d_buffer_t src_buffer, dest_buffer;
 
-    // the source address must reside in KSEG1 (cache coherent) memory
-    // and the source buffer must be raw pixels as the the GPU doesn't
-    // understand palettized blits
-    // if this fails then fall back to software mode
-    if(IS_KVA1(source->pixels) == GFX_FALSE ||
-       GFX_COLOR_MODE_IS_INDEX(source->mode) == GFX_TRUE ||
-       GFX_COLOR_MODE_IS_INDEX(dest->mode) == GFX_TRUE ||
-       gpu_format == -1 ||
-       gpu_format == -1)
-        return GFX_SUCCESS;
-
     // craft source buffer descriptor
     src_buffer.width = source->size.width;
     src_buffer.height = source->size.height;
@@ -240,6 +230,20 @@ gfxResult DRV_2DGPU_BlitStretch(const gfxPixelBuffer* source,
     src_buffer.memory = source->pixels;
     src_buffer.gpu = KVA_TO_PA(source->pixels);
 
+    // the source address must reside in KSEG1 (cache coherent) memory
+    // and the source buffer must be padded properly
+    if(IS_KVA1(source->pixels) == GFX_FALSE || 
+       (source->size.width) % 4 > 0)
+    {
+        if(createPaddedBuffer(source) == GFX_FALSE)
+            return GFX_FAILURE;
+        
+        src_buffer.width = source->size.width + (4 - (source->size.width % 4));
+        src_buffer.stride = (src_buffer.width * gfxColorInfoTable[source->mode].size);
+        src_buffer.memory = (uint8_t*)scratchBuffer;
+        src_buffer.gpu = KVA_TO_PA((uint8_t*)scratchBuffer);
+    }
+    
     // craft dest buffer descriptor
     dest_buffer.width = dest->size.width;
     dest_buffer.height = dest->size.height;
@@ -250,40 +254,11 @@ gfxResult DRV_2DGPU_BlitStretch(const gfxPixelBuffer* source,
     dest_buffer.memory = dest->pixels;
     dest_buffer.gpu = KVA_TO_PA(dest->pixels);
 
-//    if(state->maskEnable == GFX_TRUE)
-//    {
-//        n2d_color_t color = (n2d_color_t)gfxColorConvert(state->colorMode, GFX_COLOR_MODE_ARGB_8888, state->maskValue);
-//
-//        n2d_draw_state(N2D_TRANSPARENCY_SOURCE,
-//                       color,
-//                       0xA,
-//                       0xC);
-//    }
-//
-//    if ((state->alphaEnable == GFX_TRUE) &&
-//        ((state->blendMode & GFX_BLEND_CHANNEL) == 0))
-//    {
-//        n2d_set_global_alpha(N2D_GLOBAL_ALPHA_ON, N2D_GLOBAL_ALPHA_OFF, state->globalAlphaValue, 0xff);
-//        blend = N2D_BLEND_SRC_OVER;
-//    }
-
     n2d_blit(&dest_buffer,
              (n2d_rectangle_t*)destRect,
              &src_buffer,
              (n2d_rectangle_t*)srcRect,
              blend);
-
-//    if(state->maskEnable == GFX_TRUE)
-//    {
-//        n2d_draw_state(N2D_TRANSPARENCY_NONE, 0, 0xC, 0xC);
-//    }
-//
-//    if ((state->alphaEnable == GFX_TRUE) &&
-//        ((state->blendMode & GFX_BLEND_CHANNEL) == 0))
-//    {
-//        n2d_set_global_alpha(N2D_GLOBAL_ALPHA_OFF, N2D_GLOBAL_ALPHA_OFF, 0xff, 0xff);
-//        blend = N2D_BLEND_NONE;
-//    }
 
     return GFX_SUCCESS;
 }

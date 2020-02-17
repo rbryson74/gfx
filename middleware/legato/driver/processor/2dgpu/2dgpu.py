@@ -23,48 +23,53 @@
 ##############################################################################
 
 def setCommonMode(symbol, event):
-    rtos_mode = event["value"]
+	rtos_mode = event["value"]
 
 
 def instantiateComponent(comp):
 	print("Instantiated 2DGPU nano2d driver component")
 	projectPath = "config/" + Variables.get("__CONFIGURATION_NAME") + "/gfx/driver/2dgpu"
 
-        nano2d_default_mode = "Synchronous"
+	nano2d_default_mode = "Synchronous"
 
 	DriverInitName = comp.createStringSymbol("DriverInitName", None)
-        DriverInitName.setLabel("Driver Name")
-      	DriverInitName.setDefaultValue("_2dgpuGraphicsProcessor")
-        DriverInitName.setReadOnly(True)
+	DriverInitName.setLabel("Driver Name")
+	DriverInitName.setDefaultValue("_2dgpuGraphicsProcessor")
+	DriverInitName.setReadOnly(True)
 
-    	Nano2DSymLIB = comp.createStringSymbol("DRV_NANO2D_LIB", None)
-    	Nano2DSymLIB.setLabel("LIB Used")
+	Nano2DSymLIB = comp.createStringSymbol("DRV_NANO2D_LIB", None)
+	Nano2DSymLIB.setLabel("LIB Used")
 	Nano2DSymLIB.setDefaultValue("libnano2d.a")
-    	Nano2DSymLIB.setReadOnly(True)
+	Nano2DSymLIB.setReadOnly(True)
 
-    	Nano2DMode = comp.createComboSymbol("DRV_NANO2D_MODE", None, ["Asynchronous", "Synchronous"])
-    	Nano2DMode.setLabel("Driver Mode")
-    	Nano2DMode.setDefaultValue(nano2d_default_mode)
-    	Nano2DMode.setDependencies(setCommonMode, ["HarmonyCore.SELECT_RTOS"])
+	Nano2DMode = comp.createComboSymbol("DRV_NANO2D_MODE", None, ["Asynchronous", "Synchronous"])
+	Nano2DMode.setLabel("Driver Mode")
+	Nano2DMode.setDefaultValue(nano2d_default_mode)
+	Nano2DMode.setDependencies(setCommonMode, ["HarmonyCore.SELECT_RTOS"])
 	Nano2DMode.setReadOnly(True)
 
-    	Nano2DSymQueueSize = comp.createIntegerSymbol("DRV_NANO2D_QUEUE_SIZE", None)
-    	Nano2DSymQueueSize.setLabel("Transfer Queue Size")
-    	Nano2DSymQueueSize.setMax(64)
-    	Nano2DSymQueueSize.setVisible((Database.getSymbolValue("drv_2dgpu", "DRV_NANO2D_MODE") == "Asynchronous"))
-    	Nano2DSymQueueSize.setDefaultValue(2)
-    	Nano2DSymQueueSize.setDependencies(asyncModeOptions, ["drv_2dgpu.DRV_NANO2D_MODE"])
+	Nano2DSymQueueSize = comp.createIntegerSymbol("DRV_NANO2D_QUEUE_SIZE", None)
+	Nano2DSymQueueSize.setLabel("Transfer Queue Size")
+	Nano2DSymQueueSize.setMax(64)
+	Nano2DSymQueueSize.setVisible((Database.getSymbolValue("drv_2dgpu", "DRV_NANO2D_MODE") == "Asynchronous"))
+	Nano2DSymQueueSize.setDefaultValue(2)
+	Nano2DSymQueueSize.setDependencies(asyncModeOptions, ["drv_2dgpu.DRV_NANO2D_MODE"])
 	Nano2DSymQueueSize.setReadOnly(True)
 
-        #
-        #GPU_DRIVER_H = comp.createFileSymbol("GPU_DRIVER_H", None)
+	Nano2DScratchBufferSize = comp.createIntegerSymbol("SCRATCHBUFFER_SIZE", None)
+	Nano2DScratchBufferSize.setLabel("Scratch Buffer Size")
+	Nano2DScratchBufferSize.setMin(1)
+	Nano2DScratchBufferSize.setDefaultValue(4096)
+	
+	#
+	#GPU_DRIVER_H = comp.createFileSymbol("GPU_DRIVER_H", None)
 	#GPU_DRIVER_H.setSourcePath("../gpu_driver.h")
 	#GPU_DRIVER_H.setDestPath("gfx/driver/processor/")
 	#GPU_DRIVER_H.setProjectPath(projectPath)
 	#GPU_DRIVER_H.setOutputName("gpu_driver.h")
 	#GPU_DRIVER_H.setType("HEADER")
 
-        # common display controller header
+		# common display controller header
 
 	# Add Library
 	libnano2d_a = comp.createLibrarySymbol("DRV_LIB_NANO2D", None)
@@ -72,25 +77,25 @@ def instantiateComponent(comp):
 	libnano2d_a.setOutputName("libnano2d.a")
 	libnano2d_a.setSourcePath("lib/libnano2d.a")
 
-    	# Add Interface
-    	Nano2DHeaderFile = comp.createFileSymbol("NANO2D_FILE_MAIN_HEADER", None)
-    	Nano2DHeaderFile.setSourcePath("templates/libnano2d.h.ftl")
-    	Nano2DHeaderFile.setOutputName("libnano2d.h")
-        Nano2DHeaderFile.setDestPath("gfx/driver/processor/2dgpu")
-    	Nano2DHeaderFile.setProjectPath(projectPath)
-    	Nano2DHeaderFile.setType("HEADER")
-        Nano2DHeaderFile.setMarkup(True)
-    	Nano2DHeaderFile.setOverwrite(True)
+	# Add Interface
+	Nano2DHeaderFile = comp.createFileSymbol("NANO2D_FILE_MAIN_HEADER", None)
+	Nano2DHeaderFile.setSourcePath("templates/libnano2d.h.ftl")
+	Nano2DHeaderFile.setOutputName("libnano2d.h")
+	Nano2DHeaderFile.setDestPath("gfx/driver/processor/2dgpu")
+	Nano2DHeaderFile.setProjectPath(projectPath)
+	Nano2DHeaderFile.setType("HEADER")
+	Nano2DHeaderFile.setMarkup(True)
+	Nano2DHeaderFile.setOverwrite(True)
 
 	# Add Adapter
-    	Nano2DHalFile = comp.createFileSymbol("NANO2D_FILE_HAL", None)
-    	Nano2DHalFile.setSourcePath("templates/libnano2d_hal.c.ftl")
-    	Nano2DHalFile.setOutputName("libnano2d_hal.c")
-    	Nano2DHalFile.setDestPath("gfx/driver/processor/2dgpu")
-    	Nano2DHalFile.setProjectPath(projectPath)
-    	Nano2DHalFile.setType("SOURCE")
-        Nano2DHalFile.setMarkup(True)
-    	Nano2DHalFile.setOverwrite(True)
+	Nano2DFile = comp.createFileSymbol("NANO2D_FILE", None)
+	Nano2DFile.setSourcePath("templates/libnano2d.c.ftl")
+	Nano2DFile.setOutputName("libnano2d.c")
+	Nano2DFile.setDestPath("gfx/driver/processor/2dgpu")
+	Nano2DFile.setProjectPath(projectPath)
+	Nano2DFile.setType("SOURCE")
+	Nano2DFile.setMarkup(True)
+	Nano2DFile.setOverwrite(True)
 
 	# these two symbols are read by the HAL for initialization purposes
 	# they must match the function names in the actual driver code
@@ -114,10 +119,10 @@ def instantiateComponent(comp):
 	ProcSysInit.setMarkup(True)
 
 def asyncModeOptions(symbol, event):
-    if (event["value"] == "Asynchronous"):
-        symbol.setVisible(True)
-    else:
-        symbol.setVisible(False)
+	if (event["value"] == "Asynchronous"):
+		symbol.setVisible(True)
+	else:
+		symbol.setVisible(False)
 
 def configure2DGPUComponent(gpuComponent, comp):
 	print("2DGPU Nano2D Driver: Connecting Nano2D") 
