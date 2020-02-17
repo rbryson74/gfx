@@ -50,9 +50,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 <#assign Val_HSYNCNegative = !gfx_hal_le.DisplayHSYNCNegative>
 <#assign Val_UseDataEnable = gfx_hal_le.DisplayDataEnable>
 <#assign Val_DataEnablePolarity = gfx_hal_le.DisplayDataEnablePolarity>
-<#assign Val_DoubleBuffer = gfx_hal_le.DoubleBufferHint>
-<#assign Val_PaletteMode = gfx_hal_le.GlobalPaletteModeHint>
-<#assign Val_FrameBufferColorMode = gfx_hal_le.ColorModeHint>
 <#assign Val_HorzFrontPorch = gfx_hal_le.DisplayHorzFrontPorch>
 <#assign Val_HorzBackPorch = gfx_hal_le.DisplayHorzBackPorch>
 <#assign Val_HorzPulseWidth = gfx_hal_le.DisplayHorzPulseWidth>
@@ -73,9 +70,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 <#assign Val_HSYNCNegative = !DisplayHSYNCNegative>
 <#assign Val_UseDataEnable = DisplayDataEnable>
 <#assign Val_DataEnablePolarity = DisplayDataEnablePolarity>
-<#assign Val_DoubleBuffer = DoubleBuffer>
-<#assign Val_PaletteMode = PaletteMode>
-<#assign Val_FrameBufferColorMode = FrameBufferColorMode>
 <#assign Val_HorzFrontPorch = DisplayHorzFrontPorch>
 <#assign Val_HorzBackPorch = DisplayHorzBackPorch>
 <#assign Val_HorzPulseWidth = DisplayHorzPulseWidth>
