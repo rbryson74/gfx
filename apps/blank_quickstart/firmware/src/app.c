@@ -76,6 +76,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // Section: Global Data Definitions
 // *****************************************************************************
 // *****************************************************************************
+extern const uint8_t NewHarmonyLogo_data[41280];
+extern const uint8_t StartWithBlankText_data[32000];
 
 // *****************************************************************************
 /* Application Data
@@ -160,8 +162,8 @@ static void APP_PaintFrameWithBuffer(unsigned int layer_idx,
                     uint32_t width,
                     uint32_t height)
 {
-    uint32_t * frameBuff;
-    uint32_t i, j;
+    uint16_t * frameBuff;
+    uint16_t i, j;
 
     //Set the active layer
 //    GFX_Set(GFXF_LAYER_ACTIVE, layer_idx);
@@ -173,7 +175,7 @@ static void APP_PaintFrameWithBuffer(unsigned int layer_idx,
     {
         for (j = 0; j < width; j++) 
         {
-            *(uint32_t *) (frameBuff + 
+            *(uint16_t *) (frameBuff + 
                             (y + i) * APP_GFX_LAYER_WIDTH_PIXELS + 
                             (x + j)) = buff[i * width + j];
         }

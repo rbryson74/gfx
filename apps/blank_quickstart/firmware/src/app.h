@@ -116,9 +116,6 @@ typedef struct
 } APP_DATA;
 
 
-const uint8_t NewHarmonyLogo_data[216000];
-const uint8_t StartWithBlankText_data[32000];
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Callback Routines
