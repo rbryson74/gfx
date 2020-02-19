@@ -80,13 +80,10 @@ void SYS_Tasks ( void )
 
     /* Maintain Middleware & Other Libraries */
     
-    SYS_INP_Tasks();
-
-
 
     /* Maintain the application's state machine. */
-        /* Call Application task APP. */
-    APP_Tasks();
+        /* Call Application task APP_16. */
+    APP_16_Tasks();
 
 
 

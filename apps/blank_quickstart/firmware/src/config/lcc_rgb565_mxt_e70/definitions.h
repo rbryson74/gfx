@@ -48,21 +48,18 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
+#include "bsp/bsp.h"
 #include "gfx/driver/controller/lcc/drv_gfx_lcc.h"
+#include "peripheral/smc/plib_smc.h"
 #include "peripheral/clk/plib_clk.h"
 #include "peripheral/pio/plib_pio.h"
 #include "peripheral/nvic/plib_nvic.h"
 #include "peripheral/xdmac/plib_xdmac.h"
 #include "peripheral/efc/plib_efc.h"
-#include "peripheral/tc/plib_tc0.h"
 #include "peripheral/tc/plib_tc2.h"
-#include "system/time/sys_time.h"
-#include "bsp/bsp.h"
-#include "system/input/sys_input.h"
-#include "peripheral/smc/plib_smc.h"
 #include "system/int/sys_int.h"
 #include "system/cache/sys_cache.h"
-#include "app.h"
+#include "app_16.h"
 
 
 
@@ -184,8 +181,7 @@ void SYS_Tasks ( void );
 
 typedef struct
 {
-    SYS_MODULE_OBJ  sysTime;
-
+    char RESERVED;
 } SYSTEM_OBJECTS;
 
 

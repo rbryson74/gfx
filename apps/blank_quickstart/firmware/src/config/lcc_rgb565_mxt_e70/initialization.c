@@ -88,25 +88,6 @@ SYSTEM_OBJECTS sysObj;
 // Section: System Initialization
 // *****************************************************************************
 // *****************************************************************************
-// <editor-fold defaultstate="collapsed" desc="SYS_TIME Initialization Data">
-
-const SYS_TIME_PLIB_INTERFACE sysTimePlibAPI = {
-    .timerCallbackSet = (SYS_TIME_PLIB_CALLBACK_REGISTER)TC0_CH0_TimerCallbackRegister,
-    .timerStart = (SYS_TIME_PLIB_START)TC0_CH0_TimerStart,
-    .timerStop = (SYS_TIME_PLIB_STOP)TC0_CH0_TimerStop ,
-    .timerFrequencyGet = (SYS_TIME_PLIB_FREQUENCY_GET)TC0_CH0_TimerFrequencyGet,
-    .timerPeriodSet = (SYS_TIME_PLIB_PERIOD_SET)TC0_CH0_TimerPeriodSet,
-    .timerCompareSet = (SYS_TIME_PLIB_COMPARE_SET)TC0_CH0_TimerCompareSet,
-    .timerCounterGet = (SYS_TIME_PLIB_COUNTER_GET)TC0_CH0_TimerCounterGet,
-};
-
-const SYS_TIME_INIT sysTimeInitData =
-{
-    .timePlib = &sysTimePlibAPI,
-    .hwTimerIntNum = TC0_CH0_IRQn,
-};
-
-// </editor-fold>
 
 
 
@@ -130,6 +111,9 @@ void SYS_Initialize ( void* data )
 
 
 
+	BSP_Initialize();
+    SMC_Initialize();
+
     XDMAC_Initialize();
 
 	RSWDT_REGS->RSWDT_MR = RSWDT_MR_WDDIS_Msk;	// Disable RSWDT 
@@ -139,29 +123,16 @@ void SYS_Initialize ( void* data )
   
 
  
-    TC0_CH0_TimerInitialize(); 
-     
-    
-  
-
- 
      
     TC2_CH1_CompareInitialize(); 
     
-	BSP_Initialize();
-    SMC_Initialize();
-
 
     DRV_LCC_Initialize();
 
 
-    sysObj.sysTime = SYS_TIME_Initialize(SYS_TIME_INDEX_0, (SYS_MODULE_INIT *)&sysTimeInitData);
-
-    SYS_INP_Init();
 
 
-
-    APP_Initialize();
+    APP_16_Initialize();
 
 
     NVIC_Initialize();

@@ -6,10 +6,10 @@
                    projectFiles="true">
       <logicalFolder name="f1" displayName="config" projectFiles="true">
         <logicalFolder name="f1" displayName="lcc_rgb565_mxt_e70" projectFiles="true">
-          <logicalFolder name="f4" displayName="bsp" projectFiles="true">
+          <logicalFolder name="f1" displayName="bsp" projectFiles="true">
             <itemPath>../src/config/lcc_rgb565_mxt_e70/bsp/bsp.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f1" displayName="gfx" projectFiles="true">
+          <logicalFolder name="f2" displayName="gfx" projectFiles="true">
             <logicalFolder name="f1" displayName="driver" projectFiles="true">
               <logicalFolder name="f1" displayName="lcc" projectFiles="true">
                 <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/driver/gfx_driver.h</itemPath>
@@ -17,52 +17,38 @@
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f2" displayName="peripheral" projectFiles="true">
-            <logicalFolder name="f1" displayName="clk" projectFiles="true">
+          <logicalFolder name="f3" displayName="peripheral" projectFiles="true">
+            <logicalFolder name="f2" displayName="clk" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_e70/peripheral/clk/plib_clk.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="efc" projectFiles="true">
+            <logicalFolder name="f6" displayName="efc" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_e70/peripheral/efc/plib_efc.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="nvic" projectFiles="true">
+            <logicalFolder name="f4" displayName="nvic" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_e70/peripheral/nvic/plib_nvic.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="pio" projectFiles="true">
+            <logicalFolder name="f3" displayName="pio" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_e70/peripheral/pio/plib_pio.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f7" displayName="smc" projectFiles="true">
+            <logicalFolder name="f1" displayName="smc" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_e70/peripheral/smc/plib_smc.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="tc" projectFiles="true">
-              <itemPath>../src/config/lcc_rgb565_mxt_e70/peripheral/tc/plib_tc0.h</itemPath>
-              <itemPath>../src/config/lcc_rgb565_mxt_e70/peripheral/tc/plib_tc_common.h</itemPath>
+            <logicalFolder name="f7" displayName="tc" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_e70/peripheral/tc/plib_tc2.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_e70/peripheral/tc/plib_tc_common.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="xdmac" projectFiles="true">
+            <logicalFolder name="f5" displayName="xdmac" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_e70/peripheral/xdmac/plib_xdmac_common.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_e70/peripheral/xdmac/plib_xdmac.h</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f3" displayName="system" projectFiles="true">
-            <logicalFolder name="f4" displayName="cache" projectFiles="true">
+          <logicalFolder name="f4" displayName="system" projectFiles="true">
+            <logicalFolder name="f2" displayName="cache" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_e70/system/cache/sys_cache.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="input" projectFiles="true">
-              <itemPath>../src/config/lcc_rgb565_mxt_e70/system/input/sys_input.h</itemPath>
-              <itemPath>../src/config/lcc_rgb565_mxt_e70/system/input/sys_input_gesture.h</itemPath>
-              <itemPath>../src/config/lcc_rgb565_mxt_e70/system/input/sys_input_keyboard.h</itemPath>
-              <itemPath>../src/config/lcc_rgb565_mxt_e70/system/input/sys_input_listener.h</itemPath>
-              <itemPath>../src/config/lcc_rgb565_mxt_e70/system/input/sys_input_mouse.h</itemPath>
-              <itemPath>../src/config/lcc_rgb565_mxt_e70/system/input/sys_input_touch.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f3" displayName="int" projectFiles="true">
+            <logicalFolder name="f1" displayName="int" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_e70/system/int/sys_int.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_e70/system/int/sys_int_mapping.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="time" projectFiles="true">
-              <itemPath>../src/config/lcc_rgb565_mxt_e70/system/time/sys_time.h</itemPath>
-              <itemPath>../src/config/lcc_rgb565_mxt_e70/system/time/sys_time_definitions.h</itemPath>
-              <itemPath>../src/config/lcc_rgb565_mxt_e70/system/time/src/sys_time_local.h</itemPath>
             </logicalFolder>
           </logicalFolder>
           <itemPath>../src/config/lcc_rgb565_mxt_e70/device_cache.h</itemPath>
@@ -136,8 +122,7 @@
           </logicalFolder>
         </logicalFolder>
       </logicalFolder>
-      <itemPath>../src/app_mylibrary.h</itemPath>
-      <itemPath>../src/app.h</itemPath>
+      <itemPath>../src/app_16.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -148,10 +133,10 @@
                    projectFiles="true">
       <logicalFolder name="f1" displayName="config" projectFiles="true">
         <logicalFolder name="f1" displayName="lcc_rgb565_mxt_e70" projectFiles="true">
-          <logicalFolder name="f5" displayName="bsp" projectFiles="true">
+          <logicalFolder name="f1" displayName="bsp" projectFiles="true">
             <itemPath>../src/config/lcc_rgb565_mxt_e70/bsp/bsp.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="f1" displayName="gfx" projectFiles="true">
+          <logicalFolder name="f2" displayName="gfx" projectFiles="true">
             <logicalFolder name="f1" displayName="driver" projectFiles="true">
               <logicalFolder name="f1" displayName="lcc" projectFiles="true">
                 <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/driver/gfx_driver.c</itemPath>
@@ -160,45 +145,37 @@
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f3" displayName="peripheral" projectFiles="true">
-            <logicalFolder name="f1" displayName="clk" projectFiles="true">
+            <logicalFolder name="f2" displayName="clk" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_e70/peripheral/clk/plib_clk.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="efc" projectFiles="true">
+            <logicalFolder name="f6" displayName="efc" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_e70/peripheral/efc/plib_efc.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="nvic" projectFiles="true">
+            <logicalFolder name="f4" displayName="nvic" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_e70/peripheral/nvic/plib_nvic.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="pio" projectFiles="true">
+            <logicalFolder name="f3" displayName="pio" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_e70/peripheral/pio/plib_pio.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f7" displayName="smc" projectFiles="true">
+            <logicalFolder name="f1" displayName="smc" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_e70/peripheral/smc/plib_smc.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="tc" projectFiles="true">
-              <itemPath>../src/config/lcc_rgb565_mxt_e70/peripheral/tc/plib_tc0.c</itemPath>
+            <logicalFolder name="f7" displayName="tc" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_e70/peripheral/tc/plib_tc2.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="xdmac" projectFiles="true">
+            <logicalFolder name="f5" displayName="xdmac" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_e70/peripheral/xdmac/plib_xdmac.c</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f2" displayName="stdio" projectFiles="true">
+          <logicalFolder name="f4" displayName="stdio" projectFiles="true">
             <itemPath>../src/config/lcc_rgb565_mxt_e70/stdio/xc32_monitor.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="f4" displayName="system" projectFiles="true">
-            <logicalFolder name="f4" displayName="cache" projectFiles="true">
+          <logicalFolder name="f5" displayName="system" projectFiles="true">
+            <logicalFolder name="f2" displayName="cache" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_e70/system/cache/sys_cache.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="input" projectFiles="true">
-              <itemPath>../src/config/lcc_rgb565_mxt_e70/system/input/sys_input.c</itemPath>
-              <itemPath>../src/config/lcc_rgb565_mxt_e70/system/input/sys_input_listener.c</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f3" displayName="int" projectFiles="true">
+            <logicalFolder name="f1" displayName="int" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_e70/system/int/src/sys_int.c</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="time" projectFiles="true">
-              <itemPath>../src/config/lcc_rgb565_mxt_e70/system/time/src/sys_time.c</itemPath>
             </logicalFolder>
           </logicalFolder>
           <itemPath>../src/config/lcc_rgb565_mxt_e70/initialization.c</itemPath>
@@ -209,10 +186,9 @@
           <itemPath>../src/config/lcc_rgb565_mxt_e70/tasks.c</itemPath>
         </logicalFolder>
       </logicalFolder>
-      <itemPath>../src/main.c</itemPath>
-      <itemPath>../src/app_gfx_assets.c</itemPath>
-      <itemPath>../src/app_16.c</itemPath>
       <itemPath>../src/app_gfx_assets_16.c</itemPath>
+      <itemPath>../src/main.c</itemPath>
+      <itemPath>../src/app_16.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -264,24 +240,6 @@
         <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
-      <item path="../src/app_gfx_assets.c" ex="true" overriding="false">
-      </item>
-      <item path="../src/app_mylibrary.h" ex="true" overriding="false">
-        <C32>
-        </C32>
-        <C32-AR>
-        </C32-AR>
-        <C32-AS>
-        </C32-AS>
-        <C32-CO>
-        </C32-CO>
-        <C32-LD>
-        </C32-LD>
-        <C32CPP>
-        </C32CPP>
-        <C32Global>
-        </C32Global>
-      </item>
       <AtmelIceTool>
         <property key="AutoSelectMemRanges" value="auto"/>
         <property key="communication.interface" value="swd"/>

@@ -53,7 +53,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // *****************************************************************************
 // *****************************************************************************
 
-#include "app.h"
+#include "app_16.h"
 #include "definitions.h"
 #include "system/input/sys_input.h"
 #include "gfx/driver/gfx_driver.h"
@@ -83,14 +83,8 @@ extern const uint8_t NewHarmonyLogo_data[41280];
     Application strings and buffers are be defined outside this structure.
 */
 
-APP_DATA appData;
+APP_16_DATA appData;
 gfxPixelBuffer imageBuffer;
-
-SYS_INP_InputListener inputListener;
-
-static void touchDownHandler(const SYS_INP_TouchStateEvent* const evt);
-static void touchUpHandler(const SYS_INP_TouchStateEvent* const evt);
-static void touchMoveHandler(const SYS_INP_TouchMoveEvent* const evt);
 
 // *****************************************************************************
 // *****************************************************************************
@@ -127,7 +121,7 @@ static void touchMoveHandler(const SYS_INP_TouchMoveEvent* const evt);
  
  */
 
-void APP_Initialize ( void )
+void APP_16_Initialize ( void )
 {
     /* Place the App state machine in its initial state. */
     appData.state = APP_STATE_INIT;
@@ -155,7 +149,7 @@ static void APP_PaintFrameWithBuffer(
     int i, j;
     
 //    lccDisplayDriver.blitBuffer(x, y, &imageBuffer, GFX_BLEND_NONE);
-    frameBuff = lccDisplayDriver.getFramebuffer(0);
+    frameBuff = lccDisplayDriver.getFrameBuffer(0);
     pixels = (uint16_t*)frameBuff->pixels;
 //    return;
     
@@ -171,28 +165,17 @@ static void APP_PaintFrameWithBuffer(
 }
 
 static void APP_PaintFrameWithColor(
-                    uint32_t color,
+                    uint16_t color,
                     uint32_t x,
                     uint32_t y,
                     uint32_t width,
                     uint32_t height)
 {
     gfxPixelBuffer * frameBuff;
-    int i, j;
     
-     frameBuff = lccDisplayDriver.getFramebuffer(0);
+     frameBuff = lccDisplayDriver.getFrameBuffer(0);
      memset(frameBuff->pixels, 0xff, APP_GFX_LAYER_WIDTH_PIXELS * APP_GFX_LAYER_HEIGHT_PIXELS * 2);
-     return;
-             
-    for (i = 0; i < height; i++) 
-    {
-        for (j = 0; j < width; j++) 
-        {
-            *(uint32_t *) (frameBuff->pixels + 
-                            (y + i) * APP_GFX_LAYER_WIDTH_PIXELS + 
-                            (x + j)) = color;
-        }
-    }
+
 }
 
 
@@ -204,7 +187,7 @@ static void APP_PaintFrameWithColor(
     See prototype in app.h.
  */
 
-void APP_Tasks ( void )
+void APP_16_Tasks ( void )
 {
 
     /* Check the application's current state. */
@@ -214,13 +197,7 @@ void APP_Tasks ( void )
         case APP_STATE_INIT:
         {
             bool appInitialized = true;
-            
-            inputListener.handleTouchDown = &touchDownHandler;
-            inputListener.handleTouchUp = &touchUpHandler;
-            inputListener.handleTouchMove = &touchMoveHandler;   
-            
-            SYS_INP_AddListener(&inputListener);
-            
+                       
             gfxPixelBufferCreate(300,
                     100,
                     GFX_COLOR_MODE_RGB_565,
@@ -242,7 +219,7 @@ void APP_Tasks ( void )
         {
             //Paint Layer 0 with white
             APP_PaintFrameWithColor(
-                    0xffffffff,
+                    0xffff,
                     0,
                     0,
                     APP_GFX_LAYER_WIDTH_PIXELS,
@@ -287,25 +264,6 @@ void APP_Tasks ( void )
         }
     }
 }
-
-void touchDownHandler(const SYS_INP_TouchStateEvent* const evt)
-{
-    LED1_On();    
-}
-
-void touchUpHandler(const SYS_INP_TouchStateEvent* const evt)
-{
-    LED2_On();
-    LED1_Off();
-}
-
-void touchMoveHandler(const SYS_INP_TouchMoveEvent* const evt)
-{
-    LED2_Off();
-}
-
-
- 
 
 /*******************************************************************************
  End of File

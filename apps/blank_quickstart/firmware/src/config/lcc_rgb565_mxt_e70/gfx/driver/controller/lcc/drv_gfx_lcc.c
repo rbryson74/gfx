@@ -182,10 +182,9 @@ uint32_t DRV_LCC_GetVSYNCCount(void)
 
 gfxPixelBuffer * DRV_LCC_GetFrameBuffer(int32_t idx)
 {
-	return &pixelBuffer;
+        return &pixelBuffer;
 }
 
-uint16_t ary[480];
 gfxResult DRV_LCC_BlitBuffer(int32_t x,
                              int32_t y,
                              gfxPixelBuffer* buf,
@@ -205,7 +204,6 @@ gfxResult DRV_LCC_BlitBuffer(int32_t x,
         srcPtr = gfxPixelBufferOffsetGet(buf, 0, row);
         destPtr = gfxPixelBufferOffsetGet(&pixelBuffer, x, y + row);
         
-        memcpy(ary, srcPtr, 479);
         memcpy(destPtr, srcPtr, rowSize);
     }
     
