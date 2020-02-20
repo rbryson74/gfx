@@ -31,7 +31,7 @@ peripherals = {
 
 def loadModule():
 	# load GFX2D peripheral 
-    if ("A5D2" in str(Variables.get("__PROCESSOR")) or "9x60" in str(Variables.get("__PROCESSOR"))):
+    if ("A5D2" in str(Variables.get("__PROCESSOR")) or "9X60" in str(Variables.get("__PROCESSOR"))):
         print("LE GFX2D module loaded to support " + str(Variables.get("__PROCESSOR")))
         periphName = "GFX2D"
         periphID = "44061"
