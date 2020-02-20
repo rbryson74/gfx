@@ -66,7 +66,7 @@ extern "C"
 // *****************************************************************************
 
 gfxResult DRV_LCC_Initialize(void);
-
+gfxPixelBuffer * DRV_LCC_GetFrameBuffer(int32_t idx);
 gfxColorMode DRV_LCC_GetColorMode(void);
 uint32_t DRV_LCC_GetBufferCount(void);
 uint32_t DRV_LCC_GetDisplayWidth(void);
@@ -95,7 +95,8 @@ static const gfxDisplayDriver lccDisplayDriver =
     DRV_LCC_SetActiveLayer,
     DRV_LCC_BlitBuffer,
     DRV_LCC_Swap,
-    DRV_LCC_GetVSYNCCount
+    DRV_LCC_GetVSYNCCount,
+    DRV_LCC_GetFrameBuffer
 };
         
 #ifdef __cplusplus

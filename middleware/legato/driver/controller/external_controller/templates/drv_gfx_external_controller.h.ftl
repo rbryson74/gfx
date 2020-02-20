@@ -78,7 +78,8 @@ static const leDisplayDriver ${DriverInitName} =
     DRV_${ControllerName}_SetActiveLayer,
     DRV_${ControllerName}_BlitBuffer,
     DRV_${ControllerName}_Swap,
-    DRV_${ControllerName}_GetSwapCount
+    DRV_${ControllerName}_GetSwapCount,
+    NULL /* GetFrameBuffer not supported */
 };
 </#if>
 

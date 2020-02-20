@@ -252,6 +252,11 @@ uint32_t DRV_LCC_GetVSYNCCount(void)
 	return vsyncCount;
 }
 
+gfxPixelBuffer * DRV_LCC_GetFrameBuffer(int32_t idx)
+{
+        return &pixelBuffer;
+}
+
 gfxResult DRV_LCC_BlitBuffer(int32_t x,
                              int32_t y,
                              gfxPixelBuffer* buf,
