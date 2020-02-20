@@ -23,7 +23,7 @@
 ##############################################################################
 
 ############ GLCD + TOUCH I2C CONFIG ######################################################
-skActivateList = ["le_gfx_driver_glcd", "gfx_hal_le", "i2c1", "drv_i2c", "drv_i2c0", "core_timer", "sys_time", "ddr", "gfx_driver_2dgpu"]
+skActivateList = ["le_gfx_driver_glcd", "gfx_hal_le", "i2c1", "drv_i2c", "drv_i2c0", "core_timer", "sys_time", "ddr", "le_gfx_driver_2dgpu"]
 skAutoConnectList = [["gfx_legato", "gfx_driver", "le_gfx_driver_glcd", "gfx_driver_glcd"],
 					["drv_i2c_0", "drv_i2c_I2C_dependency", "i2c1", "I2C1_I2C"],
 					["gfx_maxtouch_controller", "i2c", "drv_i2c_0", "drv_i2c"],
