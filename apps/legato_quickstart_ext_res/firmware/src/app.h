@@ -32,6 +32,8 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include "configuration.h"
+#include "driver/sst26/drv_sst26.h"
+#include "gfx/legato/core/legato_stream.h"
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
@@ -46,6 +48,8 @@ extern "C" {
 // Section: Type Definitions
 // *****************************************************************************
 // *****************************************************************************
+
+#define SQI_CACHE_SIZE 4096
 
 // *****************************************************************************
 /* Application states
@@ -62,8 +66,9 @@ typedef enum
 {
     /* Application's state machine's initial state. */
     APP_STATE_INIT=0,
-    APP_STATE_SERVICE_TASKS,
-    /* TODO: Define states used by the application state machine. */
+    APP_INIT_READ_MEDIA,
+    APP_STATE_IDLE,
+    APP_STATE_READ_WAIT,
 
 } APP_STATES;
 
@@ -83,10 +88,19 @@ typedef enum
 
 typedef struct
 {
-    /* The application's current state */
     APP_STATES state;
 
-    /* TODO: Define any additional data used by the application. */
+    DRV_HANDLE handle;
+
+    leStream* mediaStream;
+    
+    uint8_t* destBuffer;
+    
+    uint32_t readSize;
+    
+    void* readAddress;
+    
+    DRV_SST26_TRANSFER_STATUS transferStatus;
 
 } APP_DATA;
 
@@ -95,8 +109,7 @@ typedef struct
 // Section: Application Callback Routines
 // *****************************************************************************
 // *****************************************************************************
-/* These routines are called by drivers when certain events occur.
-*/
+
 
 // *****************************************************************************
 // *****************************************************************************

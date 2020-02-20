@@ -28,6 +28,8 @@
 // *****************************************************************************
 
 #include "app.h"
+#include "gfx/legato/generated/le_gen_assets.h"
+#include "gfx/legato/generated/screen/le_gen_screen_screen1.h"
 
 // *****************************************************************************
 // *****************************************************************************
@@ -50,7 +52,17 @@
     Application strings and buffers are be defined outside this structure.
 */
 
-APP_DATA appData;
+static leTableString tableString_DrawRLE;
+static leTableString tableString_DrawDirectBlit;
+static leTableString tableString_DrawJPEG;
+static leTableString tableString_DrawRaw;
+
+static leTableString tableString_ImageIsDirectBlit;
+static leTableString tableString_ImageIsRaw;
+static leTableString tableString_ImageIsRLE;
+static leTableString tableString_ImageIsJPEG;
+
+APP_DATA CACHE_ALIGN appData;
 
 // *****************************************************************************
 // *****************************************************************************
@@ -58,8 +70,125 @@ APP_DATA appData;
 // *****************************************************************************
 // *****************************************************************************
 
-/* TODO:  Add any necessary callback functions.
-*/
+leResult leApplication_MediaOpenRequest(leStream* stream)
+{
+    appData.transferStatus = DRV_SST26_TransferStatusGet(appData.handle);
+    
+    if (appData.handle != DRV_HANDLE_INVALID
+            && appData.transferStatus == DRV_SST26_TRANSFER_COMPLETED)
+        return LE_SUCCESS;
+    
+    return LE_FAILURE;
+}
+
+leResult leApplication_MediaReadRequest(leStream* stream, // stream reader
+                                        uint32_t address,  // address
+                                        uint32_t readSize,  // dest size
+                                        uint8_t* destBuffer)
+{
+    if(stream->desc->location == 1)
+    {
+        appData.mediaStream = stream;
+        appData.destBuffer = destBuffer;
+        appData.readSize = readSize;
+        appData.readAddress = (void*)address;
+
+        if (DRV_SST26_Status(DRV_SST26_INDEX) == SYS_STATUS_READY)
+        {
+            DRV_SST26_Read(appData.handle, (uint32_t *)(appData.destBuffer), appData.readSize, (uint32_t)appData.readAddress);
+
+            appData.state = APP_STATE_READ_WAIT;
+
+            return GFX_SUCCESS; // success tells the decoder to keep going
+        }
+    }
+    return GFX_FAILURE; // failure tells the decoder to abort and move on
+}
+
+void leApplication_MediaCloseRequest(leStream* stream)
+{
+}
+
+void LogoButton_OnReleased(leButtonWidget* btn)
+{
+    if (leGetStringLanguage() == language_English)
+    {
+        leSetStringLanguage(language_Chinese);
+    }
+    else
+    {
+        leSetStringLanguage(language_English);
+    }
+}
+
+void SloganButton_OnReleased(leButtonWidget* btn)
+{
+    if (LogoButton->releasedImage == &MHGS_logo_small_raw_direct_blit)
+    {
+        //Show the next message
+        leTableString_Constructor(&tableString_DrawRLE, string_DrawRLE); 
+        SloganButton->fn->setString(SloganButton, (leString*)&tableString_DrawRLE);
+
+        //Draw the intended from the previous message
+        LogoButton->fn->setPressedImage(LogoButton, &MHGS_logo_small_raw);
+        LogoButton->fn->setReleasedImage(LogoButton, &MHGS_logo_small_raw);
+        
+        leTableString_Constructor(&tableString_ImageIsRaw, string_ImageIsRaw); 
+        ImageTypeLabelWidget->fn->setString(ImageTypeLabelWidget, (leString*)&tableString_ImageIsRaw);
+    }
+    else if (LogoButton->releasedImage == &MHGS_logo_small_raw)
+    {
+        //Show the next message
+        leTableString_Constructor(&tableString_DrawDirectBlit, string_DrawDirectBlit); 
+        SloganButton->fn->setString(SloganButton, (leString*)&tableString_DrawDirectBlit);
+
+        //Draw the intended from the previous message
+        LogoButton->fn->setPressedImage(LogoButton, &MHGS_logo_small_rle);
+        LogoButton->fn->setReleasedImage(LogoButton, &MHGS_logo_small_rle);
+
+        leTableString_Constructor(&tableString_ImageIsRLE, string_ImageIsRLE); 
+        ImageTypeLabelWidget->fn->setString(ImageTypeLabelWidget, (leString*)&tableString_ImageIsRLE);
+    }
+    else if (LogoButton->releasedImage == &MHGS_logo_small_rle)
+    {
+        //Show the next message
+        leTableString_Constructor(&tableString_DrawJPEG, string_DrawJpeg); 
+        SloganButton->fn->setString(SloganButton, (leString*)&tableString_DrawJPEG);
+
+        //Draw the intended from the previous message
+        LogoButton->fn->setPressedImage(LogoButton, &MHGS_logo_small_raw_direct_blit);
+        LogoButton->fn->setReleasedImage(LogoButton, &MHGS_logo_small_raw_direct_blit);
+
+        leTableString_Constructor(&tableString_ImageIsDirectBlit, string_ImageIsDirectBlit); 
+        ImageTypeLabelWidget->fn->setString(ImageTypeLabelWidget, (leString*)&tableString_ImageIsDirectBlit);
+    }
+    else if (LogoButton->releasedImage == &MHGS_logo_small_png)
+    {
+        //Show the next message
+        leTableString_Constructor(&tableString_DrawDirectBlit, string_DrawDirectBlit); 
+        SloganButton->fn->setString(SloganButton, (leString*)&tableString_DrawDirectBlit);
+
+        //Draw the intended from the previous message
+        LogoButton->fn->setPressedImage(LogoButton, &MHGS_logo_small_jpeg);
+        LogoButton->fn->setReleasedImage(LogoButton, &MHGS_logo_small_jpeg);
+
+        leTableString_Constructor(&tableString_ImageIsJPEG, string_ImageIsJPEG); 
+        ImageTypeLabelWidget->fn->setString(ImageTypeLabelWidget, (leString*)&tableString_ImageIsJPEG);
+    }
+    else if (LogoButton->releasedImage == &MHGS_logo_small_jpeg)
+    {
+        //Show the next message
+        leTableString_Constructor(&tableString_DrawRaw, string_DrawRaw); 
+        SloganButton->fn->setString(SloganButton, (leString*)&tableString_DrawRaw);
+
+        //Draw the intended from the previous message
+        LogoButton->fn->setPressedImage(LogoButton, &MHGS_logo_small_raw_direct_blit);
+        LogoButton->fn->setReleasedImage(LogoButton, &MHGS_logo_small_raw_direct_blit);
+
+        leTableString_Constructor(&tableString_ImageIsDirectBlit, string_ImageIsDirectBlit); 
+        ImageTypeLabelWidget->fn->setString(ImageTypeLabelWidget, (leString*)&tableString_ImageIsDirectBlit);
+    }
+}
 
 // *****************************************************************************
 // *****************************************************************************
@@ -67,9 +196,6 @@ APP_DATA appData;
 // *****************************************************************************
 // *****************************************************************************
 
-
-/* TODO:  Add any necessary local functions.
-*/
 
 
 // *****************************************************************************
@@ -88,14 +214,8 @@ APP_DATA appData;
 
 void APP_Initialize ( void )
 {
-    /* Place the App state machine in its initial state. */
+    /* Place the app state machine in its initial state. */
     appData.state = APP_STATE_INIT;
-
-
-
-    /* TODO: Initialize your application's state machine and other
-     * parameters.
-     */
 }
 
 
@@ -116,30 +236,42 @@ void APP_Tasks ( void )
         /* Application's initial state. */
         case APP_STATE_INIT:
         {
-            bool appInitialized = true;
+                if (DRV_SST26_Status(DRV_SST26_INDEX) == SYS_STATUS_READY)
+                {
+                    appData.state = APP_INIT_READ_MEDIA;
+                }
+            break;
+        }
 
+		case APP_INIT_READ_MEDIA:
+		{
+            appData.handle = DRV_SST26_Open(DRV_SST26_INDEX, DRV_IO_INTENT_READ);
 
-            if (appInitialized)
+            if (appData.handle != DRV_HANDLE_INVALID)
             {
-
-                appData.state = APP_STATE_SERVICE_TASKS;
+				appData.state = APP_STATE_IDLE;
             }
             break;
         }
 
-        case APP_STATE_SERVICE_TASKS:
+        case APP_STATE_READ_WAIT:
         {
+			appData.transferStatus = DRV_SST26_TransferStatusGet(appData.handle);
+
+			if (appData.transferStatus == DRV_SST26_TRANSFER_COMPLETED)
+            {
+                // indicate that the data buffer is ready
+                leStream_DataReady(appData.mediaStream);
+
+				appData.state = APP_STATE_IDLE;
+			}
 
             break;
         }
 
-        /* TODO: implement your application state machine.*/
-
-
-        /* The default state should never be executed. */
+        case APP_STATE_IDLE:
         default:
         {
-            /* TODO: Handle error in application's state machine. */
             break;
         }
     }

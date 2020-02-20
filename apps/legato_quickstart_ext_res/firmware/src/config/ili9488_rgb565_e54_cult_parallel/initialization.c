@@ -276,7 +276,7 @@ void SYS_Initialize ( void* data )
 
 
     // initialize UI library
-    laInitialize(&ili9488DisplayDriver);
+    Legato_Initialize();
 
 
     APP_Initialize();
