@@ -26,10 +26,13 @@ import os.path
 
 
 def loadModule():
-
-        # load 2DGPU module
-	cntlComponent = Module.CreateComponent("gfx_driver_2dgpu", "2DGPU", "/Graphics/Processor", "2dgpu.py")
-	cntlComponent.setDisplayType("Graphics Processor")
-	cntlComponent.addCapability("gfx_driver_2dgpu", "Graphics Processor", False)
+    # load 2DGPU module
+    if ("PIC32MZ" in str(Variables.get("__PROCESSOR")) and "DA" in str(Variables.get("__PROCESSOR"))):
+        print("2DGPU module loaded to support " + str(Variables.get("__PROCESSOR")))
+        cntlComponent = Module.CreateComponent("gfx_driver_2dgpu", "2DGPU", "/Graphics/Processor", "2dgpu.py")
+        cntlComponent.setDisplayType("Graphics Processor")
+        cntlComponent.addCapability("gfx_driver_2dgpu", "Graphics Processor", False)
+    else:
+        print("2DGPU module not loaded.  No support for " + str(Variables.get("__PROCESSOR")))
 
 

@@ -26,11 +26,14 @@ import os.path
 
 
 def loadModule():
-
-        # load 2DGPU module
-	cntlComponent = Module.CreateComponent("le_gfx_driver_2dgpu", "LE 2DGPU", "/Graphics/Processor", "2dgpu.py")
-	cntlComponent.setDisplayType("LE 2D-GPU Graphics Processor")
-	cntlComponent.addCapability("gfx_driver_2dgpu", "LE GPU Driver", False)
+    # load 2DGPU module
+    if ("PIC32MZ" in str(Variables.get("__PROCESSOR")) and "DA" in str(Variables.get("__PROCESSOR"))):
+        print("LE 2DGPU module loaded to support " + str(Variables.get("__PROCESSOR")))
+        cntlComponent = Module.CreateComponent("le_gfx_driver_2dgpu", "LE 2DGPU", "/Graphics/Processor", "2dgpu.py")
+        cntlComponent.setDisplayType("LE 2D-GPU Graphics Processor")
+        cntlComponent.addCapability("gfx_driver_2dgpu", "LE GPU Driver", False)
         #cntlComponent.addDependency("legato_library", "Legato", True, True)
+    else:
+        print("LE 2DGPU module not loaded.  No support for " + str(Variables.get("__PROCESSOR")))
 
 

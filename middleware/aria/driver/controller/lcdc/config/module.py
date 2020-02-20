@@ -23,7 +23,11 @@
 ##############################################################################
 
 def loadModule():	
-	cntlComponent = Module.CreateComponent("gfx_driver_lcdc", "LCDC Driver", "/Graphics/Driver", "config/lcdc.py")
-	cntlComponent.setDisplayType("LCDC Display Driver")
-	cntlComponent.addCapability("gfx_driver_lcdc", "Display Driver", False)
-	cntlComponent.addDependency("LCDC", "LCDC", False, True)
+    if ("A5D2" in str(Variables.get("__PROCESSOR")) or "9x60" in str(Variables.get("__PROCESSOR"))):
+        print("LCDC module loaded to support " + str(Variables.get("__PROCESSOR")))
+        cntlComponent = Module.CreateComponent("gfx_driver_lcdc", "LCDC Driver", "/Graphics/Driver", "config/lcdc.py")
+        cntlComponent.setDisplayType("LCDC Display Driver")
+        cntlComponent.addCapability("gfx_driver_lcdc", "Display Driver", False)
+        cntlComponent.addDependency("LCDC", "LCDC", False, True)
+    else:
+        print("LCDC module not loaded.  No support for " + str(Variables.get("__PROCESSOR")))

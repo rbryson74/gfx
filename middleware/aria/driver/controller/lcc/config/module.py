@@ -23,7 +23,7 @@
 ##############################################################################
 
 def loadModule():
-	print("processor is " + str(Variables.get("__PROCESSOR")))
+	print("LCC module loaded to support " + str(Variables.get("__PROCESSOR")))
 	if ("PIC32MZ" in str(Variables.get("__PROCESSOR"))):
 		cntlComponent = Module.CreateComponent("gfx_driver_lcc", "LCC ", "/Graphics/Driver", "config/lcc_controller_pic32mz.py")
 		cntlComponent.addDependency("EBI_CS", "EBI_CS", False, True)

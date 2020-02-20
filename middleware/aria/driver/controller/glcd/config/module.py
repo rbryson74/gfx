@@ -23,6 +23,11 @@
 ##############################################################################
 
 def loadModule():	
-	cntlComponent = Module.CreateComponent("gfx_driver_glcd", "GLCD ", "/Graphics/Driver", "config/glcd.py")
-	cntlComponent.setDisplayType("GLCD Display Driver")
-	cntlComponent.addCapability("gfx_driver_glcd", "Display Driver", False)
+    if ("PIC32MZ" in str(Variables.get("__PROCESSOR")) and "DA" in str(Variables.get("__PROCESSOR"))):
+        print("GLCD module loaded to support " + str(Variables.get("__PROCESSOR")))
+        cntlComponent = Module.CreateComponent("gfx_driver_glcd", "GLCD ", "/Graphics/Driver", "config/glcd.py")
+        cntlComponent.setDisplayType("GLCD Display Driver")
+        cntlComponent.addCapability("gfx_driver_glcd", "Display Driver", False)
+    else:
+        print("GLCD module not loaded.  No support for " + str(Variables.get("__PROCESSOR")))
+		
