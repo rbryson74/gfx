@@ -23,11 +23,11 @@
 ##############################################################################
 
 ############### LCDC CONFIG #######################################################
-sam9x60_ek_ActivateList = ["lcdc", "gfx_driver_lcdc", "flexcom6", "drv_i2c", "drv_i2c0", "tc0", "sys_time", "gfx_gfx2d", "plib_gfx2d"]
+sam9x60_ek_ActivateList = ["lcdc", "gfx_driver_lcdc", "flexcom0", "drv_i2c", "drv_i2c0", "tc0", "sys_time", "gfx_gfx2d", "plib_gfx2d"]
 sam9x60_ek_DeactivateList = ["pit"]
 sam9x60_ek_AutoConnectList = [["gfx_driver_lcdc", "LCDC", "lcdc", "LCDC_LCDC"],
 						["gfx_hal", "gfx_display_driver", "gfx_driver_lcdc", "gfx_driver_lcdc"],
-						["drv_i2c_0", "drv_i2c_I2C_dependency", "flexcom6", "FLEXCOM6_I2C"],
+						["drv_i2c_0", "drv_i2c_I2C_dependency", "flexcom0", "FLEXCOM0_I2C"],
 						["gfx_maxtouch_controller", "i2c", "drv_i2c_0", "drv_i2c"],
 						["sys_time", "sys_time_TMR_dependency", "tc0", "TC0_TMR"],
 						["gfx_gfx2d", "GFX2D", "plib_gfx2d", "GFX2D"],
@@ -64,8 +64,8 @@ sam9x60_ek_PinConfig = [{"pin": 162, "name": "LCDC_LCDDAT0", "type": "LCDC_LCDDA
 				{"pin": 152, "name": "LCDC_LCDDEN", "type": "LCDC_LCDDEN", "direction": "", "latch": "", "abcd": "A"}, #PC29, L10
 				{"pin": 219, "name": "LCDC_LCDPCK", "type": "LCDC_LCDPCK", "direction": "", "latch": "", "abcd": "A"}, #PC30, T7
 				{"pin": 151, "name": "BSP_MAXTOUCH_CHG", "type": "GPIO", "direction": "In", "latch": "", "abcd": ""}, #PC25, L9
-				{"pin": 88, "name": "FLEXCOM6_IO0", "type": "FLEXCOM6_IO0", "direction": "", "latch": "", "abcd": "A"}, #PA30, G2
-				{"pin": 102, "name": "FLEXCOM6_IO1", "type": "FLEXCOM6_IO1", "direction": "", "latch": "", "abcd": "A"}] #PA31, H4
+				{"pin": 186, "name": "FLEXCOM0_IO0", "type": "FLEXCOM0_IO0", "direction": "", "latch": "", "abcd": "A"}, #PA0, P2
+				{"pin": 161, "name": "FLEXCOM0_IO1", "type": "FLEXCOM0_IO1", "direction": "", "latch": "", "abcd": "A"}] #PA1, M3
 				
 sam9x60_ek_DisplayInterfaceList = ["LCDC"]
 
