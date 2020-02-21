@@ -98,7 +98,7 @@ extern "C" {
 
 // variable heap configuration
 #define LE_VARIABLEHEAP_DEBUGLEVEL         0
-#define LE_VARIABLEHEAP_SIZE               2048
+#define LE_VARIABLEHEAP_SIZE               4096
 #define LE_VARIABLEHEAP_MINALLOCSIZE       4
 #define LE_VARIABLEHEAP_ALIGNMENT          4
 #define LE_VARIABLEHEAP_BESTFIT            1
@@ -126,7 +126,7 @@ extern "C" {
 
 // renderer config
 #define LE_ALPHA_BLENDING_ENABLED          1
-#define LE_SCRATCH_BUFFER_SIZE_KB          16
+#define LE_SCRATCH_BUFFER_SIZE_KB          64
 #define LE_USE_ARC_SCAN_FILL               1
 #define LE_ARC_SMOOTH_EDGE                 LE_FALSE
 #define LE_RENDER_LEFTRIGHT                0

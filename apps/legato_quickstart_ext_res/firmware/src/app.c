@@ -53,14 +53,12 @@
 */
 
 static leTableString tableString_DrawRLE;
-static leTableString tableString_DrawDirectBlit;
-static leTableString tableString_DrawJPEG;
+static leTableString tableString_DrawPaletteCompressed;
 static leTableString tableString_DrawRaw;
 
-static leTableString tableString_ImageIsDirectBlit;
+static leTableString tableString_ImageIsPaletteCompressed;
 static leTableString tableString_ImageIsRaw;
 static leTableString tableString_ImageIsRLE;
-static leTableString tableString_ImageIsJPEG;
 
 APP_DATA CACHE_ALIGN appData;
 
@@ -123,7 +121,7 @@ void LogoButton_OnReleased(leButtonWidget* btn)
 
 void SloganButton_OnReleased(leButtonWidget* btn)
 {
-    if (LogoButton->releasedImage == &MHGS_logo_small_raw_direct_blit)
+    if (LogoButton->releasedImage == &MHGS_logo_small_compressed)
     {
         //Show the next message
         leTableString_Constructor(&tableString_DrawRLE, string_DrawRLE); 
@@ -139,8 +137,8 @@ void SloganButton_OnReleased(leButtonWidget* btn)
     else if (LogoButton->releasedImage == &MHGS_logo_small_raw)
     {
         //Show the next message
-        leTableString_Constructor(&tableString_DrawDirectBlit, string_DrawDirectBlit); 
-        SloganButton->fn->setString(SloganButton, (leString*)&tableString_DrawDirectBlit);
+        leTableString_Constructor(&tableString_DrawPaletteCompressed, string_DrawPaletteCompressed); 
+        SloganButton->fn->setString(SloganButton, (leString*)&tableString_DrawPaletteCompressed);
 
         //Draw the intended from the previous message
         LogoButton->fn->setPressedImage(LogoButton, &MHGS_logo_small_rle);
@@ -152,41 +150,15 @@ void SloganButton_OnReleased(leButtonWidget* btn)
     else if (LogoButton->releasedImage == &MHGS_logo_small_rle)
     {
         //Show the next message
-        leTableString_Constructor(&tableString_DrawJPEG, string_DrawJpeg); 
-        SloganButton->fn->setString(SloganButton, (leString*)&tableString_DrawJPEG);
-
-        //Draw the intended from the previous message
-        LogoButton->fn->setPressedImage(LogoButton, &MHGS_logo_small_raw_direct_blit);
-        LogoButton->fn->setReleasedImage(LogoButton, &MHGS_logo_small_raw_direct_blit);
-
-        leTableString_Constructor(&tableString_ImageIsDirectBlit, string_ImageIsDirectBlit); 
-        ImageTypeLabelWidget->fn->setString(ImageTypeLabelWidget, (leString*)&tableString_ImageIsDirectBlit);
-    }
-    else if (LogoButton->releasedImage == &MHGS_logo_small_png)
-    {
-        //Show the next message
-        leTableString_Constructor(&tableString_DrawDirectBlit, string_DrawDirectBlit); 
-        SloganButton->fn->setString(SloganButton, (leString*)&tableString_DrawDirectBlit);
-
-        //Draw the intended from the previous message
-        LogoButton->fn->setPressedImage(LogoButton, &MHGS_logo_small_jpeg);
-        LogoButton->fn->setReleasedImage(LogoButton, &MHGS_logo_small_jpeg);
-
-        leTableString_Constructor(&tableString_ImageIsJPEG, string_ImageIsJPEG); 
-        ImageTypeLabelWidget->fn->setString(ImageTypeLabelWidget, (leString*)&tableString_ImageIsJPEG);
-    }
-    else if (LogoButton->releasedImage == &MHGS_logo_small_jpeg)
-    {
-        //Show the next message
         leTableString_Constructor(&tableString_DrawRaw, string_DrawRaw); 
         SloganButton->fn->setString(SloganButton, (leString*)&tableString_DrawRaw);
 
         //Draw the intended from the previous message
-        LogoButton->fn->setPressedImage(LogoButton, &MHGS_logo_small_raw_direct_blit);
-        LogoButton->fn->setReleasedImage(LogoButton, &MHGS_logo_small_raw_direct_blit);
+        LogoButton->fn->setPressedImage(LogoButton, &MHGS_logo_small_compressed);
+        LogoButton->fn->setReleasedImage(LogoButton, &MHGS_logo_small_compressed);
 
-        leTableString_Constructor(&tableString_ImageIsDirectBlit, string_ImageIsDirectBlit); 
-        ImageTypeLabelWidget->fn->setString(ImageTypeLabelWidget, (leString*)&tableString_ImageIsDirectBlit);
+        leTableString_Constructor(&tableString_ImageIsPaletteCompressed, string_ImageIsPaletteCompressed); 
+        ImageTypeLabelWidget->fn->setString(ImageTypeLabelWidget, (leString*)&tableString_ImageIsPaletteCompressed);
     }
 }
 

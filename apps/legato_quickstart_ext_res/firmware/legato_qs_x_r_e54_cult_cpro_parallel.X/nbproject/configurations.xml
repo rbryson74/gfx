@@ -423,10 +423,10 @@
                   <itemPath>../src/config/ili9488_rgb565_e54_cult_parallel/gfx/legato/generated/font/le_gen_font_ArialUnicodeMS_Large.c</itemPath>
                 </logicalFolder>
                 <logicalFolder name="f2" displayName="image" projectFiles="true">
+                  <itemPath>../src/config/ili9488_rgb565_e54_cult_parallel/gfx/legato/generated/image/le_gen_image_MHGS_logo_small_compressed.c</itemPath>
                   <itemPath>../src/config/ili9488_rgb565_e54_cult_parallel/gfx/legato/generated/image/le_gen_image_MHGS_logo_small_jpeg.c</itemPath>
                   <itemPath>../src/config/ili9488_rgb565_e54_cult_parallel/gfx/legato/generated/image/le_gen_image_MHGS_logo_small_png.c</itemPath>
                   <itemPath>../src/config/ili9488_rgb565_e54_cult_parallel/gfx/legato/generated/image/le_gen_image_MHGS_logo_small_raw.c</itemPath>
-                  <itemPath>../src/config/ili9488_rgb565_e54_cult_parallel/gfx/legato/generated/image/le_gen_image_MHGS_logo_small_raw_direct_blit.c</itemPath>
                   <itemPath>../src/config/ili9488_rgb565_e54_cult_parallel/gfx/legato/generated/image/le_gen_image_MHGS_logo_small_rle.c</itemPath>
                 </logicalFolder>
                 <logicalFolder name="f3" displayName="screen" projectFiles="true">

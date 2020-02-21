@@ -12,7 +12,7 @@ leLabelWidget* ImageTypeLabelWidget;
 // string list for this screen
 static leTableString tableString_TitleString;
 static leTableString tableString_DrawRLE;
-static leTableString tableString_ImageIsDirectBlit;
+static leTableString tableString_ImageIsPaletteCompressed;
 
 static leBool showing = LE_FALSE;
 
@@ -29,7 +29,7 @@ leResult screenShow_screen1()
     // initialize static strings
     leTableString_Constructor(&tableString_TitleString, string_TitleString);
     leTableString_Constructor(&tableString_DrawRLE, string_DrawRLE);
-    leTableString_Constructor(&tableString_ImageIsDirectBlit, string_ImageIsDirectBlit);
+    leTableString_Constructor(&tableString_ImageIsPaletteCompressed, string_ImageIsPaletteCompressed);
 
     // layer 0
     root0 = leWidget_New();
@@ -64,8 +64,8 @@ leResult screenShow_screen1()
     LogoButton->fn->setSize(LogoButton, 150, 130);
     LogoButton->fn->setBackgroundType(LogoButton, LE_WIDGET_BACKGROUND_NONE);
     LogoButton->fn->setBorderType(LogoButton, LE_WIDGET_BORDER_NONE);
-    LogoButton->fn->setPressedImage(LogoButton, &MHGS_logo_small_raw_direct_blit);
-    LogoButton->fn->setReleasedImage(LogoButton, &MHGS_logo_small_raw_direct_blit);
+    LogoButton->fn->setPressedImage(LogoButton, &MHGS_logo_small_compressed);
+    LogoButton->fn->setReleasedImage(LogoButton, &MHGS_logo_small_compressed);
     LogoButton->fn->setPressedOffset(LogoButton, 0);
     LogoButton->fn->setReleasedEventCallback(LogoButton, LogoButton_OnReleased);
     root0->fn->addChild(root0, (leWidget*)LogoButton);
@@ -75,7 +75,7 @@ leResult screenShow_screen1()
     ImageTypeLabelWidget->fn->setSize(ImageTypeLabelWidget, 215, 51);
     ImageTypeLabelWidget->fn->setBackgroundType(ImageTypeLabelWidget, LE_WIDGET_BACKGROUND_NONE);
     ImageTypeLabelWidget->fn->setHAlignment(ImageTypeLabelWidget, LE_HALIGN_CENTER);
-    ImageTypeLabelWidget->fn->setString(ImageTypeLabelWidget, (leString*)&tableString_ImageIsDirectBlit);
+    ImageTypeLabelWidget->fn->setString(ImageTypeLabelWidget, (leString*)&tableString_ImageIsPaletteCompressed);
     root0->fn->addChild(root0, (leWidget*)ImageTypeLabelWidget);
 
     leAddRootWidget(root0, 0);
@@ -105,7 +105,7 @@ void screenHide_screen1()
 
     tableString_TitleString.fn->destructor(&tableString_TitleString);
     tableString_DrawRLE.fn->destructor(&tableString_DrawRLE);
-    tableString_ImageIsDirectBlit.fn->destructor(&tableString_ImageIsDirectBlit);
+    tableString_ImageIsPaletteCompressed.fn->destructor(&tableString_ImageIsPaletteCompressed);
     showing = LE_FALSE;
 }
 
