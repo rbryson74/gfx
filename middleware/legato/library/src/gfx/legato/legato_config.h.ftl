@@ -65,7 +65,7 @@ extern "C" {
 #define LE_ASSERT_ENABLE                   1
 
 #define LE_PREEMPTION_LEVEL                0
-#define LE_EXTERNAL_STREAMING_ENABLED      0
+#define LE_STREAMING_ENABLED               0
 
 // default Font Support
 #define LE_INCLUDE_DEFAULT_1BPP_FONT       1
@@ -76,12 +76,12 @@ extern "C" {
 
 // widget inclusion
 #define LE_ARC_WIDGET_ENABLED              1
-#define LE_BARGRAPH_WIDGET_ENABLED        1
+#define LE_BARGRAPH_WIDGET_ENABLED         1
 #define LE_BUTTON_WIDGET_ENABLED           1
 #define LE_CHECKBOX_WIDGET_ENABLED         1
 #define LE_CIRCLE_WIDGET_ENABLED           1
-#define LE_CIRCULARGAUGE_WIDGET_ENABLED   1
-#define LE_CIRCULARSLIDER_WIDGET_ENABLED  1
+#define LE_CIRCULARGAUGE_WIDGET_ENABLED    1
+#define LE_CIRCULARSLIDER_WIDGET_ENABLED   1
 #define LE_DRAWSURFACE_WIDGET_ENABLED      1
 #define LE_GRADIENT_WIDGET_ENABLED         1
 #define LE_GROUPBOX_WIDGET_ENABLED         1
@@ -91,12 +91,12 @@ extern "C" {
 #define LE_KEYPAD_WIDGET_ENABLED           1
 #define LE_LABEL_WIDGET_ENABLED            1
 #define LE_LINE_WIDGET_ENABLED             1
-#define LE_LINEGRAPH_WIDGET_ENABLED       1
+#define LE_LINEGRAPH_WIDGET_ENABLED        1
 #define LE_LIST_WIDGET_ENABLED             1
 #define LE_LISTWHEEL_WIDGET_ENABLED        1
-#define LE_PIECHART_WIDGET_ENABLED        1
+#define LE_PIECHART_WIDGET_ENABLED         1
 #define LE_PROGRESSBAR_WIDGET_ENABLED      1
-#define LE_RADIALMENU_WIDGET_ENABLED      1
+#define LE_RADIALMENU_WIDGET_ENABLED       1
 #define LE_RADIOBUTTON_WIDGET_ENABLED      1
 #define LE_RECTANGLE_WIDGET_ENABLED        1
 #define LE_SCROLLBAR_WIDGET_ENABLED        1
