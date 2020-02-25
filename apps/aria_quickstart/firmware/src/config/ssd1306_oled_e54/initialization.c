@@ -197,6 +197,8 @@ void SYS_Initialize ( void* data )
     CLOCK_Initialize();
 
 
+
+
     EVSYS_Initialize();
 
     SERCOM4_SPI_Initialize();

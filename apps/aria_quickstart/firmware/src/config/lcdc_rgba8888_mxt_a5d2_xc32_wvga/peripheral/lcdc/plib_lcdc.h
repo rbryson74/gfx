@@ -2132,8 +2132,6 @@ void LCDC_SetHEOScaler(uint16_t yfactor, uint16_t xfactor, bool enable);
 */
 void LCDC_SetHEOFilterPhaseOffset(uint8_t yphidef, uint8_t xphidef);
 
-//CUSTOM CODE - DO NOT MODIFY OR REMOVE!!!
-//Add function prototype to header. Will be fixed in CSP v3.6.0
 // *****************************************************************************
 /* Function:
     void LCDC_UpdateAddToQueue(LCDC_LAYER_ID layer)
@@ -2157,7 +2155,7 @@ void LCDC_SetHEOFilterPhaseOffset(uint8_t yphidef, uint8_t xphidef);
     None
 */
 void LCDC_UpdateAddToQueue(LCDC_LAYER_ID layer);
-//END OF CUSTOM CODE
+
 
 
 #ifdef __cplusplus  // Provide C++ Compatibility

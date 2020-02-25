@@ -84,7 +84,7 @@ extern GFXU_ImageAsset H3;
 /*********************************
  * GFX Font Asset
  * Name:         NotoSans_Bold
- * Height:       24
+ * Height:       26
  * Style:        Plain
  * Glyph Count:  0
  * Range Count:  0

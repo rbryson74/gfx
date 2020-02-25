@@ -54,6 +54,7 @@
 #include "peripheral/port/plib_port.h"
 #include "peripheral/clock/plib_clock.h"
 #include "peripheral/nvic/plib_nvic.h"
+#include "peripheral/cmcc/plib_cmcc.h"
 #include "peripheral/sercom/spim/plib_sercom4_spi.h"
 #include "peripheral/tc/plib_tc0.h"
 #include "system/time/sys_time.h"

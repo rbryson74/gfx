@@ -86,7 +86,7 @@ extern GFXU_PaletteAsset NewHarmonyLogo_Small_palette;
 /*********************************
  * GFX Font Asset
  * Name:         NotoSans_Bold
- * Height:       24
+ * Height:       26
  * Style:        Plain
  * Glyph Count:  21
  * Range Count:  12
@@ -108,7 +108,7 @@ extern GFXU_FontAsset NotoSans_Bold;
 /*********************************
  * GFX Font Asset
  * Name:         NotoSans_Regular
- * Height:       21
+ * Height:       23
  * Style:        Plain
  * Glyph Count:  16
  * Range Count:  12

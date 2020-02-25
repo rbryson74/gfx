@@ -201,55 +201,55 @@
       <logicalFolder name="f2" displayName="packs" projectFiles="true">
         <logicalFolder name="f1" displayName="ATSAMA5D27_DFP" projectFiles="true">
           <logicalFolder name="f1" displayName="component" projectFiles="true">
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/acc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/adc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/aes.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/aesb.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/aic.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/aximx.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/chipid.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/classd.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/flexcom.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/gmac.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/i2sc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/icm.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/isc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/l2cc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/lcdc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/matrix.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/mcan.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/mpddrc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/pdmic.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/pio.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/pio_ctrl.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/pit.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/pmc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/ptc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/pwm.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/qspi.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/rstc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/rtc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/rxlp.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/sckc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/sdmmc.h</itemPath>
             <itemPath>../src/packs/ATSAMA5D27_DFP/component/secumod.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/sfc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/sfr.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/sfrbu.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/sha.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/shdwc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/smc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/spi.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/ssc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/tc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/tdes.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/trng.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/aes.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/pit.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/pio.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/ptc.h</itemPath>
             <itemPath>../src/packs/ATSAMA5D27_DFP/component/twihs.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/sckc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/tdes.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/flexcom.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/aximx.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/rxlp.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/aic.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/mpddrc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/matrix.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/tc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/smc.h</itemPath>
             <itemPath>../src/packs/ATSAMA5D27_DFP/component/uart.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/udphs.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/pdmic.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/shdwc.h</itemPath>
             <itemPath>../src/packs/ATSAMA5D27_DFP/component/uhphs.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/qspi.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/ssc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/sdmmc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/sha.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/i2sc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/pwm.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/chipid.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/udphs.h</itemPath>
             <itemPath>../src/packs/ATSAMA5D27_DFP/component/wdt.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/acc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/mcan.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/trng.h</itemPath>
             <itemPath>../src/packs/ATSAMA5D27_DFP/component/xdmac.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/rstc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/adc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/gmac.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/sfrbu.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/pio_ctrl.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/l2cc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/sfr.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/aesb.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/rtc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/isc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/sfc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/lcdc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/classd.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/icm.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/pmc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/spi.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f2" displayName="pio" projectFiles="true">
             <itemPath>../src/packs/ATSAMA5D27_DFP/pio/sama5d27.h</itemPath>
@@ -266,13 +266,6 @@
                 <itemPath>../src/packs/CMSIS/CMSIS/Core_A/Include/cmsis_iccarm.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core_A/Include/cmsis_cp15.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core_A/Include/core_ca.h</itemPath>
-              </logicalFolder>
-            </logicalFolder>
-            <logicalFolder name="f2" displayName="DSP" projectFiles="true">
-              <logicalFolder name="f1" displayName="Include" projectFiles="true">
-                <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/arm_common_tables.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/arm_const_structs.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/arm_math.h</itemPath>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
@@ -507,7 +500,6 @@
           </logicalFolder>
           <itemPath>../src/config/lcdc_rgba8888_mxt_a5d2_xc32_wvga/initialization.c</itemPath>
           <itemPath>../src/config/lcdc_rgba8888_mxt_a5d2_xc32_wvga/interrupts.c</itemPath>
-          <itemPath>../src/config/lcdc_rgba8888_mxt_a5d2_xc32_wvga/exceptions.c</itemPath>
           <itemPath>../src/config/lcdc_rgba8888_mxt_a5d2_xc32_wvga/cstartup.S</itemPath>
           <itemPath>../src/config/lcdc_rgba8888_mxt_a5d2_xc32_wvga/fault_handlers.c</itemPath>
           <itemPath>../src/config/lcdc_rgba8888_mxt_a5d2_xc32_wvga/tasks.c</itemPath>
@@ -535,11 +527,11 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>Simulator</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>2.30</languageToolchainVersion>
-        <platform>3</platform>
+        <languageToolchainVersion>2.40</languageToolchainVersion>
+        <platform>2</platform>
       </toolsSet>
       <packs>
-        <pack name="SAMA5D2_DFP" vendor="Microchip" version="1.0.1"/>
+        <pack name="SAMA5D2_DFP" vendor="Microchip" version="1.1.11"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -560,7 +552,7 @@
         <makeCustomizationPreStepEnabled>false</makeCustomizationPreStepEnabled>
         <makeCustomizationPreStep></makeCustomizationPreStep>
         <makeCustomizationPostStepEnabled>true</makeCustomizationPostStepEnabled>
-        <makeCustomizationPostStep>${MP_CC_DIR}/xc32-objcopy.exe -O binary ${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.elf ${DISTDIR}/harmony.bin</makeCustomizationPostStep>
+        <makeCustomizationPostStep>${MP_CC_DIR}/xc32-objcopy -O binary ${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.elf ${DISTDIR}/harmony.bin</makeCustomizationPostStep>
         <makeCustomizationPutChecksumInUserID>false</makeCustomizationPutChecksumInUserID>
         <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>

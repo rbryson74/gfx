@@ -184,42 +184,42 @@
       <logicalFolder name="f2" displayName="packs" projectFiles="true">
         <logicalFolder name="f1" displayName="ATSAME70Q21B_DFP" projectFiles="true">
           <logicalFolder name="f1" displayName="component" projectFiles="true">
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/acc.h</itemPath>
             <itemPath>../src/packs/ATSAME70Q21B_DFP/component/aes.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/afec.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/chipid.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/dacc.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/efc.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/gmac.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/gpbr.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/hsmci.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/i2sc.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/icm.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/isi.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/matrix.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/mcan.h</itemPath>
             <itemPath>../src/packs/ATSAME70Q21B_DFP/component/pio.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/pmc.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/pwm.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/qspi.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/rstc.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/rswdt.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/rtc.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/rtt.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/sdramc.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/smc.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/spi.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/ssc.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/supc.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/tc.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/trng.h</itemPath>
             <itemPath>../src/packs/ATSAME70Q21B_DFP/component/twihs.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/efc.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/matrix.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/tc.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/smc.h</itemPath>
             <itemPath>../src/packs/ATSAME70Q21B_DFP/component/uart.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/gpbr.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/supc.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/qspi.h</itemPath>
             <itemPath>../src/packs/ATSAME70Q21B_DFP/component/usart.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/usbhs.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/utmi.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/ssc.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/i2sc.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/pwm.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/chipid.h</itemPath>
             <itemPath>../src/packs/ATSAME70Q21B_DFP/component/wdt.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/isi.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/acc.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/mcan.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/trng.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/afec.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/rswdt.h</itemPath>
             <itemPath>../src/packs/ATSAME70Q21B_DFP/component/xdmac.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/hsmci.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/rstc.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/gmac.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/utmi.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/sdramc.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/rtc.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/dacc.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/icm.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/pmc.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/rtt.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/usbhs.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/spi.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f2" displayName="pio" projectFiles="true">
             <itemPath>../src/packs/ATSAME70Q21B_DFP/pio/same70q21b.h</itemPath>
@@ -231,23 +231,15 @@
           <logicalFolder name="f1" displayName="CMSIS" projectFiles="true">
             <logicalFolder name="f1" displayName="Core" projectFiles="true">
               <logicalFolder name="f1" displayName="Include" projectFiles="true">
+                <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_version.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_iccarm.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_gcc.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_armcc.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_armclang.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_armclang_ltm.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/tz_context.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/core_cm7.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/mpu_armv7.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_version.h</itemPath>
-              </logicalFolder>
-            </logicalFolder>
-            <logicalFolder name="f2" displayName="DSP" projectFiles="true">
-              <logicalFolder name="f1" displayName="Include" projectFiles="true">
-                <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/arm_common_tables.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/arm_const_structs.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/arm_math.h</itemPath>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
@@ -491,14 +483,14 @@
         <targetDevice>ATSAME70Q21B</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>EdbgTool</platformTool>
+        <platformTool>ICD4Tool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>2.15</languageToolchainVersion>
-        <platform>3</platform>
+        <languageToolchainVersion>2.40</languageToolchainVersion>
+        <platform>2</platform>
       </toolsSet>
       <packs>
-        <pack name="SAME70_DFP" vendor="Microchip" version="4.0.40"/>
         <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
+        <pack name="SAME70_DFP" vendor="Microchip" version="4.1.50"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -683,9 +675,13 @@
       </C32Global>
       <EdbgTool>
         <property key="AutoSelectMemRanges" value="auto"/>
+        <property key="communication.activationmode" value="nohv"/>
         <property key="communication.interface" value="jtag"/>
         <property key="communication.speed" value="${communication.speed.default}"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="firmware.path"
+                  value="Press to browse for a specific firmware version"/>
+        <property key="firmware.update.action" value="firmware.update.use.latest"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>
         <property key="memories.configurationmemory" value="true"/>
@@ -700,6 +696,7 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="400000-5fffff"/>
         <property key="poweroptions.powerenable" value="false"/>
+        <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.preservedataflash" value="false"/>
         <property key="programoptions.preservedataflash.ranges"
                   value="${memories.dataflash.default}"/>
@@ -711,6 +708,52 @@
         <property key="programoptions.programuserotp" value="false"/>
         <property key="voltagevalue" value=""/>
       </EdbgTool>
+      <ICD4Tool>
+        <property key="AutoSelectMemRanges" value="auto"/>
+        <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
+        <property key="ToolFirmwareFilePath"
+                  value="Press to browse for a specific firmware version"/>
+        <property key="ToolFirmwareOption.UpdateOptions"
+                  value="ToolFirmwareOption.UseLatest"/>
+        <property key="communication.interface.jtag" value="2wire"/>
+        <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="hwtoolclock.frcindebug" value="false"/>
+        <property key="memories.aux" value="false"/>
+        <property key="memories.bootflash" value="true"/>
+        <property key="memories.configurationmemory" value="true"/>
+        <property key="memories.configurationmemory2" value="true"/>
+        <property key="memories.dataflash" value="true"/>
+        <property key="memories.eeprom" value="true"/>
+        <property key="memories.exclude.configurationmemory" value="true"/>
+        <property key="memories.flashdata" value="true"/>
+        <property key="memories.id" value="true"/>
+        <property key="memories.instruction.ram.ranges"
+                  value="${memories.instruction.ram.ranges}"/>
+        <property key="memories.programmemory" value="true"/>
+        <property key="memories.programmemory.ranges" value="400000-5fffff"/>
+        <property key="poweroptions.powerenable" value="false"/>
+        <property key="programoptions.donoteraseauxmem" value="false"/>
+        <property key="programoptions.eraseb4program" value="true"/>
+        <property key="programoptions.ledbrightness" value="5"/>
+        <property key="programoptions.pgcconfig" value="pull down"/>
+        <property key="programoptions.pgcresistor.value" value="4.7"/>
+        <property key="programoptions.pgdconfig" value="pull down"/>
+        <property key="programoptions.pgdresistor.value" value="4.7"/>
+        <property key="programoptions.pgmentry.voltage" value="low"/>
+        <property key="programoptions.pgmspeed" value="Med"/>
+        <property key="programoptions.preservedataflash" value="false"/>
+        <property key="programoptions.preservedataflash.ranges"
+                  value="${memories.dataflash.default}"/>
+        <property key="programoptions.preserveeeprom" value="false"/>
+        <property key="programoptions.preserveeeprom.ranges" value=""/>
+        <property key="programoptions.preserveprogram.ranges" value="0-2045ffff"/>
+        <property key="programoptions.preserveprogramrange" value="false"/>
+        <property key="programoptions.preserveuserid" value="false"/>
+        <property key="programoptions.programcalmem" value="false"/>
+        <property key="programoptions.programuserotp" value="false"/>
+        <property key="programoptions.testmodeentrymethod" value="VDDFirst"/>
+        <property key="voltagevalue" value="3.25"/>
+      </ICD4Tool>
       <PICkit3PlatformTool>
         <property key="ADC 1" value="true"/>
         <property key="AutoSelectMemRanges" value="auto"/>

@@ -352,16 +352,6 @@ void LCDC_WaitForDISPSignal( void )
     while (!(LCDC_REGS->LCDC_LCDSR & LCDC_LCDSR_DISPSTS_Msk));
 }
 
-//CUSTOM CODE - DO NOT MODIFY OR REMOVE!!!
-//Comment out unused functinont. Will be fixed in csp v3.6.0
-#if 0
-static void _wait_for_clock_domain_sync(void)
-{
-	while ((LCDC_REGS->LCDC_LCDSR & LCDC_LCDSR_SIPSTS_Msk));
-}
-#endif
-//END OF CUSTOM CODE
-
 void LCDC_SetRGBModeInput(LCDC_LAYER_ID layer, LCDC_INPUT_COLOR_MODE mode)
 {
     switch(layer)
