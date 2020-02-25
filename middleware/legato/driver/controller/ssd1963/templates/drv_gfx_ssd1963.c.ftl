@@ -41,15 +41,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 <#assign Val_Width = gfx_hal_le.DisplayWidth>
 <#assign Val_Height = gfx_hal_le.DisplayHeight>
-<#assign Val_UseReset = gfx_hal_le.DisplayUseReset>
-<#assign Val_ResetPolarity = gfx_hal_le.DisplayResetPolarity>
-<#assign Val_UseChipSelect = gfx_hal_le.DisplayUseChipSelect>
-<#assign Val_ChipSelectPolarity = gfx_hal_le.DisplayChipSelectPolarity>
-<#assign Val_BacklightEnable = gfx_hal_le.DisplayBacklightEnable>
-<#assign Val_VSYNCNegative = !gfx_hal_le.DisplayVSYNCNegative>
-<#assign Val_HSYNCNegative = !gfx_hal_le.DisplayHSYNCNegative>
-<#assign Val_UseDataEnable = gfx_hal_le.DisplayDataEnable>
-<#assign Val_DataEnablePolarity = gfx_hal_le.DisplayDataEnablePolarity>
 <#assign Val_HorzFrontPorch = gfx_hal_le.DisplayHorzFrontPorch>
 <#assign Val_HorzBackPorch = gfx_hal_le.DisplayHorzBackPorch>
 <#assign Val_HorzPulseWidth = gfx_hal_le.DisplayHorzPulseWidth>
@@ -61,15 +52,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 <#assign Val_Width = DisplayWidth>
 <#assign Val_Height = DisplayHeight>
-<#assign Val_UseReset = DisplayUseReset>
-<#assign Val_ResetPolarity = DisplayResetPolarity>
-<#assign Val_UseChipSelect = DisplayUseChipSelect>
-<#assign Val_ChipSelectPolarity = DisplayChipSelectPolarity>
-<#assign Val_BacklightEnable = DisplayBacklightEnable>
-<#assign Val_VSYNCNegative = !DisplayVSYNCNegative>
-<#assign Val_HSYNCNegative = !DisplayHSYNCNegative>
-<#assign Val_UseDataEnable = DisplayDataEnable>
-<#assign Val_DataEnablePolarity = DisplayDataEnablePolarity>
 <#assign Val_HorzFrontPorch = DisplayHorzFrontPorch>
 <#assign Val_HorzBackPorch = DisplayHorzBackPorch>
 <#assign Val_HorzPulseWidth = DisplayHorzPulseWidth>

@@ -36,6 +36,10 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
 *******************************************************************************/
 // DOM-IGNORE-END
+
+
+
+
 #include "definitions.h"
 
 #include "gfx/interface/drv_gfx_disp_intf.h"
@@ -64,7 +68,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #define DISP_VER_FRONT_PORCH 2
 #define DISP_VER_BACK_PORCH 2
 
-#define PIXEL_BUFFER_COLOR_MODE LE_COLOR_MODE_RGB_565
+#define PIXEL_BUFFER_COLOR_MODE GFX_COLOR_MODE_RGB_565
 #define SCREEN_WIDTH DISPLAY_WIDTH
 #define SCREEN_HEIGHT DISPLAY_HEIGHT
 
@@ -129,7 +133,7 @@ static inline void DRV_SSD1963_DelayMS(int ms)
 
 /**
   Function:
-    static leResult DRV_SSD1963_Reset(void)
+    static gfxResult DRV_SSD1963_Reset(void)
 
   Summary:
     Toggles the hardware reset to the SSD1963.
@@ -144,17 +148,17 @@ static inline void DRV_SSD1963_DelayMS(int ms)
     None
 
 */
-static leResult DRV_SSD1963_Reset(void)
+static gfxResult DRV_SSD1963_Reset(void)
 {
     DRV_SSD1963_Reset_Assert();
     DRV_SSD1963_DelayMS(10);
     DRV_SSD1963_Reset_Deassert();
     DRV_SSD1963_DelayMS(30);
 
-    return LE_SUCCESS;
+    return GFX_SUCCESS;
 }
 
-leResult DRV_SSD1963_Initialize(void)
+gfxResult DRV_SSD1963_Initialize(void)
 {
     drv.state = INIT;
 
@@ -162,10 +166,10 @@ leResult DRV_SSD1963_Initialize(void)
     if (drv.port_priv == 0)
         return LE_FAILURE;
     
-    return LE_SUCCESS;
+    return GFX_SUCCESS;
 }
 
-static leResult DRV_SSD1963_Configure(SSD1963_DRV *drv)
+static gfxResult DRV_SSD1963_Configure(SSD1963_DRV *drv)
 {
     #define HT (DISP_HOR_PULSE_WIDTH+DISP_HOR_BACK_PORCH+DISP_HOR_RESOLUTION+DISP_HOR_FRONT_PORCH)
     #define HPS (DISP_HOR_PULSE_WIDTH+DISP_HOR_BACK_PORCH)
@@ -270,7 +274,7 @@ static leResult DRV_SSD1963_Configure(SSD1963_DRV *drv)
     
     DRV_SSD1963_NCSDeassert(intf);
     
-    return LE_SUCCESS;
+    return GFX_SUCCESS;
 }
 
 static void DRV_SSD1963_SetArea(SSD1963_DRV *drv,
@@ -299,7 +303,7 @@ static void DRV_SSD1963_SetArea(SSD1963_DRV *drv,
 
 /**
   Function:
-    static leResult DRV_SSD1963_BrightnessSet(uint32_t val)
+    static gfxResult DRV_SSD1963_BrightnessSet(uint32_t val)
 
   Summary:
     Driver-specific implementation of GFX HAL brightnessSet function
@@ -311,10 +315,10 @@ static void DRV_SSD1963_SetArea(SSD1963_DRV *drv,
     val    - The backlight brightness in %
 
   Returns:
-    * LE_SUCCESS       - Operation successful
+    * GFX_SUCCESS       - Operation successful
 
 */
-static leResult DRV_SSD1963_BrightnessSet(uint32_t brightness)
+static gfxResult DRV_SSD1963_BrightnessSet(uint32_t brightness)
 {
     uint8_t parm[5] = {
                     BACKLIGHT_PWMF_PARM,   // PWMF[7:0] = 2, PWM base freq = PLL/(256*(PWMF + 1))/256
@@ -335,12 +339,12 @@ static leResult DRV_SSD1963_BrightnessSet(uint32_t brightness)
 
     DRV_SSD1963_NCSDeassert((GFX_Disp_Intf) drv.port_priv);
     
-    return LE_SUCCESS;
+    return GFX_SUCCESS;
 }
 
 /**
   Function:
-    static leResult DRV_SSD1963_Update(void)
+    static gfxResult DRV_SSD1963_Update(void)
 
   Summary:
     Driver-specific implementation of GFX HAL update function.
@@ -352,8 +356,8 @@ static leResult DRV_SSD1963_BrightnessSet(uint32_t brightness)
     None.
 
   Returns:
-    * LE_SUCCESS       - Operation successful
-    * LE_FAILURE       - Operation failed
+    * GFX_SUCCESS       - Operation successful
+    * GFX_FAILURE       - Operation failed
 
 */
 void DRV_SSD1963_Update(void)
@@ -371,7 +375,7 @@ void DRV_SSD1963_Update(void)
     }
 }
 
-leColorMode DRV_SSD1963_GetColorMode(void)
+gfxColorMode DRV_SSD1963_GetColorMode(void)
 {
     return PIXEL_BUFFER_COLOR_MODE;
 }
@@ -401,14 +405,15 @@ uint32_t DRV_SSD1963_GetActiveLayer()
     return 0;
 }
 
-leResult DRV_SSD1963_SetActiveLayer(uint32_t idx)
+gfxResult DRV_SSD1963_SetActiveLayer(uint32_t idx)
 {
     return LE_SUCCESS;
 }
 
-leResult DRV_SSD1963_BlitBuffer(int32_t x,
+gfxResult DRV_SSD1963_BlitBuffer(int32_t x,
                                 int32_t y,
-                                lePixelBuffer* buf)
+                                 gfxPixelBuffer* buf,
+                                 gfxBlend gfx)
 {
     int row, col, dataIdx;
     uint16_t clr;
@@ -428,7 +433,7 @@ leResult DRV_SSD1963_BlitBuffer(int32_t x,
     GFX_Disp_Intf_WriteCommand(intf, CMD_WR_MEMSTART);
     for(row = 0; row < buf->size.height; row++)
     {
-        ptr = lePixelBufferOffsetGet_Unsafe(buf, 0, row);
+        ptr = gfxPixelBufferOffsetGet_Unsafe(buf, 0, row);
         for(col = 0, dataIdx = 0; col < buf->size.width; col++)
         {
             clr = ptr[col];
@@ -441,7 +446,7 @@ leResult DRV_SSD1963_BlitBuffer(int32_t x,
     
     DRV_SSD1963_NCSDeassert(intf);
 
-    return LE_SUCCESS;
+    return GFX_SUCCESS;
 }
 
 void DRV_SSD1963_Swap(void)

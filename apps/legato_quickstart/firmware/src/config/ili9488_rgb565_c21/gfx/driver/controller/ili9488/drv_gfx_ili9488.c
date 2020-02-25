@@ -53,7 +53,7 @@
 #define DISPLAY_WIDTH   320
 #define DISPLAY_HEIGHT  480
 
-#define PIXEL_BUFFER_COLOR_MODE LE_COLOR_MODE_RGB_565
+#define PIXEL_BUFFER_COLOR_MODE GFX_COLOR_MODE_RGB_565
 
 #define SCREEN_WIDTH DISPLAY_WIDTH
 #define SCREEN_HEIGHT DISPLAY_HEIGHT
@@ -260,9 +260,9 @@ gfxResult DRV_ILI9488_Initialize(void)
     //Open interface to ILI9488 controlgfxR
     drv.port_priv = (void*) GFX_Disp_Intf_Open();
     if (drv.port_priv == 0)
-        return LE_FAILURE;
+        return GFX_FAILURE;
             
-    return LE_SUCCESS;
+    return GFX_SUCCESS;
 }
 
 gfxColorMode DRV_ILI9488_GetColorMode(void)
@@ -441,7 +441,7 @@ uint32_t DRV_ILI9488_GetActiveLayer()
 
 gfxResult DRV_ILI9488_SetActiveLayer(uint32_t idx)
 {
-    return LE_SUCCESS;
+    return GFX_SUCCESS;
 }
 
 gfxResult DRV_ILI9488_BlitBuffer(int32_t x,
@@ -450,7 +450,7 @@ gfxResult DRV_ILI9488_BlitBuffer(int32_t x,
                                  gfxBlend gfx)
 {
     if(drv.state != IDLE)
-        return LE_FAILURE;
+        return GFX_FAILURE;
 
     drv.blitParms.x = x;
     drv.blitParms.y = y;
@@ -462,7 +462,7 @@ gfxResult DRV_ILI9488_BlitBuffer(int32_t x,
         DRV_ILI9488_Update();
     }
     
-    return LE_SUCCESS;
+    return GFX_SUCCESS;
 }
 
 void DRV_ILI9488_Swap(void)

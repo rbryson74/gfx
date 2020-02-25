@@ -35,8 +35,8 @@
           <Name dnOrder="1">drv_gfx_ili9488.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_c21/gfx/driver/ili9488</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/ili9488/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">08DA6C8CBA089E6620EBC7FD289222F8</GeneratedChecksum>
-          <UserChecksum dnOrder="5">08DA6C8CBA089E6620EBC7FD289222F8</UserChecksum>
+          <GeneratedChecksum dnOrder="4">F0D784DED2D2D9379BB7055C9FCDCB1E</GeneratedChecksum>
+          <UserChecksum dnOrder="5">F0D784DED2D2D9379BB7055C9FCDCB1E</UserChecksum>
         </File>
         <File dnOrder="4">
           <Type dnOrder="0">SOURCE</Type>
@@ -91,8 +91,8 @@
           <Name dnOrder="1">gfx_driver.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_c21/gfx/driver/ili9488</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">204B5B659431254ED228988288EAEDBE</GeneratedChecksum>
-          <UserChecksum dnOrder="5">204B5B659431254ED228988288EAEDBE</UserChecksum>
+          <GeneratedChecksum dnOrder="4">D46B5019311FBF27815B0C5ADD3F3901</GeneratedChecksum>
+          <UserChecksum dnOrder="5">D46B5019311FBF27815B0C5ADD3F3901</UserChecksum>
         </File>
         <File dnOrder="11">
           <Type dnOrder="0">SOURCE</Type>
@@ -363,8 +363,8 @@
           <Name dnOrder="1">legato_imagedecoder_raw_palette_stream.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_c21/gfx/legato/image/raw</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/legato/image/raw/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">CBEAF9253005FBB41C1407866DF7169F</GeneratedChecksum>
-          <UserChecksum dnOrder="5">CBEAF9253005FBB41C1407866DF7169F</UserChecksum>
+          <GeneratedChecksum dnOrder="4">A0E2DDF93EF0D10AAB3A41E155788298</GeneratedChecksum>
+          <UserChecksum dnOrder="5">A0E2DDF93EF0D10AAB3A41E155788298</UserChecksum>
         </File>
         <File dnOrder="45">
           <Type dnOrder="0">SOURCE</Type>
@@ -379,32 +379,32 @@
           <Name dnOrder="1">legato_imagedecoder_raw_read_stream_color.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_c21/gfx/legato/image/raw</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/legato/image/raw/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">D4B1B4E9617681C0BAFCCE12A60C4E1B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">D4B1B4E9617681C0BAFCCE12A60C4E1B</UserChecksum>
+          <GeneratedChecksum dnOrder="4">04828CA70EDDE6071CF663AA620309DB</GeneratedChecksum>
+          <UserChecksum dnOrder="5">04828CA70EDDE6071CF663AA620309DB</UserChecksum>
         </File>
         <File dnOrder="47">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">legato_imagedecoder_raw_read_stream_index.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_c21/gfx/legato/image/raw</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/legato/image/raw/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">CCA537D4FEFC2ED59DD4E22659766169</GeneratedChecksum>
-          <UserChecksum dnOrder="5">CCA537D4FEFC2ED59DD4E22659766169</UserChecksum>
+          <GeneratedChecksum dnOrder="4">B06989E6728D9CECD5DD0FE641398A20</GeneratedChecksum>
+          <UserChecksum dnOrder="5">B06989E6728D9CECD5DD0FE641398A20</UserChecksum>
         </File>
         <File dnOrder="48">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">legato_imagedecoder_raw_read_stream_rlecolor.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_c21/gfx/legato/image/raw</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/legato/image/raw/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">1CF631C38E4460E2D191C25ED0F1BC63</GeneratedChecksum>
-          <UserChecksum dnOrder="5">1CF631C38E4460E2D191C25ED0F1BC63</UserChecksum>
+          <GeneratedChecksum dnOrder="4">2FBBB44D99DDD9EA233A1D7DAFA1FD4C</GeneratedChecksum>
+          <UserChecksum dnOrder="5">2FBBB44D99DDD9EA233A1D7DAFA1FD4C</UserChecksum>
         </File>
         <File dnOrder="49">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">legato_imagedecoder_raw_read_stream_rleindex.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_c21/gfx/legato/image/raw</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/legato/image/raw/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">7E2DBEB0B4A18F99B86F6B9C7C20DF36</GeneratedChecksum>
-          <UserChecksum dnOrder="5">7E2DBEB0B4A18F99B86F6B9C7C20DF36</UserChecksum>
+          <GeneratedChecksum dnOrder="4">D73D5CD5C90D2A01380CA4D947D92517</GeneratedChecksum>
+          <UserChecksum dnOrder="5">D73D5CD5C90D2A01380CA4D947D92517</UserChecksum>
         </File>
         <File dnOrder="50">
           <Type dnOrder="0">SOURCE</Type>
@@ -539,8 +539,8 @@
           <Name dnOrder="1">legato_renderer.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_c21/gfx/legato/renderer</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/legato/renderer/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">4ED582BACB235A4108917807177EC27C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">4ED582BACB235A4108917807177EC27C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">05E95F89B9B5941B3E2616662AC3E4A1</GeneratedChecksum>
+          <UserChecksum dnOrder="5">05E95F89B9B5941B3E2616662AC3E4A1</UserChecksum>
         </File>
         <File dnOrder="67">
           <Type dnOrder="0">SOURCE</Type>
@@ -555,8 +555,8 @@
           <Name dnOrder="1">legato_state.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_c21/gfx/legato/core</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/legato/core/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">00C3537D44143D9B95B9299D3040D88A</GeneratedChecksum>
-          <UserChecksum dnOrder="5">00C3537D44143D9B95B9299D3040D88A</UserChecksum>
+          <GeneratedChecksum dnOrder="4">2759BA6F822CC100BE8225BEFBF6D801</GeneratedChecksum>
+          <UserChecksum dnOrder="5">2759BA6F822CC100BE8225BEFBF6D801</UserChecksum>
         </File>
         <File dnOrder="69">
           <Type dnOrder="0">SOURCE</Type>
@@ -595,8 +595,8 @@
           <Name dnOrder="1">legato_stringtable.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_c21/gfx/legato/string</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/legato/string/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">5AB98F73365E00577AEB29BDA27D0AFF</GeneratedChecksum>
-          <UserChecksum dnOrder="5">5AB98F73365E00577AEB29BDA27D0AFF</UserChecksum>
+          <GeneratedChecksum dnOrder="4">D0C8984383766652CAE5F8C254356261</GeneratedChecksum>
+          <UserChecksum dnOrder="5">D0C8984383766652CAE5F8C254356261</UserChecksum>
         </File>
         <File dnOrder="74">
           <Type dnOrder="0">SOURCE</Type>
@@ -859,8 +859,8 @@
           <Name dnOrder="1">legato_widget_imagesequence_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_c21/gfx/legato/widget/imagesequence</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/legato/widget/imagesequence/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">CB0114368D16C6CF1741E1797B48C98C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">CB0114368D16C6CF1741E1797B48C98C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">3407E1F38495D5594329B0FAAE8A5D25</GeneratedChecksum>
+          <UserChecksum dnOrder="5">3407E1F38495D5594329B0FAAE8A5D25</UserChecksum>
         </File>
         <File dnOrder="107">
           <Type dnOrder="0">SOURCE</Type>
@@ -1483,8 +1483,8 @@
           <Name dnOrder="1">drv_gfx_ili9488.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_c21/gfx/driver/ili9488</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/ili9488/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">86951031E468D6B1F27CCF516064575D</GeneratedChecksum>
-          <UserChecksum dnOrder="5">86951031E468D6B1F27CCF516064575D</UserChecksum>
+          <GeneratedChecksum dnOrder="4">F5EA35DB77EE2317E4C8F3E30FEEDC0E</GeneratedChecksum>
+          <UserChecksum dnOrder="5">F5EA35DB77EE2317E4C8F3E30FEEDC0E</UserChecksum>
         </File>
         <File dnOrder="185">
           <Type dnOrder="0">HEADER</Type>
@@ -1579,8 +1579,8 @@
           <Name dnOrder="1">gfx_driver.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_c21/gfx/driver/ili9488</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A038493845E4579C3918308BA6911E5A</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A038493845E4579C3918308BA6911E5A</UserChecksum>
+          <GeneratedChecksum dnOrder="4">44B03BFE381FF1C0A82BE6E42ADDF8EF</GeneratedChecksum>
+          <UserChecksum dnOrder="5">44B03BFE381FF1C0A82BE6E42ADDF8EF</UserChecksum>
         </File>
         <File dnOrder="197">
           <Type dnOrder="0">HEADER</Type>
