@@ -70,7 +70,6 @@ void GPIO_Initialize ( void )
     /* PORTD Initialization */
     LATD = 0x400; /* Initial Latch Value */
     TRISDCLR = 0x400; /* Direction Control */
-    CNPUDSET = 0x400; /* Pull-Up Enable */
 
     /* PORTE Initialization */
 

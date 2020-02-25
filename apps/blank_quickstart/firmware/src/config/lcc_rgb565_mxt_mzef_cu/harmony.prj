@@ -91,8 +91,8 @@
           <Name dnOrder="1">plib_ebi.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/peripheral/ebi/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/ebi/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B96764B4811CBC18DB660CC00FF5E226</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B96764B4811CBC18DB660CC00FF5E226</UserChecksum>
+          <GeneratedChecksum dnOrder="4">7E9C84A6C1758DFB6FE672C5A4945ACA</GeneratedChecksum>
+          <UserChecksum dnOrder="5">7E9C84A6C1758DFB6FE672C5A4945ACA</UserChecksum>
         </File>
         <File dnOrder="11">
           <Type dnOrder="0">SOURCE</Type>
@@ -107,8 +107,8 @@
           <Name dnOrder="1">plib_gpio.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/peripheral/gpio/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/gpio/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">CD5EB801BF65533A3058F8D4D80D013B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">CD5EB801BF65533A3058F8D4D80D013B</UserChecksum>
+          <GeneratedChecksum dnOrder="4">CA9F96550083634AE50A00C875571CD2</GeneratedChecksum>
+          <UserChecksum dnOrder="5">CA9F96550083634AE50A00C875571CD2</UserChecksum>
         </File>
         <File dnOrder="13">
           <Type dnOrder="0">SOURCE</Type>
@@ -335,12 +335,12 @@
       </Settings>
     </Manifest>
     <Settings dnOrder="4">
-      <Setting dnOrder="0" key="CMSISPath" value=".\dev_packs\arm\CMSIS\5.5.1"/>
-      <Setting dnOrder="1" key="DFPPath" value=".\dev_packs\Microchip\PIC32MZ_EF_DFP\1.0.39\atdf\PIC32MZ2048EFM144.atdf"/>
+      <Setting dnOrder="0" key="CMSISPath" value="./dev_packs/arm/CMSIS/5.6.0"/>
+      <Setting dnOrder="1" key="DFPPath" value="./dev_packs/Microchip/PIC32MZ_EF_DFP/1.1.45/atdf/PIC32MZ2048EFM144.atdf"/>
       <Setting dnOrder="2" key="FORCE_OPTIMIZATION" value="false"/>
       <Setting dnOrder="3" key="GENERATE_BACKUP" value="true"/>
       <Setting dnOrder="4" key="MERGE_STRATEGY" value="USER_ALL"/>
-      <Setting dnOrder="5" key="PackageFilter" value="audio;bsp;bt;core;crypto;csp;gfx;gfx;gfx_apps;net;usb;"/>
+      <Setting dnOrder="5" key="PackageFilter" value="core;usb;audio;gfx;bsp;gfx_apps;csp;bt;"/>
     </Settings>
   </Configurator>
 </Configuration>

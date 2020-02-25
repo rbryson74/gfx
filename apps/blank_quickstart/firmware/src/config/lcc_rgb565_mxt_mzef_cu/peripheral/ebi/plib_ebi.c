@@ -115,10 +115,10 @@ void EBI_Initialize (void)
 	EBIFTRPD = 0xc8;
 	
 	/* Setup EBISMCON	*/
-	/* SMDWIDTH0 = 0	*/
+	/* SMDWIDTH0 = 4	*/
 	/* SMDWIDTH1 = 0	*/
 	/* SMDWIDTH2 = 0	*/
-	EBISMCON = 0x1;
+	EBISMCON = 0x201;
 	
 	/* Setup CFGEBIA	*/
 	CFGEBIA = 0x0;
