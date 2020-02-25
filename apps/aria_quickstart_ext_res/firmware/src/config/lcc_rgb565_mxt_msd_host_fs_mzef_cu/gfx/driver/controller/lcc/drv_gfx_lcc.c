@@ -304,7 +304,7 @@ static void lccDMAStartTransfer(const void *srcAddr, size_t srcSize,
 
 static int DRV_GFX_LCC_Start()
 {
-    DMAC_ChannelCallbackRegister(DMAC_CHANNEL_0, dmaIntHandler, 0);
+    DMAC_ChannelCallbackRegister(DRV_GFX_LCC_DMA_CHANNEL_INDEX, dmaIntHandler, 0);
     
     lccDMAStartTransfer(frameBuffer, 
                         FRAMEBUFFER_PIXEL_BYTES, 

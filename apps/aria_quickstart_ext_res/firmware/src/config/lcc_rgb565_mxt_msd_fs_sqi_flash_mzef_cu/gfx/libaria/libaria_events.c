@@ -40,7 +40,7 @@
 // DOM-IGNORE-END
 
 #include "gfx/libaria/libaria_events.h"
-#include "app.h"
+#include "app_msd_fs_sqi_flash.h"
 
 // ButtonWidget_Wait - ReleasedEvent
 void ButtonWidget_Wait_ReleasedEvent(laButtonWidget* btn)

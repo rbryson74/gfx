@@ -217,10 +217,6 @@
                   <itemPath>../src/config/glcd_rgba8888_mxt_msd_host_sdcard_fs_mzda_intddr_sk/system/fs/fat_fs/src/hardware_access/diskio.h</itemPath>
                 </logicalFolder>
               </logicalFolder>
-              <logicalFolder name="f2" displayName="mpfs" projectFiles="true">
-                <itemPath>../src/config/glcd_rgba8888_mxt_msd_host_sdcard_fs_mzda_intddr_sk/system/fs/mpfs/mpfs.h</itemPath>
-                <itemPath>../src/config/glcd_rgba8888_mxt_msd_host_sdcard_fs_mzda_intddr_sk/system/fs/mpfs/src/mpfs_local.h</itemPath>
-              </logicalFolder>
               <itemPath>../src/config/glcd_rgba8888_mxt_msd_host_sdcard_fs_mzda_intddr_sk/system/fs/sys_fs.h</itemPath>
               <itemPath>../src/config/glcd_rgba8888_mxt_msd_host_sdcard_fs_mzda_intddr_sk/system/fs/src/sys_fs_local.h</itemPath>
               <itemPath>../src/config/glcd_rgba8888_mxt_msd_host_sdcard_fs_mzda_intddr_sk/system/fs/sys_fs_media_manager.h</itemPath>
@@ -509,9 +505,6 @@
                 <itemPath>../src/config/glcd_rgba8888_mxt_msd_host_sdcard_fs_mzda_intddr_sk/system/fs/fat_fs/src/ff.c</itemPath>
                 <itemPath>../src/config/glcd_rgba8888_mxt_msd_host_sdcard_fs_mzda_intddr_sk/system/fs/fat_fs/src/diskio.c</itemPath>
               </logicalFolder>
-              <logicalFolder name="f2" displayName="mpfs" projectFiles="true">
-                <itemPath>../src/config/glcd_rgba8888_mxt_msd_host_sdcard_fs_mzda_intddr_sk/system/fs/mpfs/src/mpfs.c</itemPath>
-              </logicalFolder>
               <itemPath>../src/config/glcd_rgba8888_mxt_msd_host_sdcard_fs_mzda_intddr_sk/system/fs/src/sys_fs.c</itemPath>
               <itemPath>../src/config/glcd_rgba8888_mxt_msd_host_sdcard_fs_mzda_intddr_sk/system/fs/src/sys_fs_media_manager.c</itemPath>
             </logicalFolder>
@@ -562,11 +555,11 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>RealICEPlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>2.20</languageToolchainVersion>
-        <platform>3</platform>
+        <languageToolchainVersion>2.40</languageToolchainVersion>
+        <platform>2</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC32MZ-DA_DFP" vendor="Microchip" version="1.0.69"/>
+        <pack name="PIC32MZ-DA_DFP" vendor="Microchip" version="1.1.98"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -873,7 +866,6 @@
         <property key="UART5" value="true"/>
         <property key="UART6" value="true"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
-        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="hwtoolclock.instructionspeed" value="4"/>
         <property key="hwtoolclock.units" value="mips"/>
