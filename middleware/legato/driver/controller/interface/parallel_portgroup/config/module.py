@@ -26,3 +26,5 @@ def loadModule():
 	component = Module.CreateComponent("le_gfx_intf_parallel_portgroup", "LE Parallel (Port Group)", "/Graphics/Interface", "config/parallel_portgroup.py")
 	component.setDisplayType("Parallel Display Interface via Port Group")
 	component.addCapability("le_gfx_intf_parallel_portgroup", "Parallel Display Interface", False)
+	component.addDependency("TMR", "TMR", False, True)
+	component.setDependencyEnabled("TMR", False)

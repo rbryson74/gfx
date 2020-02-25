@@ -185,6 +185,10 @@ void GFX_Disp_Intf_StartTransfer(uint8_t * cmd_buffer,
     }
     
     portGroupIntf.data_buffer_size = data_buffer_size;
+
+<#if UseTimerTrigger == true>
+    TC${TimerTriggerIndex}_CompareStart();
+</#if>
     
     if (cmd_buffer != NULL && cmd_buffer_size > 0)
     {
@@ -360,7 +364,12 @@ static void GFX_Disp_Intf_DMATransferCallback(DMAC_TRANSFER_EVENT event,
     {
         default:
         case GFX_INTF_DMA_STATUS_NO_TRANSFER:
+        {
+<#if UseTimerTrigger == true>
+            TC${TimerTriggerIndex}_CompareStop();
+</#if>
             break;
+        }
         case GFX_INTF_DMA_STATUS_CMD_TRANSFER:
         {
             if (portGroupIntf.data_buffer_ptr == NULL)
