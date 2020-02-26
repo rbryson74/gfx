@@ -243,7 +243,7 @@ void DRV_GLCD_Initialize()
 
 }
 
-gfxPixelBuffer * DRV_GLCD_GetFrameBuffer(void)
+gfxPixelBuffer * DRV_GLCD_GetFrameBuffer(int32_t idx)
 {
     return &pixelBuffer;
 }

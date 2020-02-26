@@ -62,9 +62,9 @@
                 <logicalFolder name="f1" displayName="screen" projectFiles="true">
                   <itemPath>../src/config/glcd_rgb565_mxt_mzda_intddr_sk/gfx/legato/generated/screen/le_gen_screen_screen1.h</itemPath>
                 </logicalFolder>
-                <itemPath>../src/config/glcd_rgb565_mxt_mzda_intddr_sk/gfx/legato/generated/le_gen_init.h</itemPath>
-                <itemPath>../src/config/glcd_rgb565_mxt_mzda_intddr_sk/gfx/legato/generated/le_gen_harmony.h</itemPath>
                 <itemPath>../src/config/glcd_rgb565_mxt_mzda_intddr_sk/gfx/legato/generated/le_gen_assets.h</itemPath>
+                <itemPath>../src/config/glcd_rgb565_mxt_mzda_intddr_sk/gfx/legato/generated/le_gen_harmony.h</itemPath>
+                <itemPath>../src/config/glcd_rgb565_mxt_mzda_intddr_sk/gfx/legato/generated/le_gen_init.h</itemPath>
                 <itemPath>../src/config/glcd_rgb565_mxt_mzda_intddr_sk/gfx/legato/generated/le_gen_scheme.h</itemPath>
               </logicalFolder>
               <logicalFolder name="f5" displayName="image" projectFiles="true">
@@ -328,10 +328,10 @@
                 <logicalFolder name="f3" displayName="screen" projectFiles="true">
                   <itemPath>../src/config/glcd_rgb565_mxt_mzda_intddr_sk/gfx/legato/generated/screen/le_gen_screen_screen1.c</itemPath>
                 </logicalFolder>
+                <itemPath>../src/config/glcd_rgb565_mxt_mzda_intddr_sk/gfx/legato/generated/le_gen_harmony.c</itemPath>
                 <itemPath>../src/config/glcd_rgb565_mxt_mzda_intddr_sk/gfx/legato/generated/le_gen_init.c</itemPath>
                 <itemPath>../src/config/glcd_rgb565_mxt_mzda_intddr_sk/gfx/legato/generated/le_gen_scheme.c</itemPath>
                 <itemPath>../src/config/glcd_rgb565_mxt_mzda_intddr_sk/gfx/legato/generated/le_gen_stringtable.c</itemPath>
-                <itemPath>../src/config/glcd_rgb565_mxt_mzda_intddr_sk/gfx/legato/generated/le_gen_harmony.c</itemPath>
               </logicalFolder>
               <logicalFolder name="f5" displayName="image" projectFiles="true">
                 <logicalFolder name="f1" displayName="raw" projectFiles="true">
@@ -567,10 +567,10 @@
         <platformTool>ICD4Tool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>2.40</languageToolchainVersion>
-        <platform>2</platform>
+        <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC32MZ-DA_DFP" vendor="Microchip" version="1.1.98"/>
+        <pack name="PIC32MZ-DA_DFP" vendor="Microchip" version="1.0.69"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -606,7 +606,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/glcd_rgb565_mxt_mzda_intddr_sk;../src/packs/PIC32MZ2064DAS169_DFP;../src/mips"/>
+                  value="../src;../src/config/glcd_rgb565_mxt_mzda_intddr_sk;../src/packs/PIC32MZ2064DAS169_DFP;;../src/mips"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -826,7 +826,7 @@
         <property key="memories.programmemory.ranges" value="1d000000-1d1fffff"/>
         <property key="poweroptions.powerenable" value="false"/>
         <property key="programmerToGoFilePath"
-                  value="/home/ryan/Work/lh3/gfx/apps/legato_quickstart/firmware/legato_qs_mzda_intddr_sk_meb2_tm4301b.X/debug/glcd_rgb565_mxt_mzda_intddr_sk/legato_qs_mzda_intddr_sk_meb2_tm4301b_ptg"/>
+                  value="C:/harmony3_dev/gfx/apps/legato_quickstart/firmware/legato_qs_mzda_intddr_sk_meb2_tm4301b.X/debug/glcd_rgb565_mxt_mzda_intddr_sk/legato_qs_mzda_intddr_sk_meb2_tm4301b_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.ledbrightness" value="5"/>

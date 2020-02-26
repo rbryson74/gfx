@@ -2806,7 +2806,7 @@
                 <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_9x60_freertos_wvga\peripheral\clk\plib_clk.h</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_9x60_freertos_wvga\peripheral\flexcom\twi\plib_flexcom6_twi.h</name>
+                <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_9x60_freertos_wvga\peripheral\flexcom\twi\plib_flexcom0_twi.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_9x60_freertos_wvga\peripheral\flexcom\twi\plib_flexcom_twi_master.h</name>
@@ -3026,9 +3026,6 @@
             </file>
             <file>
                 <name>$PROJ_DIR$\..\src\third_party\rtos\FreeRTOS\Source\event_groups.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_9x60_freertos_wvga\exceptions.c</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_9x60_freertos_wvga\freertos_hooks.c</name>
@@ -3475,7 +3472,7 @@
                 <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_9x60_freertos_wvga\peripheral\clk\plib_clk.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_9x60_freertos_wvga\peripheral\flexcom\twi\plib_flexcom6_twi.c</name>
+                <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_9x60_freertos_wvga\peripheral\flexcom\twi\plib_flexcom0_twi.c</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_9x60_freertos_wvga\peripheral\gfx2d\plib_gfx2d.c</name>

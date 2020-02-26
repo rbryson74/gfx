@@ -12,7 +12,7 @@
         <path>$PROJ_DIR$\..\..\firmware\src\packs\CMSIS</path>
         <path>$PROJ_DIR$\..\..\firmware\src\arm</path>
         <path>$PROJ_DIR$\..\..\firmware\src\third_party\rtos\FreeRTOS\Source\portable\IAR\SAM\ARM926</path>
-        <path>$PROJ_DIR$\..\..\firmware\src\third_party\rtos\FreeRTOS\Source\Include</path>
+        <path>$PROJ_DIR$\..\..\firmware\src\third_party\rtos\FreeRTOS\Source\include</path>
     </includePath>
     <asmIncludePath>
         <path>$PROJ_DIR$\..\..\firmware\src</path>
@@ -22,7 +22,7 @@
         <path>$PROJ_DIR$\..\..\firmware\src\packs\CMSIS</path>
         <path>$PROJ_DIR$\..\..\firmware\src\arm</path>
         <path>$PROJ_DIR$\..\..\firmware\src\third_party\rtos\FreeRTOS\Source\portable\IAR\SAM\ARM926</path>
-        <path>$PROJ_DIR$\..\..\firmware\src\third_party\rtos\FreeRTOS\Source\Include</path>
+        <path>$PROJ_DIR$\..\..\firmware\src\third_party\rtos\FreeRTOS\Source\include</path>
     </asmIncludePath>
     <linkerFile>
         <override>true</override>
@@ -66,10 +66,10 @@
             <path>\peripheral\pio\plib_pio.h</path>
             <path>\peripheral\aic\plib_aic.h</path>
             <path>\gfx\driver\processor\gfx2d\drv_gfx2d.h</path>
-            <path>\peripheral\flexcom\twi\plib_flexcom6_twi.h</path>
-            <path>\peripheral\flexcom\twi\plib_flexcom_twi_master.h</path>
             <path>\peripheral\tc\plib_tc0.h</path>
             <path>\peripheral\tc\plib_tc_common.h</path>
+            <path>\peripheral\flexcom\twi\plib_flexcom0_twi.h</path>
+            <path>\peripheral\flexcom\twi\plib_flexcom_twi_master.h</path>
             <path>\peripheral\lcdc\plib_lcdc.h</path>
             <path>\driver\i2c\drv_i2c.h</path>
             <path>\driver\i2c\drv_i2c_definitions.h</path>
@@ -273,7 +273,6 @@
             <path>\..\..\main.c</path>
             <path>\initialization.c</path>
             <path>\interrupts.c</path>
-            <path>\exceptions.c</path>
             <path>\stdio\iar_monitor.c</path>
             <path>\peripheral\mmu\plib_mmu.c</path>
             <path>\peripheral\clk\plib_clk.c</path>
@@ -283,8 +282,8 @@
             <path>\vectortrap.s</path>
             <path>\gfx\driver\processor\gfx2d\drv_gfx2d_hal.c</path>
             <path>\gfx\driver\processor\gfx2d\drv_gfx2d.c</path>
-            <path>\peripheral\flexcom\twi\plib_flexcom6_twi.c</path>
             <path>\peripheral\tc\plib_tc0.c</path>
+            <path>\peripheral\flexcom\twi\plib_flexcom0_twi.c</path>
             <path>\peripheral\lcdc\plib_lcdc.c</path>
             <path>\driver\i2c\src\drv_i2c.c</path>
             <path>\driver\i2c\src\drv_i2c_local.h</path>

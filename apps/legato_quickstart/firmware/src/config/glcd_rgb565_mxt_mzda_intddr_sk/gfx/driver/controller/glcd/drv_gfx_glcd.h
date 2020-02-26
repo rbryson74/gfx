@@ -401,7 +401,7 @@ void  DRV_GFX_GLCD_GammaPaletteSet(uint32_t * gammaPalette);
 // *****************************************************************************
 // *****************************************************************************
 void DRV_GLCD_Initialize(void);
-//void DRV_GLCD_Update(void);
+
 gfxColorMode DRV_GLCD_GetColorMode(void);
 uint32_t DRV_GLCD_GetBufferCount(void);
 uint32_t DRV_GLCD_GetDisplayWidth(void);
@@ -413,7 +413,7 @@ gfxResult DRV_GLCD_SetActiveLayer(uint32_t idx);
 gfxResult DRV_GLCD_BlitBuffer(int32_t x, int32_t y, gfxPixelBuffer* buf, gfxBlend blend);
 void DRV_GLCD_Swap(void);
 uint32_t DRV_GLCD_GetVSYNCCount(void);
-gfxPixelBuffer * DRV_GLCD_GetFrameBuffer(void);
+gfxPixelBuffer * DRV_GLCD_GetFrameBuffer(int32_t idx);
 void DRV_GLCD_SetUseGPU(gfxBool onOff);
 
 static const gfxDisplayDriver glcdDisplayDriver =
@@ -428,7 +428,8 @@ static const gfxDisplayDriver glcdDisplayDriver =
     DRV_GLCD_SetActiveLayer,
     DRV_GLCD_BlitBuffer,
     DRV_GLCD_Swap,
-    DRV_GLCD_GetVSYNCCount
+    DRV_GLCD_GetVSYNCCount,
+    DRV_GLCD_GetFrameBuffer
 };
 
 #ifdef __cplusplus
