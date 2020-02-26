@@ -48,7 +48,6 @@
             <path>\gfx\legato\memory\legato_fixedheap.h</path>
             <path>\gfx\legato\memory\legato_memory.h</path>
             <path>\gfx\legato\memory\legato_variableheap.h</path>
-            <path>\gfx\legato\renderer\legato_driver.h</path>
             <path>\gfx\legato\renderer\legato_renderer.h</path>
             <path>\gfx\legato\string\legato_dynamicstring.h</path>
             <path>\gfx\legato\string\legato_fixedstring.h</path>
@@ -100,8 +99,8 @@
             <path>\peripheral\nvic\plib_nvic.h</path>
             <path>\peripheral\dmac\plib_dmac.h</path>
             <path>\peripheral\cmcc\plib_cmcc.h</path>
-            <path>\peripheral\sercom\i2cm\plib_sercom_i2c_master.h</path>
-            <path>\peripheral\sercom\i2cm\plib_sercom4_i2c.h</path>
+            <path>\peripheral\sercom\i2c_master\plib_sercom_i2c_master_common.h</path>
+            <path>\peripheral\sercom\i2c_master\plib_sercom4_i2c_master.h</path>
             <path>\bsp\bsp.h</path>
             <path>\peripheral\tc\plib_tc_common.h</path>
             <path>\peripheral\tc\plib_tc0.h</path>
@@ -159,21 +158,18 @@
             <path>\..\..\packs\ATSAME54P20A_DFP\component\wdt.h</path>
             <path>\..\..\packs\ATSAME54P20A_DFP\atsame54p20a.h</path>
             <path>\..\..\packs\ATSAME54P20A_DFP\pio\same54p20a.h</path>
+            <path>\gfx\driver\gfx_driver.h</path>
             <path>\gfx\driver\controller\ili9488\drv_gfx_ili9488.h</path>
             <path>\gfx\driver\controller\ili9488\drv_gfx_ili9488_cmd_defs.h</path>
+            <path>\..\..\packs\CMSIS\CMSIS\Core\Include\cmsis_version.h</path>
             <path>\..\..\packs\CMSIS\CMSIS\Core\Include\cmsis_compiler.h</path>
             <path>\..\..\packs\CMSIS\CMSIS\Core\Include\cmsis_iccarm.h</path>
             <path>\..\..\packs\CMSIS\CMSIS\Core\Include\cmsis_gcc.h</path>
             <path>\..\..\packs\CMSIS\CMSIS\Core\Include\cmsis_armcc.h</path>
             <path>\..\..\packs\CMSIS\CMSIS\Core\Include\cmsis_armclang.h</path>
             <path>\..\..\packs\CMSIS\CMSIS\Core\Include\cmsis_armclang_ltm.h</path>
-            <path>\..\..\packs\CMSIS\CMSIS\Core\Include\tz_context.h</path>
             <path>\..\..\packs\CMSIS\CMSIS\Core\Include\core_cm4.h</path>
             <path>\..\..\packs\CMSIS\CMSIS\Core\Include\mpu_armv7.h</path>
-            <path>\..\..\packs\CMSIS\CMSIS\Core\Include\cmsis_version.h</path>
-            <path>\..\..\packs\CMSIS\CMSIS\DSP\Include\arm_common_tables.h</path>
-            <path>\..\..\packs\CMSIS\CMSIS\DSP\Include\arm_const_structs.h</path>
-            <path>\..\..\packs\CMSIS\CMSIS\DSP\Include\arm_math.h</path>
             <path>\driver\input\drv_maxtouch.h</path>
             <path>\driver\driver.h</path>
             <path>\driver\driver_common.h</path>
@@ -332,7 +328,7 @@
             <path>\peripheral\dmac\plib_dmac.c</path>
             <path>\peripheral\cmcc\plib_cmcc.c</path>
             <path>\startup_iar.c</path>
-            <path>\peripheral\sercom\i2cm\plib_sercom4_i2c.c</path>
+            <path>\peripheral\sercom\i2c_master\plib_sercom4_i2c_master.c</path>
             <path>\bsp\bsp.c</path>
             <path>\peripheral\tc\plib_tc0.c</path>
             <path>\driver\i2c\src\drv_i2c.c</path>
@@ -341,6 +337,7 @@
             <path>\system\input\sys_input.c</path>
             <path>\system\input\sys_input_listener.c</path>
             <path>\peripheral\ccl\plib_ccl.c</path>
+            <path>\gfx\driver\gfx_driver.c</path>
             <path>\gfx\driver\controller\ili9488\drv_gfx_ili9488.c</path>
             <path>\driver\input\drv_maxtouch.c</path>
             <path>\system\int\src\sys_int.c</path>

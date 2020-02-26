@@ -2108,15 +2108,6 @@
                 <name>$PROJ_DIR$\..\src\app.h</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\src\packs\CMSIS\CMSIS\DSP\Include\arm_common_tables.h</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\src\packs\CMSIS\CMSIS\DSP\Include\arm_const_structs.h</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\src\packs\CMSIS\CMSIS\DSP\Include\arm_math.h</name>
-            </file>
-            <file>
                 <name>$PROJ_DIR$\..\src\packs\ATSAME54P20A_DFP\atsame54p20a.h</name>
             </file>
             <file>
@@ -2213,6 +2204,9 @@
                 <name>$PROJ_DIR$\..\src\packs\ATSAME54P20A_DFP\component\gclk.h</name>
             </file>
             <file>
+                <name>$PROJ_DIR$\..\src\config\ili9488_rgb565_e54_cult_parallel_iar\gfx\driver\gfx_driver.h</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\..\src\packs\ATSAME54P20A_DFP\component\gmac.h</name>
             </file>
             <file>
@@ -2253,9 +2247,6 @@
             </file>
             <file>
                 <name>$PROJ_DIR$\..\src\config\ili9488_rgb565_e54_cult_parallel_iar\gfx\legato\legato_config.h</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\src\config\ili9488_rgb565_e54_cult_parallel_iar\gfx\legato\renderer\legato_driver.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\src\config\ili9488_rgb565_e54_cult_parallel_iar\gfx\legato\string\legato_dynamicstring.h</name>
@@ -2501,10 +2492,10 @@
                 <name>$PROJ_DIR$\..\src\config\ili9488_rgb565_e54_cult_parallel_iar\peripheral\port\plib_port.h</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\src\config\ili9488_rgb565_e54_cult_parallel_iar\peripheral\sercom\i2cm\plib_sercom4_i2c.h</name>
+                <name>$PROJ_DIR$\..\src\config\ili9488_rgb565_e54_cult_parallel_iar\peripheral\sercom\i2c_master\plib_sercom4_i2c_master.h</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\src\config\ili9488_rgb565_e54_cult_parallel_iar\peripheral\sercom\i2cm\plib_sercom_i2c_master.h</name>
+                <name>$PROJ_DIR$\..\src\config\ili9488_rgb565_e54_cult_parallel_iar\peripheral\sercom\i2c_master\plib_sercom_i2c_master_common.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\src\config\ili9488_rgb565_e54_cult_parallel_iar\peripheral\tc\plib_tc0.h</name>
@@ -2603,9 +2594,6 @@
                 <name>$PROJ_DIR$\..\src\packs\ATSAME54P20A_DFP\component\trng.h</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\src\packs\CMSIS\CMSIS\Core\Include\tz_context.h</name>
-            </file>
-            <file>
                 <name>$PROJ_DIR$\..\src\packs\ATSAME54P20A_DFP\component\usb.h</name>
             </file>
             <file>
@@ -2640,6 +2628,9 @@
             </file>
             <file>
                 <name>$PROJ_DIR$\..\src\config\ili9488_rgb565_e54_cult_parallel_iar\exceptions.c</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\src\config\ili9488_rgb565_e54_cult_parallel_iar\gfx\driver\gfx_driver.c</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\src\config\ili9488_rgb565_e54_cult_parallel_iar\stdio\iar_monitor.c</name>
@@ -3062,7 +3053,7 @@
                 <name>$PROJ_DIR$\..\src\config\ili9488_rgb565_e54_cult_parallel_iar\peripheral\port\plib_port.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\src\config\ili9488_rgb565_e54_cult_parallel_iar\peripheral\sercom\i2cm\plib_sercom4_i2c.c</name>
+                <name>$PROJ_DIR$\..\src\config\ili9488_rgb565_e54_cult_parallel_iar\peripheral\sercom\i2c_master\plib_sercom4_i2c_master.c</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\src\config\ili9488_rgb565_e54_cult_parallel_iar\peripheral\tc\plib_tc0.c</name>
