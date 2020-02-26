@@ -1338,144 +1338,81 @@
             </Boolean>
           </Attributes>
         </File>
-        <File dnOrder="3" id="DRIVER_COMMON">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="enabled">
-              <Value dnOrder="0">false</Value>
-            </Boolean>
-          </Attributes>
-        </File>
-        <File dnOrder="4" id="DRIVER_ROOT">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="enabled">
-              <Value dnOrder="0">false</Value>
-            </Boolean>
-          </Attributes>
-        </File>
-        <Boolean dnOrder="5" id="ENABLE_APP_FILE">
+        <Boolean dnOrder="3" id="ENABLE_APP_FILE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="HarmonyCore" value="false"/>
             <User dnOrder="1" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="6" id="ENABLE_OSAL">
+        <Boolean dnOrder="4" id="ENABLE_OSAL">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="HarmonyCore" value="false"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="7" id="ENABLE_SYS_CACHE">
+        <Boolean dnOrder="5" id="ENABLE_SYS_CACHE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="HarmonyCore" value="false"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="8" id="ENABLE_SYS_INT">
+        <Boolean dnOrder="6" id="ENABLE_SYS_INT">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="HarmonyCore" value="false"/>
             <User dnOrder="1" value="true"/>
           </Values>
         </Boolean>
-        <Menu dnOrder="9" id="GEN_APP_TASK_MENU">
+        <Menu dnOrder="7" id="GEN_APP_TASK_MENU">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="visible">
               <Value dnOrder="0">true</Value>
             </Boolean>
           </Attributes>
         </Menu>
-        <String dnOrder="10" id="GEN_APP_TASK_NAME_0">
+        <String dnOrder="8" id="GEN_APP_TASK_NAME_0">
           <Values dnOrder="0">
             <User dnOrder="0" value="app_16"/>
           </Values>
         </String>
-        <File dnOrder="11" id="INT_DEF">
+        <File dnOrder="9" id="INT_DEF">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="enabled">
               <Value dnOrder="0">true</Value>
             </Boolean>
           </Attributes>
         </File>
-        <File dnOrder="12" id="INT_HEADER">
+        <File dnOrder="10" id="INT_HEADER">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="enabled">
               <Value dnOrder="0">true</Value>
             </Boolean>
           </Attributes>
         </File>
-        <File dnOrder="13" id="INT_MAPPING">
+        <File dnOrder="11" id="INT_MAPPING">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="enabled">
               <Value dnOrder="0">true</Value>
             </Boolean>
           </Attributes>
         </File>
-        <File dnOrder="14" id="INT_SOURCE">
+        <File dnOrder="12" id="INT_SOURCE">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="enabled">
               <Value dnOrder="0">true</Value>
             </Boolean>
           </Attributes>
         </File>
-        <File dnOrder="15" id="OSAL_DEFINITIONS_H">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="enabled">
-              <Value dnOrder="0">false</Value>
-            </Boolean>
-          </Attributes>
-        </File>
-        <File dnOrder="16" id="OSAL_H">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="enabled">
-              <Value dnOrder="0">false</Value>
-            </Boolean>
-          </Attributes>
-        </File>
-        <File dnOrder="17" id="OSAL_IMPL_BASIC_H">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="enabled">
-              <Value dnOrder="0">false</Value>
-            </Boolean>
-          </Attributes>
-        </File>
-        <File dnOrder="18" id="OSAL_SYSDEF_H">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="enabled">
-              <Value dnOrder="0">false</Value>
-            </Boolean>
-          </Attributes>
-        </File>
-        <Combo dnOrder="19" id="SELECT_RTOS">
+        <Combo dnOrder="13" id="SELECT_RTOS">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="HarmonyCore" value="BareMetal"/>
           </Values>
         </Combo>
-        <File dnOrder="20" id="SYSTEM_COMMON">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="enabled">
-              <Value dnOrder="0">false</Value>
-            </Boolean>
-          </Attributes>
-        </File>
-        <File dnOrder="21" id="SYSTEM_MODULE">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="enabled">
-              <Value dnOrder="0">false</Value>
-            </Boolean>
-          </Attributes>
-        </File>
-        <File dnOrder="22" id="SYSTEM_ROOT">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="enabled">
-              <Value dnOrder="0">false</Value>
-            </Boolean>
-          </Attributes>
-        </File>
-        <File dnOrder="23" id="TASKS_C">
+        <File dnOrder="14" id="TASKS_C">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="enabled">
               <Value dnOrder="0">true</Value>
             </Boolean>
           </Attributes>
         </File>
-        <File dnOrder="24" id="USER_H">
+        <File dnOrder="15" id="USER_H">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="enabled">
               <Value dnOrder="0">true</Value>
@@ -1516,27 +1453,41 @@
             <Dynamic dnOrder="0" id="le_gfx_driver_lcc" value="41"/>
           </Values>
         </Integer>
-        <Integer dnOrder="6" id="DisplayVertBackPorch">
+        <Menu dnOrder="6" id="DisplaySettingsMenu">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">false</Value>
+            </Boolean>
+          </Attributes>
+        </Menu>
+        <Integer dnOrder="7" id="DisplayVertBackPorch">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_driver_lcc" value="2"/>
           </Values>
         </Integer>
-        <Integer dnOrder="7" id="DisplayVertFrontPorch">
+        <Integer dnOrder="8" id="DisplayVertFrontPorch">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_driver_lcc" value="2"/>
           </Values>
         </Integer>
-        <Integer dnOrder="8" id="DisplayVertPulseWidth">
+        <Integer dnOrder="9" id="DisplayVertPulseWidth">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_driver_lcc" value="10"/>
           </Values>
         </Integer>
-        <Integer dnOrder="9" id="DisplayWidth">
+        <Integer dnOrder="10" id="DisplayWidth">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_driver_lcc" value="480"/>
           </Values>
         </Integer>
-        <Integer dnOrder="10" id="OldDMAChannel">
+        <Comment dnOrder="11" id="HALComment">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+        </Comment>
+        <Integer dnOrder="12" id="OldDMAChannel">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_driver_lcc" value="0"/>
           </Values>
@@ -1577,8 +1528,7 @@
     </UniqueComponent>
   </Components>
   <UserData>
-    <GraphSettings canvasHeight="400" canvasWidth="400" dnOrder="0"/>
-    <ComponentGraph dnOrder="1" id="__ROOTVIEW">
+    <ComponentGraph dnOrder="0" id="__ROOTVIEW">
       <ElementPositions dnOrder="0">
         <ElementPosition dnOrder="0" id="BSP_PIC32MZ_EF_Curiosity_2.0" x="340" y="20"/>
         <ElementPosition dnOrder="1" id="HarmonyCore" x="617" y="18"/>
@@ -1592,5 +1542,6 @@
         <ElementPosition dnOrder="9" id="sys_input" x="538" y="573"/>
       </ElementPositions>
     </ComponentGraph>
+    <GraphSettings canvasHeight="400" canvasWidth="400" dnOrder="1"/>
   </UserData>
 </Configuration>

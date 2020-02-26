@@ -313,8 +313,8 @@
         <platform>2</platform>
       </toolsSet>
       <packs>
-        <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
         <pack name="SAME54_DFP" vendor="Microchip" version="3.1.43"/>
+        <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -382,7 +382,7 @@
         <property key="place-data-into-section" value="true"/>
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>
-        <property key="preprocessor-macros" value=""/>
+        <property key="preprocessor-macros" value="APP_PIXELTYPE=uint16_t"/>
         <property key="strict-ansi" value="false"/>
         <property key="support-ansi" value="false"/>
         <property key="toplevel-reordering" value=""/>
@@ -520,8 +520,6 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-fffff"/>
         <property key="poweroptions.powerenable" value="false"/>
-        <property key="programmerToGoFilePath"
-                  value="/home/ryan/Work/lh3/gfx/apps/blank_quickstart/firmware/blank_quickstart_e54_cult_cpro_spi.X/debug/ili9488_rgb565_e54_cult_spi/blank_quickstart_e54_cult_cpro_spi_ptg"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.preservedataflash" value="false"/>
         <property key="programoptions.preservedataflash.ranges"

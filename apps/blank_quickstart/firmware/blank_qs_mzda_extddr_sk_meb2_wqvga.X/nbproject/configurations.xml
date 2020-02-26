@@ -304,7 +304,7 @@
         <property key="place-data-into-section" value="false"/>
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>
-        <property key="preprocessor-macros" value=""/>
+        <property key="preprocessor-macros" value="APP_PIXELTYPE=uint32_t"/>
         <property key="strict-ansi" value="false"/>
         <property key="support-ansi" value="false"/>
         <property key="toplevel-reordering" value=""/>
@@ -514,8 +514,6 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="1d000000-1d1fffff"/>
         <property key="poweroptions.powerenable" value="false"/>
-        <property key="programmerToGoFilePath"
-                  value="/home/ryan/Work/lh3/gfx/apps/blank_quickstart/firmware/blank_qs_mzda_extddr_sk_meb2_wqvga.X/debug/glcd_rgba8888_mxt_mzda_extddr_sk/blank_qs_mzda_extddr_sk_meb2_wqvga_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.ledbrightness" value="5"/>

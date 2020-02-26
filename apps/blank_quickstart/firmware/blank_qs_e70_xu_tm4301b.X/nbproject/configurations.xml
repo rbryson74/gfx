@@ -213,8 +213,8 @@
         <platform>2</platform>
       </toolsSet>
       <packs>
-        <pack name="SAME70_DFP" vendor="Microchip" version="4.1.50"/>
         <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
+        <pack name="SAME70_DFP" vendor="Microchip" version="4.1.50"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -282,7 +282,7 @@
         <property key="place-data-into-section" value="true"/>
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>
-        <property key="preprocessor-macros" value=""/>
+        <property key="preprocessor-macros" value="APP_PIXELTYPE=uint16_t"/>
         <property key="strict-ansi" value="false"/>
         <property key="support-ansi" value="false"/>
         <property key="toplevel-reordering" value=""/>
@@ -420,8 +420,6 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="400000-5fffff"/>
         <property key="poweroptions.powerenable" value="false"/>
-        <property key="programmerToGoFilePath"
-                  value="/home/ryan/Work/lh3/gfx/apps/blank_quickstart/firmware/blank_qs_e70_xu_tm4301b.X/debug/lcc_rgb565_mxt_e70/blank_qs_e70_xu_tm4301b_ptg"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.preservedataflash" value="false"/>
         <property key="programoptions.preservedataflash.ranges"

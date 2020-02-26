@@ -162,7 +162,7 @@ static void APP_PaintFrameWithBuffer(unsigned int layer_idx,
                     uint32_t width,
                     uint32_t height)
 {
-    uint16_t * frameBuff;
+    APP_PIXELTYPE * frameBuff;
     uint16_t i, j;
 
     //Set the active layer
@@ -175,7 +175,7 @@ static void APP_PaintFrameWithBuffer(unsigned int layer_idx,
     {
         for (j = 0; j < width; j++) 
         {
-            *(uint16_t *) (frameBuff + 
+            *(APP_PIXELTYPE *) (frameBuff + 
                             (y + i) * APP_GFX_LAYER_WIDTH_PIXELS + 
                             (x + j)) = buff[i * width + j];
         }

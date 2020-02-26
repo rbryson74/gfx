@@ -91,8 +91,8 @@
           <Name dnOrder="1">plib_ebi.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/peripheral/ebi/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/ebi/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">7E9C84A6C1758DFB6FE672C5A4945ACA</GeneratedChecksum>
-          <UserChecksum dnOrder="5">7E9C84A6C1758DFB6FE672C5A4945ACA</UserChecksum>
+          <GeneratedChecksum dnOrder="4">B96764B4811CBC18DB660CC00FF5E226</GeneratedChecksum>
+          <UserChecksum dnOrder="5">B96764B4811CBC18DB660CC00FF5E226</UserChecksum>
         </File>
         <File dnOrder="11">
           <Type dnOrder="0">SOURCE</Type>
