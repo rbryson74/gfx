@@ -413,7 +413,7 @@ gfxResult DRV_GLCD_SetActiveLayer(uint32_t idx);
 gfxResult DRV_GLCD_BlitBuffer(int32_t x, int32_t y, gfxPixelBuffer* buf, gfxBlend blend);
 void DRV_GLCD_Swap(void);
 uint32_t DRV_GLCD_GetVSYNCCount(void);
-gfxPixelBuffer * DRV_GLCD_GetFrameBuffer(void);
+gfxPixelBuffer * DRV_GLCD_GetFrameBuffer(int32_t idx);
 void DRV_GLCD_SetUseGPU(gfxBool onOff);
 
 static const gfxDisplayDriver glcdDisplayDriver =
