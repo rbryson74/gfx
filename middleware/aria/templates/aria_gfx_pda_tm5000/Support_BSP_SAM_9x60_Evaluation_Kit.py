@@ -75,8 +75,6 @@ def sam9x60_EventHandler(event):
 		Database.setSymbolValue("core", "IAR_HEAP_SIZE", 32768, 0)
 		### set default color mode to RGBA 8888
 		Database.setSymbolValue("gfx_hal", "ColorModeHint", "GFX_COLOR_MODE_RGBA_8888", 0)
-		### Set pixel clock to 30MHz
-		Database.setSymbolValue("gfx_driver_lcdc", "PixelClock", 25000000, 1)
 		### Configure the LCDC GCLK
 		Database.setSymbolValue("core", "CLK_LCDC_GCLKEN", True, 1)
 		Database.setSymbolValue("core", "CLK_LCDC_GCLKCSS", 3, 1) #MCK

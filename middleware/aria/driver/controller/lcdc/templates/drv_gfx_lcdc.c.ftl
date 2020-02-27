@@ -74,8 +74,7 @@
 #define DISPLAY_WIDTH  ${Val_Width}
 #define DISPLAY_HEIGHT ${Val_Height}
 
-#define MCLK_FREQ_HZ ${MasterClockSourceValue}
-#define PIXEL_CLOCK_FREQ_HZ ${PixelClock}
+#define PIXEL_CLOCK_DIV ${PixelClockDiv}
 #define LCDC_OUTPUT_COLOR_MODE ${OutputColorMode}
 #define LCDC_DISPLAY_GUARD_NUM_FRAMES ${DisplayGuardTime}
 #define LCDC_SYNC_EDGE LCDC_SYNC_EDGE_FIRST
@@ -682,7 +681,7 @@ static GFX_Result LCDCInitialize(GFX_Context* context)
     //1. Configure the LCD timing parameters
     LCDC_WaitForSyncInProgress();
     LCDC_SetPWMClockSourceSelection(LCDC_PWM_CLOCK_SOURCE);
-    LCDC_SetClockDivider(MCLK_FREQ_HZ / PIXEL_CLOCK_FREQ_HZ - 2);
+    LCDC_SetClockDivider(PIXEL_CLOCK_DIV);
 
     //Disable all layers for now
     LCDC_SetLayerClockGatingDisable(LCDC_LAYER_BASE, false); 
