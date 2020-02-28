@@ -50,9 +50,7 @@ The key features of the MPLAB® Harmony Graphics Suite are the following:
 | display    | Supported displays |
 | doc        | Microsoft Compiled (CHM) help documentation |
 | docs       | HTML Help documentation                   |
-| driver     | Display controller and graphics processor unit drivers |
-| hal        | Hardware Abstraction Layer (HAL) between middleware and hardware drivers |
 | input      | Input System and its associated drivers and services |
 | middleware | Supported User Interface (UI) libraries |
-| templates | Complete project support components |
+| driver     | Display controller and graphics processor unit drivers |
 
