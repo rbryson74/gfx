@@ -48,15 +48,20 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
-#include "system/input/sys_input.h"
 #include "gfx/driver/controller/lcc/drv_gfx_lcc.h"
-#include "peripheral/ebi/plib_ebi.h"
 #include "peripheral/clk/plib_clk.h"
 #include "peripheral/gpio/plib_gpio.h"
 #include "peripheral/evic/plib_evic.h"
 #include "peripheral/dmac/plib_dmac.h"
 #include "bsp/bsp.h"
+#include "driver/i2c/drv_i2c.h"
+#include "system/time/sys_time.h"
+#include "peripheral/coretimer/plib_coretimer.h"
+#include "peripheral/i2c/plib_i2c2.h"
+#include "system/input/sys_input.h"
+#include "peripheral/ebi/plib_ebi.h"
 #include "system/int/sys_int.h"
+#include "osal/osal.h"
 #include "app_16.h"
 
 
@@ -179,7 +184,11 @@ void SYS_Tasks ( void );
 
 typedef struct
 {
-    char RESERVED;
+    /* I2C0 Driver Object */
+    SYS_MODULE_OBJ drvI2C0;
+
+    SYS_MODULE_OBJ  sysTime;
+
 } SYSTEM_OBJECTS;
 
 

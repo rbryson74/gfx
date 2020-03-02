@@ -59,14 +59,32 @@
 // *****************************************************************************
 
 
+void CORE_TIMER_InterruptHandler( void );
 void DMA0_InterruptHandler( void );
+void I2C2_BUS_InterruptHandler( void );
+void I2C2_MASTER_InterruptHandler( void );
 
 
 
 /* All the handlers are defined here.  Each will call its PLIB-specific function. */
+void __ISR(_CORE_TIMER_VECTOR, ipl1AUTO) CORE_TIMER_Handler (void)
+{
+    CORE_TIMER_InterruptHandler();
+}
+
 void __ISR(_DMA0_VECTOR, ipl1AUTO) DMA0_Handler (void)
 {
     DMA0_InterruptHandler();
+}
+
+void __ISR(_I2C2_BUS_VECTOR, ipl1AUTO) I2C2_BUS_Handler (void)
+{
+    I2C2_BUS_InterruptHandler();
+}
+
+void __ISR(_I2C2_MASTER_VECTOR, ipl1AUTO) I2C2_MASTER_Handler (void)
+{
+    I2C2_MASTER_InterruptHandler();
 }
 
 

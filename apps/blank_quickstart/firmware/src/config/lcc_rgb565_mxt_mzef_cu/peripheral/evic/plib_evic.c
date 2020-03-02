@@ -54,7 +54,10 @@ void EVIC_Initialize( void )
     INTCONSET = _INTCON_MVEC_MASK;
 
     /* Set up priority / subpriority of enabled interrupts */
+    IPC0SET = 0x4 | 0x0;  /* CORE_TIMER:  Priority 1 / Subpriority 0 */
     IPC33SET = 0x40000 | 0x0;  /* DMA0:  Priority 1 / Subpriority 0 */
+    IPC37SET = 0x4 | 0x0;  /* I2C2_BUS:  Priority 1 / Subpriority 0 */
+    IPC37SET = 0x40000 | 0x0;  /* I2C2_MASTER:  Priority 1 / Subpriority 0 */
 }
 
 void EVIC_SourceEnable( INT_SOURCE source )

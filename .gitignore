@@ -20,3 +20,17 @@
 /apps/legato_quickstart/firmware/legato_qs_e54_cult_cpro_parallel.X/dist/
 /apps/legato_quickstart/firmware/legato_quickstart_c21_xpro_cpro.X/build/
 /apps/legato_quickstart/firmware/legato_quickstart_c21_xpro_cpro.X/dist/
+/apps/legato_quickstart/firmware/legato_qs_e70_xu_tm4301b.X/build/
+/apps/legato_quickstart/firmware/legato_qs_e70_xu_tm4301b.X/dist/
+/apps/legato_flash/firmware/legato_fl_e54_cult_cpro_parallel.X/build/
+/apps/legato_flash/firmware/legato_fl_e54_cult_cpro_parallel.X/dist/
+/apps/legato_quickstart/firmware/legato_qs_e70_xu_tm4301b_ssd1963.X/build/
+/apps/legato_quickstart/firmware/legato_qs_e54_cu_cpro_spi.X/build/
+/apps/legato_quickstart/firmware/legato_qs_e70_xu_tm4301b_ssd1963.X/dist/
+/apps/legato_quickstart/firmware/legato_qs_e54_cu_cpro_spi.X/dist/
+/apps/blank_quickstart/firmware/blank_quickstart_mzef_cu_wqvga.X/build/
+/apps/blank_quickstart/firmware/blank_quickstart_mzef_cu_wqvga.X/dist/
+/apps/aria_quickstart/firmware/aria_qs_mzda_intddr_sk_meb2_tm5000_freertos.X/build/
+/apps/aria_quickstart/firmware/aria_qs_mzda_intddr_sk_meb2_tm5000_freertos.X/dist/
+/apps/aria_quickstart/firmware/aria_qs_mzef_cu_tm4301b_ssd1963.X/build/
+/apps/aria_quickstart/firmware/aria_qs_mzef_cu_tm4301b_ssd1963.X/dist/

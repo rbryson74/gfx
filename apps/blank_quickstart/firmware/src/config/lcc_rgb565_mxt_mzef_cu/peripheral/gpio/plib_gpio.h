@@ -69,22 +69,14 @@
 #define GFX_DISP_INTF_PIN_RESET_OutputEnable()      (TRISJCLR = (1<<14))
 #define GFX_DISP_INTF_PIN_RESET_InputEnable()       (TRISJSET = (1<<14))
 #define GFX_DISP_INTF_PIN_RESET_PIN                  GPIO_PIN_RJ14
-/*** Macros for GPIO_RB2 pin ***/
-#define GPIO_RB2_Set()               (LATBSET = (1<<2))
-#define GPIO_RB2_Clear()             (LATBCLR = (1<<2))
-#define GPIO_RB2_Toggle()            (LATBINV= (1<<2))
-#define GPIO_RB2_Get()               ((PORTB >> 2) & 0x1)
-#define GPIO_RB2_OutputEnable()      (TRISBCLR = (1<<2))
-#define GPIO_RB2_InputEnable()       (TRISBSET = (1<<2))
-#define GPIO_RB2_PIN                  GPIO_PIN_RB2
-/*** Macros for GPIO_RB6 pin ***/
-#define GPIO_RB6_Set()               (LATBSET = (1<<6))
-#define GPIO_RB6_Clear()             (LATBCLR = (1<<6))
-#define GPIO_RB6_Toggle()            (LATBINV= (1<<6))
-#define GPIO_RB6_Get()               ((PORTB >> 6) & 0x1)
-#define GPIO_RB6_OutputEnable()      (TRISBCLR = (1<<6))
-#define GPIO_RB6_InputEnable()       (TRISBSET = (1<<6))
-#define GPIO_RB6_PIN                  GPIO_PIN_RB6
+/*** Macros for GFX_DISP_INTF_PIN_BACKLIGHT pin ***/
+#define GFX_DISP_INTF_PIN_BACKLIGHT_Set()               (LATBSET = (1<<6))
+#define GFX_DISP_INTF_PIN_BACKLIGHT_Clear()             (LATBCLR = (1<<6))
+#define GFX_DISP_INTF_PIN_BACKLIGHT_Toggle()            (LATBINV= (1<<6))
+#define GFX_DISP_INTF_PIN_BACKLIGHT_Get()               ((PORTB >> 6) & 0x1)
+#define GFX_DISP_INTF_PIN_BACKLIGHT_OutputEnable()      (TRISBCLR = (1<<6))
+#define GFX_DISP_INTF_PIN_BACKLIGHT_InputEnable()       (TRISBSET = (1<<6))
+#define GFX_DISP_INTF_PIN_BACKLIGHT_PIN                  GPIO_PIN_RB6
 /*** Macros for GFX_DISP_INTF_PIN_HSYNC pin ***/
 #define GFX_DISP_INTF_PIN_HSYNC_Set()               (LATKSET = (1<<1))
 #define GFX_DISP_INTF_PIN_HSYNC_Clear()             (LATKCLR = (1<<1))
@@ -109,14 +101,6 @@
 #define GFX_DISP_INTF_PIN_DE_OutputEnable()      (TRISKCLR = (1<<3))
 #define GFX_DISP_INTF_PIN_DE_InputEnable()       (TRISKSET = (1<<3))
 #define GFX_DISP_INTF_PIN_DE_PIN                  GPIO_PIN_RK3
-/*** Macros for GFX_DISP_INTF_PIN_BACKLIGHT pin ***/
-#define GFX_DISP_INTF_PIN_BACKLIGHT_Set()               (LATDSET = (1<<10))
-#define GFX_DISP_INTF_PIN_BACKLIGHT_Clear()             (LATDCLR = (1<<10))
-#define GFX_DISP_INTF_PIN_BACKLIGHT_Toggle()            (LATDINV= (1<<10))
-#define GFX_DISP_INTF_PIN_BACKLIGHT_Get()               ((PORTD >> 10) & 0x1)
-#define GFX_DISP_INTF_PIN_BACKLIGHT_OutputEnable()      (TRISDCLR = (1<<10))
-#define GFX_DISP_INTF_PIN_BACKLIGHT_InputEnable()       (TRISDSET = (1<<10))
-#define GFX_DISP_INTF_PIN_BACKLIGHT_PIN                  GPIO_PIN_RD10
 /*** Macros for BSP_MAXTOUCH_CHG pin ***/
 #define BSP_MAXTOUCH_CHG_Set()               (LATDSET = (1<<0))
 #define BSP_MAXTOUCH_CHG_Clear()             (LATDCLR = (1<<0))

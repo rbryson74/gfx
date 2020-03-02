@@ -8,10 +8,18 @@
         <logicalFolder name="f1"
                        displayName="lcc_rgb565_mxt_mzef_cu"
                        projectFiles="true">
-          <logicalFolder name="f4" displayName="bsp" projectFiles="true">
+          <logicalFolder name="f3" displayName="bsp" projectFiles="true">
             <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/bsp/bsp.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f2" displayName="gfx" projectFiles="true">
+          <logicalFolder name="f4" displayName="driver" projectFiles="true">
+            <logicalFolder name="f1" displayName="i2c" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/driver/i2c/drv_i2c.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/driver/i2c/drv_i2c_definitions.h</itemPath>
+            </logicalFolder>
+            <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/driver/driver.h</itemPath>
+            <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/driver/driver_common.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f1" displayName="gfx" projectFiles="true">
             <logicalFolder name="f1" displayName="driver" projectFiles="true">
               <logicalFolder name="f1" displayName="lcc" projectFiles="true">
                 <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/gfx/driver/gfx_driver.h</itemPath>
@@ -19,25 +27,32 @@
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f3" displayName="peripheral" projectFiles="true">
-            <logicalFolder name="f2" displayName="clk" projectFiles="true">
+          <logicalFolder name="f2" displayName="peripheral" projectFiles="true">
+            <logicalFolder name="f1" displayName="clk" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/peripheral/clk/plib_clk.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="dmac" projectFiles="true">
+            <logicalFolder name="f5" displayName="coretimer" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/peripheral/coretimer/plib_coretimer.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f4" displayName="dmac" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/peripheral/dmac/plib_dmac.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f1" displayName="ebi" projectFiles="true">
+            <logicalFolder name="f7" displayName="ebi" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/peripheral/ebi/plib_ebi.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="evic" projectFiles="true">
+            <logicalFolder name="f3" displayName="evic" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/peripheral/evic/plib_evic.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="gpio" projectFiles="true">
+            <logicalFolder name="f2" displayName="gpio" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/peripheral/gpio/plib_gpio.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="f6" displayName="i2c" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/peripheral/i2c/plib_i2c2.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/peripheral/i2c/plib_i2c_master.h</itemPath>
+            </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f1" displayName="system" projectFiles="true">
-            <logicalFolder name="f1" displayName="input" projectFiles="true">
+          <logicalFolder name="f5" displayName="system" projectFiles="true">
+            <logicalFolder name="f2" displayName="input" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/system/input/sys_input.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/system/input/sys_input_gesture.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/system/input/sys_input_keyboard.h</itemPath>
@@ -45,16 +60,29 @@
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/system/input/sys_input_mouse.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/system/input/sys_input_touch.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="int" projectFiles="true">
+            <logicalFolder name="f3" displayName="int" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/system/int/sys_int.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/system/int/sys_int_mapping.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="f1" displayName="time" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/system/time/sys_time.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/system/time/sys_time_definitions.h</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/system/time/src/sys_time_local.h</itemPath>
+            </logicalFolder>
+            <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/system/system.h</itemPath>
+            <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/system/system_common.h</itemPath>
+            <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/system/system_module.h</itemPath>
           </logicalFolder>
           <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/toolchain_specifics.h</itemPath>
           <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/definitions.h</itemPath>
           <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/user.h</itemPath>
           <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/configuration.h</itemPath>
         </logicalFolder>
+      </logicalFolder>
+      <logicalFolder name="f3" displayName="osal" projectFiles="true">
+        <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/osal/osal.h</itemPath>
+        <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/osal/osal_definitions.h</itemPath>
+        <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/osal/osal_impl_basic.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="packs" projectFiles="true">
         <logicalFolder name="f1"
@@ -76,10 +104,16 @@
         <logicalFolder name="f1"
                        displayName="lcc_rgb565_mxt_mzef_cu"
                        projectFiles="true">
-          <logicalFolder name="f5" displayName="bsp" projectFiles="true">
+          <logicalFolder name="f4" displayName="bsp" projectFiles="true">
             <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/bsp/bsp.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="f2" displayName="gfx" projectFiles="true">
+          <logicalFolder name="f5" displayName="driver" projectFiles="true">
+            <logicalFolder name="f1" displayName="i2c" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/driver/i2c/src/drv_i2c.c</itemPath>
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/driver/i2c/src/drv_i2c_local.h</itemPath>
+            </logicalFolder>
+          </logicalFolder>
+          <logicalFolder name="f1" displayName="gfx" projectFiles="true">
             <logicalFolder name="f1" displayName="driver" projectFiles="true">
               <logicalFolder name="f1" displayName="lcc" projectFiles="true">
                 <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/gfx/driver/gfx_driver.c</itemPath>
@@ -88,32 +122,41 @@
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f3" displayName="peripheral" projectFiles="true">
-            <logicalFolder name="f2" displayName="clk" projectFiles="true">
+            <logicalFolder name="f1" displayName="clk" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/peripheral/clk/plib_clk.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="dmac" projectFiles="true">
+            <logicalFolder name="f5" displayName="coretimer" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/peripheral/coretimer/plib_coretimer.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f4" displayName="dmac" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/peripheral/dmac/plib_dmac.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f1" displayName="ebi" projectFiles="true">
+            <logicalFolder name="f7" displayName="ebi" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/peripheral/ebi/plib_ebi.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="evic" projectFiles="true">
+            <logicalFolder name="f3" displayName="evic" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/peripheral/evic/plib_evic.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="gpio" projectFiles="true">
+            <logicalFolder name="f2" displayName="gpio" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/peripheral/gpio/plib_gpio.c</itemPath>
             </logicalFolder>
+            <logicalFolder name="f6" displayName="i2c" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/peripheral/i2c/plib_i2c2.c</itemPath>
+            </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f4" displayName="stdio" projectFiles="true">
+          <logicalFolder name="f2" displayName="stdio" projectFiles="true">
             <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/stdio/xc32_monitor.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="f1" displayName="system" projectFiles="true">
-            <logicalFolder name="f1" displayName="input" projectFiles="true">
+          <logicalFolder name="f6" displayName="system" projectFiles="true">
+            <logicalFolder name="f2" displayName="input" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/system/input/sys_input.c</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/system/input/sys_input_listener.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="int" projectFiles="true">
+            <logicalFolder name="f3" displayName="int" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/system/int/src/sys_int.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f1" displayName="time" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/system/time/src/sys_time.c</itemPath>
             </logicalFolder>
           </logicalFolder>
           <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/initialization.c</itemPath>
@@ -184,12 +227,12 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/lcc_rgb565_mxt_mzef_cu;../src/packs/PIC32MZ2048EFM144_DFP;;../src/mips"/>
+                  value="../src;../src/config/lcc_rgb565_mxt_mzef_cu;../src/packs/PIC32MZ2048EFM144_DFP;../src/mips"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
-        <property key="make-warnings-into-errors" value="true"/>
-        <property key="optimization-level" value=""/>
+        <property key="make-warnings-into-errors" value="false"/>
+        <property key="optimization-level" value="-O3"/>
         <property key="place-data-into-section" value="false"/>
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>
@@ -461,8 +504,6 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="1d000000-1d1fffff"/>
-        <property key="programmerToGoFilePath"
-                  value="/home/ryan/Work/lh3/gfx/apps/blank_quickstart/firmware/blank_quickstart_mzef_cu_wqvga.X/debug/lcc_rgb565_mxt_mzef_cu/blank_quickstart_mzef_cu_wqvga_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.pgmentry.voltage" value="low"/>

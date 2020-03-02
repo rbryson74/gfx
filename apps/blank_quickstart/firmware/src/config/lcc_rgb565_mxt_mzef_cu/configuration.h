@@ -79,6 +79,15 @@ extern "C" {
 // Section: System Service Configuration
 // *****************************************************************************
 // *****************************************************************************
+/* TIME System Service Configuration Options */
+#define SYS_TIME_INDEX_0                     0
+#define SYS_TIME_MAX_TIMERS                  5
+#define SYS_TIME_HW_COUNTER_WIDTH            32
+#define SYS_TIME_HW_COUNTER_PERIOD           4294967295U
+#define SYS_TIME_HW_COUNTER_HALF_PERIOD	     (SYS_TIME_HW_COUNTER_PERIOD>>1)
+#define SYS_TIME_CPU_CLOCK_FREQUENCY         200000000
+#define SYS_TIME_COMPARE_UPDATE_EXECUTION_CYCLES      (620)
+
 
 
 // *****************************************************************************
@@ -86,6 +95,16 @@ extern "C" {
 // Section: Driver Configuration
 // *****************************************************************************
 // *****************************************************************************
+/* I2C Driver Instance 0 Configuration Options */
+#define DRV_I2C_INDEX_0                       0
+#define DRV_I2C_CLIENTS_NUMBER_IDX0           1
+#define DRV_I2C_QUEUE_SIZE_IDX0               2
+#define DRV_I2C_CLOCK_SPEED_IDX0              10000
+
+/* I2C Driver Common Configuration Options */
+#define DRV_I2C_INSTANCES_NUMBER              1
+
+
 
 
 // *****************************************************************************

@@ -63,13 +63,11 @@ void GPIO_Initialize ( void )
     ODCBSET = 0x380; /* Open Drain Enable */
     LATB = 0x3c0; /* Initial Latch Value */
     TRISBCLR = 0x3c0; /* Direction Control */
-    ANSELBCLR = 0x3c4; /* Digital Mode Enable */
+    ANSELBCLR = 0x3c0; /* Digital Mode Enable */
 
     /* PORTC Initialization */
 
     /* PORTD Initialization */
-    LATD = 0x400; /* Initial Latch Value */
-    TRISDCLR = 0x400; /* Direction Control */
 
     /* PORTE Initialization */
 

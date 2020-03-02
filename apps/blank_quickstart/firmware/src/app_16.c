@@ -174,7 +174,7 @@ static void APP_PaintFrameWithColor(
     gfxPixelBuffer * frameBuff;
     
      frameBuff = lccDisplayDriver.getFrameBuffer(0);
-     memset(frameBuff->pixels, 0xff, APP_GFX_LAYER_WIDTH_PIXELS * APP_GFX_LAYER_HEIGHT_PIXELS * 2);
+     memset(frameBuff->pixels, color, APP_GFX_LAYER_WIDTH_PIXELS * APP_GFX_LAYER_HEIGHT_PIXELS * 2);
 
 }
 
@@ -219,7 +219,7 @@ void APP_16_Tasks ( void )
         {
             //Paint Layer 0 with white
             APP_PaintFrameWithColor(
-                    0xffff,
+                    0xFF,
                     0,
                     0,
                     APP_GFX_LAYER_WIDTH_PIXELS,
