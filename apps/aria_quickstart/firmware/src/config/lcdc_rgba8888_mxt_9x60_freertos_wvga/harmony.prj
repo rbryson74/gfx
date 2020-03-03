@@ -12,7 +12,7 @@
           <LogicalPath dnOrder="2">FreeRTOS/Source</LogicalPath>
           <PhysicalPath dnOrder="3">/../../third_party/rtos/FreeRTOS/Source/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">BD5E3766B27BA7E6172187AB755B4EEE</GeneratedChecksum>
-          <UserChecksum dnOrder="5">BD5E3766B27BA7E6172187AB755B4EEE</UserChecksum>
+          <UserChecksum dnOrder="5">628C4CB68FA0168FB49E2FBF68B66196</UserChecksum>
         </File>
         <File dnOrder="1">
           <Type dnOrder="0">SOURCE</Type>
@@ -36,7 +36,7 @@
           <LogicalPath dnOrder="2">FreeRTOS/Source</LogicalPath>
           <PhysicalPath dnOrder="3">/../../third_party/rtos/FreeRTOS/Source/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">3CE697947D04324AF92C0742ADB99409</GeneratedChecksum>
-          <UserChecksum dnOrder="5">3CE697947D04324AF92C0742ADB99409</UserChecksum>
+          <UserChecksum dnOrder="5">8FAF087FF1688A1B0C90983803018B71</UserChecksum>
         </File>
         <File dnOrder="4">
           <Type dnOrder="0">SOURCE</Type>
@@ -91,8 +91,8 @@
           <Name dnOrder="1">drv_maxtouch.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_9x60_freertos_wvga/driver/input</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/input/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A86BDB5CFCA302B3F14CD9186F740EF6</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A86BDB5CFCA302B3F14CD9186F740EF6</UserChecksum>
+          <GeneratedChecksum dnOrder="4">42B2BB0438C46794A7F6032477CD09B3</GeneratedChecksum>
+          <UserChecksum dnOrder="5">42B2BB0438C46794A7F6032477CD09B3</UserChecksum>
         </File>
         <File dnOrder="11">
           <Type dnOrder="0">SOURCE</Type>
@@ -100,7 +100,7 @@
           <LogicalPath dnOrder="2">FreeRTOS/Source</LogicalPath>
           <PhysicalPath dnOrder="3">/../../third_party/rtos/FreeRTOS/Source/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">2C34EB6E5B6B6AB8C7A31C2194889466</GeneratedChecksum>
-          <UserChecksum dnOrder="5">2C34EB6E5B6B6AB8C7A31C2194889466</UserChecksum>
+          <UserChecksum dnOrder="5">C7DE9F11C68D9B7EF13B8EF69449C748</UserChecksum>
         </File>
         <File dnOrder="12">
           <Type dnOrder="0">SOURCE</Type>
@@ -508,7 +508,7 @@
           <LogicalPath dnOrder="2">FreeRTOS/Source/portable/MemMang/</LogicalPath>
           <PhysicalPath dnOrder="3">/../../third_party/rtos/FreeRTOS/Source/portable/MemMang/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">052E29F208E27B9384BB5F41C94AB25E</GeneratedChecksum>
-          <UserChecksum dnOrder="5">052E29F208E27B9384BB5F41C94AB25E</UserChecksum>
+          <UserChecksum dnOrder="5">703DC52C8DA59AE98436C29D5D7140E2</UserChecksum>
         </File>
         <File dnOrder="63">
           <Type dnOrder="0">SOURCE</Type>
@@ -571,8 +571,8 @@
           <Name dnOrder="1">libaria_context_paint.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_9x60_freertos_wvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E14313FD52CEE6DE3F60A932717FD3E0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E14313FD52CEE6DE3F60A932717FD3E0</UserChecksum>
+          <GeneratedChecksum dnOrder="4">87BE2A19BA7A2C55DF636751AAAADD55</GeneratedChecksum>
+          <UserChecksum dnOrder="5">87BE2A19BA7A2C55DF636751AAAADD55</UserChecksum>
         </File>
         <File dnOrder="71">
           <Type dnOrder="0">SOURCE</Type>
@@ -1228,7 +1228,7 @@
           <LogicalPath dnOrder="2">FreeRTOS/Source</LogicalPath>
           <PhysicalPath dnOrder="3">/../../third_party/rtos/FreeRTOS/Source/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">37C62E5948FBE65AF85C213106DA4CDA</GeneratedChecksum>
-          <UserChecksum dnOrder="5">37C62E5948FBE65AF85C213106DA4CDA</UserChecksum>
+          <UserChecksum dnOrder="5">17ED426CF72047F289CD58849BC0C60F</UserChecksum>
         </File>
         <File dnOrder="153">
           <Type dnOrder="0">SOURCE</Type>
@@ -1340,7 +1340,7 @@
           <LogicalPath dnOrder="2">FreeRTOS/Source</LogicalPath>
           <PhysicalPath dnOrder="3">/../../third_party/rtos/FreeRTOS/Source/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">36E66DF7A9E3D95A0B79558D6EB93210</GeneratedChecksum>
-          <UserChecksum dnOrder="5">36E66DF7A9E3D95A0B79558D6EB93210</UserChecksum>
+          <UserChecksum dnOrder="5">F5394E2E84773BFF1A4BD6CDBB7C5840</UserChecksum>
         </File>
         <File dnOrder="167">
           <Type dnOrder="0">SOURCE</Type>
@@ -1348,7 +1348,7 @@
           <LogicalPath dnOrder="2">FreeRTOS/Source</LogicalPath>
           <PhysicalPath dnOrder="3">/../../third_party/rtos/FreeRTOS/Source/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">162BBB1DB328D27F935CE22203D6A5BA</GeneratedChecksum>
-          <UserChecksum dnOrder="5">162BBB1DB328D27F935CE22203D6A5BA</UserChecksum>
+          <UserChecksum dnOrder="5">4825B12AEBF317AB1B8AAD54428F70BD</UserChecksum>
         </File>
         <File dnOrder="168">
           <Type dnOrder="0">SOURCE</Type>
@@ -1404,7 +1404,7 @@
           <LogicalPath dnOrder="2">FreeRTOS/Source</LogicalPath>
           <PhysicalPath dnOrder="3">/../../third_party/rtos/FreeRTOS/Source/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">BFF63C63E613200CFC9D0E9593031787</GeneratedChecksum>
-          <UserChecksum dnOrder="5">BFF63C63E613200CFC9D0E9593031787</UserChecksum>
+          <UserChecksum dnOrder="5">0319C91A5CE9B15DD2E91A78C4D92A40</UserChecksum>
         </File>
         <File dnOrder="175">
           <Type dnOrder="0">SOURCE</Type>
