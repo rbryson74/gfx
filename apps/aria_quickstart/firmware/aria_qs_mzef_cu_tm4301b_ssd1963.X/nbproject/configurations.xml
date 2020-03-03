@@ -806,6 +806,8 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="1d000000-1d1fffff"/>
+        <property key="programmerToGoFilePath"
+                  value="/home/ryan/Work/lh3/gfx/apps/aria_quickstart/firmware/aria_qs_mzef_cu_tm4301b_ssd1963.X/debug/ssd1963_rgb565_mxt_mzef_cu/aria_qs_mzef_cu_tm4301b_ssd1963_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.pgmentry.voltage" value="low"/>

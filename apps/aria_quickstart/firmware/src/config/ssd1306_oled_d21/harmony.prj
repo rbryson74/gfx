@@ -507,8 +507,8 @@
           <Name dnOrder="1">libaria_context_paint.c</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_d21/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E14313FD52CEE6DE3F60A932717FD3E0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E14313FD52CEE6DE3F60A932717FD3E0</UserChecksum>
+          <GeneratedChecksum dnOrder="4">87BE2A19BA7A2C55DF636751AAAADD55</GeneratedChecksum>
+          <UserChecksum dnOrder="5">87BE2A19BA7A2C55DF636751AAAADD55</UserChecksum>
         </File>
         <File dnOrder="63">
           <Type dnOrder="0">SOURCE</Type>

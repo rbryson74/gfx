@@ -207,22 +207,22 @@
       <logicalFolder name="f3" displayName="FreeRTOS" projectFiles="true">
         <logicalFolder name="f1" displayName="Source" projectFiles="true">
           <logicalFolder name="f1" displayName="include" projectFiles="true">
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/croutine.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/event_groups.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/FreeRTOS.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/list.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/mpu_wrappers.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/portable.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/projdefs.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/queue.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/semphr.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/stack_macros.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/deprecated_definitions.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/task.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/timers.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/mpu_prototypes.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/stream_buffer.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/message_buffer.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/croutine.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/event_groups.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/FreeRTOS.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/list.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/mpu_wrappers.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/portable.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/projdefs.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/queue.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/semphr.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/stack_macros.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/deprecated_definitions.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/task.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/timers.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/mpu_prototypes.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/stream_buffer.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/message_buffer.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f2" displayName="portable" projectFiles="true">
             <logicalFolder name="f1" displayName="GCC" projectFiles="true">
@@ -243,42 +243,42 @@
       <logicalFolder name="f2" displayName="packs" projectFiles="true">
         <logicalFolder name="f1" displayName="ATSAME70Q21B_DFP" projectFiles="true">
           <logicalFolder name="f1" displayName="component" projectFiles="true">
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/acc.h</itemPath>
             <itemPath>../src/packs/ATSAME70Q21B_DFP/component/aes.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/afec.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/chipid.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/dacc.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/efc.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/gmac.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/gpbr.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/hsmci.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/i2sc.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/icm.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/isi.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/matrix.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/mcan.h</itemPath>
             <itemPath>../src/packs/ATSAME70Q21B_DFP/component/pio.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/pmc.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/pwm.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/qspi.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/rstc.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/rswdt.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/rtc.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/rtt.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/sdramc.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/smc.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/spi.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/ssc.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/supc.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/tc.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/trng.h</itemPath>
             <itemPath>../src/packs/ATSAME70Q21B_DFP/component/twihs.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/efc.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/matrix.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/tc.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/smc.h</itemPath>
             <itemPath>../src/packs/ATSAME70Q21B_DFP/component/uart.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/gpbr.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/supc.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/qspi.h</itemPath>
             <itemPath>../src/packs/ATSAME70Q21B_DFP/component/usart.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/usbhs.h</itemPath>
-            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/utmi.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/ssc.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/i2sc.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/pwm.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/chipid.h</itemPath>
             <itemPath>../src/packs/ATSAME70Q21B_DFP/component/wdt.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/isi.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/acc.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/mcan.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/trng.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/afec.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/rswdt.h</itemPath>
             <itemPath>../src/packs/ATSAME70Q21B_DFP/component/xdmac.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/hsmci.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/rstc.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/gmac.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/utmi.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/sdramc.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/rtc.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/dacc.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/icm.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/pmc.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/rtt.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/usbhs.h</itemPath>
+            <itemPath>../src/packs/ATSAME70Q21B_DFP/component/spi.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f2" displayName="pio" projectFiles="true">
             <itemPath>../src/packs/ATSAME70Q21B_DFP/pio/same70q21b.h</itemPath>
@@ -290,23 +290,15 @@
           <logicalFolder name="f1" displayName="CMSIS" projectFiles="true">
             <logicalFolder name="f1" displayName="Core" projectFiles="true">
               <logicalFolder name="f1" displayName="Include" projectFiles="true">
+                <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_version.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_iccarm.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_gcc.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_armcc.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_armclang.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_armclang_ltm.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/tz_context.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/core_cm7.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/mpu_armv7.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_version.h</itemPath>
-              </logicalFolder>
-            </logicalFolder>
-            <logicalFolder name="f2" displayName="DSP" projectFiles="true">
-              <logicalFolder name="f1" displayName="Include" projectFiles="true">
-                <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/arm_common_tables.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/arm_const_structs.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/DSP/Include/arm_math.h</itemPath>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
@@ -598,12 +590,12 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>EdbgTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>2.20</languageToolchainVersion>
-        <platform>3</platform>
+        <languageToolchainVersion>2.40</languageToolchainVersion>
+        <platform>2</platform>
       </toolsSet>
       <packs>
-        <pack name="SAME70_DFP" vendor="Microchip" version="4.0.40"/>
         <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
+        <pack name="SAME70_DFP" vendor="Microchip" version="4.1.50"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -667,7 +659,7 @@
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
         <property key="make-warnings-into-errors" value="true"/>
-        <property key="optimization-level" value="-O1"/>
+        <property key="optimization-level" value="-O3"/>
         <property key="place-data-into-section" value="true"/>
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>
@@ -788,9 +780,13 @@
       </C32Global>
       <EdbgTool>
         <property key="AutoSelectMemRanges" value="auto"/>
+        <property key="communication.activationmode" value="nohv"/>
         <property key="communication.interface" value="jtag"/>
         <property key="communication.speed" value="${communication.speed.default}"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="firmware.path"
+                  value="Press to browse for a specific firmware version"/>
+        <property key="firmware.update.action" value="firmware.update.use.latest"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>
         <property key="memories.configurationmemory" value="true"/>
@@ -805,6 +801,8 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="400000-5fffff"/>
         <property key="poweroptions.powerenable" value="false"/>
+        <property key="programmerToGoFilePath"
+                  value="/home/ryan/Work/lh3/gfx/apps/aria_quickstart/firmware/aria_qs_e70_xu_tm5000_ssd1963_freertos.X/debug/ssd1963_rgb565_mxt_freertos_wvga/aria_qs_e70_xu_tm5000_ssd1963_freertos_ptg"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.preservedataflash" value="false"/>
         <property key="programoptions.preservedataflash.ranges"

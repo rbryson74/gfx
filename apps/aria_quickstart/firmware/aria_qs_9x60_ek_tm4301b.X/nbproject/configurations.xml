@@ -143,7 +143,7 @@
             <logicalFolder name="f2" displayName="clk" projectFiles="true">
               <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_xc32_wqvga/peripheral/clk/plib_clk.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f7" displayName="flexcom" projectFiles="true">
+            <logicalFolder name="f6" displayName="flexcom" projectFiles="true">
               <logicalFolder name="f1" displayName="twi" projectFiles="true">
                 <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_xc32_wqvga/peripheral/flexcom/twi/plib_flexcom0_twi.h</itemPath>
                 <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_xc32_wqvga/peripheral/flexcom/twi/plib_flexcom_twi_master.h</itemPath>
@@ -152,7 +152,7 @@
             <logicalFolder name="f8" displayName="gfx2d" projectFiles="true">
               <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_xc32_wqvga/peripheral/gfx2d/plib_gfx2d.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="lcdc" projectFiles="true">
+            <logicalFolder name="f7" displayName="lcdc" projectFiles="true">
               <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_xc32_wqvga/peripheral/lcdc/plib_lcdc.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="mmu" projectFiles="true">
@@ -454,7 +454,7 @@
             <logicalFolder name="f2" displayName="clk" projectFiles="true">
               <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_xc32_wqvga/peripheral/clk/plib_clk.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f7" displayName="flexcom" projectFiles="true">
+            <logicalFolder name="f6" displayName="flexcom" projectFiles="true">
               <logicalFolder name="f1" displayName="twi" projectFiles="true">
                 <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_xc32_wqvga/peripheral/flexcom/twi/plib_flexcom0_twi.c</itemPath>
               </logicalFolder>
@@ -462,7 +462,7 @@
             <logicalFolder name="f8" displayName="gfx2d" projectFiles="true">
               <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_xc32_wqvga/peripheral/gfx2d/plib_gfx2d.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="lcdc" projectFiles="true">
+            <logicalFolder name="f7" displayName="lcdc" projectFiles="true">
               <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_xc32_wqvga/peripheral/lcdc/plib_lcdc.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="mmu" projectFiles="true">
@@ -590,7 +590,7 @@
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
         <property key="make-warnings-into-errors" value="true"/>
-        <property key="optimization-level" value="-O1"/>
+        <property key="optimization-level" value="-O3"/>
         <property key="place-data-into-section" value="true"/>
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>

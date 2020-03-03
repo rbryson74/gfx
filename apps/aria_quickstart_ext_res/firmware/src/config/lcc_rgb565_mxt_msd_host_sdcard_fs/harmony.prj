@@ -59,8 +59,8 @@
           <Name dnOrder="1">drv_maxtouch.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_host_sdcard_fs/driver/input</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/input/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A86BDB5CFCA302B3F14CD9186F740EF6</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A86BDB5CFCA302B3F14CD9186F740EF6</UserChecksum>
+          <GeneratedChecksum dnOrder="4">42B2BB0438C46794A7F6032477CD09B3</GeneratedChecksum>
+          <UserChecksum dnOrder="5">42B2BB0438C46794A7F6032477CD09B3</UserChecksum>
         </File>
         <File dnOrder="7">
           <Type dnOrder="0">SOURCE</Type>
@@ -555,8 +555,8 @@
           <Name dnOrder="1">libaria_context_paint.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_msd_host_sdcard_fs/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E14313FD52CEE6DE3F60A932717FD3E0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E14313FD52CEE6DE3F60A932717FD3E0</UserChecksum>
+          <GeneratedChecksum dnOrder="4">87BE2A19BA7A2C55DF636751AAAADD55</GeneratedChecksum>
+          <UserChecksum dnOrder="5">87BE2A19BA7A2C55DF636751AAAADD55</UserChecksum>
         </File>
         <File dnOrder="69">
           <Type dnOrder="0">SOURCE</Type>

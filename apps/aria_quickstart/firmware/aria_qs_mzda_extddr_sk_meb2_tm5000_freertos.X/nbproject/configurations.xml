@@ -194,22 +194,22 @@
       <logicalFolder name="f3" displayName="FreeRTOS" projectFiles="true">
         <logicalFolder name="f1" displayName="Source" projectFiles="true">
           <logicalFolder name="f1" displayName="include" projectFiles="true">
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/croutine.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/event_groups.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/FreeRTOS.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/list.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/mpu_wrappers.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/portable.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/projdefs.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/queue.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/semphr.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/stack_macros.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/deprecated_definitions.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/task.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/timers.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/mpu_prototypes.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/stream_buffer.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/message_buffer.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/croutine.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/event_groups.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/FreeRTOS.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/list.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/mpu_wrappers.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/portable.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/projdefs.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/queue.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/semphr.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/stack_macros.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/deprecated_definitions.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/task.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/timers.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/mpu_prototypes.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/stream_buffer.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/message_buffer.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f2" displayName="portable" projectFiles="true">
             <logicalFolder name="f1" displayName="MPLAB" projectFiles="true">
@@ -508,10 +508,10 @@
         <platformTool>RealICEPlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>2.40</languageToolchainVersion>
-        <platform>3</platform>
+        <platform>2</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC32MZ-DA_DFP" vendor="Microchip" version="1.0.69"/>
+        <pack name="PIC32MZ-DA_DFP" vendor="Microchip" version="1.1.98"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -552,7 +552,7 @@
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
         <property key="make-warnings-into-errors" value="true"/>
-        <property key="optimization-level" value="-O1"/>
+        <property key="optimization-level" value="-O3"/>
         <property key="place-data-into-section" value="false"/>
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>
@@ -574,9 +574,9 @@
         <property key="exclude-floating-point-library" value="false"/>
         <property key="expand-macros" value="false"/>
         <property key="extra-include-directories-for-assembler"
-                  value="../src/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ;../src/third_party/rtos/FreeRTOS/Source/include;../src/config/glcd_rgba8888_mxt_mzda_extddr_sk_freertos_wvga"/>
+                  value="../src/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ;../src/third_party/rtos/FreeRTOS/Source/include;../src/config/glcd_rgba8888_mxt_mzda_extddr_sk_freertos_wvga;"/>
         <property key="extra-include-directories-for-preprocessor"
-                  value="../src/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ;../src/third_party/rtos/FreeRTOS/Source/include;../src/config/glcd_rgba8888_mxt_mzda_extddr_sk_freertos_wvga"/>
+                  value="../src/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ;../src/third_party/rtos/FreeRTOS/Source/include;../src/config/glcd_rgba8888_mxt_mzda_extddr_sk_freertos_wvga;"/>
         <property key="false-conditionals" value="false"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>

@@ -507,8 +507,8 @@
         <platform>2</platform>
       </toolsSet>
       <packs>
-        <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
         <pack name="SAME54_DFP" vendor="Microchip" version="3.1.43"/>
+        <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -572,7 +572,7 @@
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
         <property key="make-warnings-into-errors" value="true"/>
-        <property key="optimization-level" value="-O1"/>
+        <property key="optimization-level" value="-O3"/>
         <property key="place-data-into-section" value="true"/>
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>
@@ -714,8 +714,6 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-fffff"/>
         <property key="poweroptions.powerenable" value="false"/>
-        <property key="programmerToGoFilePath"
-                  value="/home/ryan/Work/lh3/gfx/apps/aria_quickstart/firmware/aria_qs_e54_xpld_oled1.X/debug/ssd1306_oled_e54/aria_qs_e54_xpld_oled1_ptg"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.preservedataflash" value="false"/>
         <property key="programoptions.preservedataflash.ranges"

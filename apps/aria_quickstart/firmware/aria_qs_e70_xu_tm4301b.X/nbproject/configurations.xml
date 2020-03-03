@@ -517,8 +517,8 @@
         <platform>2</platform>
       </toolsSet>
       <packs>
-        <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
         <pack name="SAME70_DFP" vendor="Microchip" version="4.1.50"/>
+        <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -582,7 +582,7 @@
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="false"/>
         <property key="make-warnings-into-errors" value="true"/>
-        <property key="optimization-level" value=""/>
+        <property key="optimization-level" value="-O3"/>
         <property key="place-data-into-section" value="false"/>
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>
@@ -724,6 +724,8 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0x400000-0x5fffff"/>
         <property key="poweroptions.powerenable" value="false"/>
+        <property key="programmerToGoFilePath"
+                  value="/home/ryan/Work/lh3/gfx/apps/aria_quickstart/firmware/aria_qs_e70_xu_tm4301b.X/debug/lcc_rgb565_mxt/aria_qs_e70_xu_tm4301b_ptg"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.preservedataflash" value="false"/>
         <property key="programoptions.preservedataflash.ranges"
