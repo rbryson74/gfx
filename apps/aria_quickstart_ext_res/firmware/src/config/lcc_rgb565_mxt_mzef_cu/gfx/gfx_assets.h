@@ -112,7 +112,7 @@ extern GFXU_ImageAsset MHGS_logo_small_raw_direct_blit;
 /*********************************
  * GFX Font Asset
  * Name:         ArialUnicodeMS
- * Height:       19
+ * Height:       23
  * Style:        Plain
  * Glyph Count:  40
  * Range Count:  15
@@ -137,7 +137,7 @@ extern GFXU_FontAsset ArialUnicodeMS;
 /*********************************
  * GFX Font Asset
  * Name:         ArialUnicodeMS_Large
- * Height:       24
+ * Height:       28
  * Style:        Plain
  * Glyph Count:  21011
  * Range Count:  18

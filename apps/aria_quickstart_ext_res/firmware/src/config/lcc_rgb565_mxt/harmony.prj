@@ -83,8 +83,8 @@
           <Name dnOrder="1">gfx_assets.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/gfx</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">0B8CC535A5E7B57F1A314A10CA7B1229</GeneratedChecksum>
-          <UserChecksum dnOrder="5">0B8CC535A5E7B57F1A314A10CA7B1229</UserChecksum>
+          <GeneratedChecksum dnOrder="4">8E6173B521D4D4D064034C3DE963CEED</GeneratedChecksum>
+          <UserChecksum dnOrder="5">8E6173B521D4D4D064034C3DE963CEED</UserChecksum>
         </File>
         <File dnOrder="10">
           <Type dnOrder="0">SOURCE</Type>
@@ -1563,8 +1563,8 @@
           <Name dnOrder="1">gfx_assets.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/gfx</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">4DC655B02741C982BBCB82C33BA504E4</GeneratedChecksum>
-          <UserChecksum dnOrder="5">4DC655B02741C982BBCB82C33BA504E4</UserChecksum>
+          <GeneratedChecksum dnOrder="4">547C094F9A1B25ECC1CB4C8A90DB4FE8</GeneratedChecksum>
+          <UserChecksum dnOrder="5">547C094F9A1B25ECC1CB4C8A90DB4FE8</UserChecksum>
         </File>
         <File dnOrder="195">
           <Type dnOrder="0">HEADER</Type>
@@ -2842,12 +2842,12 @@
       </Settings>
     </Manifest>
     <Settings dnOrder="4">
-      <Setting dnOrder="0" key="CMSISPath" value="./dev_packs/arm/CMSIS/5.6.0"/>
-      <Setting dnOrder="1" key="DFPPath" value="./dev_packs/Microchip/SAME70_DFP/4.2.56/same70b/atdf/ATSAME70Q21B.atdf"/>
+      <Setting dnOrder="0" key="CMSISPath" value=".\dev_packs\arm\CMSIS\5.6.0"/>
+      <Setting dnOrder="1" key="DFPPath" value=".\dev_packs\Microchip\SAME70_DFP\4.2.56\same70b\atdf\ATSAME70Q21B.atdf"/>
       <Setting dnOrder="2" key="FORCE_OPTIMIZATION" value="false"/>
       <Setting dnOrder="3" key="GENERATE_BACKUP" value="true"/>
       <Setting dnOrder="4" key="MERGE_STRATEGY" value="USER_ALL"/>
-      <Setting dnOrder="5" key="PackageFilter" value="core;usb;audio;gfx;bsp;gfx_apps;csp;bt;"/>
+      <Setting dnOrder="5" key="PackageFilter" value="audio;bsp;core;csp;gfx;gfx_apps;touch;usb;"/>
     </Settings>
   </Configurator>
   <MHGC>
