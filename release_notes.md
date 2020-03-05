@@ -18,7 +18,7 @@
 |      |   parallel_smc | Interface to the parallel smc registers | Beta |
 |      |   spi | Interface to the spi registers | Beta |
 | library    | legato | Graphics Library | Beta |
-| designer | Legato MHGC |Harmony Graphics Composer for for Legato| Beta |
+| designer | Legato MHGC |Harmony Graphics Composer for Legato| Beta |
 
 **Aria graphics library** - the feature-complete production library within MPLAB Harmony Graphics Suite. Supports PIC32 and SAM microcontroller and microprocessors.
 
@@ -153,12 +153,13 @@
 
 - **Development kit support** - The following table lists  applications available for different development kits.
 
-| Applications | [SAM D21N Xplained Pro](https://www.microchip.com/DevelopmentTools/ProductDetails/ATSAMD21-XPRO) |[SAM C21N Xplained Pro](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAMC21-XPRO) | [SAM E54 Curiosity Ultra](https://www.microchip.com/Developmenttools/ProductDetails/DM320210) | [SAM E70 Xplained Ultra](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAME70-XPLD) | [SAM A5D2 Xplained Ultra](https://www.microchip.com/developmenttools/ProductDetails/atsama5d2c-xult) | [Multimedia Expansion Board II EF](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320005-5) | [Multimedia Expansion Board II DA](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320005-5) | [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126)|[Curiosity PIC32MZ EF 2.0](https://www.microchip.com/Developmenttools/ProductDetails/DM320209) |[Curiosity PIC32MZ EF 2.0](https://www.microchip.com/Developmenttools/ProductDetails/DM320209) |
+| Applications | [SAM D21N Xplained Pro](https://www.microchip.com/DevelopmentTools/ProductDetails/ATSAMD21-XPRO) | [SAM C21N Xplained Pro](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAMC21-XPRO) | [SAM E54 Curiosity Ultra](https://www.microchip.com/Developmenttools/ProductDetails/DM320210)  | [SAM E70 Xplained Ultra](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAME70-XPLD) | [SAM A5D2 Xplained Ultra](https://www.microchip.com/developmenttools/ProductDetails/atsama5d2c-xult)  | [Multimedia Expansion Board II EF](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320005-5)  | [Multimedia Expansion Board II DA](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320005-5) | [SAM9X60-EK Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/DT100126) | [Curiosity PIC32MZ EF 2.0](https://www.microchip.com/Developmenttools/ProductDetails/DM320209) |
 | --- | --- |--- | --- | --- | --- | --- | --- |--- | --- |
+| legato_quickstart_ext_res    |   |   | x |   |   |   |   |   |   |
 | aria_flash                   |   |   |   | x |   | x | x |   | x |
 | aria_quickstart              | x | x | x | x | x | x | x | x | x |
-| aria_quickstart_ext_res      |   |   |   | x |   | x | x |   | x |
-| blank_quickstart             |   |   | x | x |   | x | x |   | x |
+| aria_quickstart_ext_res      |   |   |   | x |   |   | x |   | x |
+| blank_quickstart             |   |   | x | x |   |   | x |   | x |
 | legato_quickstart            |   |   | x | x |   | x | x | x | x |
 | legato_flash                 |   |   | x |   |   |   |   |   |   |
 | legato_quickstart_ext_res    |   |   | x |   |   |   |   |   |   |
