@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>legato_string.h</title>
+<title>legato_fixedheap.h</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00530.html" target="topic">Graphics Library</a> &gt; <a href="00528.html" target="topic">Legato Graphics Library</a> &gt; <a href="00543.html" target="topic">Files</a> &gt; <a href="02653.html" target="topic">legato_string.h</a></div>
+<a href="00410.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00527.html" target="topic">Graphics Library</a> &gt; <a href="00525.html" target="topic">Legato Graphics Library</a> &gt; <a href="00540.html" target="topic">Files</a> &gt; <a href="02653.html" target="topic">legato_fixedheap.h</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00410.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02639.html" target="topic">Previous</a> | <a href="00543.html" target="topic">Up</a> | <a href="02621.html" target="topic">Next</a></div>
+<a href="02647.html" target="topic">Previous</a> | <a href="00540.html" target="topic">Up</a> | <a href="02655.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: legato_string.h Topic Title: legato_string.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: legato_fixedheap.h Topic Title: legato_fixedheap.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-legato_string.h</div>
+legato_fixedheap.h</div>
 </div>
 </div>
 
@@ -46,28 +46,10 @@ legato_string.h</div>
 
 <!-- Begin Page Content -->
 <a name="PageContent"></a><div class="Element58">
-<a name="436F6D70616E79"></a><div class="Element11">
+<a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-Microchip Technology Inc.</p></div>
-</div>
-<a name="46696C65204E616D65"></a><div class="Element14">
-File Name</div>
-<div class="Element11">
-<div class="Element10">
-<p class="Element10">
-legato_string.h</p></div>
-</div>
-<a name="4465736372697074696F6E"></a><div class="Element14">
-Description</div>
-<div class="Element11">
-<div class="Element10">
-<p class="Element10">
-Module for Microchip Graphics Library - Legato User Interface Library&nbsp;</p>
-<p class="Element10">
-This is a string library implementation that is used internally by the Legato user interface library.&nbsp;</p>
-<p class="Element10">
-This implementation relies on the <a href="02547.html" target="topic">leChar</a> definition for characters. This chararcter definition is 16 bits in size and allows the library to support international character code points and Unicode encoding standards.</p></div>
+This is file legato_fixedheap.h.</p></div>
 </div>
 <a name="46756E6374696F6E73"></a><div class="Element14">
 Functions</div>
@@ -88,9 +70,117 @@ Description&nbsp;</div></td></tr><tr>
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02872.html" target="topic">leString_Delete</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02620.html" target="topic">leFixedHeap_Alloc</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Frees the memory that was allocated using the la{TYPE}String_New type allocator functions&nbsp;</div></td></tr></table></div></div>
+Allocates a block from a fixed heap.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02621.html" target="topic">leFixedHeap_Alloc</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Allocates a block from a fixed heap.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02622.html" target="topic">leFixedHeap_Contains</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Queries a heap to see if it contains a block pointer.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02623.html" target="topic">leFixedHeap_Destroy</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Destroys a fixed heap object.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02624.html" target="topic">leFixedHeap_Dump</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Dumps the contents of a heap to STDOUT.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02625.html" target="topic">leFixedHeap_Free</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Frees a block from a fixed heap.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02626.html" target="topic">leFixedHeap_Init</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Initializes a fixed heap object struct.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02627.html" target="topic">leFixedHeap_Validate</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Validates a heap.&nbsp;</div></td></tr></table></div></div>
+</div>
+</div>
+<a name="4D6163726F73"></a><div class="Element14">
+Macros</div>
+<div class="Element11">
+<div class="Element10">
+<div class="Element212">
+<div class="TableDiv">
+<table cellspacing="0" class="Table1">
+<tr>
+<td class="Element200" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element201">
+ &nbsp;</div></td><td class="Element200" valign="top" width="25%">
+<div class="Element201">
+Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
+<div class="Element205">
+Description&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_interface.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02521.html" target="topic">LE_FIXEDHEAP_BLOCK_FOOTER_PTR</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This is macro LE_FIXEDHEAP_BLOCK_FOOTER_PTR.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_interface.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02522.html" target="topic">LE_FIXEDHEAP_BLOCK_SIZE</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This is macro LE_FIXEDHEAP_BLOCK_SIZE.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_interface.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02523.html" target="topic">LE_FIXEDHEAP_CHECKSUM</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This is macro LE_FIXEDHEAP_CHECKSUM.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_interface.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02524.html" target="topic">LE_FIXEDHEAP_FOOTER_SIZE</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This is macro LE_FIXEDHEAP_FOOTER_SIZE.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_interface.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02525.html" target="topic">LE_FIXEDHEAP_HEADER_SIZE</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This is macro LE_FIXEDHEAP_HEADER_SIZE.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_interface.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02654.html" target="topic">LEGATO_FIXEDHEAP_H</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This is macro LEGATO_FIXEDHEAP_H.&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 </div>
@@ -98,7 +188,7 @@ Frees the memory that was allocated using the la{TYPE}String_New type allocator 
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00530.html" target="topic">Graphics Library</a> &gt; <a href="00528.html" target="topic">Legato Graphics Library</a> &gt; <a href="00543.html" target="topic">Files</a> &gt; <a href="02653.html" target="topic">legato_string.h</a></div>
+<a href="00410.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00527.html" target="topic">Graphics Library</a> &gt; <a href="00525.html" target="topic">Legato Graphics Library</a> &gt; <a href="00540.html" target="topic">Files</a> &gt; <a href="02653.html" target="topic">legato_fixedheap.h</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -106,13 +196,13 @@ Frees the memory that was allocated using the la{TYPE}String_New type allocator 
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00410.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02639.html" target="topic">Previous</a> | <a href="00543.html" target="topic">Up</a> | <a href="02621.html" target="topic">Next</a></div>
+<a href="02647.html" target="topic">Previous</a> | <a href="00540.html" target="topic">Up</a> | <a href="02655.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: legato_string.h Topic Title: legato_string.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: legato_fixedheap.h Topic Title: legato_fixedheap.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

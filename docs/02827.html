@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>leRectArray_RemoveDuplicates Function</title>
+<title>lePixelBufferOffsetGet_Unsafe Function</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00530.html" target="topic">Graphics Library</a> &gt; <a href="00528.html" target="topic">Legato Graphics Library</a> &gt; <a href="00544.html" target="topic">Legato Interface</a> &gt; c) Datastructure Functions &gt; <a href="02827.html" target="topic">leRectArray_RemoveDuplicates Function</a></div>
+<a href="00410.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00527.html" target="topic">Graphics Library</a> &gt; <a href="00525.html" target="topic">Legato Graphics Library</a> &gt; <a href="00541.html" target="topic">Legato Interface</a> &gt; a) Common Functions &gt; <a href="02827.html" target="topic">lePixelBufferOffsetGet_Unsafe Function</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00410.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02826.html" target="topic">Previous</a> | <a href="00544.html" target="topic">Up</a> | <a href="02828.html" target="topic">Next</a></div>
+<a href="02826.html" target="topic">Previous</a> | <a href="00541.html" target="topic">Up</a> | <a href="02828.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: leRectArray_RemoveDuplicates@leRectArray* Topic Title: leRectArray_RemoveDuplicates Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: lePixelBufferOffsetGet_Unsafe@lePixelBuffer* const@uint32_t@uint32_t Topic Title: lePixelBufferOffsetGet_Unsafe Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-leRectArray_RemoveDuplicates Function</div>
+lePixelBufferOffsetGet_Unsafe Function</div>
 </div>
 </div>
 
@@ -48,8 +48,10 @@ leRectArray_RemoveDuplicates Function</div>
 <a name="PageContent"></a><div class="Element58">
 <a name="43"></a><div class="Element99">
 C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100"><a href="02937.html" target="topic">LIB_EXPORT</a> leResult <strong><span style="color: #000000">leRectArray_RemoveDuplicates</span></strong>(
-    leRectArray* <strong><span style="color: #000000">arr</span></strong>
+<div class="Element101"><div class="Element100"><pre class="Element100"><a href="02973.html" target="topic">LIB_EXPORT</a> <a href="02567.html" target="topic">leBuffer</a> <strong><span style="color: #000000">lePixelBufferOffsetGet_Unsafe</span></strong>(
+    <strong><span style="color: #000080">const</span></strong> lePixelBuffer* <strong><span style="color: #000080">const</span></strong> <strong><span style="color: #000000">buffer</span></strong>, 
+    <a href="03113.html" target="topic">uint32_t</a> <strong><span style="color: #000000">x</span></strong>, 
+    <a href="03113.html" target="topic">uint32_t</a> <strong><span style="color: #000000">y</span></strong>
 );</pre></div></div>
 <a name="506172616D6574657273"></a><div class="Element14">
 Parameters</div>
@@ -66,9 +68,14 @@ Parameters&nbsp;</div></td><td class="Element304" valign="top" width="65%">
 Description&nbsp;</div></td></tr><tr>
 <td class="Element302" valign="top" width="35%">
 <div class="Element303">
-leRectArray* arr&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+const lePixelBuffer*&nbsp;</div></td><td class="Element306" valign="top" width="65%">
 <div class="Element307">
-the array to analyze&nbsp;</div></td></tr></table></div></div>
+the source buffer&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+const lePoint*&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+the point for which the offset should be calculated&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 <a name="52657475726E73"></a><div class="Element14">
@@ -76,14 +83,14 @@ Returns</div>
 <div class="Element11">
 <div class="Element10">
 <p class="Element10">
-leResult - the result of the operation</p></div>
+<a href="02567.html" target="topic">leBuffer</a> - the pointer to the offset point in the source buffer</p></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00530.html" target="topic">Graphics Library</a> &gt; <a href="00528.html" target="topic">Legato Graphics Library</a> &gt; <a href="00544.html" target="topic">Legato Interface</a> &gt; c) Datastructure Functions &gt; <a href="02827.html" target="topic">leRectArray_RemoveDuplicates Function</a></div>
+<a href="00410.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00527.html" target="topic">Graphics Library</a> &gt; <a href="00525.html" target="topic">Legato Graphics Library</a> &gt; <a href="00541.html" target="topic">Legato Interface</a> &gt; a) Common Functions &gt; <a href="02827.html" target="topic">lePixelBufferOffsetGet_Unsafe Function</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -91,13 +98,13 @@ leResult - the result of the operation</p></div>
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00410.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02826.html" target="topic">Previous</a> | <a href="00544.html" target="topic">Up</a> | <a href="02828.html" target="topic">Next</a></div>
+<a href="02826.html" target="topic">Previous</a> | <a href="00541.html" target="topic">Up</a> | <a href="02828.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: leRectArray_RemoveDuplicates@leRectArray* Topic Title: leRectArray_RemoveDuplicates Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: lePixelBufferOffsetGet_Unsafe@lePixelBuffer* const@uint32_t@uint32_t Topic Title: lePixelBufferOffsetGet_Unsafe Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

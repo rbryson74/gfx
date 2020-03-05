@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>Introduction</title>
+<title>Drivers</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00488.html" target="topic">Introduction</a></div>
+<a href="00410.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00488.html" target="topic">Drivers</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00410.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="00413.html" target="topic">Previous</a> | <a href="00413.html" target="topic">Up</a> | <a href="03047.html" target="topic">Next</a></div>
+<a href="02698.html" target="topic">Previous</a> | <a href="00410.html" target="topic">Up</a> | <a href="00006.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_Suite Topic Title: Introduction)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_Suite_Driver Topic Title: Drivers)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-Introduction</div>
+Drivers</div>
 </div>
 </div>
 
@@ -49,53 +49,56 @@ Introduction</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
- &nbsp;</p>
-<p class="Element10">
-MPLAB Harmony Graphics Suite (MHGS) is an extension of the MPLAB ecosystem for creating embedded graphic firmware solutions on Microchip 32-bit microcontroller and microprocessor products.&nbsp;</p>
+MPLAB Harmony Graphics Suite provides capability to create board specific c-language graphics drivers for external hardware communication. The suite supports code generation for following external hardware categories:&nbsp;</p>
 <p class="Element10">
 &nbsp;</p>
-<p class="Element10">
-MHGS provides the following graphics development content illustrated below:&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><p class="Element10" style="text-align: center;">
-<img src="graphics_suite.png" border="0" alt="" title="">&nbsp;</p><p class="Element10">
-&nbsp;</p>
-
 <ul class="Element630">
-<li class="Element600">Designer - MHGS has its own integrated GUI design tool named MPLAB Harmony Graphics Composer (MHGC). It is used to design and build graphical user interfaces (GUIs) from widgets contain in the graphics library. With its what-you-see-what-you-get (WYSWYG) editor, a complete layout can be created and managed.</li>
-</ul><p class="Element10">
-&nbsp;</p>
-
-<ul class="Element630">
-<li class="Element600">Graphics Library - Graphics rendering is made available through the graphics library. The graphics library is a 2-Dimensional (2D) raster paint engine which support the drawing of a complete UI design on display modules using specific display controllers. The graphics library is specifically built to run in low-powered low-resource environments.</li>
-</ul><p class="Element10">
-&nbsp;</p>
-
-<ul class="Element630">
-<li class="Element600">Drivers - MHGS provides capability to create custom graphics drivers for low-level hardware communication.</li>
-</ul><p class="Element10">
-&nbsp;</p>
-
-<ul class="Element630">
-<li class="Element600">Configurator - MHGS supports the configuration and generation of the code from the designer, graphics library, and drivers through graphics configurator. It produces custom code specific to the needs of a project. It provides a data setting environment to help bind modules, peripherals, widgets, memory, assets together into a final application for compilation.</li>
-</ul><p class="Element10">
-&nbsp;</p>
-
-<ul class="Element630">
-<li class="Element600">Advanced Topics - MHGS communicates advanced topic documentation written to introduce more complex concepts and features supported with the suite.</li>
-</ul><p class="Element10">
-&nbsp;</p>
-
-<ul class="Element630">
-<li class="Element600">Example Applications - MHGS comes with a set of examples that exercises MHGS software on <a href="#" onclick="openExternalLink('https://www.microchip.com/design-centers/graphics/development-boards');"><img src="indicator_external_link.gif" border="0" alt="" title="">Microchip graphics kits</a>. The applications are meant to be either a quickstart solution, demonstration of features, best practices, or a signature UI illustration. These apps provide functionality that customers can use immediately in their solution.</li>
+<li class="Element600">Display Controller Driver - MHGS generates driver code for a wide range of displays, with a focus on QVGA to WVGA LCDs. OLED and multi-layer display controllers are also supported. Drivers are generated for SPI and parallel interfaces.</li>
+<li class="Element600">GPU Driver - MHGS generates driver code for the PIC32MZ DA 2DGPU and the SAM GFX2D peripheral graphics accelerator.</li>
+<li class="Element600">Touch Screen Driver - MHGS generates code through its generic driver component for Microchip maXTouch controller. The genertic driver can bbe for single, two finger-touch, and gesture support for 2D maXTouch Touch Screen controllers.</li>
 </ul></div>
+</div>
+<a name="546F70696373"></a><div class="Element14">
+Topics</div>
+<div class="Element11">
+<div class="Element10">
+<div class="Element212">
+<div class="TableDiv">
+<table cellspacing="0" class="Table1">
+<tr>
+<td class="Element200" valign="top" width="35%">
+<div class="Element201">
+Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
+<div class="Element205">
+Description&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00006.html" target="topic">Aria Drivers</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This section describes the drivers available when using the Aria graphics library.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="02641.html" target="topic">Legato Drivers</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This section describes the drivers available for Legato.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00047.html" target="topic">Blank Drivers</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This section describes the drivers available when using the blank graphics library.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="03111.html" target="topic">Touch</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This topic describes using the touch components to configure touch input driver.&nbsp;</div></td></tr></table></div></div>
+</div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00413.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00488.html" target="topic">Introduction</a></div>
+<a href="00410.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00488.html" target="topic">Drivers</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -103,13 +106,13 @@ MHGS provides the following graphics development content illustrated below:&nbsp
 MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00413.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00410.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="00413.html" target="topic">Previous</a> | <a href="00413.html" target="topic">Up</a> | <a href="03047.html" target="topic">Next</a></div>
+<a href="02698.html" target="topic">Previous</a> | <a href="00410.html" target="topic">Up</a> | <a href="00006.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_Suite Topic Title: Introduction)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_Suite_Driver Topic Title: Drivers)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->
