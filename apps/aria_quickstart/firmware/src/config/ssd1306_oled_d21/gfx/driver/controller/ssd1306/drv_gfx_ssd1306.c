@@ -1,20 +1,6 @@
+// DOM-IGNORE-BEGIN
 /*******************************************************************************
-  SSD1306 Display Top-Level Driver Source File
-
-  File Name:
-    drv_gfx_ssd1306.c
-
-  Summary:
-    Top level driver for SSD1306.
-
-  Description:
-    Build-time generated implementation for the SSD1306 Driver.
-
-    Created with MPLAB Harmony Version 3.0
-*******************************************************************************/
-//DOM-IGNORE-BEGIN
-/*******************************************************************************
-* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -35,7 +21,22 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-//DOM-IGNORE-END
+// DOM-IGNORE-END
+
+/*******************************************************************************
+  SSD1306 Display Top-Level Driver Source File
+
+  File Name:
+    drv_gfx_ssd1306.c
+
+  Summary:
+    Top level driver for SSD1306.
+
+  Description:
+    Build-time generated implementation for the SSD1306 Driver.
+
+    Created with MPLAB Harmony Version 3.0
+*******************************************************************************/
 
 
 #include "definitions.h"

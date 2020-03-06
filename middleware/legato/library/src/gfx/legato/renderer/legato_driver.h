@@ -1,19 +1,3 @@
-/*******************************************************************************
- Module for Microchip Graphics Library - Legato User Interface Library
-
-  Company:
-    Microchip Technology Inc.
-
-  File Name:
-    legato_driver.h
-
-  Summary:
-    Abstract display driver definition for the Legato graphics library.
-
-  Description:
-    Abstract display driver definition for the Legato graphics library.
-*******************************************************************************/
-
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
@@ -38,6 +22,23 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 // DOM-IGNORE-END
+
+/*******************************************************************************
+ Module for Microchip Graphics Library - Legato User Interface Library
+
+  Company:
+    Microchip Technology Inc.
+
+  File Name:
+    legato_driver.h
+
+  Summary:
+    Abstract display driver definition for the Legato graphics library.
+
+  Description:
+    Abstract display driver definition for the Legato graphics library.
+*******************************************************************************/
+
 
 #ifndef LEGATO_DRIVER_H
 #define LEGATO_DRIVER_H

@@ -1,20 +1,3 @@
-/*******************************************************************************
-  MPLAB Harmony Graphics Composer Generated Definitions Header
-
-  File Name:
-    legato_config.h
-
-  Summary:
-    Build-time generated definitions header based on output by the MPLAB Harmony
-    Graphics Composer.
-
-  Description:
-    Build-time generated definitions header based on output by the MPLAB Harmony
-    Graphics Composer.
-
-    Created with MPLAB Harmony Version 3.0
-*******************************************************************************/
-
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
@@ -39,6 +22,24 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 // DOM-IGNORE-END
+
+/*******************************************************************************
+  MPLAB Harmony Graphics Composer Generated Definitions Header
+
+  File Name:
+    legato_config.h
+
+  Summary:
+    Build-time generated definitions header based on output by the MPLAB Harmony
+    Graphics Composer.
+
+  Description:
+    Build-time generated definitions header based on output by the MPLAB Harmony
+    Graphics Composer.
+
+    Created with MPLAB Harmony Version 3.0
+*******************************************************************************/
+
 
 #ifndef LEGATO_CONFIG_H
 #define LEGATO_CONFIG_H

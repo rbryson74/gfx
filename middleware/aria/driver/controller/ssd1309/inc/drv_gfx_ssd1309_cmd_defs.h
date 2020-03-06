@@ -1,22 +1,6 @@
-/*******************************************************************************
- Module for Microchip Graphics Library - Hardware Abstraction Layer
-
-  Company:
-    Microchip Technology Inc.
-
-  File Name:
-    drv_gfx_ssd1309_cmd_defs.h
-
-  Summary:
-    Contains SSD1309 command definitions.
-
-  Description:
-    Command definitions for SSD1309.
-*******************************************************************************/
-
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -38,6 +22,23 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 // DOM-IGNORE-END
+
+/*******************************************************************************
+ Module for Microchip Graphics Library - Hardware Abstraction Layer
+
+  Company:
+    Microchip Technology Inc.
+
+  File Name:
+    drv_gfx_ssd1309_cmd_defs.h
+
+  Summary:
+    Contains SSD1309 command definitions.
+
+  Description:
+    Command definitions for SSD1309.
+*******************************************************************************/
+
 
 #ifndef DRV_GFX__SSD1309_CMD_DEFS_H    /* Guard against multiple inclusion */
 #define DRV_GFX__SSD1309_CMD_DEFS_H

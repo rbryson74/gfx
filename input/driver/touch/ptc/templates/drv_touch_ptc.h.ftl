@@ -1,17 +1,3 @@
-/*******************************************************************************
- Input driver for the Peripheral Touch Controller Library
-
-  File Name:
-    drv_touch_ptc.h
-
-  Summary:
-    Input driver for the peripheral touch controller header file
-
-  Description:
-    This header file describes the macros, data structure and prototypes of the 
-    input driver for the peripheral touch controller (PTC).
- ******************************************************************************/
-
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
@@ -35,6 +21,23 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
+// DOM-IGNORE-END
+
+/*******************************************************************************
+ Input driver for the Peripheral Touch Controller Library
+
+  File Name:
+    drv_touch_ptc.h
+
+  Summary:
+    Input driver for the peripheral touch controller header file
+
+  Description:
+    This header file describes the macros, data structure and prototypes of the 
+    input driver for the peripheral touch controller (PTC).
+ ******************************************************************************/
+
+// DOM-IGNORE-BEGIN
 
 #ifndef DRV_TOUCH_PTC_H
 #define DRV_TOUCH_PTC_H

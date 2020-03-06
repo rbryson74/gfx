@@ -1,21 +1,6 @@
-/*******************************************************************************
- Legato Harmony Interface Header File
-
-  File Name:
-    le_harmony.h
-
-  Summary:
-    This file contains the interfaces between MPLAB harmony and the Legato
-    graphics library
-
-  Description:
-    This file contains the interfaces between MPLAB harmony and the Legato
-    graphics library
-*******************************************************************************/
-
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -36,6 +21,24 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
+// DOM-IGNORE-END
+
+/*******************************************************************************
+ Legato Harmony Interface Header File
+
+  File Name:
+    le_harmony.h
+
+  Summary:
+    This file contains the interfaces between MPLAB harmony and the Legato
+    graphics library
+
+  Description:
+    This file contains the interfaces between MPLAB harmony and the Legato
+    graphics library
+*******************************************************************************/
+
+// DOM-IGNORE-BEGIN
 
 #ifndef LE_HARMONY_H
 #define LE_HARMONY_H

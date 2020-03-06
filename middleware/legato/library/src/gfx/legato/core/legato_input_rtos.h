@@ -1,19 +1,3 @@
-/*******************************************************************************
- Module for Microchip Graphics Library - Aria User Interface Library
-
-  Company:
-    Microchip Technology Inc.
-
-  File Name:
-    libaria_input_rtos.h
-
-  Summary:
-
-    This file contains the RTOS extensions of the libaria_input module.
-
-
-*******************************************************************************/
-
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
@@ -38,6 +22,23 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 // DOM-IGNORE-END
+
+/*******************************************************************************
+ Module for Microchip Graphics Library - Aria User Interface Library
+
+  Company:
+    Microchip Technology Inc.
+
+  File Name:
+    libaria_input_rtos.h
+
+  Summary:
+
+    This file contains the RTOS extensions of the libaria_input module.
+
+
+*******************************************************************************/
+
 
 #ifndef LIBARIA_INPUT_RTOS_H
 #define LIBARIA_INPUT_RTOS_H

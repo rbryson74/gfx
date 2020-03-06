@@ -1,19 +1,3 @@
-
-/*******************************************************************************
- Input driver for the Peripheral Touch Controller Library
-
-  File Name:
-    drv_touch_ptc.c
-
-  Summary:
-    Input driver for the peripheral touch controller.
-
-  Description:
-    This file consist the input driver implementation for the peripheral touch
-    controller. This driver fetches the touch input information from the PTC
-    library and sends the input events to the input system service.
- ******************************************************************************/
-
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
@@ -37,9 +21,24 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-
-
 // DOM-IGNORE-END
+
+
+/*******************************************************************************
+ Input driver for the Peripheral Touch Controller Library
+
+  File Name:
+    drv_touch_ptc.c
+
+  Summary:
+    Input driver for the peripheral touch controller.
+
+  Description:
+    This file consist the input driver implementation for the peripheral touch
+    controller. This driver fetches the touch input information from the PTC
+    library and sends the input events to the input system service.
+ ******************************************************************************/
+
 
 #include "definitions.h"
 #include "drv_touch_ptc.h"

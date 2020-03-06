@@ -1,21 +1,3 @@
-/*******************************************************************************
- Module for Microchip Graphics Library
-
-  Company:
-    Microchip Technology Inc.
-
-  File Name:
-    libaria_rtos.h
-
-  Summary:
-    This header file contains prototypes of the RTOS extensions of the aria 
-    library top level APIs.
-
-  Description:
-    This header file contains prototypes of the RTOS extensions of the aria 
-    library top level APIs.
-*******************************************************************************/
-
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
@@ -40,6 +22,25 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 // DOM-IGNORE-END
+
+/*******************************************************************************
+ Module for Microchip Graphics Library
+
+  Company:
+    Microchip Technology Inc.
+
+  File Name:
+    libaria_rtos.h
+
+  Summary:
+    This header file contains prototypes of the RTOS extensions of the aria 
+    library top level APIs.
+
+  Description:
+    This header file contains prototypes of the RTOS extensions of the aria 
+    library top level APIs.
+*******************************************************************************/
+
 
 // *****************************************************************************
 /* Type:

@@ -1,54 +1,28 @@
-/*********************************************************************
-*                 SEGGER Microcontroller Systems LLC                 *
-*        Solutions for real time microcontroller applications        *
-**********************************************************************
-*                                                                    *
-*        (c) 1996 - 2018  SEGGER Microcontroller GmbH                *
-*                                                                    *
-*        Internet: www.segger.com    Support:  support@segger.com    *
-*                                                                    *
-**********************************************************************
+// DOM-IGNORE-BEGIN
+/*******************************************************************************
+* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
+*
+* Subject to your compliance with these terms, you may use Microchip software
+* and any derivatives exclusively with Microchip products. It is your
+* responsibility to comply with third party license terms applicable to your
+* use of third party software (including open source software) that may
+* accompany Microchip software.
+*
+* THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+* EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+* WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+* PARTICULAR PURPOSE.
+*
+* IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+* INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+* WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+* BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+* FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+* ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+* THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
+*******************************************************************************/
+// DOM-IGNORE-END
 
-** emWin V5.48 - Graphical user interface for embedded applications **
-All  Intellectual Property rights  in the Software belongs to  SEGGER.
-emWin is protected by  international copyright laws.  Knowledge of the
-source code may not be used to write a similar product.  This file may
-only be used in accordance with the following terms:
-
-The  software has  been licensed  to Microchip Technology Inc. for the
-purposes  of  creating  libraries  for  16 -bit  PIC microcontrollers,
-32-bit  PIC  microntrollers,  dsPIC  digital  signal  controllers  and
-microcontrollers   with   part   name   prefix   "PIC16"  and  "PIC18"
-commercialized and distributed by Microchip Technology Inc. as part of
-the  MPLAB  Integrated  Development  Environment  under  the terms and
-conditions  of  an  End  User  License  Agreement  supplied  with  the
-libraries. Full source code is available at: www.segger.com
-
-We appreciate your understanding and fairness.
-----------------------------------------------------------------------
-Licensing information
-Licensor:                 SEGGER Microcontroller Systems LLC
-Licensed to:              Microchip Technology Inc., 2355 W Chandler Blvd., Chandler, AZ 85224, US
-Licensed SEGGER software: emWin
-License number:           GUI-00614
-License model:            CPU Object Code License, dated Sept. 8, 2015
-Licensed product:         Any
-Licensed platform:        PIC24, PIC32, dsPIC, PIC16, PIC18 / MPLAB X Integrated Development Evironment, XC16 C Compiler, XC32 C/C++ Compiler
-Licensed number of seats: -
-----------------------------------------------------------------------
-Support and Update Agreement (SUA)
-SUA period:               2015-09-28 - 2019-09-29
-Contact to extend SUA:    sales@segger.com
-----------------------------------------------------------------------
-File    : Global.h
-Purpose : Global types
-          In case your application already has a Global.h, you should
-          merge the files. In order to use Segger code, the types
-          U8, U16, U32, I8, I16, I32 need to be defined in Global.h;
-          additional definitions do not hurt.
-Revision: $Rev: 9374 $
----------------------------END-OF-HEADER------------------------------
-*/
 
 #ifndef GLOBAL_H            // Guard against multiple inclusion
 #define GLOBAL_H
