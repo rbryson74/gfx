@@ -1,18 +1,19 @@
 /*******************************************************************************
-  Interrupt System Service Library Interface Implementation File
+  Timer/Counter(TC4) PLIB
 
   Company
     Microchip Technology Inc.
 
   File Name
-    sys_int_nvic.c
+    plib_tc4.h
 
   Summary
-    NVIC implementation of interrupt system service library.
+    TC4 PLIB Header File.
 
   Description
-    This file implements the interface to the interrupt system service library
-    not provided in CMSIS.
+    This file defines the interface to the TC peripheral library. This
+    library provides access to and control of the associated peripheral
+    instance.
 
   Remarks:
     None.
@@ -44,83 +45,77 @@
 *******************************************************************************/
 // DOM-IGNORE-END
 
+#ifndef PLIB_TC4_H       // Guards against multiple inclusion
+#define PLIB_TC4_H
 
 // *****************************************************************************
 // *****************************************************************************
 // Section: Included Files
 // *****************************************************************************
 // *****************************************************************************
-#include "system/int/sys_int.h"
+/* This section lists the other files that are included in this file.
+*/
 
+#include "device.h"
+#include "plib_tc_common.h"
+
+// DOM-IGNORE-BEGIN
+#ifdef __cplusplus // Provide C Compatibility
+
+    extern "C" {
+
+#endif
+// DOM-IGNORE-END
+
+// *****************************************************************************
+// *****************************************************************************
+// Section: Data Types
+// *****************************************************************************
+// *****************************************************************************
+/* The following data type definitions are used by the functions in this
+    interface and should be considered part it.
+*/
 
 // *****************************************************************************
 // *****************************************************************************
-// Section: Interface Implementation
+// Section: Interface Routines
 // *****************************************************************************
 // *****************************************************************************
-
-// *****************************************************************************
-void SYS_INT_Enable( void )
-{
-    __DMB();
-    __enable_irq();
-
-    return;
-}
+/* The following functions make up the methods (set of possible operations) of
+   this interface.
+*/
 
 
-// *****************************************************************************
-bool SYS_INT_Disable( void )
-{
-    bool processorStatus;
+void TC4_CompareInitialize( void );
 
-    processorStatus = (bool) (__get_PRIMASK() == 0);
+void TC4_CompareStart( void );
 
-    __disable_irq();
-    __DMB();
+void TC4_CompareStop( void );
 
-    return processorStatus;
-}
+uint32_t TC4_CompareFrequencyGet( void );
+
+void TC4_Compare8bitPeriodSet( uint8_t period );
+
+uint8_t TC4_Compare8bitPeriodGet( void );
+
+uint8_t TC4_Compare8bitCounterGet( void );
+
+void TC4_Compare8bitCounterSet( uint8_t count );
+
+void TC4_Compare8bitMatch0Set( uint8_t compareValue );
+
+void TC4_Compare8bitMatch1Set( uint8_t compareValue );
 
 
-// *****************************************************************************
-void SYS_INT_Restore( bool state )
-{
-    if( state == true )
-    {
-        __DMB();
-        __enable_irq();
+TC_COMPARE_STATUS TC4_CompareStatusGet( void );
+
+
+// DOM-IGNORE-BEGIN
+#ifdef __cplusplus  // Provide C++ Compatibility
+
     }
-    else
-    {
-        __disable_irq();
-        __DMB();
-    }
 
-    return;
-}
+#endif
+// DOM-IGNORE-END
 
-bool SYS_INT_SourceDisable( INT_SOURCE source )
-{
-    bool processorStatus;
-    bool intSrcStatus;
-
-    processorStatus = SYS_INT_Disable();
-
-    intSrcStatus = NVIC_GetEnableIRQ(source);
-
-    NVIC_DisableIRQ( source );
-
-    SYS_INT_Restore( processorStatus );
-
-    /* return the source status */
-    return intSrcStatus;
-}
-
-void SYS_INT_SourceRestore( INT_SOURCE source, bool status )
-{
-    if( status ) {
-        SYS_INT_SourceEnable( source );
-    }
-    return;
-}
+#endif /* PLIB_TC4_H */

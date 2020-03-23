@@ -56,8 +56,9 @@
 
 #define PIXEL_BUFFER_COLOR_MODE GFX_COLOR_MODE_RGB_565
 
-#define SCREEN_WIDTH DISPLAY_WIDTH
-#define SCREEN_HEIGHT DISPLAY_HEIGHT
+//Row and column are swapped
+#define SCREEN_WIDTH DISPLAY_HEIGHT
+#define SCREEN_HEIGHT DISPLAY_WIDTH
 
 #define ILI9488_NCSAssert(intf)   GFX_Disp_Intf_PinControl(intf, \
                                     GFX_DISP_INTF_PIN_CS, \
@@ -154,7 +155,7 @@ ILI9488_CMD_PARAM initCmdParm[] =
     {ILI9488_CMD_INTERFACE_MODE_CONTROL, 1, {0x00}},
     {ILI9488_CMD_MEMORY_ACCESS_CONTROL, 1, {(
                                              ILI9488_MADCTL_RGB_BGR_ORDER_CTRL |
-                                             ILI9488_MADCTL_COL_ADDR_ORDER |
+                                             ILI9488_MADCTL_ROW_COLUMN_EXCHANGE |
                                             0)}},
 
     {ILI9488_CMD_SLEEP_OUT, 0, {0x00}},
@@ -310,7 +311,6 @@ void DRV_ILI9488_Update(void)
             
             intf = (GFX_Disp_Intf) drv.port_priv;
 
-            while (GFX_Disp_Intf_Ready(intf) == false);
             break;
         }
         case BLIT_COLUMN_CMD:
@@ -324,8 +324,7 @@ void DRV_ILI9488_Update(void)
                    
             drv.state = BLIT_COLUMN_DATA;
             
-            while (GFX_Disp_Intf_Ready(intf) == false);
-            //Fall through, no break
+            break;
         }
         case BLIT_COLUMN_DATA:
         {
@@ -341,8 +340,7 @@ void DRV_ILI9488_Update(void)
             
             drv.state = BLIT_PAGE_CMD;
             
-            while (GFX_Disp_Intf_Ready(intf) == false);
-            //Fall through, no break
+            break;
         }
         case BLIT_PAGE_CMD:
         {
@@ -353,8 +351,7 @@ void DRV_ILI9488_Update(void)
                    
             drv.state = BLIT_PAGE_DATA;
             
-            while (GFX_Disp_Intf_Ready(intf) == false);
-            //Fall through, no break
+            break;
         }
         case BLIT_PAGE_DATA:
         {
@@ -370,8 +367,7 @@ void DRV_ILI9488_Update(void)
             
             drv.state = BLIT_WRITE_CMD;
                         
-            while (GFX_Disp_Intf_Ready(intf) == false);
-            //Fall through, no break
+            break;
         }
         case BLIT_WRITE_CMD:
         {
@@ -385,14 +381,14 @@ void DRV_ILI9488_Update(void)
             
             row = 0;
                                 
-            while (GFX_Disp_Intf_Ready(intf) == false);
-            //Fall through, no break
+            break;
         }
         case BLIT_WRITE_DATA:
         {
-            drv.state = IDLE;
-                
-            while (row < drv.blitParms.buf->size.height)
+            if (GFX_Disp_Intf_Ready(intf) == false)
+                break;
+            
+            if (row < drv.blitParms.buf->size.height)
             {
                 ptr = gfxPixelBufferOffsetGet_Unsafe(drv.blitParms.buf, 0, row);
 
@@ -410,7 +406,12 @@ void DRV_ILI9488_Update(void)
                                         drv.blitParms.buf->size.width);
                 
                 row++;
-                while (GFX_Disp_Intf_Ready(intf) == false);
+            }
+            else if (row >= drv.blitParms.buf->size.height)
+            {
+                ILI9488_NCSDeassert(intf); 
+                gfxPixelBuffer_SetLocked(drv.blitParms.buf, GFX_FALSE);
+                drv.state = IDLE;
             }
             break;
              
@@ -452,10 +453,7 @@ gfxResult DRV_ILI9488_BlitBuffer(int32_t x,
     drv.blitParms.buf = buf;
     drv.state = BLIT_COLUMN_CMD;
 
-    while (drv.state != IDLE)
-    {
-        DRV_ILI9488_Update();
-    }
+    gfxPixelBuffer_SetLocked(buf, GFX_TRUE);
     
     return GFX_SUCCESS;
 }

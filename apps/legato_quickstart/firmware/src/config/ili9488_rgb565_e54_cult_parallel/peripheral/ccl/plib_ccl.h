@@ -1,27 +1,27 @@
 /*******************************************************************************
-  Interrupt System Service Library Interface Implementation File
+  CCL Peripheral Library Interface Header File
 
-  Company
+  Company:
     Microchip Technology Inc.
 
-  File Name
-    sys_int_nvic.c
+  File Name:
+    plib_ccl.h
 
-  Summary
-    NVIC implementation of interrupt system service library.
+  Summary:
+    CAN PLIB interface declarations.
 
-  Description
-    This file implements the interface to the interrupt system service library
-    not provided in CMSIS.
+  Description:
+    The CAN plib provides a simple interface to manage the CAN modules on
+    Microchip microcontrollers. This file defines the interface declarations
+    for the CAN plib.
 
   Remarks:
     None.
 
 *******************************************************************************/
-
-// DOM-IGNORE-BEGIN
+//DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -42,85 +42,53 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
+//DOM-IGNORE-END
 
+#ifndef PLIB_CCL_H
+#define PLIB_CCL_H
 
 // *****************************************************************************
 // *****************************************************************************
 // Section: Included Files
 // *****************************************************************************
 // *****************************************************************************
-#include "system/int/sys_int.h"
+
+/*
+ * This section lists the other files that are included in this file.
+ */
+#include <stdbool.h>
+#include <string.h>
+
+#include "device.h"
+
+// DOM-IGNORE-BEGIN
+#ifdef __cplusplus  // Provide C++ Compatibility
+    extern "C" {
+#endif
+// DOM-IGNORE-END
+
+// *****************************************************************************
+// *****************************************************************************
+// Section: Data Types
+// *****************************************************************************
+// *****************************************************************************
 
 
 // *****************************************************************************
 // *****************************************************************************
-// Section: Interface Implementation
+// Section: Interface Routines
 // *****************************************************************************
 // *****************************************************************************
+void CCL_Initialize (void);
 
-// *****************************************************************************
-void SYS_INT_Enable( void )
-{
-    __DMB();
-    __enable_irq();
-
-    return;
-}
-
-
-// *****************************************************************************
-bool SYS_INT_Disable( void )
-{
-    bool processorStatus;
-
-    processorStatus = (bool) (__get_PRIMASK() == 0);
-
-    __disable_irq();
-    __DMB();
-
-    return processorStatus;
-}
-
-
-// *****************************************************************************
-void SYS_INT_Restore( bool state )
-{
-    if( state == true )
-    {
-        __DMB();
-        __enable_irq();
+// DOM-IGNORE-BEGIN
+#ifdef __cplusplus  // Provide C++ Compatibility
     }
-    else
-    {
-        __disable_irq();
-        __DMB();
-    }
+#endif
+// DOM-IGNORE-END
 
-    return;
-}
+#endif // PLIB_CCL_H
 
-bool SYS_INT_SourceDisable( INT_SOURCE source )
-{
-    bool processorStatus;
-    bool intSrcStatus;
-
-    processorStatus = SYS_INT_Disable();
-
-    intSrcStatus = NVIC_GetEnableIRQ(source);
-
-    NVIC_DisableIRQ( source );
-
-    SYS_INT_Restore( processorStatus );
-
-    /* return the source status */
-    return intSrcStatus;
-}
-
-void SYS_INT_SourceRestore( INT_SOURCE source, bool status )
-{
-    if( status ) {
-        SYS_INT_SourceEnable( source );
-    }
-    return;
-}
+/*******************************************************************************
+ End of File
+*/
