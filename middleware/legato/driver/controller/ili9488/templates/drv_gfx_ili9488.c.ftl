@@ -475,7 +475,7 @@ void DRV_ILI9488_Update(void)
 <#if ParallelInterfaceWidth == "16-bit" && DisplayInterfaceType != "SPI 4-line">
                 GFX_Disp_Intf_WriteData16(intf,
                                         ptr,
-                                        buf->size.width);
+                                        drv.blitParms.buf->size.width);
 <#else>
                 for(col = 0, dataIdx = 0; col < drv.blitParms.buf->size.width; col++)
                 {
