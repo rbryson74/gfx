@@ -54,25 +54,22 @@ def instantiateComponent(comp):
 	execfile(Module.getPath() + "/config/ili9488_files.py")
 	execfile(Module.getPath() + "/config/ili9488_rtos.py")
 
+def onDisplayInterfaceTypeSelected(symbol, event):
+	if (event["value"] == "SPI 4-line"):
+		symbol.getComponent().setDependencyEnabled("Parallel Display Interface", False);
+		symbol.getComponent().setDependencyEnabled("SPI Display Interface", True);
+		symbol.getComponent().getSymbolByID("ParallelInterfaceWidth").setVisible(False)
+	else:
+		symbol.getComponent().setDependencyEnabled("Parallel Display Interface", True);
+		symbol.getComponent().setDependencyEnabled("SPI Display Interface", False);
+		symbol.getComponent().getSymbolByID("ParallelInterfaceWidth").setVisible(True)
+	
 def onAttachmentConnected(source, target):
 	print("dependency Connected = " + str(target['id']))
 	gfxCoreComponentTable = ["gfx_hal_le"]
 	if (Database.getComponentByID("gfx_hal_le") is None):
 		Database.activateComponents(gfxCoreComponentTable)
 	updateDisplayManager(source["component"], target["component"])
-	source["component"].getSymbolByID("ParallelInterfaceWidth").setVisible(False)
-	if source["id"] == "Parallel Display Interface":
-		print(source["component"].getID() + ": Using " + target["component"].getID() + " interface ")
-		source["component"].getSymbolByID("ParallelInterfaceWidth").setVisible(True)
-		source["component"].setDependencyEnabled("SPI Display Interface", False);
-		source["component"].getSymbolByID("DisplayInterfaceType").setValue("Parallel")
-	elif source["id"] == "SPI Display Interface":
-		source["component"].setDependencyEnabled("Parallel Display Interface", False);
-		source["component"].getSymbolByID("DisplayInterfaceType").setValue("SPI 4-line")
-
-def onAttachmentDisconnected(source, target):
-	source["component"].setDependencyEnabled("Parallel Display Interface", True);
-	source["component"].setDependencyEnabled("SPI Display Interface", True);
 
 def showRTOSMenu(symbol, event):
 	symbol.setVisible(event["value"] != "BareMetal")
