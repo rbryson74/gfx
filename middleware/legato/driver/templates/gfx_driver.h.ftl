@@ -105,6 +105,7 @@ typedef uint32_t               gfxColor;
 #define ARGB_8888_BLUE_MASK    0xFF
 #define ARGB_8888_ALPHA_MASK   0xFF000000
 
+#define GFX_CTRLR_LAYER_START 0x80000000
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus
@@ -156,6 +157,76 @@ typedef enum gfxBool
     GFX_FALSE = 0,
     GFX_TRUE
 } gfxBool;
+
+// *****************************************************************************
+/* Enumeration:
+    ctlrCfg
+
+  Summary:
+    Display controller config requests
+
+  Description:
+    Display controller config requests
+
+  Remarks:
+    None.
+*/
+typedef enum
+{
+    /* Layer configurations */
+    GFX_CTRLR_SET_LAYER_LOCK = GFX_CTRLR_LAYER_START,
+    GFX_CTRLR_SET_LAYER_UNLOCK,            
+    GFX_CTRLR_SET_LAYER_SIZE,
+    GFX_CTRLR_SET_LAYER_ALPHA,
+    GFX_CTRLR_SET_LAYER_WINDOW_SIZE,
+    GFX_CTRLR_SET_LAYER_WINDOW_POSITION,
+    GFX_CTRLR_SET_LAYER_BASE_ADDRESS,
+    GFX_CTRLR_SET_LAYER_COLOR_MODE,
+    GFX_CTRLR_SET_LAYER_ENABLE,
+    GFX_CTRLR_SET_LAYER_DISABLE,
+    GFX_CTRLR_LAYER_END,
+} ctlrCfg;
+
+// *****************************************************************************
+/* Structure:
+    argSetSize
+
+  Summary:
+    CtrlCfg parameter for setting layer size.
+*/
+typedef struct
+{
+    unsigned int layerID;
+    unsigned int width;
+    unsigned int height;
+} argSetSize;
+
+// *****************************************************************************
+/* Structure:
+    argSetSize
+
+  Summary:
+    CtrlCfg parameter for setting layer position.
+*/
+typedef struct
+{
+    unsigned int layerID;
+    int xpos;
+    int ypos;
+} argSetPosition;
+
+// *****************************************************************************
+/* Structure:
+    argSetSize
+
+  Summary:
+    CtrlCfg parameter for setting a layer register value.
+*/
+typedef struct
+{
+    unsigned int layerID;
+    unsigned int value;
+} argSetValue;
 
 // *****************************************************************************
 /* Structure:
@@ -730,6 +801,10 @@ gfxResult gfxPixelBuffer_SetLocked(gfxPixelBuffer* buffer,
                     if a driver implements this counter this value
                     can be used to do frame rate calculations
 
+    getFrameBuffer - returns the frame buffer of the active layer
+
+    ctrlrConfig - driver interface for configuring the display controller
+
 */
 typedef struct gfxDisplayDriver
 {
@@ -759,6 +834,8 @@ typedef struct gfxDisplayDriver
     uint32_t (*getVSYNCCount)(void);
 
     gfxPixelBuffer* (*getFrameBuffer)(int32_t idx);
+
+    gfxResult (*ctrlrConfig) (ctlrCfg request, void * arg);
 
 } gfxDisplayDriver;
 
