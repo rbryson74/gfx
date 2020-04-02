@@ -37,6 +37,7 @@ def instantiateComponent(comp):
 	
 	execfile(Module.getPath() + "/config/config.py")
 	execfile(Module.getPath() + "/config/files.py")
+	execfile(Module.getPath() + "/config/rtos.py")
 
 	comp.setDependencyEnabled("Parallel Display Interface", True);
 	comp.setDependencyEnabled("SPI Display Interface", False);
