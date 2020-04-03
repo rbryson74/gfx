@@ -113,7 +113,7 @@ void leCircularSliderWidget_Constructor(leCircularSliderWidget* _this)
     _this->widget.fn = (void*)&circularSliderWidgetVTable;
     _this->fn = &circularSliderWidgetVTable;
 
-    _this->widget.type = LE_WIDGET_ARC;
+    _this->widget.type = LE_WIDGET_CIRCULAR_SLIDER;
     
     _this->widget.rect.width = DEFAULT_WIDTH;
     _this->widget.rect.height = DEFAULT_HEIGHT;
@@ -1216,7 +1216,7 @@ static const leCircularSliderWidgetVTable circularSliderWidgetVTable =
     .getChildCount = (void*)_leWidget_GetChildCount,
     .getChildAtIndex = (void*)_leWidget_GetChildAtIndex,
     .getIndexOfChild = (void*)_leWidget_GetIndexOfChild,
-    .containsDescendent = (void*)_leWidget_ContainsDescendent,
+    .containsDescendant = (void*)_leWidget_ContainsDescendant,
     .getScheme = (void*)_leWidget_GetScheme,
     .setScheme = (void*)_leWidget_SetScheme,
     .getBorderType = (void*)_leWidget_GetBorderType,

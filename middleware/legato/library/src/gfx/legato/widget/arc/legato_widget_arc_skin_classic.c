@@ -162,7 +162,7 @@ static void drawArc(leArcWidget* arc)
                        arc->startAngle,
                        arc->centerAngle,
                        arc->thickness,
-                       arc->widget.scheme->foreground,
+                       leScheme_GetRenderColor(arc->widget.scheme, LE_SCHM_FOREGROUND),
                        LE_FALSE,
                        paintState.alpha);
     
@@ -178,7 +178,7 @@ static void drawArc(leArcWidget* arc)
                            0,
                            360,
                            arc->thickness / 2,
-                           arc->widget.scheme->foreground,
+                           leScheme_GetRenderColor(arc->widget.scheme, LE_SCHM_FOREGROUND),
                            LE_FALSE,
                            paintState.alpha);
         
@@ -192,7 +192,7 @@ static void drawArc(leArcWidget* arc)
                            0,
                            360,
                            arc->thickness / 2,
-                           arc->widget.scheme->foreground,
+                           leScheme_GetRenderColor(arc->widget.scheme, LE_SCHM_FOREGROUND),
                            LE_FALSE,
                            paintState.alpha);
     }
@@ -218,13 +218,6 @@ static void drawBorder(leArcWidget* arc)
 
 void _leArcWidget_Paint(leArcWidget* arc)
 {
-    if(arc->widget.scheme == NULL)
-    {
-        arc->widget.drawState = DONE;
-        
-        return;
-    }
-    
     if(arc->widget.drawState == NOT_STARTED)
     {
         nextState(arc);

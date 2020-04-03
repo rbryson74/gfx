@@ -47,7 +47,7 @@ leWidget* leUtils_PickFromWidget(const leWidget* parent,
 
     for(i = 0; i < parent->children.size; i++)
     {
-        child = parent->children.values[i];
+        child = leArray_Get(&parent->children, i);
 
         // widget must be enabled and visible
         if(child->enabled == LE_TRUE &&

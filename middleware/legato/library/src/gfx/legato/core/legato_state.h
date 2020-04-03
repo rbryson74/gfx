@@ -69,6 +69,7 @@ typedef struct leState
     leLanguageChangedCallback_FnPtr languageChangedCB; /**< language changed callback */
 
     leWidget rootWidget[LE_LAYER_COUNT]; /**< root widgets of the scene */
+    leColorMode layerColorModes[LE_LAYER_COUNT]; /**< layer color modes */
 
 #if LE_STREAMING_ENABLED == 1
     leStreamManager* activeStream; /**< active stream state */
@@ -79,7 +80,7 @@ typedef struct leState
 /**
   * @cond INTERNAL
   */
-LIB_EXPORT leState* leGetState();
+leState* leGetState();
 /**
   * @endcond
   *
@@ -143,6 +144,29 @@ LIB_EXPORT leResult leUpdate(uint32_t dt);
  */
 LIB_EXPORT leColorMode leGetColorMode();
     
+/**
+ * @brief Get layer color mode.
+ * @details Gets the the layer color mode
+ * @code
+ * leColorMode mode = leGetLayerColorMode(0);
+ * @endcode
+ * @param lyrIdx is the index of the layer to query
+ * @return the color mode of layer.
+ */
+LIB_EXPORT leColorMode leGetLayerColorMode(uint32_t lyrIdx);
+
+/**
+ * @brief Set layer color mode.
+ * @details Sets the the layer color mode at index
+ * @code
+ * leResult res = leGetLayerColorMode(0, LE_RGB_565);
+ * @endcode
+ * @param lyrIdx is the index of the layer to query
+ * @param mode is the color mode to set
+ * @return result.
+ */
+leResult leSetLayerColorMode(uint32_t lyrIdx, leColorMode mode);
+
 // *****************************************************************************
 /**
  * @brief Get display rectangle.

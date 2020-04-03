@@ -957,4 +957,26 @@ leRect leRotatedRectBounds(leRect rect,
                            lePoint org,
                            int32_t ang);
 
+
+// *****************************************************************************
+/* Function:
+    float leSqrt(const float x)
+
+  Summary:
+    Fast square root approximation function.
+
+  Description:
+    Approximates a square root using the magic number method.
+
+  Parameters:
+    const float x - the number to calculate the root for
+
+  Returns:
+    float - square root of the input number
+
+  Remarks:
+
+*/
+float leSqrt(const float x);
+
 #endif /* LE_MATH_H */

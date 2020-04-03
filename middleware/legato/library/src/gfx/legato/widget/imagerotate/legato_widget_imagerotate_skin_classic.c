@@ -158,13 +158,6 @@ static void drawBorder(leImageRotateWidget* img)
 
 void _leImageRotateWidget_Paint(leImageRotateWidget* img)
 {
-    if(img->widget.scheme == NULL)
-    {
-        img->widget.drawState = DONE;
-        
-        return;
-    }
-    
     if(img->widget.drawState == NOT_STARTED)
     {
         nextState(img);

@@ -347,7 +347,7 @@ void leWidget_SkinClassic_DrawStandardBackground(leWidget* wgt,
     if(wgt->backgroundType == LE_WIDGET_BACKGROUND_FILL)
     {    
         leWidget_SkinClassic_DrawBackground(wgt,
-                                            wgt->scheme->base,
+                                            leScheme_GetRenderColor(wgt->scheme, LE_SCHM_BASE),
                                             alpha);
     }
 }
@@ -643,13 +643,13 @@ void leWidget_SkinClassic_DrawStandardLineBorder(leWidget* wgt,
     if (wgt->cornerRadius == 0)
     {
         leWidget_SkinClassic_DrawLineBorder(&rect,
-                                            wgt->scheme->shadowDark,
+                                            leScheme_GetRenderColor(wgt->scheme, LE_SCHM_SHADOWDARK),
                                             alpha);
     }
     else
     {
         leWidget_SkinClassic_DrawRoundCornerLineBorder(&rect,
-                                                       wgt->scheme->shadowDark,
+                                                       leScheme_GetRenderColor(wgt->scheme, LE_SCHM_SHADOWDARK),
                                                        wgt->cornerRadius,
                                                        alpha);
     }
@@ -661,7 +661,7 @@ void leWidget_SkinClassic_DrawStandardRoundCornerLineBorder(leWidget* wgt,
     leRect rect = wgt->fn->rectToScreen(wgt);
 
     leWidget_SkinClassic_DrawRoundCornerLineBorder(&rect,
-                                                   wgt->scheme->shadowDark,
+                                                   leScheme_GetRenderColor(wgt->scheme, LE_SCHM_SHADOWDARK),
                                                    wgt->cornerRadius,
                                                    alpha);
 }
@@ -672,10 +672,10 @@ void leWidget_SkinClassic_DrawStandardRaisedBorder(leWidget* wgt,
     leRect rect = wgt->fn->rectToScreen(wgt);
 
     leWidget_SkinClassic_Draw2x2BeveledBorder(&rect,
-                                              wgt->scheme->highlightLight,
-                                              wgt->scheme->highlightLight,
-                                              wgt->scheme->shadowDark,
-                                              wgt->scheme->shadow,
+                                              leScheme_GetRenderColor(wgt->scheme, LE_SCHM_HIGHLIGHTLIGHT),
+                                              leScheme_GetRenderColor(wgt->scheme, LE_SCHM_HIGHLIGHTLIGHT),
+                                              leScheme_GetRenderColor(wgt->scheme, LE_SCHM_SHADOWDARK),
+                                              leScheme_GetRenderColor(wgt->scheme, LE_SCHM_SHADOW),
                                               alpha);
 }
 
@@ -685,10 +685,10 @@ void leWidget_SkinClassic_DrawStandardLoweredBorder(leWidget* wgt,
     leRect rect = wgt->fn->rectToScreen(wgt);
 
     leWidget_SkinClassic_Draw2x2BeveledBorder(&rect,
-                                              wgt->scheme->shadowDark,
-                                              wgt->scheme->shadow,
-                                              wgt->scheme->highlightLight,
-                                              wgt->scheme->highlightLight,
+                                              leScheme_GetRenderColor(wgt->scheme, LE_SCHM_SHADOWDARK),
+                                              leScheme_GetRenderColor(wgt->scheme, LE_SCHM_SHADOW),
+                                              leScheme_GetRenderColor(wgt->scheme, LE_SCHM_HIGHLIGHTLIGHT),
+                                              leScheme_GetRenderColor(wgt->scheme, LE_SCHM_HIGHLIGHTLIGHT),
                                               alpha);
 }
 
@@ -698,9 +698,9 @@ void leWidget_SkinClassic_DrawStandardHybridBorder(leWidget* wgt,
     leRect rect = wgt->fn->rectToScreen(wgt);
 
     leWidget_SkinClassic_Draw1x2BeveledBorder(&rect,
-                                              wgt->scheme->highlightLight,
-                                              wgt->scheme->shadowDark,
-                                              wgt->scheme->shadow,
+                                              leScheme_GetRenderColor(wgt->scheme, LE_SCHM_HIGHLIGHTLIGHT),
+                                              leScheme_GetRenderColor(wgt->scheme, LE_SCHM_SHADOWDARK),
+                                              leScheme_GetRenderColor(wgt->scheme, LE_SCHM_SHADOW),
                                               alpha);
 }
 

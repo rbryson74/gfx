@@ -143,13 +143,6 @@ static void drawBorder(leDrawSurfaceWidget* sfc)
 
 void _leDrawSurfaceWidget_Paint(leDrawSurfaceWidget* sfc)
 {
-    if(sfc->widget.scheme == NULL)
-    {
-        sfc->widget.drawState = DONE;
-        
-        return;
-    }
-    
     if(sfc->widget.drawState == NOT_STARTED)
     {
         nextState(sfc);

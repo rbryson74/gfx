@@ -226,8 +226,8 @@ static void drawBackground(leTextFieldWidget* txt)
 {
     if(txt->editWidget.widget.backgroundType == LE_WIDGET_BACKGROUND_FILL)
     {
-        leWidget_SkinClassic_DrawBackground((leWidget*)txt, 
-                                            txt->editWidget.widget.scheme->background,
+        leWidget_SkinClassic_DrawBackground((leWidget*)txt,
+                                            leScheme_GetRenderColor(txt->editWidget.widget.scheme, LE_SCHM_BACKGROUND),
                                             paintState.alpha);
     }
     
@@ -257,7 +257,7 @@ static void drawString(leTextFieldWidget* txt)
                             textRect.x,
                             textRect.y,
                             txt->editWidget.widget.halign,
-                            txt->editWidget.widget.scheme->text,
+                            leScheme_GetRenderColor(txt->editWidget.widget.scheme, LE_SCHM_TEXT),
                             paintState.alpha);
     }
     else if(txt->hintText != NULL && leGetEditWidget() != (void*)txt)
@@ -266,7 +266,7 @@ static void drawString(leTextFieldWidget* txt)
                                  textRect.x,
                                  textRect.y,
                                  txt->editWidget.widget.halign,
-                                 txt->editWidget.widget.scheme->textDisabled,
+                                 leScheme_GetRenderColor(txt->editWidget.widget.scheme, LE_SCHM_TEXT_DISABLED),
                                  paintState.alpha);
     }
 
@@ -292,8 +292,8 @@ static void drawCursor(leTextFieldWidget* txt)
     _leTextFieldWidget_GetCursorRect(txt, &cursorRect);
     
     // draw cursor line
-    leRenderer_RectFill(&cursorRect, 
-                        txt->editWidget.widget.scheme->foreground,
+    leRenderer_RectFill(&cursorRect,
+                        leScheme_GetRenderColor(txt->editWidget.widget.scheme, LE_SCHM_FOREGROUND),
                         paintState.alpha);
     
     nextState(txt);
@@ -317,13 +317,6 @@ static void drawBorder(leTextFieldWidget* txt)
 
 void _leTextFieldWidget_Paint(leTextFieldWidget* txt)
 {
-    if(txt->editWidget.widget.scheme == NULL)
-    {
-        txt->editWidget.widget.drawState = DONE;
-        
-        return;
-    }
-
     if(txt->editWidget.widget.drawState == NOT_STARTED)
     {
         nextState(txt);

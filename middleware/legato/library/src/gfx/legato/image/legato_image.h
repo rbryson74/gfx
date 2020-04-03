@@ -69,8 +69,8 @@ typedef enum leImageFormat
 {
     LE_IMAGE_FORMAT_RAW = 0,
     LE_IMAGE_FORMAT_RLE,
-    //LE_IMAGE_FORMAT_JPEG,
-    //LE_IMAGE_FORMAT_PNG
+    LE_IMAGE_FORMAT_JPEG,
+    LE_IMAGE_FORMAT_PNG
 } leImageFormat;
 
 #define LE_IMAGE_FORMAT_COUNT (LE_IMAGE_FORMAT_RLE + 1)
@@ -174,6 +174,8 @@ typedef struct leImageMap
  * @brief This struct represents an image.
  * @details An image is used to describe an image asset.
  */
+struct leImage;
+
 typedef struct leImage
 {
     leStreamDescriptor header;
@@ -189,7 +191,7 @@ typedef struct leImage
 
     leImageMap* alphaMap;
 
-    lePalette* palette;
+    struct leImage* palette;
 } leImage;
 
 // *****************************************************************************
@@ -427,7 +429,7 @@ typedef struct leImageStreamDecoder
  * @return LE_SUCCESS if set, otherwise LE_FAILURE.
  */
 LIB_EXPORT leResult leImage_Draw(const leImage* img,
-                                 leRect* sourceRect,
+                                 const leRect* sourceRect,
                                  int32_t x,
                                  int32_t y,
                                  uint32_t a);

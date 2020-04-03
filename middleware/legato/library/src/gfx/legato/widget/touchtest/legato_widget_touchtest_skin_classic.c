@@ -155,13 +155,13 @@ static void drawLines(leTouchTestWidget* tch)
 
         per = lePercentWholeRounded(tch->pnts[j].y, widgetRect.height);
         
-        c1 = tch->widget.scheme->foreground;
-        c2 = tch->widget.scheme->foregroundInactive;
+        c1 = leScheme_GetRenderColor(tch->widget.scheme, LE_SCHM_FOREGROUND);
+        c2 = leScheme_GetRenderColor(tch->widget.scheme, LE_SCHM_FOREGROUND_INACTIVE);
         
         clr = leColorLerp(c1,
                           c2,
                           per,
-                          LE_GLOBAL_COLOR_MODE);
+                          leRenderer_CurrentColorMode());
 
         touchPnt = tch->pnts[j];
 
@@ -173,13 +173,13 @@ static void drawLines(leTouchTestWidget* tch)
         
         per = lePercentWholeRounded(tch->pnts[j].x, widgetRect.width);
             
-        c1 = tch->widget.scheme->background;
-        c2 = tch->widget.scheme->backgroundInactive;
+        c1 = leScheme_GetRenderColor(tch->widget.scheme, LE_SCHM_BACKGROUND);
+        c2 = leScheme_GetRenderColor(tch->widget.scheme, LE_SCHM_BACKGROUND_INACTIVE);
             
         clr = leColorLerp(c1,
                           c2,
                           per,
-                          LE_GLOBAL_COLOR_MODE);
+                          leRenderer_CurrentColorMode());
 
         leRenderer_VertLine(widgetRect.x + touchPnt.x,
                             widgetRect.y,
@@ -209,13 +209,6 @@ static void drawBorder(leTouchTestWidget* tch)
 
 void _leTouchTestWidget_Paint(leTouchTestWidget* tch)
 {
-    if(tch->widget.scheme == NULL)
-    {
-        tch->widget.drawState = DONE;
-        
-        return;
-    }
-
     if(tch->widget.drawState == NOT_STARTED)
     {
         nextState(tch);

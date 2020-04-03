@@ -328,18 +328,15 @@ static void drawArcArray(leCircularGaugeWidget* gauge)
     {
         arc = leArray_Get(&gauge->arcsArray, i);
 
-        if (arc->scheme != NULL)
+        if(arc->scheme != NULL)
         {
-            clr = arc->scheme->foreground;
-            //gradient1 = arc->scheme->foreground & 0xffffff00;
-            //gradient2 = arc->scheme->foreground;
+            clr = leScheme_GetRenderColor(arc->scheme, LE_SCHM_FOREGROUND);
         }
         else
         {
-            clr = gauge->widget.scheme->foreground;
-            //gradient1 = gauge->widget.scheme->foreground & 0xffffff00;
-            //gradient2 = gauge->widget.scheme->foreground;
+            clr = leScheme_GetRenderColor(gauge->widget.scheme, LE_SCHM_FOREGROUND);
         }
+
 
         if (arc->type == VALUE_ARC)
         {
@@ -381,11 +378,11 @@ static void drawMinorTicks(leCircularGaugeWidget* gauge)
         {
             if (ticks->scheme != NULL)
             {
-                clr = ticks->scheme->foreground;
+                clr = leScheme_GetRenderColor(ticks->scheme, LE_SCHM_FOREGROUND);
             }
             else
             {
-                clr = gauge->widget.scheme->foregroundInactive;
+                clr = leScheme_GetRenderColor(ticks->scheme, LE_SCHM_FOREGROUND_INACTIVE);
             }
             
             //draw start and middle ticks
@@ -434,11 +431,11 @@ static void drawMinorTickLabels(leCircularGaugeWidget* gauge)
         {
             if (labels->scheme != NULL)
             {
-                clr = labels->scheme->text;
+                clr = leScheme_GetRenderColor(labels->scheme, LE_SCHM_TEXT);
             }
             else
             {
-                clr = gauge->widget.scheme->text;
+                clr = leScheme_GetRenderColor(gauge->widget.scheme, LE_SCHM_TEXT);
             }
             
             //draw start and middle ticks
@@ -487,8 +484,8 @@ static void drawMajorTicks(leCircularGaugeWidget* gauge)
                      gauge->radius,
                      gauge->tickLength,
                      gauge->startAngle,
-                     gauge->widget.scheme->foregroundInactive);
-    
+                     leScheme_GetRenderColor(gauge->widget.scheme, LE_SCHM_FOREGROUND_INACTIVE));
+
     while((gauge->startValue + unitOffset) < gauge->endValue)
     {
         tickAngleOffset = (int32_t) ((float) unitOffset * paintState.degPerUnit);
@@ -497,7 +494,7 @@ static void drawMajorTicks(leCircularGaugeWidget* gauge)
                          gauge->radius,
                          gauge->tickLength,
                          gauge->startAngle + tickAngleOffset,
-                         gauge->widget.scheme->foregroundInactive);
+                         leScheme_GetRenderColor(gauge->widget.scheme, LE_SCHM_FOREGROUND_INACTIVE));
 
         unitOffset += gauge->tickValue;
     } 
@@ -509,7 +506,7 @@ static void drawMajorTicks(leCircularGaugeWidget* gauge)
                          gauge->radius,
                          gauge->tickLength,
                          gauge->startAngle + gauge->centerAngle,
-                         gauge->widget.scheme->foregroundInactive);
+                         leScheme_GetRenderColor(gauge->widget.scheme, LE_SCHM_FOREGROUND_INACTIVE));
     }
 }
 
@@ -529,8 +526,8 @@ static void drawMajorTickLabels(leCircularGaugeWidget* gauge)
                                    gauge->radius + LABEL_OFFSET_MIN_PIX,
                                    CIRCULAR_GAUGE_LABEL_OUTSIDE,
                                    gauge->startValue,
-                                   gauge->widget.scheme->text);
-    
+                                   leScheme_GetRenderColor(gauge->widget.scheme, LE_SCHM_TEXT));
+
     while((gauge->startValue + unitOffset) < gauge->endValue)
     {
         tickAngleOffset = (int32_t) ((float) unitOffset * paintState.degPerUnit);
@@ -540,7 +537,7 @@ static void drawMajorTickLabels(leCircularGaugeWidget* gauge)
                                        gauge->radius + LABEL_OFFSET_MIN_PIX,
                                        CIRCULAR_GAUGE_LABEL_OUTSIDE,
                                        gauge->startValue + unitOffset,
-                                       gauge->widget.scheme->text);
+                                       leScheme_GetRenderColor(gauge->widget.scheme, LE_SCHM_TEXT));
   
         unitOffset += gauge->tickValue;
     } 
@@ -553,7 +550,7 @@ static void drawMajorTickLabels(leCircularGaugeWidget* gauge)
                                        gauge->radius + LABEL_OFFSET_MIN_PIX,
                                        CIRCULAR_GAUGE_LABEL_OUTSIDE,
                                        gauge->endValue,
-                                       gauge->widget.scheme->text);
+                                       leScheme_GetRenderColor(gauge->widget.scheme, LE_SCHM_TEXT));
     }
 }
 
@@ -590,12 +587,6 @@ static void drawHand(leCircularGaugeWidget* gauge,
     //Draw the center circle
     if(gauge->centerCircleVisible == LE_TRUE)
     {
-        //GFX_Set(GFXF_DRAW_COLOR, gauge->widget.scheme->foreground);
-        //GFX_Set(GFXF_DRAW_GRADIENT_COLOR, gauge->widget.scheme->foreground & 0xffffff00, gauge->widget.scheme->foreground, NULL, NULL);
-        //GFX_Set(GFXF_DRAW_THICKNESS, gauge->centerCircleThickness);
-
-
-
         leRenderer_ArcFill(rect,
                            rect->width >> 1,
                            rect->height >> 1,
@@ -603,7 +594,7 @@ static void drawHand(leCircularGaugeWidget* gauge,
                            0,
                            360,
                            gauge->centerCircleThickness,
-                           gauge->widget.scheme->foreground,
+                           leScheme_GetRenderColor(gauge->widget.scheme, LE_SCHM_FOREGROUND),
                            LE_FALSE,
                            paintState.alpha);
         
@@ -614,7 +605,7 @@ static void drawHand(leCircularGaugeWidget* gauge,
                         paintState.p.y - outerPoint.y,
                         paintState.p.x + innerPoint.x,
                         paintState.p.y - innerPoint.y,
-                        gauge->widget.scheme->foreground,
+                        leScheme_GetRenderColor(gauge->widget.scheme, LE_SCHM_FOREGROUND),
                         paintState.alpha);
 }
 
@@ -673,13 +664,6 @@ static void drawBorder(leCircularGaugeWidget* gauge)
 
 void _leCircularGaugeWidget_Paint(leCircularGaugeWidget* gauge)
 {    
-    if(gauge->widget.scheme == NULL)
-    {
-        gauge->widget.drawState = DONE;
-        
-        return;
-    }
-    
     if(gauge->widget.drawState == NOT_STARTED)
     {
         nextState(gauge);

@@ -29,7 +29,7 @@
 #if LE_STREAMING_ENABLED == 1
 
 void leStream_Init(leStream* stream,
-                   leStreamDescriptor* desc,
+                   const leStreamDescriptor* desc,
                    uint32_t cacheSize,
                    uint8_t* cacheBuf,
                    void* userData)
@@ -64,6 +64,18 @@ leResult leStream_Open(leStream* stream)
     }
 
     return LE_SUCCESS;
+}
+
+leBool leStream_IsOpen(leStream* stream)
+{
+    if(stream == NULL ||
+      stream->desc == NULL ||
+      stream->state == LE_STREAM_CLOSED)
+    {
+        return LE_FALSE;
+    }
+
+    return LE_TRUE;
 }
 
 leResult leStream_Read(leStream* stream,

@@ -243,13 +243,6 @@ static void drawBorder(leImageWidget* img)
 
 void _leImageWidget_Paint(leImageWidget* img)
 {
-    if(img->widget.scheme == NULL)
-    {
-        img->widget.drawState = DONE;
-
-        return;
-    }
-
     if(img->widget.drawState == NOT_STARTED)
     {
         nextState(img);

@@ -177,7 +177,7 @@ static void drawString(leLabelWidget* lbl)
                           textRect.x,
                           textRect.y,
                           lbl->widget.halign,
-                          lbl->widget.scheme->text,
+                          leScheme_GetRenderColor(lbl->widget.scheme, LE_SCHM_TEXT),
                           paintState.alpha);
 
 #if LE_STREAMING_ENABLED == 1
@@ -213,13 +213,6 @@ static void drawBorder(leLabelWidget* lbl)
 
 void _leLabelWidget_Paint(leLabelWidget* lbl)
 {
-    if(lbl->widget.scheme == NULL)
-    {
-        lbl->widget.drawState = DONE;
-        
-        return;
-    }
-
     if(lbl->widget.drawState == NOT_STARTED)
         nextState(lbl);
 

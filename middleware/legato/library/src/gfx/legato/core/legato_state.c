@@ -256,7 +256,6 @@ leResult leInitialize(const gfxDisplayDriver* dispDriver)
 #endif
     
     leImage_InitDecoders();
-    leScheme_Initialize(&_state.defaultScheme, LE_GLOBAL_COLOR_MODE);
 
     for(idx = 0; idx < LE_LAYER_COUNT; idx++)
     {
@@ -269,6 +268,8 @@ leResult leInitialize(const gfxDisplayDriver* dispDriver)
         root->fn->setSize(root,
                           dispDriver->getDisplayWidth(),
                           dispDriver->getDisplayHeight());
+
+        _state.layerColorModes[idx] = LE_DEFAULT_COLOR_MODE;
     }
     
     _initialized = LE_TRUE;
@@ -358,9 +359,23 @@ leResult leUpdate(uint32_t dt)
     return LE_SUCCESS;
 }
 
-leColorMode leGetColorMode()
+leColorMode leGetLayerColorMode(uint32_t idx)
 {
-    return LE_GLOBAL_COLOR_MODE;
+    if(idx >= LE_LAYER_COUNT)
+        return LE_COLOR_MODE_GS_8;
+
+    return _state.layerColorModes[idx];
+}
+
+leResult leSetLayerColorMode(uint32_t idx,
+                             leColorMode mode)
+{
+    if(idx >= LE_LAYER_COUNT)
+        return LE_FAILURE;
+
+    _state.layerColorModes[idx] = mode;
+
+    return LE_SUCCESS;
 }
 
 leRect leGetDisplayRect()

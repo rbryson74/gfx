@@ -176,7 +176,7 @@ leResult _leRawImageDecoder_LookupStage_Stream(leRawDecodeState* state)
         return LE_FAILURE;
     }
 
-    streamPaletteStage.paletteSize = leColorInfoTable[state->source->palette->colorMode].size;
+    streamPaletteStage.paletteSize = leColorInfoTable[state->source->palette->buffer.mode].size;
 
     streamPaletteStage.base.state = state;
     streamPaletteStage.base.cleanup = (void*)cleanup;
