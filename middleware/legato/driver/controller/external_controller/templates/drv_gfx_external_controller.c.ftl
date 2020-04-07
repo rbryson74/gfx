@@ -245,8 +245,8 @@ static int DRV_${ControllerName}_Configure(${ControllerName}_DRV *drv)
     None.
 
   Returns:
-    * LE_SUCCESS       - Operation successful
-    * LE_FAILURE       - Operation failed
+    * GFX_SUCCESS       - Operation successful
+    * GFX_FAILURE       - Operation failed
 
 */
 void DRV_${ControllerName}_Update(void)
@@ -271,7 +271,7 @@ void DRV_${ControllerName}_Update(void)
 }
 
 <#if PassiveDriver == false>
-leColorMode DRV_${ControllerName}_GetColorMode(void)
+gfxColorMode DRV_${ControllerName}_GetColorMode(void)
 {
     return PIXEL_BUFFER_COLOR_MODE;
 }
@@ -301,14 +301,15 @@ uint32_t DRV_${ControllerName}_GetActiveLayer()
     return 0;
 }
 
-leResult DRV_${ControllerName}_SetActiveLayer(uint32_t idx)
+gfxResult DRV_${ControllerName}_SetActiveLayer(uint32_t idx)
 {
-    return LE_SUCCESS;
+    return GFX_SUCCESS;
 }
 
-leResult DRV_${ControllerName}_BlitBuffer(int32_t x,
+gfxResult DRV_${ControllerName}_BlitBuffer(int32_t x,
                                 int32_t y,
-                                lePixelBuffer* buf)
+                                gfxPixelBuffer* buf,
+								gfxBlend gfx)
 {
 
 <#if BlitBufferFunctionGenerateMode == "Use Bulk Write">
@@ -322,7 +323,7 @@ leResult DRV_${ControllerName}_BlitBuffer(int32_t x,
     GFX_Disp_Intf intf;
     
     if (drv.state != RUN)
-        return LE_FAILURE;
+        return GFX_FAILURE;
     
     intf = (GFX_Disp_Intf) drv.port_priv;
 
@@ -371,11 +372,11 @@ leResult DRV_${ControllerName}_BlitBuffer(int32_t x,
     GFX_Disp_Intf_WriteCommand(intf, 0x${MemoryWriteCommand});
 
 <#if DataWriteSize == "16">
-    ptr = lePixelBufferOffsetGet_Unsafe(buf, 0, 0);
+    ptr = gfxPixelBufferOffsetGet_Unsafe(buf, 0, 0);
     GFX_Disp_Intf_WriteData16(intf, (uint16_t *) ptr, buf->size.width * buf->size.height);
 <#elseif DataWriteSize == "8">
 <#if PixelDataTxSize8Bit == "2 (Little-Endian)">
-    ptr = lePixelBufferOffsetGet_Unsafe(buf, 0, 0);
+    ptr = gfxPixelBufferOffsetGet_Unsafe(buf, 0, 0);
     GFX_Disp_Intf_WriteData(intf,
                             (uint8_t *) ptr,
                             PIXEL_BUFFER_BYTES_PER_PIXEL *
@@ -386,7 +387,7 @@ buf->size.height);
     for(row = 0; row < buf->size.height; row++)
     {
         int col, dataIdx;
-        ptr = lePixelBufferOffsetGet_Unsafe(buf, 0, row);
+        ptr = gfxPixelBufferOffsetGet_Unsafe(buf, 0, row);
 <#if PixelDataTxSize8Bit != "2 (Little-Endian)">
         for(col = 0, dataIdx = 0; col < buf->size.width; col++)
         {
@@ -414,7 +415,7 @@ buf->size.height);
 #error "Blit buffer procedure is not complete. Please complete definition of blit function."
 </#if>
 
-    return LE_SUCCESS;
+    return GFX_SUCCESS;
 }
 
 void DRV_${ControllerName}_Swap(void)

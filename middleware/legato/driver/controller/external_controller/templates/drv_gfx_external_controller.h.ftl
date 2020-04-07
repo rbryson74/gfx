@@ -42,7 +42,7 @@
 #define DRV_GFX_${ControllerName}_H
 
 <#if PassiveDriver == false>
-#include "gfx/legato/renderer/legato_driver.h"
+#include "gfx/legato/renderer/legato_renderer.h"
 </#if>
 
 #ifdef __cplusplus
@@ -56,18 +56,18 @@ int DRV_${ControllerName}_Initialize(void);
 void DRV_${ControllerName}_Update(void);
 
 <#if PassiveDriver == false>
-leColorMode DRV_${ControllerName}_GetColorMode(void);
+gfxColorMode DRV_${ControllerName}_GetColorMode(void);
 uint32_t DRV_${ControllerName}_GetBufferCount(void);
 uint32_t DRV_${ControllerName}_GetDisplayWidth(void);
 uint32_t DRV_${ControllerName}_GetDisplayHeight(void);
 uint32_t DRV_${ControllerName}_GetLayerCount();
 uint32_t DRV_${ControllerName}_GetActiveLayer();
-leResult DRV_${ControllerName}_SetActiveLayer(uint32_t idx);
-leResult DRV_${ControllerName}_BlitBuffer(int32_t x, int32_t y, lePixelBuffer* buf);
+gfxResult DRV_${ControllerName}_SetActiveLayer(uint32_t idx);
+gfxResult DRV_${ControllerName}_BlitBuffer(int32_t x, int32_t y, gfxPixelBuffer* buf, gfxBlend gfx);
 void DRV_${ControllerName}_Swap(void);
 uint32_t DRV_${ControllerName}_GetSwapCount(void);
 
-static const leDisplayDriver ${DriverInitName} =
+static const gfxDisplayDriver ${DriverInitName} =
 {
     DRV_${ControllerName}_GetColorMode,
     DRV_${ControllerName}_GetBufferCount,
