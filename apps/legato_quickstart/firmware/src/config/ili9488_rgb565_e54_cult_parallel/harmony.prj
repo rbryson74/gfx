@@ -27,16 +27,16 @@
           <Name dnOrder="1">drv_gfx_disp_intf_parallel_portgroup_dma.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/interface/parallel_portgroup</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/interface/parallel_portgroup/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">9665F4CFE240B840BFC52DB6855D81BE</GeneratedChecksum>
-          <UserChecksum dnOrder="5">9665F4CFE240B840BFC52DB6855D81BE</UserChecksum>
+          <GeneratedChecksum dnOrder="4">107DD8D9A8814DB7B8467BD89D8044AD</GeneratedChecksum>
+          <UserChecksum dnOrder="5">107DD8D9A8814DB7B8467BD89D8044AD</UserChecksum>
         </File>
         <File dnOrder="3">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">drv_gfx_ili9488.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/driver/ili9488</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/ili9488/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">ECB61563E8C7348FB80A006B870FCC42</GeneratedChecksum>
-          <UserChecksum dnOrder="5">ECB61563E8C7348FB80A006B870FCC42</UserChecksum>
+          <GeneratedChecksum dnOrder="4">FB6AEE5A12D8BD42B62D19F570823561</GeneratedChecksum>
+          <UserChecksum dnOrder="5">FB6AEE5A12D8BD42B62D19F570823561</UserChecksum>
         </File>
         <File dnOrder="4">
           <Type dnOrder="0">SOURCE</Type>
@@ -83,8 +83,8 @@
           <Name dnOrder="1">initialization.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">4FADEB09F142348D8D4302F79C864EEC</GeneratedChecksum>
-          <UserChecksum dnOrder="5">4FADEB09F142348D8D4302F79C864EEC</UserChecksum>
+          <GeneratedChecksum dnOrder="4">D85F41968901C4516D557119B013DA28</GeneratedChecksum>
+          <UserChecksum dnOrder="5">D85F41968901C4516D557119B013DA28</UserChecksum>
         </File>
         <File dnOrder="10">
           <Type dnOrder="0">SOURCE</Type>
@@ -1139,16 +1139,16 @@
           <Name dnOrder="1">plib_ccl.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/peripheral/ccl/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/ccl/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A352A5717EC35B324EE90C21A029AD06</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A352A5717EC35B324EE90C21A029AD06</UserChecksum>
+          <GeneratedChecksum dnOrder="4">E2611534DB6EBC951908932C679D3AB5</GeneratedChecksum>
+          <UserChecksum dnOrder="5">E2611534DB6EBC951908932C679D3AB5</UserChecksum>
         </File>
         <File dnOrder="142">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_clock.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/peripheral/clock/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/clock/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">785C18CB66B54E80F6F4DD1564693416</GeneratedChecksum>
-          <UserChecksum dnOrder="5">785C18CB66B54E80F6F4DD1564693416</UserChecksum>
+          <GeneratedChecksum dnOrder="4">CF85E136D0B64471D241077E7FB1BC0B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">CF85E136D0B64471D241077E7FB1BC0B</UserChecksum>
         </File>
         <File dnOrder="143">
           <Type dnOrder="0">SOURCE</Type>
@@ -1163,16 +1163,16 @@
           <Name dnOrder="1">plib_dmac.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/peripheral/dmac/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/dmac/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">78C98ACC02651902E01CEB3461323542</GeneratedChecksum>
-          <UserChecksum dnOrder="5">78C98ACC02651902E01CEB3461323542</UserChecksum>
+          <GeneratedChecksum dnOrder="4">FB52A30A5B2F5EAD182FCD5FE602F181</GeneratedChecksum>
+          <UserChecksum dnOrder="5">FB52A30A5B2F5EAD182FCD5FE602F181</UserChecksum>
         </File>
         <File dnOrder="145">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_evsys.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/peripheral/evsys</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/evsys/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">C99E6D9B9BA371EA749B7DC16BC2C209</GeneratedChecksum>
-          <UserChecksum dnOrder="5">C99E6D9B9BA371EA749B7DC16BC2C209</UserChecksum>
+          <GeneratedChecksum dnOrder="4">3AF61549A5A2F026F453515E7E2A2317</GeneratedChecksum>
+          <UserChecksum dnOrder="5">3AF61549A5A2F026F453515E7E2A2317</UserChecksum>
         </File>
         <File dnOrder="146">
           <Type dnOrder="0">SOURCE</Type>
@@ -1195,34 +1195,42 @@
           <Name dnOrder="1">plib_port.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/peripheral/port/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/port/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">8C32044E2D5B7783F5FE8725308AEF2C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">8C32044E2D5B7783F5FE8725308AEF2C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">70D0C4206F037B9B45A82BBC93A5A97B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">70D0C4206F037B9B45A82BBC93A5A97B</UserChecksum>
         </File>
         <File dnOrder="149">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_sercom4_i2c_master.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/peripheral/sercom/i2c_master/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/sercom/i2c_master/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">6EED17265B6B8B946F58B400355CE402</GeneratedChecksum>
-          <UserChecksum dnOrder="5">6EED17265B6B8B946F58B400355CE402</UserChecksum>
+          <GeneratedChecksum dnOrder="4">3CB1543373DC3FC90248AE44C06CB3C5</GeneratedChecksum>
+          <UserChecksum dnOrder="5">3CB1543373DC3FC90248AE44C06CB3C5</UserChecksum>
         </File>
         <File dnOrder="150">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_tc0.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/peripheral/tc/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/tc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">073823FE0A9B3304ABB6AE53FC94DEA6</GeneratedChecksum>
-          <UserChecksum dnOrder="5">073823FE0A9B3304ABB6AE53FC94DEA6</UserChecksum>
+          <GeneratedChecksum dnOrder="4">07D175C7CA75F8D2C1709568FD803BE7</GeneratedChecksum>
+          <UserChecksum dnOrder="5">07D175C7CA75F8D2C1709568FD803BE7</UserChecksum>
         </File>
         <File dnOrder="151">
+          <Type dnOrder="0">SOURCE</Type>
+          <Name dnOrder="1">plib_tc1.c</Name>
+          <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/peripheral/tc/</LogicalPath>
+          <PhysicalPath dnOrder="3">/peripheral/tc/</PhysicalPath>
+          <GeneratedChecksum dnOrder="4">B56389130EA3218308A0463D76193574</GeneratedChecksum>
+          <UserChecksum dnOrder="5">B56389130EA3218308A0463D76193574</UserChecksum>
+        </File>
+        <File dnOrder="152">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_tc4.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/peripheral/tc/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/tc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">AD2B2C5738F7C26AA3FDDF97C43E29E4</GeneratedChecksum>
-          <UserChecksum dnOrder="5">AD2B2C5738F7C26AA3FDDF97C43E29E4</UserChecksum>
+          <GeneratedChecksum dnOrder="4">7BC3C73E51FD56112C4245A18B267273</GeneratedChecksum>
+          <UserChecksum dnOrder="5">7BC3C73E51FD56112C4245A18B267273</UserChecksum>
         </File>
-        <File dnOrder="152">
+        <File dnOrder="153">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">startup_xc32.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/</LogicalPath>
@@ -1230,7 +1238,7 @@
           <GeneratedChecksum dnOrder="4">31987BD86EE19226FFF4173AE2BDDAB7</GeneratedChecksum>
           <UserChecksum dnOrder="5">31987BD86EE19226FFF4173AE2BDDAB7</UserChecksum>
         </File>
-        <File dnOrder="153">
+        <File dnOrder="154">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">sys_cache.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/system/cache/</LogicalPath>
@@ -1238,7 +1246,7 @@
           <GeneratedChecksum dnOrder="4">92901E4C07604DD5EC594B58CEC2720B</GeneratedChecksum>
           <UserChecksum dnOrder="5">92901E4C07604DD5EC594B58CEC2720B</UserChecksum>
         </File>
-        <File dnOrder="154">
+        <File dnOrder="155">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">sys_input.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/system/input</LogicalPath>
@@ -1246,7 +1254,7 @@
           <GeneratedChecksum dnOrder="4">3618E41476EE539B6E4E8B52A817042D</GeneratedChecksum>
           <UserChecksum dnOrder="5">3618E41476EE539B6E4E8B52A817042D</UserChecksum>
         </File>
-        <File dnOrder="155">
+        <File dnOrder="156">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">sys_input_listener.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/system/input</LogicalPath>
@@ -1254,7 +1262,7 @@
           <GeneratedChecksum dnOrder="4">99F5C28835CA70CF308C005561EF92C6</GeneratedChecksum>
           <UserChecksum dnOrder="5">99F5C28835CA70CF308C005561EF92C6</UserChecksum>
         </File>
-        <File dnOrder="156">
+        <File dnOrder="157">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">sys_int.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/system/int/</LogicalPath>
@@ -1262,7 +1270,7 @@
           <GeneratedChecksum dnOrder="4">AC4D91625233534A323364884F492CC6</GeneratedChecksum>
           <UserChecksum dnOrder="5">AC4D91625233534A323364884F492CC6</UserChecksum>
         </File>
-        <File dnOrder="157">
+        <File dnOrder="158">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">sys_time.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/system/time/</LogicalPath>
@@ -1270,7 +1278,7 @@
           <GeneratedChecksum dnOrder="4">28C868D3255F7D85CF4B31AA2A050AF6</GeneratedChecksum>
           <UserChecksum dnOrder="5">28C868D3255F7D85CF4B31AA2A050AF6</UserChecksum>
         </File>
-        <File dnOrder="158">
+        <File dnOrder="159">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">tasks.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/</LogicalPath>
@@ -1278,7 +1286,7 @@
           <GeneratedChecksum dnOrder="4">A0B09411B9C1928F7FBB31386B1341AC</GeneratedChecksum>
           <UserChecksum dnOrder="5">A0B09411B9C1928F7FBB31386B1341AC</UserChecksum>
         </File>
-        <File dnOrder="159">
+        <File dnOrder="160">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">xc32_monitor.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/stdio/</LogicalPath>
@@ -1286,7 +1294,7 @@
           <GeneratedChecksum dnOrder="4">0CDCE9B6891797FCD2AEA243F841353F</GeneratedChecksum>
           <UserChecksum dnOrder="5">0CDCE9B6891797FCD2AEA243F841353F</UserChecksum>
         </File>
-        <File dnOrder="160">
+        <File dnOrder="161">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">ac.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -1294,7 +1302,7 @@
           <GeneratedChecksum dnOrder="4">B4951ACE738DFA1F3A2C1B38B3726205</GeneratedChecksum>
           <UserChecksum dnOrder="5">B4951ACE738DFA1F3A2C1B38B3726205</UserChecksum>
         </File>
-        <File dnOrder="161">
+        <File dnOrder="162">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">adc.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -1302,7 +1310,7 @@
           <GeneratedChecksum dnOrder="4">C5FAB4E05DC36C551A0F3274325EEBD9</GeneratedChecksum>
           <UserChecksum dnOrder="5">C5FAB4E05DC36C551A0F3274325EEBD9</UserChecksum>
         </File>
-        <File dnOrder="162">
+        <File dnOrder="163">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">aes.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -1310,7 +1318,7 @@
           <GeneratedChecksum dnOrder="4">E29C57EC35AEE0F49474AB97A9DC91E2</GeneratedChecksum>
           <UserChecksum dnOrder="5">E29C57EC35AEE0F49474AB97A9DC91E2</UserChecksum>
         </File>
-        <File dnOrder="163">
+        <File dnOrder="164">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">app.h</Name>
           <LogicalPath dnOrder="2"/>
@@ -1318,7 +1326,7 @@
           <GeneratedChecksum dnOrder="4"/>
           <UserChecksum dnOrder="5"/>
         </File>
-        <File dnOrder="164">
+        <File dnOrder="165">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">atsame54p20a.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/</LogicalPath>
@@ -1326,7 +1334,7 @@
           <GeneratedChecksum dnOrder="4">B558A4D48591B159212DE3B8CC49D2CB</GeneratedChecksum>
           <UserChecksum dnOrder="5">B558A4D48591B159212DE3B8CC49D2CB</UserChecksum>
         </File>
-        <File dnOrder="165">
+        <File dnOrder="166">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">bsp.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/bsp/</LogicalPath>
@@ -1334,7 +1342,7 @@
           <GeneratedChecksum dnOrder="4">537CAB46F4E3993D34034D8367024171</GeneratedChecksum>
           <UserChecksum dnOrder="5">537CAB46F4E3993D34034D8367024171</UserChecksum>
         </File>
-        <File dnOrder="166">
+        <File dnOrder="167">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">can.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -1342,7 +1350,7 @@
           <GeneratedChecksum dnOrder="4">F116682C6DC85E38966EF957B45A8053</GeneratedChecksum>
           <UserChecksum dnOrder="5">F116682C6DC85E38966EF957B45A8053</UserChecksum>
         </File>
-        <File dnOrder="167">
+        <File dnOrder="168">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">ccl.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -1350,7 +1358,7 @@
           <GeneratedChecksum dnOrder="4">08AE76DF2792F16BD764AD0E987816BD</GeneratedChecksum>
           <UserChecksum dnOrder="5">08AE76DF2792F16BD764AD0E987816BD</UserChecksum>
         </File>
-        <File dnOrder="168">
+        <File dnOrder="169">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">cmcc.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -1358,7 +1366,7 @@
           <GeneratedChecksum dnOrder="4">7B48C40D160333DB288A27EA70579E5D</GeneratedChecksum>
           <UserChecksum dnOrder="5">7B48C40D160333DB288A27EA70579E5D</UserChecksum>
         </File>
-        <File dnOrder="169">
+        <File dnOrder="170">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">cmsis_armcc.h</Name>
           <LogicalPath dnOrder="2">packs/CMSIS/CMSIS/Core/Include/</LogicalPath>
@@ -1366,7 +1374,7 @@
           <GeneratedChecksum dnOrder="4">D0A91713174AE0A9464105CD4157DEC1</GeneratedChecksum>
           <UserChecksum dnOrder="5">D0A91713174AE0A9464105CD4157DEC1</UserChecksum>
         </File>
-        <File dnOrder="170">
+        <File dnOrder="171">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">cmsis_armclang.h</Name>
           <LogicalPath dnOrder="2">packs/CMSIS/CMSIS/Core/Include/</LogicalPath>
@@ -1374,7 +1382,7 @@
           <GeneratedChecksum dnOrder="4">FB9082D52CC87C29BABCEC7CDA5DA8CD</GeneratedChecksum>
           <UserChecksum dnOrder="5">FB9082D52CC87C29BABCEC7CDA5DA8CD</UserChecksum>
         </File>
-        <File dnOrder="171">
+        <File dnOrder="172">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">cmsis_armclang_ltm.h</Name>
           <LogicalPath dnOrder="2">packs/CMSIS/CMSIS/Core/Include/</LogicalPath>
@@ -1382,7 +1390,7 @@
           <GeneratedChecksum dnOrder="4">787D64C13CE3DCD1082EA06108F51EC6</GeneratedChecksum>
           <UserChecksum dnOrder="5">787D64C13CE3DCD1082EA06108F51EC6</UserChecksum>
         </File>
-        <File dnOrder="172">
+        <File dnOrder="173">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">cmsis_compiler.h</Name>
           <LogicalPath dnOrder="2">packs/CMSIS/CMSIS/Core/Include/</LogicalPath>
@@ -1390,7 +1398,7 @@
           <GeneratedChecksum dnOrder="4">60385A5C6C9882B5D30709A1F6EAEC35</GeneratedChecksum>
           <UserChecksum dnOrder="5">60385A5C6C9882B5D30709A1F6EAEC35</UserChecksum>
         </File>
-        <File dnOrder="173">
+        <File dnOrder="174">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">cmsis_gcc.h</Name>
           <LogicalPath dnOrder="2">packs/CMSIS/CMSIS/Core/Include/</LogicalPath>
@@ -1398,7 +1406,7 @@
           <GeneratedChecksum dnOrder="4">B2E4B79E96D9481B139252F7F1C5924F</GeneratedChecksum>
           <UserChecksum dnOrder="5">B2E4B79E96D9481B139252F7F1C5924F</UserChecksum>
         </File>
-        <File dnOrder="174">
+        <File dnOrder="175">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">cmsis_iccarm.h</Name>
           <LogicalPath dnOrder="2">packs/CMSIS/CMSIS/Core/Include/</LogicalPath>
@@ -1406,7 +1414,7 @@
           <GeneratedChecksum dnOrder="4">AF3CC89090034E070238E8A7BE343262</GeneratedChecksum>
           <UserChecksum dnOrder="5">AF3CC89090034E070238E8A7BE343262</UserChecksum>
         </File>
-        <File dnOrder="175">
+        <File dnOrder="176">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">cmsis_version.h</Name>
           <LogicalPath dnOrder="2">packs/CMSIS/CMSIS/Core/Include/</LogicalPath>
@@ -1414,7 +1422,7 @@
           <GeneratedChecksum dnOrder="4">8D06BEF47A08B8A7A91DE48D1C5DFDAB</GeneratedChecksum>
           <UserChecksum dnOrder="5">8D06BEF47A08B8A7A91DE48D1C5DFDAB</UserChecksum>
         </File>
-        <File dnOrder="176">
+        <File dnOrder="177">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">configuration.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/</LogicalPath>
@@ -1422,7 +1430,7 @@
           <GeneratedChecksum dnOrder="4">AB02D162C81D2E58D1B6A1CF810F2E06</GeneratedChecksum>
           <UserChecksum dnOrder="5">AB02D162C81D2E58D1B6A1CF810F2E06</UserChecksum>
         </File>
-        <File dnOrder="177">
+        <File dnOrder="178">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">core_cm4.h</Name>
           <LogicalPath dnOrder="2">packs/CMSIS/CMSIS/Core/Include/</LogicalPath>
@@ -1430,7 +1438,7 @@
           <GeneratedChecksum dnOrder="4">CD5F1A2F242BE3D7B766157EEBF09823</GeneratedChecksum>
           <UserChecksum dnOrder="5">CD5F1A2F242BE3D7B766157EEBF09823</UserChecksum>
         </File>
-        <File dnOrder="178">
+        <File dnOrder="179">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">dac.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -1438,15 +1446,15 @@
           <GeneratedChecksum dnOrder="4">CF140471FD3349AD9D2A9F2994809CCC</GeneratedChecksum>
           <UserChecksum dnOrder="5">CF140471FD3349AD9D2A9F2994809CCC</UserChecksum>
         </File>
-        <File dnOrder="179">
+        <File dnOrder="180">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">definitions.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B6C51B5BA3B2883B87A67B71CE67D229</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B6C51B5BA3B2883B87A67B71CE67D229</UserChecksum>
+          <GeneratedChecksum dnOrder="4">5D05719D7ABAEA2807DD17810D532311</GeneratedChecksum>
+          <UserChecksum dnOrder="5">5D05719D7ABAEA2807DD17810D532311</UserChecksum>
         </File>
-        <File dnOrder="180">
+        <File dnOrder="181">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">device.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/</LogicalPath>
@@ -1454,7 +1462,7 @@
           <GeneratedChecksum dnOrder="4">21F486E52CA55F38E7CEF72A10139F09</GeneratedChecksum>
           <UserChecksum dnOrder="5">21F486E52CA55F38E7CEF72A10139F09</UserChecksum>
         </File>
-        <File dnOrder="181">
+        <File dnOrder="182">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">device_cache.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/</LogicalPath>
@@ -1462,7 +1470,7 @@
           <GeneratedChecksum dnOrder="4">85D3482D395C59BDFF268B01940CDDDE</GeneratedChecksum>
           <UserChecksum dnOrder="5">85D3482D395C59BDFF268B01940CDDDE</UserChecksum>
         </File>
-        <File dnOrder="182">
+        <File dnOrder="183">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">dmac.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -1470,7 +1478,7 @@
           <GeneratedChecksum dnOrder="4">87864F8E86B84298231DA42203F26294</GeneratedChecksum>
           <UserChecksum dnOrder="5">87864F8E86B84298231DA42203F26294</UserChecksum>
         </File>
-        <File dnOrder="183">
+        <File dnOrder="184">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">driver.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/driver/</LogicalPath>
@@ -1478,7 +1486,7 @@
           <GeneratedChecksum dnOrder="4">1D2094DFA60F847FFD4E8153B6E78027</GeneratedChecksum>
           <UserChecksum dnOrder="5">1D2094DFA60F847FFD4E8153B6E78027</UserChecksum>
         </File>
-        <File dnOrder="184">
+        <File dnOrder="185">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">driver_common.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/driver/</LogicalPath>
@@ -1486,7 +1494,7 @@
           <GeneratedChecksum dnOrder="4">CC7DFCC51CD25171A3E400E18969354F</GeneratedChecksum>
           <UserChecksum dnOrder="5">CC7DFCC51CD25171A3E400E18969354F</UserChecksum>
         </File>
-        <File dnOrder="185">
+        <File dnOrder="186">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">drv_gfx_disp_intf.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/interface</LogicalPath>
@@ -1494,7 +1502,7 @@
           <GeneratedChecksum dnOrder="4">2E7C78DB793465128C5FD8BAD86D7C4F</GeneratedChecksum>
           <UserChecksum dnOrder="5">2E7C78DB793465128C5FD8BAD86D7C4F</UserChecksum>
         </File>
-        <File dnOrder="186">
+        <File dnOrder="187">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">drv_gfx_ili9488.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/driver/ili9488</LogicalPath>
@@ -1502,7 +1510,7 @@
           <GeneratedChecksum dnOrder="4">BDFCE6619E39675B7FDC2CB790A3A2E5</GeneratedChecksum>
           <UserChecksum dnOrder="5">BDFCE6619E39675B7FDC2CB790A3A2E5</UserChecksum>
         </File>
-        <File dnOrder="187">
+        <File dnOrder="188">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">drv_gfx_ili9488_cmd_defs.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/driver/ili9488</LogicalPath>
@@ -1510,7 +1518,7 @@
           <GeneratedChecksum dnOrder="4">15D94FDDD5CAAB78C36A2DE1A346A354</GeneratedChecksum>
           <UserChecksum dnOrder="5">15D94FDDD5CAAB78C36A2DE1A346A354</UserChecksum>
         </File>
-        <File dnOrder="188">
+        <File dnOrder="189">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">drv_i2c.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/driver/i2c/</LogicalPath>
@@ -1518,7 +1526,7 @@
           <GeneratedChecksum dnOrder="4">3C6689B8800C6234028EC2FBE82E25CF</GeneratedChecksum>
           <UserChecksum dnOrder="5">3C6689B8800C6234028EC2FBE82E25CF</UserChecksum>
         </File>
-        <File dnOrder="189">
+        <File dnOrder="190">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">drv_i2c_definitions.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/driver/i2c/</LogicalPath>
@@ -1526,7 +1534,7 @@
           <GeneratedChecksum dnOrder="4">2872C68B45CE75A8BBBC1DD7F7287282</GeneratedChecksum>
           <UserChecksum dnOrder="5">2872C68B45CE75A8BBBC1DD7F7287282</UserChecksum>
         </File>
-        <File dnOrder="190">
+        <File dnOrder="191">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">drv_maxtouch.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/driver/input</LogicalPath>
@@ -1534,7 +1542,7 @@
           <GeneratedChecksum dnOrder="4">96E55AC4B3153F31385A2A7066E9CCBB</GeneratedChecksum>
           <UserChecksum dnOrder="5">96E55AC4B3153F31385A2A7066E9CCBB</UserChecksum>
         </File>
-        <File dnOrder="191">
+        <File dnOrder="192">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">dsu.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -1542,7 +1550,7 @@
           <GeneratedChecksum dnOrder="4">4CB2BD68A07CBC337922F5492CA2DE27</GeneratedChecksum>
           <UserChecksum dnOrder="5">4CB2BD68A07CBC337922F5492CA2DE27</UserChecksum>
         </File>
-        <File dnOrder="192">
+        <File dnOrder="193">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">eic.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -1550,7 +1558,7 @@
           <GeneratedChecksum dnOrder="4">2EBD4928D329E7F858F4FAEAED0E8465</GeneratedChecksum>
           <UserChecksum dnOrder="5">2EBD4928D329E7F858F4FAEAED0E8465</UserChecksum>
         </File>
-        <File dnOrder="193">
+        <File dnOrder="194">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">evsys.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -1558,7 +1566,7 @@
           <GeneratedChecksum dnOrder="4">242DB37DF89C3D84BB8CC7BAC48F0419</GeneratedChecksum>
           <UserChecksum dnOrder="5">242DB37DF89C3D84BB8CC7BAC48F0419</UserChecksum>
         </File>
-        <File dnOrder="194">
+        <File dnOrder="195">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">freqm.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -1566,7 +1574,7 @@
           <GeneratedChecksum dnOrder="4">0338A8DB1B2D13B43E28BA1AEB279283</GeneratedChecksum>
           <UserChecksum dnOrder="5">0338A8DB1B2D13B43E28BA1AEB279283</UserChecksum>
         </File>
-        <File dnOrder="195">
+        <File dnOrder="196">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">gclk.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -1574,15 +1582,15 @@
           <GeneratedChecksum dnOrder="4">A02CB465D67A757269E86FAB8E555673</GeneratedChecksum>
           <UserChecksum dnOrder="5">A02CB465D67A757269E86FAB8E555673</UserChecksum>
         </File>
-        <File dnOrder="196">
+        <File dnOrder="197">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">gfx_driver.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/driver/ili9488</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">8F027A40B1B534856A2689F26CD5B50B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">8F027A40B1B534856A2689F26CD5B50B</UserChecksum>
+          <GeneratedChecksum dnOrder="4">448B012B138D0DE52BB24CC30B968FDA</GeneratedChecksum>
+          <UserChecksum dnOrder="5">448B012B138D0DE52BB24CC30B968FDA</UserChecksum>
         </File>
-        <File dnOrder="197">
+        <File dnOrder="198">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">gmac.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -1590,7 +1598,7 @@
           <GeneratedChecksum dnOrder="4">1B3C76490B05A029ECD82082237F35DD</GeneratedChecksum>
           <UserChecksum dnOrder="5">1B3C76490B05A029ECD82082237F35DD</UserChecksum>
         </File>
-        <File dnOrder="198">
+        <File dnOrder="199">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">hmatrixb.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -1598,7 +1606,7 @@
           <GeneratedChecksum dnOrder="4">2BC4A5CDBB10742B4DE9A0CE13852013</GeneratedChecksum>
           <UserChecksum dnOrder="5">2BC4A5CDBB10742B4DE9A0CE13852013</UserChecksum>
         </File>
-        <File dnOrder="199">
+        <File dnOrder="200">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">i2s.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -1606,7 +1614,7 @@
           <GeneratedChecksum dnOrder="4">45A373DED4D9E8D4E8934F284C555D7C</GeneratedChecksum>
           <UserChecksum dnOrder="5">45A373DED4D9E8D4E8934F284C555D7C</UserChecksum>
         </File>
-        <File dnOrder="200">
+        <File dnOrder="201">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">icm.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -1614,7 +1622,7 @@
           <GeneratedChecksum dnOrder="4">A59A10FA26FC00E4E07CEF0C0C0E3E9C</GeneratedChecksum>
           <UserChecksum dnOrder="5">A59A10FA26FC00E4E07CEF0C0C0E3E9C</UserChecksum>
         </File>
-        <File dnOrder="201">
+        <File dnOrder="202">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">le_gen_assets.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/generated/</LogicalPath>
@@ -1622,7 +1630,7 @@
           <GeneratedChecksum dnOrder="4">09E14F5837A9E9C143A908C3C407DE2E</GeneratedChecksum>
           <UserChecksum dnOrder="5">09E14F5837A9E9C143A908C3C407DE2E</UserChecksum>
         </File>
-        <File dnOrder="202">
+        <File dnOrder="203">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">le_gen_harmony.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/generated/</LogicalPath>
@@ -1630,7 +1638,7 @@
           <GeneratedChecksum dnOrder="4">96E97A25B5AFCE6A13F42ACBD9CB41AB</GeneratedChecksum>
           <UserChecksum dnOrder="5">96E97A25B5AFCE6A13F42ACBD9CB41AB</UserChecksum>
         </File>
-        <File dnOrder="203">
+        <File dnOrder="204">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">le_gen_init.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/generated/</LogicalPath>
@@ -1638,7 +1646,7 @@
           <GeneratedChecksum dnOrder="4">9CD34B1BF6C65ABB9C5E45B924D134B6</GeneratedChecksum>
           <UserChecksum dnOrder="5">9CD34B1BF6C65ABB9C5E45B924D134B6</UserChecksum>
         </File>
-        <File dnOrder="204">
+        <File dnOrder="205">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">le_gen_scheme.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/generated/</LogicalPath>
@@ -1646,7 +1654,7 @@
           <GeneratedChecksum dnOrder="4">95B89B967C778821A0456E36C722EE89</GeneratedChecksum>
           <UserChecksum dnOrder="5">95B89B967C778821A0456E36C722EE89</UserChecksum>
         </File>
-        <File dnOrder="205">
+        <File dnOrder="206">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">le_gen_screen_Screen0.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/generated/screen/</LogicalPath>
@@ -1654,7 +1662,7 @@
           <GeneratedChecksum dnOrder="4">8E3821D8D2B2240DFE783B8C9249553A</GeneratedChecksum>
           <UserChecksum dnOrder="5">8E3821D8D2B2240DFE783B8C9249553A</UserChecksum>
         </File>
-        <File dnOrder="206">
+        <File dnOrder="207">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/</LogicalPath>
@@ -1662,7 +1670,7 @@
           <GeneratedChecksum dnOrder="4">C999AADDDEA7D90A2AFA96D54D026BC5</GeneratedChecksum>
           <UserChecksum dnOrder="5">C999AADDDEA7D90A2AFA96D54D026BC5</UserChecksum>
         </File>
-        <File dnOrder="207">
+        <File dnOrder="208">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_array.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/datastructure</LogicalPath>
@@ -1670,7 +1678,7 @@
           <GeneratedChecksum dnOrder="4">E67A59E2225ADF2CF5381D6093DB1E3E</GeneratedChecksum>
           <UserChecksum dnOrder="5">E67A59E2225ADF2CF5381D6093DB1E3E</UserChecksum>
         </File>
-        <File dnOrder="208">
+        <File dnOrder="209">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_color.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/common</LogicalPath>
@@ -1678,7 +1686,7 @@
           <GeneratedChecksum dnOrder="4">604C9FB8887665B357E9602EDEDA8703</GeneratedChecksum>
           <UserChecksum dnOrder="5">604C9FB8887665B357E9602EDEDA8703</UserChecksum>
         </File>
-        <File dnOrder="209">
+        <File dnOrder="210">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_common.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/common</LogicalPath>
@@ -1686,7 +1694,7 @@
           <GeneratedChecksum dnOrder="4">AA8BD3A9727EBB2E6704E68475041A92</GeneratedChecksum>
           <UserChecksum dnOrder="5">AA8BD3A9727EBB2E6704E68475041A92</UserChecksum>
         </File>
-        <File dnOrder="210">
+        <File dnOrder="211">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_config.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/</LogicalPath>
@@ -1694,7 +1702,7 @@
           <GeneratedChecksum dnOrder="4">D240A224E69D5678F9F81F5321253C75</GeneratedChecksum>
           <UserChecksum dnOrder="5">D240A224E69D5678F9F81F5321253C75</UserChecksum>
         </File>
-        <File dnOrder="211">
+        <File dnOrder="212">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_dynamicstring.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/string</LogicalPath>
@@ -1702,7 +1710,7 @@
           <GeneratedChecksum dnOrder="4">6A0405E660B0925025407776F6262EFD</GeneratedChecksum>
           <UserChecksum dnOrder="5">6A0405E660B0925025407776F6262EFD</UserChecksum>
         </File>
-        <File dnOrder="212">
+        <File dnOrder="213">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_editwidget.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget</LogicalPath>
@@ -1710,7 +1718,7 @@
           <GeneratedChecksum dnOrder="4">54343037E38198C9B8027A62DCE4050E</GeneratedChecksum>
           <UserChecksum dnOrder="5">54343037E38198C9B8027A62DCE4050E</UserChecksum>
         </File>
-        <File dnOrder="213">
+        <File dnOrder="214">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_error.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/common</LogicalPath>
@@ -1718,7 +1726,7 @@
           <GeneratedChecksum dnOrder="4">C7B93982F5E8643904E5D87A04A67AEC</GeneratedChecksum>
           <UserChecksum dnOrder="5">C7B93982F5E8643904E5D87A04A67AEC</UserChecksum>
         </File>
-        <File dnOrder="214">
+        <File dnOrder="215">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_event.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/core</LogicalPath>
@@ -1726,7 +1734,7 @@
           <GeneratedChecksum dnOrder="4">723B51CDBCBF6481518F9716C2B89E31</GeneratedChecksum>
           <UserChecksum dnOrder="5">723B51CDBCBF6481518F9716C2B89E31</UserChecksum>
         </File>
-        <File dnOrder="215">
+        <File dnOrder="216">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_fixedheap.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/memory</LogicalPath>
@@ -1734,7 +1742,7 @@
           <GeneratedChecksum dnOrder="4">B2CD4B37F8A132D4A68A3EF659724815</GeneratedChecksum>
           <UserChecksum dnOrder="5">B2CD4B37F8A132D4A68A3EF659724815</UserChecksum>
         </File>
-        <File dnOrder="216">
+        <File dnOrder="217">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_fixedstring.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/string</LogicalPath>
@@ -1742,7 +1750,7 @@
           <GeneratedChecksum dnOrder="4">73CCB5679A9FA723F86795D6249F9CA9</GeneratedChecksum>
           <UserChecksum dnOrder="5">73CCB5679A9FA723F86795D6249F9CA9</UserChecksum>
         </File>
-        <File dnOrder="217">
+        <File dnOrder="218">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_font.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/font</LogicalPath>
@@ -1750,7 +1758,7 @@
           <GeneratedChecksum dnOrder="4">EA4CDD603A7B0A1FF821C6ED4539FC52</GeneratedChecksum>
           <UserChecksum dnOrder="5">EA4CDD603A7B0A1FF821C6ED4539FC52</UserChecksum>
         </File>
-        <File dnOrder="218">
+        <File dnOrder="219">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_image.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/image</LogicalPath>
@@ -1758,7 +1766,7 @@
           <GeneratedChecksum dnOrder="4">625F9B0D01DCBD3C761F893422E29019</GeneratedChecksum>
           <UserChecksum dnOrder="5">625F9B0D01DCBD3C761F893422E29019</UserChecksum>
         </File>
-        <File dnOrder="219">
+        <File dnOrder="220">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_image_utils.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/image</LogicalPath>
@@ -1766,7 +1774,7 @@
           <GeneratedChecksum dnOrder="4">4F75AE2BA02B082D70C5E22ED7659D8E</GeneratedChecksum>
           <UserChecksum dnOrder="5">4F75AE2BA02B082D70C5E22ED7659D8E</UserChecksum>
         </File>
-        <File dnOrder="220">
+        <File dnOrder="221">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_imagedecoder_raw.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/image/raw</LogicalPath>
@@ -1774,7 +1782,7 @@
           <GeneratedChecksum dnOrder="4">85E984C24A902740F771E44A998E4FB6</GeneratedChecksum>
           <UserChecksum dnOrder="5">85E984C24A902740F771E44A998E4FB6</UserChecksum>
         </File>
-        <File dnOrder="221">
+        <File dnOrder="222">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_input.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/core</LogicalPath>
@@ -1782,7 +1790,7 @@
           <GeneratedChecksum dnOrder="4">ED05AB0F02E1ED8F54701ED3F7358638</GeneratedChecksum>
           <UserChecksum dnOrder="5">ED05AB0F02E1ED8F54701ED3F7358638</UserChecksum>
         </File>
-        <File dnOrder="222">
+        <File dnOrder="223">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_list.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/datastructure</LogicalPath>
@@ -1790,7 +1798,7 @@
           <GeneratedChecksum dnOrder="4">6FADA3D03D6BF8A7F7FF8E2072C0A304</GeneratedChecksum>
           <UserChecksum dnOrder="5">6FADA3D03D6BF8A7F7FF8E2072C0A304</UserChecksum>
         </File>
-        <File dnOrder="223">
+        <File dnOrder="224">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_math.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/common</LogicalPath>
@@ -1798,7 +1806,7 @@
           <GeneratedChecksum dnOrder="4">4E23727693850A95ECF602733069BBB6</GeneratedChecksum>
           <UserChecksum dnOrder="5">4E23727693850A95ECF602733069BBB6</UserChecksum>
         </File>
-        <File dnOrder="224">
+        <File dnOrder="225">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_memory.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/memory</LogicalPath>
@@ -1806,7 +1814,7 @@
           <GeneratedChecksum dnOrder="4">41ABECA43D13A37858B2F60402742A94</GeneratedChecksum>
           <UserChecksum dnOrder="5">41ABECA43D13A37858B2F60402742A94</UserChecksum>
         </File>
-        <File dnOrder="225">
+        <File dnOrder="226">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_palette.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/image</LogicalPath>
@@ -1814,7 +1822,7 @@
           <GeneratedChecksum dnOrder="4">75B60FC55C7632E76003C0E6CFE30865</GeneratedChecksum>
           <UserChecksum dnOrder="5">75B60FC55C7632E76003C0E6CFE30865</UserChecksum>
         </File>
-        <File dnOrder="226">
+        <File dnOrder="227">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_pixelbuffer.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/common</LogicalPath>
@@ -1822,7 +1830,7 @@
           <GeneratedChecksum dnOrder="4">BA36F4EC46AD0FE9FA2F6F564057F066</GeneratedChecksum>
           <UserChecksum dnOrder="5">BA36F4EC46AD0FE9FA2F6F564057F066</UserChecksum>
         </File>
-        <File dnOrder="227">
+        <File dnOrder="228">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_radiobutton_group.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/radiobutton</LogicalPath>
@@ -1830,7 +1838,7 @@
           <GeneratedChecksum dnOrder="4">E4C761A1B69E7D0A9C6B806A6EDC9A73</GeneratedChecksum>
           <UserChecksum dnOrder="5">E4C761A1B69E7D0A9C6B806A6EDC9A73</UserChecksum>
         </File>
-        <File dnOrder="228">
+        <File dnOrder="229">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_rect.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/common</LogicalPath>
@@ -1838,7 +1846,7 @@
           <GeneratedChecksum dnOrder="4">159B138E35BA8D4EC5D578404E85E61E</GeneratedChecksum>
           <UserChecksum dnOrder="5">159B138E35BA8D4EC5D578404E85E61E</UserChecksum>
         </File>
-        <File dnOrder="229">
+        <File dnOrder="230">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_rectarray.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/datastructure</LogicalPath>
@@ -1846,7 +1854,7 @@
           <GeneratedChecksum dnOrder="4">58A3634707D8579A1024E20C6574F4FD</GeneratedChecksum>
           <UserChecksum dnOrder="5">58A3634707D8579A1024E20C6574F4FD</UserChecksum>
         </File>
-        <File dnOrder="230">
+        <File dnOrder="231">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_renderer.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/renderer</LogicalPath>
@@ -1854,7 +1862,7 @@
           <GeneratedChecksum dnOrder="4">D9B85E2626E1EBA10B7ED42199A424F6</GeneratedChecksum>
           <UserChecksum dnOrder="5">D9B85E2626E1EBA10B7ED42199A424F6</UserChecksum>
         </File>
-        <File dnOrder="231">
+        <File dnOrder="232">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_scheme.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/core</LogicalPath>
@@ -1862,7 +1870,7 @@
           <GeneratedChecksum dnOrder="4">1109F193B5217A48A9BC4A2C436D9BB1</GeneratedChecksum>
           <UserChecksum dnOrder="5">1109F193B5217A48A9BC4A2C436D9BB1</UserChecksum>
         </File>
-        <File dnOrder="232">
+        <File dnOrder="233">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_state.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/core</LogicalPath>
@@ -1870,7 +1878,7 @@
           <GeneratedChecksum dnOrder="4">C59B5375D288DD8155EB0EEDB7CCC8BB</GeneratedChecksum>
           <UserChecksum dnOrder="5">C59B5375D288DD8155EB0EEDB7CCC8BB</UserChecksum>
         </File>
-        <File dnOrder="233">
+        <File dnOrder="234">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_stream.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/core</LogicalPath>
@@ -1878,7 +1886,7 @@
           <GeneratedChecksum dnOrder="4">9441644EDD2DC3A635414B12371A2922</GeneratedChecksum>
           <UserChecksum dnOrder="5">9441644EDD2DC3A635414B12371A2922</UserChecksum>
         </File>
-        <File dnOrder="234">
+        <File dnOrder="235">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_string.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/string</LogicalPath>
@@ -1886,7 +1894,7 @@
           <GeneratedChecksum dnOrder="4">99BD221E4C0710D99F68D961E5CB8D2F</GeneratedChecksum>
           <UserChecksum dnOrder="5">99BD221E4C0710D99F68D961E5CB8D2F</UserChecksum>
         </File>
-        <File dnOrder="235">
+        <File dnOrder="236">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_string_renderer.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/string</LogicalPath>
@@ -1894,7 +1902,7 @@
           <GeneratedChecksum dnOrder="4">E7C4AD4EC02AB220B1D85BF689FB8310</GeneratedChecksum>
           <UserChecksum dnOrder="5">E7C4AD4EC02AB220B1D85BF689FB8310</UserChecksum>
         </File>
-        <File dnOrder="236">
+        <File dnOrder="237">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_stringtable.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/string</LogicalPath>
@@ -1902,7 +1910,7 @@
           <GeneratedChecksum dnOrder="4">455856A5EB35CD587C1C0C983CB67AF1</GeneratedChecksum>
           <UserChecksum dnOrder="5">455856A5EB35CD587C1C0C983CB67AF1</UserChecksum>
         </File>
-        <File dnOrder="237">
+        <File dnOrder="238">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_stringutils.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/string</LogicalPath>
@@ -1910,7 +1918,7 @@
           <GeneratedChecksum dnOrder="4">C3894DCCE69819578789798B12CABEA0</GeneratedChecksum>
           <UserChecksum dnOrder="5">C3894DCCE69819578789798B12CABEA0</UserChecksum>
         </File>
-        <File dnOrder="238">
+        <File dnOrder="239">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_tablestring.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/string</LogicalPath>
@@ -1918,7 +1926,7 @@
           <GeneratedChecksum dnOrder="4">AEBA047D282A6BEA9CEE4A64D7E36639</GeneratedChecksum>
           <UserChecksum dnOrder="5">AEBA047D282A6BEA9CEE4A64D7E36639</UserChecksum>
         </File>
-        <File dnOrder="239">
+        <File dnOrder="240">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_utils.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/common</LogicalPath>
@@ -1926,7 +1934,7 @@
           <GeneratedChecksum dnOrder="4">5B7357F90BF94EEDCFE546AB8EC5237F</GeneratedChecksum>
           <UserChecksum dnOrder="5">5B7357F90BF94EEDCFE546AB8EC5237F</UserChecksum>
         </File>
-        <File dnOrder="240">
+        <File dnOrder="241">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_variableheap.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/memory</LogicalPath>
@@ -1934,7 +1942,7 @@
           <GeneratedChecksum dnOrder="4">EAEB0A0800DF7B2F82ECA2E3D19546DE</GeneratedChecksum>
           <UserChecksum dnOrder="5">EAEB0A0800DF7B2F82ECA2E3D19546DE</UserChecksum>
         </File>
-        <File dnOrder="241">
+        <File dnOrder="242">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget</LogicalPath>
@@ -1942,7 +1950,7 @@
           <GeneratedChecksum dnOrder="4">2AA7E0398921984B8E0CD7AAECD04FEE</GeneratedChecksum>
           <UserChecksum dnOrder="5">2AA7E0398921984B8E0CD7AAECD04FEE</UserChecksum>
         </File>
-        <File dnOrder="242">
+        <File dnOrder="243">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_arc.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/arc</LogicalPath>
@@ -1950,7 +1958,7 @@
           <GeneratedChecksum dnOrder="4">47368226AEA9C962809342DE590F8D1C</GeneratedChecksum>
           <UserChecksum dnOrder="5">47368226AEA9C962809342DE590F8D1C</UserChecksum>
         </File>
-        <File dnOrder="243">
+        <File dnOrder="244">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_bar_graph.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/bargraph</LogicalPath>
@@ -1958,7 +1966,7 @@
           <GeneratedChecksum dnOrder="4">A24FB5B17BFAAEA6AB1A4D9F76E88106</GeneratedChecksum>
           <UserChecksum dnOrder="5">A24FB5B17BFAAEA6AB1A4D9F76E88106</UserChecksum>
         </File>
-        <File dnOrder="244">
+        <File dnOrder="245">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_button.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/button</LogicalPath>
@@ -1966,7 +1974,7 @@
           <GeneratedChecksum dnOrder="4">AC24E4729F17CCDAEBF420AF0FA979DC</GeneratedChecksum>
           <UserChecksum dnOrder="5">AC24E4729F17CCDAEBF420AF0FA979DC</UserChecksum>
         </File>
-        <File dnOrder="245">
+        <File dnOrder="246">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_checkbox.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/checkbox</LogicalPath>
@@ -1974,7 +1982,7 @@
           <GeneratedChecksum dnOrder="4">862BF0C7648463162D1EC51C713A677F</GeneratedChecksum>
           <UserChecksum dnOrder="5">862BF0C7648463162D1EC51C713A677F</UserChecksum>
         </File>
-        <File dnOrder="246">
+        <File dnOrder="247">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_circle.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/circle</LogicalPath>
@@ -1982,7 +1990,7 @@
           <GeneratedChecksum dnOrder="4">D95FA5F98901C9CC6FE26BB344724333</GeneratedChecksum>
           <UserChecksum dnOrder="5">D95FA5F98901C9CC6FE26BB344724333</UserChecksum>
         </File>
-        <File dnOrder="247">
+        <File dnOrder="248">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_circular_gauge.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/circulargauge</LogicalPath>
@@ -1990,7 +1998,7 @@
           <GeneratedChecksum dnOrder="4">F68CF4820CF399CCB4EC9F90980EACD5</GeneratedChecksum>
           <UserChecksum dnOrder="5">F68CF4820CF399CCB4EC9F90980EACD5</UserChecksum>
         </File>
-        <File dnOrder="248">
+        <File dnOrder="249">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_circular_slider.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/circularslider</LogicalPath>
@@ -1998,7 +2006,7 @@
           <GeneratedChecksum dnOrder="4">CA3DD2725F0DBE77C847E1B8130CCABB</GeneratedChecksum>
           <UserChecksum dnOrder="5">CA3DD2725F0DBE77C847E1B8130CCABB</UserChecksum>
         </File>
-        <File dnOrder="249">
+        <File dnOrder="250">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_drawsurface.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/drawsurface</LogicalPath>
@@ -2006,7 +2014,7 @@
           <GeneratedChecksum dnOrder="4">4CE881E4C9A8D3C5D08121EB09C04E92</GeneratedChecksum>
           <UserChecksum dnOrder="5">4CE881E4C9A8D3C5D08121EB09C04E92</UserChecksum>
         </File>
-        <File dnOrder="250">
+        <File dnOrder="251">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_gradient.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/gradient</LogicalPath>
@@ -2014,7 +2022,7 @@
           <GeneratedChecksum dnOrder="4">3123C0FBF1CE0CD4E06629747BC9B13D</GeneratedChecksum>
           <UserChecksum dnOrder="5">3123C0FBF1CE0CD4E06629747BC9B13D</UserChecksum>
         </File>
-        <File dnOrder="251">
+        <File dnOrder="252">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_groupbox.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/groupbox</LogicalPath>
@@ -2022,7 +2030,7 @@
           <GeneratedChecksum dnOrder="4">A7A8273675A7A024FAEA364AD085651E</GeneratedChecksum>
           <UserChecksum dnOrder="5">A7A8273675A7A024FAEA364AD085651E</UserChecksum>
         </File>
-        <File dnOrder="252">
+        <File dnOrder="253">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_image.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/image</LogicalPath>
@@ -2030,7 +2038,7 @@
           <GeneratedChecksum dnOrder="4">0474700F19AA81C6C0A9EC2E2DF1CA24</GeneratedChecksum>
           <UserChecksum dnOrder="5">0474700F19AA81C6C0A9EC2E2DF1CA24</UserChecksum>
         </File>
-        <File dnOrder="253">
+        <File dnOrder="254">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_imagerotate.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/imagerotate</LogicalPath>
@@ -2038,7 +2046,7 @@
           <GeneratedChecksum dnOrder="4">9C52FBC485E383FEBEA5778211F36345</GeneratedChecksum>
           <UserChecksum dnOrder="5">9C52FBC485E383FEBEA5778211F36345</UserChecksum>
         </File>
-        <File dnOrder="254">
+        <File dnOrder="255">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_imagescale.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/imagescale</LogicalPath>
@@ -2046,7 +2054,7 @@
           <GeneratedChecksum dnOrder="4">FF707A94C50F1395559559C629B7C33C</GeneratedChecksum>
           <UserChecksum dnOrder="5">FF707A94C50F1395559559C629B7C33C</UserChecksum>
         </File>
-        <File dnOrder="255">
+        <File dnOrder="256">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_imagesequence.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/imagesequence</LogicalPath>
@@ -2054,7 +2062,7 @@
           <GeneratedChecksum dnOrder="4">5DE24AC84F5F52200A735F01250FA433</GeneratedChecksum>
           <UserChecksum dnOrder="5">5DE24AC84F5F52200A735F01250FA433</UserChecksum>
         </File>
-        <File dnOrder="256">
+        <File dnOrder="257">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_keypad.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/keypad</LogicalPath>
@@ -2062,7 +2070,7 @@
           <GeneratedChecksum dnOrder="4">E4F076690475D757088D9F26914367FB</GeneratedChecksum>
           <UserChecksum dnOrder="5">E4F076690475D757088D9F26914367FB</UserChecksum>
         </File>
-        <File dnOrder="257">
+        <File dnOrder="258">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_label.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/label</LogicalPath>
@@ -2070,7 +2078,7 @@
           <GeneratedChecksum dnOrder="4">874906DCBB662192C01D8E58518FFA2A</GeneratedChecksum>
           <UserChecksum dnOrder="5">874906DCBB662192C01D8E58518FFA2A</UserChecksum>
         </File>
-        <File dnOrder="258">
+        <File dnOrder="259">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_line.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/line</LogicalPath>
@@ -2078,7 +2086,7 @@
           <GeneratedChecksum dnOrder="4">BB876DBA63C9AA5E1BDA04E6F8D159B4</GeneratedChecksum>
           <UserChecksum dnOrder="5">BB876DBA63C9AA5E1BDA04E6F8D159B4</UserChecksum>
         </File>
-        <File dnOrder="259">
+        <File dnOrder="260">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_line_graph.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/linegraph</LogicalPath>
@@ -2086,7 +2094,7 @@
           <GeneratedChecksum dnOrder="4">95936E17A4664DBC88494D5C2E643219</GeneratedChecksum>
           <UserChecksum dnOrder="5">95936E17A4664DBC88494D5C2E643219</UserChecksum>
         </File>
-        <File dnOrder="260">
+        <File dnOrder="261">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_list.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/list</LogicalPath>
@@ -2094,7 +2102,7 @@
           <GeneratedChecksum dnOrder="4">D36720C2AB59AE359A60139DA01118B9</GeneratedChecksum>
           <UserChecksum dnOrder="5">D36720C2AB59AE359A60139DA01118B9</UserChecksum>
         </File>
-        <File dnOrder="261">
+        <File dnOrder="262">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_listwheel.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/listwheel</LogicalPath>
@@ -2102,7 +2110,7 @@
           <GeneratedChecksum dnOrder="4">0290FE70AE27CA50818EB6B05B6415F4</GeneratedChecksum>
           <UserChecksum dnOrder="5">0290FE70AE27CA50818EB6B05B6415F4</UserChecksum>
         </File>
-        <File dnOrder="262">
+        <File dnOrder="263">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_pie_chart.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/piechart</LogicalPath>
@@ -2110,7 +2118,7 @@
           <GeneratedChecksum dnOrder="4">3C5EB1370CE06DEF75AA4BA33F0A91CD</GeneratedChecksum>
           <UserChecksum dnOrder="5">3C5EB1370CE06DEF75AA4BA33F0A91CD</UserChecksum>
         </File>
-        <File dnOrder="263">
+        <File dnOrder="264">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_progressbar.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/progressbar</LogicalPath>
@@ -2118,7 +2126,7 @@
           <GeneratedChecksum dnOrder="4">65C59853E9956BFC2DCA58DA8D11045F</GeneratedChecksum>
           <UserChecksum dnOrder="5">65C59853E9956BFC2DCA58DA8D11045F</UserChecksum>
         </File>
-        <File dnOrder="264">
+        <File dnOrder="265">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_radial_menu.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/radialmenu</LogicalPath>
@@ -2126,7 +2134,7 @@
           <GeneratedChecksum dnOrder="4">0FF3FA9D084EBCE1749D14BF62EB32C7</GeneratedChecksum>
           <UserChecksum dnOrder="5">0FF3FA9D084EBCE1749D14BF62EB32C7</UserChecksum>
         </File>
-        <File dnOrder="265">
+        <File dnOrder="266">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_radiobutton.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/radiobutton</LogicalPath>
@@ -2134,7 +2142,7 @@
           <GeneratedChecksum dnOrder="4">2398D033E40652DD06A5EBCAE6DB15E6</GeneratedChecksum>
           <UserChecksum dnOrder="5">2398D033E40652DD06A5EBCAE6DB15E6</UserChecksum>
         </File>
-        <File dnOrder="266">
+        <File dnOrder="267">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_rectangle.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/rectangle</LogicalPath>
@@ -2142,7 +2150,7 @@
           <GeneratedChecksum dnOrder="4">B4E6C76446F53D78A7DD295D1C2ACF6D</GeneratedChecksum>
           <UserChecksum dnOrder="5">B4E6C76446F53D78A7DD295D1C2ACF6D</UserChecksum>
         </File>
-        <File dnOrder="267">
+        <File dnOrder="268">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_scrollbar.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/scrollbar</LogicalPath>
@@ -2150,7 +2158,7 @@
           <GeneratedChecksum dnOrder="4">6D73F1FE21F206280716CDFBFF1880EB</GeneratedChecksum>
           <UserChecksum dnOrder="5">6D73F1FE21F206280716CDFBFF1880EB</UserChecksum>
         </File>
-        <File dnOrder="268">
+        <File dnOrder="269">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_skin_classic_common.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget</LogicalPath>
@@ -2158,7 +2166,7 @@
           <GeneratedChecksum dnOrder="4">27CFDB56CED5C109C979478D3F269160</GeneratedChecksum>
           <UserChecksum dnOrder="5">27CFDB56CED5C109C979478D3F269160</UserChecksum>
         </File>
-        <File dnOrder="269">
+        <File dnOrder="270">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_slider.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/slider</LogicalPath>
@@ -2166,7 +2174,7 @@
           <GeneratedChecksum dnOrder="4">A614321B39F09D7E09931A4599EBB541</GeneratedChecksum>
           <UserChecksum dnOrder="5">A614321B39F09D7E09931A4599EBB541</UserChecksum>
         </File>
-        <File dnOrder="270">
+        <File dnOrder="271">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_textfield.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/textfield</LogicalPath>
@@ -2174,7 +2182,7 @@
           <GeneratedChecksum dnOrder="4">2FE5BB5940BFDC49581F4EA0D4E5A84F</GeneratedChecksum>
           <UserChecksum dnOrder="5">2FE5BB5940BFDC49581F4EA0D4E5A84F</UserChecksum>
         </File>
-        <File dnOrder="271">
+        <File dnOrder="272">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_touchtest.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/touchtest</LogicalPath>
@@ -2182,7 +2190,7 @@
           <GeneratedChecksum dnOrder="4">F6E8E2819B79D3657EB8884DE0660790</GeneratedChecksum>
           <UserChecksum dnOrder="5">F6E8E2819B79D3657EB8884DE0660790</UserChecksum>
         </File>
-        <File dnOrder="272">
+        <File dnOrder="273">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_widget_window.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/gfx/legato/widget/window</LogicalPath>
@@ -2190,7 +2198,7 @@
           <GeneratedChecksum dnOrder="4">56C5A7F21143B2F7410F549DAB603BA2</GeneratedChecksum>
           <UserChecksum dnOrder="5">56C5A7F21143B2F7410F549DAB603BA2</UserChecksum>
         </File>
-        <File dnOrder="273">
+        <File dnOrder="274">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">mclk.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -2198,7 +2206,7 @@
           <GeneratedChecksum dnOrder="4">0ED06295BF961157D0145F5CC8246FEF</GeneratedChecksum>
           <UserChecksum dnOrder="5">0ED06295BF961157D0145F5CC8246FEF</UserChecksum>
         </File>
-        <File dnOrder="274">
+        <File dnOrder="275">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">mpu_armv7.h</Name>
           <LogicalPath dnOrder="2">packs/CMSIS/CMSIS/Core/Include/</LogicalPath>
@@ -2206,7 +2214,7 @@
           <GeneratedChecksum dnOrder="4">A0246C3B848A6A45D54CE5DA8DF3B9C8</GeneratedChecksum>
           <UserChecksum dnOrder="5">A0246C3B848A6A45D54CE5DA8DF3B9C8</UserChecksum>
         </File>
-        <File dnOrder="275">
+        <File dnOrder="276">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">nvmctrl.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -2214,7 +2222,7 @@
           <GeneratedChecksum dnOrder="4">70E7AA001229D2A9965220C6AD1D4D20</GeneratedChecksum>
           <UserChecksum dnOrder="5">70E7AA001229D2A9965220C6AD1D4D20</UserChecksum>
         </File>
-        <File dnOrder="276">
+        <File dnOrder="277">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">osal.h</Name>
           <LogicalPath dnOrder="2">/osal/</LogicalPath>
@@ -2222,7 +2230,7 @@
           <GeneratedChecksum dnOrder="4">F0AD88762263B7CB89B02AB4F5876059</GeneratedChecksum>
           <UserChecksum dnOrder="5">F0AD88762263B7CB89B02AB4F5876059</UserChecksum>
         </File>
-        <File dnOrder="277">
+        <File dnOrder="278">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">osal_definitions.h</Name>
           <LogicalPath dnOrder="2">/osal/</LogicalPath>
@@ -2230,7 +2238,7 @@
           <GeneratedChecksum dnOrder="4">0AC88C49E4585B606FD5AC6804F0C340</GeneratedChecksum>
           <UserChecksum dnOrder="5">0AC88C49E4585B606FD5AC6804F0C340</UserChecksum>
         </File>
-        <File dnOrder="278">
+        <File dnOrder="279">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">osal_impl_basic.h</Name>
           <LogicalPath dnOrder="2">/osal/</LogicalPath>
@@ -2238,7 +2246,7 @@
           <GeneratedChecksum dnOrder="4">63FBE37825657165B9EA584BF05DBA43</GeneratedChecksum>
           <UserChecksum dnOrder="5">63FBE37825657165B9EA584BF05DBA43</UserChecksum>
         </File>
-        <File dnOrder="279">
+        <File dnOrder="280">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">osc32kctrl.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -2246,7 +2254,7 @@
           <GeneratedChecksum dnOrder="4">DB21EDF2AD93CE9F7C0EF6EF4DA36587</GeneratedChecksum>
           <UserChecksum dnOrder="5">DB21EDF2AD93CE9F7C0EF6EF4DA36587</UserChecksum>
         </File>
-        <File dnOrder="280">
+        <File dnOrder="281">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">oscctrl.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -2254,7 +2262,7 @@
           <GeneratedChecksum dnOrder="4">11ED79E44C5FF994B0AFE7E57EF11356</GeneratedChecksum>
           <UserChecksum dnOrder="5">11ED79E44C5FF994B0AFE7E57EF11356</UserChecksum>
         </File>
-        <File dnOrder="281">
+        <File dnOrder="282">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">pac.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -2262,7 +2270,7 @@
           <GeneratedChecksum dnOrder="4">A583DDF84C7AE69D81CE46D7BB58CE1D</GeneratedChecksum>
           <UserChecksum dnOrder="5">A583DDF84C7AE69D81CE46D7BB58CE1D</UserChecksum>
         </File>
-        <File dnOrder="282">
+        <File dnOrder="283">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">pcc.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -2270,7 +2278,7 @@
           <GeneratedChecksum dnOrder="4">D61D8DD5DD7EB1FF050C59A7657506B5</GeneratedChecksum>
           <UserChecksum dnOrder="5">D61D8DD5DD7EB1FF050C59A7657506B5</UserChecksum>
         </File>
-        <File dnOrder="283">
+        <File dnOrder="284">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">pdec.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -2278,7 +2286,7 @@
           <GeneratedChecksum dnOrder="4">DAAC696C679B8770628968823DD63937</GeneratedChecksum>
           <UserChecksum dnOrder="5">DAAC696C679B8770628968823DD63937</UserChecksum>
         </File>
-        <File dnOrder="284">
+        <File dnOrder="285">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_ccl.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/peripheral/ccl/</LogicalPath>
@@ -2286,7 +2294,7 @@
           <GeneratedChecksum dnOrder="4">550622C61F7164B3DBB20D380B088BFC</GeneratedChecksum>
           <UserChecksum dnOrder="5">550622C61F7164B3DBB20D380B088BFC</UserChecksum>
         </File>
-        <File dnOrder="285">
+        <File dnOrder="286">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_clock.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/peripheral/clock/</LogicalPath>
@@ -2294,7 +2302,7 @@
           <GeneratedChecksum dnOrder="4">0416F129713FDF989ACC1FC57065125C</GeneratedChecksum>
           <UserChecksum dnOrder="5">0416F129713FDF989ACC1FC57065125C</UserChecksum>
         </File>
-        <File dnOrder="286">
+        <File dnOrder="287">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_cmcc.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/peripheral/cmcc/</LogicalPath>
@@ -2302,7 +2310,7 @@
           <GeneratedChecksum dnOrder="4">4209AA8D29CCA5F4F705D4A6C8722DDB</GeneratedChecksum>
           <UserChecksum dnOrder="5">4209AA8D29CCA5F4F705D4A6C8722DDB</UserChecksum>
         </File>
-        <File dnOrder="287">
+        <File dnOrder="288">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_dmac.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/peripheral/dmac/</LogicalPath>
@@ -2310,7 +2318,7 @@
           <GeneratedChecksum dnOrder="4">FA58740A81FF4CBBF848EDF56F087BFF</GeneratedChecksum>
           <UserChecksum dnOrder="5">FA58740A81FF4CBBF848EDF56F087BFF</UserChecksum>
         </File>
-        <File dnOrder="288">
+        <File dnOrder="289">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_evsys.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/peripheral/evsys</LogicalPath>
@@ -2318,7 +2326,7 @@
           <GeneratedChecksum dnOrder="4">CCAEF942C66AF995876DFD85CEFF611F</GeneratedChecksum>
           <UserChecksum dnOrder="5">CCAEF942C66AF995876DFD85CEFF611F</UserChecksum>
         </File>
-        <File dnOrder="289">
+        <File dnOrder="290">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_nvic.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/peripheral/nvic/</LogicalPath>
@@ -2326,7 +2334,7 @@
           <GeneratedChecksum dnOrder="4">E95AB23B866AA0CE6F0ABF637E9E2C83</GeneratedChecksum>
           <UserChecksum dnOrder="5">E95AB23B866AA0CE6F0ABF637E9E2C83</UserChecksum>
         </File>
-        <File dnOrder="290">
+        <File dnOrder="291">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_nvmctrl.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/peripheral/nvmctrl/</LogicalPath>
@@ -2334,7 +2342,7 @@
           <GeneratedChecksum dnOrder="4">979C4115BB3514CB386D0B6C8F6E1525</GeneratedChecksum>
           <UserChecksum dnOrder="5">979C4115BB3514CB386D0B6C8F6E1525</UserChecksum>
         </File>
-        <File dnOrder="291">
+        <File dnOrder="292">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_port.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/peripheral/port/</LogicalPath>
@@ -2342,7 +2350,7 @@
           <GeneratedChecksum dnOrder="4">C01BDA5D7F85DB629E26C10C55CE1CD3</GeneratedChecksum>
           <UserChecksum dnOrder="5">C01BDA5D7F85DB629E26C10C55CE1CD3</UserChecksum>
         </File>
-        <File dnOrder="292">
+        <File dnOrder="293">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_sercom4_i2c_master.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/peripheral/sercom/i2c_master/</LogicalPath>
@@ -2350,7 +2358,7 @@
           <GeneratedChecksum dnOrder="4">933412389848E864158031DE98111283</GeneratedChecksum>
           <UserChecksum dnOrder="5">933412389848E864158031DE98111283</UserChecksum>
         </File>
-        <File dnOrder="293">
+        <File dnOrder="294">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_sercom_i2c_master_common.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/peripheral/sercom/i2c_master/</LogicalPath>
@@ -2358,7 +2366,7 @@
           <GeneratedChecksum dnOrder="4">BCC5E485CEA55A52548E630A8FE9198A</GeneratedChecksum>
           <UserChecksum dnOrder="5">BCC5E485CEA55A52548E630A8FE9198A</UserChecksum>
         </File>
-        <File dnOrder="294">
+        <File dnOrder="295">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_tc0.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/peripheral/tc/</LogicalPath>
@@ -2366,7 +2374,15 @@
           <GeneratedChecksum dnOrder="4">C85A8376FD41753F5CDFDA9B336C47C7</GeneratedChecksum>
           <UserChecksum dnOrder="5">C85A8376FD41753F5CDFDA9B336C47C7</UserChecksum>
         </File>
-        <File dnOrder="295">
+        <File dnOrder="296">
+          <Type dnOrder="0">HEADER</Type>
+          <Name dnOrder="1">plib_tc1.h</Name>
+          <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/peripheral/tc/</LogicalPath>
+          <PhysicalPath dnOrder="3">/peripheral/tc/</PhysicalPath>
+          <GeneratedChecksum dnOrder="4">5FF806E07FE4E464D1C0FB94AA24233B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">5FF806E07FE4E464D1C0FB94AA24233B</UserChecksum>
+        </File>
+        <File dnOrder="297">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_tc4.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/peripheral/tc/</LogicalPath>
@@ -2374,7 +2390,7 @@
           <GeneratedChecksum dnOrder="4">6EF01C625E71F188EFAA06B8B5A5601C</GeneratedChecksum>
           <UserChecksum dnOrder="5">6EF01C625E71F188EFAA06B8B5A5601C</UserChecksum>
         </File>
-        <File dnOrder="296">
+        <File dnOrder="298">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_tc_common.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/peripheral/tc/</LogicalPath>
@@ -2382,7 +2398,7 @@
           <GeneratedChecksum dnOrder="4">9123F379ED6F3FD032D954CC559D102A</GeneratedChecksum>
           <UserChecksum dnOrder="5">9123F379ED6F3FD032D954CC559D102A</UserChecksum>
         </File>
-        <File dnOrder="297">
+        <File dnOrder="299">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">pm.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -2390,7 +2406,7 @@
           <GeneratedChecksum dnOrder="4">230DC8C90F67B535E066B42DC9E75432</GeneratedChecksum>
           <UserChecksum dnOrder="5">230DC8C90F67B535E066B42DC9E75432</UserChecksum>
         </File>
-        <File dnOrder="298">
+        <File dnOrder="300">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">port.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -2398,7 +2414,7 @@
           <GeneratedChecksum dnOrder="4">7994B8EDC87FE3CDD8AAE549DD928297</GeneratedChecksum>
           <UserChecksum dnOrder="5">7994B8EDC87FE3CDD8AAE549DD928297</UserChecksum>
         </File>
-        <File dnOrder="299">
+        <File dnOrder="301">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">pukcc.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -2406,7 +2422,7 @@
           <GeneratedChecksum dnOrder="4">37F677DB1CCF8EFEDDD0CE96179802D9</GeneratedChecksum>
           <UserChecksum dnOrder="5">37F677DB1CCF8EFEDDD0CE96179802D9</UserChecksum>
         </File>
-        <File dnOrder="300">
+        <File dnOrder="302">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">qspi.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -2414,7 +2430,7 @@
           <GeneratedChecksum dnOrder="4">2DC3BF1A3EAA994600A766EA97C7A55A</GeneratedChecksum>
           <UserChecksum dnOrder="5">2DC3BF1A3EAA994600A766EA97C7A55A</UserChecksum>
         </File>
-        <File dnOrder="301">
+        <File dnOrder="303">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">ramecc.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -2422,7 +2438,7 @@
           <GeneratedChecksum dnOrder="4">16B67C70F45690FEAE3DC77349EC6EA1</GeneratedChecksum>
           <UserChecksum dnOrder="5">16B67C70F45690FEAE3DC77349EC6EA1</UserChecksum>
         </File>
-        <File dnOrder="302">
+        <File dnOrder="304">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">rstc.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -2430,7 +2446,7 @@
           <GeneratedChecksum dnOrder="4">8631BC8778695E373B39AA4E7669FE05</GeneratedChecksum>
           <UserChecksum dnOrder="5">8631BC8778695E373B39AA4E7669FE05</UserChecksum>
         </File>
-        <File dnOrder="303">
+        <File dnOrder="305">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">rtc.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -2438,7 +2454,7 @@
           <GeneratedChecksum dnOrder="4">D4D1F9AB294DFD9C0051A6D01319599D</GeneratedChecksum>
           <UserChecksum dnOrder="5">D4D1F9AB294DFD9C0051A6D01319599D</UserChecksum>
         </File>
-        <File dnOrder="304">
+        <File dnOrder="306">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">same54p20a.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/pio/</LogicalPath>
@@ -2446,7 +2462,7 @@
           <GeneratedChecksum dnOrder="4">F1A18FEFE4084523AEC62CA6D4C38A4F</GeneratedChecksum>
           <UserChecksum dnOrder="5">F1A18FEFE4084523AEC62CA6D4C38A4F</UserChecksum>
         </File>
-        <File dnOrder="305">
+        <File dnOrder="307">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sdhc.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -2454,7 +2470,7 @@
           <GeneratedChecksum dnOrder="4">4FD3D37EE8C0AFBD796DB30C369EF48A</GeneratedChecksum>
           <UserChecksum dnOrder="5">4FD3D37EE8C0AFBD796DB30C369EF48A</UserChecksum>
         </File>
-        <File dnOrder="306">
+        <File dnOrder="308">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sercom.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -2462,7 +2478,7 @@
           <GeneratedChecksum dnOrder="4">63C3E79DF83E6E3D76E037BF87CD1A40</GeneratedChecksum>
           <UserChecksum dnOrder="5">63C3E79DF83E6E3D76E037BF87CD1A40</UserChecksum>
         </File>
-        <File dnOrder="307">
+        <File dnOrder="309">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">supc.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -2470,7 +2486,7 @@
           <GeneratedChecksum dnOrder="4">C6909FCEFBCE7984798EC680891990AC</GeneratedChecksum>
           <UserChecksum dnOrder="5">C6909FCEFBCE7984798EC680891990AC</UserChecksum>
         </File>
-        <File dnOrder="308">
+        <File dnOrder="310">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_cache.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/system/cache/</LogicalPath>
@@ -2478,7 +2494,7 @@
           <GeneratedChecksum dnOrder="4">AFAAF7D896D57569CA4CF73BB3339481</GeneratedChecksum>
           <UserChecksum dnOrder="5">AFAAF7D896D57569CA4CF73BB3339481</UserChecksum>
         </File>
-        <File dnOrder="309">
+        <File dnOrder="311">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_input.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/system/input</LogicalPath>
@@ -2486,7 +2502,7 @@
           <GeneratedChecksum dnOrder="4">12A9F3A89C44A88EDB9D107DC1FE8EDA</GeneratedChecksum>
           <UserChecksum dnOrder="5">12A9F3A89C44A88EDB9D107DC1FE8EDA</UserChecksum>
         </File>
-        <File dnOrder="310">
+        <File dnOrder="312">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_input_gesture.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/system/input</LogicalPath>
@@ -2494,7 +2510,7 @@
           <GeneratedChecksum dnOrder="4">5499BE8EDFB7930D2460DE8BA8E8818B</GeneratedChecksum>
           <UserChecksum dnOrder="5">5499BE8EDFB7930D2460DE8BA8E8818B</UserChecksum>
         </File>
-        <File dnOrder="311">
+        <File dnOrder="313">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_input_keyboard.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/system/input</LogicalPath>
@@ -2502,7 +2518,7 @@
           <GeneratedChecksum dnOrder="4">A254F5CC3DD63C1432666958260CADAB</GeneratedChecksum>
           <UserChecksum dnOrder="5">A254F5CC3DD63C1432666958260CADAB</UserChecksum>
         </File>
-        <File dnOrder="312">
+        <File dnOrder="314">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_input_listener.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/system/input</LogicalPath>
@@ -2510,7 +2526,7 @@
           <GeneratedChecksum dnOrder="4">00AAAE838D855B5A8C560B371C7D0363</GeneratedChecksum>
           <UserChecksum dnOrder="5">00AAAE838D855B5A8C560B371C7D0363</UserChecksum>
         </File>
-        <File dnOrder="313">
+        <File dnOrder="315">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_input_mouse.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/system/input</LogicalPath>
@@ -2518,7 +2534,7 @@
           <GeneratedChecksum dnOrder="4">9B0AB7A5A79745BE5AEC37B9A14D7090</GeneratedChecksum>
           <UserChecksum dnOrder="5">9B0AB7A5A79745BE5AEC37B9A14D7090</UserChecksum>
         </File>
-        <File dnOrder="314">
+        <File dnOrder="316">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_input_touch.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/system/input</LogicalPath>
@@ -2526,7 +2542,7 @@
           <GeneratedChecksum dnOrder="4">6012C94D59E0E69145C089AB1F736C28</GeneratedChecksum>
           <UserChecksum dnOrder="5">6012C94D59E0E69145C089AB1F736C28</UserChecksum>
         </File>
-        <File dnOrder="315">
+        <File dnOrder="317">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_int.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/system/int/</LogicalPath>
@@ -2534,7 +2550,7 @@
           <GeneratedChecksum dnOrder="4">1329D2DEB6E5AC9515AD4D165C60DC74</GeneratedChecksum>
           <UserChecksum dnOrder="5">1329D2DEB6E5AC9515AD4D165C60DC74</UserChecksum>
         </File>
-        <File dnOrder="316">
+        <File dnOrder="318">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_int_mapping.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/system/int/</LogicalPath>
@@ -2542,7 +2558,7 @@
           <GeneratedChecksum dnOrder="4">00278F169FFB0CBBAB3A68B5D647F093</GeneratedChecksum>
           <UserChecksum dnOrder="5">00278F169FFB0CBBAB3A68B5D647F093</UserChecksum>
         </File>
-        <File dnOrder="317">
+        <File dnOrder="319">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_time.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/system/time/</LogicalPath>
@@ -2550,7 +2566,7 @@
           <GeneratedChecksum dnOrder="4">466D676839280C0E7FC2CC6F78BA6EE9</GeneratedChecksum>
           <UserChecksum dnOrder="5">466D676839280C0E7FC2CC6F78BA6EE9</UserChecksum>
         </File>
-        <File dnOrder="318">
+        <File dnOrder="320">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_time_definitions.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/system/time/</LogicalPath>
@@ -2558,7 +2574,7 @@
           <GeneratedChecksum dnOrder="4">82C87C4CF49EE4D859363C15E9073333</GeneratedChecksum>
           <UserChecksum dnOrder="5">82C87C4CF49EE4D859363C15E9073333</UserChecksum>
         </File>
-        <File dnOrder="319">
+        <File dnOrder="321">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_time_local.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/system/time/</LogicalPath>
@@ -2566,7 +2582,7 @@
           <GeneratedChecksum dnOrder="4">62F39464265EC34979649F761FB4FE57</GeneratedChecksum>
           <UserChecksum dnOrder="5">62F39464265EC34979649F761FB4FE57</UserChecksum>
         </File>
-        <File dnOrder="320">
+        <File dnOrder="322">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">system.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/system/</LogicalPath>
@@ -2574,7 +2590,7 @@
           <GeneratedChecksum dnOrder="4">BE95B4F134C5C929787B9DA6FDBF3501</GeneratedChecksum>
           <UserChecksum dnOrder="5">BE95B4F134C5C929787B9DA6FDBF3501</UserChecksum>
         </File>
-        <File dnOrder="321">
+        <File dnOrder="323">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">system_common.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/system/</LogicalPath>
@@ -2582,7 +2598,7 @@
           <GeneratedChecksum dnOrder="4">C3F5136D520DAC4416512EBFCCA023C3</GeneratedChecksum>
           <UserChecksum dnOrder="5">C3F5136D520DAC4416512EBFCCA023C3</UserChecksum>
         </File>
-        <File dnOrder="322">
+        <File dnOrder="324">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">system_module.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/system/</LogicalPath>
@@ -2590,7 +2606,7 @@
           <GeneratedChecksum dnOrder="4">1C75A8A6B60598A2FD0D533F57839B72</GeneratedChecksum>
           <UserChecksum dnOrder="5">1C75A8A6B60598A2FD0D533F57839B72</UserChecksum>
         </File>
-        <File dnOrder="323">
+        <File dnOrder="325">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">tc.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -2598,7 +2614,7 @@
           <GeneratedChecksum dnOrder="4">18326E7C08CC5DA5A3325CB5F6AAB1A0</GeneratedChecksum>
           <UserChecksum dnOrder="5">18326E7C08CC5DA5A3325CB5F6AAB1A0</UserChecksum>
         </File>
-        <File dnOrder="324">
+        <File dnOrder="326">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">tcc.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -2606,7 +2622,7 @@
           <GeneratedChecksum dnOrder="4">344C5DFE34260730CE561C89728C940D</GeneratedChecksum>
           <UserChecksum dnOrder="5">344C5DFE34260730CE561C89728C940D</UserChecksum>
         </File>
-        <File dnOrder="325">
+        <File dnOrder="327">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">toolchain_specifics.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/</LogicalPath>
@@ -2614,7 +2630,7 @@
           <GeneratedChecksum dnOrder="4">840848BBD7970DF9AF3E06A438C4F910</GeneratedChecksum>
           <UserChecksum dnOrder="5">840848BBD7970DF9AF3E06A438C4F910</UserChecksum>
         </File>
-        <File dnOrder="326">
+        <File dnOrder="328">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">trng.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -2622,7 +2638,7 @@
           <GeneratedChecksum dnOrder="4">5971A48DEF5BDB15CAC7A6A31089D545</GeneratedChecksum>
           <UserChecksum dnOrder="5">5971A48DEF5BDB15CAC7A6A31089D545</UserChecksum>
         </File>
-        <File dnOrder="327">
+        <File dnOrder="329">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">usb.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -2630,7 +2646,7 @@
           <GeneratedChecksum dnOrder="4">FD65331E37E88B337F1037B5929F0ADE</GeneratedChecksum>
           <UserChecksum dnOrder="5">FD65331E37E88B337F1037B5929F0ADE</UserChecksum>
         </File>
-        <File dnOrder="328">
+        <File dnOrder="330">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">user.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_e54_cult_parallel/</LogicalPath>
@@ -2638,7 +2654,7 @@
           <GeneratedChecksum dnOrder="4"/>
           <UserChecksum dnOrder="5"/>
         </File>
-        <File dnOrder="329">
+        <File dnOrder="331">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">wdt.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME54P20A_DFP/component/</LogicalPath>
@@ -2663,7 +2679,7 @@
       <Setting dnOrder="2" key="FORCE_OPTIMIZATION" value="false"/>
       <Setting dnOrder="3" key="GENERATE_BACKUP" value="true"/>
       <Setting dnOrder="4" key="MERGE_STRATEGY" value="USER_ALL"/>
-      <Setting dnOrder="5" key="PackageFilter" value="audio;bsp;core;csp;gfx;gfx_apps;touch;usb;"/>
+      <Setting dnOrder="5" key="PackageFilter" value="audio;bootloader;bsp;core;crypto;csp;gfx;gfx_apps;net;touch;usb;"/>
     </Settings>
   </Configurator>
 </Configuration>

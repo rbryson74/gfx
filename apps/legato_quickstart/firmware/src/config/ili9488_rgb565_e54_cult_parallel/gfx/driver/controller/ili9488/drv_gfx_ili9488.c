@@ -56,9 +56,8 @@
 
 #define PIXEL_BUFFER_COLOR_MODE GFX_COLOR_MODE_RGB_565
 
-//Row and column are swapped
-#define SCREEN_WIDTH DISPLAY_HEIGHT
-#define SCREEN_HEIGHT DISPLAY_WIDTH
+#define SCREEN_WIDTH DISPLAY_WIDTH
+#define SCREEN_HEIGHT DISPLAY_HEIGHT
 
 #define ILI9488_NCSAssert(intf)   GFX_Disp_Intf_PinControl(intf, \
                                     GFX_DISP_INTF_PIN_CS, \
@@ -155,7 +154,7 @@ ILI9488_CMD_PARAM initCmdParm[] =
     {ILI9488_CMD_INTERFACE_MODE_CONTROL, 1, {0x00}},
     {ILI9488_CMD_MEMORY_ACCESS_CONTROL, 1, {(
                                              ILI9488_MADCTL_RGB_BGR_ORDER_CTRL |
-                                             ILI9488_MADCTL_ROW_COLUMN_EXCHANGE |
+                                             ILI9488_MADCTL_COL_ADDR_ORDER |
                                             0)}},
 
     {ILI9488_CMD_SLEEP_OUT, 0, {0x00}},

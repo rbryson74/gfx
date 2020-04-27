@@ -186,6 +186,7 @@ void GFX_Disp_Intf_StartTransfer(uint8_t * cmd_buffer,
     
     portGroupIntf.data_buffer_size = data_buffer_size;
 
+    TC1_CompareStart();
     
     if (cmd_buffer != NULL && cmd_buffer_size > 0)
     {
@@ -347,6 +348,7 @@ static void GFX_Disp_Intf_DMATransferCallback(DMAC_TRANSFER_EVENT event,
         default:
         case GFX_INTF_DMA_STATUS_NO_TRANSFER:
         {
+            TC1_CompareStop();
             break;
         }
         case GFX_INTF_DMA_STATUS_CMD_TRANSFER:

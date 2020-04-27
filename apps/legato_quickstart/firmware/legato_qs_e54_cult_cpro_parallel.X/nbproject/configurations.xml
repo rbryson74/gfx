@@ -225,6 +225,7 @@
             </logicalFolder>
             <logicalFolder name="f9" displayName="tc" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54_cult_parallel/peripheral/tc/plib_tc_common.h</itemPath>
+              <itemPath>../src/config/ili9488_rgb565_e54_cult_parallel/peripheral/tc/plib_tc1.h</itemPath>
               <itemPath>../src/config/ili9488_rgb565_e54_cult_parallel/peripheral/tc/plib_tc0.h</itemPath>
               <itemPath>../src/config/ili9488_rgb565_e54_cult_parallel/peripheral/tc/plib_tc4.h</itemPath>
             </logicalFolder>
@@ -620,6 +621,7 @@
               </logicalFolder>
             </logicalFolder>
             <logicalFolder name="f9" displayName="tc" projectFiles="true">
+              <itemPath>../src/config/ili9488_rgb565_e54_cult_parallel/peripheral/tc/plib_tc1.c</itemPath>
               <itemPath>../src/config/ili9488_rgb565_e54_cult_parallel/peripheral/tc/plib_tc0.c</itemPath>
               <itemPath>../src/config/ili9488_rgb565_e54_cult_parallel/peripheral/tc/plib_tc4.c</itemPath>
             </logicalFolder>
@@ -672,12 +674,12 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>EdbgTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>2.40</languageToolchainVersion>
+        <languageToolchainVersion>2.30</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="SAME54_DFP" vendor="Microchip" version="3.0.27"/>
         <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
+        <pack name="SAME54_DFP" vendor="Microchip" version="3.2.56"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -856,6 +858,7 @@
         <property key="mdtcm" value=""/>
         <property key="mitcm" value=""/>
         <property key="mstacktcm" value="false"/>
+        <property key="omit-pack-options" value="1"/>
         <property key="relaxed-math" value="false"/>
         <property key="save-temps" value="false"/>
         <property key="wpo-lto" value="false"/>
@@ -868,6 +871,8 @@
         <property key="debugoptions.useswbreakpoints" value="false"/>
         <property key="firmware.path"
                   value="Press to browse for a specific firmware version"/>
+        <property key="firmware.toolpack"
+                  value="Press to select which tool pack to use"/>
         <property key="firmware.update.action" value="firmware.update.use.latest"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>
@@ -884,7 +889,7 @@
         <property key="memories.programmemory.ranges" value="0-fffff"/>
         <property key="poweroptions.powerenable" value="false"/>
         <property key="programmerToGoFilePath"
-                  value="/home/ryan/Work/lh3/gfx/apps/legato_quickstart/firmware/legato_qs_e54_cult_cpro_parallel.X/debug/ili9488_rgb565_e54_cult_parallel/legato_qs_e54_cult_cpro_parallel_ptg"/>
+                  value="C:/Users/c18797/Documents/Projects/Harmony/H3/gfx/apps/legato_quickstart/firmware/legato_qs_e54_cult_cpro_parallel.X/debug/ili9488_rgb565_e54_cult_parallel/legato_qs_e54_cult_cpro_parallel_ptg"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.preservedataflash" value="false"/>
         <property key="programoptions.preservedataflash.ranges"
@@ -895,6 +900,10 @@
         <property key="programoptions.preserveprogramrange" value="false"/>
         <property key="programoptions.preserveuserid" value="false"/>
         <property key="programoptions.programuserotp" value="false"/>
+        <property key="toolpack.updateoptions"
+                  value="toolpack.updateoptions.uselatestoolpack"/>
+        <property key="toolpack.updateoptions.packversion"
+                  value="Press to select which tool pack to use"/>
         <property key="voltagevalue" value=""/>
       </EdbgTool>
       <PICkit3PlatformTool>

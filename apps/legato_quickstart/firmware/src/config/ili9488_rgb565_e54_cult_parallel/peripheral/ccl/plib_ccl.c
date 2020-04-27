@@ -93,8 +93,8 @@ void CCL_Initialize(void)
     /* SEQSEL = 0x0 */
     CCL_REGS->CCL_SEQCTRL[0] = 0x0;
 
-    /* SEQSEL = 0x0 */
-    CCL_REGS->CCL_SEQCTRL[1] = 0x0;
+    /* SEQSEL = 0x2 */
+    CCL_REGS->CCL_SEQCTRL[1] = 0x2;
 
     /* ENABLE  = false */
     /* FILTSEL = 0   */
@@ -120,34 +120,34 @@ void CCL_Initialize(void)
     /* TRUTH   = 0   */
     CCL_REGS->CCL_LUTCTRL[1] = 0x0;
     
-    /* ENABLE  = false */
-    /* FILTSEL = 0   */
-    /* EDGESEL = 0   */
-    /* INSEL0  = 0   */
+    /* ENABLE  = true */
+    /* FILTSEL = 1   */
+    /* EDGESEL = 1   */
+    /* INSEL0  = 3   */
     /* INSEL1  = 0   */
     /* INSEL2  = 0   */
     /* INVEI   = 0   */
-    /* LUTEI   = 0   */
+    /* LUTEI   = 1   */
     /* LUTEO   = 0   */
-    /* TRUTH   = 0   */
-    CCL_REGS->CCL_LUTCTRL[2] = 0x0;
+    /* TRUTH   = 2   */
+    CCL_REGS->CCL_LUTCTRL[2] = 0x2200392;
     
-    /* ENABLE  = false */
-    /* FILTSEL = 0   */
-    /* EDGESEL = 0   */
-    /* INSEL0  = 0   */
+    /* ENABLE  = true */
+    /* FILTSEL = 1   */
+    /* EDGESEL = 1   */
+    /* INSEL0  = 1   */
     /* INSEL1  = 0   */
     /* INSEL2  = 0   */
     /* INVEI   = 0   */
     /* LUTEI   = 0   */
     /* LUTEO   = 0   */
-    /* TRUTH   = 0   */
-    CCL_REGS->CCL_LUTCTRL[3] = 0x0;
+    /* TRUTH   = 2   */
+    CCL_REGS->CCL_LUTCTRL[3] = 0x2000192;
     
     /* SWRST    = 0 */
-    /* ENABLE   = 0 */
+    /* ENABLE   = 1 */
     /* RUNSTDBY = 0 */
-    CCL_REGS->CCL_CTRL = 0x0;
+    CCL_REGS->CCL_CTRL = 0x2;
     
 }
 
