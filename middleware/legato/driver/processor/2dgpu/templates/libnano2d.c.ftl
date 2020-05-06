@@ -49,15 +49,27 @@ uint32_t __attribute__((coherent, aligned(32))) commandBuffer[CMD_BUFFER_SIZE];
 
 #define SCRATCH_SIZE ${SCRATCHBUFFER_SIZE}
 
-static volatile uint8_t __attribute__ ((coherent, aligned (32))) scratchBuffer[SCRATCHBUFFER_SIZE];
+static volatile uint8_t __attribute__ ((coherent, aligned (32))) scratchBuffer[SCRATCH_SIZE];
 
 // GPU command buffer seems to work better when placed in DDR
 #define CMD_BUFFER_DDR_ADDRESS 0xA9E00000
 
 n2d_module_parameters_t gpu_params;
-n2d_buffer_format_t gpu_format = N2D_RGB565;
-n2d_buffer_format_t gpu_blend = N2D_BLEND_SRC_OVER;
 n2d_orientation_t gpu_orientation = N2D_0;
+
+static n2d_buffer_format_t n2dFormats[GFX_COLOR_MODE_LAST + 1] =
+{
+    -1, // GFX_COLOR_MODE_GS_8
+    -1, // GFX_COLOR_MODE_RGB_332,
+    N2D_RGB565, // GFX_COLOR_MODE_RGB_565
+    -1, // GFX_COLOR_MODE_RGBA_5551
+    -1, // GFX_COLOR_MODE_RGB_888
+    N2D_RGBA8888, // GFX_COLOR_MODE_RGBA_8888
+    -1, // GFX_COLOR_MODE_ARGB_8888
+    -1, // GFX_COLOR_MODE_INDEX_1
+    -1, // GFX_COLOR_MODE_INDEX_4
+    -1, //GFX_COLOR_MODE_INDEX_8
+};
 
 gfxResult DRV_2DGPU_Line(gfxPixelBuffer * dest,
                          const gfxPoint* p1,
@@ -76,7 +88,7 @@ gfxResult DRV_2DGPU_Line(gfxPixelBuffer * dest,
     dest_buffer.width = dest->size.width;
     dest_buffer.height = dest->size.height;
     dest_buffer.stride = dest->size.width * gfxColorInfoTable[dest->mode].size;
-    dest_buffer.format = gpu_format;
+    dest_buffer.format = n2dFormats[dest->mode];
     dest_buffer.orientation = gpu_orientation;
     dest_buffer.handle = NULL;
     dest_buffer.memory = dest->pixels;
@@ -125,7 +137,7 @@ gfxResult DRV_2DGPU_Fill(gfxPixelBuffer * dest,
     dest_buffer.width = dest->size.width;
     dest_buffer.height = dest->size.height;
     dest_buffer.stride = dest->size.width * gfxColorInfoTable[dest->mode].size;
-    dest_buffer.format = gpu_format;
+    dest_buffer.format = n2dFormats[dest->mode];
     dest_buffer.orientation = gpu_orientation;
     dest_buffer.handle = NULL;
     dest_buffer.memory = dest->pixels;
@@ -174,7 +186,7 @@ gfxResult DRV_2DGPU_Blit(const gfxPixelBuffer* source,
     src_buffer.width = source->size.width;
     src_buffer.height = source->size.height;
     src_buffer.stride = source->size.width * gfxColorInfoTable[source->mode].size;
-    src_buffer.format = gpu_format;
+    src_buffer.format = n2dFormats[source->mode];
     src_buffer.orientation = gpu_orientation;
     src_buffer.handle = NULL;
     src_buffer.memory = source->pixels;
@@ -198,7 +210,7 @@ gfxResult DRV_2DGPU_Blit(const gfxPixelBuffer* source,
     dest_buffer.width = dest->size.width;
     dest_buffer.height = dest->size.height;
     dest_buffer.stride = dest->size.width * gfxColorInfoTable[dest->mode].size;
-    dest_buffer.format = gpu_format;
+    dest_buffer.format = n2dFormats[dest->mode];
     dest_buffer.orientation = gpu_orientation;
     dest_buffer.handle = NULL;
     dest_buffer.memory = dest->pixels;
@@ -225,7 +237,7 @@ gfxResult DRV_2DGPU_BlitStretch(const gfxPixelBuffer* source,
     src_buffer.width = source->size.width;
     src_buffer.height = source->size.height;
     src_buffer.stride = source->size.width * gfxColorInfoTable[dest->mode].size;
-    src_buffer.format = gpu_format;
+    src_buffer.format = n2dFormats[source->mode];
     src_buffer.orientation = gpu_orientation;
     src_buffer.handle = NULL;
     src_buffer.memory = source->pixels;
@@ -249,7 +261,7 @@ gfxResult DRV_2DGPU_BlitStretch(const gfxPixelBuffer* source,
     dest_buffer.width = dest->size.width;
     dest_buffer.height = dest->size.height;
     dest_buffer.stride = dest->size.width * gfxColorInfoTable[dest->mode].size;
-    dest_buffer.format = gpu_format;
+    dest_buffer.format = n2dFormats[dest->mode];
     dest_buffer.orientation = gpu_orientation;
     dest_buffer.handle = NULL;
     dest_buffer.memory = dest->pixels;
