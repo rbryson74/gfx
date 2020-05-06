@@ -49,7 +49,7 @@ uint32_t __attribute__((coherent, aligned(32))) commandBuffer[CMD_BUFFER_SIZE];
 
 #define SCRATCH_SIZE ${SCRATCHBUFFER_SIZE}
 
-static volatile uint8_t __attribute__ ((coherent, aligned (32))) scratchBuffer[8192];
+static volatile uint8_t __attribute__ ((coherent, aligned (32))) scratchBuffer[SCRATCHBUFFER_SIZE];
 
 // GPU command buffer seems to work better when placed in DDR
 #define CMD_BUFFER_DDR_ADDRESS 0xA9E00000
