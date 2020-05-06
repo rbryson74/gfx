@@ -510,12 +510,12 @@ uint32_t DRV_GLCD_GetBufferCount()
 
 uint32_t DRV_GLCD_GetDisplayWidth()
 {
-    return 480;
+    return DISPLAY_WIDTH;
 }
 
 uint32_t DRV_GLCD_GetDisplayHeight()
 {
-    return 272;
+    return DISPLAY_HEIGHT;
 }
 
 uint32_t DRV_GLCD_GetLayerCount()
