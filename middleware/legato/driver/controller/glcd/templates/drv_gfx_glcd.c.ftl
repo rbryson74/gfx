@@ -183,8 +183,9 @@ static gfxBool useGPU = true;
 static gfxBool useGPU = false;
 </#if>
 static unsigned int vsyncCount = 0;
-static gfxPixelBuffer pixelBuffer;
+static gfxPixelBuffer pixelBuffer[GFX_GLCD_LAYERS];
 static gfxRect srcRect, destRect;
+static unsigned int activeLayer = 0;
 
 volatile int32_t waitForAlphaSetting[GFX_GLCD_LAYERS] = {0};
 
@@ -306,11 +307,11 @@ static gfxResult globalPaletteSet(GFX_GlobalPalette palette)
     uint32_t lut[GFX_GLOBAL_PALETTE_SIZE];
     uint32_t colorIndex = 0;
     uint32_t* pal;
-	
+    
     if (palette == NULL)
         return GFX_FAILURE;
 
-	defGlobalPaletteSet(palette);
+    defGlobalPaletteSet(palette);
 
     for( colorIndex = 0; colorIndex < GFX_GLOBAL_PALETTE_SIZE; colorIndex++ )
     {
@@ -440,8 +441,8 @@ void DRV_GLCD_Initialize()
         gfxPixelBufferCreate(xResolution,
                     yResolution,
                     DRV_GLCD_GetColorMode(),
-                    drvLayer[0].baseaddr[0],
-                    &pixelBuffer);
+                    drvLayer[layerCount].baseaddr[0],
+                    &pixelBuffer[layerCount]);
 
         drvLayer[layerCount].updateLock = LAYER_UNLOCKED;
     }
@@ -453,7 +454,7 @@ void DRV_GLCD_Initialize()
 
 gfxPixelBuffer * DRV_GLCD_GetFrameBuffer(int32_t idx)
 {
-    return &pixelBuffer;
+    return &pixelBuffer[layerCount];
 }
 
 void GLCD_Interrupt_Handler(void)
@@ -489,23 +490,23 @@ static int DRV_GFX_GLCD_Start()
 gfxColorMode DRV_GLCD_GetColorMode()
 {
 <#if FrameBufferColorMode == "GS_8">
-	return GFX_COLOR_MODE_GS_8;
+    return GFX_COLOR_MODE_GS_8;
 <#elseif FrameBufferColorMode == "RGB_332">
-	return GFX_COLOR_MODE_RGB_332;
+    return GFX_COLOR_MODE_RGB_332;
 <#elseif FrameBufferColorMode == "RGB_565">
-	return GFX_COLOR_MODE_RGB_565;
+    return GFX_COLOR_MODE_RGB_565;
 <#elseif FrameBufferColorMode == "RGB_888">
-	return GFX_COLOR_MODE_RGB_888;
+    return GFX_COLOR_MODE_RGB_888;
 <#elseif FrameBufferColorMode == "RGBA_8888">
-	return GFX_COLOR_MODE_RGBA_8888;
+    return GFX_COLOR_MODE_RGBA_8888;
 <#elseif FrameBufferColorMode == "ARGB_8888">
-	return GFX_COLOR_MODE_ARGB_8888;
+    return GFX_COLOR_MODE_ARGB_8888;
 </#if>
 }
 
 uint32_t DRV_GLCD_GetBufferCount()
 {
-    return 1;
+    return BUFFER_PER_LAYER;
 }
 
 uint32_t DRV_GLCD_GetDisplayWidth()
@@ -520,17 +521,19 @@ uint32_t DRV_GLCD_GetDisplayHeight()
 
 uint32_t DRV_GLCD_GetLayerCount()
 {
-	return 1;
+    return GFX_GLCD_LAYERS;
 }
 
 uint32_t DRV_GLCD_GetActiveLayer()
 {
-	return 0;
+    return activeLayer;
 }
 
 gfxResult DRV_GLCD_SetActiveLayer(uint32_t idx)
 {
-	return GFX_SUCCESS;
+    activeLayer = idx;
+
+    return GFX_SUCCESS;
 }
 
 void DRV_GLCD_Swap(void)
@@ -540,12 +543,12 @@ void DRV_GLCD_Swap(void)
 
 uint32_t DRV_GLCD_GetVSYNCCount(void)
 {
-	return vsyncCount;
+    return vsyncCount;
 }
 
 void DRV_GLCD_SetUseGPU(gfxBool onOff)
 {
-	useGPU = onOff;
+    useGPU = onOff;
 }
 
 gfxResult DRV_GLCD_BlitBuffer(int32_t x,
@@ -568,23 +571,23 @@ gfxResult DRV_GLCD_BlitBuffer(int32_t x,
         destRect.height = buf->size.height;
         destRect.width = buf->size.width;
 
-        _2dgpuGraphicsProcessor.blitBuffer(buf, &srcRect, &pixelBuffer, &destRect, blend );
+        _2dgpuGraphicsProcessor.blitBuffer(buf, &srcRect, &pixelBuffer[activeLayer], &destRect, blend );
     }
     else
     {
-    	void* srcPtr;
-    	void* destPtr;
-    	uint32_t row, rowSize;
+        void* srcPtr;
+        void* destPtr;
+        uint32_t row, rowSize;
 
         rowSize = buf->size.width * gfxColorInfoTable[buf->mode].size;
 
-    	for(row = 0; row < buf->size.height; row++)
-    	{
-        	srcPtr = gfxPixelBufferOffsetGet(buf, 0, row);
-        	destPtr = gfxPixelBufferOffsetGet(&pixelBuffer, x, y + row);
+        for(row = 0; row < buf->size.height; row++)
+        {
+            srcPtr = gfxPixelBufferOffsetGet(buf, 0, row);
+            destPtr = gfxPixelBufferOffsetGet(&pixelBuffer[activeLayer], x, y + row);
 
-        	memcpy(destPtr, srcPtr, rowSize);
-    	}
+            memcpy(destPtr, srcPtr, rowSize);
+        }
     }
 
     return GFX_SUCCESS;
