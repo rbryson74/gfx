@@ -395,7 +395,7 @@ void _leImageScaleWidget_FillVTable(leImageScaleWidgetVTable* tbl)
     *tbl = imageScaleWidgetVTable;
 }
 #else
-static const leArcWidgetVTable arcWidgetVTable =
+static const leImageScaleWidgetVTable imageScaleWidgetVTable =
 {
     // base class
     .getType = (void*)_leWidget_GetType,
