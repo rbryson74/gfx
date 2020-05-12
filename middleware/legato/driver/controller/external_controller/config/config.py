@@ -52,6 +52,12 @@ PassiveDriver.setDescription("<html> Set to generate a passive driver. A passive
 							"It will not attach to the graphics library and will not write pixel data to the display controller. </html>")
 PassiveDriver.setDependencies(onPassiveDriverChanged, ["PassiveDriver"])
 
+AsyncDriver = comp.createBooleanSymbol("AsyncDriver", None)
+AsyncDriver.setLabel("Asynchronous")
+AsyncDriver.setDefaultValue(False)
+AsyncDriver.setDescription("<html> Set to generate an asynchronous driver. An async driver will not block while waiting transfers to complete.</html>")
+AsyncDriver.setDependencies(onAsyncDriverChanged, ["AsyncDriver"])
+
 DisplaySettingsMenu = comp.createMenuSymbol("DisplaySettingsMenu", None)
 DisplaySettingsMenu.setLabel("Display Settings")
 

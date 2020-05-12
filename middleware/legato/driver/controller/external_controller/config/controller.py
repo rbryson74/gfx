@@ -292,3 +292,9 @@ def updateDisplayManager(component, source):
 		Database.setSymbolValue("gfx_hal_le", "gfx_display", component.getDependencyComponent("Graphics Display").getID(), 1)
 		Database.setSymbolValue("gfx_hal_le", "DriverName", component.getDisplayName(), 1)
 		Database.setSymbolValue("gfx_hal_le", "DisplayName", component.getDependencyComponent("Graphics Display").getDisplayName(), 1)
+
+def onAsyncDriverChanged(source, event):
+	source.getComponent().getSymbolByID("GFX_EXTERNAL_CONTROLLER_C").setEnabled(event['value'] == False)
+	source.getComponent().getSymbolByID("GFX_EXTERNAL_CONTROLLER_ASYNC_C").setEnabled(event['value'] == True)
+
+
