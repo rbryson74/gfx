@@ -53,6 +53,18 @@
 
 #define DRV_GFX_DEPRECATED __attribute__ ((deprecated))
 
+/** GFX_DISP_INTF_STATUS
+
+  Summary:
+    Enum of GFX Intf callback status.
+    
+*/
+typedef enum
+{
+    GFX_DISP_INTF_TX_DONE,       //Transfer Done
+    GFX_DISP_INTF_ERROR,        //Error
+} GFX_DISP_INTF_STATUS;
+
 /** GFX_DISP_INTF_PIN
 
   Summary:
@@ -78,6 +90,16 @@ typedef enum
     GFX_DISP_INTF_PIN_CLEAR = 0,
     GFX_DISP_INTF_PIN_SET = 1,
 } GFX_DISP_INTF_PIN_VALUE;
+
+/** GFX_Disp_Intf_Callback
+
+  Summary:
+    GFX Intf callback function type.
+    
+*/
+typedef void (*GFX_Disp_Intf_Callback)(GFX_Disp_Intf,
+                                       GFX_DISP_INTF_STATUS, 
+                                       void *);
 
 /* Provide C++ Compatibility */
 #ifdef __cplusplus
@@ -367,6 +389,28 @@ int GFX_Disp_Intf_WriteDataByte(GFX_Disp_Intf intf, uint8_t data);
     * 0      - Interface is busy and unavailable
 */
 int GFX_Disp_Intf_Ready(GFX_Disp_Intf intf);
+
+/** 
+  Function:
+    GFX_Disp_Intf_Set_Callback(GFX_Disp_Intf intf, GFX_Disp_Intf_Callback cb, void * parm)
+
+  Summary:
+    Registers a callback function to GFX Display Interface. This is supported only by interfaces
+    that can do asynchronous/non-blocking transfers.
+
+  Description:
+
+  Parameters:
+    intf - the interface handle
+    cb - the callback function
+    parm - the function parameter
+ 
+  Returns:
+    * 0       - Operation successful
+    * -1       - Operation failed
+*/
+int GFX_Disp_Intf_Set_Callback(GFX_Disp_Intf intf, GFX_Disp_Intf_Callback cb, void * parm);
+
 
     /* Provide C++ Compatibility */
 #ifdef __cplusplus

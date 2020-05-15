@@ -284,8 +284,10 @@ void DRV_${ControllerName}_Transfer(GFX_Disp_Intf intf)
     {
         case BLIT_COLUMN_CMD:
         {
+<#if BlitType == "Driver Asynchronous">
             if (GFX_Disp_Intf_Ready(intf) == false)
                 break;
+</#if>
             
             DRV_${ControllerName}_NCSAssert(intf);
                     
@@ -299,9 +301,11 @@ void DRV_${ControllerName}_Transfer(GFX_Disp_Intf intf)
         {
             uint32_t x = drv.blitParms.x;
 
+<#if BlitType == "Driver Asynchronous">
             if (GFX_Disp_Intf_Ready(intf) == false)
                 break;
-            
+</#if>
+
             drv.state = BLIT_PAGE_CMD;
 
             <#if XAddressOffset != 0>
@@ -327,8 +331,10 @@ void DRV_${ControllerName}_Transfer(GFX_Disp_Intf intf)
         }
         case BLIT_PAGE_CMD:
         {
+<#if BlitType == "Driver Asynchronous">
             if (GFX_Disp_Intf_Ready(intf) == false)
                 break;
+</#if>
                         
             drv.state = BLIT_PAGE_DATA;
             
@@ -340,8 +346,10 @@ void DRV_${ControllerName}_Transfer(GFX_Disp_Intf intf)
         {
             uint32_t y = drv.blitParms.y;
 
+<#if BlitType == "Driver Asynchronous">
             if (GFX_Disp_Intf_Ready(intf) == false)
                 break;
+</#if>
 
             drv.state = BLIT_WRITE_CMD;
 
@@ -368,8 +376,10 @@ void DRV_${ControllerName}_Transfer(GFX_Disp_Intf intf)
         }
         case BLIT_WRITE_CMD:
         {
+<#if BlitType == "Driver Asynchronous">
             if (GFX_Disp_Intf_Ready(intf) == false)
                 break;
+</#if>
             
             drv.state = BLIT_WRITE_DATA;
             
@@ -384,8 +394,10 @@ void DRV_${ControllerName}_Transfer(GFX_Disp_Intf intf)
         }
         case BLIT_WRITE_DATA:
         {
+<#if BlitType == "Driver Asynchronous">
             if (GFX_Disp_Intf_Ready(intf) == false)
                 break;
+</#if>
 
 <#if DataWriteSize == "16">
             ptr = gfxPixelBufferOffsetGet_Unsafe(drv.blitParms.buf, 0, 0);
@@ -440,6 +452,11 @@ void DRV_${ControllerName}_Transfer(GFX_Disp_Intf intf)
         }
         case BLIT_DONE:
         {
+<#if BlitType == "Driver Asynchronous">
+            if (GFX_Disp_Intf_Ready(intf) == false)
+                break;
+</#if>
+
             DRV_${ControllerName}_NCSDeassert(intf); 
             gfxPixelBuffer_SetLocked(drv.blitParms.buf, GFX_FALSE);
             drv.state = IDLE;
@@ -457,6 +474,15 @@ void DRV_${ControllerName}_Transfer(GFX_Disp_Intf intf)
 </#if>
 }
 
+<#if BlitType == "Interface Asynchronous">
+void DRV_${ControllerName}_Intf_Callback(GFX_Disp_Intf intf, GFX_DISP_INTF_STATUS status, void * param)
+{
+    if (status == GFX_DISP_INTF_TX_DONE)
+    {
+        DRV_${ControllerName}_Transfer((GFX_Disp_Intf) drv.port_priv);
+    }
+}
+</#if>
 
 /**
   Function:
@@ -495,12 +521,20 @@ void DRV_${ControllerName}_Update(void)
                               initCmdParm,
                               sizeof(initCmdParm)/sizeof(${ControllerName}_CMD_PARAM));
 
+<#if BlitType == "Interface Asynchronous">
+        GFX_Disp_Intf_Set_Callback((GFX_Disp_Intf) drv.port_priv,
+                                   DRV_${ControllerName}_Intf_Callback,
+                                   NULL);
+</#if>
+
         drv.state = IDLE;
     }
-    else
+<#if BlitType == "Driver Asynchronous">
+    else if (drv.state != IDLE)
     {
         DRV_${ControllerName}_Transfer((GFX_Disp_Intf) drv.port_priv);
     }
+</#if>
 }
 
 <#if PassiveDriver == false>
@@ -554,6 +588,10 @@ gfxResult DRV_${ControllerName}_BlitBuffer(int32_t x,
     drv.state = BLIT_COLUMN_CMD;
     
     gfxPixelBuffer_SetLocked(buf, GFX_TRUE);
+
+<#if BlitType == "Interface Asynchronous">
+    DRV_${ControllerName}_Transfer((GFX_Disp_Intf) drv.port_priv);
+</#if>
 
     return GFX_SUCCESS;
 }

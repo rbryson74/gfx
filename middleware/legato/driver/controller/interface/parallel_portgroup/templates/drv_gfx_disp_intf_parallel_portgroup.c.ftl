@@ -563,6 +563,12 @@ int GFX_Disp_Intf_Ready(GFX_Disp_Intf intf)
     return 1;
 }
 
+int GFX_Disp_Intf_Set_Callback(GFX_Disp_Intf intf, GFX_Disp_Intf_Callback cb, void * parm)
+{
+    //Not supported
+    return -1;
+}
+
 
 /* *****************************************************************************
  End of File

@@ -52,12 +52,6 @@ PassiveDriver.setDescription("<html> Set to generate a passive driver. A passive
 							"It will not attach to the graphics library and will not write pixel data to the display controller. </html>")
 PassiveDriver.setDependencies(onPassiveDriverChanged, ["PassiveDriver"])
 
-AsyncDriver = comp.createBooleanSymbol("AsyncDriver", None)
-AsyncDriver.setLabel("Asynchronous")
-AsyncDriver.setDefaultValue(False)
-AsyncDriver.setDescription("<html> Set to generate an asynchronous driver. An async driver will not block while waiting transfers to complete.</html>")
-AsyncDriver.setDependencies(onAsyncDriverChanged, ["AsyncDriver"])
-
 DisplaySettingsMenu = comp.createMenuSymbol("DisplaySettingsMenu", None)
 DisplaySettingsMenu.setLabel("Display Settings")
 
@@ -168,6 +162,19 @@ BlitBufferFunctionGenerateMode.setDescription("<html> Set to generate a blit buf
 								"a subsection of the frame to the display controller.<br>"
 								"'Use Bulk Write' will generate a function that sets the UL and LR points of the subframe, then write the pixel data in burst.<br>"
 								"'Stub' will generate an empty blit function that will need to be defined based on the controller's memory write operation. </html>")
+								
+BlitType = comp.createComboSymbol("BlitType", None, ["Synchronous", "Driver Asynchronous", "Interface Asynchronous"])
+BlitType.setLabel("Blit Transfer Type")
+BlitType.setDefaultValue("Synchronous")
+BlitType.setDependencies(onBlitTypeChanged, ["BlitType"])
+BlitType.setDescription("<html> Set the blit transfer type<br>"
+								"Synchronous - blocking transfer. The blit function will block until the buffer is completely written to the display.<br>"
+								"Driver Asynchronous - non-blocking transfer. The blit function will not block, and will return immediately.<br>"
+								"                    Buffer blits will be managed thru the display driver task. <br>"
+								"                    Interface driver must be non-blocking.<br>"
+								"Interface Asynchronous - non-blocking transfer. the blit function will not block, and will return immediately.<br>"
+								"                    Buffer blits will be managed by the display interface, thru the interface callback.<br>"
+								"                    Make sure that the interface driver is non-blocking.</html>")
 
 PixelDataSettingsMenu = comp.createMenuSymbol("PixelDataSettingsMenu", BlitBufferFunctionSettings)
 PixelDataSettingsMenu.setLabel("Pixel Data Settings")

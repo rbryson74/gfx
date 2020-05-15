@@ -368,6 +368,12 @@ int GFX_Disp_Intf_Ready(GFX_Disp_Intf intf)
     return (SPI_TRANS_IDLE == ((GFX_DISP_INTF_SPI *) intf)->drvSPITransStatus);
 }
 
+int GFX_Disp_Intf_Set_Callback(GFX_Disp_Intf intf, GFX_Disp_Intf_Callback cb, void * parm)
+{
+    //Not supported
+    return -1;
+}
+
 /* *****************************************************************************
  End of File
  */
