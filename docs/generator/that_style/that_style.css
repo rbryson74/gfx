@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*
  * My own little style
  */
@@ -73,6 +73,7 @@ p.enddd {
 p.endtd {
   margin-bottom: 2px; }
 
+
 #top {
   border: none;
   position: relative;
@@ -88,6 +89,11 @@ caption {
 span.legend {
   font-size: 70%;
   text-align: center; }
+
+span.param {
+  font-style: italic;
+  color: #820a32;
+  font-family: "courier new",courier,monospace; }
 
 h3.version {
   font-size: 90%;
