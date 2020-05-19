@@ -1,4 +1,3 @@
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
@@ -21,7 +20,6 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 /*******************************************************************************
   GFX GLCD Driver Interface Declarations for Static Single Instance Driver
@@ -42,16 +40,20 @@
     None
 *******************************************************************************/
 
+/** \file gfx_canvas.h
+ * @brief  GFX Canvas Virtual Display definitions and functions.
+ *
+ * @details The GFX Canvas provides a virtual display driver interface.
+ */
+
 #ifndef _GFX_CANVAS_H    /* Guard against multiple inclusion */
 #define _GFX_CANVAS_H
 
 #include "gfx/driver/gfx_driver.h"
 
-// DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 extern "C" {
 #endif
-// DOM-IGNORE-END
     
 #define CANVAS_ID_INVALID (-1)
 #define LAYER_ID_INVALID (-1)
@@ -63,6 +65,10 @@ extern "C" {
     
 #define GFXC_BOOL gfxBool
     
+/**
+ * @brief This struct represents a gfx canvas.
+ * @details .
+ */
 typedef struct 
 {
     int id;                         // Canvas ID
@@ -119,6 +125,10 @@ typedef struct
 } GFXC_CANVAS;
 
 //private functions
+/**
+  * @cond INTERNAL
+  *
+  */
 GFXC_RESULT _gfxcShowCanvas(unsigned int canvasID);
 GFXC_RESULT _gfxcHideCanvas(unsigned int canvasID);
 GFXC_RESULT _gfxcSetEffectsIntervalMS(unsigned int ms);
@@ -128,8 +138,10 @@ GFXC_RESULT _gfxcStartEffects(void);
 //private variables 
 extern GFXC_CANVAS canvas[];
 extern unsigned int numLayers;
-
-
+/**
+  * @endcond
+  *
+  */
 
     /* Provide C++ Compatibility */
 #ifdef __cplusplus

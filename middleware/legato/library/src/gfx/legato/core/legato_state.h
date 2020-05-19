@@ -1,4 +1,3 @@
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
@@ -21,12 +20,16 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
+
+/** \file legato_state.h
+ * @brief .
+ *
+ * @details .
+ */
 
 #ifndef LEGATO_STATE_H
 #define LEGATO_STATE_H
 
-// DOM-IGNORE-BEGIN
 
 #include "gfx/legato/common/legato_common.h"
 
@@ -37,168 +40,130 @@
 #include "gfx/legato/widget/legato_editwidget.h" 
 
 // *****************************************************************************
-/* Type:
-    leLanguageChangedCallback_FnPtr
-
-  Summary:
-    Callback pointer for when the language change event occurs.
-
-  Description:
-    Callback pointer for when the language change event occurs.
-
-  Remarks:
-
-*/
+/**
+ * @brief This function pointer represents a language change callback.
+ * @details A language change callback is called when
+ * when the language change event occurs.
+ */
 typedef void (*leLanguageChangedCallback_FnPtr)(uint32_t);
 
 
 // *****************************************************************************
-/* Structure:
-    struct leState
-
-  Summary:
-    The global structure that holds the state of the library
-
-  Description:
-    The global structure that holds the state of the library
-
-  Remarks:
-
-*/
+/**
+ * @brief This struct represents the state of the library.
+ * @details The state of the libary is a global structure.
+ */
 typedef struct leState
 {
-    const leStringTable* stringTable; // the string table for the instance
-    uint32_t languageID; // the currently active language
+    const leStringTable* stringTable; /**< the string table for the instance */
+    uint32_t languageID; /**< the currently active language */
     
-    uint32_t widgetIDs; // the next unique widget ID
+    uint32_t widgetIDs; /**< the next unique widget ID */
     
-    leScheme defaultScheme; // an internal default scheme that widgets use by
-                            // default if the user doesn't set one
+    leScheme defaultScheme; /**< an internal default scheme that widgets use by */
+                            /**< default if the user doesn't set one */
                             
-    leWidget* focus; // the widget that currently has focus
-    leEditWidget* edit; // the widget that is currently receiving edit events
+    leWidget* focus; /**< the widget that currently has focus */
+    leEditWidget* edit; /**< the widget that is currently receiving edit events */
     
-    leLanguageChangedCallback_FnPtr languageChangedCB; // language changed callback
+    leLanguageChangedCallback_FnPtr languageChangedCB; /**< language changed callback
 
-    leWidget rootWidget[LE_LAYER_COUNT]; // root widgets of the scene
+    leWidget rootWidget[LE_LAYER_COUNT]; /**< root widgets of the scene */
 
 #if LE_STREAMING_ENABLED == 1
-    leStreamManager* activeStream; // active stream state
+    leStreamManager* activeStream; /**< active stream state */
 #endif
 } leState;
 
 /* internal use only */
+/**
+  * @cond INTERNAL
 LIB_EXPORT leState* leGetState();
-// DOM-IGNORE-END
+  * @endcond
+  *
+  */
 
 // *****************************************************************************
-/* Type:
-    leResult leInitialize()
-
-  Summary:
-    Function to perform basic initialization of the Legato library state.
-
-  Description:
-    Function to perform basic initialization of the Legato library state.  Must
-    be called before any other library operations are performed.
-
-  Remarks:
-    
-  Returns;
-    leResult - the result of the initialization operation
-*/
+/**
+ * @brief Initialize Legato library.
+ * @details This function performs basic initialization of the Legato
+ * library state.
+ * It accepts and intializes a display controller driver specified
+ * by <span class="param">dispDriver</span>
+ * @pre Must be called before any other library operations are performed.
+ * @code
+ * leResult res = leInitialize(dispDriver);
+ * @endcode
+ * @param dispDriver is the display controller driver.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
 LIB_EXPORT leResult leInitialize(const gfxDisplayDriver* dispDriver);
 
 // *****************************************************************************
-/* Type:
-    void leShutdown()
-
-  Summary:
-    Function to shutdown the active Legato library state.
-
-  Description:
-    Function to shutdown the active Legato library state.
-
-  Remarks:
-*/
+/**
+ * @brief Shutdown Legato library.
+ * @details Shutdowns the active Legato library state.
+ * @code
+ * leShutdown();
+ * @endcode
+ * @return void.
+ */
 LIB_EXPORT void leShutdown();
 
 // *****************************************************************************
-/* Type:
-    void leUpdate(uint32_t dt)
-
-  Summary:
-    Legato library update (tasks) function.
-
-  Description:
-    This function updates the active Legato library context state.  It performs
-    event processing as well as servicing of the widget paint loop.  It should
-    be called often.
-
-  Parameters:
-    uint32_t dt - a delta time, typically expressed in milliseconds, since the
-                  last time leUpdate was called.  If this value is zero then
-                  time-dependent features will not advance.
-*/
+/**
+ * @brief Shutdown Legato library.
+ * @details Shutdown the Legato library in <span class="param">dt</span>
+ * milliseconds after the last leUpdate() was called. If the value
+ * of dt is zero then time-dependent features will not advance.
+ * the active Legato library state.
+ * This function updates the active Legato library context state.
+ * It performs event processing as well as servicing of the widget paint loop.
+ * It should be called often.
+ * @code
+ * uint32_t dt=2000;
+ * leResult res = leUpdateleShutdown(dt);
+ * @endcode
+ * @param dt is a delta time.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
 LIB_EXPORT leResult leUpdate(uint32_t dt);
 
 // *****************************************************************************
-/* Function:
-    leColorMode leGetColorMode()
-    
-   Summary:
-    Returns the color mode of the current context
-
-   Returns:
-    leColorMode
-*/
+/**
+ * @brief Get color mode.
+ * @details Gets the the color mode of the current context.
+ * @code
+ * leColorMode mode = leGetColorMode();
+ * @endcode
+ * @param void.
+ * @return the color mode of the current context.
+ */
 LIB_EXPORT leColorMode leGetColorMode();
     
 // *****************************************************************************
-/* Function:
-    LIB_EXPORT leRect leGetDisplayRect()
-
-   Summary:
-    Returns the display rectangle structure of the physical display
-
-   Description:
-    Returns the display rectangle - width height and upper left corner coordinates
-    of the physical display
-
-   Precondition:
-
-   Parameters:
-    
-  Returns:
-    leRect
-
-  Remarks:    
-    
-*/
+/**
+ * @brief Get display rectangle.
+ * @details Gets the display rectangles width height and upper left
+ * corner coordinates of the physical display.
+ * @code
+ * leRect rect = leGetDisplayRect();
+ * @endcode
+ * @return the display rectangle.
+ */
 LIB_EXPORT leRect leGetDisplayRect();
     
 // *****************************************************************************
-/* Function:
-    leStringTable* leGetStringTable()
-
-   Summary:
-    Get a pointer to the leStringTable structure that maintains the strings,
-    associated fonts, etc
-
-   Description:
-    Get a pointer to the leStringTable structure that maintains the strings,
-    associated fonts, etc
-
-   Precondition:
-
-   Parameters:
-    
-  Returns:
-    leStringTable*
-
-  Remarks:    
-    
-*/
+/**
+ * @brief Get string table.
+ * @details Get a pointer to the leStringTable structure that
+ * maintains the strings, associated fonts, etc.
+ * @code
+ * leStringTable* tbl = leGetStringTable();
+ * @endcode
+ * @param void.
+ * @return leStringTable pointer.
+ */
 LIB_EXPORT leStringTable* leGetStringTable();
 
 // *****************************************************************************
@@ -222,6 +187,16 @@ LIB_EXPORT leStringTable* leGetStringTable();
   Remarks:    
     
 */
+/**
+ * @brief Set string table.
+ * @details Set string table to <span class="param">table</span>.
+ * @code
+ * leStringTable* table
+ * leSetStringTable(table);
+ * @endcode
+ * @param table is pointer to a string table.
+ * @return void.
+ */
 LIB_EXPORT void leSetStringTable(const leStringTable* table);
 
 // *****************************************************************************
@@ -244,6 +219,15 @@ LIB_EXPORT void leSetStringTable(const leStringTable* table);
   Remarks:    
     
 */
+/**
+ * @brief Get language index.
+ * @details Returns the language index of the current context.
+ * @code
+ * uint32_t idx = leGetStringLanguage();
+ * @endcode
+ * @param void.
+ * @return void.
+ */
 LIB_EXPORT uint32_t leGetStringLanguage();
 
 // *****************************************************************************
@@ -267,6 +251,16 @@ LIB_EXPORT uint32_t leGetStringLanguage();
   Remarks:    
     
 */
+/**
+ * @brief Get language by index.
+ * @details Returns the language at the location specified by <span class="param">idx</span>.
+ * @code
+ * uint32_t id;
+ * leSetStringLanguage(id);
+ * @endcode
+ * @param void.
+ * @return void.
+ */
 LIB_EXPORT void leSetStringLanguage(uint32_t id);
 
 // *****************************************************************************
@@ -289,6 +283,15 @@ LIB_EXPORT void leSetStringLanguage(uint32_t id);
   Remarks:    
     
 */
+/**
+ * @brief Get default scheme.
+ * @details Returns the pointer to the current default scheme.
+ * @code
+ * leScheme* scheme = leGetDefaultScheme();
+ * @endcode
+ * @param void.
+ * @return void.
+ */
 LIB_EXPORT leScheme* leGetDefaultScheme();
 
 // *****************************************************************************
@@ -314,6 +317,18 @@ LIB_EXPORT leScheme* leGetDefaultScheme();
   Remarks:    
     
 */
+/**
+ * @brief Get focus widget.
+ * @details The focus widget is the widget that is currently receiving all input
+ * events. This can happen when the user initiates a touch down event on the widget
+ * and is currently dragging their finger on the display.  The widget will
+ * receive all touch moved events until a touch up event is received.
+ * @code
+ * leWidget* widget = leGetFocusWidget();
+ * @endcode
+ * @param void.
+ * @return void.
+ */
 LIB_EXPORT leWidget* leGetFocusWidget();
 
 // *****************************************************************************
@@ -337,6 +352,16 @@ LIB_EXPORT leWidget* leGetFocusWidget();
   Remarks:    
     
 */
+/**
+ * @brief Get language by index.
+ * @details Sets the focus widget to <span class="param">widget</span>.
+ * @code
+ * uint32_t id;
+ * leResult res = leSetFocusWidget(id);
+ * @endcode
+ * @param void.
+ * @return void.
+ */
 LIB_EXPORT leResult leSetFocusWidget(leWidget* widget);
 
 // *****************************************************************************
@@ -363,6 +388,18 @@ LIB_EXPORT leResult leSetFocusWidget(leWidget* widget);
   Remarks:    
     
 */
+/**
+ * @brief Get edit widget.
+ * @details Edit widgets are widgets that inherit the 'edit widget' API function
+ * list. These widgets are capable of receiving edit events from other widgets
+ * that are edit event broadcasters.  A broadcaster could be a 'key pad' and a
+ * receiver could be a 'text edit' box.
+ * @code
+ * leEditWidget* widget = leGetEditWidget();
+ * @endcode
+ * @param void.
+ * @return leEditWidget pointer.
+ */
 LIB_EXPORT leEditWidget* leGetEditWidget();
 
 // *****************************************************************************
@@ -383,6 +420,18 @@ LIB_EXPORT leEditWidget* leGetEditWidget();
   Remarks:    
     
 */
+/**
+ * @brief Set edit widget.
+ * @details Sets the active edit widget to <span class="param">widget</span>. Edit widgets are widgets that inherit the 'edit widget' API function
+ * list. These widgets are capable of receiving edit events from other widgets
+ * that are edit event broadcasters.  A broadcaster could be a 'key pad' and a
+ * receiver could be a 'text edit' box.
+ * @code
+ * leEditWidget* widget = leSetEditWidget(widget);
+ * @endcode
+ * @param void.
+ * @return leEditWidget pointer.
+ */
 LIB_EXPORT leResult leSetEditWidget(leEditWidget* widget);
     
 // *****************************************************************************
@@ -406,6 +455,17 @@ LIB_EXPORT leResult leSetEditWidget(leEditWidget* widget);
   Remarks:    
     
 */
+/**
+ * @brief Set language change callback.
+ * @details Sets the callback function to <span class="param">cb</span>
+ * to handle the language change event.
+ * @code
+ * leLanguageChangedCallback_FnPtr cb;
+ * leResult res = leSetLanguageChangedCallback(cb);
+ * @endcode
+ * @param cb is the new callback function.
+ * @return leResult.
+ */
 LIB_EXPORT leResult leSetLanguageChangedCallback(leLanguageChangedCallback_FnPtr cb);
  
 // *****************************************************************************
@@ -425,6 +485,15 @@ LIB_EXPORT leResult leSetLanguageChangedCallback(leLanguageChangedCallback_FnPtr
   Remarks:    
     
 */
+/**
+ * @brief Redraw All.
+ * @details Forces the library to redraw the currently active scene in its entirety.
+ * @code
+ * leRedrawAll();
+ * @endcode
+ * @param void.
+ * @return void.
+ */
 LIB_EXPORT void leRedrawAll();
 
 /*  Function:
@@ -443,6 +512,17 @@ LIB_EXPORT void leRedrawAll();
         leResult    
 
 */
+/**
+ * @brief Check active screen drawing state.
+ * @details Indicates if the library currently drawing a frame.  Because frame
+ * updates can asynchronous to making changes to the UI state it is best to only
+ * make updates to the state of a widget only when the layer is not drawing.
+ * @code
+ * leBool flag = leIsDrawing();
+ * @endcode
+ * @param void.
+ * @return true.
+ */
 LIB_EXPORT leBool leIsDrawing();
 
 /*  Function:
@@ -463,6 +543,21 @@ LIB_EXPORT leBool leIsDrawing();
         leResult
 
 */
+/**
+ * @brief Add root widget to layer.
+ * @details Adds the root widget <span class="param">wgt</span>
+ * to the layer <span class="param">layer</span>.
+ * The library maintains a static list of widgets that are considered
+ * to be scene roots.  The library treats these roots as layers and
+ * the display driver may configure itself to render these roots
+ * to different hardware layers.
+ * This API adds a child widget to one of the static roots.
+ * @code
+ * leResult res = leAddRootWidget(wgt, layer);
+ * @endcode
+ * @param void.
+ * @return leResult.
+ */
 LIB_EXPORT leResult leAddRootWidget(leWidget* wgt,
                                     uint32_t layer);
 
@@ -481,6 +576,21 @@ LIB_EXPORT leResult leAddRootWidget(leWidget* wgt,
         leResult
 
 */
+/**
+ * @brief Remove root widget to layer.
+ * @details Remove the root widget <span class="param">wgt</span>
+ * from the layer <span class="param">layer</span>.
+ * The library maintains a static list of widgets that are considered
+ * to be scene roots.  The library treats these roots as layers and
+ * the display driver may configure itself to render these roots
+ * to different hardware layers.
+ * This API adds a child widget to one of the static roots.
+ * @code
+ * leResult res = leRemoveRootWidget(wgt, layer);
+ * @endcode
+ * @param void.
+ * @return leResult.
+ */
 LIB_EXPORT leResult leRemoveRootWidget(leWidget* wgt,
                                        uint32_t layer);
 
@@ -497,6 +607,17 @@ LIB_EXPORT leResult leRemoveRootWidget(leWidget* wgt,
         leResult - LE_TRUE if the widget is in the current scene
 
 */
+/**
+ * @brief Determines whether the widget is in the scene.
+ * @details Determines if <span class="param">wgt</span>
+ * is in he current scheme.
+ * Searches the active scene for a given widget.
+ * @code
+ * leBool flag = leWidgetIsInScene(wgt);
+ * @endcode
+ * @param void.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
 LIB_EXPORT leBool leWidgetIsInScene(const leWidget* wgt);
 
 
@@ -515,57 +636,45 @@ LIB_EXPORT leBool leWidgetIsInScene(const leWidget* wgt);
         leResult - LE_TRUE the command was processed successfully
 
 */
+/**
+ * @brief Send start edit command.
+ * @details Passes a 'start edit' command to the current edit widget, if one exists.
+ * @code
+ * leResult res = leEdit_StartEdit();
+ * @endcode
+ * @param void.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
 leResult leEdit_StartEdit();
 
-/*  Function:
-        leResult leEdit_EndEdit(const leWidget* wgt)
-
-    Summary:
-        Passes an 'end edit' command to the current edit widget,
-        if one exists
-
-    Description:
-        Passes an 'end edit' command to the current edit widget,
-        if one exists
-
-    Returns:
-        leResult - LE_TRUE the command was processed successfully
-
-*/
+/**
+ * @brief Send end edit command.
+ * @details Sends an 'end edit' command to the current edit widget, if one exists.
+ * @code
+ * leEdit_EndEdit();
+ * @endcode
+ * @return void.
+ */
 void leEdit_EndEdit();
 
-/*  Function:
-        leResult leEdit_Clear(const leWidget* wgt)
-
-    Summary:
-        Passes a 'clear' command to the current edit widget,
-        if one exists
-
-    Description:
-        Passes a 'clear' command to the current edit widget,
-        if one exists
-
-    Returns:
-
-
-*/
+/**
+ * @brief Send clear command.
+ * @details Sends a 'clear' command to the current edit widget, if one exists.
+ * @code
+ * leEdit_Clear();
+ * @endcode
+ * @return void.
+ */
 void leEdit_Clear();
 
-/*  Function:
-        leResult leEdit_Accept(const leWidget* wgt)
-
-    Summary:
-        Passes an 'accept' command to the current edit widget,
-        if one exists
-
-    Description:
-        Passes an 'accept' command to the current edit widget,
-        if one exists
-
-    Returns:
-
-
-*/
+/**
+ * @brief Send accept command.
+ * @details Passes a 'accept' command to the current edit widget, if one exists.
+ * @code
+ * leEdit_Accept();
+ * @endcode
+ * @return void.
+ */
 void leEdit_Accept();
 
 /*  Function:
@@ -582,6 +691,15 @@ void leEdit_Accept();
     Returns:
 
 */
+/**
+ * @brief Send set command.
+ * @details Passes a 'set' command and string <span class="param">str</span> to the current edit widget, if one exists.
+ * @code
+ * leEdit_Set(str);
+ * @endcode
+ * @param void.
+ * @return leResult.
+ */
 void leEdit_Set(leString* str);
 
 /*  Function:
@@ -598,6 +716,16 @@ void leEdit_Set(leString* str);
     Returns:
 
 */
+/**
+ * @brief Send start edit command.
+ * @details Passes a 'append' command and string <span class="param">str</span> to the current edit widget, if one exists.
+ * @code
+ * leString* str;
+ * leEdit_Append(str);
+ * @endcode
+ * @param void.
+ * @return void.
+ */
 void leEdit_Append(leString* str);
 
 /*  Function:
@@ -614,6 +742,15 @@ void leEdit_Append(leString* str);
     Returns:
 
 */
+/**
+ * @brief Send backspace command.
+ * @details Passes a 'backspace' command to the current edit widget, if one exists.
+ * @code
+ * leEdit_Backspace();
+ * @endcode
+ * @param void.
+ * @return void.
+ */
 void leEdit_Backspace();
 
 #if LE_STREAMING_ENABLED == 1

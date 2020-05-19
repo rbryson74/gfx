@@ -1,4 +1,3 @@
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
@@ -21,7 +20,6 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 /*******************************************************************************
  Module for Microchip Graphics Library - Legato User Interface Library
@@ -39,10 +37,14 @@
     This module implements list wheel (drawing-style list box) widget functions.
 *******************************************************************************/
 
-// DOM-IGNORE-BEGIN
+/** \file legato_widget_listwheel.h
+ * @brief List wheel functions and definitions.
+ *
+ * @details This module implements list wheel (drawing-style list box) widget
+ * functions.
+ */
 #ifndef LEGATO_LISTWHEELWIDGET_H
 #define LEGATO_LISTWHEELWIDGET_H
-//DOM-IGNORE-END
 
 #include "gfx/legato/common/legato_common.h"
 
@@ -62,6 +64,10 @@ typedef struct leListWheelWidget leListWheelWidget;
   Summary:
     Selected item changed event function callback type
 */
+/**
+ * @brief Used to define a item changed event callback function.
+ * @details .
+ */
 typedef void (*leListWheelWidget_SelectedItemChangedEvent)(leListWheelWidget*,
                                                            int32_t idx);
 
@@ -78,6 +84,10 @@ typedef void (*leListWheelWidget_SelectedItemChangedEvent)(leListWheelWidget*,
   Summary:
     Indicates the fill type for the listwheel indicator area.
 */
+/**
+ * @brief Defines the fill type for the listwheel indicator area.
+ * @details .
+ */
 typedef enum leListWheelIndicatorFill
 {
     LE_LISTWHEEL_INDICATOR_FILL_NONE,
@@ -92,6 +102,10 @@ typedef enum leListWheelIndicatorFill
   Summary:
     Indicates the zoom effects for the list wheel items.
 */
+/**
+ * @brief Defines the zoom effects for the list wheel items.
+ * @details .
+ */
 typedef enum leListWheelZoomEffects
 {
     LE_LISTWHEEL_ZOOM_EFFECT_NONE,
@@ -113,13 +127,21 @@ typedef enum leListWheelZoomEffects
   Remarks:
     None.
 */
+/**
+ * @brief Defines list wheel item possibilities.
+ * @details .
+ */
 typedef struct leListWheelItem
 {
     const leString* string;
     const leImage* icon;
 } leListWheelItem;
 
-// DOM-IGNORE-BEGIN
+/* internal use only */
+/**
+  * @cond INTERNAL
+  *
+  */
 typedef struct leListWheelWidget leListWheelWidget;
 
 #define LE_LISTWHEELWIDGET_VTABLE(THIS_TYPE) \
@@ -172,23 +194,18 @@ typedef struct leListWheelWidgetVTable
 	LE_LISTWHEELWIDGET_VTABLE(leListWheelWidget)
 } leListWheelWidgetVTable; 
 
-// DOM-IGNORE-END
+    /**
+      * @endcond
+      *
+      */
 
 // *****************************************************************************
-/* Structure:
-    leListWheelWidget
-
-  Summary:
-    Implementation of a list wheel widget struct
-
-  Description:
-    A list wheel widget is a widget that is similar to a normal list widget
-    but can be dragged up or down to cycle through a single active value.  This
-    widget is also capable of momentum and motion over time.
-
-  Remarks:
-    None.
-*/
+/**
+ * @brief This struct represents a listwheel widget
+ * @details A list wheel widget is a widget that is similar to a normal list
+ * widget but can be dragged up or down to cycle through a single active
+ * value. This widget is also capable of momentum and motion over time.
+ */
 typedef struct leListWheelWidget
 {
     leWidget widget; // widget base class
@@ -258,47 +275,34 @@ typedef struct leListWheelWidget
 // *****************************************************************************
 // *****************************************************************************
 
-// *****************************************************************************
-/* Function:
-    leListWheelWidget* leListWheelWidget_New()
-
-  Summary:
-    Allocates memory for a new widget of this type.  The application is
-    responsible for the managment of this memory until the widget is added to
-    a widget tree.
-
-  Description:
-
-
-  Parameters:
-
-  Returns:
-    leListWheelWidget*
-
-  Remarks:
-    Use leWidget_Delete() to free this pointer.
-*/
+/**
+ * @brief Create widget.
+ * @details Creates a new leListWheelWidget and allocates memory for the widget through the
+ * current active context.  Application is responsible for managing the widget
+ * pointer until the widget is added to a widget tree.
+ * @remark use leWidget_Delete() to free this pointer.
+ * @code
+ * leListWheelWidget* wgt = leListWheelWidget_New();
+ * @endcode
+ * @return a widget object pointer.
+ */
 LIB_EXPORT leListWheelWidget* leListWheelWidget_New();
 
-/* Function:
-    void leListWheelWidget_Constructor(leListWheelWidget* wgt)
+/**
+ * @brief Initialize widget.
+ * @details Initializes the leListWidget <span class="param">wgt</span>.
+ * @code
+ * leListWheelWidget* wgt;
+ * leListWheelWidget_Constructor(wgt);
+ * @endcode
+ * @param wgt is the widget to initialize
+ * @return void.
+ */
+LIB_EXPORT void leListWheelWidget_Constructor(leListWheelWidget* wgt);
 
-  Summary:
-    Initializes an leListWheelWidget widget pointer.
 
-  Description:
-    Initializes an leListWheelWidget widget pointer.
-
-  Parameters:
-    leListWheelWidget* wgt - the pointer to initialize
-
-  Returns:
-    void
-
-  Remarks:
-
-*/
-LIB_EXPORT void leListWheelWidget_Constructor(leListWheelWidget* whl);
+#ifdef _DOXYGEN_
+#define THIS_TYPE struct leWidget
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -998,47 +1002,36 @@ LIB_EXPORT void leListWheelWidget_Constructor(leListWheelWidget* whl);
     leResult - the result of the operation
 */
 
-// *****************************************************************************
-/* Virtual Member Function:
-    leListWheelWidget_SelectedItemChangedEvent getSelectedItemChangedEventCallback(const leListWheelWidget* _this)
+/**
+ * @brief Get selected item changed event callback pointer.
+ * @details Gets the selected item changed event callback pointer using <span class="param">_this</span>.
+ * @code
+ * leListWheelWidget* _this;
+ * leListWheelWidget_SelectedItemChangedEvent cb = _this->fn->getSelectedItemChangedEventCallback(_this);
+ * @endcode
+ * @param _this is the widget to modify
+ * @returns the callback pointer.
+ */
+virtual leListWheelWidget_SelectedItemChangedEvent getSelectedItemChangedEventCallback
+                                                    (const leListWheelWidget* _this);
 
-  Summary:
-     Gets the selected item changed event callback pointer.
+/**
+ * @brief Set selected item changed event callback pointer.
+ * @details Sets the selected item changed event callback pointer to <span class="param">cb</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leListWheelWidget* _this;
+ * leListWheelWidget_SelectedItemChangedEvent cb;
+ * leResult res = _this->fn->setSelectedItemChangedEventCallback(_this, cb);
+ * @endcode
+ * @param _this is the widget to modify
+ * @param cb is the callback func
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setSelectedItemChangedEventCallback(leListWheelWidget* _this,
+                                                     leListWheelWidget_SelectedItemChangedEvent cb);
 
-  Description:
-     Gets the selected item changed event callback pointer.
 
-  Parameters:
-    const leListWheelWidget* _this - The list wheel widget to operate on
-
-  Remarks:
-    Usage - _this->fn->getSelectedItemChangedEventCallback(_this);
-
-  Returns:
-    leListWheelWidget_SelectedItemChangedEvent - the callback pointer
-*/
-
-// *****************************************************************************
-/* Virtual Member Function:
-    leResult setSelectedItemChangedEventCallback(leListWheelWidget* _this,
-                                                 leListWheelWidget_SelectedItemChangedEvent cb)
-
-  Summary:
-     Sets the selected item changed event callback pointer.
-
-  Description:
-     Sets the selected item changed event callback pointer.
-
-  Parameters:
-    leListWheelWidget* _this - The list wheel widget to operate on
-    leListWheelWidget_SelectedItemChangedEvent cb - the callback pointer
-
-  Remarks:
-    Usage - _this->fn->setSelectedItemChangedEventCallback(_this, cb);
-
-  Returns:
-    leResult - the result of the operation
-*/
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -1166,6 +1159,8 @@ LIB_EXPORT void leListWheelWidget_Constructor(leListWheelWidget* whl);
     leResult - the result of the operation
 */
 
+#undef THIS_TYPE
+#endif
 
 
 #endif // LE_LISTWHEEL_WIDGET_ENABLED

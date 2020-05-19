@@ -1,4 +1,3 @@
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
@@ -21,7 +20,6 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 /*******************************************************************************
  Module for Microchip Graphics Library - Legato User Interface Library
@@ -34,15 +32,18 @@
 
   Summary:
 
-
   Description:
     This module implements slider control widget functions.
 *******************************************************************************/
 
-// DOM-IGNORE-BEGIN
+/** \file legato_widget_textfield.h
+ * @brief Textfield Widget functions and definitions.
+ *
+ * @details This module implements text field widget functions.
+ */
+
 #ifndef LEGATO_SLIDER_H
 #define LEGATO_SLIDER_H
-//DOM-IGNORE-END
 
 #include "gfx/legato/common/legato_common.h"
 
@@ -88,26 +89,203 @@ typedef struct leSliderWidget leSliderWidget;
 */
 typedef void (*leSliderWidget_ValueChangedEvent)(leSliderWidget*);
 
-// DOM-IGNORE-BEGIN
-typedef struct leSliderWidget leSliderWidget;
+/* internal use only */
+/**
+  * @cond INTERNAL
+  *
+  */typedef struct leSliderWidget leSliderWidget;
 
 #define LE_SLIDERWIDGET_VTABLE(THIS_TYPE) \
     LE_WIDGET_VTABLE(THIS_TYPE) \
     \
+    /**
+     * @brief Get title bar height.
+     * @details Returns the title bar height from  <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * leResult res =  = wgt->fn->getCursorDelay(wgt);
+     * @endcode
+     * @param param1 wgt is the widget to query
+     * @return returns uint32_t.
+     */
     leOrientation (*getOrientation)(const THIS_TYPE* _this); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult  (*setOrientation)(THIS_TYPE* _this, leOrientation align, leBool swapDimensions); \
+    /**
+     * @brief Get title bar height.
+     * @details Returns the title bar height from  <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * leResult res =  = wgt->fn->getCursorDelay(wgt);
+     * @endcode
+     * @param param1 wgt is the widget to query
+     * @return returns uint32_t.
+     */
     uint32_t  (*getGripSize)(const THIS_TYPE* _this); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult  (*setGripSize)(THIS_TYPE* _this, uint32_t sz); \
+    /**
+     * @brief Get title bar height.
+     * @details Returns the title bar height from  <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * leResult res =  = wgt->fn->getCursorDelay(wgt);
+     * @endcode
+     * @param param1 wgt is the widget to query
+     * @return returns uint32_t.
+     */
     uint32_t  (*getMininumValue)(const THIS_TYPE* _this); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult  (*setMinimumValue)(THIS_TYPE* _this, uint32_t min); \
+    /**
+     * @brief Get title bar height.
+     * @details Returns the title bar height from  <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * leResult res =  = wgt->fn->getCursorDelay(wgt);
+     * @endcode
+     * @param param1 wgt is the widget to query
+     * @return returns uint32_t.
+     */
     uint32_t  (*getMaximumValue)(const THIS_TYPE* _this); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult  (*setMaximumValue)(THIS_TYPE* _this, uint32_t max); \
+    /**
+     * @brief Get title bar height.
+     * @details Returns the title bar height from  <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * leResult res =  = wgt->fn->getCursorDelay(wgt);
+     * @endcode
+     * @param param1 wgt is the widget to query
+     * @return returns uint32_t.
+     */
     uint32_t  (*getPercentage)(const THIS_TYPE* _this); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult  (*setPercentage)(THIS_TYPE* _this, uint32_t per); \
+    /**
+     * @brief Get title bar height.
+     * @details Returns the title bar height from  <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * leResult res =  = wgt->fn->getCursorDelay(wgt);
+     * @endcode
+     * @param param1 wgt is the widget to query
+     * @return returns uint32_t.
+     */
     int32_t   (*getValue)(const THIS_TYPE* _this); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult  (*setValue)(THIS_TYPE* _this, int32_t val); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult  (*step)(THIS_TYPE* _this, int32_t amt); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leSliderWidget_ValueChangedEvent (*getValueChangedEventCallback)(const THIS_TYPE* _this); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult  (*setValueChangedEventCallback)(THIS_TYPE* _this, leSliderWidget_ValueChangedEvent cb);
     
 typedef struct leSliderWidgetVTable
@@ -115,23 +293,17 @@ typedef struct leSliderWidgetVTable
 	LE_SLIDERWIDGET_VTABLE(leSliderWidget)
 } leSliderWidgetVTable; 
 
-// DOM-IGNORE-END
+/**
+  * @endcond
+  *
+  */
 
-// *****************************************************************************
-/* Structure:
-    leSliderWidget
-
-  Summary:
-    Implementation of a slider widget struct
-
-  Description:
-    A slider bar is a widget that is capable of displaying a range and a slider
-    handle.  The slider can be moved between two discreet values and can have
-    a variable min and max range.
-
-  Remarks:
-    None.
-*/
+/**
+ * @brief This struct represents a slider widget.
+ * @details A slider bar is a widget that is capable of displaying a range
+ * and a slider handle.  The slider can be moved between two discreet
+ * values and can have a variable min and max range.
+ */
 typedef struct leSliderWidget
 {
     leWidget widget; // widget base class
@@ -177,26 +349,29 @@ typedef struct leSliderWidget
   Remarks:
     Use leWidget_Delete() to free this pointer.
 */
+/**
+ * @brief Create widget.
+ * @details Creates a new leSliderWidget and allocates memory for the widget through the
+ * current active context.  Application is responsible for managing the widget
+ * pointer until the widget is added to a widget tree.
+ * @remark use leWidget_Delete() to free this pointer.
+ * @code
+ * leSliderWidget* wgt = leSliderWidget_New();
+ * @endcode
+ * @return a widget object pointer.
+ */
 LIB_EXPORT leSliderWidget* leSliderWidget_New();
 
-/* Function:
-    void leSliderWidget_Constructor(leSliderWidget* wgt)
-
-  Summary:
-    Initializes an leSliderWidget widget pointer.
-
-  Description:
-    Initializes an leSliderWidget widget pointer.
-
-  Parameters:
-    leSliderWidget* wgt - the pointer to initialize
-
-  Returns:
-    void
-
-  Remarks:
-
-*/
+/**
+ * @brief Initialize widget.
+ * @details Initializes the leSliderWidget <span class="param">wgt</span>.
+ * @code
+ * leSliderWidget* wgt;
+ * leSliderWidget_Constructor(wgt);
+ * @endcode
+ * @param wgt is the widget to initialize
+ * @return void.
+ */
 LIB_EXPORT void leSliderWidget_Constructor(leSliderWidget* sld);
 
 // *****************************************************************************
@@ -433,47 +608,39 @@ LIB_EXPORT void leSliderWidget_Constructor(leSliderWidget* sld);
     leResult - the result of the operation
 */
 
-// *****************************************************************************
-/* Virtual Member Function:
-    leSliderWidget_ValueChangedEvent getValueChangedEventCallback(const leSliderWidget* _this)
 
-  Summary:
-     Gets the value changed event callback pointer
+/**
+ * @brief Get value changed event callback pointer.
+ * @details Gets the value changed event callback pointer using <span class="param">_this</span>.
+ * @code
+ * leSliderWidget* _this;
+ * leSliderWidget_ValueChangedEvent cb = _this->fn->getValueChangedEventCallback(_this);
+ * @endcode
+ * @param _this is the widget to modify
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leSliderWidget_ValueChangedEvent getValueChangedEventCallback
+                                          (const leSliderWidget* _this);
 
-  Description:
-     Gets the value changed event callback pointer
+/**
+ * @brief Set value changed event callback pointer.
+ * @details Sets the value changed event callback pointer to <span class="param">cb</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leSliderWidget* _this;
+ * leSliderWidget_ValueChangedEvent cb;
+ * leResult res = _this->fn->setValueChangedEventCallback(_this, cb);
+ * @endcode
+ * @param _this is the widget to modify
+ * @param cb is the callback func
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setValueChangedEventCallback(leSliderWidget* _this,
+                                              leSliderWidget_ValueChangedEvent cb);
 
-  Parameters:
-    const leSliderWidget* _this - The Slider widget to operate on
+#undef THIS_TYPE
+#endif
 
-  Remarks:
-    Usage - _this->fn->getValueChangedEventCallback(_this);
-
-  Returns:
-    leSliderWidget_ValueChangedEvent - the value
-*/
-
-// *****************************************************************************
-/* Virtual Member Function:
-    leResult setValueChangedEventCallback(leSliderWidget* _this,
-                                          leSliderWidget_ValueChangedEvent cb)
-
-  Summary:
-     Sets the value changed event callback pointer
-
-  Description:
-     Sets the value changed event callback pointer
-
-  Parameters:
-    leSliderWidget* _this - The Slider widget to operate on
-    leSliderWidget_ValueChangedEvent cb - the callback pointer
-
-  Remarks:
-    Usage - _this->fn->setValueChangedEventCallback(_this, cb);
-
-  Returns:
-    leResult - the result of the operation
-*/
 
 
 

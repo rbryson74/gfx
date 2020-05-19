@@ -1,4 +1,3 @@
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
@@ -21,7 +20,6 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 /*******************************************************************************
  Module for Microchip Graphics Library - Legato User Interface Library
@@ -39,11 +37,18 @@
     which they describe.
 *******************************************************************************/
 
-// DOM-IGNORE-BEGIN
+/** \file legato_scheme.h
+ * @brief Schemes support various properties that make it possible to customize the
+ * color of widgets.
+ *
+ * @details A scheme is a collection of colors that can be referenced by
+ * one or more widgets.  Widgets may use schemes in different ways.  While
+ * the color names strive to be intuitive they aren't always used in the manner
+ * in which they describe.
+ */
 
 #ifndef LEGATO_SCHEME_H
 #define LEGATO_SCHEME_H
-//DOM-IGNORE-END
 
 #include "gfx/legato/common/legato_common.h"
 
@@ -58,21 +63,11 @@
 // Section: Data Types and Constants
 // *****************************************************************************
 // *****************************************************************************
-
-/*
-  Enumeration:
-    leScheme
-
-  Summary:
-    This structure specifies the style scheme components of an object.
-
-  Description:
-    A scheme is a collection of colors that can be referenced by widgets
-    or other objects. While the color names strive to be intuitive they
-    aren't always used in the manner in which they describe.
-
-  Remarks:
-   None.
+/**
+ * @brief This struct represents style scheme components for objects.
+ * @details  A scheme is a collection of colors that can be referenced by
+ * widgets or other objects. While the color names strive to be intuitive
+ * they aren't always used in the manner in which they describe.
  */
 typedef struct leScheme
 {
@@ -117,6 +112,19 @@ typedef struct leScheme
      void    
 
 */
+/**
+ * @brief Initialize scheme.
+ * @details Initializes <span class="param">scheme</span> to the
+ * default values of <span class="param">mode</span>.
+ * @code
+ * leScheme* scheme;
+ * leColorMode mode
+ * leScheme_Initialize(scheme, mode);
+ * @endcode
+ * @param scheme is the scheme to initialize.
+ * @param mode is color mode.
+ * @return void.
+ */
 LIB_EXPORT void leScheme_Initialize(leScheme* scheme, leColorMode mode);
 
 #ifdef __cplusplus

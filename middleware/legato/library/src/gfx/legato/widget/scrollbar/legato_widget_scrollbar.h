@@ -1,4 +1,3 @@
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
@@ -21,7 +20,6 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 /*******************************************************************************
  Module for Microchip Graphics Library - Legato User Interface Library
@@ -39,10 +37,14 @@
     This module implements scroll bar widget functions.
 *******************************************************************************/
 
-// DOM-IGNORE-BEGIN
+/** \file legato_widget_scrollbar.h
+ * @brief Scrollbar functions and definitions.
+ *
+ * @details This module implements scroll bar widget functions.
+ */
+
 #ifndef LEGATO_SCROLLBAR_H
 #define LEGATO_SCROLLBAR_H
-//DOM-IGNORE-END
 
 #include "gfx/legato/common/legato_common.h"
 
@@ -70,6 +72,10 @@
   Remarks:
     None.
 */
+/**
+ * @brief Defines the various scroll bar state values.
+ * @details .
+ */
 typedef enum leScrollBarState
 {
     LE_SCROLLBAR_STATE_NONE,
@@ -91,27 +97,205 @@ typedef struct leScrollBarWidget leScrollBarWidget;
 */
 typedef void (*leScrollBarWidget_ValueChangedEvent)(leScrollBarWidget*);
 
-// DOM-IGNORE-BEGIN
-typedef struct leScrollBarWidget leScrollBarWidget;
+/* internal use only */
+/**
+  * @cond INTERNAL
+  *
+  */typedef struct leScrollBarWidget leScrollBarWidget;
 
 #define LE_SCROLLBARWIDGET_VTABLE(THIS_TYPE) \
     LE_WIDGET_VTABLE(THIS_TYPE) \
     \
     leOrientation (*getOrientation)(const THIS_TYPE* _this); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult      (*setOrientation)(THIS_TYPE* _this, leOrientation align, leBool swapDimensions); \
+    /**
+     * @brief Get title string.
+     * @details Returns the title string from  <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * leString * title = wgt->fn->getTitleHeight(wgt);
+     * @endcode
+     * @param param1 wgt is the widget to query
+     * @return returns uint32_t.
+     */
     uint32_t      (*getMaximumValue)(const THIS_TYPE* _this); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult      (*setMaximumValue)(THIS_TYPE* _this, uint32_t val); \
+    /**
+     * @brief Get title string.
+     * @details Returns the title string from  <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * leString * title = wgt->fn->getTitleHeight(wgt);
+     * @endcode
+     * @param param1 wgt is the widget to query
+     * @return returns uint32_t.
+     */
     uint32_t      (*getExtentValue)(const THIS_TYPE* _this); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult      (*setExtentValue)(THIS_TYPE* _this, uint32_t val); \
+    /**
+     * @brief Get title string.
+     * @details Returns the title string from  <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * leString * title = wgt->fn->getTitleHeight(wgt);
+     * @endcode
+     * @param param1 wgt is the widget to query
+     * @return returns uint32_t.
+     */
     uint32_t      (*getScrollPercentage)(const THIS_TYPE* _this); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult      (*setScrollPercentage)(THIS_TYPE* _this, uint32_t val); \
+    /**
+     * @brief Get title string.
+     * @details Returns the title string from  <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * leString * title = wgt->fn->getTitleHeight(wgt);
+     * @endcode
+     * @param param1 wgt is the widget to query
+     * @return returns uint32_t.
+     */
     uint32_t      (*getScrollValue)(const THIS_TYPE* _this); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult      (*setScrollValue)(THIS_TYPE* _this, uint32_t val); \
+    /**
+     * @brief Get title string.
+     * @details Returns the title string from  <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * leString * title = wgt->fn->getTitleHeight(wgt);
+     * @endcode
+     * @param param1 wgt is the widget to query
+     * @return returns uint32_t.
+     */
     uint32_t      (*getStepSize)(const THIS_TYPE* _this); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult      (*setStepSize)(THIS_TYPE* _this, uint32_t val); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult      (*stepBackward)(THIS_TYPE* _this); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult      (*stepForward)(THIS_TYPE* _this); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leScrollBarWidget_ValueChangedEvent (*getValueChangedEventCallback)(const THIS_TYPE* _this); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult      (*setValueChangedEventCallback)(THIS_TYPE* _this, leScrollBarWidget_ValueChangedEvent cb); \
     
 typedef struct leScrollBarWidgetVTable
@@ -119,24 +303,19 @@ typedef struct leScrollBarWidgetVTable
 	LE_SCROLLBARWIDGET_VTABLE(leScrollBarWidget)
 } leScrollBarWidgetVTable; 
 
-// DOM-IGNORE-END
+    /**
+      * @endcond
+      *
+      */
 
 // *****************************************************************************
-/* Structure:
-    leScrollBarWidget
-
-  Summary:
-    Implementation of a scroll bar widget.
-
-  Description:
-    A scroll bar is a widget that is capable of displaying a range and a scroll
-    handle.  The handle can grow and shrink in size depending on the scroll
-    range and visible scroll space and can be interacted with to scroll through
-    the available space.
-
-  Remarks:
-    None.
-*/
+/**
+ * @brief This struct represents a scroll bar widget.
+ * @details A scroll bar is a widget that is capable of displaying a range
+ * and a scroll handle.  The handle can grow and shrink in size depending
+ * on the scroll range and visible scroll space and can be interacted with
+ * to scroll through the available space.
+ */
 typedef struct leScrollBarWidget
 {
     leWidget widget; // widget base class
@@ -182,27 +361,30 @@ typedef struct leScrollBarWidget
   Remarks:
     Use leWidget_Delete() to free this pointer.
 */
+/**
+ * @brief Create widget.
+ * @details Creates a new leScrollBarWidget and allocates memory for the widget through the
+ * current active context.  Application is responsible for managing the widget
+ * pointer until the widget is added to a widget tree.
+ * @remark use leWidget_Delete() to free this pointer.
+ * @code
+ * leScrollBarWidget* wgt = leScrollBarWidget_New();
+ * @endcode
+ * @return a widget object pointer.
+ */
 LIB_EXPORT leScrollBarWidget* leScrollBarWidget_New();
 
-/* Function:
-    void leScrollBarWidget_Constructor(leScrollBarWidget* wgt)
-
-  Summary:
-    Initializes an leScrollBarWidget widget pointer.
-
-  Description:
-    Initializes an leScrollBarWidget widget pointer.
-
-  Parameters:
-    leScrollBarWidget* wgt - the pointer to initialize
-
-  Returns:
-    void
-
-  Remarks:
-
-*/
-LIB_EXPORT void leScrollBarWidget_Constructor(leScrollBarWidget* bar);
+/**
+ * @brief Initialize widget.
+ * @details Initializes the leScrollBarWidget <span class="param">wgt</span>.
+ * @code
+ * leScrollBarWidget* wgt;
+ * leScrollBarWidget_Constructor(wgt);
+ * @endcode
+ * @param wgt is the widget to initialize
+ * @return void.
+ */
+LIB_EXPORT void leScrollBarWidget_Constructor(leScrollBarWidget* wgt);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -498,48 +680,37 @@ LIB_EXPORT void leScrollBarWidget_Constructor(leScrollBarWidget* bar);
     leResult - the result of the operation
 */
 
-// *****************************************************************************
-/* Virtual Member Function:
-    leScrollBarWidget_ValueChangedEvent getValueChangedEventCallback(const leScrollBarWidget* _this)
+/**
+ * @brief Get value changed event callback pointer.
+ * @details Gets the value changed event callback pointer using <span class="param">_this</span>.
+ * @code
+ * leScrollBarWidget* _this;
+ * leScrollBarWidget_ValueChangedEvent cb = _this->fn->getValueChangedEventCallback(_this);
+ * @endcode
+ * @param _this is the widget to modify
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leScrollBarWidget_ValueChangedEvent getValueChangedEventCallback
+                                          (const leScrollBarWidget* _this);
 
-  Summary:
-     Gets the value changed event callback pointer
+/**
+ * @brief Set value changed event callback pointer.
+ * @details Sets the value changed event callback pointer to <span class="param">cb</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leScrollBarWidget* _this;
+ * leScrollBarWidget_ValueChangedEvent cb;
+ * leResult res = _this->fn->setValueChangedEventCallback(_this, cb);
+ * @endcode
+ * @param _this is the widget to modify
+ * @param cb is the callback func
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setValueChangedEventCallback(leScrollBarWidget* _this,
+                                              leScrollBarWidget_ValueChangedEvent cb);
 
-  Description:
-     Gets the value changed event callback pointer
-
-  Parameters:
-    const leScrollBarWidget* _this - The scroll bar widget to operate on
-
-  Remarks:
-    Usage - _this->fn->getValueChangedEventCallback(_this);
-
-  Returns:
-    leScrollBarWidget_ValueChangedEvent - the value
-*/
-
-// *****************************************************************************
-/* Virtual Member Function:
-    leResult setValueChangedEventCallback(leScrollBarWidget* _this,
-                                          leScrollBarWidget_ValueChangedEvent cb)
-
-  Summary:
-     Sets the value changed event callback pointer
-
-  Description:
-     Sets the value changed event callback pointer
-
-  Parameters:
-    leScrollBarWidget* _this - The scroll bar widget to operate on
-    leScrollBarWidget_ValueChangedEvent cb - the callback pointer
-
-  Remarks:
-    Usage - _this->fn->setValueChangedEventCallback(_this, cb);
-
-  Returns:
-    leResult - the result of the operation
-*/
-
+#undef THIS_TYPE
+#endif
 
 
 #endif // LE_SCROLLBAR_WIDGET_ENABLED

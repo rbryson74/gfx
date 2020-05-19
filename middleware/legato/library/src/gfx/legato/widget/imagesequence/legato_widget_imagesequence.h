@@ -1,4 +1,3 @@
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
@@ -21,7 +20,6 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 /*******************************************************************************
  Module for Microchip Graphics Library - Legato User Interface Library
@@ -39,11 +37,14 @@
     This module implements image sequence (slide show) widget drawing functions.
 *******************************************************************************/
 
-// DOM-IGNORE-BEGIN
+/** \file legato_widget_imagesequence.h
+ * @brief Imagesequence widget functions and definitions.
+ *
+ * @details This module implements image sequence (slide show) widget drawing functions.
+ */
 
 #ifndef LEGATO_IMAGESEQUENCE_H
 #define LEGATO_IMAGESEQUENCE_H
-//DOM-IGNORE-END
 
 #include "gfx/legato/common/legato_common.h"
 
@@ -97,8 +98,11 @@ typedef struct leImageSequenceEntry
     leVAlignment valign; // the vertical alignment for this entry
 } leImageSequenceEntry;
 
-// DOM-IGNORE-BEGIN
-
+/* internal use only */
+/**
+  * @cond INTERNAL
+  *
+  */
 #define LE_IMAGESEQUENCEWIDGET_VTABLE(THIS_TYPE) \
     LE_WIDGET_VTABLE(THIS_TYPE) \
     \
@@ -129,27 +133,20 @@ typedef struct leImageSequenceWidgetVTable
 	LE_IMAGESEQUENCEWIDGET_VTABLE(leImageSequenceWidget)
 } leImageSequenceWidgetVTable; 
 
-// DOM-IGNORE-END
+/**
+  * @endcond
+  *
+  */
 
 // *****************************************************************************
-/* Enumeration:
-    leImageSequenceWidget
-
-  Summary:
-    Image sequence widget struct definition
-
-  Description:
-    An image sequence widget is similar to an image widget with the additional
-    capability of showing a sequence of images and automating the transition
-    between them.
-
-    This widget is dependent on the time value provided to leUpdate.  If
-    leUpdate is not provided with time information this widget will not be
-    able to automatically cycle.
-
-  Remarks:
-    None.
-*/
+/**
+ * @brief This struct represents a Image sequence widget
+ * @details An image sequence widget is similar to an image widget with the
+ * additional capability of showing a sequence of images and automating
+ * the transition between them. This widget is dependent on the time value
+ * provided to leUpdate.  If leUpdate is not provided with time  able to
+ * automatically cycle.
+ */
 typedef struct leImageSequenceWidget
 {
     leWidget widget; // widget base class
@@ -176,50 +173,30 @@ typedef struct leImageSequenceWidget
 // *****************************************************************************
 // *****************************************************************************
 
-// *****************************************************************************
-/* Function:
-    leImageSequenceWidget* leImageSequenceWidget_New()
-
-  Summary:
-    Allocates memory for and initializes a new widget of this type.  The
-    application is responsible for the managment of this memory until the
-    widget is added to a widget tree.
-
-  Description:
-    Allocates memory for and initializes a new widget of this type.  The
-    application is responsible for the managment of this memory until the
-    widget is added to a widget tree.
-
-  Parameters:
-    void
-
-  Returns:
-    leImageSequenceWidget*
-
-  Remarks:
-    Use leWidget_Delete() to free this pointer.
-*/
+/**
+ * @brief Create widget.
+ * @details Creates a new leImageSequenceWidget and allocates memory for the widget through the
+ * current active context.  Application is responsible for managing the widget
+ * pointer until the widget is added to a widget tree.
+ * @remark use leWidget_Delete() to free this pointer.
+ * @code
+ * leImageSequenceWidget* wgt = leImageSequenceWidget_New();
+ * @endcode
+ * @return a widget object pointer.
+ */
 LIB_EXPORT leImageSequenceWidget* leImageSequenceWidget_New();
 
-/* Function:
-    void leImageSequenceWidget_Constructor(leImageSequenceWidget* wgt)
-
-  Summary:
-    Initializes an leImageSequenceWidget widget pointer.
-
-  Description:
-    Initializes an leImageSequenceWidget widget pointer.
-
-  Parameters:
-    leImageSequenceWidget* wgt - the pointer to initialize
-
-  Returns:
-    void
-
-  Remarks:
-
-*/
-LIB_EXPORT void leImageSequenceWidget_Constructor(leImageSequenceWidget* img);
+/**
+ * @brief Initialize widget.
+ * @details Initializes the leImageSequenceWidget <span class="param">wgt</span>.
+ * @code
+ * leImageSequenceWidget* wgt;
+ * leImageSequenceWidget_Constructor(wgt);
+ * @endcode
+ * @param wgt is the widget to initialize
+ * @return void.
+ */
+LIB_EXPORT void leImageSequenceWidget_Constructor(leImageSequenceWidget* wgt);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -631,49 +608,36 @@ LIB_EXPORT void leImageSequenceWidget_Constructor(leImageSequenceWidget* img);
     leResult - the result of the operation
 */
 
-// *****************************************************************************
-/* Virtual Member Function:
-    leImageSequenceImageChangedEvent_FnPtr getImageChangedEventCallback(const leImageSequenceWidget* _this)
+/**
+ * @brief Get image chagned event callback pointer.
+ * @details Gets the image chagned event callback pointer using <span class="param">_this</span>.
+ * @code
+ * leImageSequenceWidget* _this;
+ * leImageSequenceImageChangedEvent_FnPtr cb = _this->fn->getImageChangedEventCallback(_this);
+ * @endcode
+ * @param _this is the widget to modify
+ * @returns the callback pointer.
+ */
+virtual leImageSequenceImageChangedEvent_FnPtr getImageChangedEventCallback(const leImageSequenceWidget* _this);
 
-  Summary:
-     Gets the image changed event callback
+/**
+ * @brief Set image chagned event callback pointer.
+ * @details Sets the image chagned event callback pointer to <span class="param">cb</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leImageSequenceWidget* _this;
+ * leImageSequenceImageChangedEvent_FnPtr cb;
+ * leResult res = _this->fn->setImageChangedEventCallback(_this, cb);
+ * @endcode
+ * @param _this is the widget to modify
+ * @param cb is the callback func
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setImageChangedEventCallback(leImageSequenceWidget* _this,
+                                              leImageSequenceImageChangedEvent_FnPtr cb);
 
-  Description:
-     Gets the image changed event callback
-
-  Parameters:
-    const leImageSequenceWidget* _this - The image sequence widget to operate on
-
-  Remarks:
-    Usage - _this->fn->getImageChangedEventCallback(_this);
-
-  Returns:
-    leImageSequenceImageChangedEvent_FnPtr - the callback pointer
-*/
-
-// *****************************************************************************
-/* Virtual Member Function:
-    leResult setImageChangedEventCallback(leImageSequenceWidget* _this,
-                                          leImageSequenceImageChangedEvent_FnPtr cb)
-
-  Summary:
-     Sets the image chagned event callback
-
-  Description:
-     Sets the image chagned event callback
-
-  Parameters:
-    leImageSequenceWidget* _this - The image sequence widget to operate on
-    leImageSequenceImageChangedEvent_FnPtr cb - the callback pointer
-
-  Remarks:
-    Usage - _this->fn->setImageChangedEventCallback(_this, cb);
-
-  Returns:
-    leResult - the result of the operation
-*/
-
-
+#undef THIS_TYPE
+#endif
 
 #endif // LE_IMAGESEQUENCE_WIDGET_ENABLED
 #endif /* LEGATO_IMAGESEQUENCE_H */

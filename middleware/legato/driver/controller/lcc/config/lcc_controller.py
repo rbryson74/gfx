@@ -32,7 +32,7 @@ def instantiateComponent(comp):
 	
         # common gfx driver header
 	GFX_DRIVER_H = comp.createFileSymbol("GFX_DRIVER_H", None)
-	GFX_DRIVER_H.setSourcePath("../../templates/gfx_driver.h.ftl")
+	GFX_DRIVER_H.setSourcePath("../../templates/gfx_driver_ftl.h")
 	GFX_DRIVER_H.setDestPath("gfx/driver/")
 	GFX_DRIVER_H.setOutputName("gfx_driver.h")
 	GFX_DRIVER_H.setProjectPath(projectPath)

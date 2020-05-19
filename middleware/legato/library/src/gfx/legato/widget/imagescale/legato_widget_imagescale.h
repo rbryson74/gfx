@@ -1,4 +1,3 @@
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
@@ -21,7 +20,6 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 /*******************************************************************************
  Module for Microchip Graphics Library - Legato User Interface Library
@@ -39,11 +37,15 @@
     This module implements image widget functions.
 *******************************************************************************/
 
-// DOM-IGNORE-BEGIN
+/** \file legato_widget_image.h
+ * @brief Image widget functions and definitions.
+ *
+ * @details This module implements image widget functions.
+ */
+
 
 #ifndef LEGATO_IMAGESCALE_H
 #define LEGATO_IMAGESCALE_H
-//DOM-IGNORE-END
 
 #include "gfx/legato/common/legato_common.h"
 
@@ -60,8 +62,11 @@ typedef struct leImageScaleWidget leImageScaleWidget;
 // *****************************************************************************
 // *****************************************************************************
 
-// DOM-IGNORE-BEGIN
-typedef struct leImageScaleWidget leImageScaleWidget;
+/* internal use only */
+/**
+  * @cond INTERNAL
+  *
+  */typedef struct leImageScaleWidget leImageScaleWidget;
 
 #define LE_IMAGEPLUSWIDGET_VTABLE(THIS_TYPE) \
     LE_WIDGET_VTABLE(THIS_TYPE) \
@@ -89,21 +94,16 @@ typedef struct leImageScaleWidgetVTable
 	LE_IMAGEPLUSWIDGET_VTABLE(leImageScaleWidget)
 } leImageScaleWidgetVTable;
 
-// DOM-IGNORE-END
-
+/**
+  * @endcond
+  *
+  */
 // *****************************************************************************
-/* Enumeration:
-    leImageScaleWidget
-
-  Summary:
-    Image plus widget struct definition
-
-  Description:
-    An image plus widget displays an image asset and can translate and resize that image.
-
-  Remarks:
-    None.
-*/
+/**
+ * @brief This struct represents a Image plus widget
+ * @details An image plus widget displays an image asset and can translate
+ * and resize that image.
+ */
 typedef struct leImageScaleWidget
 {
     leWidget widget; // widget base class
@@ -125,8 +125,11 @@ typedef struct leImageScaleWidget
     leBool inputEnabled;
 } leImageScaleWidget;
 
-// DOM-IGNORE-BEGIN
-// internal use only
+/* internal use only */
+/**
+  * @cond INTERNAL
+  *
+  */
 
 void _leImageScaleWidget_Destructor(leImageScaleWidget* img);
 
@@ -139,48 +142,33 @@ void _leImageScaleWidget_Paint(leImageScaleWidget* img);
 // *****************************************************************************
 // *****************************************************************************
 
-// *****************************************************************************
-/* Function:
-    leImageScaleWidget* leImageScaleWidget_New()
-
-  Summary:
-    Allocates memory for and initializes a new widget of this type.  The
-    application is responsible for the managment of this memory until the
-    widget is added to a widget tree.
-
-  Description:
-
-
-  Parameters:
-    void
-
-  Returns:
-    leImageScaleWidget* - the widget
-
-  Remarks:
-    Use leWidget_Delete() to free this pointer.
-*/
+/**
+ * @brief Create widget.
+ * @details Creates a new leImageScaleWidget and allocates memory for the widget through the
+ * current active context.  Application is responsible for managing the widget
+ * pointer until the widget is added to a widget tree.
+ * @remark use leWidget_Delete() to free this pointer.
+ * @code
+ * leImageScaleWidget* wgt = leImageScaleWidget_New();
+ * @endcode
+ * @return a widget object pointer.
+ */
 LIB_EXPORT leImageScaleWidget* leImageScaleWidget_New();
 
-/* Function:
-    void leImageScaleWidget_Constructor(leImageScaleWidget* wgt)
+/**
+ * @brief Initialize widget.
+ * @details Initializes the leImageScaleWidget <span class="param">wgt</span>.
+ * @code
+ * leImageScaleWidget* wgt;
+ * leImageScaleWidget_Constructor(wgt);
+ * @endcode
+ * @param wgt is the widget to initialize
+ * @return void.
+ */
+LIB_EXPORT void leImageScaleWidget_Constructor(leImageScaleWidget* wgt);
 
-  Summary:
-    Initializes an leImageScaleWidget widget pointer.
-
-  Description:
-    Initializes an leImageScaleWidget widget pointer.
-
-  Parameters:
-    leImageScaleWidget* wgt - the pointer to initialize
-
-  Returns:
-    void
-
-  Remarks:
-
-*/
-LIB_EXPORT void leImageScaleWidget_Constructor(leImageScaleWidget* img);
+#ifdef _DOXYGEN_
+#define THIS_TYPE struct leWidget
 
 // *****************************************************************************
 /* Virtual Member Function:

@@ -291,7 +291,7 @@ def instantiateComponent(comp):
 	GFX_LCC_C.setMarkup(True)
 	
 	GFX_LCC_H = comp.createFileSymbol("GFX_LCC_H", None)
-	GFX_LCC_H.setSourcePath("templates/drv_gfx_lcc.h.ftl")
+	GFX_LCC_H.setSourcePath("templates/drv_gfx_lcc_ftl.h")
 	GFX_LCC_H.setDestPath("gfx/driver/controller/lcc/")
 	GFX_LCC_H.setOutputName("drv_gfx_lcc.h")
 	GFX_LCC_H.setProjectPath(projectPath)

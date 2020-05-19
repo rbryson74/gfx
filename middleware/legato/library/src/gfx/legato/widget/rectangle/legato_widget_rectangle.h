@@ -1,4 +1,3 @@
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
@@ -21,7 +20,6 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 /*******************************************************************************
  Module for Microchip Graphics Library - Legato User Interface Library
@@ -38,12 +36,14 @@
   Description:
     This module implements rectangle drawing widget functions.
 *******************************************************************************/
-
-// DOM-IGNORE-BEGIN
+/** \file legato_widget_rectangle.h
+ * @brief Rectangle widget functions and definitions.
+ *
+ * @details This module implements rectangle widget functions.
+ */
 
 #ifndef LEGATO_RECTANGLE_H
 #define LEGATO_RECTANGLE_H
-//DOM-IGNORE-END
 
 #include "gfx/legato/common/legato_common.h"
 
@@ -62,7 +62,30 @@ typedef struct leRectangleWidget leRectangleWidget;
 #define LE_RECTANGLEWIDGET_VTABLE(THIS_TYPE) \
     LE_WIDGET_VTABLE(THIS_TYPE) \
     \
+    /**
+     * @brief Get title bar height.
+     * @details Returns the title bar height from  <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * leResult res =  = wgt->fn->getCursorDelay(wgt);
+     * @endcode
+     * @param param1 wgt is the widget to query
+     * @return returns uint32_t.
+     */
     int32_t   (*getThickness)(const THIS_TYPE* _this); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult  (*setThickness)(THIS_TYPE* _this, int32_t thk); \
     
 typedef struct leRectangleWidgetVTable
@@ -71,19 +94,11 @@ typedef struct leRectangleWidgetVTable
 } leRectangleWidgetVTable; 
 
 // *****************************************************************************
-/* Enumeration:
-    leRectangleWidget
-
-  Summary:
-    Implementation of a rectangle widget struct
-
-  Description:
-    A rectangle widget draws a basic rectangle of a given thickness using the
-    widget's bounding box as the dimensions.
-
-  Remarks:
-    None.
-*/
+/**
+ * @brief This struct represents a rectangle widget.
+ * @details A rectangle widget draws a basic rectangle of a given
+ * thickness using the widget's bounding box as the dimensions.
+ */
 typedef struct leRectangleWidget
 {
     leWidget widget; // widget base class
@@ -99,47 +114,30 @@ typedef struct leRectangleWidget
 // *****************************************************************************
 // *****************************************************************************
 
-// *****************************************************************************
-/* Function:
-    leRectangleWidget* leRectangleWidget_New()
-
-  Summary:
-    Allocates memory for a new widget of this type.  The application is
-    responsible for the managment of this memory until the widget is added to
-    a widget tree.
-
-  Description:
-    
-
-  Parameters:
-    
-  Returns:
-    leRectangleWidget*
-    
-  Remarks:
-    Use leWidget_Delete() to free this pointer.
-*/
+/**
+ * @brief Create widget.
+ * @details Creates a new leRectangleWidget and allocates memory for the widget through the
+ * current active context.  Application is responsible for managing the widget
+ * pointer until the widget is added to a widget tree.
+ * @remark use leWidget_Delete() to free this pointer.
+ * @code
+ * leRectangleWidget* wgt = leRectangleWidget_New();
+ * @endcode
+ * @return a widget object pointer.
+ */
 LIB_EXPORT leRectangleWidget* leRectangleWidget_New();
 
-/* Function:
-    void leRectangleWidget_Constructor(leRectangleWidget* wgt)
-
-  Summary:
-    Initializes an leRectangleWidget widget pointer.
-
-  Description:
-    Initializes an leRectangleWidget widget pointer.
-
-  Parameters:
-    leRectangleWidget* wgt - the pointer to initialize
-
-  Returns:
-    void
-
-  Remarks:
-
-*/
-void leRectangleWidget_Constructor(leRectangleWidget* _this);
+/**
+ * @brief Initialize widget.
+ * @details Initializes the leRectangleWidget <span class="param">wgt</span>.
+ * @code
+ * leRectangleWidget* wgt;
+ * leRectangleWidget_Constructor(wgt);
+ * @endcode
+ * @param wgt is the widget to initialize
+ * @return void.
+ */
+void leRectangleWidget_Constructor(leRectangleWidget* wgt);
 
 // *****************************************************************************
 /* Virtual Member Function:

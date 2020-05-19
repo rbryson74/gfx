@@ -46,13 +46,19 @@
 
 #define LE_FIXED_HEAP_COUNT 7
 
+/**
+ * @brief This struct represents a variable heap usage report.
+ */
 typedef struct leVariableHeapUsageReport
 {
-    size_t size;
-    size_t maxUsage;
-    size_t used;
+    size_t size;        /**< size of report. */
+    size_t maxUsage;    /**< max usage. */
+    size_t used;        /**< used. */
 } leVariableHeapUsageReport;
 
+/**
+ * @brief This enum represents a fixed heap sizes support.
+ */
 enum leFixedHeapSize
 {
     FH_16,
@@ -63,6 +69,9 @@ enum leFixedHeapSize
     FH_256
 };
 
+/**
+ * @brief This struct represents a fixed heap usage report.
+ */
 typedef struct leFixedHeapUsageReport
 {
     size_t logicalSize;
@@ -71,12 +80,24 @@ typedef struct leFixedHeapUsageReport
     size_t maxUsage;
 } leFixedHeapUsageReport;
 
+/**
+ * @brief This struct represents fixed and variable heap reports.
+ */
 typedef struct leMemoryStatusReport
 {
     leVariableHeapUsageReport variableHeapReport;
     leFixedHeapUsageReport fixedHeapReport[LE_FIXED_HEAP_COUNT - 1];
 } leMemoryStatusReport;
 
+/**
+ * @brief Memory Init.
+ * @details .
+ * @code
+ * leResult res = leMemory_Init()
+ * @endcode
+ * @param void.
+ * @return LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
 leResult leMemory_Init();
 
 #if LE_USE_DEBUG_ALLOCATOR == 1
@@ -90,33 +111,111 @@ leResult leMemory_Init();
 #define LE_FREE(ptr) leFree(ptr)
 
 #if LE_USE_DEBUG_ALLOCATOR == 1
+/**
+ * @brief Malloc Memory.
+ * @details .
+ * @code
+ * leResult res = leMemory_Init()
+ * @endcode
+ * @param void.
+ * @return void.
+ */
 LIB_EXPORT void* leMalloc(size_t size,
                           size_t line,
                           const char* func,
                           const char* file);
-                
+
+/**
+ * @brief Malloc Memory.
+ * @details .
+ * @code
+ * leResult res = leMemory_Init()
+ * @endcode
+ * @param ptr.
+ * @param size.
+ * @param line.
+ * @param func.
+ * @param file.
+ * @return void.
+ */
 LIB_EXPORT void* leRealloc(void* ptr,
                            size_t size,
                            size_t line,
                            const char* func,
                            const char* file);
-                 
+
+/**
+ * @brief Malloc Memory.
+ * @details .
+ * @code
+ * leResult res = leMemory_Init()
+ * @endcode
+ * @param void.
+ * @return LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
 LIB_EXPORT void leFree(void* ptr);
 #else
+/**
+ * @brief Malloc Memory.
+ * @details .
+ * @code
+ * void* mem = leMalloc();
+ * @endcode
+ * @param size.
+ * @return LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
 LIB_EXPORT void* leMalloc(size_t size);
-                
+
+/**
+ * @brief Realloc Memory.
+ * @details .
+ * @code
+ * void* mem = leRealloc(ptr, size);
+ * @endcode
+ * @param ptr.
+ * @param size.
+ * @return LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
 LIB_EXPORT void* leRealloc(void* ptr,
                            size_t size);
-                 
+
+/**
+ * @brief Free Memory.
+ * @details .
+ * @code
+ * void* ptr;
+ * leFree(ptr);
+ * @endcode
+ * @param ptr.
+ * @return void.
+ */
 LIB_EXPORT void leFree(void* ptr);
 #endif
 
+/**
+ * @brief Get Usage Report.
+ * @details .
+ * @code
+ * leMemoryGetUsageReport(rpt)
+ * @endcode
+ * @param rpt.
+ * @return void.
+ */
 LIB_EXPORT void leMemoryGetUsageReport(leMemoryStatusReport* rpt);
 
 #ifdef _WIN32
 LIB_EXPORT void leMemoryDumpAllocations();
 #endif
 
+/**
+ * @brief Validate Memory Heaps
+ * @details .
+ * @code
+ * leResult res = leMemoryValidateHeaps()
+ * @endcode
+ * @param void.
+ * @return LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
 LIB_EXPORT leResult leMemoryValidateHeaps();
 
 #endif /* LEGATO_MEMORY_H */

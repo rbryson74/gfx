@@ -1,4 +1,3 @@
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
@@ -21,7 +20,6 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 /*******************************************************************************
  Module for Microchip Graphics Library - Legato User Interface Library
@@ -39,10 +37,14 @@
     This module implements radial menu widget functions.
 *******************************************************************************/
 
-// DOM-IGNORE-BEGIN
+/** \file legato_widget_radial_menu.h
+ * @brief Radial menu functions and definitions.
+ *
+ * @details This module implements radial menu widget functions.
+ */
+
 #ifndef LEGATO_RADIALMENU_H
 #define LEGATO_RADIALMENU_H
-//DOM-IGNORE-END
 
 #include "gfx/legato/common/legato_common.h"
 
@@ -63,7 +65,10 @@ typedef void (*leRadialMenuWidget_ItemProminenceChangedEvent)(leRadialMenuWidget
 // Section: Data Types and Constants
 // *****************************************************************************
 // *****************************************************************************
-
+/**
+ * @brief Used to define a radial menu widget state.
+ * @details .
+ */
 typedef enum leRadialMenuWidgetState
 {
     LE_RADIAL_MENU_INIT,
@@ -72,6 +77,10 @@ typedef enum leRadialMenuWidgetState
     LE_RADIAL_MENU_RESET_TO_INPUT_POS            
 } leRadialMenuWidgetState;
 
+/**
+ * @brief Used to define a radial menu interpolation mode.
+ * @details .
+ */
 typedef enum leRadialMenuWidgetInterpolationMode
 {
 	LE_RADIAL_MENU_INTERPOLATE_OFF,
@@ -79,6 +88,10 @@ typedef enum leRadialMenuWidgetInterpolationMode
 	LE_RADIAL_MENU_INTERPOLATE_PROMINENT
 } leRadialMenuWidgetInterpolationMode;
 
+/**
+ * @brief Used to define a radial menu ellipse type.
+ * @details .
+ */
 typedef enum leRadialMenuEllipseType
 {
 	LE_RADIAL_MENU_ELLIPSE_TYPE_DEFAULT,
@@ -86,35 +99,306 @@ typedef enum leRadialMenuEllipseType
 	LE_RADIAL_MENU_ELLIPSE_TYPE_ROLLODEX
 } leRadialMenuEllipseType;
 
-// DOM-IGNORE-BEGIN
-typedef struct leRadialMenuWidget leRadialMenuWidget;
+/* internal use only */
+/**
+  * @cond INTERNAL
+  *
+  */typedef struct leRadialMenuWidget leRadialMenuWidget;
 
 #define LE_RADIALMENUWIDGET_VTABLE(THIS_TYPE) \
     LE_WIDGET_VTABLE(THIS_TYPE) \
     \
     leBool    (*isProminent)(const THIS_TYPE* _this, const leWidget* widget); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult  (*setProminent)(THIS_TYPE* _this, const leWidget* widget); \
+    /**
+     * @brief Get title bar height.
+     * @details Returns the title bar height from  <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * leResult res =  = wgt->fn->getCursorDelay(wgt);
+     * @endcode
+     * @param param1 wgt is the widget to query
+     * @return returns uint32_t.
+     */
     int32_t   (*getProminentIndex)(const THIS_TYPE* _this); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult  (*setProminentIndex)(THIS_TYPE* _this, int32_t index); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult  (*setNumberOfItemsShown)(THIS_TYPE* _this, uint32_t cnt); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult  (*setHighlightProminent)(THIS_TYPE* _this, leBool hl); \
+    /**
+     * @brief Get title bar height.
+     * @details Returns the title bar height from  <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * leResult res =  = wgt->fn->getCursorDelay(wgt);
+     * @endcode
+     * @param param1 wgt is the widget to query
+     * @return returns uint32_t.
+     */
     int32_t   (*getTheta)(const THIS_TYPE* _this); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult  (*setTheta)(THIS_TYPE* _this, int32_t tht); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult  (*setEllipseType)(THIS_TYPE* _this, leRadialMenuEllipseType type); \
+    /**
+     * @brief Get title bar height.
+     * @details Returns the title bar height from  <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * leResult res =  = wgt->fn->getCursorDelay(wgt);
+     * @endcode
+     * @param param1 wgt is the widget to query
+     * @return returns uint32_t.
+     */
     leResult  (*addWidget)(THIS_TYPE* _this, leWidget* wgt); \
+    /**
+     * @brief Get title bar height.
+     * @details Returns the title bar height from  <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * leResult res =  = wgt->fn->getCursorDelay(wgt);
+     * @endcode
+     * @param param1 wgt is the widget to query
+     * @return returns uint32_t.
+     */
     leResult  (*removeWidget)(THIS_TYPE* _this, leWidget* wgt); \
+    /**
+     * @brief Get title bar height.
+     * @details Returns the title bar height from  <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * leResult res =  = wgt->fn->getCursorDelay(wgt);
+     * @endcode
+     * @param param1 wgt is the widget to query
+     * @return returns uint32_t.
+     */
     leWidget* (*getWidgetAtIndex)(const THIS_TYPE* _this, int32_t idx); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult  (*setWidgetAtIndex)(THIS_TYPE* _this, int32_t idx, leWidget* wgt); \
+    /**
+     * @brief Get title bar height.
+     * @details Returns the title bar height from  <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * leResult res =  = wgt->fn->getCursorDelay(wgt);
+     * @endcode
+     * @param param1 wgt is the widget to query
+     * @return returns uint32_t.
+     */
     leResult  (*removeAllWidgets)(THIS_TYPE* _this); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult  (*setScaleMode)(THIS_TYPE* _this, leRadialMenuWidgetInterpolationMode mode); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult  (*setScaleRange)(THIS_TYPE* _this, int32_t min, int32_t max); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult  (*setBlendMode)(THIS_TYPE* _this, leRadialMenuWidgetInterpolationMode mode); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult  (*setBlendRange)(THIS_TYPE* _this, int32_t min, int32_t max); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult  (*setTouchArea)(THIS_TYPE* _this, int32_t x, int32_t y, int32_t width, int32_t height); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult  (*setDrawEllipse)(THIS_TYPE* _this, leBool b); \
+    /**
+     * @brief Get title bar height.
+     * @details Returns the title bar height from  <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * leResult res =  = wgt->fn->getCursorDelay(wgt);
+     * @endcode
+     * @param param1 wgt is the widget to query
+     * @return returns uint32_t.
+     */
     leRadialMenuWidget_ItemSelectedEvent (*getItemSelectedEventCallback)(const THIS_TYPE* _this); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult  (*setItemSelectedEventCallback)(THIS_TYPE* _this, leRadialMenuWidget_ItemSelectedEvent cb); \
+    /**
+     * @brief Get title bar height.
+     * @details Returns the title bar height from  <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * leResult res =  = wgt->fn->getCursorDelay(wgt);
+     * @endcode
+     * @param param1 wgt is the widget to query
+     * @return returns uint32_t.
+     */
     leRadialMenuWidget_ItemProminenceChangedEvent (*getItemProminenceChangedEventCallback)(const THIS_TYPE* _this); \
+    /**
+     * @brief Set title height.
+     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
+     * @remark This is a Virtual Member Function
+     * @code
+     * leWindowWidget* wgt;
+     * uint32_t ht;
+     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
+     * @endcode
+     * @param param1 wgt is the widget to modify
+     * @return returns uint32_t.
+     */
     leResult  (*setItemProminenceChangedEventCallback)(THIS_TYPE* _this, leRadialMenuWidget_ItemProminenceChangedEvent cb); \
     
 typedef struct leRadialMenuWidgetVTable
@@ -122,8 +406,15 @@ typedef struct leRadialMenuWidgetVTable
 	LE_RADIALMENUWIDGET_VTABLE(leRadialMenuWidget)
 } leRadialMenuWidgetVTable; 
 
-// DOM-IGNORE-END
+    /**
+      * @endcond
+      *
+      */
 
+/**
+ * @brief Used to define a radial menu item node.
+ * @details .
+ */
 typedef struct leRadialMenuItemNode
 {
 	leWidget* widget; // point to the widget of the item
@@ -143,23 +434,14 @@ typedef struct leRadialMenuItemNode
 } leRadialMenuItemNode;
 
 // *****************************************************************************
-/* Enumeration:
-    leRadialMenuWidget
-
-  Summary:
-    Implementation of a radial menu widget struct
-
-  Description:
-    A radial menu is a master widget that manages the movement, in an elliptical 
-	track, of a list of widgets.  It also manages the draw order and scaling of 
-	each widget item.
-
-	It is essentially a group of widgets which provides a mutually exclusive 
-	selection capability so that only one item may be selected at any one time.
-
-  Remarks:
-    None.
-*/
+/**
+ * @brief This struct represents a radial menu widget.
+ * @details A radial menu is a master widget that manages the movement, in an
+ * elliptical track, of a list of widgets.  It also manages the draw order and
+ * scaling of each widget item.
+ * It is essentially a group of widgets which provides a mutually exclusive
+ * selection capability so that only one item may be selected at any one time.
+ */
 typedef struct leRadialMenuWidget
 {
     leWidget widget; // widget base class
@@ -220,47 +502,30 @@ typedef struct leRadialMenuWidget
 // *****************************************************************************
 // *****************************************************************************
 
-// *****************************************************************************
-/* Function:
-    leRadialMenuWidget* leRadialMenuWidget_New()
-
-  Summary:
-    Allocates memory for a new widget of this type.  The application is
-    responsible for the management of this memory until the widget is added to
-    a widget tree.
-
-  Description:
-    
-
-  Parameters:
-    
-  Returns:
-    leRadialMenuWidget*
-    
-  Remarks:
-    Use leWidget_Delete() to free this pointer.
-*/
+/**
+ * @brief Create widget.
+ * @details Creates a new leRadialMenuWidget and allocates memory for the widget through the
+ * current active context.  Application is responsible for managing the widget
+ * pointer until the widget is added to a widget tree.
+ * @remark use leWidget_Delete() to free this pointer.
+ * @code
+ * leRadialMenuWidget* wgt = leRadialMenuWidget_New();
+ * @endcode
+ * @return a widget object pointer.
+ */
 LIB_EXPORT leRadialMenuWidget* leRadialMenuWidget_New();
 
-/* Function:
-    void leRadialMenuWidget_Constructor(leRadialMenuWidget* wgt)
-
-  Summary:
-    Initializes an leRadialMenuWidget widget pointer.
-
-  Description:
-    Initializes an leRadialMenuWidget widget pointer.
-
-  Parameters:
-    leRadialMenuWidget* wgt - the pointer to initialize
-
-  Returns:
-    void
-
-  Remarks:
-
-*/
-LIB_EXPORT void leRadialMenuWidget_Constructor(leRadialMenuWidget* rad);
+/**
+ * @brief Initialize widget.
+ * @details Initializes the leRadialMenuWidget <span class="param">wgt</span>.
+ * @code
+ * leRadialMenuWidget* wgt;
+ * leRadialMenuWidget_Constructor(wgt);
+ * @endcode
+ * @param wgt is the widget to initialize
+ * @return void.
+ */
+LIB_EXPORT void leRadialMenuWidget_Constructor(leRadialMenuWidget* wgt);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -708,96 +973,76 @@ LIB_EXPORT void leRadialMenuWidget_Constructor(leRadialMenuWidget* rad);
     leResult - the result of the operation
 */
 
-// *****************************************************************************
-/* Virtual Member Function:
-    leRadialMenuWidget_ItemSelectedEvent getItemSelectedEventCallback(const leRadialMenuWidget* _this)
+/**
+ * @brief Get item prominence changed event callback pointer.
+ * @details Gets the item prominence changed event callback pointer using <span class="param">_this</span>.
+ * @code
+ * leRadialMenuWidget* _this;
+ * leRadialMenuWidget_ItemSelectedEvent cb = _this->fn->getItemSelectedEventCallback(_this);
+ * @endcode
+ * @param _this is the widget to modify
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leRadialMenuWidget_ItemSelectedEvent getItemSelectedEventCallback(const leRadialMenuWidget* _this)
 
-  Summary:
-     Gets the item selected event callback pointer
+/**
+ * @brief Set item prominence changed event callback pointer.
+ * @details Sets the item prominence changed event callback pointer to <span class="param">cb</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leRadialMenuWidget* _this;
+ * leRadialMenuWidget_ItemSelectedEvent cb;
+ * leResult res = _this->fn->setItemSelectedEventCallback(_this, cb);
+ * @endcode
+ * @param _this is the widget to modify
+ * @param cb is the callback func
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setItemSelectedEventCallback(leRadialMenuWidget* _this,
+                                              leRadialMenuWidget_ItemSelectedEvent cb);
 
-  Description:
-     Gets the item selected event callback pointer
+/**
+ * @brief Get item prominence changed event callback pointer.
+ * @details Gets the item prominence changed event callback pointer using <span class="param">_this</span>.
+ * @code
+ * leRadialMenuWidget* _this;
+ * leRadialMenuWidget_ItemProminenceChangedEvent cb = _this->fn->getItemProminenceChangedEventCallback(_this);
+ * @endcode
+ * @param _this is the widget to modify
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leRadialMenuWidget_ItemProminenceChangedEvent getItemProminenceChangedEventCallback
+                                                    (const leRadialMenuWidget* _this)
 
-  Parameters:
-    const leRadialMenuWidget* _this - The radial menu bar widget to operate on
+/**
+ * @brief Set item prominence changed event callback pointer.
+ * @details Sets the item prominence changed event callback pointer to <span class="param">cb</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leRadialMenuWidget* _this;
+ * leRadialMenuWidget_ItemProminenceChangedEvent cb;
+ * leResult res = _this->fn->setItemProminenceChangedEventCallback(_this, cb);
+ * @endcode
+ * @param _this is the widget to modify
+ * @param cb is the callback func
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setItemProminenceChangedEventCallback(leRadialMenuWidget* _this,
+                                                       leRadialMenuWidget_ItemProminenceChangedEvent cb)
 
-  Remarks:
-    Usage - _this->fn->getItemSelectedEventCallback(_this);
+#undef THIS_TYPE
+#endif
 
-  Returns:
-    leRadialMenuWidget_ItemSelectedEvent - the callback pointer
-*/
-
-// *****************************************************************************
-/* Virtual Member Function:
-    leResult setItemSelectedEventCallback(leRadialMenuWidget* _this,
-                                          leRadialMenuWidget_ItemSelectedEvent cb)
-
-  Summary:
-     Sets the item selected event callback pointer
-
-  Description:
-     Sets the item selected event callback pointer
-
-  Parameters:
-    leRadialMenuWidget* _this - The radial menu bar widget to operate on
-    leRadialMenuWidget_ItemSelectedEvent cb - the callback pointer
-
-  Remarks:
-    Usage - _this->fn->setItemSelectedEventCallback(_this, cb);
-
-  Returns:
-    leResult - the result of the operation
-*/
-
-// *****************************************************************************
-/* Virtual Member Function:
-    leRadialMenuWidget_ItemProminenceChangedEvent getItemProminenceChangedEventCallback(const leRadialMenuWidget* _this)
-
-  Summary:
-     Gets the item prominence changed event callback pointer
-
-  Description:
-     Gets the item prominence changed event callback pointer
-
-  Parameters:
-    const leRadialMenuWidget* _this - The radial menu bar widget to operate on
-
-  Remarks:
-    Usage - _this->fn->getItemProminenceChangedEventCallback(_this);
-
-  Returns:
-    leRadialMenuWidget_ItemProminenceChangedEvent - the callback pointer
-*/
-
-// *****************************************************************************
-/* Virtual Member Function:
-    leResult setItemProminenceChangedEventCallback(leRadialMenuWidget* _this,
-                                                   leRadialMenuWidget_ItemProminenceChangedEvent cb)
-
-  Summary:
-     Sets the item prominence changed event callback pointer
-
-  Description:
-     Sets the item prominence changed event callback pointer
-
-  Parameters:
-    leRadialMenuWidget* _this - The radial menu bar widget to operate on
-    leRadialMenuWidget_ItemProminenceChangedEvent cb - the callback pointer
-
-  Remarks:
-    Usage - _this->fn->setItemProminenceChangedEventCallback(_this, cb);
-
-  Returns:
-    leResult - the result of the operation
-*/
-
-
-
-// DOM-IGNORE-BEGIN
-// internal use only
+/* internal use only */
+/**
+  * @cond INTERNAL
+  *
+  */
 leWidgetUpdateState _leRadialMenuWidget_Update(leRadialMenuWidget* mn);
-// DOM-IGNORE-END
+/**
+  * @endcond
+  *
+  */
 
 #endif // LE_RADIALMENU_WIDGET_ENABLED
 #endif /* LEGATO_RADIALMENU_H */

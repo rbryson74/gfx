@@ -37,11 +37,14 @@
 
 *******************************************************************************/
 
-// DOM-IGNORE-BEGIN
-
+/** \file legato_input.h
+ * @brief Legato input definitions.
+ *
+ * @details Defines events that are used in the UI library.  Events
+ * are created and stored for later processing during a library context's update loop.
+ */
 #ifndef LEGATO_INPUT_H
 #define LEGATO_INPUT_H
-//DOM-IGNORE-END
 
 #include "gfx/legato/common/legato_common.h"
 #include "gfx/legato/core/legato_event.h"
@@ -56,25 +59,24 @@
 
 #include "gfx/legato/widget/legato_widget.h"
 
-// DOM-IGNORE-BEGIN
+/* internal use only */
+/**
+  * @cond INTERNAL
 #define LE_INPUT_PRIMARY_ID    0
 #define LE_MAX_TOUCH_STATES    2
-
-// DOM-IGNORE-END
+  * @endcond
+  *
+  */
 
 // *****************************************************************************
-/* Enumeration:
-    leGestureID
 
-  Summary:
-    Placeholder for eventual gesture support.
-
-  Remarks:
-    None.
-*/
+/**
+ * @brief This enum represents gesture type IDs.
+ * @details This enum type defines the valid gesture types.
+ */
 typedef enum leGestureID
 {
-    LE_GESTURE_NONE = 0
+    LE_GESTURE_NONE = 0  /**< No event found. */
 } leGestureID;
 
 // *****************************************************************************
@@ -90,6 +92,11 @@ typedef enum leGestureID
   Remarks:
     None.
 */
+/**
+ * @brief This enum represents legato keyboard entry.
+ * @details All values possible for key entry from
+ * the legato keyboard widget
+ */
 typedef enum leKey
 {
     KEY_NULL = 0,
@@ -199,18 +206,11 @@ typedef enum leKey
 } leKey;
 
 // *****************************************************************************
-/* Enumeration:
-    leMouseButton
-
-  Summary:
-    All values possible for mouse key entry from the legato mouse input
-
-  Description:
-    All values possible for mouse key entry from the legato mouse input
-
-  Remarks:
-    None.
-*/
+/**
+ * @brief This enum represents key entry for legato mouse input.
+ * @details All values possible for mouse key entry from the legato
+ * mouse input.
+ */
 typedef enum leMouseButton
 {
     BUTTON_NONE = 0,
@@ -226,38 +226,24 @@ typedef enum leMouseButton
 #define NUM_BUTTONS BUTTON_LAST + 1
 
 // *****************************************************************************
-/* Structure:
-    leTouchState
-
-  Summary:
-    Manage the touch input state and track the touch coordinate
-
-  Description:
-    Manage the touch input state and track the touch coordinate
-
-  Remarks:
-    None.
-*/
+/**
+ * @brief This struct represents a touch state.
+ * @details A touch state has valid touch indicator and touch coordinate location.
+ * mouse input.
+ */
 typedef struct leTouchState
 {
-    uint32_t valid;
-    int32_t  x;
-    int32_t  y;
+    uint32_t valid; /**< Valid touch. */
+    int32_t  x; /**< x coordinate location. */
+    int32_t  y; /**< y coordinate location. */
 } leTouchState;
 
 // *****************************************************************************
-/* Structure:
-    leInputState
-
-  Summary:
-    Maintain a history of touch states; currently legato keeps track of the last touch state only.
-
-  Description:
-    Maintain a history of touch states; currently legato keeps track of the last touch state only.
-
-  Remarks:
-    None.
-*/
+/**
+ * @brief This struct represents input state.
+ * @details Input state maintains a history of touch states; currently legato keeps
+ * track of the last touch state only.
+ */
 typedef struct leInputState
 {
     leBool enabled;
@@ -268,15 +254,16 @@ typedef struct leInputState
     
 } leInputState;
 
-// DOM-IGNORE-BEGIN
 /* internal use only */
+/**
+  * @cond INTERNAL
 leInputState* _leGetInputState();
 
 leResult leInput_Init();
 void leInput_Shutdown();
-
-// DOM-IGNORE-END
-
+  * @endcond
+  *
+  */
 
 
 // *****************************************************************************
@@ -304,6 +291,15 @@ void leInput_Shutdown();
   Remarks:
     
 */
+/**
+ * @brief Get input enabled status.
+ * @details Returns the input enabled status of the current context.
+ * @code
+ * leBool status = leInput_GetEnabled();
+ * @endcode
+ * @param param1 void.
+ * @return true if input is enabled, otherwise false.
+ */
 LIB_EXPORT leBool leInput_GetEnabled();
 
 // *****************************************************************************
@@ -325,6 +321,16 @@ LIB_EXPORT leBool leInput_GetEnabled();
   Remarks:
     
 */
+/**
+ * @brief Set input enabled status.
+ * @details Sets the input status of the current context to <span style="color: #820a32"><em>enable</em></span>.
+ * @code
+ * leBool enable = true;
+ * leResult res = leInput_SetEnabled(enable);
+ * @endcode
+ * @param param1 leBool.
+ * @return leResult.
+ */
 LIB_EXPORT leResult leInput_SetEnabled(leBool enable);
 
 // *****************************************************************************
@@ -348,6 +354,16 @@ LIB_EXPORT leResult leInput_SetEnabled(leBool enable);
   Remarks:
     
 */
+/**
+ * @brief Register and track the touch down events
+ * @details Sets the input status of the current context to <span style="color: #820a32"><em>enable</em></span>.
+ * @code
+ * leBool enable = true;
+ * leResult res = leInput_InjectTouchDown(id, x, y);
+ * @endcode
+ * @param param1 id is the .
+ * @return leResult.
+ */
 LIB_EXPORT leResult leInput_InjectTouchDown(uint32_t id, int32_t x, int32_t y);
 
 // *****************************************************************************

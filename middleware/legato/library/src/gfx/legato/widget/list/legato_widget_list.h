@@ -1,4 +1,3 @@
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
@@ -21,7 +20,6 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 /*******************************************************************************
  Module for Microchip Graphics Library - Legato User Interface Library
@@ -39,11 +37,14 @@
     This module implements list box widget functions.
 *******************************************************************************/
 
-// DOM-IGNORE-BEGIN
+/** \file legato_widget_list.h
+ * @brief List widget functions and definitions.
+ *
+ * @details This module implements list box widget functions.
+ */
 
 #ifndef LEGATO_LISTWIDGET_H
 #define LEGATO_LISTWIDGET_H
-//DOM-IGNORE-END
 
 #include "gfx/legato/common/legato_common.h"
 
@@ -64,6 +65,10 @@ typedef struct leListWidget leListWidget;
   Summary:
     Selected item changed event function callback type
 */
+/**
+ * @brief Used to define a item selected changed event callback function.
+ * @details .
+ */
 typedef void (*leListWidget_SelectedItemChangedEvent)(leListWidget*,
                                                       uint32_t idx,
                                                       leBool selected);
@@ -90,6 +95,12 @@ typedef void (*leListWidget_SelectedItemChangedEvent)(leListWidget*,
   Remarks:
     None.
 */
+/**
+ * @brief Defines the selection modes
+ * @details Single - a single selection from the list is allowed at any one
+ * time Multiple - any number of selected items is allowed at any one time Contiguous -
+ * any number of selected items in a contiguous serious is allowed at any one time
+ */
 typedef enum leListWidget_SelectionMode
 {
     LE_LIST_WIDGET_SELECTION_MODE_SINGLE,
@@ -110,6 +121,10 @@ typedef enum leListWidget_SelectionMode
   Remarks:
     None.
 */
+/**
+ * @brief Defines a list item
+ * @details
+ */
 typedef struct leListItem
 {
     const leString* string; // list item string
@@ -119,12 +134,17 @@ typedef struct leListItem
     leBool enabled; //enable or disable the item
 } leListItem;
 
-// DOM-IGNORE-BEGIN
+/* internal use only */
+/**
+  * @cond INTERNAL
+  *
+  */
 typedef struct leListWidget leListWidget;
 
 #define LE_LISTWIDGET_VTABLE(THIS_TYPE) \
     LE_WIDGET_VTABLE(THIS_TYPE) \
     \
+
     leListWidget_SelectionMode (*getSelectionMode)(const THIS_TYPE* _this); \
     leResult      (*setSelectionMode)(THIS_TYPE* _this, leListWidget_SelectionMode mode); \
     leBool        (*getAllowEmptySelection)(const THIS_TYPE* _this); \
@@ -161,24 +181,19 @@ typedef struct leListWidgetVTable
 	LE_LISTWIDGET_VTABLE(leListWidget)
 } leListWidgetVTable; 
 
-// DOM-IGNORE-END
+    /**
+      * @endcond
+      *
+      */
 
 // *****************************************************************************
-/* Structure:
-    leListWidget
-
-  Summary:
-    Defines the implementation of a list widget
-
-  Description:
-    A list widget is a widget that contains a series of vertical nodes.  Each
-    node can have text, an image, or both, and can be selected or not.  The list
-    has a built-in scrollbar.  This allows the list to be larger than the visible
-    area of the widget.
-
-  Remarks:
-    None.
-*/
+/**
+ * @brief This struct represents a list widget
+ * @details A list widget is a widget that contains a series of vertical nodes.
+ * Each node can have text, an image, or both, and can be selected or not.  The
+ * list has a built-in scrollbar.  This allows the list to be larger than the
+ * visible area of the widget.
+ */
 typedef struct leListWidget
 {
     leWidget widget; // list base class
@@ -207,47 +222,34 @@ typedef struct leListWidget
 // *****************************************************************************
 // *****************************************************************************
 
-// *****************************************************************************
-/* Function:
-    leListWidget* leListWidget_New()
-
-  Summary:
-    Allocates memory for and initializes a new widget of this type.  The
-    application is responsible for the managment of this memory until the
-    widget is added to a widget tree.
-
-  Description:
-
-
-  Parameters:
-
-  Returns:
-    leListWidget* lst - the widget
-
-  Remarks:
-    Use leWidget_Delete() to free this pointer.
-*/
+/**
+ * @brief Create widget.
+ * @details Creates a new leListWidget and allocates memory for the widget through the
+ * current active context.  Application is responsible for managing the widget
+ * pointer until the widget is added to a widget tree.
+ * @remark use leWidget_Delete() to free this pointer.
+ * @code
+ * leListWidget* wgt = leListWidget_New();
+ * @endcode
+ * @return a widget object pointer.
+ */
 LIB_EXPORT leListWidget* leListWidget_New();
 
-/* Function:
-    void leListWidget_Constructor(leListWidget* wgt)
+/**
+ * @brief Initialize widget.
+ * @details Initializes the leListWidget <span class="param">wgt</span>.
+ * @code
+ * leListWidget* wgt;
+ * leListWidget_Constructor(wgt);
+ * @endcode
+ * @param lst is the widget to initialize
+ * @return void.
+ */
+LIB_EXPORT void leListWidget_Constructor(leListWidget* wgt);
 
-  Summary:
-    Initializes an leListWidget widget pointer.
+#ifdef _DOXYGEN_
+#define THIS_TYPE struct leWidget
 
-  Description:
-    Initializes an leListWidget widget pointer.
-
-  Parameters:
-    leListWidget* wgt - the pointer to initialize
-
-  Returns:
-    void
-
-  Remarks:
-
-*/
-LIB_EXPORT void leListWidget_Constructor(leListWidget* lst);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -268,6 +270,17 @@ LIB_EXPORT void leListWidget_Constructor(leListWidget* lst);
   Returns:
     leListWidget_SelectionMode -
 */
+/**
+ * @brief Get current selection mode.
+ * @details Gets current selection mode using  <span class="param">wgt</span>.
+ * @code
+ * leListWidget* _this;
+ * leListWidget_SelectionMode mode = _this->fn->getSelectionMode(_this);
+ * @endcode
+ * @param _this is the widget to query
+ * @return selection mode.
+ */
+virtual leListWidget_SelectionMode getSelectionMode(const leListWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -290,6 +303,20 @@ LIB_EXPORT void leListWidget_Constructor(leListWidget* lst);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set current selection mode.
+ * @details Sets the current selection mode using <span class="param">wgt</span>.
+ * @code
+ * leListWidget* _this;
+ * leListWidget_SelectionMode mode;
+ * leResult res = wgt->fn->setSelectionMode(_this, mode);
+ * @endcode
+ * @param mode is the widget to modify
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setSelectionMode(leListWidget* _this,
+                                  leListWidget_SelectionMode mode);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -332,6 +359,20 @@ LIB_EXPORT void leListWidget_Constructor(leListWidget* lst);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set current selection mode.
+ * @details Sets the current selection mode using <span class="param">_this</span>.
+ * @code
+ * leListWidget* _this;
+ * leBool allow;
+ * leResult res = wgt->fn->setAllowEmptySelection(_this, allow);
+ * @endcode
+ * @param allow is the selection mode
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setAllowEmptySelection(leListWidget* _this,
+                                        leBool allow);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -374,6 +415,21 @@ LIB_EXPORT void leListWidget_Constructor(leListWidget* lst);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set image icon position.
+ * @details Sets the image icon position to <span class="param">pos</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leListWidget* _this;
+ * leRelativePosition pos;
+ * leResult res = wgt->fn->setIconPosition(_this, pos);
+ * @endcode
+ * @param pos is the position
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setIconPosition(leListWidget* _this,
+                                 leRelativePosition pos);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -416,6 +472,21 @@ LIB_EXPORT void leListWidget_Constructor(leListWidget* lst);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set icon margin.
+ * @details Sets the icon margin to <span class="param">mg</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leListWidget* _this;
+ * uint32_t mg;
+ * leResult res = wgt->fn->setIconPosition(_this, mg);
+ * @endcode
+ * @param mg is the position
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setIconMargin(leListWidget* _this,
+                               uint32_t mg);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -500,6 +571,21 @@ LIB_EXPORT void leListWidget_Constructor(leListWidget* lst);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Remove item at index from the list.
+ * @details Removes the item at <span class="param">idx</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leListWidget* _this;
+ * uint32_t mg;
+ * leResult res = _this->fn->removeItem(_this, idx);
+ * @endcode
+ * @param idx is the index
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult removeItem(leListWidget* _this,
+                            int32_t idx);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -520,6 +606,18 @@ LIB_EXPORT void leListWidget_Constructor(leListWidget* lst);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Remove all items from the list.
+ * @details Removes all items from the list
+ * using <span class="param">_this</span>.
+ * @code
+ * leListWidget* _this;
+ * leResult res = _this->fn->removeAllItems(_this);
+ * @endcode
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult removeAllItems(leListWidget* _this);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -566,6 +664,24 @@ LIB_EXPORT void leListWidget_Constructor(leListWidget* lst);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set currently selected item.
+ * @details Sets the item at <span class="param">idx</span> to
+ * <span class="param">selected</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leListWidget* _this;
+ * uint32_t idx;
+ * leResult res = wgt->fn->setItemSelected(_this, idx, selected);
+ * @endcode
+ * @param mg is the position
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setItemSelected(leListWidget* _this,
+                                 int32_t idx,
+                                 leBool selected);
+
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -608,6 +724,19 @@ LIB_EXPORT void leListWidget_Constructor(leListWidget* lst);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Select  all items.
+ * @details Selects all items
+ * using <span class="param">_this</span>.
+ * @code
+ * leListWidget* _this;
+ * uint32_t idx;
+ * leResult res = wgt->fn->setItemSelected(_this);
+ * @endcode
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult selectAll(leListWidget* _this);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -628,6 +757,18 @@ LIB_EXPORT void leListWidget_Constructor(leListWidget* lst);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Deselect  all items.
+ * @details Deselects all items
+ * using <span class="param">_this</span>.
+ * @code
+ * leListWidget* _this;
+ * leResult res = wgt->fn->deselectAll(_this);
+ * @endcode
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult deselectAll(leListWidget* _this);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -734,6 +875,23 @@ LIB_EXPORT void leListWidget_Constructor(leListWidget* lst);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set string pointer for an item.
+ * @details Sets string pointer <span class="param">str</span> at
+ *  <span class="param">idx</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leListWidget* _this;
+ * uint32_t idx;
+ * const leString* str;
+ * leResult res = wgt->fn->setItemString(_this, idx, str);
+ * @endcode
+ * @param idx is the position
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setItemString(leListWidget* _this,
+                               int32_t idx,
+                               const leString* str);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -780,6 +938,23 @@ LIB_EXPORT void leListWidget_Constructor(leListWidget* lst);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set image pointer for an item.
+ * @details Sets image pointer for item at <span class="param">idx</span> to
+ *  <span class="param">img</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leListWidget* _this;
+ * uint32_t idx;
+ * const leImage* img;
+ * leResult res = wgt->fn->setItemIcon(_this, idx, img);
+ * @endcode
+ * @param idx is the position
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setItemIcon(leListWidget* _this,
+                             int32_t idx,
+                             const leImage* img);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -826,71 +1001,57 @@ LIB_EXPORT void leListWidget_Constructor(leListWidget* lst);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set item enable state.
+ * @details Sets item enable state for item at <span class="param">idx</span> to
+ *  <span class="param">b</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leListWidget* _this;
+ * uint32_t idx;
+ * leBool b;
+ * leResult res = wgt->fn->setItemEnable(_this, idx, b);
+ * @endcode
+ * @param idx is the position
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setItemEnable(leListWidget* _this,
+                               int32_t idx,
+                               leBool b);
 
-// *****************************************************************************
-/* Virtual Member Function:
-    leResult setItemVisible(leListWidget* _this,
-                            int32_t idx)
 
-  Summary:
-     Sets an item's visibility state
 
-  Description:
-     Sets an item's visibility state
+/**
+ * @brief Get selected item changed event callback pointer.
+ * @details Gets the selected item changed event callback pointer using <span class="param">_this</span>.
+ * @code
+ * leListWidget* _this;
+ * leListWidget_SelectedItemChangedEvent cb = _this->fn->getSelectedItemChangedEventCallback(_this);
+ * @endcode
+ * @param _this is the widget to modify
+ * @returns the callback pointer.
+ */
+virtual leListWidget_SelectedItemChangedEvent getSelectedItemChangedEventCallback
+                                                    (const leListWidget* _this);
 
-  Parameters:
-    leListWidget* _this - The list widget to operate on
-    int32_t idx - the index
+/**
+ * @brief Set selected item changed event callback pointer.
+ * @details Sets the selected item changed event callback pointer to <span class="param">cb</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leListWidget* _this;
+ * leListWidget_SelectedItemChangedEvent cb;
+ * leResult res = _this->fn->setSelectedItemChangedEventCallback(_this, cb);
+ * @endcode
+ * @param _this is the widget to modify
+ * @param cb is the callback func
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setSelectedItemChangedEventCallback(leListWidget* _this,
+                                                     leListWidget_SelectedItemChangedEvent cb);
 
-  Remarks:
-    Usage - _this->fn->setItemVisible(_this, idx);
-
-  Returns:
-    leResult - the result of the operation
-*/
-
-// *****************************************************************************
-/* Virtual Member Function:
-    leListWidget_SelectedItemChangedEvent getSelectedItemChangedEventCallback(const leListWidget* _this)
-
-  Summary:
-     Gets the selected item changed event callback pointer
-
-  Description:
-     Gets the selected item changed event callback pointer
-
-  Parameters:
-    const leListWidget* _this - The list widget to operate on
-
-  Remarks:
-    Usage - _this->fn->getSelectedItemChangedEventCallback(_this);
-
-  Returns:
-    leListWidget_SelectedItemChangedEvent - the callback pointer
-*/
-
-// *****************************************************************************
-/* Virtual Member Function:
-    leResult setSelectedItemChangedEventCallback(leListWidget* _this,
-                                                 leListWidget_SelectedItemChangedEvent cb)
-
-  Summary:
-     Sets the selected item changed event callback pointer
-
-  Description:
-     Sets the selected item changed event callback pointer
-
-  Parameters:
-    leListWidget* _this - The list widget to operate on
-    leListWidget_SelectedItemChangedEvent cb - the callback pointer
-
-  Remarks:
-    Usage - _this->fn->setSelectedItemChangedEventCallback(_this, cb);
-
-  Returns:
-    leResult - the result of the operation
-*/
-
+#undef THIS_TYPE
+#endif
 
 
 #endif // LE_LIST_WIDGET_ENABLED && LE_SCROLLBAR_WIDGET_ENABLED

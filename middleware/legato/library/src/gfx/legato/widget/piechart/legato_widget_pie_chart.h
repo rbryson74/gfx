@@ -1,4 +1,3 @@
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
@@ -21,7 +20,6 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 /*******************************************************************************
  Module for Microchip Graphics Library - Legato User Interface Library
@@ -38,7 +36,11 @@
   Description:
     This module implements pie chart drawing widget functions.
 *******************************************************************************/
-
+/** \file legato_widget_pie_chart.h
+ * @brief Pie chart functions and definitions.
+ *
+ * @details This module implements pie chart drawing widget functions.
+ */
 
 #ifndef LEGATO_WIDGET_PIE_CHART_H
 #define LEGATO_WIDGET_PIE_CHART_H
@@ -55,7 +57,10 @@
 // Section: Data Types and Constants
 // *****************************************************************************
 // *****************************************************************************
-
+/**
+ * @brief Used to define a pie chart pie.
+ * @details .
+ */
 typedef struct lePieChartPie
 {
     uint32_t value;
@@ -73,10 +78,18 @@ typedef struct lePieChartWidget lePieChartWidget;
   Summary:
     Chart pressed event function callback type
 */
+/**
+ * @brief Used to define a pie chart pressed event callback function.
+ * @details .
+ */
 typedef void (*lePieChartWidget_PressedEvent)(lePieChartWidget*, uint32_t);
 
 
-// DOM-IGNORE-BEGIN
+/* internal use only */
+/**
+  * @cond INTERNAL
+  *
+  */
 typedef struct lePieChartWidget lePieChartWidget;
 
 #define LE_PIECHARTWIDGET_VTABLE(THIS_TYPE) \
@@ -110,25 +123,18 @@ typedef struct lePieChartWidgetVTable
 	LE_PIECHARTWIDGET_VTABLE(lePieChartWidget)
 } lePieChartWidgetVTable; 
 
-// DOM-IGNORE-END
+    /**
+      * @endcond
+      *
+      */
 
 // *****************************************************************************
-/* Structure:
-    lePieChartWidget
-
-  Summary:
-    Implementation of a pie chart widget.
-
-  Description:
-    A chart widget draws a chart of the specified origin and radius inside
-    the widget bounds.  All coordinates are expressed in local widget space.
-
-    The color of the chart is determined by the widget scheme's 'foreground'
-    color.
-
-  Remarks:
-    None.
-*/
+/**
+ * @brief This struct represents a pie chart widget
+ * @details A chart widget draws a chart of the specified origin and radius inside the
+ * widget bounds.  All coordinates are expressed in local widget space. The color of
+ * the chart is determined by the widget scheme's 'foreground' color.
+ */
 typedef struct lePieChartWidget
 {
     leWidget widget; // base widget header
@@ -154,48 +160,34 @@ typedef struct lePieChartWidget
 // *****************************************************************************
 // *****************************************************************************
 
-// *****************************************************************************
-/* Function:
-    lePieChartWidget* lePieChartWidget_New()
-
-  Summary:
-    Allocates memory for and initializes a new widget of this type.  The
-    application is responsible for the management of this memory until the
-    widget is added to a widget tree.
-
-  Description:
-
-
-  Parameters:
-    void
-
-  Returns:
-    lePieChartWidget*
-
-  Remarks:
-    Use leWidget_Delete() to free this pointer.
-*/
+/**
+ * @brief Create widget.
+ * @details Creates a new lePieChartWidget and allocates memory for the widget through the
+ * current active context.  Application is responsible for managing the widget
+ * pointer until the widget is added to a widget tree.
+ * @remark use leWidget_Delete() to free this pointer.
+ * @code
+ * lePieChartWidget* wgt = lePieChartWidget_New();
+ * @endcode
+ * @return a widget object pointer.
+ */
 LIB_EXPORT lePieChartWidget* lePieChartWidget_New();
 
-/* Function:
-    void lePieChartWidget_Constructor(lePieChartWidget* wgt)
+/**
+ * @brief Initialize widget.
+ * @details Initializes the lePieChartWidget <span class="param">wgt</span>.
+ * @code
+ * lePieChartWidget* wgt;
+ * lePieChartWidget_Constructor(wgt);
+ * @endcode
+ * @param wgt is the widget to initialize
+ * @return void.
+ */
+LIB_EXPORT void lePieChartWidget_Constructor(lePieChartWidget* wgt);
 
-  Summary:
-    Initializes an lePieChartWidget widget pointer.
 
-  Description:
-    Initializes an lePieChartWidget widget pointer.
-
-  Parameters:
-    lePieChartWidget* wgt - the pointer to initialize
-
-  Returns:
-    void
-
-  Remarks:
-
-*/
-LIB_EXPORT void lePieChartWidget_Constructor(lePieChartWidget* chart);
+#ifdef _DOXYGEN_
+#define THIS_TYPE struct leWidget
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -507,48 +499,6 @@ LIB_EXPORT void lePieChartWidget_Constructor(lePieChartWidget* chart);
 
 // *****************************************************************************
 /* Virtual Member Function:
-    lePieChartWidget_PressedEvent getPressedEventCallback(const lePieChartWidget* _this)
-
-  Summary:
-     Gets the pressed event callback pointer
-
-  Description:
-     Gets the pressed event callback pointer
-
-  Parameters:
-    const lePieChartWidget* _this - The pie chart widget to operate on
-
-  Remarks:
-    Usage - _this->fn->getPressedEventCallback(_this);
-
-  Returns:
-    lePieChartWidget_PressedEvent - the callback pointer
-*/
-
-// *****************************************************************************
-/* Virtual Member Function:
-    leResult setPressedEventCallback(lePieChartWidget* _this,
-                                     lePieChartWidget_PressedEvent cb)
-
-  Summary:
-     Sets the pressed event callback pointer
-
-  Description:
-     Sets the pressed event callback pointer
-
-  Parameters:
-    lePieChartWidget* _this - The pie chart widget to operate on
-    lePieChartWidget_PressedEvent cb - the callback pointer
-
-  Remarks:
-    Usage - _this->fn->setPressedEventCallback(_this, cb);
-
-  Returns:
-    leResult - the result of the operation
-*/
-
-// *****************************************************************************
-/* Virtual Member Function:
     leFont* getLabelFont(const lePieChartWidget* _this)
 
   Summary:
@@ -673,7 +623,37 @@ LIB_EXPORT void lePieChartWidget_Constructor(lePieChartWidget* chart);
     leResult - the result of the operation
 */
 
+/**
+ * @brief Get pressed event callback pointer.
+ * @details Gets the pressed event callback pointer using <span class="param">_this</span>.
+ * @code
+ * lePieChartWidget* _this;
+ * lePieChartWidget_PressedEvent cb = _this->fn->getPressedEventCallback(_this);
+ * @endcode
+ * @param _this is the widget to modify
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual lePieChartWidget_PressedEvent getPressedEventCallback
+                                        (const lePieChartWidget* _this);
 
+/**
+ * @brief Set pressed event callback pointer.
+ * @details Sets the pressed event callback pointer to <span class="param">cb</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * lePieChartWidget* _this;
+ * lePieChartWidget_PressedEvent cb;
+ * leResult res = _this->fn->setPressedEventCallback(_this, cb);
+ * @endcode
+ * @param _this is the widget to modify
+ * @param cb is the callback func
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setPressedEventCallback(lePieChartWidget* _this,
+                                         lePieChartWidget_PressedEvent cb);
+
+#undef THIS_TYPE
+#endif
 
 #endif // LE_PIECHART_WIDGET_ENABLED
 #endif /* LEGATO_WIDGET_PIE_CHART_H */
