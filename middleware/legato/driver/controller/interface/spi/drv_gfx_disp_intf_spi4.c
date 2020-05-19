@@ -81,7 +81,13 @@ typedef struct
     DRV_SPI_TRANSFER_HANDLE drvSPITransferHandle;
     
     /* SPI transaction status */
-    volatile GFX_DISP_INTF_SPI_TRANS_STATUS drvSPITransStatus;    
+    volatile GFX_DISP_INTF_SPI_TRANS_STATUS drvSPITransStatus;
+    
+    /* SPI interface callback */
+    GFX_Disp_Intf_Callback callback;
+
+    /* SPI interface callback param*/
+    void * callback_parm;
 } GFX_DISP_INTF_SPI;
 
 static GFX_DISP_INTF_SPI spiIntf;
@@ -127,7 +133,14 @@ static void GFX_Disp_Intf_CallBack(DRV_SPI_TRANSFER_EVENT event,
         case DRV_SPI_TRANSFER_EVENT_COMPLETE:
         {
             *status = SPI_TRANS_IDLE;
-        
+
+            if (spiIntf.callback != NULL)
+            {
+                spiIntf.callback((GFX_Disp_Intf) &spiIntf,
+                                       GFX_DISP_INTF_TX_DONE,
+                                       spiIntf.callback_parm);
+            }            
+
             break;
         }
         case DRV_SPI_TRANSFER_EVENT_ERROR:
@@ -159,7 +172,7 @@ GFX_Disp_Intf GFX_Disp_Intf_Open(void)
 
 void GFX_Disp_Intf_Close(GFX_Disp_Intf intf)
 {
-    DRV_SPI_Close(((GFX_DISP_INTF_SPI *)&intf)->drvSPIHandle);
+    DRV_SPI_Close(((GFX_DISP_INTF_SPI *)intf)->drvSPIHandle);
 }
 
 int GFX_Disp_Intf_PinControl(GFX_Disp_Intf intf,
@@ -370,8 +383,13 @@ int GFX_Disp_Intf_Ready(GFX_Disp_Intf intf)
 
 int GFX_Disp_Intf_Set_Callback(GFX_Disp_Intf intf, GFX_Disp_Intf_Callback cb, void * parm)
 {
-    //Not supported
-    return -1;
+    if (((GFX_DISP_INTF_SPI *) intf) == NULL)
+        return -1;
+
+    ((GFX_DISP_INTF_SPI *) intf)->callback = cb;
+    ((GFX_DISP_INTF_SPI *) intf)->callback_parm = parm;
+
+    return 0;
 }
 
 /* *****************************************************************************

@@ -163,7 +163,7 @@ BlitBufferFunctionGenerateMode.setDescription("<html> Set to generate a blit buf
 								"'Use Bulk Write' will generate a function that sets the UL and LR points of the subframe, then write the pixel data in burst.<br>"
 								"'Stub' will generate an empty blit function that will need to be defined based on the controller's memory write operation. </html>")
 								
-BlitType = comp.createComboSymbol("BlitType", None, ["Synchronous", "Driver Asynchronous", "Interface Asynchronous"])
+BlitType = comp.createComboSymbol("BlitType", BlitBufferFunctionSettings, ["Synchronous", "Driver Asynchronous", "Interface Asynchronous"])
 BlitType.setLabel("Blit Transfer Type")
 BlitType.setDefaultValue("Synchronous")
 BlitType.setDependencies(onBlitTypeChanged, ["BlitType"])
