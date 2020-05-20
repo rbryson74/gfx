@@ -30,7 +30,7 @@
     Microchip Technology Inc.
 
   File Name:
-    drv_glcd.c
+    drv_gfx2d.c
 
   Summary:
     Source code for the GFX GFX2D driver static implementation.
