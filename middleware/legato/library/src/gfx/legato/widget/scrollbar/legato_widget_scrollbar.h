@@ -107,195 +107,20 @@ typedef void (*leScrollBarWidget_ValueChangedEvent)(leScrollBarWidget*);
     LE_WIDGET_VTABLE(THIS_TYPE) \
     \
     leOrientation (*getOrientation)(const THIS_TYPE* _this); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult      (*setOrientation)(THIS_TYPE* _this, leOrientation align, leBool swapDimensions); \
-    /**
-     * @brief Get title string.
-     * @details Returns the title string from  <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leString * title = wgt->fn->getTitleHeight(wgt);
-     * @endcode
-     * @param param1 wgt is the widget to query
-     * @return returns uint32_t.
-     */
     uint32_t      (*getMaximumValue)(const THIS_TYPE* _this); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult      (*setMaximumValue)(THIS_TYPE* _this, uint32_t val); \
-    /**
-     * @brief Get title string.
-     * @details Returns the title string from  <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leString * title = wgt->fn->getTitleHeight(wgt);
-     * @endcode
-     * @param param1 wgt is the widget to query
-     * @return returns uint32_t.
-     */
     uint32_t      (*getExtentValue)(const THIS_TYPE* _this); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult      (*setExtentValue)(THIS_TYPE* _this, uint32_t val); \
-    /**
-     * @brief Get title string.
-     * @details Returns the title string from  <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leString * title = wgt->fn->getTitleHeight(wgt);
-     * @endcode
-     * @param param1 wgt is the widget to query
-     * @return returns uint32_t.
-     */
     uint32_t      (*getScrollPercentage)(const THIS_TYPE* _this); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult      (*setScrollPercentage)(THIS_TYPE* _this, uint32_t val); \
-    /**
-     * @brief Get title string.
-     * @details Returns the title string from  <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leString * title = wgt->fn->getTitleHeight(wgt);
-     * @endcode
-     * @param param1 wgt is the widget to query
-     * @return returns uint32_t.
-     */
     uint32_t      (*getScrollValue)(const THIS_TYPE* _this); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult      (*setScrollValue)(THIS_TYPE* _this, uint32_t val); \
-    /**
-     * @brief Get title string.
-     * @details Returns the title string from  <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leString * title = wgt->fn->getTitleHeight(wgt);
-     * @endcode
-     * @param param1 wgt is the widget to query
-     * @return returns uint32_t.
-     */
     uint32_t      (*getStepSize)(const THIS_TYPE* _this); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult      (*setStepSize)(THIS_TYPE* _this, uint32_t val); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult      (*stepBackward)(THIS_TYPE* _this); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult      (*stepForward)(THIS_TYPE* _this); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leScrollBarWidget_ValueChangedEvent (*getValueChangedEventCallback)(const THIS_TYPE* _this); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult      (*setValueChangedEventCallback)(THIS_TYPE* _this, leScrollBarWidget_ValueChangedEvent cb); \
     
 typedef struct leScrollBarWidgetVTable
@@ -386,6 +211,9 @@ LIB_EXPORT leScrollBarWidget* leScrollBarWidget_New();
  */
 LIB_EXPORT void leScrollBarWidget_Constructor(leScrollBarWidget* wgt);
 
+#ifdef _DOXYGEN_
+#define THIS_TYPE struct leWidget
+
 // *****************************************************************************
 /* Virtual Member Function:
     leOrientation getOrientation(const leScrollBarWidget* _this)
@@ -405,6 +233,18 @@ LIB_EXPORT void leScrollBarWidget_Constructor(leScrollBarWidget* wgt);
   Returns:
     leOrientation - the orientation value
 */
+/**
+ * @brief Get scroll bar orientation.
+ * @details Gets the scroll bar orientation using <span class="param">_this</span>.
+ * @code
+ * leScrollBarWidget* _this;
+ * leString* str;
+ * leOrientation orient = _this->fn->getOrientation(_this);
+ * @endcode
+ * @param _this is the widget to modify
+ * @returns the orientation value.
+ */
+leOrientation getOrientation(const leScrollBarWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -429,6 +269,25 @@ LIB_EXPORT void leScrollBarWidget_Constructor(leScrollBarWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set scroll bar orientation.
+ * @details Sets the scroll bar orientation to <span class="param">align</span>
+ * with <span class="param">swapDimensions</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leScrollBarWidget* _this;
+ * leOrientation align;
+ * leBool swapDimensions;
+ * leResult res = _this->fn->setOrientation(_this, align, swapDimensions);
+ * @endcode
+ * @param _this is the widget to modify
+ * @param align the orientation value.
+ * @param swapDimensions swap the width and height values when changing this
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setOrientation(leScrollBarWidget* _this,
+                                              leOrientation align,
+                                              leBool swapDimensions);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -449,6 +308,17 @@ LIB_EXPORT void leScrollBarWidget_Constructor(leScrollBarWidget* wgt);
   Returns:
     uint32_t - the value
 */
+/**
+ * @brief Get maximum scroll value.
+ * @details Gets the maximum scroll value using <span class="param">_this</span>.
+ * @code
+ * leScrollBarWidget* _this;
+ * uint32_t val = _this->fn->getMaximumValue(_this);
+ * @endcode
+ * @param _this is the widget to modify
+ * @returns the maximum value.
+ */
+virtual uint32_t getMaximumValue(const leScrollBarWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -471,6 +341,21 @@ LIB_EXPORT void leScrollBarWidget_Constructor(leScrollBarWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set extent value.
+ * @details Sets the extent value to <span class="param">val</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leScrollBarWidget* _this;
+ * uint32_t val;
+ * leResult res = _this->fn->setMaximumValue(_this, val);
+ * @endcode
+ * @param _this is the widget to modify
+ * @param val the thickness.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setMaximumValue(leScrollBarWidget* _this,
+                                 uint32_t val);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -491,6 +376,17 @@ LIB_EXPORT void leScrollBarWidget_Constructor(leScrollBarWidget* wgt);
   Returns:
     uint32_t - the value
 */
+/**
+ * @brief Get extent value.
+ * @details Gets the extent value using <span class="param">_this</span>.
+ * @code
+ * leScrollBarWidget* _this;
+ * uint32_t val = _this->fn->getExtentValue(_this);
+ * @endcode
+ * @param _this is the widget to modify
+ * @returns the value.
+ */
+virtual uint32_t getExtentValue(const leScrollBarWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -513,6 +409,22 @@ LIB_EXPORT void leScrollBarWidget_Constructor(leScrollBarWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set extent value.
+ * @details Sets the extent value to <span class="param">val</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leScrollBarWidget* _this;
+ * uint32_t val;
+ * leResult res = _this->fn->setExtentValue(_this, val);
+ * @endcode
+ * @param _this is the widget to modify
+ * @param val the thickness.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setExtentValue(leScrollBarWidget* _this,
+                                uint32_t val);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -533,6 +445,18 @@ LIB_EXPORT void leScrollBarWidget_Constructor(leScrollBarWidget* wgt);
   Returns:
     uint32_t - the scroll value percentage
 */
+/**
+ * @brief Get scroll value as a percentage.
+ * @details Gets the scroll value as a percentage using <span class="param">_this</span>.
+ * @code
+ * leScrollBarWidget* _this;
+ * uint32_t val = _this->fn->getScrollPercentage(_this);
+ * @endcode
+ * @param _this is the widget to modify
+ * @returns the scroll value percentage.
+ */
+virtual uint32_t getScrollPercentage(const leScrollBarWidget* _this);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -555,6 +479,21 @@ LIB_EXPORT void leScrollBarWidget_Constructor(leScrollBarWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set scroll value using a percentage.
+ * @details Sets the scroll value using a percentage to <span class="param">val</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leScrollBarWidget* _this;
+ * uint32_t val;
+ * leResult res = _this->fn->setScrollPercentage(_this, val);
+ * @endcode
+ * @param _this is the widget to modify
+ * @param val the thickness.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setScrollPercentage(leScrollBarWidget* _this,
+                                uint32_t val);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -575,6 +514,17 @@ LIB_EXPORT void leScrollBarWidget_Constructor(leScrollBarWidget* wgt);
   Returns:
     uint32_t - the value
 */
+/**
+ * @brief Get scroll value.
+ * @details Gets the scroll value using <span class="param">_this</span>.
+ * @code
+ * leScrollBarWidget* _this;
+ * uint32_t val = _this->fn->getScrollValue(_this);
+ * @endcode
+ * @param _this is the widget to modify
+ * @returns the scroll value.
+ */
+virtual uint32_t getScrollValue(const leScrollBarWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -597,6 +547,21 @@ LIB_EXPORT void leScrollBarWidget_Constructor(leScrollBarWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set scroll value.
+ * @details Sets the scroll value to <span class="param">val</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leScrollBarWidget* _this;
+ * uint32_t val;
+ * leResult res = _this->fn->setScrollValue(_this, val);
+ * @endcode
+ * @param _this is the widget to modify
+ * @param val the thickness.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setScrollValue(leScrollBarWidget* _this,
+                                uint32_t val);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -617,6 +582,18 @@ LIB_EXPORT void leScrollBarWidget_Constructor(leScrollBarWidget* wgt);
   Returns:
     uint32_t - the step size
 */
+/**
+ * @brief Get step size.
+ * @details Gets the step size using <span class="param">_this</span>.
+ * @code
+ * leScrollBarWidget* _this;
+ * uint32_t sz = _this->fn->getStepSize(_this);
+ * @endcode
+ * @param _this is the widget to modify
+ * @returns the step size.
+ */
+virtual uint32_t getStepSize(const leScrollBarWidget* _this);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -639,6 +616,21 @@ LIB_EXPORT void leScrollBarWidget_Constructor(leScrollBarWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set step size.
+ * @details Sets the step size to <span class="param">val</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leScrollBarWidget* _this;
+ * uint32_t val;
+ * leResult res = _this->fn->setStepSize(_this, val);
+ * @endcode
+ * @param _this is the widget to modify
+ * @param val the thickness.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setStepSize(leScrollBarWidget* _this,
+                                uint32_t val);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -659,6 +651,17 @@ LIB_EXPORT void leScrollBarWidget_Constructor(leScrollBarWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Step value backwards.
+ * @details Steps the value backwards using <span class="param">_this</span>.
+ * @code
+ * leScrollBarWidget* _this;
+ * leResult res = _this->fn->stepBackward(_this);
+ * @endcode
+ * @param _this is the widget to modify
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult stepBackward(leScrollBarWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -679,6 +682,17 @@ LIB_EXPORT void leScrollBarWidget_Constructor(leScrollBarWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Step value forwards.
+ * @details Steps the value forwards using <span class="param">_this</span>.
+ * @code
+ * leScrollBarWidget* _this;
+ * leResult res = _this->fn->stepForward(_this);
+ * @endcode
+ * @param _this is the widget to modify
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult stepForward(leScrollBarWidget* _this);
 
 /**
  * @brief Get value changed event callback pointer.

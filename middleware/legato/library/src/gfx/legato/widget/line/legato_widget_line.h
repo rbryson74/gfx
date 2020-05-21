@@ -136,6 +136,8 @@ LIB_EXPORT leLineWidget* leLineWidget_New();
  */
 LIB_EXPORT void leLineWidget_Constructor(leLineWidget* wgt);
 
+#ifdef _DOXYGEN_
+#define THIS_TYPE struct leWidget
 
 /**
  * @brief Get line start point.
@@ -200,6 +202,9 @@ virtual lePoint getEndPoint(const leLineWidget* _this);
 virtual leResult setEndPoint(leLineWidget* _this,
                                int32_t x,
                                int32_t y);
+
+#undef THIS_TYPE
+#endif
 
 
 #endif // LE_LINE_WIDGET_ENABLED

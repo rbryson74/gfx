@@ -208,6 +208,18 @@ LIB_EXPORT void lePieChartWidget_Constructor(lePieChartWidget* wgt);
   Returns:
     int32_t - the angle value
 */
+/**
+ * @brief Get start angle.
+ * @details Gets the start angle using <span class="param">_this</span>.
+ * @code
+ * const lePieChartWidget* _this;
+ * int32_t ang = _this->fn->getStartAngle(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns the angle value;
+ */
+virtual int32_t getStartAngle(const lePieChartWidget* _this);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -230,6 +242,21 @@ LIB_EXPORT void lePieChartWidget_Constructor(lePieChartWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set start angle.
+ * @details Sets the start angle to <span class="param">cnt</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * const lePieChartWidget* _this;
+ * leResult res = _this->fn->setVisibleItemCount(_this, cnt);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @param cnt is the item count.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setVisibleItemCount(lePieChartWidget* _this,
+                                     uint32_t cnt);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -250,6 +277,17 @@ LIB_EXPORT void lePieChartWidget_Constructor(lePieChartWidget* wgt);
   Returns:
     int32_t - the angle value
 */
+/**
+ * @brief Get center angle.
+ * @details Gets the center angle using <span class="param">_this</span>.
+ * @code
+ * const lePieChartWidget* _this;
+ * int32_t ang = _this->fn->getStartAngle(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns the angle value;
+ */
+virtual int32_t getCenterAngle(const lePieChartWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -272,6 +310,20 @@ LIB_EXPORT void lePieChartWidget_Constructor(lePieChartWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set center angle.
+ * @details Sets the center angle to <span class="param">ang</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * const lePieChartWidget* _this;
+ * leResult res = _this->fn->setVisibleItemCount(_this, ang);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @param ang is the angle value.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setVisibleItemCount(lePieChartWidget* _this,
+                                     uint32_t cnt);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -292,6 +344,17 @@ LIB_EXPORT void lePieChartWidget_Constructor(lePieChartWidget* wgt);
   Returns:
     int32_t - the index of the new entry
 */
+/**
+ * @brief Get center angle.
+ * @details Gets the center angle using <span class="param">_this</span>.
+ * @code
+ * const lePieChartWidget* _this;
+ * int32_t ang = _this->fn->getStartAngle(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns the index of the new entry;
+ */
+virtual int32_t getCenterAngle(const lePieChartWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -312,6 +375,17 @@ LIB_EXPORT void lePieChartWidget_Constructor(lePieChartWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Clear all pie entries.
+ * @details Clears all pie entries using <span class="param">_this</span>.
+ * @code
+ * const lePieChartWidget* _this;
+ * leResult res = _this->fn->clear(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult clear(lePieChartWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -334,6 +408,19 @@ LIB_EXPORT void lePieChartWidget_Constructor(lePieChartWidget* wgt);
   Returns:
     uint32_t - the value
 */
+/**
+ * @brief Get entry value.
+ * @details Gets the entry value at <span class="param">idx</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * const lePieChartWidget* _this;
+ * uint32_t val = _this->fn->getEntryValue(_this, idx);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns the value;
+ */
+virtual uint32_t getEntryValue(const lePieChartWidget* _this,
+                               int32_t idx);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -358,6 +445,22 @@ LIB_EXPORT void lePieChartWidget_Constructor(lePieChartWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set entry value.
+ * @details Sets the entry value at <span class="param">idx</span>
+ * to <span class="param">val</span> using <span class="param">_this</span>.
+ * @code
+ * const lePieChartWidget* _this;
+ * leResult res = _this->fn->setEntryValue(_this, idx, val);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @paaram idx is the index
+ * @param val is the value.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setEntryValue(lePieChartWidget* _this,
+                               int32_t idx,
+                               uint32_t val);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -380,6 +483,19 @@ LIB_EXPORT void lePieChartWidget_Constructor(lePieChartWidget* wgt);
   Returns:
     uint32_t - the radius value
 */
+/**
+ * @brief Get entry radius.
+ * @details Gets the entry radius at <span class="param">idx</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * const lePieChartWidget* _this;
+ * uint32_t rad = _this->fn->getEntryRadius(_this, idx);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns the radius value;
+ */
+virtual uint32_t getEntryRadius(const lePieChartWidget* _this,
+                               int32_t idx);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -404,6 +520,22 @@ LIB_EXPORT void lePieChartWidget_Constructor(lePieChartWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set entry radius.
+ * @details Sets the entry radius at <span class="param">idx</span>
+ * to <span class="param">rad</span> using <span class="param">_this</span>.
+ * @code
+ * const leListWheelWidget* _this;
+ * leResult res = _this->fn->setEntryRadius(_this, idx, rad);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @paaram idx is the index
+ * @param rad is the value.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setEntryRadius(lePieChartWidget* _this,
+                                int32_t idx,
+                                uint32_t rad);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -426,6 +558,20 @@ LIB_EXPORT void lePieChartWidget_Constructor(lePieChartWidget* wgt);
   Returns:
     uint32_t - the offset value
 */
+/**
+ * @brief Get entry offset.
+ * @details Gets the entry offset at <span class="param">idx</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * const lePieChartWidget* _this;
+ * uint32_t off = _this->fn->getEntryRadius(_this, idx);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @param idx the index
+ * @returns the offset value;
+ */
+virtual uint32_t getEntryOffset(const lePieChartWidget* _this,
+                                int32_t idx);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -450,6 +596,22 @@ LIB_EXPORT void lePieChartWidget_Constructor(lePieChartWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set entry offset.
+ * @details Sets the entry offset at <span class="param">idx</span>
+ * to <span class="param">offs</span> using <span class="param">_this</span>.
+ * @code
+ * const leListWheelWidget* _this;
+ * leResult res = _this->fn->setEntryRadius(_this, idx, rad);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @paaram idx is the index
+ * @param offs is the offset value.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setEntryOffset(lePieChartWidget* _this,
+                                int32_t idx,
+                                uint32_t offs);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -472,6 +634,20 @@ LIB_EXPORT void lePieChartWidget_Constructor(lePieChartWidget* wgt);
   Returns:
     leScheme* - the scheme pointer
 */
+/**
+ * @brief Get entry scheme.
+ * @details Gets the scheme offset at <span class="param">idx</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * const lePieChartWidget* _this;
+ * leScheme* sch = _this->fn->getEntryScheme(_this, idx);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @param idx the index
+ * @returns the scheme pointer;
+ */
+virtual leScheme* getEntryScheme(const lePieChartWidget* _this,
+                                 int32_t idx);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -496,6 +672,24 @@ LIB_EXPORT void lePieChartWidget_Constructor(lePieChartWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set entry scheme.
+ * @details Sets the entry scheme at <span class="param">idx</span>
+ * to <span class="param">schm</span> using <span class="param">_this</span>.
+ * @code
+ * const leListWheelWidget* _this;
+ * int32_t idx;
+ * leScheme* schm;
+ * leResult res = _this->fn->setEntryScheme(_this, idx, schm);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @paaram idx is the index
+ * @param schm is the offset value.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setEntryScheme(lePieChartWidget* _this,
+                                int32_t idx,
+                                const leScheme* schm);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -516,6 +710,17 @@ LIB_EXPORT void lePieChartWidget_Constructor(lePieChartWidget* wgt);
   Returns:
     leFont* - the font pointer
 */
+/**
+ * @brief Get label font.
+ * @details Gets the label font using <span class="param">_this</span>.
+ * @code
+ * const lePieChartWidget* _this;
+ * leScheme* sch = _this->fn->getLabelFont(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns the font pointer;
+ */
+virtual leFont* getLabelFont(const lePieChartWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -538,6 +743,22 @@ LIB_EXPORT void lePieChartWidget_Constructor(lePieChartWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set label font.
+ * @details Sets the label font
+ * to <span class="param">fnt</span> using <span class="param">_this</span>.
+ * @code
+ * const lePieChartWidget* _this;
+ * int32_t idx;
+ * leFont* fnt;
+ * leResult res = _this->fn->setLabelFont(_this, fnt);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @paaram fnt the font pointer
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setLabelFont(lePieChartWidget* _this,
+                              const leFont* fnt);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -558,6 +779,17 @@ LIB_EXPORT void lePieChartWidget_Constructor(lePieChartWidget* wgt);
   Returns:
     leBool - the visibility setting
 */
+/**
+ * @brief Get label visible setting value.
+ * @details Gets the label visible setting value using <span class="param">_this</span>.
+ * @code
+ * const lePieChartWidget* _this;
+ * leBool setting = _this->fn->getLabelsVisible(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE.
+ */
+virtual leBool getLabelsVisible(const lePieChartWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -580,6 +812,21 @@ LIB_EXPORT void lePieChartWidget_Constructor(lePieChartWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set label visible setting value.
+ * @details Sets the label visible setting value
+ * to <span class="param">fnt</span> using <span class="param">_this</span>.
+ * @code
+ * const lePieChartWidget* _this;
+ * leBool vis;
+ * leResult res = _this->fn->setLabelsVisible(_this, vis);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @paaram vis  the visibility setting
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setLabelsVisible(lePieChartWidget* _this,
+                                  leBool vis);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -600,6 +847,17 @@ LIB_EXPORT void lePieChartWidget_Constructor(lePieChartWidget* wgt);
   Returns:
     uint32_t - the offset value
 */
+/**
+ * @brief Get label font.
+ * @details Gets the label font using <span class="param">_this</span>.
+ * @code
+ * const lePieChartWidget* _this;
+ * uint32_t val = _this->fn->getLabelsOffset(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns the offset value;
+ */
+virtual uint32_t getLabelsOffset(const lePieChartWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -622,6 +880,21 @@ LIB_EXPORT void lePieChartWidget_Constructor(lePieChartWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set label visible setting value.
+ * @details Sets the label visible setting value
+ * to <span class="param">fnt</span> using <span class="param">_this</span>.
+ * @code
+ * const lePieChartWidget* _this;
+ * uint32_t offs;
+ * leResult res = _this->fn->setLabelsOffset(_this, offs);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @paaram offs the offset value
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setLabelsOffset(lePieChartWidget* _this,
+                                 uint32_t offs);
 
 /**
  * @brief Get pressed event callback pointer.

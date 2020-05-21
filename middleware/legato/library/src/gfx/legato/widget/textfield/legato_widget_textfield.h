@@ -62,6 +62,10 @@ typedef struct leTextFieldWidget leTextFieldWidget;
   Summary:
     Text changed event function callback type
 */
+/**
+ * @brief This function represents a text changed event callback.
+ * @details The callback is used indicate a text changed has occured.
+ */
 typedef void (*leTextFieldWidget_TextChangedCallback)(leTextFieldWidget*);
 
 // *****************************************************************************
@@ -71,6 +75,10 @@ typedef void (*leTextFieldWidget_TextChangedCallback)(leTextFieldWidget*);
   Summary:
     Focus changed event function callback type
 */
+/**
+ * @brief This function represents a focus change callback.
+ * @details The callback is used indicate a focus change has occured.
+ */
 typedef void (*leTextFieldWidget_FocusChangedCallback)(leTextFieldWidget*, leBool);
 
 /* internal use only */
@@ -191,11 +199,10 @@ LIB_EXPORT void leTextFieldWidget_Constructor(leTextFieldWidget* wgt);
 virtual uint32_t getCursorDelay(const leTextFieldWidget* _this);
 
 
-
 // *****************************************************************************
 /**
  * @brief Set cursor blink delay.
- * @details Sets the cursor blink delay for <span style="color: #820a32"><em>wgt</em></span>.
+ * @details Sets the cursor blink delay for <span class="param">wgt</span>.
  * @code
  * leTextFieldWidget* wgt;
  * uint32_t dt;
@@ -208,12 +215,10 @@ virtual uint32_t getCursorDelay(const leTextFieldWidget* _this);
 virtual leResult setCursorDelay(leTextFieldWidget* _this,
                                 uint32_t dt);
 
-
-
 // *****************************************************************************
 /**
  * @brief Get cursor enabled state.
- * @details Gets the cursor enabled state from  <span class="param">_this</span>.
+ * @details Gets the cursor enabled state from <span class="param">_this</span>.
  * @code
  * leTextFieldWidget* _this;
  * leBool enabled = _this->fn->getCursorEnabled(_this);
@@ -226,13 +231,13 @@ virtual leBool getCursorEnabled(const leTextFieldWidget* _this);
 // *****************************************************************************
 /**
  * @brief Set cursor enabled state.
- * @details Sets the cursor enabled state for <span style="color: #820a32"><em>wgt</em></span>.
+ * @details Sets the cursor enabled state for <span class="param">_this</span>.
  * @code
- * leTextFieldWidget* wgt;
+ * leTextFieldWidget* _this;
  * leBool en;
  * leResult res = _this->fn->setCursorEnabled(_this, en);
  * @endcode
- * @param wgt is the widget to modify.
+ * @param _this is the widget to modify.
  * @param en the the enabled state.
  * @return LE_SUCCESS if set, otherwise LE_FAILURE.
  */
@@ -254,17 +259,16 @@ virtual leResult setCursorEnabled(leTextFieldWidget* _this,
 virtual uint32_t getCursorPosition(const leTextFieldWidget* _this);
 
 
-
 // *****************************************************************************
 /**
  * @brief Set cursor position.
- * @details Sets the cursor position for <span style="color: #820a32"><em>wgt</em></span>.
+ * @details Sets the cursor position for <span class="param">_this</span>.
  * @code
- * leTextFieldWidget* wgt;
+ * leTextFieldWidget* _this;
  * uint32_t pos;
  * leResult res = _this->fn->setCursorPosition(_this, pos);
  * @endcode
- * @param wgt is the widget to modify.
+ * @param _this is the widget to modify.
  * @param pos the cursor position.
  * @return LE_SUCCESS if set, otherwise LE_FAILURE.
  */
@@ -275,7 +279,8 @@ virtual leResult setCursorPosition(leTextFieldWidget* _this,
 // *****************************************************************************
 /**
  * @brief Get pointer to the text field value string.
- * @details Gets the pointer to the text field value string from  <span class="param">_this</span>.
+ * @details Gets the pointer to the text field value string
+ * from <span class="param">_this</span>.
  * @code
  * leTextFieldWidget* _this;
  * leString* str = _this->fn->getString(_this);
@@ -289,13 +294,13 @@ virtual const leString* getString(const leTextFieldWidget* txt);
 // *****************************************************************************
 /**
  * @brief Set text field font pointer.
- * @details Sets the text field font pointer for <span style="color: #820a32"><em>wgt</em></span>.
+ * @details Sets the text field font pointer for <span class="param">_this</span>.
  * @code
- * leTextFieldWidget* wgt;
+ * leTextFieldWidget* _this;
  * const leString* str;
  * leResult res = _this->fn->setString(_this, str);
  * @endcode
- * @param wgt is the widget to modify.
+ * @param _this is the widget to modify.
  * @param str the string pointer.
  * @return LE_SUCCESS if set, otherwise LE_FAILURE.
  */
@@ -310,7 +315,7 @@ virtual leResult setString(leTextFieldWidget* _this,
  * leTextFieldWidget* _this;
  * leFont* fnt = _this->fn->getFont(_this);
  * @endcode
- * @param  _this is the widget to query
+ * @param _this is the widget to query
  * @return the font pointer.
  */
 virtual leFont* getFont(const leTextFieldWidget* _this);
@@ -319,13 +324,13 @@ virtual leFont* getFont(const leTextFieldWidget* _this);
 // *****************************************************************************
 /**
  * @brief Set text field font pointer.
- * @details Sets the text field font pointer for <span style="color: #820a32"><em>wgt</em></span>.
+ * @details Sets the text field font pointer for <span class="param">_this</span>.
  * @code
- * leTextFieldWidget* wgt;
+ * leTextFieldWidget* _this;
  * const leFont* fnt;
- * leResult res = wgt->fn->setFont(wgt, fnt);
+ * leResult res = _this->fn->setFont(_this, fnt);
  * @endcode
- * @param wgt is the widget to modify.
+ * @param _this is the widget to modify.
  * @param fnt the font pointer.
  * @return LE_SUCCESS if set, otherwise LE_FAILURE.
  */
@@ -336,7 +341,7 @@ virtual leResult setFont(leTextFieldWidget* _this,
 // *****************************************************************************
 /**
  * @brief Get hint string.
- * @details Gets the hint string from  <span class="param">_this</span>.
+ * @details Gets the hint string from <span class="param">_this</span>.
  * @code
  * leTextFieldWidget* _this;
  * leString* str = _this->fn->getHintString(_this);
@@ -350,13 +355,13 @@ virtual leString* getHintString(const leTextFieldWidget* _this);
 // *****************************************************************************
 /**
  * @brief Set hint string.
- * @details Sets the hint string for <span style="color: #820a32"><em>wgt</em></span>.
+ * @details Sets the hint string for <span class="param">_this</span>.
  * @code
- * leTextFieldWidget* wgt;
+ * leTextFieldWidget* _this;
  * const leString* str;
- * leResult res = wgt->fn->setHintString(wgt, str);
+ * leResult res = _this->fn->setHintString(_this, str);
  * @endcode
- * @param wgt is the widget to modify.
+ * @param _this is the widget to modify.
  * @param str the string pointer
  * @return LE_SUCCESS if set, otherwise LE_FAILURE.
  */
@@ -366,14 +371,14 @@ virtual leResult setHintString(leTextFieldWidget* _this,
 // *****************************************************************************
 /**
  * @brief Clears initial string value on first edit.
- * @details Clears the initial string value on first edit for <span style="color: #820a32"><em>wgt</em></span>.
+ * @details Clears the initial string value on first edit for <span class="param">_this</span>.
  * @remark This is a Virtual Member Function
  * @code
- * leTextFieldWidget* wgt;
+ * leTextFieldWidget* _this;
  * leBool clr;
- * leResult res = wgt->fn->setClearValueOnFirstEdit(wgt, clr);
+ * leResult res = _this->fn->setClearValueOnFirstEdit(_this, clr);
  * @endcode
- * @param wgt is the widget to modify.
+ * @param _this is the widget to modify.
  * @param clr
  * @return LE_SUCCESS if set, otherwise LE_FAILURE.
  */

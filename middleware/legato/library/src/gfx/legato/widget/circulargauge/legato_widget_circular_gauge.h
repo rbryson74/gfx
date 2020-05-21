@@ -77,6 +77,10 @@ typedef struct leCircularGaugeWidget leCircularGaugeWidget;
   Remarks:
     None.
 */
+/**
+  * @brief This enum represents direction of the guage.
+  * @details A direction of a guage is used to define possible label positions.
+  */
 typedef enum leCircularGaugeWidgetLabelPosition
 {
     CIRCULAR_GAUGE_LABEL_OUTSIDE,
@@ -96,6 +100,10 @@ typedef enum leCircularGaugeWidgetLabelPosition
   Remarks:
     None.
 */
+/**
+  * @brief This enum represents gauge widget arc type.
+  * @details A widget arc is used to define possible arc types.
+  */
 typedef enum leCircularGaugeWidgetArcType
 {
     ANGLE_ARC,
@@ -109,6 +117,10 @@ typedef enum leCircularGaugeWidgetArcType
   Summary:
     Value changed event function callback type
 */
+/**
+ * @brief This function represents a value changed event callback.
+ * @details Value change event callback is used indicate a value change.
+ */
 typedef void (*leCircularGaugeWidget_ValueChangedEvent)(leCircularGaugeWidget*,
                                                         int32_t value);
 
@@ -185,6 +197,12 @@ typedef struct leCircularGaugeWidgetVTable
   Remarks:
     None.
 */
+/**
+ * @brief This struct represents a circular gauge.
+ * @details A circular gauge widget draws a circular gauge of the specified
+ * properties inside the widget bounds.  All coordinates are expressed in local
+ * widget space.
+ */
 typedef struct leCircularGaugeWidget
 {
     leWidget widget; // base widget header
@@ -239,6 +257,11 @@ typedef struct leCircularGaugeWidget
   Remarks:
     None.
 */
+/**
+  * @brief This struct represents circular gauge widget.
+  * @details A circular gauge widget is used to describe the
+  * arc instances in the circular gauge widget.
+  */
 typedef struct leCircularGaugeArc
 {
     leCircularGaugeWidgetArcType type;
@@ -264,6 +287,11 @@ typedef struct leCircularGaugeArc
   Remarks:
     None.
 */
+/**
+  * @brief This struct represents circular gauge tick.
+  * @details A circular gauge tick is used to
+  * contain properties of the ticks in the gauge.
+  */
 typedef struct leCircularGaugeTick
 {
     int32_t startValue;
@@ -288,6 +316,11 @@ typedef struct leCircularGaugeTick
   Remarks:
     None.
 */
+/**
+  * @brief This struct represents circular gauge label.
+  * @details A circular gauge tick is used to
+  * contain properties of the labels in the gauge.
+  */
 typedef struct leCircularGaugeLabel
 {
     int32_t startValue;
@@ -369,6 +402,21 @@ virtual uint32_t getRadius(const leCircularGaugeWidget* _this);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set radius.
+ * @details Sets the radius to <span class="param">ang</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * const leCircularGaugeWidget* _this;
+ * uint32_t rad;
+ * leResult res = _this->fn->setStartAngle(_this, rad);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @param rad is the start angle.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setRadius(leCircularGaugeWidget* _this,
+                           uint32_t rad);
 
 // *****************************************************************************
 /**
@@ -387,8 +435,8 @@ virtual int32_t getStartAngle(const leCircularGaugeWidget* _this);
 // *****************************************************************************
 /**
  * @brief Set start angle.
- * @details Sets the start angle using <span class="param">_this</span> to
- * <span class="param">ang</span>.
+ * @details Sets the start angle to <span class="param">ang</span>
+ * using <span class="param">_this</span>.
  * @code
  * const leCircularGaugeWidget* _this;
  * int32_t ang;
@@ -418,12 +466,12 @@ virtual int32_t getCenterAngle(const leCircularGaugeWidget* _this);
 // *****************************************************************************
 /**
  * @brief Set center angle.
- * @details Sets the center angle using <span class="param">_this</span> to
- * <span class="param">ang</span>.
+ * @details Sets the center angle to
+ * <span class="param">ang</span> using <span class="param">_this</span>.
  * @code
  * const leCircularGaugeWidget* _this;
  * int32_t ang;
- * leResult res = _this->fn->setStartAngle(_this);
+ * leResult res = _this->fn->setStartAngle(_this, ang);
  * @endcode
  * @param _this is the widget pointer to query.
  * @param ang is the center angle.
@@ -512,6 +560,20 @@ virtual leResult setCenterAngle(leCircularGaugeWidget* _this,
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Delete arcs from the gauge.
+ * @details Deletes all arcs from the gauge using <span class="param">_this</span>.
+ * @code
+ * const leCircularGaugeWidget* _this;
+ * int32_t ang;
+ * leResult res = _this->fn->setCenterAngle(_this, ang);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @param ang is the center angle.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setCenterAngle(leCircularGaugeWidget* _this,
+                                int32_t ang);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -595,6 +657,18 @@ virtual leResult addMinorTicks(leCircularGaugeWidget* _this,
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Delete all minor ticks.
+ * @details Deletes all minor ticks using <span class="param">_this</span>.
+ * @code
+ * const leCircularGaugeWidget* _this;
+ * leResult res = _this->fn->deleteMinorTicks(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult deleteMinorTicks(leCircularGaugeWidget* _this);
+
 
 // *****************************************************************************
 /**
@@ -1046,6 +1120,21 @@ virtual leResult setCenterCircleThickness(leCircularGaugeWidget* _this,
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set tick label font.
+ * @details Sets the tick label font to
+ * <span class="param">font</span> using <span class="param">_this</span>.
+ * @code
+ * const leCircularGaugeWidget* _this;
+ * leFont* font;
+ * leResult res = _this->fn->setCenterCircleThickness(_this, font);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @param font the font pointer.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setTickLabelFont(leCircularGaugeWidget* _this,
+                                  const leFont* font);
 
 /**
  * @brief Set value changed callback.

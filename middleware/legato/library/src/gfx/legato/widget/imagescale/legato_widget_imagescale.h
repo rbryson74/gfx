@@ -189,6 +189,17 @@ LIB_EXPORT void leImageScaleWidget_Constructor(leImageScaleWidget* wgt);
   Returns:
     leImage* - the image pointer
 */
+/**
+ * @brief Get image pointer.
+ * @details Gets the image pointer for <span class="param">_this</span>.
+ * @code
+ * const leImageScaleWidget* _this;
+ * leImage* img = _this->fn->getString(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns the string pointer.
+ */
+virtual leImage* getImage(const leImageScaleWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -211,6 +222,21 @@ LIB_EXPORT void leImageScaleWidget_Constructor(leImageScaleWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set image pointer.
+ * @details Sets the image pointer to
+ * <span class="param">img</span> using <span class="param">_this</span>.
+ * @code
+ * leImageScaleWidget* _this;
+ * leImage* img;
+ * leResult res = _this->fn->setString(_this, img);
+ * @endcode
+ * @param _this is the widget pointer to modify.
+ * @param img is the string pointer.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setImage(leImageScaleWidget* _this,
+                          leImage* img);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -231,6 +257,18 @@ LIB_EXPORT void leImageScaleWidget_Constructor(leImageScaleWidget* wgt);
   Returns:
     int32_t - the x value
 */
+/**
+ * @brief Get X transform.
+ * @details Gets the X transform for <span class="param">_this</span>.
+ * @code
+ * const leImageScaleWidget* _this;
+ * int32_t x = _this->fn->getTransformX(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns the x value.
+ */
+virtual int32_t getTransformX(const leImageScaleWidget* _this);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -253,6 +291,22 @@ LIB_EXPORT void leImageScaleWidget_Constructor(leImageScaleWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set X transform.
+ * @details Sets the X transform to
+ * <span class="param">x</span> using <span class="param">_this</span>.
+ * @code
+ * leImageScaleWidget* _this;
+ * leImage* x;
+ * leResult res = _this->fn->setTransformX(_this, x);
+ * @endcode
+ * @param _this is the widget pointer to modify.
+ * @param x is the X value.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setTransformX(leImageScaleWidget* _this,
+                               int32_t x);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -273,6 +327,18 @@ LIB_EXPORT void leImageScaleWidget_Constructor(leImageScaleWidget* wgt);
   Returns:
     int32_t - the y value
 */
+/**
+ * @brief Get Y transform.
+ * @details Gets the Y transform for <span class="param">_this</span>.
+ * @code
+ * const leImageScaleWidget* _this;
+ * int32_t y = _this->fn->getTransformX(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns the y value.
+ */
+virtual int32_t getTransformY(const leImageScaleWidget* _this);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -295,6 +361,21 @@ LIB_EXPORT void leImageScaleWidget_Constructor(leImageScaleWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set Y transform.
+ * @details Sets the Y transform to
+ * <span class="param">y</span> using <span class="param">_this</span>.
+ * @code
+ * leImageScaleWidget* _this;
+ * leImage* y;
+ * leResult res = _this->fn->setTransformX(_this, y);
+ * @endcode
+ * @param _this is the widget pointer to modify.
+ * @param y is the Y value.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setTransformY(leImageScaleWidget* _this,
+                               int32_t y);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -315,6 +396,17 @@ LIB_EXPORT void leImageScaleWidget_Constructor(leImageScaleWidget* wgt);
   Returns:
     int32_t - the width value
 */
+/**
+ * @brief Get transform width.
+ * @details Gets the transform width for <span class="param">_this</span>.
+ * @code
+ * const leImageScaleWidget* _this;
+ * int32_t width = _this->fn->getTransformWidth(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns the width value.
+ */
+virtual int32_t getTransformWidth(const leImageScaleWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -337,6 +429,22 @@ LIB_EXPORT void leImageScaleWidget_Constructor(leImageScaleWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set transform width.
+ * @details Sets the transform width to
+ * <span class="param">w</span> using <span class="param">_this</span>.
+ * @code
+ * leImageScaleWidget* _this;
+ * int32_t w;
+ * leResult res = _this->fn->setTransformWidth(_this, w);
+ * @endcode
+ * @param _this is the widget pointer to modify.
+ * @param w is the width value.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setTransformWidth(leImageScaleWidget* _this,
+                                   int32_t w);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -357,6 +465,18 @@ LIB_EXPORT void leImageScaleWidget_Constructor(leImageScaleWidget* wgt);
   Returns:
     int32_t - the height value
 */
+/**
+ * @brief Get transform height.
+ * @details Gets the transform height for <span class="param">_this</span>.
+ * @code
+ * const leImageScaleWidget* _this;
+ * int32_t width = _this->fn->getTransformHeight(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns the height value.
+ */
+virtual int32_t getTransformHeight(const leImageScaleWidget* _this);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -379,6 +499,21 @@ LIB_EXPORT void leImageScaleWidget_Constructor(leImageScaleWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set transform height.
+ * @details Sets the transform height to
+ * <span class="param">h</span> using <span class="param">_this</span>.
+ * @code
+ * leImageScaleWidget* _this;
+ * int32_t h;
+ * leResult res = _this->fn->setTransformHeight(_this, h);
+ * @endcode
+ * @param _this is the widget pointer to modify.
+ * @param h is the height value.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setTransformHeight(leImageScaleWidget* _this,
+                                    int32_t h);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -399,6 +534,17 @@ LIB_EXPORT void leImageScaleWidget_Constructor(leImageScaleWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Reset current transform state.
+ * @details Resets the current transform state for <span class="param">_this</span>.
+ * @code
+ * const leImageScaleWidget* _this;
+ * leResult res = _this->fn->resetTransform(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult resetTransform(leImageScaleWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -419,6 +565,17 @@ LIB_EXPORT void leImageScaleWidget_Constructor(leImageScaleWidget* wgt);
   Returns:
     leBool - the flag value
 */
+/**
+ * @brief Get stretch mode value.
+ * @details Gets the stretch mode value for <span class="param">_this</span>.
+ * @code
+ * const leImageScaleWidget* _this;
+ * leBool enabled = _this->fn->getStretchEnabled(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns the flag value.
+ */
+virtual leBool getStretchEnabled(const leImageScaleWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -441,6 +598,21 @@ LIB_EXPORT void leImageScaleWidget_Constructor(leImageScaleWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set stretch mode value.
+ * @details Sets the stretch mode value to
+ * <span class="param">h</span> using <span class="param">_this</span>.
+ * @code
+ * leImageScaleWidget* _this;
+ * leBool b;
+ * leResult res = _this->fn->setStretchEnabled(_this, b);
+ * @endcode
+ * @param _this is the widget pointer to modify.
+ * @param b is the flag value.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setStretchEnabled(leImageScaleWidget* _this,
+                                   leBool b);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -461,6 +633,17 @@ LIB_EXPORT void leImageScaleWidget_Constructor(leImageScaleWidget* wgt);
   Returns:
     leBool - the flag value
 */
+/**
+ * @brief Get aspect preservation mode value.
+ * @details Gets the aspect preservation mode value for <span class="param">_this</span>.
+ * @code
+ * const leImageScaleWidget* _this;
+ * leBool enabled = _this->fn->getPreserveAspectEnabled(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if enabled, otherwise LE_FALSE.
+ */
+virtual leBool getPreserveAspectEnabled(const leImageScaleWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -483,6 +666,21 @@ LIB_EXPORT void leImageScaleWidget_Constructor(leImageScaleWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set aspect preseration mode value.
+ * @details Sets the aspect preseration mode value to
+ * <span class="param">b</span> using <span class="param">_this</span>.
+ * @code
+ * leImageScaleWidget* _this;
+ * leBool b;
+ * leResult res = _this->fn->setPreserveAspectEnabled(_this, b);
+ * @endcode
+ * @param _this is the widget pointer to modify.
+ * @param b is the flag value.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setPreserveAspectEnabled(leImageScaleWidget* _this,
+                                          leBool b);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -503,6 +701,17 @@ LIB_EXPORT void leImageScaleWidget_Constructor(leImageScaleWidget* wgt);
   Returns:
     leImageScaleWidget_ResizeFilter - the filter
 */
+/**
+ * @brief Get current resize filter.
+ * @details Gets the current resize filter value for <span class="param">_this</span>.
+ * @code
+ * const leImageScaleWidget* _this;
+ * leImageScaleWidget_ResizeFilter filter = _this->fn->getPreserveAspectEnabled(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns the filter.
+ */
+virtual leImageScaleWidget_ResizeFilter getResizeFilter(const leImageScaleWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -525,6 +734,25 @@ LIB_EXPORT void leImageScaleWidget_Constructor(leImageScaleWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set current resize filter.
+ * @details Sets the current resize filter to
+ * <span class="param">filter</span> using <span class="param">_this</span>.
+ * @code
+ * leImageScaleWidget* _this;
+ * leImageScaleWidget_ResizeFilter filter;
+ * leResult res = _this->fn->setResizeFilter(_this, filter);
+ * @endcode
+ * @param _this is the widget pointer to modify.
+ * @param filter is the filter.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setResizeFilter(leImageScaleWidget* _this,
+                                 leImageScaleWidget_ResizeFilter filter);
+
+#undef THIS_TYPE
+#endif
+
 
 #endif // LE_IMAGESCALE_WIDGET_ENABLED
 #endif /* LEGATO_IMAGE_H */

@@ -52,9 +52,16 @@
 
 #include "gfx/legato/widget/legato_widget.h"
 
-// DOM-IGNORE-BEGIN
+/* internal use only */
+/**
+  * @cond INTERNAL
+  *
+  */
 #define LE_TOUCHTEST_MEMORY_SIZE 20
-// DOM-IGNORE-END
+/**
+  * @endcond
+  *
+  */
 
 // *****************************************************************************
 // *****************************************************************************
@@ -76,7 +83,8 @@
     None.
 */
 /**
- * @brief Used to represent touch test states.
+ * @brief This enum represents touch test state.
+ * @details Used to define possible test states.
  * @details .
  */
 typedef enum leTouchTestState
@@ -94,6 +102,10 @@ typedef struct leTouchTestWidget leTouchTestWidget;
   Summary:
     Point added event function callback type
 */
+/**
+ * @brief This function represents a point added event callback.
+ * @details The callback is used indicate a point added has occured.
+ */
 typedef void (*leTouchTestWidget_PointAddedEventCallback)(leTouchTestWidget*, lePoint*);
 
 
@@ -106,58 +118,9 @@ typedef void (*leTouchTestWidget_PointAddedEventCallback)(leTouchTestWidget*, le
 #define LE_TOUCHTESTWIDGET_VTABLE(THIS_TYPE) \
     LE_WIDGET_VTABLE(THIS_TYPE) \
     \
-    /**
-     * @brief Add point.
-     * @details Add <span style="color: #820a32"><em>pnt</em></span> to <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * lePoint* pnt;
-     * leResult res = wgt->fn->addPoint(wgt, pnt);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns leResult.
-     */
     leResult  (*addPoint)(THIS_TYPE* _this, lePoint* pnt); \
-    /**
-     * @brief Clear point.
-     * @details Clears all points for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leResult res = wgt->fn->clearPoints(wgt);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns leResult.
-     */
     leResult  (*clearPoints)(THIS_TYPE* _this); \
-    /**
-     * @brief Get point add event callback.
-     * @details Gets point added event callback for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leTouchTestWidget_PointAddedEventCallback cb =
-     * wgt->fn->getPointAddedEventCallback(wgt, cb);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns leResult.
-     */
     leTouchTestWidget_PointAddedEventCallback (*getPointAddedEventCallback)(const THIS_TYPE* _this); \
-    /**
-     * @brief Set point add event callback.
-     * @details Sets point added event callback for <span style="color: #820a32"><em>wgt</em></span>
-     * to <span style="color: #820a32"><em>cb</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leTouchTestWidget_PointAddedEventCallback cb;
-     * leResult res = wgt->fn->setPointAddedEventCallback(wgt, cb);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @param param1 leTouchTestWidget_PointAddedEventCallback is the callback func
-     * @return returns leResult.
-     */
     leResult  (*setPointAddedEventCallback)(THIS_TYPE* _this, leTouchTestWidget_PointAddedEventCallback cb); \
     
 typedef struct leTouchTestWidgetVTable
@@ -187,6 +150,12 @@ typedef struct leTouchTestWidgetVTable
   Remarks:
     None.
 */
+/**
+ * @brief This struct represents a touch test widget.
+ * @details The touch test widget is a specialized widget that displays
+ * intersecting lines based on input events.  This can help visualize touch
+ * interaction and aid determining accurate input coordinates.
+ */
 typedef struct leTouchTestWidget
 {
     leWidget widget; // widget base class

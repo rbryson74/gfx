@@ -71,7 +71,8 @@
     None.
 */
 /**
- * @brief Defines the valid values for the progress bar widget fill directions.
+ * @brief This enum represents progress bar direction.
+ * @details Used to list the possible progress bar direction modes.
  * @details .
  */
 typedef enum leProgressBarDirection
@@ -98,6 +99,11 @@ typedef enum leProgressBarDirection
 */
 /**
  * @brief Used to define a value changed event callback function.
+ * @details .
+ */
+/**
+ * @brief This function represents a value change event callback.
+ * @details The callback is used indicate a value has changed.
  * @details .
  */
 typedef void (*leProgressBar_ValueChangedEventCallback)(leProgressBar*, uint32_t);
@@ -235,14 +241,14 @@ virtual int32_t getValue(const leProgressBarWidget* _this);
 /**
  * @brief Set progress bar value.
  * @details Sets the progress bar value to
- * <span class="param">val</span> using <span class="param">_this</span>.
+ * <span class="param">value</span> using <span class="param">_this</span>.
  * @code
  * const leProgressBarWidget* _this;
  * int32_t value;
  * leResult res = _this->fn->setValue(_this, value);
  * @endcode
  * @param _this is the widget pointer to query.
- * @param val is the gauge value.
+ * @param value is the gauge value.
  * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
  */
 virtual leResult setValue(leProgressBarWidget* _this,

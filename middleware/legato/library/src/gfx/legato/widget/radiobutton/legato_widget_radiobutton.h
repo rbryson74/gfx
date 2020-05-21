@@ -66,7 +66,9 @@ typedef struct leRadioButtonGroup leRadioButtonGroup;
     Radio button selected function callback type
 */
 /**
- * @brief Used to define a select event callback function.
+ * @brief This function represents a select event callback.
+ * @details Select event callback is used indicate a radio button
+ * selection.
  * @details .
  */
 typedef void (*leRadioButtonWidget_SelectedEvent)(leRadioButtonWidget*);
@@ -79,7 +81,9 @@ typedef void (*leRadioButtonWidget_SelectedEvent)(leRadioButtonWidget*);
     Radio button deselected function callback type
 */
 /**
- * @brief Used to define a deselect event callback function.
+ * @brief This function represents a deselect event callback.
+ * @details Deselect event callback is used indicate a radio button
+ * deselection.
  * @details .
  */
 typedef void (*leRadioButtonWidget_DeselectedEvent)(leRadioButtonWidget*);
@@ -99,267 +103,27 @@ typedef void (*leRadioButtonWidget_DeselectedEvent)(leRadioButtonWidget*);
 #define LE_RADIOBUTTONWIDGET_VTABLE(THIS_TYPE) \
     LE_WIDGET_VTABLE(THIS_TYPE) \
     \
-    /**
-     * @brief Get title string.
-     * @details Returns the title string from  <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leString * title = wgt->fn->getTitleHeight(wgt);
-     * @endcode
-     * @param param1 wgt is the widget to query
-     * @return returns uint32_t.
-     */
+
     leRadioButtonGroup* (*getGroup)(const THIS_TYPE* _this); \
-    /**
-     * @brief Get title string.
-     * @details Returns the title string from  <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leString * title = wgt->fn->getTitleHeight(wgt);
-     * @endcode
-     * @param param1 wgt is the widget to query
-     * @return returns uint32_t.
-     */
     leBool              (*getSelected)(const THIS_TYPE* _this); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult            (*setSelected)(THIS_TYPE* _this); \
-    /**
-     * @brief Get title string.
-     * @details Returns the title string from  <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leString * title = wgt->fn->getTitleHeight(wgt);
-     * @endcode
-     * @param param1 wgt is the widget to query
-     * @return returns uint32_t.
-     */
     void                (*select)(THIS_TYPE* _this); \
-    /**
-     * @brief Get title string.
-     * @details Returns the title string from  <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leString * title = wgt->fn->getTitleHeight(wgt);
-     * @endcode
-     * @param param1 wgt is the widget to query
-     * @return returns uint32_t.
-     */
     void                (*deselect)(THIS_TYPE* _this); \
-    /**
-     * @brief Get title string.
-     * @details Returns the title string from  <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leString * title = wgt->fn->getTitleHeight(wgt);
-     * @endcode
-     * @param param1 wgt is the widget to query
-     * @return returns uint32_t.
-     */
     leString*           (*getString)(const THIS_TYPE* _this); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult            (*setString)(THIS_TYPE* _this, const leString* str); \
-    /**
-     * @brief Get title string.
-     * @details Returns the title string from  <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leString * title = wgt->fn->getTitleHeight(wgt);
-     * @endcode
-     * @param param1 wgt is the widget to query
-     * @return returns uint32_t.
-     */
     leImage*            (*getSelectedImage)(const THIS_TYPE* _this); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult            (*setSelectedImage)(THIS_TYPE* _this, const leImage* img); \
-    /**
-     * @brief Get title string.
-     * @details Returns the title string from  <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leString * title = wgt->fn->getTitleHeight(wgt);
-     * @endcode
-     * @param param1 wgt is the widget to query
-     * @return returns uint32_t.
-     */
     leImage*            (*getUnselectedImage)(const THIS_TYPE* _this); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult            (*setUnselectedImage)(THIS_TYPE* _this, const leImage* img); \
-    /**
-     * @brief Get title string.
-     * @details Returns the title string from  <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leString * title = wgt->fn->getTitleHeight(wgt);
-     * @endcode
-     * @param param1 wgt is the widget to query
-     * @return returns uint32_t.
-     */
     leRelativePosition  (*getImagePosition)(const THIS_TYPE* _this); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult            (*setImagePosition)(THIS_TYPE* _this, leRelativePosition pos); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     uint32_t            (*getImageMargin)(const THIS_TYPE* _this); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult            (*setImageMargin)(THIS_TYPE* _this, uint32_t mg); \
-    /**
-     * @brief Get title string.
-     * @details Returns the title string from  <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leString * title = wgt->fn->getTitleHeight(wgt);
-     * @endcode
-     * @param param1 wgt is the widget to query
-     * @return returns uint32_t.
-     */
     leRadioButtonWidget_SelectedEvent (*getSelectedEventCallback)(const THIS_TYPE* _this); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult            (*setSelectedEventCallback)(THIS_TYPE* _this, leRadioButtonWidget_SelectedEvent cb); \
-    /**
-     * @brief Get title string.
-     * @details Returns the title string from  <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leString * title = wgt->fn->getTitleHeight(wgt);
-     * @endcode
-     * @param param1 wgt is the widget to query
-     * @return returns uint32_t.
-     */
     leRadioButtonWidget_DeselectedEvent (*getDeselectedEventCallback)(const THIS_TYPE* _this); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult            (*setDeselectedEventCallback)(THIS_TYPE* _this, leRadioButtonWidget_DeselectedEvent cb); \
-    /**
-     * @brief Get title string.
-     * @details Returns the title string from  <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leString * title = wgt->fn->getTitleHeight(wgt);
-     * @endcode
-     * @param param1 wgt is the widget to query
-     * @return returns uint32_t.
-     */
     uint32_t            (*getCircleButtonSize)(const THIS_TYPE* _this); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult            (*setCircleButtonSize)(THIS_TYPE* _this, uint32_t sz); \
     
 typedef struct leRadioButtonWidgetVTable
@@ -471,6 +235,11 @@ LIB_EXPORT leRadioButtonWidget* leRadioButtonWidget_New();
  */
 LIB_EXPORT void leRadioButtonWidget_Constructor(leRadioButtonWidget* wgt);
 
+
+#ifdef _DOXYGEN_
+#define THIS_TYPE struct leWidget
+
+
 // *****************************************************************************
 /* Virtual Member Function:
     leRadioButtonGroup* getGroup(const leRadioButtonWidget* _this)
@@ -490,6 +259,17 @@ LIB_EXPORT void leRadioButtonWidget_Constructor(leRadioButtonWidget* wgt);
   Returns:
     leRadioButtonGroup* - the radio button group
 */
+/**
+ * @brief Get button's group pointe.
+ * @details Gets the button's group pointer using <span class="param">_this</span>.
+ * @code
+ * leRadioButtonWidget* _this;
+ * leRadioButtonGroup* ptr = wgt->fn->getGroup(_this);
+ * @endcode
+ * @param _this is the widget to modify
+ * @returns the radio button group;
+ */
+virtual leBool getSelected(const leRadioButtonWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -510,6 +290,18 @@ LIB_EXPORT void leRadioButtonWidget_Constructor(leRadioButtonWidget* wgt);
   Returns:
     leBool - the selected state
 */
+/**
+ * @brief Set selected.
+ * @details Set selected using <span class="param">_this</span>.
+ * @code
+ * leRadioButtonWidget* _this;
+ * leBool selected = wgt->fn->getSelected(_this);
+ * @endcode
+ * @param _this is the widget to modify
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual leBool getSelected(const leRadioButtonWidget* _this);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -530,6 +322,18 @@ LIB_EXPORT void leRadioButtonWidget_Constructor(leRadioButtonWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set selected.
+ * @details Set selected using <span class="param">_this</span>.
+ * @code
+ * leRadioButtonWidget* _this;
+ * leResult res = wgt->fn->setSelected(_this);
+ * @endcode
+ * @param _this is the widget to modify
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setSelected(leRadioButtonWidget* _this);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -566,6 +370,17 @@ LIB_EXPORT void leRadioButtonWidget_Constructor(leRadioButtonWidget* wgt);
   Returns:
     leString* - the string pointer
 */
+/**
+ * @brief Get text string pointer.
+ * @details Gets the text string pointer using <span class="param">_this</span>.
+ * @code
+ * leRadioButtonWidget* _this;
+ * leString* str = wgt->fn->getString(_this);
+ * @endcode
+ * @param _this is the widget to modify
+ * @returns the string pointer;
+ */
+virtual leString* getString(const leRadioButtonWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -588,6 +403,22 @@ LIB_EXPORT void leRadioButtonWidget_Constructor(leRadioButtonWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set text string pointer.
+ * @details Sets the text string pointer to <span class="param">str</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leRadioButtonWidget* _this;
+ * leString* str;
+ * leResult res = wgt->fn->setString(_this, str);
+ * @endcode
+ * @param _this is the widget to modify
+ * @param str the string pointer.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setString(leRadioButtonWidget* _this,
+                           const leString* str);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -608,6 +439,18 @@ LIB_EXPORT void leRadioButtonWidget_Constructor(leRadioButtonWidget* wgt);
   Returns:
     leImage* - the image pointer
 */
+/**
+ * @brief Get text string pointer.
+ * @details Gets the text string pointer using <span class="param">_this</span>.
+ * @code
+ * leRadioButtonWidget* _this;
+ * leString* str = wgt->fn->getString(_this);
+ * @endcode
+ * @param _this is the widget to modify
+ * @returns the string pointer;
+ */
+virtual leString* getString(const leRadioButtonWidget* _this);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -630,6 +473,22 @@ LIB_EXPORT void leRadioButtonWidget_Constructor(leRadioButtonWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set selected image pointer.
+ * @details Sets the selected image pointer to <span class="param">img</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leRadioButtonWidget* _this;
+ * leImage* img;
+ * leResult res = wgt->fn->setSelectedImage(_this, img);
+ * @endcode
+ * @param _this is the widget to modify
+ * @param img the image pointer.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setSelectedImage(leRadioButtonWidget* _this,
+                                  const leImage* img);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -650,6 +509,17 @@ LIB_EXPORT void leRadioButtonWidget_Constructor(leRadioButtonWidget* wgt);
   Returns:
     leImage* - the image pointer
 */
+/**
+ * @brief Get unselected image pointer.
+ * @details Gets the unselected image pointer using <span class="param">_this</span>.
+ * @code
+ * leRadioButtonWidget* _this;
+ * leImage* img = wgt->fn->getUnselectedImage(_this);
+ * @endcode
+ * @param _this is the widget to modify
+ * @returns the image pointer;
+ */
+virtual leImage* getUnselectedImage(const leRadioButtonWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -672,6 +542,21 @@ LIB_EXPORT void leRadioButtonWidget_Constructor(leRadioButtonWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set image position.
+ * @details Sets the image position to <span class="param">pos</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leRadioButtonWidget* _this;
+ * leImage* img;
+ * leResult res = wgt->fn->setUnselectedImage(_this, img);
+ * @endcode
+ * @param _this is the widget to modify
+ * @param img the image pointer.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setUnselectedImage(leRadioButtonWidget* _this,
+                                    const leImage* img);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -692,6 +577,17 @@ LIB_EXPORT void leRadioButtonWidget_Constructor(leRadioButtonWidget* wgt);
   Returns:
     leRelativePosition - the position
 */
+/**
+ * @brief Get unselected image pointer.
+ * @details Gets the unselected image pointer using <span class="param">_this</span>.
+ * @code
+ * leRadioButtonWidget* _this;
+ * leRelativePosition pos = wgt->fn->getImagePosition(_this);
+ * @endcode
+ * @param _this is the widget to modify
+ * @returns the position;
+ */
+virtual leRelativePosition getImagePosition(const leRadioButtonWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -714,6 +610,22 @@ LIB_EXPORT void leRadioButtonWidget_Constructor(leRadioButtonWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set image position.
+ * @details Sets the image position to <span class="param">pos</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leRadioButtonWidget* _this;
+ * leRelativePosition pos;
+ * leResult res = wgt->fn->setImagePosition(_this, pos);
+ * @endcode
+ * @param _this is the widget to modify
+ * @param pos the position value.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setImagePosition(leRadioButtonWidget* _this,
+                                  leRelativePosition pos);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -734,6 +646,17 @@ LIB_EXPORT void leRadioButtonWidget_Constructor(leRadioButtonWidget* wgt);
   Returns:
     uint32_t - the margin value
 */
+/**
+ * @brief Get image margin.
+ * @details Gets the image margin using <span class="param">_this</span>.
+ * @code
+ * leWindowWidget* _this;
+ * uint32_t margin = wgt->fn->getCircleButtonSize(_this);
+ * @endcode
+ * @param _this is the widget to query
+ * @return the margin value.
+ */
+virtual uint32_t getImageMargin(const leRadioButtonWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -756,48 +679,51 @@ LIB_EXPORT void leRadioButtonWidget_Constructor(leRadioButtonWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set image margin.
+ * @details Sets the image margin to <span class="param">mg</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leRadioButtonWidget* _this;
+ * uint32_t sz;
+ * leResult res = wgt->fn->setCircleButtonSize(_this, mg);
+ * @endcode
+ * @param _this is the widget to modify
+ * @param mg the margin value.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setImageMargin(leRadioButtonWidget* _this,
+                        uint32_t mg);
 
 // *****************************************************************************
-/* Virtual Member Function:
-    uint32_t getCircleButtonSize(const leRadioButtonWidget* _this)
-
-  Summary:
-     Gets the circle button size
-
-  Description:
-     Gets the circle button size
-
-  Parameters:
-    const leRadioButtonWidget* _this - The radio button widget to operate on
-
-  Remarks:
-    Usage - _this->fn->getCircleButtonSize(_this);
-
-  Returns:
-    uint32_t - the circle button size
-*/
+/**
+ * @brief Get circle button size.
+ * @details Gets the circle button size using <span class="param">_this</span>.
+ * @code
+ * leWindowWidget* _this;
+ * uint32_t sz = wgt->fn->getCircleButtonSize(_this);
+ * @endcode
+ * @param _this is the widget to query
+ * @return the circle button size.
+ */
+uint32_t getCircleButtonSize(const leRadioButtonWidget* _this);
 
 // *****************************************************************************
-/* Virtual Member Function:
-    leResult setCircleButtonSize(leRadioButtonWidget* _this,
-                                 uint32_t sz)
-
-  Summary:
-     Sets the circle button size
-
-  Description:
-     Sets the circle button size
-
-  Parameters:
-    leRadioButtonWidget* _this - The radio button widget to operate on
-    uint32_t sz - the size value
-
-  Remarks:
-    Usage - _this->fn->setCircleButtonSize(_this, sz);
-
-  Returns:
-    leResult - the result of the operation
-*/
+/**
+ * @brief Set circle button size.
+ * @details Sets circle button size to <span class="param">sz</span>
+ * using <span class="param">wgt</span>.
+ * @code
+ * leRadioButtonWidget* wgt;
+ * uint32_t sz;
+ * leResult res = wgt->fn->setCircleButtonSize(_this, sz);
+ * @endcode
+ * @param _this is the widget to modify
+ * @param sz the size value.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setCircleButtonSize(leRadioButtonWidget* _this,
+                                     uint32_t sz);
 
 /**
  * @brief Get deselected event callback pointer.

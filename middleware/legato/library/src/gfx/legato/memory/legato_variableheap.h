@@ -21,7 +21,7 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 /** \file legato_variableheap.h
- * @brief .
+ * @brief Variable heap functions and definitions.
  *
  * @details .
  */

@@ -138,7 +138,6 @@ LIB_EXPORT void leGradientWidget_Constructor(leGradientWidget* grad);
  * <span class="param">dir</span> using <span class="param">_this</span>.
  * @code
  * leGradientWidget* _this;
- * leDirection dir;
  * leDirection dir = _this->fn->getDirection(_this);
  * @endcode
  * @param _this is the widget pointer to modify.
@@ -163,6 +162,10 @@ virtual leDirection getDirection(leGradientWidget* _this);
  */
 virtual leResult setDirection(leGradientWidget* _this,
                               leDirection dir);
+
+#undef THIS_TYPE
+#endif
+
 
 #endif // LE_GRADIENT_WIDGET_ENABLED
 #endif /* LEGATO_RECTANGLE_H */

@@ -65,7 +65,10 @@
   Summary:
     Controls the button pressed state
 */
-
+/**
+  * @brief This enum represents button state.
+  * @details A button state is used to define possible button positions.
+  */
 typedef enum leButtonState
 {
     LE_BUTTON_STATE_UP,
@@ -73,6 +76,10 @@ typedef enum leButtonState
     LE_BUTTON_STATE_TOGGLED
 } leButtonState;
 
+/**
+  * @brief This struct represents button widget type.
+  * @details A button widget type is used .
+  */
 typedef struct leButtonWidget leButtonWidget;
 
 // *****************************************************************************
@@ -82,6 +89,10 @@ typedef struct leButtonWidget leButtonWidget;
   Summary:
     Button pressed event function callback type
 */
+/**
+ * @brief This function represents a pressed event callback.
+ * @details The callback is used indicate a button press has occured.
+ */
 typedef void (*leButtonWidget_PressedEvent)(leButtonWidget*);
 
 // *****************************************************************************
@@ -91,6 +102,10 @@ typedef void (*leButtonWidget_PressedEvent)(leButtonWidget*);
   Summary:
     Button released event function callback type
 */
+/**
+ * @brief This function represents a released event callback.
+ * @details The callback is used indicate a radio button has released.
+ */
 typedef void (*leButtonWidget_ReleasedEvent)(leButtonWidget*);
 
 
@@ -98,7 +113,9 @@ typedef void (*leButtonWidget_ReleasedEvent)(leButtonWidget*);
 /**
   * @cond INTERNAL
   *
-  */typedef struct leButtonWidget leButtonWidget;
+  */
+
+typedef struct leButtonWidget leButtonWidget;
 
 #define LE_BUTTONWIDGET_VTABLE(THIS_TYPE) \
     LE_WIDGET_VTABLE(THIS_TYPE) \
@@ -150,6 +167,11 @@ typedef struct leButtonWidgetVTable
   Remarks:
     None.
 */
+/**
+ * @brief This struct represents a button widget.
+ * @details Implementation of a button widget.  A button is an interactive
+ * element that simulates a typical button with a pressed an released state.
+ */
 typedef struct leButtonWidget
 {
     leWidget widget;  // base widget header
@@ -208,7 +230,7 @@ LIB_EXPORT void leButtonWidget_Constructor(leButtonWidget* wgt);
 
 /**
  * @brief Get toggle state.
- * @details Gets the toggle state for <span class="param">_this</span>.
+ * @details Gets the toggle state using <span class="param">_this</span>.
  * @code
  * const leButtonWidget* _this;
  * leBool toggled = _this->fn->getToggleable(_this);
@@ -220,8 +242,8 @@ virtual leBool getToggleable(const leButtonWidget* _this);
 
 /**
  * @brief Set togglable setting.
- * @details Sets the togglable setting for <span class="param">_this</span> to
- * <span class="param">toggleable</span>.
+ * @details Sets the togglable setting to
+ * <span class="param">toggleable</span> using <span class="param">_this</span>.
  * @code
  * leButtonWidget* _this;
  * leBool toggleable;
@@ -236,7 +258,7 @@ virtual leResult setToggleable(leButtonWidget* _this,
 
 /**
  * @brief Get pressed state.
- * @details Gets the pressed state for <span class="param">_this</span>.
+ * @details Gets the pressed state using <span class="param">_this</span>.
  * @code
  * const leButtonWidget* _this;
  * leBool pressed = _this->fn->getPressed(_this);
@@ -248,15 +270,15 @@ virtual leBool getPressed(const leButtonWidget* _this);
 
 /**
  * @brief Set pressed state.
- * @details Sets the pressed state for <span class="param">_this</span> to
- * <span class="param">pressed</span>.
+ * @details Sets the pressed state to
+ * <span class="param">pressed</span> using <span class="param">_this</span>.
  * @code
  * leButtonWidget* _this;
  * leBool pressed;
  * leResult res = _this->fn->setPressed(_this, pressed);
  * @endcode
  * @param _this is the widget pointer to modify.
- * @param str is the string pointer.
+ * @param pressed is the press state.
  * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
  */
 virtual leResult setPressed(leButtonWidget* _this,
@@ -265,7 +287,7 @@ virtual leResult setPressed(leButtonWidget* _this,
 
 /**
  * @brief Get string assigned.
- * @details Gets the string assigned for <span class="param">_this</span>.
+ * @details Gets the string assigned using <span class="param">_this</span>.
  * @code
  * const leButtonWidget* _this;
  * leString* str = _this->fn->getString(_this);
@@ -278,8 +300,8 @@ virtual leString* getString(const leButtonWidget* _this);
 
 /**
  * @brief Set string.
- * @details Sets the string for <span class="param">_this</span> to
- * <span class="param">str</span>.
+ * @details Sets the string to
+ * <span class="param">str</span> using <span class="param">_this</span>.
  * @code
  * leButtonWidget* _this;
  * const leString* str;
@@ -294,10 +316,10 @@ virtual leResult setString(leButtonWidget* _this,
 
 /**
  * @brief Get pressed image pointer.
- * @details Gets the pressed image pointer for <span class="param">_this</span>.
+ * @details Gets the pressed image pointer using <span class="param">_this</span>.
  * @code
  * const leButtonWidget* _this;
- * leImage* pos = _this->fn->getReleasedImage(_this);
+ * leImage* img = _this->fn->getReleasedImage(_this);
  * @endcode
  * @param _this is the widget pointer to query.
  * @returns the image pointer.
@@ -307,8 +329,8 @@ virtual leImage* getPressedImage(const leButtonWidget* _this);
 
 /**
  * @brief Set pressed image pointer.
- * @details Sets the pressed image pointer for <span class="param">_this</span> to
- * <span class="param">img</span>.
+ * @details Sets the pressed image pointer to
+ * <span class="param">img</span> using <span class="param">_this</span>.
  * @code
  * leButtonWidget* _this;
  * leImage* img;
@@ -324,7 +346,7 @@ virtual leResult setPressedImage(leButtonWidget* _this,
 
 /**
  * @brief Get released image pointer.
- * @details Gets the released image pointer for <span class="param">_this</span>.
+ * @details Gets the released image pointer using <span class="param">_this</span>.
  * @code
  * const leButtonWidget* _this;
  * leImage* pos = _this->fn->getReleasedImage(_this);
@@ -336,8 +358,8 @@ virtual leImage* getReleasedImage(const leButtonWidget* _this);
 
 /**
  * @brief Set released image pointer.
- * @details Sets the released image pointer for <span class="param">_this</span> to
- * <span class="param">img</span>.
+ * @details Sets the released image pointer to
+ * <span class="param">img</span> using <span class="param">_this</span>.
  * @code
  * leButtonWidget* _this;
  * leImage* img;
@@ -353,7 +375,8 @@ virtual leResult setReleasedImage(leButtonWidget* _this,
 
 /**
  * @brief Get relative position of the image to the text.
- * @details Gets the relative position of the image to the text for <span class="param">_this</span>.
+ * @details Gets the relative position of the image to the text
+ * using <span class="param">_this</span>.
  * @code
  * const leButtonWidget* _this;
  * leRelativePosition pos = _this->fn->getImagePosition(_this);
@@ -365,7 +388,7 @@ virtual leRelativePosition getImagePosition(const leButtonWidget* _this);
 
 /**
  * @brief Set relative position of the image to the text.
- * @details Sets the relative position of the image to the text for <span class="param">_this</span> to
+ * @details Sets the relative position of the image to the text using <span class="param">_this</span> to
  * <span class="param">pos</span>.
  * @code
  * leButtonWidget* _this;
@@ -381,10 +404,10 @@ virtual leResult setImagePosition(leButtonWidget* _this,
 
 /**
  * @brief Get image margin.
- * @details Gets the image margin for <span class="param">_this</span>.
+ * @details Gets the image margin using <span class="param">_this</span>.
  * @code
  * const leButtonWidget* _this;
- * int32_t margin = _this->fn->getImageMargin(_this);
+ * uint32_t margin = _this->fn->getImageMargin(_this);
  * @endcode
  * @param _this is the widget pointer to modify.
  * @returns the margin value.
@@ -393,8 +416,8 @@ virtual uint32_t getImageMargin(const leButtonWidget* _this);
 
 /**
  * @brief Set image margin.
- * @details Sets the image margin for <span class="param">_this</span> to
- * <span class="param">mg</span>.
+ * @details Sets the image margin to
+ * <span class="param">mg</span> using <span class="param">_this</span>.
  * @code
  * leButtonWidget* _this;
  * uint32_t mg;
@@ -410,8 +433,8 @@ virtual leResult setImageMargin(leButtonWidget* _this,
 
 /**
  * @brief Get pressed offset.
- * @details Gets the pressed offset for <span class="param">_this</span> to
- * <span class="param">offs</span>.
+ * @details Gets the pressed offset to
+ * <span class="param">offs</span> using <span class="param">_this</span>.
  * @code
  * leButtonWidget* _this;
  * int32_t offset = _this->fn->getPressedOffset(_this);
@@ -424,8 +447,8 @@ virtual int32_t getPressedOffset(const leButtonWidget* _this);
 
 /**
  * @brief Set pressed offset value.
- * @details Sets the pressed offset value for <span class="param">_this</span> to
- * <span class="param">offs</span>.
+ * @details Sets the pressed offset value to
+ * <span class="param">offs</span> using <span class="param">_this</span>.
  * @code
  * leButtonWidget* _this;
  * int32_t offs;
@@ -449,8 +472,6 @@ virtual leResult setPressedOffset(leButtonWidget* _this,
  * @returns the callback pointer.
  */
 virtual leButtonWidget_PressedEvent getPressedEventCallback(const leButtonWidget* _this);
-
-
 
 /**
  * @brief Set pressed event callback pointer.

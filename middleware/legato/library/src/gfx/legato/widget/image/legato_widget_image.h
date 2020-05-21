@@ -170,7 +170,7 @@ virtual leImage* getImage(const leImageWidget* _this);
 /**
  * @brief Set image pointer.
  * @details Sets the image pointer to
- * <span class="param">str</span> for <span class="param">_this</span>.
+ * <span class="param">img</span> for <span class="param">_this</span>.
  * @code
  * leImageWidget* _this;
  * leImage* img;
@@ -214,6 +214,9 @@ virtual leResult setDebugDrawStartCallback(leImageWidget* _this,
  */
 virtual void setDebugDrawEndCallback(leImageWidget* _this,
                                      leImageWidget_DrawEventCallback cb);
+
+#undef THIS_TYPE
+#endif
 
 
 #endif // LE_IMAGE_WIDGET_ENABLED

@@ -62,30 +62,7 @@ typedef struct leRectangleWidget leRectangleWidget;
 #define LE_RECTANGLEWIDGET_VTABLE(THIS_TYPE) \
     LE_WIDGET_VTABLE(THIS_TYPE) \
     \
-    /**
-     * @brief Get title bar height.
-     * @details Returns the title bar height from  <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leResult res =  = wgt->fn->getCursorDelay(wgt);
-     * @endcode
-     * @param param1 wgt is the widget to query
-     * @return returns uint32_t.
-     */
     int32_t   (*getThickness)(const THIS_TYPE* _this); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult  (*setThickness)(THIS_TYPE* _this, int32_t thk); \
     
 typedef struct leRectangleWidgetVTable
@@ -139,6 +116,10 @@ LIB_EXPORT leRectangleWidget* leRectangleWidget_New();
  */
 void leRectangleWidget_Constructor(leRectangleWidget* wgt);
 
+
+#ifdef _DOXYGEN_
+#define THIS_TYPE struct leWidget
+
 // *****************************************************************************
 /* Virtual Member Function:
     int32_t getThickness(const leRectangleWidget* _this)
@@ -158,6 +139,17 @@ void leRectangleWidget_Constructor(leRectangleWidget* wgt);
   Returns:
     int32_t - the thickness value
 */
+/**
+ * @brief Get rectangle border thickness.
+ * @details Gets the rectangle border thickness using <span class="param">_this</span>.
+ * @code
+ * leRadioButtonWidget* _this;
+ * leResult res = wgt->fn->getThickness(_this);
+ * @endcode
+ * @param _this is the widget to modify
+ * @returns the thickness value.
+ */
+virtual int32_t getThickness(const leRectangleWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -180,8 +172,24 @@ void leRectangleWidget_Constructor(leRectangleWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set rectangle border thickness.
+ * @details Sets the rectangle border thickness to <span class="param">thk</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leRadioButtonWidget* _this;
+ * int32_t thk;
+ * leResult res = wgt->fn->setThickness(_this, thk);
+ * @endcode
+ * @param _this is the widget to modify
+ * @param thk the thickness.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setThickness(leRectangleWidget* _this,
+                              int32_t thk);
 
-
+#undef THIS_TYPE
+#endif
 
 #endif // LE_RECTANGLE_WIDGET_ENABLED
 #endif /* LEGATO_RECTANGLE_H */

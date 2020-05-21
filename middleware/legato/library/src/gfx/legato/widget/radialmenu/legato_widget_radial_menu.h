@@ -66,8 +66,8 @@ typedef void (*leRadialMenuWidget_ItemProminenceChangedEvent)(leRadialMenuWidget
 // *****************************************************************************
 // *****************************************************************************
 /**
- * @brief Used to define a radial menu widget state.
- * @details .
+ * @brief This struct represents a redial menu widget state
+ * @details Used to define the possible states of the radial menu widget.
  */
 typedef enum leRadialMenuWidgetState
 {
@@ -78,8 +78,8 @@ typedef enum leRadialMenuWidgetState
 } leRadialMenuWidgetState;
 
 /**
- * @brief Used to define a radial menu interpolation mode.
- * @details .
+ * @brief This struct represents a redial menu interpolation state.
+ * @details Used to define the possible interpolation modes for radial menu widget.
  */
 typedef enum leRadialMenuWidgetInterpolationMode
 {
@@ -89,8 +89,8 @@ typedef enum leRadialMenuWidgetInterpolationMode
 } leRadialMenuWidgetInterpolationMode;
 
 /**
- * @brief Used to define a radial menu ellipse type.
- * @details .
+ * @brief This struct represents a redial menu widget ellipse type.
+ * @details Used to define the possible ellipse types for  radial menu widget.
  */
 typedef enum leRadialMenuEllipseType
 {
@@ -109,296 +109,28 @@ typedef enum leRadialMenuEllipseType
     LE_WIDGET_VTABLE(THIS_TYPE) \
     \
     leBool    (*isProminent)(const THIS_TYPE* _this, const leWidget* widget); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult  (*setProminent)(THIS_TYPE* _this, const leWidget* widget); \
-    /**
-     * @brief Get title bar height.
-     * @details Returns the title bar height from  <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leResult res =  = wgt->fn->getCursorDelay(wgt);
-     * @endcode
-     * @param param1 wgt is the widget to query
-     * @return returns uint32_t.
-     */
     int32_t   (*getProminentIndex)(const THIS_TYPE* _this); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult  (*setProminentIndex)(THIS_TYPE* _this, int32_t index); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult  (*setNumberOfItemsShown)(THIS_TYPE* _this, uint32_t cnt); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult  (*setHighlightProminent)(THIS_TYPE* _this, leBool hl); \
-    /**
-     * @brief Get title bar height.
-     * @details Returns the title bar height from  <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leResult res =  = wgt->fn->getCursorDelay(wgt);
-     * @endcode
-     * @param param1 wgt is the widget to query
-     * @return returns uint32_t.
-     */
     int32_t   (*getTheta)(const THIS_TYPE* _this); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult  (*setTheta)(THIS_TYPE* _this, int32_t tht); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult  (*setEllipseType)(THIS_TYPE* _this, leRadialMenuEllipseType type); \
-    /**
-     * @brief Get title bar height.
-     * @details Returns the title bar height from  <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leResult res =  = wgt->fn->getCursorDelay(wgt);
-     * @endcode
-     * @param param1 wgt is the widget to query
-     * @return returns uint32_t.
-     */
     leResult  (*addWidget)(THIS_TYPE* _this, leWidget* wgt); \
-    /**
-     * @brief Get title bar height.
-     * @details Returns the title bar height from  <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leResult res =  = wgt->fn->getCursorDelay(wgt);
-     * @endcode
-     * @param param1 wgt is the widget to query
-     * @return returns uint32_t.
-     */
     leResult  (*removeWidget)(THIS_TYPE* _this, leWidget* wgt); \
-    /**
-     * @brief Get title bar height.
-     * @details Returns the title bar height from  <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leResult res =  = wgt->fn->getCursorDelay(wgt);
-     * @endcode
-     * @param param1 wgt is the widget to query
-     * @return returns uint32_t.
-     */
     leWidget* (*getWidgetAtIndex)(const THIS_TYPE* _this, int32_t idx); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult  (*setWidgetAtIndex)(THIS_TYPE* _this, int32_t idx, leWidget* wgt); \
-    /**
-     * @brief Get title bar height.
-     * @details Returns the title bar height from  <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leResult res =  = wgt->fn->getCursorDelay(wgt);
-     * @endcode
-     * @param param1 wgt is the widget to query
-     * @return returns uint32_t.
-     */
     leResult  (*removeAllWidgets)(THIS_TYPE* _this); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult  (*setScaleMode)(THIS_TYPE* _this, leRadialMenuWidgetInterpolationMode mode); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult  (*setScaleRange)(THIS_TYPE* _this, int32_t min, int32_t max); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult  (*setBlendMode)(THIS_TYPE* _this, leRadialMenuWidgetInterpolationMode mode); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult  (*setBlendRange)(THIS_TYPE* _this, int32_t min, int32_t max); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult  (*setTouchArea)(THIS_TYPE* _this, int32_t x, int32_t y, int32_t width, int32_t height); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult  (*setDrawEllipse)(THIS_TYPE* _this, leBool b); \
-    /**
-     * @brief Get title bar height.
-     * @details Returns the title bar height from  <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leResult res =  = wgt->fn->getCursorDelay(wgt);
-     * @endcode
-     * @param param1 wgt is the widget to query
-     * @return returns uint32_t.
-     */
     leRadialMenuWidget_ItemSelectedEvent (*getItemSelectedEventCallback)(const THIS_TYPE* _this); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult  (*setItemSelectedEventCallback)(THIS_TYPE* _this, leRadialMenuWidget_ItemSelectedEvent cb); \
-    /**
-     * @brief Get title bar height.
-     * @details Returns the title bar height from  <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * leResult res =  = wgt->fn->getCursorDelay(wgt);
-     * @endcode
-     * @param param1 wgt is the widget to query
-     * @return returns uint32_t.
-     */
     leRadialMenuWidget_ItemProminenceChangedEvent (*getItemProminenceChangedEventCallback)(const THIS_TYPE* _this); \
-    /**
-     * @brief Set title height.
-     * @details Sets the title height for <span style="color: #820a32"><em>wgt</em></span>.
-     * @remark This is a Virtual Member Function
-     * @code
-     * leWindowWidget* wgt;
-     * uint32_t ht;
-     * leResult res = wgt->fn->setTitleHeight(wgt, ht);
-     * @endcode
-     * @param param1 wgt is the widget to modify
-     * @return returns uint32_t.
-     */
     leResult  (*setItemProminenceChangedEventCallback)(THIS_TYPE* _this, leRadialMenuWidget_ItemProminenceChangedEvent cb); \
     
 typedef struct leRadialMenuWidgetVTable
@@ -412,8 +144,8 @@ typedef struct leRadialMenuWidgetVTable
       */
 
 /**
- * @brief Used to define a radial menu item node.
- * @details .
+ * @brief This struct represents a redial menu item node.
+ * @details Used to define the attributes of an radial menu item.
  */
 typedef struct leRadialMenuItemNode
 {
@@ -527,6 +259,9 @@ LIB_EXPORT leRadialMenuWidget* leRadialMenuWidget_New();
  */
 LIB_EXPORT void leRadialMenuWidget_Constructor(leRadialMenuWidget* wgt);
 
+#ifdef _DOXYGEN_
+#define THIS_TYPE struct leWidget
+
 // *****************************************************************************
 /* Virtual Member Function:
     leBool isProminent(const leRadialMenuWidget* _this,
@@ -548,6 +283,19 @@ LIB_EXPORT void leRadialMenuWidget_Constructor(leRadialMenuWidget* wgt);
   Returns:
     leBool - the prominent indicator
 */
+/**
+ * @brief Determine if widget is prominent.
+ * @details Determines if widget <span class="param">widget</span> is prominent using <span class="param">_this</span>.
+ * @code
+ * const leRadialMenuWidget* _this;
+ * leBool prom = _this->fn->isProminent(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual leBool isProminent(const leRadialMenuWidget* _this,
+                           const leWidget* widget);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -570,6 +318,21 @@ LIB_EXPORT void leRadialMenuWidget_Constructor(leRadialMenuWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set widget as prominent.
+ * @details Sets a widget <span class="param">widget</span> as
+ * prominent using <span class="param">_this</span>.
+ * @code
+ * const leRadialMenuWidget* _this;
+ * leWidget* widget;
+ * leResult res = _this->fn->setProminent(_this, widget);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual leResult setProminent(leRadialMenuWidget* _this,
+                              const leWidget* widget);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -590,6 +353,17 @@ LIB_EXPORT void leRadialMenuWidget_Constructor(leRadialMenuWidget* wgt);
   Returns:
     int32_t - the prominent index
 */
+/**
+ * @brief Get prominent item index.
+ * @details Gets the prominent item index using <span class="param">_this</span>.
+ * @code
+ * const leRadialMenuWidget* _this;
+ * leBool prom = _this->fn->getProminentIndex(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns the prominent index;
+ */
+virtual int32_t getProminentIndex(const leRadialMenuWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -612,6 +386,20 @@ LIB_EXPORT void leRadialMenuWidget_Constructor(leRadialMenuWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set prominent item index.
+ * @details Sets the prominent item at index <span class="param">index</span> as
+ * prominent using <span class="param">_this</span>.
+ * @code
+ * const leRadialMenuWidget* _this;
+ * int32_t index;
+ * leResult res = _this->fn->setProminentIndex(_this, index);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual leResult setProminentIndex(leRadialMenuWidget* _this,
+                                   int32_t index);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -656,6 +444,20 @@ LIB_EXPORT void leRadialMenuWidget_Constructor(leRadialMenuWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set highlight prominent setting value.
+ * @details Sets the highlight prominent setting value to
+ *  <span class="param">hl</span> using <span class="param">_this</span>.
+ * @code
+ * const leRadialMenuWidget* _this;
+ * leBool hl;
+ * leResult res = _this->fn->setHighlightProminent(_this, hl);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual leResult setHighlightProminent(leRadialMenuWidget* _this,
+                                       leBool hl);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -676,6 +478,17 @@ LIB_EXPORT void leRadialMenuWidget_Constructor(leRadialMenuWidget* wgt);
   Returns:
     int32_t - the theta value
 */
+/**
+ * @brief Get menu ellipse rotation coefficient.
+ * @details Gets the menu ellipse rotation coefficient using <span class="param">_this</span>.
+ * @code
+ * const leRadialMenuWidget* _this;
+ * int32_t theta = _this->fn->getTheta(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns the theta value;
+ */
+virtual int32_t getTheta(const leRadialMenuWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -698,6 +511,20 @@ LIB_EXPORT void leRadialMenuWidget_Constructor(leRadialMenuWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set menu ellipse rotation coefficient.
+ * @details Sets the menu ellipse rotation coefficient to
+ *  <span class="param">tht</span> using <span class="param">_this</span>.
+ * @code
+ * const leRadialMenuWidget* _this;
+ * int32_t tht;
+ * leResult res = _this->fn->setTheta(_this, tht);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual leResult setTheta(leRadialMenuWidget* _this,
+                          int32_t tht);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -720,6 +547,20 @@ LIB_EXPORT void leRadialMenuWidget_Constructor(leRadialMenuWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set menu ellipse type.
+ * @details Sets the menu ellipse type to
+ *  <span class="param">type</span> using <span class="param">_this</span>.
+ * @code
+ * const leRadialMenuWidget* _this;
+ * leRadialMenuEllipseType type;
+ * leResult res = _this->fn->setEllipseType(_this, type);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual leResult setEllipseType(leRadialMenuWidget* _this,
+                                leRadialMenuEllipseType type);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -742,6 +583,20 @@ LIB_EXPORT void leRadialMenuWidget_Constructor(leRadialMenuWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Add widget to the ellipse.
+ * @details Adds a widget <span class="param">wgt</span> to the ellipse
+ *  using <span class="param">_this</span>.
+ * @code
+ * const leRadialMenuWidget* _this;
+ * leWidget* wgt;
+ * leResult res = _this->fn->addWidget(_this, wgt);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual leResult addWidget(leRadialMenuWidget* _this,
+                           leWidget* wgt);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -764,6 +619,20 @@ LIB_EXPORT void leRadialMenuWidget_Constructor(leRadialMenuWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Remove widget to the ellipse.
+ * @details Removes a widget <span class="param">wgt</span> to the ellipse
+ *  using <span class="param">_this</span>.
+ * @code
+ * const leRadialMenuWidget* _this;
+ * leWidget* wgt;
+ * leResult res = _this->fn->addWidget(_this, wgt);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual leResult removeWidget(leRadialMenuWidget* _this,
+                              leWidget* wgt);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -786,6 +655,19 @@ LIB_EXPORT void leRadialMenuWidget_Constructor(leRadialMenuWidget* wgt);
   Returns:
     leWidget* - the widget
 */
+/**
+ * @brief Get widget at a given index.
+ * @details Gets the widget at <span class="param">idx</span> using <span class="param">_this</span>.
+ * @code
+ * const leRadialMenuWidget* _this;
+ * int32_t idx;
+ * int32_t theta = _this->fn->getWidgetAtIndex(_this, idx);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns the widget;
+ */
+virtual leWidget* getWidgetAtIndex(const leRadialMenuWidget* _this,
+                                   int32_t idx);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -810,6 +692,22 @@ LIB_EXPORT void leRadialMenuWidget_Constructor(leRadialMenuWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set widget at a given index.
+ * @details Sets a widget <span class="param">wgt</span> at a given
+ * index <span class="param">idx</span>
+ *  using <span class="param">_this</span>.
+ * @code
+ * const leRadialMenuWidget* _this;
+ * leWidget* wgt;
+ * leResult res = _this->fn->setWidgetAtIndex(_this, idx, wgt);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual leResult setWidgetAtIndex(leRadialMenuWidget* _this,
+                                  int32_t idx,
+                                  leWidget* wgt);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -830,6 +728,18 @@ LIB_EXPORT void leRadialMenuWidget_Constructor(leRadialMenuWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Removes all widgets from the menu.
+ * @details Remove all widgets from the menu using <span class="param">_this</span>.
+ * @code
+ * const leRadialMenuWidget* _this;
+ * leWidget* wgt;
+ * leResult res = _this->fn->removeAllWidgets(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual leResult removeAllWidgets(leRadialMenuWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -852,6 +762,20 @@ LIB_EXPORT void leRadialMenuWidget_Constructor(leRadialMenuWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Sets menu item scaling mode.
+ * @details Set all menu item to scaling mode <span class="param">mode</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * const leRadialMenuWidget* _this;
+ * leRadialMenuWidgetInterpolationMode mode;
+ * leResult res = _this->fn->setScaleMode(_this, mode);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual leResult setScaleMode(leRadialMenuWidget* _this,
+                              leRadialMenuWidgetInterpolationMode mode);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -876,6 +800,22 @@ LIB_EXPORT void leRadialMenuWidget_Constructor(leRadialMenuWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Sets scale range for menu items.
+ * @details Sets the scale range for menu items from <span class="param">min</span>
+ * to <span class="param">max</span> using <span class="param">_this</span>.
+ * @code
+ * const leRadialMenuWidget* _this;
+ * int32_t min;
+ * int32_t max;
+ * leResult res = _this->fn->setScaleRange(_this, min, max);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual leResult setScaleRange(leRadialMenuWidget* _this,
+                               int32_t min,
+                               int32_t max);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -898,6 +838,21 @@ LIB_EXPORT void leRadialMenuWidget_Constructor(leRadialMenuWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Sets menu item blending mode.
+ * @details Sets the menu item blending mode to <span class="param">mode</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * const leRadialMenuWidget* _this;
+ * leRadialMenuWidgetInterpolationMode mode;
+ * int32_t max;
+ * leResult res = _this->fn->setBlendMode(_this, mode);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual leResult setBlendMode(leRadialMenuWidget* _this,
+                              leRadialMenuWidgetInterpolationMode mode);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -922,6 +877,23 @@ LIB_EXPORT void leRadialMenuWidget_Constructor(leRadialMenuWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Sets blending range.
+ * @details Sets the blending range from <span class="param">min</span>
+ * to <span class="param">max</span> using <span class="param">_this</span>.
+ * @code
+ * const leRadialMenuWidget* _this;
+ * leRadialMenuWidgetInterpolationMode mode;
+ * int32_t min;
+ * int32_t max;
+ * leResult res = _this->fn->setBlendRange(_this, min, max);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual leResult setBlendRange(leRadialMenuWidget* _this,
+                               int32_t min,
+                               int32_t max);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -950,6 +922,25 @@ LIB_EXPORT void leRadialMenuWidget_Constructor(leRadialMenuWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Sets menu touch area.
+ * @details Sets the menu touch area bounded by <span class="param">x</span>
+ * and <span class="param">y</span> to <span class="param">width</span> and
+ * <span class="param">height</span> using <span class="param">_this</span>.
+ * @code
+ * const leRadialMenuWidget* _this;
+ * leRadialMenuWidgetInterpolationMode mode;
+ * int32_t x, y, width, height;
+ * leResult res = _this->fn->setTouchArea(_this, x, y, width, height);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual leResult setTouchArea(leRadialMenuWidget* _this,
+                              int32_t x,
+                              int32_t y,
+                              int32_t width,
+                              int32_t height);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -972,6 +963,20 @@ LIB_EXPORT void leRadialMenuWidget_Constructor(leRadialMenuWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Sets draw ellipse setting value.
+ * @details Sets the draw ellipse setting value to <span class="param">b</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * const leRadialMenuWidget* _this;
+ * leBool b;
+ * leResult res = _this->fn->setDrawEllipse(_this, b);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual leResult setDrawEllipse(leRadialMenuWidget* _this,
+                                leBool b);
 
 /**
  * @brief Get item prominence changed event callback pointer.

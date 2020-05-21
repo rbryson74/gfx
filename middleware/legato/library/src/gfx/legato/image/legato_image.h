@@ -63,7 +63,7 @@ typedef struct lePalette lePalette;
 */
 /**
  * @brief This enum represents an image format.
- * @details Image format is used to indicate various support encodings.
+ * @details Image format is used to list supported image encodings.
  */
 typedef enum leImageFormat
 {
@@ -228,7 +228,12 @@ typedef struct leImage
  * @code
  * leResult res = leImage_Create();
  * @endcode
- * @param  void.
+ * @param img the image object to initialize
+ * @param width the width of the image
+ * @param height the height of the image
+ * @param mode the color mode of the image
+ * @param data the data address of the image
+ * @param locationID the location ID of the image
  * @return LE_SUCCESS if set, otherwise LE_FAILURE.
  */
 LIB_EXPORT leResult leImage_Create(leImage* img,
@@ -274,11 +279,10 @@ LIB_EXPORT leResult leImage_Create(leImage* img,
  * leColorMode mode;
  * leImage* img = leImage_Allocate();
  * @endcode
- * @param width.
- * @param height;
- * @param mode;
- * @return a valid image or null if there wasn't enough memory for the
-               allocation
+ * @param width the width of the image in pixels
+ * @param height the height of the image in pixels
+ * @param mode the color mode of the image
+ * @return a valid image or null if there wasn't enough memory for the allocation
  */
 LIB_EXPORT leImage* leImage_Allocate(uint32_t width,
                                      uint32_t height,
@@ -303,13 +307,13 @@ LIB_EXPORT leImage* leImage_Allocate(uint32_t width,
 */
 /**
  * @brief Free image buffer.
- * @details Frees an image buffer <span class="param">mimgde</span>.
+ * @details Frees an image buffer <span class="param">img</span>.
  * @remark Buffer must be allocated using leImage_Allocate.
  * @code
  * leImage* img;
  * leResult res = leImage_Free(img);
  * @endcode
- * @param void.
+ * @param img the image to free
  * @return LE_SUCCESS if set, otherwise LE_FAILURE.
  */
 LIB_EXPORT leResult leImage_Free(leImage* img);
@@ -452,11 +456,10 @@ LIB_EXPORT leResult leImage_Draw(const leImage* img,
 */
 /**
  * @brief Resize image.
- * @details Resizes source image <span class="param">src</span> to
+ * @details Resizes the source image <span class="param">src</span> to
  * destination image <span class="param">dst</span>
  * to location <span class="param">x</span> and <span class="param">y</span>.
  * using the specified  filter <span class="param">mode</span>.
- * @remark This is a Virtual Member Function
  * @code
  * leImage * src;
  * leResult res = leImage_Resize(src);
@@ -496,14 +499,13 @@ LIB_EXPORT leResult leImage_Resize(const leImage* src,
 */
 /**
  * @brief Resize draw image.
- * @details Resizes source image <span class="param">src</span> to
+ * @details Resizes the source image <span class="param">src</span> to
  * destination image <span class="param">dst</span>
  * to location <span class="param">x</span> and <span class="param">y</span>.
  * using the specified  filter <span class="param">mode</span>.
- * @remark This is a Virtual Member Function
  * @code
  * leImage * src;
- * leResult res = fnptr->resizeDraw(src);
+ * leResult res = fnptr->resizeDraw(src, sourceRect, mode, sizeX, sizeY, x, y, a);
  * @endcode
  * @param src is the image to resize.
  * @return LE_SUCCESS if set, otherwise LE_FAILURE.
@@ -544,9 +546,13 @@ LIB_EXPORT leResult leImage_ResizeDraw(const leImage* src,
  * <span class="param">srcRect</span> to location
  * <span class="param">x</span> and <span class="param">y</span>.
  * @code
- * leResult res = leImage_Copy(img);
+ * leResult res = leImage_Copy(src, sourceRect, x, y, dst);
  * @endcode
- * @param img is the image to copy.
+ * @param src pointer to source image asset to draw
+ * @param sourceRect the source rectangle of the image to decode
+ * @param x the x position
+ * @param y the y position
+ * @param dst the destination image to fill
  * @return LE_SUCCESS if set, otherwise LE_FAILURE.
  */
 LIB_EXPORT leResult leImage_Copy(const leImage* src,
@@ -590,12 +596,17 @@ LIB_EXPORT leResult leImage_Copy(const leImage* src,
  * The flag <span class="param">ignoreMask</span> determines if the masking color should
  * be performed. The flag <span class="param">ignoreAlpha</span> determines
  * if the alpha blending is performed.
- * @remark This is a Virtual Member Function
  * @code
  * leImage * src;
  * leResult res = leImage_Render(src);
  * @endcode
  * @param src is the image to render.
+ * @param sourceRect the source rectangle
+ * @param x the x position
+ * @param y the y position
+ * @param ignoreMask set to true to skip the mask stage for the source image
+ * @param ignoreAlpha the destination image to fill
+ * @param dst  set to true to skip the blend stage for the source image
  * @return LE_SUCCESS if set, otherwise LE_FAILURE.
  */
 LIB_EXPORT leResult leImage_Render(const leImage* src,
@@ -644,7 +655,12 @@ LIB_EXPORT leResult leImage_Render(const leImage* src,
  * leImage * fnptr;
  * leResult res = leImage_Rotate(src);
  * @endcode
- * @param src is the image to resize.
+ * @param src is the image to render.
+ * @param sourceRect the source rectangle
+ * @param mode the x position
+ * @param origin the y position
+ * @param angle set to true to skip the mask stage for the source image
+ * @param dst the destination image to fill
  * @return LE_SUCCESS if set, otherwise LE_FAILURE.
  */
 LIB_EXPORT leResult leImage_Rotate(const leImage* src,
@@ -696,7 +712,14 @@ LIB_EXPORT leResult leImage_Rotate(const leImage* src,
  * leImage * src;
  * leResult res = leImage_RotateDraw(src);
  * @endcode
- * @param src is the image to resize.
+ * @param src is the image to render.
+ * @param sourceRect the source rectangle
+ * @param mode the x position
+ * @param origin the y position
+ * @param angle set to true to skip the mask stage for the source image
+ * @param x the destination image to fill
+ * @param y is the image to resize.
+ * @param a the alpha value to use
  * @return LE_SUCCESS if set, otherwise LE_FAILURE.
  */
 LIB_EXPORT leResult leImage_RotateDraw(const leImage* src,

@@ -79,7 +79,7 @@ typedef struct leRadioButtonWidget leRadioButtonWidget;
         
 */
 /**
- * @brief Used to define radio button group.
+ * @brief This struct represents radio button group.
  * @details Defines the parameters required for a Radio Button
  * group. Marks the current selected Radio button within the group.
  */
@@ -118,7 +118,7 @@ typedef struct leRadioButtonGroup
 */
 /**
  * @brief Initialize widget.
- * @details Initializes <span style="color: #820a32"><em>wgt</em></span>.
+ * @details Initializes <span class="param">wgt</span>.
  * @code
  * leRadioButtonGroup** wgt;
  * leResult res = leRadioButtonGroup_Create(wgt);
@@ -147,7 +147,7 @@ LIB_EXPORT leResult leRadioButtonGroup_Create(leRadioButtonGroup** grp);
 */
 /**
  * @brief Initialize widget.
- * @details Initializes <span style="color: #820a32"><em>wgt</em></span>.
+ * @details Initializes <span class="param">wgt</span>.
  * @code
  * leRadioButtonGroup** grp;
  * leRadioButtonGroup_Destroy(grp);
@@ -179,7 +179,7 @@ LIB_EXPORT void leRadioButtonGroup_Destroy(leRadioButtonGroup* grp);
 */
 /**
  * @brief Initialize widget.
- * @details Initializes <span style="color: #820a32"><em>wgt</em></span>.
+ * @details Initializes <span class="param">wgt</span>.
  * @code
  * leRadioButtonGroup** grp;
  * leResult res = leRadioButtonGroup_AddButton(grp);
@@ -211,7 +211,7 @@ LIB_EXPORT leResult leRadioButtonGroup_AddButton(leRadioButtonGroup* grp,leRadio
 */
 /**
  * @brief Initialize widget.
- * @details Initializes <span style="color: #820a32"><em>wgt</em></span>.
+ * @details Initializes <span class="param">wgt</span>.
  * @code
  * leRadioButtonGroup** grp;
  * leResult res = leRadioButtonGroup_RemoveButton(grp);
@@ -244,7 +244,7 @@ LIB_EXPORT leResult leRadioButtonGroup_RemoveButton(leRadioButtonGroup* grp,
 */
 /**
  * @brief Initialize widget.
- * @details Initializes <span style="color: #820a32"><em>wgt</em></span>.
+ * @details Initializes <span class="param">wgt</span>.
  * @code
  * leRadioButtonGroup** grp;
  * leRadioButtonWidget* btn;

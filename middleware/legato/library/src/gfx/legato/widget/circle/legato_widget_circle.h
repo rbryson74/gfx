@@ -174,7 +174,7 @@ virtual lePoint getOrigin(const leCheckBoxWidget* _this);
 /**
  * @brief Set circle origin.
  * @details Sets the circle origin to
- * <span class="param">y</span> using <span class="param">_this</span>.
+ * <span class="param">org</span> using <span class="param">_this</span>.
  * @code
  * leCircleWidget* _this;
  * const lePoint org;
@@ -206,7 +206,7 @@ virtual int32_t getOriginX(const leCheckBoxWidget* _this);
 /**
  * @brief Set X value of the circle origin.
  * @details Sets the X value of the circle origin to
- * <span class="param">y</span> using <span class="param">_this</span>.
+ * <span class="param">x</span> using <span class="param">_this</span>.
  * @code
  * leCircleWidget* _this;
  * int32_t x;
@@ -276,7 +276,7 @@ virtual uint32_t getRadius(const leCircleWidget* _this);
  * leResult res = _this->fn->setRadius(_this, rad);
  * @endcode
  * @param _this is the widget pointer to modify.
- * @param thk the circle radius.
+ * @param rad the circle radius.
  * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
  */
 virtual leResult setRadius(leCircleWidget* _this,
@@ -321,7 +321,7 @@ virtual leResult setThickness(leCircleWidget* _this,
  * @details Gets the filled setting using <span class="param">_this</span>.
  * @code
  * const leCircleWidget* _this;
- * leBool filled = _this->fn->getThickness(_this);
+ * leBool filled = _this->fn->getFilled(_this);
  * @endcode
  * @param _this is the widget pointer to query.
  * @returns LE_TRUE if set, otherwise LE_FALSE.

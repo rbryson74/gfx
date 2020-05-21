@@ -62,8 +62,9 @@
     colorMode - the color mode of the image
 */
 /**
- * @brief Used to describe a palette asset.
- * @details
+ * @brief This struct represents a palette asset.
+ * @details A palette is a lookup table for unique colors. Given in an index, a color
+ * can be retrieved.
  */
 typedef struct lePalette
 {
@@ -88,16 +89,16 @@ typedef struct lePalette
     leColor - the color that was retrieved
 */
 /**
- * @brief Gets a color from a palette.
- * @details Returns a color from <span style="color: #820a32"><em>pal</em></span>
- * at <span style="color: #820a32"><em>idx</em></span>.
+ * @brief Get color from a palette.
+ * @details Gets a color from <span class="param">pal</span>
+ * at <span class="param">idx</span>.
  * @code
  * lePalette * pal;
  * uint32_t idx;
  * leColor color = leColorValue(pal, idx);
  * @endcode
- * @param param1 pal is a color palatte.
- * @param param2 idx is the location of the color
+ * @param pal is a color palatte.
+ * @param idx is the location of the color
  * @return leColor.
  */
 leColor lePalette_GetColor(lePalette* pal, uint32_t idx);

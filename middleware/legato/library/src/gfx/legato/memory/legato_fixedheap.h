@@ -59,8 +59,8 @@
     uint32_t checksum - the block checksum
 */
 /**
- * @brief leFixedHeapDebugHeader.
- * @details Defines a fixed heap block debug header
+ * @brief This struct represents a fixed heap debug header
+ * @details Used to debug fixed heap memory allocation
  */
 
 typedef struct leFixedHeapDebugHeader
@@ -88,8 +88,8 @@ typedef struct leFixedHeapDebugHeader
                  pointer to free blocks
 */
 /**
- * @brief leFixedHeapBlock.
- * @details Defines a fixed heap block
+ * @brief This struct represents a fixed heap block
+ * @details Defines a fixed heap block.
  */
 typedef struct leFixedHeapBlock
 {
@@ -116,7 +116,7 @@ typedef struct leFixedHeapBlock
     void* freeList - pointer to the next free block
 */
 /**
- * @brief leFixedHeap.
+ * @brief This struct represents a fixed heap.
  * @details Defines a fixed heap object
  */
 typedef struct leFixedHeap
@@ -167,7 +167,7 @@ typedef struct leFixedHeap
  * leResult res = leFixedHeap_Init(heap, size, count, data);
  * @endcode
  * @param heap is the fixed heap to scan.
- * @return void.
+ * @return LE_SUCCESS if set, otherwise LE_FAILURE.
  */
 leResult leFixedHeap_Init(leFixedHeap* heap,
                           uint32_t size,
@@ -277,7 +277,7 @@ void* leFixedHeap_Alloc(leFixedHeap* heap,
  * @details Allocates a block from the fixed heap <span class="param">heap</span>.
  * @code
  * leFixedHeap* heap;
- * void * block = leFixedHeap_Alloc(heap, ptr);
+ * void * block = leFixedHeap_Alloc(heap);
  * @endcode
  * @param heap is the fixed heap to scan.
  * @return allocated block.

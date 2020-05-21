@@ -66,6 +66,10 @@
   Summary:
     The value axis index value
 */
+/**
+  * @brief This enum represents a bar graph value axis.
+  * @details A bar graph value axis is used to define supported axis values.
+  */
 typedef enum leBarGraphValueAxis
 {
     BAR_GRAPH_AXIS_0 = 0,
@@ -79,6 +83,11 @@ typedef enum leBarGraphValueAxis
   Summary:
     The tick position relative to axis
 */
+/**
+  * @brief This enum represents a bar graph tick position.
+  * @details A bar graph tick position is used to define
+  * supported tick positions.
+  */
 typedef enum leBarGraphTickPosition
 {
     BAR_GRAPH_TICK_IN,
@@ -99,6 +108,11 @@ typedef enum leBarGraphTickPosition
   Remarks:
     None.
 */
+/**
+  * @brief This enum represents a bar graph data series.
+  * @details A bar graph data series is used to define
+  * series properties.
+  */
 typedef struct leBarGraphDataSeries
 {
     const leScheme* scheme;

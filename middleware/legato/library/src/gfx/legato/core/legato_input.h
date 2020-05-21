@@ -297,8 +297,8 @@ void leInput_Shutdown();
  * @code
  * leBool status = leInput_GetEnabled();
  * @endcode
- * @param param1 void.
- * @return true if input is enabled, otherwise false.
+ * @param void.
+ * @return LE_TRUE if input is enabled, otherwise LE_FALSE.
  */
 LIB_EXPORT leBool leInput_GetEnabled();
 
@@ -323,13 +323,13 @@ LIB_EXPORT leBool leInput_GetEnabled();
 */
 /**
  * @brief Set input enabled status.
- * @details Sets the input status of the current context to <span style="color: #820a32"><em>enable</em></span>.
+ * @details Sets the input status of the current context to <span class="param">enable</span>.
  * @code
  * leBool enable = true;
  * leResult res = leInput_SetEnabled(enable);
  * @endcode
- * @param param1 leBool.
- * @return leResult.
+ * @param enable the new status.
+ * @return LE_SUCCESS if set, otherwise LE_FAILURE.
  */
 LIB_EXPORT leResult leInput_SetEnabled(leBool enable);
 
@@ -355,14 +355,17 @@ LIB_EXPORT leResult leInput_SetEnabled(leBool enable);
     
 */
 /**
- * @brief Register and track the touch down events
- * @details Sets the input status of the current context to <span style="color: #820a32"><em>enable</em></span>.
+ * @brief Inject touch down event.
+ * @details Injects a touch down event for <span class="param">id</span>
+ * at location <span class="param">x</span>, <span class="param">y</span>.
  * @code
  * leBool enable = true;
  * leResult res = leInput_InjectTouchDown(id, x, y);
  * @endcode
- * @param param1 id is the .
- * @return leResult.
+ * @param id is the touch input id.
+ * @param x is the x coordinate.
+ * @param y is the y coordinate.
+ * @return LE_SUCCESS if set, otherwise LE_FAILURE.
  */
 LIB_EXPORT leResult leInput_InjectTouchDown(uint32_t id, int32_t x, int32_t y);
 
@@ -387,6 +390,19 @@ LIB_EXPORT leResult leInput_InjectTouchDown(uint32_t id, int32_t x, int32_t y);
   Remarks:
     
 */
+/**
+ * @brief Inject touch up event.
+ * @details Injects a touch up event for <span class="param">id</span>
+ * at location <span class="param">x</span>, <span class="param">y</span>.
+ * @code
+ * leBool enable = true;
+ * leResult res = leInput_InjectTouchDown(id, x, y);
+ * @endcode
+ * @param id is the touch input id.
+ * @param x is the x coordinate.
+ * @param y is the y coordinate.
+ * @return LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
 LIB_EXPORT leResult leInput_InjectTouchUp(uint32_t id, int32_t x, int32_t y);
 
 // *****************************************************************************
@@ -410,9 +426,26 @@ LIB_EXPORT leResult leInput_InjectTouchUp(uint32_t id, int32_t x, int32_t y);
   Remarks:
     
 */
+/**
+ * @brief Inject touch moved event.
+ * @details Injects a touch moved event for <span class="param">id</span>
+ * at location <span class="param">x</span>, <span class="param">y</span>.
+ * @code
+ * leBool enable = true;
+ * leResult res = leInput_InjectTouchDown(id, x, y);
+ * @endcode
+ * @param id is the touch input id.
+ * @param x is the x coordinate.
+ * @param y is the y coordinate.
+ * @return LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
 LIB_EXPORT leResult leInput_InjectTouchMoved(uint32_t id, int32_t x, int32_t y);
 
-// DOM-IGNORE-BEGIN
+/* internal use only */
+/**
+  * @cond INTERNAL
+  *
+  */
 // alternative input APIs (not yet implemented)
 
 /*
@@ -426,5 +459,9 @@ LIB_EXPORT leResult leInput_InjectMouseButtonUp(leMouseButton button);
 LIB_EXPORT leResult leInput_InjectMouseMoved(int32_t x, int32_t y);*/
 
 leEventResult _leInput_HandleInputEvent(leEvent* evt);
-// DOM-IGNORE-END
+/**
+  * @endcond
+  *
+  */
+
 #endif /* LEGATO_INPUT_H */

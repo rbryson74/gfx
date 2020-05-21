@@ -35,12 +35,14 @@
   Summary:
     File containing various memory-related constructs.
 *******************************************************************************/
-
-// DOM-IGNORE-BEGIN
+/** \file legato_memory.h
+ * @brief Memory functions and definitions.
+ *
+ * @details File containing various memory-related constructs.
+ */
 
 #ifndef LEGATO_MEMORY_H
 #define LEGATO_MEMORY_H
-//DOM-IGNORE-END
 
 #include "gfx/legato/common/legato_common.h"
 

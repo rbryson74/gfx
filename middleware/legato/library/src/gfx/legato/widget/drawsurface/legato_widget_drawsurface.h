@@ -61,6 +61,11 @@ typedef struct leDrawSurfaceWidget leDrawSurfaceWidget;
   Summary:
     Draw surface draw event function callback type
 */
+/**
+ * @brief This function represents a draw callback.
+ * @details Draw callback is used indicate a draw changed event.
+ * @details .
+ */
 typedef leBool (*leDrawSurfaceWidget_DrawCallback)(leDrawSurfaceWidget* sfc,
                                                    leRect* bounds);
 

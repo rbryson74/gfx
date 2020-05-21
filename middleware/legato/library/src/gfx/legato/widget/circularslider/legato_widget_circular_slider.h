@@ -71,6 +71,11 @@
   Remarks:
     None.
 */
+/**
+  * @brief This enum represents circular slider button state.
+  * @details A circular slider button state is used to define possible
+  * button states.
+  */
 typedef enum leCircularSliderButtonState
 {
     LE_CIRCULAR_SLIDER_STATE_UP,
@@ -90,6 +95,11 @@ typedef enum leCircularSliderButtonState
   Remarks:
     None.
 */
+/**
+  * @brief This enum represents circular slider widget arc type.
+  * @details A circular slider widget arc type is used to define
+  * arcs that compose the circular slider.
+  */
 typedef enum leCircularSliderWidgetArcType
 {
     OUTSIDE_CIRCLE_BORDER,
@@ -112,6 +122,11 @@ typedef enum leCircularSliderWidgetArcType
   Remarks:
     None.
 */
+/**
+  * @brief This enum represents circular gauge widget.
+  * @details A circular slider widget arc type is used to define
+  * describs the arc instances in the circular gauge widget.
+  */
 typedef struct leCircularSliderArc
 {
     leBool visible;
@@ -131,6 +146,11 @@ typedef struct leCircularSliderWidget leCircularSliderWidget;
   Summary:
     Button pressed event function callback type
 */
+/**
+ * @brief This function represents a circular slider widget press callback.
+ * @details Press callback is used indicate a press event.
+ * @details .
+ */
 typedef void (*leCircularSliderWidget_PressedEvent)(leCircularSliderWidget *, int32_t);
 
 // *****************************************************************************
@@ -140,6 +160,11 @@ typedef void (*leCircularSliderWidget_PressedEvent)(leCircularSliderWidget *, in
   Summary:
     Value changed event function callback type
 */
+/**
+ * @brief This function represents a circular slider widget value changed callback.
+ * @details Value changed callback is used indicate a value changed event.
+ * @details .
+ */
 typedef void (*leCircularSliderWidget_ValueChangedEvent)(leCircularSliderWidget *, int32_t);
 
 // *****************************************************************************
@@ -149,6 +174,11 @@ typedef void (*leCircularSliderWidget_ValueChangedEvent)(leCircularSliderWidget 
   Summary:
     Button released event function callback type
 */
+/**
+ * @brief This function represents a release callback.
+ * @details Release callback is used indicate a release event.
+ * @details .
+ */
 typedef void (*leCircularSliderWidget_ReleasedEvent)(leCircularSliderWidget *, int32_t);
 
 /* internal use only */
@@ -480,8 +510,7 @@ virtual leBool getArcVisible(const leCircularSliderWidget* _this,
 * @code
 * leCircularSliderWidget* _this;
 * leCircularSliderWidgetArcType type;
-* leBool vis;
-* leResult res = _this->fn->setArcVisible(_this, type, vis);
+* leResult res = _this->fn->setArcVisible(_this, type);
 * @endcode
 * @param _this is the widget pointer to modify.
 * @param type the type to modify
@@ -574,7 +603,7 @@ virtual leBool getRoundEdges(const leCircularSliderWidget* _this);
  * @code
  * const leCircularSliderWidget* _this;
  * leBool rnd;
- * leResult res = _this->fn->setEndValue(_this, val);
+ * leResult res = _this->fn->setRoundEdges(_this, rnd);
  * @endcode
  * @param _this is the widget pointer to query.
  * @param rnd is the setting.
@@ -606,7 +635,7 @@ virtual leBool getStickyButton(const leCircularSliderWidget* _this);
  * @code
  * const leCircularSliderWidget* _this;
  * leBool stk;
- * leResult res = _this->fn->setEndValue(_this, stk);
+ * leResult res = _this->fn->setStickyButton(_this, stk);
  * @endcode
  * @param _this is the widget pointer to query.
  * @param stk is the setting.
@@ -653,7 +682,7 @@ virtual leResult setTouchOnButtonOnly(leCircularSliderWidget* _this,
  * @details Gets current direction using <span class="param">_this</span>.
  * @code
  * const leCircularSliderWidget* _this;
- * leRotationDirection dir = _this->fn->getTouchOnButtonOnly(_this);
+ * leRotationDirection dir = _this->fn->getDirection(_this);
  * @endcode
  * @param _this is the widget pointer to query.
  * @returns current direction.
@@ -669,7 +698,7 @@ virtual leRotationDirection getDirection(const leCircularSliderWidget* _this);
  * @code
  * const leCircularSliderWidget* _this;
  * leRotationDirection dir;
- * leResult tch = _this->fn->setTouchOnButtonOnly(_this, dir);
+ * leResult tch = _this->fn->setDirection(_this, dir);
  * @endcode
  * @param _this is the widget pointer to query.
  * @param dir is the setting.

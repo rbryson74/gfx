@@ -52,7 +52,7 @@
 // *****************************************************************************
 /**
  * @brief This enum represents a font.
- * @details Font are either standard or antialized.
+ * @details This is used to provide possible font types either standard or antialized.
  */
 typedef enum leFontBPP
 {
@@ -82,7 +82,7 @@ typedef enum leFontBPP
 */
 /**
  * @brief This struct represents a font glyph.
- * @details A glyph is an individual character of a font. Each glyph contains
+ * @details This is used describe a individual character of a font. Each glyph contains
  * kerning data and options unique to itself. This data is used for proper glyph
  * positioning when rendering text.
  */
@@ -176,8 +176,7 @@ typedef struct leRasterFont
 // *****************************************************************************
 /**
  * @brief This function type represents draw complete function callback.
- * @details When called, the draw complete function callback indicates that a
- * font stream has finished decoding.
+ * @details Draw complete callback is used to indicate when a font draw has completed.
  */
 typedef void (*leFontStream_DrawCompleteFn)(uint32_t codepoint);
 
@@ -208,7 +207,7 @@ typedef void (*leFontStream_DrawCompleteFn)(uint32_t codepoint);
     leFontStream_DrawCompleteFn cb - callback that indicates when the stream has finished a particular code point
 */
 /**
- * @brief This struct represents a font stream..
+ * @brief This struct represents a font stream.
  * @details A font stream is used to stream and render font glyph data.
  */
 typedef struct leFontStream
@@ -269,9 +268,9 @@ LIB_EXPORT extern leRasterFont LiberationMono8;
 */
 /**
  * @brief Get glyph info.
- * @details Get glyph info for <span class="param">glyph</span> by
+ * @details Get glyph info <span class="param">glyph</span> by
  *  <span class="param">fnt</span> and
- * <span class="param">codepoint</span>..
+ * <span class="param">codepoint</span>.
  * @code
  * uint32_t lessor = leFont_GetGlyphInfo(fnt, codepoint, glyph);
  * @endcode
@@ -302,7 +301,7 @@ leResult leFont_GetGlyphInfo(const leFont* fnt,
 */
 /**
  * @brief Get glyph rectangle.
- * @details Gets a glyph rectangle <span class="param">rect</span> using
+ * @details Gets a glyph rectangle <span class="param">rect</span> by
  * <span class="param">glyph</span>.
  * @code
  * leFontGlyph* glyph;
@@ -339,8 +338,10 @@ leResult leFont_GetGlyphRect(const leFontGlyph* glyph,
   Remarks:
 */
 /**
- * @brief Drawn uknown glyph.
- * @details Draws the 'unknown glyph' symbol.
+ * @brief Drawn unknown glyph.
+ * @details Draws the 'unknown glyph' <span class="param">glyph</span>
+ * to location <span class="param">x</span>, <span class="param">y</span>
+ * with color <span class="param">clr</span> and alpha <span class="param">a</span>.
  * @code
  * leResult res = leFont_DrawUnknownGlyph(x, y, glyph, clr, a);
  * @endcode
@@ -383,7 +384,9 @@ void leFont_DrawUnknownGlyph(int32_t x,
 */
 /**
  * @brief Draws a glyph.
- * @details Draws a glyph.
+ * @details Draws a glyph <span class="param">glyph</span>
+ * to location <span class="param">x</span>, <span class="param">y</span>
+ * with color <span class="param">clr</span> and alpha <span class="param">a</span>.
  * @code
  * leResult res = leFont_DrawGlyph(x, y, glyph, clr, a);
  * @endcode
@@ -391,7 +394,7 @@ void leFont_DrawUnknownGlyph(int32_t x,
  * @param y the screen y location to draw
  * @param glyph the glyph kerning information
  * @param clr the glyph render color
- * @param a  global alpha value to apply
+ * @param a global alpha value to apply
  * @return LE_SUCCESS if set, otherwise LE_FAILURE.
  */
 leResult leFont_DrawGlyph(const leFont* fnt,
@@ -429,7 +432,9 @@ leResult leFont_DrawGlyph(const leFont* fnt,
 */
 /**
  * @brief Draws a glyph.
- * @details Draws a glyph.
+ * @details Draws a glyph <span class="param">glyph</span> from <span class="param">data</span>
+ * to location <span class="param">x</span>, <span class="param">y</span>
+ * with color <span class="param">clr</span> and alpha <span class="param">a</span>.
  * @code
  * leResult res = leFont_DrawGlyphData(fnt, glyph, data, x, y, clr, a);
  * @endcode
@@ -486,7 +491,7 @@ leResult leFont_DrawGlyphData(const leFont* fnt,
  * @param y the screen y location to draw
  * @param glyph the glyph kerning information
  * @param clr the glyph render color
- * @param a  global alpha value to apply
+ * @param a global alpha value to apply
  * @return void.
  */
 void leFont_DrawGlyphRow(leFontBPP bpp,

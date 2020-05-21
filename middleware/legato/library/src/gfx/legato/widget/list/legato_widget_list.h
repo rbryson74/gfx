@@ -337,6 +337,18 @@ virtual leResult setSelectionMode(leListWidget* _this,
   Returns:
     leBool - the setting value
 */
+/**
+ * @brief Get allow empty setting value.
+ * @details Gets the allow empty setting value using <span class="param">_this</span>.
+ * @code
+ * const leListWidget* _this;
+ * leBool val = _this->fn->getAllowEmptySelection(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual leBool getAllowEmptySelection(const leListWidget* _this);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -393,6 +405,17 @@ virtual leResult setAllowEmptySelection(leListWidget* _this,
   Returns:
     leRelativePosition - the position
 */
+/**
+ * @brief Get image icon position.
+ * @details Gets the image icon position using <span class="param">_this</span>.
+ * @code
+ * const leListWidget* _this;
+ * leBool val = _this->fn->getIconPosition(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual leRelativePosition getIconPosition(const leListWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -450,6 +473,17 @@ virtual leResult setIconPosition(leListWidget* _this,
   Returns:
     uint32_t - the margin value
 */
+/**
+ * @brief Get icon margin.
+ * @details Gets the icon margin using <span class="param">_this</span>.
+ * @code
+ * const leListWidget* _this;
+ * uint32_t margin = _this->fn->getIconMargin(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual uint32_t getIconMargin(const leListWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -479,7 +513,7 @@ virtual leResult setIconPosition(leListWidget* _this,
  * @code
  * leListWidget* _this;
  * uint32_t mg;
- * leResult res = wgt->fn->setIconPosition(_this, mg);
+ * leResult res = wgt->fn->setIconMargin(_this, mg);
  * @endcode
  * @param mg is the position
  * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
@@ -507,6 +541,17 @@ virtual leResult setIconMargin(leListWidget* _this,
   Returns:
     uint32_t - the item count
 */
+/**
+ * @brief Get item count.
+ * @details Gets the item count using <span class="param">_this</span>.
+ * @code
+ * const leListWidget* _this;
+ * uint32_t cnt = _this->fn->getItemCount(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual uint32_t getItemCount(const leListWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -527,6 +572,17 @@ virtual leResult setIconMargin(leListWidget* _this,
   Returns:
     int32_t - the index of the new item
 */
+/**
+ * @brief Append item to the list.
+ * @details Appends an item to the list using <span class="param">_this</span>.
+ * @code
+ * const leListWidget* _this;
+ * uint32_t cnt = _this->fn->appendItem(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual int32_t appendItem(leListWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -549,6 +605,18 @@ virtual leResult setIconMargin(leListWidget* _this,
   Returns:
     int32_t - the index of the new item
 */
+/**
+ * @brief Insert item into the list.
+ * @details Inserts an item into the list using <span class="param">_this</span>.
+ * @code
+ * const leListWidget* _this;
+ * uint32_t cnt = _this->fn->insertItem(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual int32_t insertItem(leListWidget* _this,
+                           int32_t idx);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -640,6 +708,19 @@ virtual leResult removeAllItems(leListWidget* _this);
   Returns:
     leBool - the selected state
 */
+/**
+ * @brief Get currently selected item.
+ * @details Gets the currently selected item using <span class="param">_this</span>.
+ * @code
+ * const leListWidget* _this;
+ * int32_t idx;
+ * leBool selected = _this->fn->getItemSelected(_this, idx);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual leBool getItemSelected(const leListWidget* _this,
+                               int32_t idx);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -704,6 +785,19 @@ virtual leResult setItemSelected(leListWidget* _this,
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Toggle item selection.
+ * @details Toggles an item selection using <span class="param">_this</span>.
+ * @code
+ * const leListWidget* _this;
+ * int32_t idx;
+ * leResult res = _this->fn->toggleItemSelected(_this, idx);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual leResult toggleItemSelected(leListWidget* _this,
+                                    int32_t idx);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -731,7 +825,7 @@ virtual leResult setItemSelected(leListWidget* _this,
  * @code
  * leListWidget* _this;
  * uint32_t idx;
- * leResult res = wgt->fn->setItemSelected(_this);
+ * leResult res = _this->fn->selectAll(_this);
  * @endcode
  * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
  */
@@ -763,7 +857,7 @@ virtual leResult selectAll(leListWidget* _this);
  * using <span class="param">_this</span>.
  * @code
  * leListWidget* _this;
- * leResult res = wgt->fn->deselectAll(_this);
+ * leResult res = _this->fn->deselectAll(_this);
  * @endcode
  * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
  */
@@ -789,6 +883,18 @@ virtual leResult deselectAll(leListWidget* _this);
   Returns:
     int32_t - the selected item index
 */
+/**
+ * @brief Get first selected item.
+ * @details Gets the first selected item using <span class="param">_this</span>.
+ * @code
+ * const leListWidget* _this;
+ * int32_t idx;
+ * int32_t selected = _this->fn->getFirstSelectedItem(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual int32_t getFirstSelectedItem(const leListWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -809,6 +915,17 @@ virtual leResult deselectAll(leListWidget* _this);
   Returns:
     int32_t - the selected item index
 */
+/**
+ * @brief Get last selected item.
+ * @details Gets the last selected item using <span class="param">_this</span>.
+ * @code
+ * const leListWidget* _this;
+ * int32_t selected = _this->fn->getLastSelectedItem(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual int32_t getLastSelectedItem(const leListWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -829,6 +946,17 @@ virtual leResult deselectAll(leListWidget* _this);
   Returns:
     uint32_t - the number of selected items
 */
+/**
+ * @brief Get last selected item.
+ * @details Gets the last selected item using <span class="param">_this</span>.
+ * @code
+ * const leListWidget* _this;
+ * int32_t cnt = _this->fn->getSelectionCount(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns the number of selected items
+ */
+virtual uint32_t getSelectionCount(const leListWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -851,6 +979,18 @@ virtual leResult deselectAll(leListWidget* _this);
   Returns:
     leString* - the string pointer
 */
+/**
+ * @brief Get last selected item.
+ * @details Gets the last selected item using <span class="param">_this</span>.
+ * @code
+ * const leListWidget* _this;
+ * leString* str = _this->fn->getItemString(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns the string pointer
+ */
+virtual leString* getItemString(const leListWidget* _this,
+                                int32_t idx);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -887,6 +1027,7 @@ virtual leResult deselectAll(leListWidget* _this);
  * leResult res = wgt->fn->setItemString(_this, idx, str);
  * @endcode
  * @param idx is the position
+ * @param str is the string.
  * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
  */
 virtual leResult setItemString(leListWidget* _this,
@@ -914,6 +1055,19 @@ virtual leResult setItemString(leListWidget* _this,
   Returns:
     leImage* - the image pointer
 */
+/**
+ * @brief Get image pointer for an item.
+ * @details Gets the image pointer for an item using <span class="param">_this</span>.
+ * @code
+ * const leListWidget* _this;
+ * int32_t idx;
+ * leString* str = _this->fn->getItemIcon(_this, idx);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns the string pointer
+ */
+virtual leImage* getItemIcon(const leListWidget* _this,
+                             int32_t idx);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -977,6 +1131,19 @@ virtual leResult setItemIcon(leListWidget* _this,
   Returns:
     leBool - the enable state
 */
+/**
+ * @brief Get item enable state.
+ * @details Gets the item enable state using <span class="param">_this</span>.
+ * @code
+ * const leListWidget* _this;
+ * int32_t idx;
+ * leBool enable = _this->fn->getItemEnable(_this, idx);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual leBool getItemEnable(const leListWidget* _this,
+                            int32_t idx);
 
 // *****************************************************************************
 /* Virtual Member Function:

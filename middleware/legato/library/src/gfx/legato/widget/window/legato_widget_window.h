@@ -104,7 +104,7 @@ typedef struct leWindowWidgetVTable
     None.
 */
 /**
- * @brief Used to represent window widget.
+ * @brief This struct represents a window widget.
  * @details A window widget is an extension of a basic panel.  It adds a title
  * bar with text and an icon.
  */
@@ -159,7 +159,7 @@ LIB_EXPORT void leWindowWidget_Constructor(leWindowWidget* wgt);
 // *****************************************************************************
 /**
  * @brief Get title bar height.
- * @details Returns the title bar height from <span class="param">_this</span>.
+ * @details Returns the title bar height using <span class="param">_this</span>.
  * @code
  * leWindowWidget* _this;
  * leString * title = _this->fn->getTitleHeight(_this);
@@ -172,7 +172,7 @@ virtual uint32_t getTitleHeight(const leWindowWidget* _this);
 // *****************************************************************************
 /**
  * @brief Set title height.
- * @details Sets the title height for <span class="param">wgt</span>.
+ * @details Sets the title height using <span class="param">wgt</span>.
  * @code
  * leWindowWidget* _this;
  * uint32_t ht;
@@ -187,14 +187,13 @@ virtual leResult setTitleHeight(leWindowWidget* _this,
 
 // *****************************************************************************
 /**
- * @brief Set title bar string.
- * @details Sets the title bar string for <span class="param">_this</span>.
+ * @brief Get title bar string.
+ * @details Gets the title bar string using <span class="param">_this</span>.
  * @code
  * leWindowWidget* _this;
- * uint32_t ht;
- * leResult res = _this->fn->setString(wgt, ht);
+ * leResult res = _this->fn->getString(_this);
  * @endcode
- * @param  wgt is the widget to modify
+ * @param _this is the widget to modify
  * @return title bar string.
  */
 virtual leString* getString(const leWindowWidget* _this);
@@ -202,13 +201,14 @@ virtual leString* getString(const leWindowWidget* _this);
 // *****************************************************************************
 /**
  * @brief Set title bar string.
- * @details Sets the title bar string for <span class="param">_this</span>.
+ * @details Sets the title bar string to <span class="param">str</span>
+ * using <span class="param">_this</span>.
  * @code
  * leWindowWidget* _this;
  * const leString* str;
- * leResult res = _this->fn->setString(wgt, str);
+ * leResult res = _this->fn->setString(_this, str);
  * @endcode
- * @param  wgt is the widget to modify
+ * @param  _this is the widget to modify
  * @param str is the string pointer;
  * @return LE_SUCCESS if set, otherwise LE_FAILURE.
  */
@@ -219,13 +219,13 @@ virtual leResult setString(leWindowWidget* _this,
 // *****************************************************************************
 /**
  * @brief Get title icon.
- * @details Returns the title icon from  <span class="param">wgt</span>.
+ * @details Gets the title icon from <span class="param">_this</span>.
  * @code
  * leWindowWidget* _this;
- * leImage * icon = _this->fn->getIcon(wgt);
+ * leImage * icon = _this->fn->getIcon(_this);
  * @endcode
- * @param  wgt is the widget to query
- * @return returns uint32_t.
+ * @param _this is the widget to query
+ * @return returns the title icon.
  */
 virtual leImage* getIcon(const leWindowWidget* _this);
 
@@ -247,7 +247,7 @@ virtual leResult setIcon(leWindowWidget* _this,
 // *****************************************************************************
 /**
  * @brief Get title bar icon margin.
- * @details Returns the title bar icon margin from  <span class="param">_this</span>.
+ * @details Gets the title bar icon margin from <span class="param">_this</span>.
  * @code
  * leWindowWidget* _this;
  * uint32_t margin = _this->fn->getIconMargin(_this);
@@ -260,7 +260,8 @@ virtual uint32_t getIconMargin(const leWindowWidget* _this);
 // *****************************************************************************
 /**
  * @brief Set title icon margin.
- * @details Sets the title icon margin for <span class="param">_this</span>.
+ * @details Sets the title icon margin to <span class="param">mg</span> for
+ * <span class="param">_this</span>.
  * @code
  * leWindowWidget* _this;
  * uint32_t mg;

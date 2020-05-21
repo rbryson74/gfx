@@ -88,7 +88,7 @@ typedef struct leArcWidgetVTable
   */
 
 /**
- * @brief Implementation of a arc widget.
+ * @brief This struct represents a arc widget.
  *
  * @details A arc widget draws a arc of the specified origin and radius inside
  * the widget bounds.  All coordinates are expressed in local widget space. The
@@ -251,8 +251,7 @@ virtual leResult setCenterAngle(THIS_TYPE* _this,
 
 /**
  * @brief Get rounded edge setting.
- * @details Gets the arc rounded edge setting of
- * <span class="param">_this</span>.
+ * @details Gets the arc rounded edge setting of <span class="param">_this</span>.
  * @code
  * leArcWidget* _this;
  * leBool round = _this->fn->getRoundEdge(_this);

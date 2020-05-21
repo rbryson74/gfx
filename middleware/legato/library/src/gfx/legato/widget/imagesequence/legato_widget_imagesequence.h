@@ -54,9 +54,16 @@
 #include "gfx/legato/widget/legato_widget.h"
 #include "gfx/legato/string/legato_string.h"
 
-// DOM-IGNORE-BEGIN
+/* internal use only */
+/**
+  * @cond INTERNAL
+  *
+  */
 #define LE_IMAGESEQ_RESTART -1
-// DOM-IGNORE-END
+/**
+  * @endcond
+  *
+  */
 
 typedef struct leImageSequenceWidget leImageSequenceWidget;
 
@@ -67,6 +74,11 @@ typedef struct leImageSequenceWidget leImageSequenceWidget;
   Summary:
     Image changed event function callback type
 */
+/**
+ * @brief This function represents a image change event callback.
+ * @details The callback is used indicate a image has changed.
+ * @details .
+ */
 typedef void (*leImageSequenceImageChangedEvent_FnPtr)(leImageSequenceWidget*);
 
 // *****************************************************************************
@@ -88,6 +100,10 @@ typedef void (*leImageSequenceImageChangedEvent_FnPtr)(leImageSequenceWidget*);
   Remarks:
     None.
 */
+/**
+ * @brief This struct represents a image sequence entry.
+ * @details This is used to define a single entry for the image sequence widget
+ */
 typedef struct leImageSequenceEntry
 {
     const leImage* image; // image asset pointer
@@ -140,7 +156,7 @@ typedef struct leImageSequenceWidgetVTable
 
 // *****************************************************************************
 /**
- * @brief This struct represents a Image sequence widget
+ * @brief This struct represents a image sequence widget
  * @details An image sequence widget is similar to an image widget with the
  * additional capability of showing a sequence of images and automating
  * the transition between them. This widget is dependent on the time value
@@ -198,6 +214,9 @@ LIB_EXPORT leImageSequenceWidget* leImageSequenceWidget_New();
  */
 LIB_EXPORT void leImageSequenceWidget_Constructor(leImageSequenceWidget* wgt);
 
+#ifdef _DOXYGEN_
+#define THIS_TYPE struct leWidget
+
 // *****************************************************************************
 /* Virtual Member Function:
     uint32_t getImageCount(const leImageSequenceWidget* _this)
@@ -217,6 +236,18 @@ LIB_EXPORT void leImageSequenceWidget_Constructor(leImageSequenceWidget* wgt);
   Returns:
     uint32_t - the image count
 */
+/**
+ * @brief Get image count.
+ * @details Gets the image count using <span class="param">_this</span>.
+ * @code
+ * leImageSequenceWidget* _this;
+ * uint32_t cnt = _this->fn->getImageCount(_this);
+ * @endcode
+ * @param _this is the widget to query
+ * @return the image count.
+ */
+virtual uint32_t getImageCount(const leImageSequenceWidget* _this);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -239,6 +270,21 @@ LIB_EXPORT void leImageSequenceWidget_Constructor(leImageSequenceWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set image count.
+ * @details Sets the image count to <span class="param">cnt</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leImageSequenceWidget* _this;
+ * uint32_t cnt;
+ * leResult res = _this->fn->setImageCount(_this, cnt);
+ * @endcode
+ * @param _this is the widget to modify
+ * @param cnt the image count.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setImageCount(leImageSequenceWidget* _this,
+                               uint32_t cnt);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -261,6 +307,18 @@ LIB_EXPORT void leImageSequenceWidget_Constructor(leImageSequenceWidget* wgt);
   Returns:
     leImage* - the image pointer
 */
+/**
+ * @brief Get image count.
+ * @details Gets the image count using <span class="param">_this</span>.
+ * @code
+ * leImageSequenceWidget* _this;
+ * uint32_t cnt = _this->fn->getImage(_this, idx);
+ * @endcode
+ * @param _this is the widget to query
+ * @return idx the image pointer.
+ */
+virtual leImage* getImage(const leImageSequenceWidget* _this,
+                          uint32_t idx);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -285,6 +343,25 @@ LIB_EXPORT void leImageSequenceWidget_Constructor(leImageSequenceWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set image count.
+ * @details Sets the image count to <span class="param">cnt</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leImageSequenceWidget* _this;
+ * uint32_t idx;
+ * leImage* img;
+ * leResult res = _this->fn->setImage(_this, idx, img);
+ * @endcode
+ * @param _this is the widget to modify
+ * @param idx the index.
+ * @param img the image pointer.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setImage(leImageSequenceWidget* _this,
+                          uint32_t idx,
+                          const leImage* img);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -307,6 +384,18 @@ LIB_EXPORT void leImageSequenceWidget_Constructor(leImageSequenceWidget* wgt);
   Returns:
     uint32_t - the image delay
 */
+/**
+ * @brief Get image count.
+ * @details Gets the image count using <span class="param">_this</span>.
+ * @code
+ * leImageSequenceWidget* _this;
+ * uint32_t delay = _this->fn->getImageDelay(_this, idx);
+ * @endcode
+ * @param _this is the widget to query
+ * @return idx the image pointer.
+ */
+virtual uint32_t getImageDelay(const leImageSequenceWidget* _this,
+                               uint32_t idx);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -331,6 +420,26 @@ LIB_EXPORT void leImageSequenceWidget_Constructor(leImageSequenceWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set image cycle delay.
+ * @details Sets the image cycle delay to <span class="param">dly</span>
+ * at <span class="param">idx</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leImageSequenceWidget* _this;
+ * uint32_t idx;
+ * uint32_t dly;
+ * leResult res = _this->fn->setImageDelay(_this, idx, dly);
+ * @endcode
+ * @param _this is the widget to modify
+ * @param idx the index.
+ * @param dly the image delay.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setImageDelay(leImageSequenceWidget* _this,
+                               uint32_t idx,
+                               uint32_t dly);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -353,6 +462,20 @@ LIB_EXPORT void leImageSequenceWidget_Constructor(leImageSequenceWidget* wgt);
   Returns:
     leHAlignment - the alignment
 */
+/**
+ * @brief Get image horizontal alignment.
+ * @details Gets the image horizontal alignmentt using <span class="param">_this</span>.
+ * @code
+ * leImageSequenceWidget* _this;
+ * uint32_t idx;
+ * leHAlignment align = _this->fn->getImageHAlignment(_this, idx);
+ * @endcode
+ * @param _this is the widget to query.
+ * @param idx the index.
+ * @return align the alignment.
+ */
+virtual leHAlignment getImageHAlignment(const leImageSequenceWidget* _this,
+                                        uint32_t idx);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -377,6 +500,25 @@ LIB_EXPORT void leImageSequenceWidget_Constructor(leImageSequenceWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set image horizontal alignment.
+ * @details Sets the image horizontal alignment to <span class="param">align</span>
+ * at <span class="param">idx</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leImageSequenceWidget* _this;
+ * uint32_t idx;
+ * leHAlignment align;
+ * leResult res = _this->fn->setImageHAlignment(_this, idx, align);
+ * @endcode
+ * @param _this is the widget to modify
+ * @param idx the index.
+ * @param align the alignment.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setImageHAlignment(leImageSequenceWidget* _this,
+                                    uint32_t idx,
+                                    leHAlignment align);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -399,6 +541,20 @@ LIB_EXPORT void leImageSequenceWidget_Constructor(leImageSequenceWidget* wgt);
   Returns:
     leVAlignment - the alignment
 */
+/**
+ * @brief Get image vertical alignment.
+ * @details Gets the image vertical alignment using <span class="param">_this</span>.
+ * @code
+ * leImageSequenceWidget* _this;
+ * uint32_t idx;
+ * leHAlignment align = _this->fn->getImageHAlignment(_this, idx);
+ * @endcode
+ * @param _this is the widget to query.
+ * @param idx the index.
+ * @return align the alignment.
+ */
+virtual leVAlignment getImageVAlignment(const leImageSequenceWidget* _this,
+                                        uint32_t idx);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -423,6 +579,25 @@ LIB_EXPORT void leImageSequenceWidget_Constructor(leImageSequenceWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set image vertical alignment.
+ * @details Sets the image vertical alignment to <span class="param">align</span>
+ * at <span class="param">idx</span>
+ * using <span class="param">_this</span>.
+ * @code
+ * leImageSequenceWidget* _this;
+ * uint32_t idx;
+ * leHAlignment align;
+ * leResult res = _this->fn->setImageVAlignment(_this, idx, align);
+ * @endcode
+ * @param _this is the widget to modify
+ * @param idx the index.
+ * @param align the alignment.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setImageVAlignment(leImageSequenceWidget* _this,
+                                    uint32_t idx,
+                                    leVAlignment align);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -443,6 +618,18 @@ LIB_EXPORT void leImageSequenceWidget_Constructor(leImageSequenceWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Stop sequence from automatically cycling.
+ * @details Stops the sequence from automatically cycling using
+ * <span class="param">_this</span>.
+ * @code
+ * leImageSequenceWidget* _this;
+ * leResult res = _this->fn->stop(_this);
+ * @endcode
+ * @param _this is the widget to query.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult stop(leImageSequenceWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -463,6 +650,18 @@ LIB_EXPORT void leImageSequenceWidget_Constructor(leImageSequenceWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Start sequence automatic cycle.
+ * @details Starts the sequence automatic cycle using
+ * <span class="param">_this</span>.
+ * @code
+ * leImageSequenceWidget* _this;
+ * leResult res = _this->fn->play(_this);
+ * @endcode
+ * @param _this is the widget to query.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+leResult play(leImageSequenceWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -483,6 +682,19 @@ LIB_EXPORT void leImageSequenceWidget_Constructor(leImageSequenceWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Return sequence to the first image.
+ * @details Returns the sequence to the first image using
+ * <span class="param">_this</span>.
+ * @code
+ * leImageSequenceWidget* _this;
+ * leResult res = _this->fn->play(_this);
+ * @endcode
+ * @param _this is the widget to query.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+leResult play(leImageSequenceWidget* _this);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -503,6 +715,17 @@ LIB_EXPORT void leImageSequenceWidget_Constructor(leImageSequenceWidget* wgt);
   Returns:
     leBool - the setting value
 */
+/**
+ * @brief Get play state.
+ * @details Gets the play state for <span class="param">_this</span>.
+ * @code
+ * const leImageSequenceWidget* _this;
+ * leBool play = _this->fn->isPlaying(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual leBool isPlaying(const leImageSequenceWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -523,6 +746,17 @@ LIB_EXPORT void leImageSequenceWidget_Constructor(leImageSequenceWidget* wgt);
   Returns:
     leBool - the setting value
 */
+/**
+ * @brief Get repeat state.
+ * @details Gets the repeat state for <span class="param">_this</span>.
+ * @code
+ * const leImageSequenceWidget* _this;
+ * leBool repeat = _this->fn->getRepeat(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_TRUE if set, otherwise LE_FALSE;
+ */
+virtual leBool getRepeat(const leImageSequenceWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -545,6 +779,20 @@ LIB_EXPORT void leImageSequenceWidget_Constructor(leImageSequenceWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set repeat flag.
+ * @details Sets the repeat flag for <span class="param">_this</span>.
+ * @code
+ * const leImageSequenceWidget* _this;
+ * leBool rpt;
+ * leResult res = _this->fn->setRepeat(_this, rpt);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @param rpt is the setting.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult setRepeat(leImageSequenceWidget* _this,
+                           leBool rpt);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -567,6 +815,21 @@ LIB_EXPORT void leImageSequenceWidget_Constructor(leImageSequenceWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Set repeat flag.
+ * @details Sets the repeat flag for <span class="param">_this</span>.
+ * @code
+ * const leImageSequenceWidget* _this;
+ * uint32_t idx;
+ * leResult res = _this->fn->showImage(_this, idx);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @param idx is the setting.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult showImage(leImageSequenceWidget* _this,
+                           uint32_t idx);
+
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -587,6 +850,17 @@ LIB_EXPORT void leImageSequenceWidget_Constructor(leImageSequenceWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Show next image.
+ * @details Shows the next image for <span class="param">_this</span>.
+ * @code
+ * const leImageSequenceWidget* _this;
+ * leResult res = _this->fn->showNextImage(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult showNextImage(leImageSequenceWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -607,6 +881,17 @@ LIB_EXPORT void leImageSequenceWidget_Constructor(leImageSequenceWidget* wgt);
   Returns:
     leResult - the result of the operation
 */
+/**
+ * @brief Show previous image.
+ * @details Shows the previous image for <span class="param">_this</span>.
+ * @code
+ * const leImageSequenceWidget* _this;
+ * leResult res = _this->fn->showPreviousImage(_this);
+ * @endcode
+ * @param _this is the widget pointer to query.
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+virtual leResult showPreviousImage(leImageSequenceWidget* _this);
 
 /**
  * @brief Get image chagned event callback pointer.

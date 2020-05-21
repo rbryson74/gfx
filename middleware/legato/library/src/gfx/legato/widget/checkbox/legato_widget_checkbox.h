@@ -63,6 +63,11 @@ typedef struct leCheckBoxWidget leCheckBoxWidget;
   Summary:
     Checkbox checked event function callback type
 */
+/**
+ * @brief This function represents a checked event callback.
+ * @details Checked event callback is used indicate a check box checked.
+ * @details .
+ */
 typedef void (*leCheckBoxWidget_CheckedEvent)(leCheckBoxWidget*);
 
 // *****************************************************************************
@@ -72,6 +77,11 @@ typedef void (*leCheckBoxWidget_CheckedEvent)(leCheckBoxWidget*);
   Summary:
     Checkbox unchecked event function callback type
 */
+/**
+ * @brief This function represents a unchecked event callback.
+ * @details Checked event callback is used indicate a check box unchecked.
+ * @details .
+ */
 typedef void (*leCheckBoxWidget_UncheckedEvent)(leCheckBoxWidget*);
 
 // *****************************************************************************
@@ -170,7 +180,7 @@ typedef struct leCheckBoxWidget
  * pointer until the widget is added to a widget tree.
  * @remark use leWidget_Delete() to free this pointer.
  * @code
- * leCheckBoxWidget* wgt = leCheckBoxWidget_New();
+ * leCheckBoxWidget* _this = leCheckBoxWidget_New();
  * @endcode
  * @return a widget object pointer.
  */
@@ -178,15 +188,15 @@ LIB_EXPORT leCheckBoxWidget* leCheckBoxWidget_New();
 
 /**
  * @brief Initialize widget.
- * @details Initializes the leCheckBoxWidget <span class="param">wgt</span>.
+ * @details Initializes the leCheckBoxWidget <span class="param">_this</span>.
  * @code
- * leCheckBoxWidget* wgt;
- * leCheckBoxWidget_Constructor(wgt);
+ * leCheckBoxWidget* _this;
+ * leCheckBoxWidget_Constructor(_this);
  * @endcode
- * @param wgt is the widget to initialize
+ * @param _this is the widget to initialize
  * @return void.
  */
-LIB_EXPORT void leCheckBoxWidget_Constructor(leCheckBoxWidget* wgt);
+LIB_EXPORT void leCheckBoxWidget_Constructor(leCheckBoxWidget* _this);
 
 #ifdef _DOXYGEN_
 #define THIS_TYPE struct leWidget
@@ -208,8 +218,8 @@ virtual leBool getChecked(const leCheckBoxWidget* _this);
 // *****************************************************************************
 /**
  * @brief Set checked state.
- * @details Sets the checked state using <span class="param">_this</span> to
- * <span class="param">toggleable</span>.
+ * @details Sets the checked state to <span class="param">toggleable</span>
+ * using <span class="param">_this</span>.
  * @code
  * leCheckBoxWidget* _this;
  * leBool toggleable;
@@ -271,7 +281,7 @@ virtual leImage* getUncheckedImage(const leCheckBoxWidget* _this);
 // *****************************************************************************
 /**
  * @brief Set unchecked image pointer.
- * @details Sets the unchecked image pointer  to
+ * @details Sets the unchecked image pointer to
  * <span class="param">img</span> using <span class="param">_this</span>.
  * @code
  * leCheckBoxWidget* _this;
@@ -400,7 +410,7 @@ virtual leCheckBoxWidget_CheckedEvent getCheckedEventCallback(const leCheckBoxWi
 /**
  * @brief Set checked event callback.
  * @details Sets the checked event callback pointer to
- * <span class="param">cb</span>  using <span class="param">_this</span>.
+ * <span class="param">cb</span> using <span class="param">_this</span>.
  * @code
  * leCheckBoxWidget* _this;
  * leCheckBoxWidget_CheckedEvent cb;
