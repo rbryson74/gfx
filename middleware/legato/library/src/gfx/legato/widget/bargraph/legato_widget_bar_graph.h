@@ -206,6 +206,7 @@ typedef struct leBarGraphWidgetVTable
  * @details A bar graph widget draws a bar graph. All coordinates
  * are expressed in local widget space. The color of the graph is determined
  * by the widget scheme's 'foreground' color.
+ */
 typedef struct leBarGraphWidget
 {
     leWidget widget; // base widget header

@@ -66,7 +66,7 @@ typedef struct leState
     leWidget* focus; /**< the widget that currently has focus */
     leEditWidget* edit; /**< the widget that is currently receiving edit events */
     
-    leLanguageChangedCallback_FnPtr languageChangedCB; /**< language changed callback
+    leLanguageChangedCallback_FnPtr languageChangedCB; /**< language changed callback */
 
     leWidget rootWidget[LE_LAYER_COUNT]; /**< root widgets of the scene */
 
@@ -78,7 +78,9 @@ typedef struct leState
 /* internal use only */
 /**
   * @cond INTERNAL
+  */
 LIB_EXPORT leState* leGetState();
+/**
   * @endcond
   *
   */

@@ -1,4 +1,3 @@
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
@@ -21,7 +20,6 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 /*******************************************************************************
  Module for Microchip Graphics Library - Legato User Interface Library
@@ -62,8 +60,10 @@
 /* internal use only */
 /**
   * @cond INTERNAL
+  */
 #define LE_INPUT_PRIMARY_ID    0
 #define LE_MAX_TOUCH_STATES    2
+/**
   * @endcond
   *
   */
@@ -257,10 +257,12 @@ typedef struct leInputState
 /* internal use only */
 /**
   * @cond INTERNAL
+  */
 leInputState* _leGetInputState();
 
 leResult leInput_Init();
 void leInput_Shutdown();
+/**
   * @endcond
   *
   */

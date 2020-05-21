@@ -453,13 +453,12 @@ LIB_EXPORT leResult leStringUtils_GetCharIndexAtPoint(const leChar* str,
  * @brief Gets the glyph at a point inside a C-style string bounding rectangle.
  * @details Gets the glyph at a point inside a C-style string bounding rectangle.
  * @code
- * leResult res = leDecodeCodePoint(str);
- * @leStringUtils_GetCharIndexAtPoint
+ * leResult res = leStringUtils_GetCharIndexAtPointCStr(str);
  * @param str is an integer.
  * @param buf is an integer.
  * @return LE_SUCCESS if set, otherwise LE_FAILURE.
  */
-LIB_EXPORT leResult leDecodeCodePoint(const char* str,
+LIB_EXPORT leResult leStringUtils_GetCharIndexAtPointCStr(const char* str,
                                                           const leFont* font,
                                                           const lePoint pt,
                                                           uint32_t* charIdx);
