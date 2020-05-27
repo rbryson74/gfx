@@ -454,7 +454,7 @@ void DRV_GLCD_Initialize()
 
 gfxPixelBuffer * DRV_GLCD_GetFrameBuffer(int32_t idx)
 {
-    return &pixelBuffer[idx];
+    return &pixelBuffer[activeLayer];
 }
 
 void GLCD_Interrupt_Handler(void)
