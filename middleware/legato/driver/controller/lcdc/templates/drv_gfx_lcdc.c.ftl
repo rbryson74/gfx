@@ -940,7 +940,7 @@ gfxResult DRV_LCDC_BlitBuffer(int32_t x,
         destRect.height = buf->size.height;
         destRect.width = buf->size.width;
 
-        //_2dgpuGraphicsProcessor.blitBuffer(buf, &srcRect, &pixelBuffer[activeLayer], &destRect, blend );
+        _gfx2dGraphicsProcessor.blitBuffer(buf, &srcRect, &pixelBuffer[activeLayer], &destRect, blend );
     }
     else
     {

@@ -43,9 +43,9 @@ def loadModule():
                                periphName.upper() + "/",  "peripheral/plib_gfx2d.py")
         periphComponent.setDisplayType("Peripheral Library")
         periphComponent.addCapability("GFX2D", "GFX2D")
-        cntlComponent = Module.CreateComponent("le_gfx_gfx2d", "LE GFX2D", "/Graphics/Processor", "driver/gfx2d.py")
+        cntlComponent = Module.CreateComponent("gfx_gfx2d", "GFX2D", "/Graphics/Processor", "driver/gfx2d.py")
         cntlComponent.setDisplayType("Graphics Processor")
-        cntlComponent.addCapability("le_gfx_driver_gfx2d", "Graphics Processor", False)
+        cntlComponent.addCapability("gfx_driver_gfx2d", "Graphics Processor", False)
         cntlComponent.addDependency("GFX2D", "GFX2D", False, True)
     else:
         print("GFX2D module not loaded.  No support for " + str(Variables.get("__PROCESSOR")))

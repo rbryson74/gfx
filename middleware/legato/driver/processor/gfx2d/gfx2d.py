@@ -37,6 +37,11 @@ def instantiateComponent(comp):
 
     gfx2d_default_mode = "Synchronous"
 
+    DriverInitName = comp.createStringSymbol("DriverInitName", None)
+    DriverInitName.setLabel("Driver Name")
+    DriverInitName.setDefaultValue("_gfx2dGraphicsProcessor")
+    DriverInitName.setReadOnly(True)
+
     gfx2dSymPLIB = comp.createStringSymbol("DRV_GFX2D_PLIB", None)
     gfx2dSymPLIB.setLabel("PLIB Used")
     gfx2dSymPLIB.setReadOnly(True)
@@ -54,24 +59,19 @@ def instantiateComponent(comp):
     gfx2dSymQueueSize.setDefaultValue(2)
     gfx2dSymQueueSize.setDependencies(asyncModeOptions, ["drv_gfx2d.DRV_GFX2D_MODE"])
 
+    gfx2dScratchBufferSize = comp.createIntegerSymbol("SCRATCHBUFFER_SIZE", None)
+    gfx2dScratchBufferSize.setLabel("Scratch Buffer Size")
+    gfx2dScratchBufferSize.setMin(1)
+    gfx2dScratchBufferSize.setDefaultValue(4096)
+
     # Add Interface
     GFX_GFX2D_H = comp.createFileSymbol("GFX_GFX2D_H", None)
-    GFX_GFX2D_H.setSourcePath("driver/templates/drv_gfx2d.h.ftl")
+    GFX_GFX2D_H.setSourcePath("templates/drv_gfx2d.h.ftl")
     GFX_GFX2D_H.setOutputName("drv_gfx2d.h")
     GFX_GFX2D_H.setDestPath("gfx/driver/processor/gfx2d/")
     GFX_GFX2D_H.setOutputName("drv_gfx2d.h")
     GFX_GFX2D_H.setProjectPath(projectPath)
     GFX_GFX2D_H.setType("HEADER")
-    GFX_GFX2D_H.setMarkup(True)
-    GFX_GFX2D_H.setOverwrite(True)
-
-    # Add Adapter
-    GFX_GFX2D_H = comp.createFileSymbol("GFX_GFX2D_HAL", None)
-    GFX_GFX2D_H.setSourcePath("driver/templates/drv_gfx2d_hal.c.ftl")
-    GFX_GFX2D_H.setOutputName("drv_gfx2d_hal.c")
-    GFX_GFX2D_H.setDestPath("gfx/driver/processor/gfx2d")
-    GFX_GFX2D_H.setProjectPath(projectPath)
-    GFX_GFX2D_H.setType("SOURCE")
     GFX_GFX2D_H.setMarkup(True)
     GFX_GFX2D_H.setOverwrite(True)
 
@@ -82,7 +82,7 @@ def instantiateComponent(comp):
     GFX_GFX2D_C.setProjectPath(projectPath)
     GFX_GFX2D_C.setType("SOURCE")
     GFX_GFX2D_C.setMarkup(True)
-    GFX_GFX2D_C.setSourcePath("driver/templates/drv_gfx2d.c.ftl")
+    GFX_GFX2D_C.setSourcePath("templates/drv_gfx2d.c.ftl")
 
     # these two symbols are read by the HAL for initialization purposes
     # they must match the function names in the actual driver code
@@ -92,11 +92,18 @@ def instantiateComponent(comp):
     ProcInfoFunction.setReadOnly(True)
     ProcInfoFunction.setVisible(False)
 
-    ProcInitFunction = comp.createStringSymbol("ProcInitFunction", None)
-    ProcInitFunction.setLabel("Processor Init Function Name")
-    ProcInitFunction.setDefaultValue("procGFX2DContextInitialize")
-    ProcInitFunction.setReadOnly(True)
-    ProcInfoFunction.setVisible(False)
+	# System level 
+    ProcSysDefinitions = comp.createFileSymbol("SYS_DEFINITIONS_H", None)
+    ProcSysDefinitions.setType("STRING")
+    ProcSysDefinitions.setOutputName("core.LIST_SYSTEM_DEFINITIONS_H_INCLUDES")
+    ProcSysDefinitions.setSourcePath("templates/definitions.h.ftl")
+    ProcSysDefinitions.setMarkup(True)
+
+    ProcSysInit = comp.createFileSymbol("SYS_INIT_C", None)
+    ProcSysInit.setType("STRING")
+    ProcSysInit.setOutputName("core.LIST_SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS")
+    ProcSysInit.setSourcePath("templates/init.c.ftl")
+    ProcSysInit.setMarkup(True)
 
 def asyncModeOptions(symbol, event):
     if (event["value"] == "Asynchronous"):

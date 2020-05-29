@@ -56,8 +56,17 @@
 // Section: Global Data
 // *****************************************************************************
 // *****************************************************************************
-<#assign Val_Width = gfx_hal.DisplayWidth>
-<#assign Val_Height = gfx_hal.DisplayHeight>
+<#if gfx_hal_le??>
+
+<#assign Val_Width = gfx_hal_le.DisplayWidth>
+<#assign Val_Height = gfx_hal_le.DisplayHeight>
+
+<#else>
+
+<#assign Val_Width = le_gfx_lcdc.DisplayWidth>
+<#assign Val_Height = le_gfx_lcdc.DisplayHeight>
+
+</#if>
 
 #define DISPLAY_WIDTH  ${Val_Width}
 #define DISPLAY_HEIGHT ${Val_Height}

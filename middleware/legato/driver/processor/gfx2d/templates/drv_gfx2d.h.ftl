@@ -112,27 +112,27 @@ void DRV_GFX2D_Initialize();
    Precondition:
 
    Parameters:
-    dest             - Pointer to a n2d_buffer_t structure that describes the buffer to be filled
-    dest_rectangle   - Pointer to a rectangle that specifies the area to be filled. If rectangle is NULL,
+    dest             - Pointer to a gfxPixelBuffer structure that describes the buffer to be filled
+    clipRect         - Pointer to a rectangle that specifies the area to be filled. If rectangle is NULL,
                     the entire buffer will be filled with the specified color
-    color         - The color value to use for filling the buffer
-    blend         - The blending mode to be applied to each pixel. If no blending is required, set this
-                    value to N2D_BLEND_NONE (0)
+    color          - The color value to use for filling the buffer
+    blend          - Not used
 
   Returns:
-    Returns the status as defined by n2d_error_t
+    Returns the status as defined by GFX_STATUS
 
   Remarks:
     This function will wait until the hardware is complete, i.e. it is synchronous
 */
-void  DRV_GFX2D_Fill(
-    GFX2D_BUFFER *dest,
-    GFX2D_RECTANGLE *dest_rectangle,
-    gpu_color_t color);
+gfxResult DRV_GFX2D_Fill(gfxPixelBuffer * dest,
+                           const gfxRect* clipRect,
+                           const gfxColor color,
+                        const gfxBlend blend);
+
 
 // *****************************************************************************
 /* Function:
-    void DRV_GFX2D_Copy()
+    void DRV_GFX2D_Blit()
 
    Summary:
     Copy a source buffer to the the destination buffer
@@ -148,13 +148,13 @@ void  DRV_GFX2D_Fill(
    Precondition:
 
    Parameters:
-    dest      - Pointer to a n2d_buffer_t structure that describes the destination of the
+    dest      - Pointer to a gfxPixelBuffer structure that describes the destination of the
                             blit
-    dest_rect - Optional pointer to the rectangle that defines the region inside the
+    destRect - Optional pointer to the rectangle that defines the region inside the
                             destination buffer. If this rectangle is not specified, the entire destination
                             buffer is used as the destination region
-    src        - Pointer to a n2d_buffer_t structure that describes the source of the blit
-    dest_rect  - Optional pointer to the rectangle that defines the region inside the source buffer.
+    source        - Pointer to a structure that describes the source of the blit
+    srcRect       - Optional pointer to the rectangle that defines the region inside the source buffer.
                             If this rectangle is not specified, the entire source buffer is used as the source
                             region
 
@@ -164,11 +164,12 @@ void  DRV_GFX2D_Fill(
   Remarks:
     This function will wait until the hardware is complete, i.e. it is synchronous.
   */
-void DRV_GFX2D_Copy(
-    GFX2D_BUFFER *dest,
-    GFX2D_RECTANGLE *dest_rect,
-    GFX2D_BUFFER *src,
-    GFX2D_RECTANGLE *src_rect);
+gfxResult DRV_GFX2D_Blit(const gfxPixelBuffer* source,
+                           const gfxRect* srcRect,
+                           const gfxPixelBuffer* dest,
+                        const gfxRect* destRect,
+                        const gfxBlend blend);
+
 
 // *****************************************************************************
 /* Function:
@@ -184,16 +185,16 @@ void DRV_GFX2D_Copy(
    Precondition:
 
    Parameters:
-    dest      - Pointer to a n2d_buffer_t structure that describes the destination of the
+    dest      - Pointer to a gfxPixelBuffer structure that describes the destination of the
                    blit
     dest_rect - Optional pointer to the rectangle that defines the region inside the
                    destination buffer. If this rectangle is not specified, the entire destination
                    buffer is used as the destination region
-    src1        - Pointer to a n2d_buffer_t structure that describes the source of the blit
+    src1        - Pointer to a gfxPixelBuffer structure that describes the source of the blit
     src1_rect  - Optional pointer to the rectangle that defines the region inside the source buffer.
                  If this rectangle is not specified, the entire source buffer is used as the source
                  region
-    src2        - Pointer to a n2d_buffer_t structure that describes the source of the blit
+    src2        - Pointer to a gfxPixelBuffer structure that describes the source of the blit
     src2_rect  - Optional pointer to the rectangle that defines the region inside the source buffer.
                  If this rectangle is not specified, the entire source buffer is used as the source
                  region
@@ -264,8 +265,15 @@ void  DRV_GFX2D_Rop(
 // *****************************************************************************
 // *****************************************************************************
 
-GFX_Result driverGfx2DInfoGet(GFX_DriverInfo* info);
-GFX_Result driverGfx2DContextInitialize(GFX_Context* context);
+gfxPixelBuffer * DRV_GFX2D_GetFrameBuffer(void);
+
+static const gfxGraphicsProcessor _gfx2dGraphicsProcessor =
+{
+    null, // Line Draw not supported
+    DRV_GFX2D_Fill,
+    DRV_GFX2D_Blit,
+    null // Blit Stretch not supported
+};
 
 #ifdef __cplusplus
     }
