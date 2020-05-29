@@ -2444,12 +2444,12 @@ static int mxt_read_info_block(struct mxt_data *data)
         
 	error = __mxt_read_reg(client, MXT_OBJECT_START,
 			       size - MXT_OBJECT_START,
-			       id_buf + MXT_OBJECT_START);
+                               (uint8_t*)id_buf + MXT_OBJECT_START);
 	if (error)
 		goto err_free_mem;
     
 	/* Extract & calculate checksum */
-	crc_ptr = id_buf + size - MXT_INFO_CHECKSUM_SIZE;
+        crc_ptr = (uint8_t*)id_buf + size - MXT_INFO_CHECKSUM_SIZE;
 	data->info_crc = crc_ptr[0] | (crc_ptr[1] << 8) | (crc_ptr[2] << 16);
 
 	calculated_crc = mxt_calculate_crc(id_buf, 0,
@@ -2468,13 +2468,13 @@ static int mxt_read_info_block(struct mxt_data *data)
 	data->info = (struct mxt_info *)id_buf;
 
 	/* Parse object table information */
-	error = mxt_parse_object_table(data, id_buf + MXT_OBJECT_START);
+        error = mxt_parse_object_table(data, (struct mxt_object *)((uint8_t*)id_buf + MXT_OBJECT_START));
 	if (error) {
 		mxt_free_object_table(data);
 		goto err_free_mem;
 	}
 
-	data->object_table = (struct mxt_object *)(id_buf + MXT_OBJECT_START);
+        data->object_table = (struct mxt_object *)((uint8_t*)id_buf + MXT_OBJECT_START);
 
 	return 0;
 
