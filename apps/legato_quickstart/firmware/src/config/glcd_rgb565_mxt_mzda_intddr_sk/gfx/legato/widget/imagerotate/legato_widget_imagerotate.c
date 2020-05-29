@@ -289,7 +289,7 @@ void _leImageRotateWidget_FillVTable(leImageRotateWidgetVTable* tbl)
     *tbl = imageRotateWidgetVTable;
 }
 #else
-static const leArcWidgetVTable arcWidgetVTable =
+static const leImageRotateWidgetVTable imageRotateWidgetVTable =
 {
     // base class
     .getType = (void*)_leWidget_GetType,

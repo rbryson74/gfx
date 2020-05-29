@@ -23,41 +23,15 @@
             <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/driver/driver_common.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f1" displayName="gfx" projectFiles="true">
-            <logicalFolder name="f2" displayName="driver" projectFiles="true">
-              <logicalFolder name="f2" displayName="2dgpu" projectFiles="true">
-                <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/driver/processor/2dgpu/libnano2D.h</itemPath>
+            <logicalFolder name="f1" displayName="driver" projectFiles="true">
+              <logicalFolder name="f1" displayName="2dgpu" projectFiles="true">
+                <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/driver/processor/2dgpu/libnano2d.h</itemPath>
               </logicalFolder>
-              <logicalFolder name="f1" displayName="glcd" projectFiles="true">
+              <logicalFolder name="f2" displayName="glcd" projectFiles="true">
+                <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/driver/gfx_driver.h</itemPath>
                 <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/driver/controller/glcd/drv_gfx_glcd.h</itemPath>
                 <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/driver/controller/glcd/plib_glcd.h</itemPath>
               </logicalFolder>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="hal" projectFiles="true">
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/gfx.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/inc/gfx_color.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/inc/gfx_common.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/inc/gfx_context.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/inc/gfx_default_impl.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/inc/gfx_display.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/inc/gfx_driver_interface.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/inc/gfx_hal.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/inc/gfx_interface.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/inc/gfx_layer.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/inc/gfx_pixel_buffer.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/inc/gfx_processor_interface.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/inc/gfx_rect.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/inc/gfx_util.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/inc/gfx_draw.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/inc/gfx_draw_arc.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/inc/gfx_draw_blit.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/inc/gfx_draw_circle.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/inc/gfx_draw_ellipse.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/inc/gfx_draw_line.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/inc/gfx_draw_pixel.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/inc/gfx_draw_rect.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/inc/gfx_draw_stretchblit.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/inc/gfx_math.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/gfx_config.h</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f2" displayName="peripheral" projectFiles="true">
@@ -121,7 +95,7 @@
           <itemPath>../src/packs/PIC32MZ2064DAR169_DFP/device.h</itemPath>
         </logicalFolder>
       </logicalFolder>
-      <itemPath>../src/app.h</itemPath>
+      <itemPath>../src/app_glcd.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -147,46 +121,15 @@
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f1" displayName="gfx" projectFiles="true">
-            <logicalFolder name="f2" displayName="driver" projectFiles="true">
-              <logicalFolder name="f2" displayName="2dgpu" projectFiles="true">
-                <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/driver/processor/2dgpu/libnano2D_hal.c</itemPath>
+            <logicalFolder name="f1" displayName="driver" projectFiles="true">
+              <logicalFolder name="f1" displayName="2dgpu" projectFiles="true">
+                <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/driver/processor/2dgpu/libnano2d.c</itemPath>
               </logicalFolder>
-              <logicalFolder name="f1" displayName="glcd" projectFiles="true">
+              <logicalFolder name="f2" displayName="glcd" projectFiles="true">
+                <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/driver/gfx_driver.c</itemPath>
                 <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/driver/controller/glcd/drv_gfx_glcd.c</itemPath>
                 <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/driver/controller/glcd/plib_glcd.c</itemPath>
               </logicalFolder>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="hal" projectFiles="true">
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_color.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_context.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_default_impl.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_display.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_display_def.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_driver_interface.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_driver_def.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_processor_def.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_get.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_interface.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_layer.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_pixel_buffer.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_processor_interface.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_rect.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_util.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_set.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_color_blend.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_color_convert.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_color_lerp.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_color_value.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_draw_arc.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_draw_blit.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_draw_circle.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_draw_ellipse.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_draw_line.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_draw_pixel.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_draw_rect.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_draw_stretchblit.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/hal/src/gfx_math.c</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f3" displayName="peripheral" projectFiles="true">
@@ -232,7 +175,7 @@
       </logicalFolder>
       <itemPath>../src/app_gfx_assets.c</itemPath>
       <itemPath>../src/main.c</itemPath>
-      <itemPath>../src/app.c</itemPath>
+      <itemPath>../src/app_glcd.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -254,7 +197,7 @@
         <platformTool>ICD4Tool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>2.40</languageToolchainVersion>
-        <platform>2</platform>
+        <platform>3</platform>
       </toolsSet>
       <packs>
         <pack name="PIC32MZ-DA_DFP" vendor="Microchip" version="1.1.98"/>
@@ -293,7 +236,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/glcd_rgba8888_mxt_mzda_intddr_sk;../src/packs/PIC32MZ2064DAR169_DFP;../src/mips"/>
+                  value="../src;../src/config/glcd_rgba8888_mxt_mzda_intddr_sk;../src/packs/PIC32MZ2064DAR169_DFP;;../src/mips"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>

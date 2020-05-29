@@ -27,8 +27,8 @@
           <Name dnOrder="1">drv_gfx_lcc.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/gfx/driver/lcc</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/lcc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A6E712F8C7CD0FBF6C58D62A6B58A754</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A6E712F8C7CD0FBF6C58D62A6B58A754</UserChecksum>
+          <GeneratedChecksum dnOrder="4">5CB13DB2692226F06748F9CF5B6BE140</GeneratedChecksum>
+          <UserChecksum dnOrder="5">5CB13DB2692226F06748F9CF5B6BE140</UserChecksum>
         </File>
         <File dnOrder="3">
           <Type dnOrder="0">SOURCE</Type>
@@ -59,8 +59,8 @@
           <Name dnOrder="1">gfx_driver.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/gfx/driver/lcc</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">D46B5019311FBF27815B0C5ADD3F3901</GeneratedChecksum>
-          <UserChecksum dnOrder="5">D46B5019311FBF27815B0C5ADD3F3901</UserChecksum>
+          <GeneratedChecksum dnOrder="4">36FA79243A4ABD63DAAEA023290EDE3B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">36FA79243A4ABD63DAAEA023290EDE3B</UserChecksum>
         </File>
         <File dnOrder="7">
           <Type dnOrder="0">SOURCE</Type>
@@ -147,16 +147,16 @@
           <Name dnOrder="1">sys_input.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/system/input</LogicalPath>
           <PhysicalPath dnOrder="3">/system/input/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">2C39B9CC0F8B0C8F4C1612EE55837A31</GeneratedChecksum>
-          <UserChecksum dnOrder="5">2C39B9CC0F8B0C8F4C1612EE55837A31</UserChecksum>
+          <GeneratedChecksum dnOrder="4">3618E41476EE539B6E4E8B52A817042D</GeneratedChecksum>
+          <UserChecksum dnOrder="5">3618E41476EE539B6E4E8B52A817042D</UserChecksum>
         </File>
         <File dnOrder="18">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">sys_input_listener.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/system/input</LogicalPath>
           <PhysicalPath dnOrder="3">/system/input/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">69012897D6A9F3F18C01AA611FB75DF2</GeneratedChecksum>
-          <UserChecksum dnOrder="5">69012897D6A9F3F18C01AA611FB75DF2</UserChecksum>
+          <GeneratedChecksum dnOrder="4">99F5C28835CA70CF308C005561EF92C6</GeneratedChecksum>
+          <UserChecksum dnOrder="5">99F5C28835CA70CF308C005561EF92C6</UserChecksum>
         </File>
         <File dnOrder="19">
           <Type dnOrder="0">SOURCE</Type>
@@ -251,8 +251,8 @@
           <Name dnOrder="1">drv_gfx_lcc.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/gfx/driver/lcc</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/lcc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">17F829232EA2A4BD0B6EBF57E766E150</GeneratedChecksum>
-          <UserChecksum dnOrder="5">17F829232EA2A4BD0B6EBF57E766E150</UserChecksum>
+          <GeneratedChecksum dnOrder="4">04F47647E149AD1209755223C1A4804D</GeneratedChecksum>
+          <UserChecksum dnOrder="5">04F47647E149AD1209755223C1A4804D</UserChecksum>
         </File>
         <File dnOrder="31">
           <Type dnOrder="0">HEADER</Type>
@@ -275,8 +275,8 @@
           <Name dnOrder="1">gfx_driver.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/gfx/driver/lcc</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">44B03BFE381FF1C0A82BE6E42ADDF8EF</GeneratedChecksum>
-          <UserChecksum dnOrder="5">44B03BFE381FF1C0A82BE6E42ADDF8EF</UserChecksum>
+          <GeneratedChecksum dnOrder="4">A4A6A074724DFA18D16D849184ADB083</GeneratedChecksum>
+          <UserChecksum dnOrder="5">A4A6A074724DFA18D16D849184ADB083</UserChecksum>
         </File>
         <File dnOrder="34">
           <Type dnOrder="0">HEADER</Type>
@@ -371,48 +371,48 @@
           <Name dnOrder="1">sys_input.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/system/input</LogicalPath>
           <PhysicalPath dnOrder="3">/system/input/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E46CD03317E52EB0289EEDFD75955911</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E46CD03317E52EB0289EEDFD75955911</UserChecksum>
+          <GeneratedChecksum dnOrder="4">12A9F3A89C44A88EDB9D107DC1FE8EDA</GeneratedChecksum>
+          <UserChecksum dnOrder="5">12A9F3A89C44A88EDB9D107DC1FE8EDA</UserChecksum>
         </File>
         <File dnOrder="46">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_input_gesture.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/system/input</LogicalPath>
           <PhysicalPath dnOrder="3">/system/input/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A863ECB93BE89231B0C73CF6EBBD8E8D</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A863ECB93BE89231B0C73CF6EBBD8E8D</UserChecksum>
+          <GeneratedChecksum dnOrder="4">5499BE8EDFB7930D2460DE8BA8E8818B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">5499BE8EDFB7930D2460DE8BA8E8818B</UserChecksum>
         </File>
         <File dnOrder="47">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_input_keyboard.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/system/input</LogicalPath>
           <PhysicalPath dnOrder="3">/system/input/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B849D1EDFFC06E0D56A93A80AE8A76D1</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B849D1EDFFC06E0D56A93A80AE8A76D1</UserChecksum>
+          <GeneratedChecksum dnOrder="4">A254F5CC3DD63C1432666958260CADAB</GeneratedChecksum>
+          <UserChecksum dnOrder="5">A254F5CC3DD63C1432666958260CADAB</UserChecksum>
         </File>
         <File dnOrder="48">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_input_listener.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/system/input</LogicalPath>
           <PhysicalPath dnOrder="3">/system/input/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">AADAC81B4AD8450C9E63F467185E6071</GeneratedChecksum>
-          <UserChecksum dnOrder="5">AADAC81B4AD8450C9E63F467185E6071</UserChecksum>
+          <GeneratedChecksum dnOrder="4">00AAAE838D855B5A8C560B371C7D0363</GeneratedChecksum>
+          <UserChecksum dnOrder="5">00AAAE838D855B5A8C560B371C7D0363</UserChecksum>
         </File>
         <File dnOrder="49">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_input_mouse.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/system/input</LogicalPath>
           <PhysicalPath dnOrder="3">/system/input/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">6F84622A4CCDDC262324A8CBD73C8137</GeneratedChecksum>
-          <UserChecksum dnOrder="5">6F84622A4CCDDC262324A8CBD73C8137</UserChecksum>
+          <GeneratedChecksum dnOrder="4">9B0AB7A5A79745BE5AEC37B9A14D7090</GeneratedChecksum>
+          <UserChecksum dnOrder="5">9B0AB7A5A79745BE5AEC37B9A14D7090</UserChecksum>
         </File>
         <File dnOrder="50">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_input_touch.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_mzef_cu/system/input</LogicalPath>
           <PhysicalPath dnOrder="3">/system/input/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B7CD2C89CC5063C931217935D7FA1460</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B7CD2C89CC5063C931217935D7FA1460</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6012C94D59E0E69145C089AB1F736C28</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6012C94D59E0E69145C089AB1F736C28</UserChecksum>
         </File>
         <File dnOrder="51">
           <Type dnOrder="0">HEADER</Type>
@@ -503,12 +503,12 @@
       </Settings>
     </Manifest>
     <Settings dnOrder="4">
-      <Setting dnOrder="0" key="CMSISPath" value="./dev_packs/arm/CMSIS/5.6.0"/>
-      <Setting dnOrder="1" key="DFPPath" value="./dev_packs/Microchip/PIC32MZ_EF_DFP/1.1.45/atdf/PIC32MZ2048EFM144.atdf"/>
+      <Setting dnOrder="0" key="CMSISPath" value=".\dev_packs\arm\CMSIS\5.6.0"/>
+      <Setting dnOrder="1" key="DFPPath" value=".\dev_packs\Microchip\PIC32MZ_EF_DFP\1.1.45\atdf\PIC32MZ2048EFM144.atdf"/>
       <Setting dnOrder="2" key="FORCE_OPTIMIZATION" value="false"/>
       <Setting dnOrder="3" key="GENERATE_BACKUP" value="true"/>
       <Setting dnOrder="4" key="MERGE_STRATEGY" value="USER_ALL"/>
-      <Setting dnOrder="5" key="PackageFilter" value="core;usb;audio;gfx;bsp;gfx_apps;csp;bt;"/>
+      <Setting dnOrder="5" key="PackageFilter" value="aerospace;audio;bsp;bt;core;crypto;csp;aerospace;gfx;gfx_apps;aerospace;net;usb;"/>
     </Settings>
   </Configurator>
 </Configuration>

@@ -48,7 +48,8 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
-#include "gfx/hal/gfx.h"
+#include "gfx/driver/processor/2dgpu/libnano2d.h"
+#include "gfx/driver/controller/glcd/drv_gfx_glcd.h"
 #include "peripheral/clk/plib_clk.h"
 #include "peripheral/gpio/plib_gpio.h"
 #include "peripheral/evic/plib_evic.h"
@@ -59,10 +60,12 @@
 #include "system/input/sys_input.h"
 #include "bsp/bsp.h"
 #include "peripheral/ddr/plib_ddr.h"
+#include "FreeRTOS.h"
+#include "task.h"
 #include "driver/input/drv_maxtouch.h"
 #include "system/int/sys_int.h"
 #include "osal/osal.h"
-#include "app.h"
+#include "app_glcd.h"
 
 
 

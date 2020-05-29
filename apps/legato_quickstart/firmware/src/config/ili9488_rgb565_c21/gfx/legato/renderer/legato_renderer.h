@@ -1,4 +1,3 @@
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
@@ -21,7 +20,11 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
+/** \file legato_renderer.h
+  * @brief .
+  *
+  * @details .
+  */
 
 #ifndef LEGATO_RENDERER_H
 #define LEGATO_RENDERER_H
@@ -34,15 +37,13 @@
 #include "gfx/driver/gfx_driver.h"
 #include "gfx/legato/widget/legato_widget.h"
 
-// DOM-IGNORE-BEGIN
 
 // *****************************************************************************
-/* Enumeration:
-    enum leFrameState
-
-  Summary:
-    Defines the state of the renderer
-*/
+/**
+ * @brief This enum represents state of the renderer.
+ * @details This enum type describes the state at which a
+ * widget is being drawn.
+ */
 typedef enum leFrameState
 {
     LE_FRAME_READY = 0,
@@ -108,6 +109,11 @@ typedef enum leFrameState
 
     lePixelBuffer* renderBuffer - the current scratch buffer
 */
+/**
+ * @brief This structs represents global state of the renderer.
+ * @details This struct type describes the state at which a
+ * widget is being drawn.
+ */
 typedef struct leRenderState
 {
     const gfxDisplayDriver* dispDriver;  // the display driver pointer
@@ -164,11 +170,20 @@ typedef struct leGradient
     leColor c3;
 } leGradient;
 
-// internal use only
+/* internal use only */
+/**
+  * @cond INTERNAL
+  *
+  */
 leResult leRenderer_Initialize(const gfxDisplayDriver* dispDriver);
 
 // internal use only
 void leRenderer_Shutdown();
+/**
+  * @endcond
+  *
+  */
+
 
 // *****************************************************************************
 /* Function:
@@ -995,6 +1010,9 @@ leResult leRenderer_EllipseLine(int32_t x,
                                 leColor clr,
                                 uint32_t alpha);                                                                         
                              
-// DOM-IGNORE-END
+/**
+  * @endcond
+  *
+  */
 
 #endif // LEGATO_RENDERER_H

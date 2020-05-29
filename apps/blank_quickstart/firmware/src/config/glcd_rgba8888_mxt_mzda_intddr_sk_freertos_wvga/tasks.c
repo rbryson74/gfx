@@ -59,11 +59,11 @@
 // Section: RTOS "Tasks" Routine
 // *****************************************************************************
 // *****************************************************************************
-void _GFX_HAL_Tasks(  void *pvParameters  )
+void _GLCD_Tasks(  void *pvParameters  )
 {
     while(1)
     {
-        GFX_Update();
+        DRV_GLCD_Update();
         vTaskDelay(10 / portTICK_PERIOD_MS);
     }
 }
@@ -86,14 +86,14 @@ void _DRV_MAXTOUCH_Tasks(  void *pvParameters  )
     }
 }
 
-/* Handle for the APP_Tasks. */
-TaskHandle_t xAPP_Tasks;
+/* Handle for the APP_GLCD_Tasks. */
+TaskHandle_t xAPP_GLCD_Tasks;
 
-void _APP_Tasks(  void *pvParameters  )
+void _APP_GLCD_Tasks(  void *pvParameters  )
 {
     while(1)
     {
-        APP_Tasks();
+        APP_GLCD_Tasks();
         vTaskDelay(10 / portTICK_PERIOD_MS);
     }
 }
@@ -119,9 +119,8 @@ void SYS_Tasks ( void )
     
 
     /* Maintain Device Drivers */
-    
-    xTaskCreate( _GFX_HAL_Tasks,
-        "GFX_HAL_Tasks",
+        xTaskCreate( _GLCD_Tasks,
+        "GLCD_Tasks",
         1024,
         (void*)NULL,
         1,
@@ -152,13 +151,13 @@ void SYS_Tasks ( void )
 
 
     /* Maintain the application's state machine. */
-        /* Create OS Thread for APP_Tasks. */
-    xTaskCreate((TaskFunction_t) _APP_Tasks,
-                "APP_Tasks",
+        /* Create OS Thread for APP_GLCD_Tasks. */
+    xTaskCreate((TaskFunction_t) _APP_GLCD_Tasks,
+                "APP_GLCD_Tasks",
                 1024,
                 NULL,
                 1,
-                &xAPP_Tasks);
+                &xAPP_GLCD_Tasks);
 
 
 

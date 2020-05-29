@@ -289,11 +289,12 @@ void SYS_Initialize ( void* data )
 	DDR_Initialize();
 
 
-
-    GFX_Initialize();
-
     /* Initialize I2C0 Driver Instance */
     sysObj.drvI2C0 = DRV_I2C_Initialize(DRV_I2C_INDEX_0, (SYS_MODULE_INIT *)&drvI2C0InitData);
+    DRV_2DGPU_Initialize();
+
+    DRV_GLCD_Initialize();
+
 
     sysObj.drvMAXTOUCH = DRV_MAXTOUCH_Initialize(0, (SYS_MODULE_INIT *)&drvMAXTOUCHInitData);
 
@@ -304,7 +305,7 @@ void SYS_Initialize ( void* data )
 
 
 
-    APP_Initialize();
+    APP_GLCD_Initialize();
 
 
     EVIC_Initialize();

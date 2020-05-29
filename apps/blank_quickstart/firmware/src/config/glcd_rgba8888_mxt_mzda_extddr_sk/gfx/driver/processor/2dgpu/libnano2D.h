@@ -30,7 +30,7 @@
     Microchip Technology Inc.
 
   File Name:
-    libnano2D.h
+    libnano2d.h
 
   Summary:
     Main header file for MPLAB Harmony Graphics Driver libnano2D GPU functions
@@ -57,6 +57,8 @@
 
 #ifndef _nano2d_h__
 #define _nano2d_h__
+
+#include "gfx/driver/gfx_driver.h"
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus
@@ -290,7 +292,7 @@ n2d_blend_t;
     N2D_BGR565    - 16-bit RGB format with 5 and 6 bits per color channel. Red
                     is in bits 15:11, green in bits 10:5, and the blue color
                     channel is in bits 4:0
-	N2D_RGBA4444  - 16-bit RGBA format with 4 bits per color channel. Red is
+        N2D_RGBA4444  - 16-bit RGBA format with 4 bits per color channel. Red is
                     in bits 3:0, green in bits 7:4, blue in bits 11:8 and the
                     alpha channel is in bits 15:12. Note: currently not available in HAL
     N2D_BGRA4444  - 16-bit RGBA format with 4 bits per color channel. Red is
@@ -307,7 +309,7 @@ typedef enum n2d_buffer_format
     N2D_BGRA8888,
     N2D_RGB565,
     N2D_BGR565,
-	N2D_RGBA4444,   /* currently not available in MPLAB Harmony HAL */
+        N2D_RGBA4444,   /* currently not available in MPLAB Harmony HAL */
     N2D_BGRA4444,   /* currently not available in MPLAB Harmony HAL */
     N2D_A8,
     N2D_YUYV,
@@ -563,9 +565,9 @@ n2d_error_t n2d_blit(
     Enable or disable dithering
 
    Description:
-    Sets the capability to scatter or approximate colors when using less than 32bpp or 
-	16bpp color depth. Dither attempts to improve the overall appearance of low resolution 
-	images. Dithering is on when enable is true, otherwise, dithering is off.
+    Sets the capability to scatter or approximate colors when using less than 32bpp or
+        16bpp color depth. Dither attempts to improve the overall appearance of low resolution
+        images. Dithering is on when enable is true, otherwise, dithering is off.
 
    Precondition:
 
@@ -721,10 +723,10 @@ n2d_error_t n2d_set_global_alpha(
     This function will wait until the hardware is complete, i.e. it is synchronous
 */
 n2d_error_t n2d_load_palette(
-	n2d_uint32_t first_index,
-	n2d_uint32_t index_count,
-	n2d_pointer color_table,
-	n2d_bool_t color_convert);
+        n2d_uint32_t first_index,
+        n2d_uint32_t index_count,
+        n2d_pointer color_table,
+        n2d_bool_t color_convert);
 
 // *****************************************************************************
 /* Function:
@@ -861,6 +863,41 @@ n2d_error_t n2d_open(
 n2d_error_t n2d_init_hardware(
     n2d_module_parameters_t *params
     );
+
+void DRV_2DGPU_Initialize(void);
+gfxResult DRV_2DGPU_Line(gfxPixelBuffer * dest,
+                        const gfxPoint* p1,
+                           const gfxPoint* p2,
+                           const gfxRect* clipRect,
+                           const gfxColor color,
+                        const gfxBlend blend);
+
+gfxResult DRV_2DGPU_Fill(gfxPixelBuffer * dest,
+                           const gfxRect* clipRect,
+                           const gfxColor color,
+                        const gfxBlend blend);
+
+gfxResult DRV_2DGPU_Blit(const gfxPixelBuffer* source,
+                           const gfxRect* srcRect,
+                           const gfxPixelBuffer* dest,
+                        const gfxRect* destRect,
+                        const gfxBlend blend);
+
+gfxResult DRV_2DGPU_BlitStretch(const gfxPixelBuffer* source,
+                           const gfxRect* srcRect,
+                           const gfxPixelBuffer* dest,
+                        const gfxRect* destRect,
+                        const gfxBlend blend);
+
+gfxPixelBuffer * DRV_2DGPU_GetFrameBuffer(void);
+
+static const gfxGraphicsProcessor _2dgpuGraphicsProcessor =
+{
+    DRV_2DGPU_Line,
+    DRV_2DGPU_Fill,
+    DRV_2DGPU_Blit,
+    DRV_2DGPU_BlitStretch
+};
 
 //DOM-IGNORE-BEGIN
 #ifdef __cplusplus

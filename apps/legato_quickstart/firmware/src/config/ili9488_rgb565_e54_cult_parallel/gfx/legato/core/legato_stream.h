@@ -1,4 +1,3 @@
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
@@ -21,7 +20,11 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
+/** \file legato_stream.h
+ * @brief Defines a common header for all stream operations.
+ *
+ * @details .
+ */
 
 #ifndef LE_STREAM_H
 #define LE_STREAM_H
@@ -46,15 +49,27 @@
 
     dataSize     - the size of the data in bytes
 */
+/**
+ * @brief This struct represents a stream descriptor
+ * @details A stream descriptor contains data location, address and size.
+ */
 typedef struct leStreamDescriptor
 {
-    uint32_t location;
-    void* address;
-    uint32_t size;
+    uint32_t location; /**< indicates the location of the data. */
+    void* address; /**<  the address at which the data resides. */
+    uint32_t size; /**<  the size of the data in bytes */
 } leStreamDescriptor;
 
+/**
+ * @brief leEventResult
+ * @details Defines the string location id.
+ */
 #define LE_STREAM_LOCATION_ID_INTERNAL 0
 
+/**
+  * @cond INTERNAL
+  *
+  */
 #if LE_STREAMING_ENABLED == 1
 
 // *****************************************************************************
@@ -429,4 +444,8 @@ void leApplication_MediaCloseRequest(leStream* stream);
 
 #endif /* LE_STREAMING_ENABLED */
 
+/**
+ * @endcond
+ *
+ */
 #endif /* LE_STREAM_H */

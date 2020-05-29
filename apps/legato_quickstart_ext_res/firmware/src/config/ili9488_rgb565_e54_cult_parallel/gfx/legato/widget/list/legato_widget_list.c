@@ -220,8 +220,8 @@ void leListWidget_Constructor(leListWidget* _this)
     _this->widget.borderType = LE_WIDGET_BORDER_BEVEL;
     _this->widget.backgroundType = LE_WIDGET_BACKGROUND_FILL;
     _this->itemDown = -1;
-    _this->mode = LE_LIST_WIDGET_SELECTION_MODE_CONTIGUOUS;
-    _this->allowEmpty = LE_TRUE;
+    _this->mode = LE_LIST_WIDGET_SELECTION_MODE_SINGLE;
+    _this->allowEmpty = LE_FALSE;
 
     leArray_Create(&_this->items);
     
@@ -397,9 +397,10 @@ static int32_t appendItem(leListWidget* _this)
     
     if(item == NULL)
         return -1;
-        
+
     item->enabled = LE_TRUE;
     item->string = NULL;
+    item->selected = LE_FALSE;
         
     leArray_PushBack(&_this->items, item);
     
@@ -434,6 +435,7 @@ static int32_t insertItem(leListWidget* _this,
         
     item->enabled = LE_TRUE;
     item->string = NULL;
+    item->selected = LE_FALSE;    
         
     leArray_InsertAt(&_this->items, idx, item);
     
@@ -491,7 +493,7 @@ static leResult removeAllItems(leListWidget* _this)
     for(i = 0; i < _this->items.size; i++)
     {
         item = _this->items.values[i];
-    
+        
         if(item != NULL)
         {
             LE_FREE(item);

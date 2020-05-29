@@ -1,4 +1,3 @@
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
@@ -21,7 +20,6 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 /*******************************************************************************
   GFX GLCD Driver Interface Declarations for Static Single Instance Driver
@@ -47,6 +45,20 @@
     Static single-open interfaces also eliminate the need for the open handle.
 *******************************************************************************/
 
+/** \file drv_gfx_glcd.h
+ * @brief GLCD driver functions and definitions.
+ *
+ * @details The GLCD device driver provides a simple interface to manage the
+ * GLCD module on Microchip PIC32MZ DA microcontrollers. This file defines the interface
+ * declarations for the GLCD driver.
+ *
+ * This driver is configured via MHC and generated specific to the configuration
+ * and hardware architecture set in MHC.
+ * @see LE GLCD Display Driver component
+ *
+ * \image html https://raw.githubusercontent.com/wiki/Microchip-MPLAB-Harmony/gfx/images/display_driver_display_module.png
+ *
+ */
 
 #ifndef _DRV_GFX_GLCD_H
 #define _DRV_GFX_GLCD_H
@@ -62,349 +74,227 @@
           this file.
 */
 
-#include "gfx/hal/inc/gfx_common.h"
-#include "gfx/hal/inc/gfx_driver_interface.h"
-#include "gfx/hal/inc/gfx_default_impl.h"
+#include "gfx/driver/controller/glcd/plib_glcd.h"
+#include "gfx/driver/gfx_driver.h"
 
 #ifdef __cplusplus
     extern "C" {
 #endif
         
 // *****************************************************************************
-/* GLCD Layer Control Definitions
-
-  Summary:
-    Structure holding the layer control definitions
-
-  Description:
-    This structure contains the layer control definitions.
-
-  Remarks:
-*/
-
-typedef enum {
-        GLCD_LAYER_DISABLE   = 0,
-        GLCD_LAYER_ENABLE    = 1 << 31,
-} GLCD_LAYER_CONTROL;
-
-
-// *****************************************************************************
-// *****************************************************************************
-// Section: Interface Headers for the Static Driver
-// *****************************************************************************
-// *****************************************************************************
-
-// *****************************************************************************
-/* Function:
-     void  void  DRV_GFX_GLCD_BackgroundColorSet(uint32_t bgColor)
-
-  Summary:
-     Sets the background color to the specified RGBA value
-
-     <p><b>Implementation:</b> Static</p>
-
-  Description:
-     Sets the background color to the specified RGBA value
-
-
-  Precondition:
-    DRV_GFX_GLCD_Open has been called.
-
-  Parameters:
-    bgColor                        - RGBA color
-
-  Returns:
-    * none
-
-  Remarks:
-*/
-void  DRV_GFX_GLCD_BackgroundColorSet(uint32_t bgColor);
-
-// *****************************************************************************
-/* Function:
-    void DRV_GFX_GLCD_LayerAlphaSet(uint8_t alpha)
-
-  Summary:
-    Sets the alpha value for the specified layer index.
-    <p><b>Implementation:</b> Static</p>
-
-  Description:
-    This routine sets the alpha value of the layer ranging from 0 to 0xFF.
-
-  Precondition:
-    DRV_GFX_GLCD_Open has been called.
-
-  Parameters:
-    None.
-
-  Returns:
-    None.
-
-  Remarks:
-
-*/
-void DRV_GFX_GLCD_LayerAlphaSet(uint8_t alpha);
-
-// *****************************************************************************
-/* Function:
-    void DRV_GFX_GLCD_LayerDestBlendSet(GLCD_LAYER_DEST_BLEND_FUNC blend)
-
-  Summary:
-    Sets the destination blend value to be used for the specified layer index.
-    <p><b>Implementation:</b> Static</p>
-
-  Description:
-    This routine sets the destination blend value to be used for the specified layer index.
-
-  Precondition:
-    DRV_GFX_GLCD_Open has been called.
-
-  Parameters:
-    None.
-
-  Returns:
-    None.
-
-  Remarks:
-
-*/
-void DRV_GFX_GLCD_LayerDestBlendSet(GLCD_LAYER_DEST_BLEND_FUNC blend);
-
-// *****************************************************************************
-/* Function:
-    void DRV_GFX_GLCD_LayerSrcBlendSet(GLCD_LAYER_SRC_BLEND_FUNC blend)
-
-  Summary:
-    Sets the source blend value to be used for the specified layer index.
-    <p><b>Implementation:</b> Static</p>
-
-  Description:
-    This routine sets the source blend value to be used for the specified layer index.
-
-  Precondition:
-    DRV_GFX_GLCD_Open has been called.
-
-  Parameters:
-    None.
-
-  Returns:
-    None.
-
-  Remarks:
-
-*/
-void DRV_GFX_GLCD_LayerSrcBlendSet(GLCD_LAYER_SRC_BLEND_FUNC blend);
-
-// *****************************************************************************
-/* Function:
-    void DRV_GFX_GLCD_LayerColorSpaceSet(GLCD_LAYER_COLOR_MODE colorSpace)
-
-  Summary:
-    Sets the color space to be used for the specified layer index.
-    <p><b>Implementation:</b> Static</p>
-
-  Description:
-    This routine sets the color space to be used for the specified layer index.
-
-  Precondition:
-    DRV_GFX_GLCD_Open has been called.
-
-  Parameters:
-    None.
-
-  Returns:
-    None.
-
-  Remarks:
-
-*/
-void DRV_GFX_GLCD_LayerColorSpaceSet(GLCD_LAYER_COLOR_MODE colorSpace);
-
-// *****************************************************************************
-/* Function:
-    void DRV_GFX_GLCD_LayerEnableSet(GFX_Bool enable)
-
-  Summary:
-    Enables or disables the specified layer index based on the given enable flag.
-    <p><b>Implementation:</b> Static</p>
-
-  Description:
-    Enables or disables the specified layer index based on the given enable flag.
-
-  Precondition:
-    DRV_GFX_GLCD_Open has been called.
-
-  Parameters:
-    None.
-
-  Returns:
-    None.
-
-  Remarks:
-*/
-void DRV_GFX_GLCD_LayerEnableSet(GFX_Bool enable);
-
-// *****************************************************************************
-/* Function:
-    void DRV_GFX_GLCD_LayerModeSet(uint32_t layerMode)
-
-  Summary:
-    Sets the mode state for the specified layer index.
-    <p><b>Implementation:</b> Static</p>
-
-  Description:
-    This routine sets the mode state of the layer to either show or not show the layer.
-
-  Precondition:
-    DRV_GFX_GLCD_Open has been called.
-
-  Parameters:
-    None.
-
-  Returns:
-    None.
-
-  Remarks:
-    Deprecated. Will not be available next release.
-
-*/
-void DRV_GFX_GLCD_LayerModeSet(uint32_t layerMode);
-
-// *****************************************************************************
-/* Function:
-    void DRV_GFX_GLCD_LayerFrameBufferSet(uint32_t * frame)
-
-  Summary:
-    Sets the baseaddress of the layer to the specific memory location.
-    <p><b>Implementation:</b> Static</p>
-
-  Description:
-    This routine sets the baseaddress of the layer to the specific memory location.
-
-  Precondition:
-    DRV_GFX_GLCD_Open has been called.
-
-  Parameters:
-    None.
-
-  Returns:
-    None.
-
-  Remarks:
-
-*/
-void DRV_GFX_GLCD_LayerFrameBufferSet(uint32_t * frame);
-
-// *****************************************************************************
-/* Function:
-     void  DRV_GFX_GLCD_CursorSetPosition(uint32_t x, uint32_t y, GFX_Bool enable)
-
-  Summary:
-     Sets the position and enable state of the cursor.
-
-     <p><b>Implementation:</b> Static</p>
-
-  Description:
-     Sets the x, y position of the cursor and its enable state.
-
-  Precondition:
-    DRV_GFX_GLCD_Open has been called.
-
-  Parameters:
-    x                              - x coordinate of the start point.
-    y                              - y coordinate of the end point.
-    enable                         - enable cursor on or off
-
-  Returns:
-    * none
-
-  Remarks:
-*/
-void  DRV_GFX_GLCD_CursorSetPosition(uint32_t x, uint32_t y, GFX_Bool enable);
-
-// *****************************************************************************
-/* Function:
-     void  DRV_GFX_GLCD_CursorImageSet(uint32_t * cursorImage)
-
-  Summary:
-     Sets Cursor image to the image specified.
-     <p><b>Implementation:</b> Static</p>
-
-  Description:
-     Sets Cursor image to the image specified.
-
-  Precondition:
-    DRV_GFX_GLCD_Open has been called.
-
-  Parameters:
-    uint32_t * cursorImage         - 32x32 palatte image
-
-  Returns:
-    * none
-
-  Remarks:
-*/
-void  DRV_GFX_GLCD_CursorImageSet(uint32_t * cursorImage);
-
-
-// *****************************************************************************
-/* Function:
-     void DRV_GFX_GLCD_CursorPaletteSet(uint32_t * cursorPalette)
-
-  Summary:
-     Sets the Cursor Pallette to the given cursor palette.
-     <p><b>Implementation:</b> Static</p>
-
-  Description:
-     Sets Cursor image to the image specified.
-
-  Precondition:
-    DRV_GFX_GLCD_Open has been called.
-
-  Parameters:
-    uint32_t * cursorImage         - 32x32 palatte image
-
-  Returns:
-    * none
-
-  Remarks:
-*/
-void DRV_GFX_GLCD_CursorPaletteSet(uint32_t * gammaPalette);
-
-
-// *****************************************************************************
-/* Function:
-     void DRV_GFX_GLCD_GammaPaletteSet(uint32_t * cursorPalette)
-
-  Summary:
-     Setsthe global gamma/palette to the given cursor palette.
-     <p><b>Implementation:</b> Static</p>
-
-  Description:
-     Sets the global gamma/platform image.
-
-  Precondition:
-    DRV_GFX_GLCD_Open has been called.
-
-  Parameters:
-    uint32_t * cursorImage         - 32x32 palatte image
-
-  Returns:
-    * none
-
-  Remarks:
-*/
-void  DRV_GFX_GLCD_GammaPaletteSet(uint32_t * gammaPalette);
-
-
-// *****************************************************************************
 // *****************************************************************************
 // Section: Functions
 // *****************************************************************************
 // *****************************************************************************
+/**
+ * @brief Initialize driver.
+ * @details Initializes the GLCD driver. This routine is typically called
+ * by a graphics library or by the application during application initialization.
+ * @code
+ * gfxResult res = DRV_GLCD_Initialize();
+ * @endcode
+ * @return GFX_SUCCESS if driver ready to render, otherwise GFX_FAILURE.
+ */
+void DRV_GLCD_Initialize(void);
 
-GFX_Result driverLCCInfoGet(GFX_DriverInfo* info);
-GFX_Result driverLCCContextInitialize(GFX_Context* context);
+/**
+ * @brief Get color mode.
+ * @details Returns the current color mode.
+ * @code
+ * gfxDisplayDriver*  drv;
+ * gfxColorMode mode = drv->getColorMode();
+ * @endcode
+ * @return RGB color mode.
+ */
+gfxColorMode DRV_GLCD_GetColorMode(void);
+
+/**
+ * @brief Get buffer count.
+ * @details Returns the number of configured buffers. In a single buffer system
+ * count will be 1. In a double buffered system, the count would be at least 2.
+ * @code
+ * gfxDisplayDriver*  drv;
+ * uint32_t cnt = drv->getBufferCount();
+ * @endcode
+ * @return number of configured buffers.
+ */
+uint32_t DRV_GLCD_GetBufferCount(void);
+
+/**
+ * @brief Get display width.
+ * @details Returns the max number of horizontal pixels. This is the horizonal portion
+ * of the screen resolution.
+ * @see DRV_LCC_GetDisplayHeight()
+ * @code
+ * gfxDisplayDriver*  drv;
+ * uint32_t width = drv->getDisplayWidth();
+ * @endcode
+ * @return horizontal display width.
+ */
+uint32_t DRV_GLCD_GetDisplayWidth(void);
+
+/**
+ * @brief Get display height.
+ * @details Returns the max number vertical pixels. This is the vertical portion
+ * of the screen resolution.
+ * @see DRV_LCC_GetDisplayWidth()
+ * @code
+ * gfxDisplayDriver*  drv;
+ * uint32_t width = drv->getDisplayHeight();
+ * @endcode
+ * @return vertical display height.
+ */
+uint32_t DRV_GLCD_GetDisplayHeight(void);
+
+/**
+ * @brief Execute update task.
+ * @details Performs a driver task update.
+ * @code
+ * DRV_LCC_Update();
+ * @endcode
+ * @return void.
+ */
+void DRV_GLCD_Update(void);
+
+/**
+ * @brief Get layer count.
+ * @details Returns the number of display layers configured.
+ * @code
+ * gfxDisplayDriver*  drv;
+ * uint32_t cnt = drv->getLayerCount();
+ * @endcode
+ * @return number of display layers.
+ */
+uint32_t DRV_GLCD_GetLayerCount();
+
+/**
+ * @brief Get active layer.
+ * @details Returns the index of the active layer.
+ * @code
+ * gfxDisplayDriver*  drv;
+ * uint32_t layer = drv->getActiveLayer();
+ * @endcode
+ * @return layer index.
+ */
+uint32_t DRV_GLCD_GetActiveLayer();
+
+/**
+ * @brief Set active layer.
+ * @details Sets active the layer at <span class="param">idx</span> position.
+ * @code
+ * gfxDisplayDriver* drv;
+ * uint32_t idx;
+ * gfxResult res = drv->setActiveLayer(idx);
+ * @endcode
+ * @return GFX_SUCCESS if layer at idx is active, otherwise GFX_FAILURE.
+ */
+gfxResult DRV_GLCD_SetActiveLayer(uint32_t idx);
+
+/**
+ * @brief Blit buffer.
+ * @details Copies <span class="param">buf</span>
+ * to the framebuffer at location <span class="param">x</span> and
+ * <span class="param">y</span> with
+ * <span class="param">blend</span> composition.
+ * @code
+ * gfxDisplayDriver* drv;
+ * gfxResult res = drv->blitBuffer();
+ * @endcode
+ * @return GFX_SUCCESS if blit was performed, otherwise GFX_FAILURE.
+ */
+gfxResult DRV_GLCD_BlitBuffer(int32_t x, int32_t y, gfxPixelBuffer* buf, gfxBlend blend);
+
+/**
+ * @brief Swap buffer.
+ * @details Swaps the rendering buffer with the display buffer. The display buffer now
+ * becomes the rendering buffer. Swapping support double buffering technology.
+ * @code
+ * gfxDisplayDriver* drv;
+ * drv->swap();
+ * @endcode
+ */
+void DRV_GLCD_Swap(void);
+
+/**
+ * @brief Get VSYNC count.
+ * @details Returns the vertical pulse count. This can be used
+ * as an interrupt to indicate the end of a frame or start of a new frame.
+ * This value can also be used to do frame rate calculations.
+ * @code
+ * gfxDisplayDriver* drv;
+ * drv->getVSYNCCount();
+ * @endcode
+ * @return VSYNC count.
+ */
+uint32_t DRV_GLCD_GetVSYNCCount(void);
+
+/**
+ * @brief Get framebuffer.
+ * @details Returns the framebuffer (display buffer) located at
+ * <span class="param">idx</span> position.
+ * @code
+ * gfxDisplayDriver* drv;
+ * int32_t idx;
+ * gfxPixelBuffer * buf = drv->getFrameBuffer(idx);
+ * @endcode
+ * @param idx is the framebuffer location identifier
+ * @return void.
+ */
+gfxPixelBuffer * DRV_GLCD_GetFrameBuffer(int32_t idx);
+
+/**
+ * @brief Set use GPU.
+ * @details Sets the gpu status to the value of
+ * <span class="param">onOff</span>
+ * This routine enables the use of the GPU for blit operations.
+ * @code
+ * gfxBool onOff;
+ * DRV_GLCD_SetUseGPU(onOff);
+ * @endcode
+ * @param onOff is the new gpu status to set.
+ * @return void.
+ */
+void DRV_GLCD_SetUseGPU(gfxBool onOff);
+
+/**
+ * @brief Perform control config request.
+ * @details Performs control configuration request specified by
+ * <span class="param">request</span> with the given
+ * arguments <span class="param">arg</span>
+ * @code
+ * ctlrCfg request;
+ * void * arg;
+ * gfxDisplayDriver* drv;
+ * gfxPixelBuffer * buf = drv->ctrlrConfig(request, arg);
+ * @param request is the request to perform
+ * @endcode
+ * @param arg is the arguments for the request
+ * @return GFX_SUCCESS if configuration was performed, otherwise GFX_FAILURE
+ */
+gfxResult DRV_GLCD_CtrlrConfig(ctlrCfg request, void * arg);
+
+/**
+ * @brief Defines the LCC interface functions.
+ * @details Establishes the driver abstract interface functions between the driver
+ * and client. The client is either a graphics library middleware or application which
+ * interfaces with the driver through these functions.
+ */
+static const gfxDisplayDriver glcdDisplayDriver =
+{
+    DRV_GLCD_GetColorMode,	/**< implements getColorMode */
+    DRV_GLCD_GetBufferCount,	/**< implements getBufferCount */
+    DRV_GLCD_GetDisplayWidth,   /**< implements getDisplayWidth */
+    DRV_GLCD_GetDisplayHeight,	/**< implements getDisplayHeight */
+    DRV_GLCD_Update,            /**< implements update */
+    DRV_GLCD_GetLayerCount,	/**< implements layerCount */
+    DRV_GLCD_GetActiveLayer,	/**< implements activeLayer */
+    DRV_GLCD_SetActiveLayer,	/**< implements setActive */
+    DRV_GLCD_BlitBuffer,	/**< implements blitbuffer */
+    DRV_GLCD_Swap,		/**< implements swap */
+    DRV_GLCD_GetVSYNCCount,	/**< implements getVSYNCCount */
+    DRV_GLCD_GetFrameBuffer,	/**< implements getFrameBuffer */
+    DRV_GLCD_CtrlrConfig        /**< implements ctrlrConfig */
+};
 
 #ifdef __cplusplus
     }

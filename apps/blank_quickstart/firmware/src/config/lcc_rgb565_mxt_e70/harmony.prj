@@ -27,8 +27,8 @@
           <Name dnOrder="1">drv_gfx_lcc.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_e70/gfx/driver/lcc</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/lcc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">56BFEC282AA0FE3FF9F6E421140828C1</GeneratedChecksum>
-          <UserChecksum dnOrder="5">56BFEC282AA0FE3FF9F6E421140828C1</UserChecksum>
+          <GeneratedChecksum dnOrder="4">2D26FED59E0BC7C084A83819B87AB4C2</GeneratedChecksum>
+          <UserChecksum dnOrder="5">2D26FED59E0BC7C084A83819B87AB4C2</UserChecksum>
         </File>
         <File dnOrder="3">
           <Type dnOrder="0">SOURCE</Type>
@@ -43,8 +43,8 @@
           <Name dnOrder="1">gfx_driver.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_e70/gfx/driver/lcc</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">D46B5019311FBF27815B0C5ADD3F3901</GeneratedChecksum>
-          <UserChecksum dnOrder="5">D46B5019311FBF27815B0C5ADD3F3901</UserChecksum>
+          <GeneratedChecksum dnOrder="4">36FA79243A4ABD63DAAEA023290EDE3B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">36FA79243A4ABD63DAAEA023290EDE3B</UserChecksum>
         </File>
         <File dnOrder="5">
           <Type dnOrder="0">SOURCE</Type>
@@ -339,8 +339,8 @@
           <Name dnOrder="1">drv_gfx_lcc.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_e70/gfx/driver/lcc</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/lcc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">17F829232EA2A4BD0B6EBF57E766E150</GeneratedChecksum>
-          <UserChecksum dnOrder="5">17F829232EA2A4BD0B6EBF57E766E150</UserChecksum>
+          <GeneratedChecksum dnOrder="4">04F47647E149AD1209755223C1A4804D</GeneratedChecksum>
+          <UserChecksum dnOrder="5">04F47647E149AD1209755223C1A4804D</UserChecksum>
         </File>
         <File dnOrder="42">
           <Type dnOrder="0">HEADER</Type>
@@ -355,8 +355,8 @@
           <Name dnOrder="1">gfx_driver.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_e70/gfx/driver/lcc</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">44B03BFE381FF1C0A82BE6E42ADDF8EF</GeneratedChecksum>
-          <UserChecksum dnOrder="5">44B03BFE381FF1C0A82BE6E42ADDF8EF</UserChecksum>
+          <GeneratedChecksum dnOrder="4">A4A6A074724DFA18D16D849184ADB083</GeneratedChecksum>
+          <UserChecksum dnOrder="5">A4A6A074724DFA18D16D849184ADB083</UserChecksum>
         </File>
         <File dnOrder="44">
           <Type dnOrder="0">HEADER</Type>
@@ -738,12 +738,12 @@
       </Settings>
     </Manifest>
     <Settings dnOrder="4">
-      <Setting dnOrder="0" key="CMSISPath" value="./dev_packs/arm/CMSIS/5.6.0"/>
-      <Setting dnOrder="1" key="DFPPath" value="./dev_packs/Microchip/SAME70_DFP/4.2.56/same70b/atdf/ATSAME70Q21B.atdf"/>
+      <Setting dnOrder="0" key="CMSISPath" value=".\dev_packs\arm\CMSIS\5.6.0"/>
+      <Setting dnOrder="1" key="DFPPath" value=".\dev_packs\Microchip\SAME70_DFP\4.2.56\same70b\atdf\ATSAME70Q21B.atdf"/>
       <Setting dnOrder="2" key="FORCE_OPTIMIZATION" value="false"/>
       <Setting dnOrder="3" key="GENERATE_BACKUP" value="true"/>
       <Setting dnOrder="4" key="MERGE_STRATEGY" value="USER_ALL"/>
-      <Setting dnOrder="5" key="PackageFilter" value="core;usb;audio;gfx;bsp;gfx_apps;csp;bt;"/>
+      <Setting dnOrder="5" key="PackageFilter" value="aerospace;audio;bsp;bt;core;crypto;csp;aerospace;gfx;gfx_apps;aerospace;net;usb;"/>
     </Settings>
   </Configurator>
 </Configuration>

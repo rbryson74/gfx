@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Configuration>
   <Components>
-    <UniqueComponent dnOrder="0" id="aria_gfx_pda_tm4301b"/>
-    <UniqueComponent bsp="true" dnOrder="1" id="BSP_PIC32MZ_DA_Starter_Kit"/>
-    <UniqueComponent dnOrder="2" id="core">
+    <UniqueComponent bsp="true" dnOrder="0" id="BSP_PIC32MZ_DA_Starter_Kit"/>
+    <UniqueComponent dnOrder="1" id="core">
       <Symbols dnOrder="0">
         <Integer dnOrder="0" id="ADCHS_CLOCK_FREQUENCY">
           <Values dnOrder="0">
@@ -112,22 +111,22 @@
         </String>
         <String dnOrder="21" id="BSP_PIN_146_DIR">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="aria_gfx_pda_tm4301b" value="Out"/>
+            <Dynamic dnOrder="0" id="legato_gfx_pda_tm4301b" value="Out"/>
           </Values>
         </String>
         <String dnOrder="22" id="BSP_PIN_146_FUNCTION_NAME">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="aria_gfx_pda_tm4301b" value="TM4301B_BACKLIGHT"/>
+            <Dynamic dnOrder="0" id="legato_gfx_pda_tm4301b" value="TM4301B_BACKLIGHT"/>
           </Values>
         </String>
         <String dnOrder="23" id="BSP_PIN_146_FUNCTION_TYPE">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="aria_gfx_pda_tm4301b" value="GPIO"/>
+            <Dynamic dnOrder="0" id="legato_gfx_pda_tm4301b" value="GPIO"/>
           </Values>
         </String>
         <String dnOrder="24" id="BSP_PIN_146_LAT">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="aria_gfx_pda_tm4301b" value="High"/>
+            <Dynamic dnOrder="0" id="legato_gfx_pda_tm4301b" value="High"/>
           </Values>
         </String>
         <String dnOrder="25" id="BSP_PIN_146_MODE">
@@ -162,7 +161,7 @@
         </String>
         <String dnOrder="31" id="BSP_PIN_154_FUNCTION_TYPE">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="aria_gfx_pda_tm4301b" value="SCL1"/>
+            <Dynamic dnOrder="0" id="legato_gfx_pda_tm4301b" value="SCL1"/>
           </Values>
         </String>
         <String dnOrder="32" id="BSP_PIN_154_MODE">
@@ -227,7 +226,7 @@
         </String>
         <String dnOrder="44" id="BSP_PIN_167_FUNCTION_TYPE">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="aria_gfx_pda_tm4301b" value="SDA1"/>
+            <Dynamic dnOrder="0" id="legato_gfx_pda_tm4301b" value="SDA1"/>
           </Values>
         </String>
         <String dnOrder="45" id="BSP_PIN_167_MODE">
@@ -242,22 +241,22 @@
         </String>
         <String dnOrder="47" id="BSP_PIN_16_DIR">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="aria_gfx_pda_tm4301b" value="Out"/>
+            <Dynamic dnOrder="0" id="legato_gfx_pda_tm4301b" value="Out"/>
           </Values>
         </String>
         <String dnOrder="48" id="BSP_PIN_16_FUNCTION_NAME">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="aria_gfx_pda_tm4301b" value="CAMERA_ENABLE"/>
+            <Dynamic dnOrder="0" id="legato_gfx_pda_tm4301b" value="CAMERA_ENABLE"/>
           </Values>
         </String>
         <String dnOrder="49" id="BSP_PIN_16_FUNCTION_TYPE">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="aria_gfx_pda_tm4301b" value="GPIO"/>
+            <Dynamic dnOrder="0" id="legato_gfx_pda_tm4301b" value="GPIO"/>
           </Values>
         </String>
         <String dnOrder="50" id="BSP_PIN_16_LAT">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="aria_gfx_pda_tm4301b" value=""/>
+            <Dynamic dnOrder="0" id="legato_gfx_pda_tm4301b" value=""/>
           </Values>
         </String>
         <String dnOrder="51" id="BSP_PIN_16_MODE">
@@ -267,22 +266,22 @@
         </String>
         <String dnOrder="52" id="BSP_PIN_22_DIR">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="aria_gfx_pda_tm4301b" value="In"/>
+            <Dynamic dnOrder="0" id="legato_gfx_pda_tm4301b" value="In"/>
           </Values>
         </String>
         <String dnOrder="53" id="BSP_PIN_22_FUNCTION_NAME">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="aria_gfx_pda_tm4301b" value="BSP_MAXTOUCH_CHG"/>
+            <Dynamic dnOrder="0" id="legato_gfx_pda_tm4301b" value="BSP_MAXTOUCH_CHG"/>
           </Values>
         </String>
         <String dnOrder="54" id="BSP_PIN_22_FUNCTION_TYPE">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="aria_gfx_pda_tm4301b" value="GPIO"/>
+            <Dynamic dnOrder="0" id="legato_gfx_pda_tm4301b" value="GPIO"/>
           </Values>
         </String>
         <String dnOrder="55" id="BSP_PIN_22_LAT">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="aria_gfx_pda_tm4301b" value=""/>
+            <Dynamic dnOrder="0" id="legato_gfx_pda_tm4301b" value=""/>
           </Values>
         </String>
         <String dnOrder="56" id="BSP_PIN_22_MODE">
@@ -517,12 +516,13 @@
         </String>
         <Boolean dnOrder="102" id="CONFIG_SYS_CLK_REFCLK5_ENABLE">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_driver_glcd" value="true"/>
+            <Dynamic dnOrder="0" id="le_gfx_driver_glcd" value="true"/>
           </Values>
         </Boolean>
         <String dnOrder="103" id="CONFIG_SYS_CLK_REFCLK5_FREQ">
           <Values dnOrder="0">
-            <User dnOrder="0" value="200000000"/>
+            <Dynamic dnOrder="0" id="core" value="200000000"/>
+            <User dnOrder="1" value="200000000"/>
           </Values>
         </String>
         <Boolean dnOrder="104" id="CORE_SOFTWARE_0_INTERRUPT_ENABLE_UPDATE">
@@ -742,7 +742,7 @@
         </Integer>
         <Boolean dnOrder="147" id="GLCD_INTERRUPT_ENABLE">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_driver_glcd" value="true"/>
+            <Dynamic dnOrder="0" id="le_gfx_driver_glcd" value="true"/>
           </Values>
         </Boolean>
         <Boolean dnOrder="148" id="GLCD_INTERRUPT_ENABLE_UPDATE">
@@ -752,12 +752,12 @@
         </Boolean>
         <String dnOrder="149" id="GLCD_INTERRUPT_HANDLER">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_driver_glcd" value="GLCD_Interrupt_Handler"/>
+            <Dynamic dnOrder="0" id="le_gfx_driver_glcd" value="GLCD_Interrupt_Handler"/>
           </Values>
         </String>
         <Boolean dnOrder="150" id="GLCD_INTERRUPT_HANDLER_LOCK">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_driver_glcd" value="true"/>
+            <Dynamic dnOrder="0" id="le_gfx_driver_glcd" value="true"/>
           </Values>
         </Boolean>
         <Integer dnOrder="151" id="GPU_CLOCK_FREQUENCY">
@@ -1189,7 +1189,7 @@
         </KeyValueSet>
       </Symbols>
     </UniqueComponent>
-    <UniqueComponent dnOrder="3" id="core_timer">
+    <UniqueComponent dnOrder="2" id="core_timer">
       <Symbols dnOrder="0">
         <Integer dnOrder="0" id="CORE_TIMER_FREQUENCY">
           <Values dnOrder="0">
@@ -1230,9 +1230,9 @@
         </DirectCapability>
       </Attachments>
     </UniqueComponent>
-    <UniqueComponent dnOrder="4" id="ddr"/>
-    <UniqueComponent dnOrder="5" id="dfp"/>
-    <GeneratorComponent dnOrder="6" id="drv_i2c">
+    <UniqueComponent dnOrder="3" id="ddr"/>
+    <UniqueComponent dnOrder="4" id="dfp"/>
+    <GeneratorComponent dnOrder="5" id="drv_i2c">
       <Symbols dnOrder="0">
         <Combo dnOrder="0" id="DRV_I2C_MODE">
           <Values dnOrder="0">
@@ -1274,15 +1274,15 @@
         </InstanceComponent>
       </Instances>
     </GeneratorComponent>
-    <UniqueComponent dnOrder="7" id="gfx_disp_pdatm4301b_480x272">
+    <UniqueComponent dnOrder="6" id="gfx_disp_pdatm4301b_480x272">
       <Attachments dnOrder="0">
         <DirectCapability dnOrder="0" id="gfx_display">
           <Attributes dnOrder="0">
             <String dnOrder="0" id="targetComponentID">
-              <Value dnOrder="0">gfx_hal</Value>
+              <Value dnOrder="0">le_gfx_driver_glcd</Value>
             </String>
             <String dnOrder="1" id="targetAttachmentID">
-              <Value dnOrder="0">gfx_display</Value>
+              <Value dnOrder="0">Graphics&amp;#160;Display</Value>
             </String>
           </Attributes>
         </DirectCapability>
@@ -1298,253 +1298,96 @@
         </DirectCapability>
       </Attachments>
     </UniqueComponent>
-    <UniqueComponent dnOrder="8" id="gfx_driver_2dgpu">
-      <Attachments dnOrder="0">
-        <DirectCapability dnOrder="0" id="gfx_driver_2dgpu">
-          <Attributes dnOrder="0">
-            <String dnOrder="0" id="targetComponentID">
-              <Value dnOrder="0">gfx_hal</Value>
-            </String>
-            <String dnOrder="1" id="targetAttachmentID">
-              <Value dnOrder="0">gfx_graphics_processor</Value>
-            </String>
-          </Attributes>
-        </DirectCapability>
-      </Attachments>
-    </UniqueComponent>
-    <UniqueComponent dnOrder="9" id="gfx_driver_glcd">
+    <UniqueComponent dnOrder="7" id="gfx_hal_le">
       <Symbols dnOrder="0">
-        <Boolean dnOrder="0" id="HALConnected">
+        <Boolean dnOrder="0" id="DisplayDataEnablePolarity">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="true"/>
+            <Dynamic dnOrder="0" id="le_gfx_driver_glcd" value="true"/>
           </Values>
         </Boolean>
-        <String dnOrder="1" id="Layer0Buffer0">
+        <Boolean dnOrder="1" id="DisplayHSYNCNegative">
           <Values dnOrder="0">
-            <User dnOrder="0" value="0xA8000000"/>
+            <Dynamic dnOrder="0" id="le_gfx_driver_glcd" value="false"/>
           </Values>
-        </String>
-        <String dnOrder="2" id="Layer1Buffer0">
+        </Boolean>
+        <Integer dnOrder="2" id="DisplayHeight">
           <Values dnOrder="0">
-            <User dnOrder="0" value="0xA80FF000"/>
-          </Values>
-        </String>
-        <String dnOrder="3" id="Layer2Buffer0">
-          <Values dnOrder="0">
-            <User dnOrder="0" value="0xA807F800"/>
-          </Values>
-        </String>
-        <Integer dnOrder="4" id="PixelClock">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_driver_glcd" value="33333333"/>
+            <Dynamic dnOrder="0" id="le_gfx_driver_glcd" value="272"/>
           </Values>
         </Integer>
-        <Integer dnOrder="5" id="PixelClockDivider">
+        <Integer dnOrder="3" id="DisplayHorzBackPorch">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="aria_gfx_pda_tm4301b" value="6"/>
+            <Dynamic dnOrder="0" id="le_gfx_driver_glcd" value="2"/>
           </Values>
         </Integer>
-        <Integer dnOrder="6" id="TotalNumLayers">
+        <Integer dnOrder="4" id="DisplayHorzFrontPorch">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_driver_glcd" value="3"/>
+            <Dynamic dnOrder="0" id="le_gfx_driver_glcd" value="2"/>
           </Values>
         </Integer>
+        <Integer dnOrder="5" id="DisplayHorzPulseWidth">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_glcd" value="41"/>
+          </Values>
+        </Integer>
+        <String dnOrder="6" id="DisplayName">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_glcd" value="PDA TM4301B"/>
+          </Values>
+        </String>
+        <Boolean dnOrder="7" id="DisplayVSYNCNegative">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_glcd" value="false"/>
+          </Values>
+        </Boolean>
+        <Integer dnOrder="8" id="DisplayVertBackPorch">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_glcd" value="2"/>
+          </Values>
+        </Integer>
+        <Integer dnOrder="9" id="DisplayVertFrontPorch">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_glcd" value="2"/>
+          </Values>
+        </Integer>
+        <Integer dnOrder="10" id="DisplayVertPulseWidth">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_glcd" value="10"/>
+          </Values>
+        </Integer>
+        <Integer dnOrder="11" id="DisplayWidth">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_glcd" value="480"/>
+          </Values>
+        </Integer>
+        <String dnOrder="12" id="DriverName">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_glcd" value="LE GLCD "/>
+          </Values>
+        </String>
+        <Integer dnOrder="13" id="PixelClock">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_glcd" value="16666666"/>
+          </Values>
+        </Integer>
+        <Integer dnOrder="14" id="RefreshRate">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="gfx_hal_le" value="111"/>
+          </Values>
+        </Integer>
+        <String dnOrder="15" id="gfx_display">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_glcd" value="gfx_disp_pdatm4301b_480x272"/>
+          </Values>
+        </String>
+        <String dnOrder="16" id="gfx_driver">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_glcd" value="le_gfx_driver_glcd"/>
+          </Values>
+        </String>
       </Symbols>
-      <Attachments dnOrder="1">
-        <DirectCapability dnOrder="0" id="gfx_driver_glcd">
-          <Attributes dnOrder="0">
-            <String dnOrder="0" id="targetComponentID">
-              <Value dnOrder="0">gfx_hal</Value>
-            </String>
-            <String dnOrder="1" id="targetAttachmentID">
-              <Value dnOrder="0">gfx_display_driver</Value>
-            </String>
-          </Attributes>
-        </DirectCapability>
-      </Attachments>
     </UniqueComponent>
-    <UniqueComponent dnOrder="10" id="gfx_hal">
-      <Symbols dnOrder="0">
-        <Combo dnOrder="0" id="ColorModeHint">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="aria_gfx_pda_tm4301b" value="GFX_COLOR_MODE_RGBA_8888"/>
-          </Values>
-        </Combo>
-        <Integer dnOrder="1" id="DisplayBacklightDisable">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="1"/>
-          </Values>
-        </Integer>
-        <Integer dnOrder="2" id="DisplayBacklightEnable">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="1"/>
-          </Values>
-        </Integer>
-        <Boolean dnOrder="3" id="DisplayChipSelectPolarity">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="true"/>
-          </Values>
-        </Boolean>
-        <Boolean dnOrder="4" id="DisplayDataEnable">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="true"/>
-          </Values>
-        </Boolean>
-        <Boolean dnOrder="5" id="DisplayDataEnablePolarity">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="true"/>
-          </Values>
-        </Boolean>
-        <Integer dnOrder="6" id="DisplayDataWidth">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="16"/>
-          </Values>
-        </Integer>
-        <Boolean dnOrder="7" id="DisplayHSYNCNegative">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="false"/>
-          </Values>
-        </Boolean>
-        <Integer dnOrder="8" id="DisplayHeight">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="272"/>
-          </Values>
-        </Integer>
-        <Integer dnOrder="9" id="DisplayHorzBackPorch">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="2"/>
-          </Values>
-        </Integer>
-        <Integer dnOrder="10" id="DisplayHorzFrontPorch">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="2"/>
-          </Values>
-        </Integer>
-        <Integer dnOrder="11" id="DisplayHorzPulseWidth">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="41"/>
-          </Values>
-        </Integer>
-        <Boolean dnOrder="12" id="DisplayInvLeftShift">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="false"/>
-          </Values>
-        </Boolean>
-        <String dnOrder="13" id="DisplayName">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="PDA TM4301B"/>
-          </Values>
-        </String>
-        <Boolean dnOrder="14" id="DisplayResetPolarity">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="true"/>
-          </Values>
-        </Boolean>
-        <Boolean dnOrder="15" id="DisplayUseChipSelect">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="false"/>
-          </Values>
-        </Boolean>
-        <Boolean dnOrder="16" id="DisplayUseReset">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="true"/>
-          </Values>
-        </Boolean>
-        <Boolean dnOrder="17" id="DisplayVSYNCNegative">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="false"/>
-          </Values>
-        </Boolean>
-        <Integer dnOrder="18" id="DisplayVertBackPorch">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="2"/>
-          </Values>
-        </Integer>
-        <Integer dnOrder="19" id="DisplayVertFrontPorch">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="2"/>
-          </Values>
-        </Integer>
-        <Integer dnOrder="20" id="DisplayVertPulseWidth">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="10"/>
-          </Values>
-        </Integer>
-        <Integer dnOrder="21" id="DisplayWidth">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="480"/>
-          </Values>
-        </Integer>
-        <String dnOrder="22" id="DriverInfoFunction">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="driverGLCDInfoGet"/>
-          </Values>
-        </String>
-        <String dnOrder="23" id="DriverInitFunction">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="driverGLCDContextInitialize"/>
-          </Values>
-        </String>
-        <Integer dnOrder="24" id="HardwareLayerCountHint">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_driver_glcd" value="3"/>
-          </Values>
-        </Integer>
-        <Integer dnOrder="25" id="PixelClock">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="50000000"/>
-          </Values>
-        </Integer>
-        <String dnOrder="26" id="ProcInfoFunction">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="procNANO2DInfoGet"/>
-          </Values>
-        </String>
-        <String dnOrder="27" id="ProcInitFunction">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="procNANO2DContextInitialize"/>
-          </Values>
-        </String>
-        <Integer dnOrder="28" id="RefreshRate">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal" value="333"/>
-          </Values>
-        </Integer>
-      </Symbols>
-      <Attachments dnOrder="1">
-        <DirectDependency dnOrder="0" id="gfx_display">
-          <Attributes dnOrder="0">
-            <String dnOrder="0" id="targetComponentID">
-              <Value dnOrder="0">gfx_disp_pdatm4301b_480x272</Value>
-            </String>
-            <String dnOrder="1" id="targetAttachmentID">
-              <Value dnOrder="0">gfx_display</Value>
-            </String>
-          </Attributes>
-        </DirectDependency>
-        <DirectDependency dnOrder="1" id="gfx_display_driver">
-          <Attributes dnOrder="0">
-            <String dnOrder="0" id="targetComponentID">
-              <Value dnOrder="0">gfx_driver_glcd</Value>
-            </String>
-            <String dnOrder="1" id="targetAttachmentID">
-              <Value dnOrder="0">gfx_driver_glcd</Value>
-            </String>
-          </Attributes>
-        </DirectDependency>
-        <DirectDependency dnOrder="2" id="gfx_graphics_processor">
-          <Attributes dnOrder="0">
-            <String dnOrder="0" id="targetComponentID">
-              <Value dnOrder="0">gfx_driver_2dgpu</Value>
-            </String>
-            <String dnOrder="1" id="targetAttachmentID">
-              <Value dnOrder="0">gfx_driver_2dgpu</Value>
-            </String>
-          </Attributes>
-        </DirectDependency>
-      </Attachments>
-    </UniqueComponent>
-    <UniqueComponent dnOrder="11" id="gfx_maxtouch_controller">
+    <UniqueComponent dnOrder="8" id="gfx_maxtouch_controller">
       <Symbols dnOrder="0">
         <Combo dnOrder="0" id="DRV_I2C_MODE">
           <Values dnOrder="0">
@@ -1590,13 +1433,16 @@
         </DirectDependency>
       </Attachments>
     </UniqueComponent>
-    <UniqueComponent dnOrder="12" id="HarmonyCore">
+    <UniqueComponent dnOrder="9" id="HarmonyCore">
       <Symbols dnOrder="0">
         <File dnOrder="0" id="APP0_C">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="enabled">
               <Value dnOrder="0">true</Value>
             </Boolean>
+            <String dnOrder="1" id="name">
+              <Value dnOrder="0">app_glcd.c</Value>
+            </String>
           </Attributes>
         </File>
         <File dnOrder="1" id="APP0_H">
@@ -1604,6 +1450,9 @@
             <Boolean dnOrder="0" id="enabled">
               <Value dnOrder="0">true</Value>
             </Boolean>
+            <String dnOrder="1" id="name">
+              <Value dnOrder="0">app_glcd.h</Value>
+            </String>
           </Attributes>
         </File>
         <File dnOrder="2" id="DRIVER_COMMON">
@@ -1650,18 +1499,23 @@
             <Dynamic dnOrder="0" id="HarmonyCore" value="true"/>
           </Values>
         </Boolean>
-        <Combo dnOrder="10" id="SELECT_RTOS">
+        <String dnOrder="10" id="GEN_APP_TASK_NAME_0">
+          <Values dnOrder="0">
+            <User dnOrder="0" value="app_glcd"/>
+          </Values>
+        </String>
+        <Combo dnOrder="11" id="SELECT_RTOS">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="HarmonyCore" value="BareMetal"/>
           </Values>
         </Combo>
       </Symbols>
     </UniqueComponent>
-    <UniqueComponent dnOrder="13" id="i2c1">
+    <UniqueComponent dnOrder="10" id="i2c1">
       <Symbols dnOrder="0">
         <Integer dnOrder="0" id="BRG_VALUE">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="i2c1" value="993"/>
+            <Dynamic dnOrder="0" id="i2c1" value="992"/>
           </Values>
         </Integer>
         <Integer dnOrder="1" id="I2C_CLOCK_FREQ">
@@ -1683,6 +1537,39 @@
         </DirectCapability>
       </Attachments>
     </UniqueComponent>
+    <UniqueComponent dnOrder="11" id="le_gfx_driver_2dgpu"/>
+    <UniqueComponent dnOrder="12" id="le_gfx_driver_glcd">
+      <Symbols dnOrder="0">
+        <Integer dnOrder="0" id="PixelClock">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_glcd" value="16666666"/>
+          </Values>
+        </Integer>
+        <Integer dnOrder="1" id="PixelClockDivider">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="legato_gfx_pda_tm4301b" value="12"/>
+          </Values>
+        </Integer>
+        <Integer dnOrder="2" id="TotalNumLayers">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_glcd" value="3"/>
+          </Values>
+        </Integer>
+      </Symbols>
+      <Attachments dnOrder="1">
+        <DirectDependency dnOrder="0" id="Graphics Display">
+          <Attributes dnOrder="0">
+            <String dnOrder="0" id="targetComponentID">
+              <Value dnOrder="0">gfx_disp_pdatm4301b_480x272</Value>
+            </String>
+            <String dnOrder="1" id="targetAttachmentID">
+              <Value dnOrder="0">gfx_display</Value>
+            </String>
+          </Attributes>
+        </DirectDependency>
+      </Attachments>
+    </UniqueComponent>
+    <UniqueComponent dnOrder="13" id="legato_gfx_pda_tm4301b"/>
     <UniqueComponent dnOrder="14" id="sys_input">
       <Symbols dnOrder="0">
         <Boolean dnOrder="0" id="RTOSEnabled">
@@ -1694,9 +1581,19 @@
     </UniqueComponent>
     <UniqueComponent dnOrder="15" id="sys_time">
       <Symbols dnOrder="0">
-        <String dnOrder="0" id="SYS_TIME_PLIB">
+        <Combo dnOrder="0" id="SYS_TIME_OPERATING_MODE">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="sys_time" value="TICKLESS"/>
+          </Values>
+        </Combo>
+        <String dnOrder="1" id="SYS_TIME_PLIB">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sys_time" value="CORE_TIMER"/>
+          </Values>
+        </String>
+        <String dnOrder="2" id="SYS_TIME_REMOTE_COMPONENT_ID">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="sys_time" value="core_timer"/>
           </Values>
         </String>
       </Symbols>
@@ -1720,18 +1617,18 @@
       <ElementPositions dnOrder="0">
         <ElementPosition dnOrder="0" id="BSP_PIC32MZ_DA_Starter_Kit" x="340" y="20"/>
         <ElementPosition dnOrder="1" id="HarmonyCore" x="735" y="14"/>
-        <ElementPosition dnOrder="2" id="aria_gfx_pda_tm4301b" x="28" y="243"/>
-        <ElementPosition dnOrder="3" id="core" x="240" y="20"/>
-        <ElementPosition dnOrder="4" id="core_timer" x="30" y="130"/>
-        <ElementPosition dnOrder="5" id="ddr" x="580" y="20"/>
-        <ElementPosition dnOrder="6" id="dfp" x="20" y="20"/>
-        <ElementPosition dnOrder="7" id="drv_i2c" x="335" y="250"/>
-        <ElementPosition dnOrder="8" id="gfx_disp_pdatm4301b_480x272" x="322" y="159"/>
-        <ElementPosition dnOrder="9" id="gfx_driver_2dgpu" x="305" y="423"/>
-        <ElementPosition dnOrder="10" id="gfx_driver_glcd" x="338" y="75"/>
-        <ElementPosition dnOrder="11" id="gfx_hal" x="545" y="92"/>
-        <ElementPosition dnOrder="12" id="gfx_maxtouch_controller" x="550" y="236"/>
-        <ElementPosition dnOrder="13" id="i2c1" x="172" y="294"/>
+        <ElementPosition dnOrder="2" id="core" x="239" y="20"/>
+        <ElementPosition dnOrder="3" id="core_timer" x="30" y="130"/>
+        <ElementPosition dnOrder="4" id="ddr" x="580" y="20"/>
+        <ElementPosition dnOrder="5" id="dfp" x="20" y="20"/>
+        <ElementPosition dnOrder="6" id="drv_i2c" x="335" y="250"/>
+        <ElementPosition dnOrder="7" id="gfx_disp_pdatm4301b_480x272" x="319" y="147"/>
+        <ElementPosition dnOrder="8" id="gfx_hal_le" x="342" y="77"/>
+        <ElementPosition dnOrder="9" id="gfx_maxtouch_controller" x="550" y="236"/>
+        <ElementPosition dnOrder="10" id="i2c1" x="172" y="294"/>
+        <ElementPosition dnOrder="11" id="le_gfx_driver_2dgpu" x="750" y="120"/>
+        <ElementPosition dnOrder="12" id="le_gfx_driver_glcd" x="537" y="103"/>
+        <ElementPosition dnOrder="13" id="legato_gfx_pda_tm4301b" x="770" y="200"/>
         <ElementPosition dnOrder="14" id="sys_input" x="30" y="60"/>
         <ElementPosition dnOrder="15" id="sys_time" x="165" y="126"/>
       </ElementPositions>

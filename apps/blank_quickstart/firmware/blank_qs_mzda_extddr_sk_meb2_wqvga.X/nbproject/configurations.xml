@@ -23,41 +23,15 @@
             <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/driver/driver_common.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f1" displayName="gfx" projectFiles="true">
-            <logicalFolder name="f2" displayName="driver" projectFiles="true">
-              <logicalFolder name="f2" displayName="2dgpu" projectFiles="true">
-                <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/driver/processor/2dgpu/libnano2D.h</itemPath>
+            <logicalFolder name="f1" displayName="driver" projectFiles="true">
+              <logicalFolder name="f1" displayName="2dgpu" projectFiles="true">
+                <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/driver/processor/2dgpu/libnano2d.h</itemPath>
               </logicalFolder>
-              <logicalFolder name="f1" displayName="glcd" projectFiles="true">
+              <logicalFolder name="f2" displayName="glcd" projectFiles="true">
+                <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/driver/gfx_driver.h</itemPath>
                 <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/driver/controller/glcd/drv_gfx_glcd.h</itemPath>
                 <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/driver/controller/glcd/plib_glcd.h</itemPath>
               </logicalFolder>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="hal" projectFiles="true">
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/gfx.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/inc/gfx_color.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/inc/gfx_common.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/inc/gfx_context.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/inc/gfx_default_impl.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/inc/gfx_display.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/inc/gfx_driver_interface.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/inc/gfx_hal.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/inc/gfx_interface.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/inc/gfx_layer.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/inc/gfx_pixel_buffer.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/inc/gfx_processor_interface.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/inc/gfx_rect.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/inc/gfx_util.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/inc/gfx_draw.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/inc/gfx_draw_arc.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/inc/gfx_draw_blit.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/inc/gfx_draw_circle.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/inc/gfx_draw_ellipse.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/inc/gfx_draw_line.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/inc/gfx_draw_pixel.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/inc/gfx_draw_rect.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/inc/gfx_draw_stretchblit.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/inc/gfx_math.h</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/gfx_config.h</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f2" displayName="peripheral" projectFiles="true">
@@ -105,14 +79,45 @@
           </logicalFolder>
           <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/toolchain_specifics.h</itemPath>
           <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/definitions.h</itemPath>
+          <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/FreeRTOSConfig.h</itemPath>
           <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/user.h</itemPath>
           <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/configuration.h</itemPath>
         </logicalFolder>
       </logicalFolder>
-      <logicalFolder name="f3" displayName="osal" projectFiles="true">
+      <logicalFolder name="f3" displayName="FreeRTOS" projectFiles="true">
+        <logicalFolder name="f1" displayName="Source" projectFiles="true">
+          <logicalFolder name="f1" displayName="include" projectFiles="true">
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/croutine.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/event_groups.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/FreeRTOS.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/list.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/mpu_wrappers.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/portable.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/projdefs.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/queue.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/semphr.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/stack_macros.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/deprecated_definitions.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/task.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/timers.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/mpu_prototypes.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/stream_buffer.h</itemPath>
+            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/message_buffer.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f2" displayName="portable" projectFiles="true">
+            <logicalFolder name="f1" displayName="MPLAB" projectFiles="true">
+              <logicalFolder name="f1" displayName="PIC32MZ" projectFiles="true">
+                <itemPath>../src/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ/portmacro.h</itemPath>
+                <itemPath>../src/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ/ISR_Support.h</itemPath>
+              </logicalFolder>
+            </logicalFolder>
+          </logicalFolder>
+        </logicalFolder>
+      </logicalFolder>
+      <logicalFolder name="f4" displayName="osal" projectFiles="true">
         <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/osal/osal.h</itemPath>
         <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/osal/osal_definitions.h</itemPath>
-        <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/osal/osal_impl_basic.h</itemPath>
+        <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/osal/osal_freertos.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="packs" projectFiles="true">
         <logicalFolder name="f1"
@@ -121,7 +126,7 @@
           <itemPath>../src/packs/PIC32MZ2064DAA288_DFP/device.h</itemPath>
         </logicalFolder>
       </logicalFolder>
-      <itemPath>../src/app.h</itemPath>
+      <itemPath>../src/app_glcd.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -147,46 +152,15 @@
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f1" displayName="gfx" projectFiles="true">
-            <logicalFolder name="f2" displayName="driver" projectFiles="true">
-              <logicalFolder name="f2" displayName="2dgpu" projectFiles="true">
-                <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/driver/processor/2dgpu/libnano2D_hal.c</itemPath>
+            <logicalFolder name="f1" displayName="driver" projectFiles="true">
+              <logicalFolder name="f1" displayName="2dgpu" projectFiles="true">
+                <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/driver/processor/2dgpu/libnano2d.c</itemPath>
               </logicalFolder>
-              <logicalFolder name="f1" displayName="glcd" projectFiles="true">
+              <logicalFolder name="f2" displayName="glcd" projectFiles="true">
+                <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/driver/gfx_driver.c</itemPath>
                 <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/driver/controller/glcd/drv_gfx_glcd.c</itemPath>
                 <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/driver/controller/glcd/plib_glcd.c</itemPath>
               </logicalFolder>
-            </logicalFolder>
-            <logicalFolder name="f1" displayName="hal" projectFiles="true">
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_color.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_context.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_default_impl.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_display.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_display_def.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_driver_interface.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_driver_def.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_processor_def.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_get.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_interface.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_layer.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_pixel_buffer.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_processor_interface.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_rect.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_util.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_set.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_color_blend.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_color_convert.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_color_lerp.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_color_value.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_draw_arc.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_draw_blit.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_draw_circle.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_draw_ellipse.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_draw_line.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_draw_pixel.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_draw_rect.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_draw_stretchblit.c</itemPath>
-              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/hal/src/gfx_math.c</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f3" displayName="peripheral" projectFiles="true">
@@ -226,13 +200,40 @@
           </logicalFolder>
           <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/initialization.c</itemPath>
           <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/interrupts.c</itemPath>
+          <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/interrupts_a.S</itemPath>
           <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/exceptions.c</itemPath>
+          <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/freertos_hooks.c</itemPath>
           <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/tasks.c</itemPath>
         </logicalFolder>
       </logicalFolder>
+      <logicalFolder name="f2" displayName="FreeRTOS" projectFiles="true">
+        <logicalFolder name="f1" displayName="Source" projectFiles="true">
+          <logicalFolder name="f1" displayName="portable" projectFiles="true">
+            <logicalFolder name="f1" displayName="MemMang" projectFiles="true">
+              <itemPath>../src/third_party/rtos/FreeRTOS/Source/portable/MemMang/heap_1.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f2" displayName="MPLAB" projectFiles="true">
+              <logicalFolder name="f1" displayName="PIC32MZ" projectFiles="true">
+                <itemPath>../src/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ/port.c</itemPath>
+                <itemPath>../src/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ/port_asm.S</itemPath>
+              </logicalFolder>
+            </logicalFolder>
+          </logicalFolder>
+          <itemPath>../src/third_party/rtos/FreeRTOS/Source/croutine.c</itemPath>
+          <itemPath>../src/third_party/rtos/FreeRTOS/Source/list.c</itemPath>
+          <itemPath>../src/third_party/rtos/FreeRTOS/Source/queue.c</itemPath>
+          <itemPath>../src/third_party/rtos/FreeRTOS/Source/FreeRTOS_tasks.c</itemPath>
+          <itemPath>../src/third_party/rtos/FreeRTOS/Source/timers.c</itemPath>
+          <itemPath>../src/third_party/rtos/FreeRTOS/Source/event_groups.c</itemPath>
+          <itemPath>../src/third_party/rtos/FreeRTOS/Source/stream_buffer.c</itemPath>
+        </logicalFolder>
+      </logicalFolder>
+      <logicalFolder name="f3" displayName="osal" projectFiles="true">
+        <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/osal/osal_freertos.c</itemPath>
+      </logicalFolder>
       <itemPath>../src/app_gfx_assets.c</itemPath>
       <itemPath>../src/main.c</itemPath>
-      <itemPath>../src/app.c</itemPath>
+      <itemPath>../src/app_glcd.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -255,7 +256,7 @@
         <platformTool>ICD4Tool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>2.40</languageToolchainVersion>
-        <platform>2</platform>
+        <platform>3</platform>
       </toolsSet>
       <packs>
         <pack name="PIC32MZ-DA_DFP" vendor="Microchip" version="1.1.98"/>
@@ -263,7 +264,6 @@
       <compileType>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/emwin/lib/emwin_nofp.a</linkerLibFileItem>
             <linkerLibFileItem>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/driver/processor/2dgpu/lib/libnano2d.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
@@ -295,7 +295,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/third_party/gfx;../src;../src/config/glcd_rgba8888_mxt_mzda_extddr_sk;../src/packs/PIC32MZ2064DAA288_DFP;../src/mips"/>
+                  value="../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/third_party/gfx;../src;../src/config/glcd_rgba8888_mxt_mzda_extddr_sk;../src/packs/PIC32MZ2064DAA288_DFP;../src/mips;../src/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ;../src/third_party/rtos/FreeRTOS/Source/include"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -321,8 +321,10 @@
         <property key="enable-symbols" value="true"/>
         <property key="exclude-floating-point-library" value="false"/>
         <property key="expand-macros" value="false"/>
-        <property key="extra-include-directories-for-assembler" value=""/>
-        <property key="extra-include-directories-for-preprocessor" value=""/>
+        <property key="extra-include-directories-for-assembler"
+                  value="../src/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ;../src/third_party/rtos/FreeRTOS/Source/include;../src/config/glcd_rgba8888_mxt_mzda_extddr_sk;"/>
+        <property key="extra-include-directories-for-preprocessor"
+                  value="../src/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ;../src/third_party/rtos/FreeRTOS/Source/include;../src/config/glcd_rgba8888_mxt_mzda_extddr_sk;"/>
         <property key="false-conditionals" value="false"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
@@ -514,6 +516,8 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="1d000000-1d1fffff"/>
         <property key="poweroptions.powerenable" value="false"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/Harmony3/gfx/apps/blank_quickstart/firmware/blank_qs_mzda_extddr_sk_meb2_wqvga.X/debug/glcd_rgba8888_mxt_mzda_extddr_sk/blank_qs_mzda_extddr_sk_meb2_wqvga_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.ledbrightness" value="5"/>
