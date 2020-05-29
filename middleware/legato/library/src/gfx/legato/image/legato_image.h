@@ -221,10 +221,10 @@ typedef struct leImage
 */
 /**
  * @brief Create an image.
- * @details Creates an image by initializing <span class="param">img</span>
- * with size <span class="param">width</span> and <span class="param">height</span>
- * color mode <span class="param">mode</span> and address <span class="param">data</span>
- * at location <span class="param">locationID</span>.
+ * @details Creates an image <span class="param">img</span>
+ * given <span class="param">width</span>, <span class="param">height</span>,
+ * and <span class="param">mode</span>. The image is located at
+ * <span class="param">data</span> with <span class="param">locationID</span>.
  * @code
  * leResult res = leImage_Create();
  * @endcode
@@ -546,6 +546,11 @@ LIB_EXPORT leResult leImage_ResizeDraw(const leImage* src,
  * <span class="param">srcRect</span> to location
  * <span class="param">x</span> and <span class="param">y</span>.
  * @code
+ * leImage* src;
+ * leRect* sourceRect;
+ * int32_t x;
+ * int32_t y;
+ * leImage* dst;
  * leResult res = leImage_Copy(src, sourceRect, x, y, dst);
  * @endcode
  * @param src pointer to source image asset to draw
@@ -650,7 +655,6 @@ LIB_EXPORT leResult leImage_Render(const leImage* src,
  * <span class="param">srcRect</span> around
  * <span class="param">origin</span> at <span class="param">angle</span>
  * degress. The resulting image is <span class="param">dst</span>.
- * @remark This is a Virtual Member Function
  * @code
  * leImage * fnptr;
  * leResult res = leImage_Rotate(src);
@@ -707,7 +711,6 @@ LIB_EXPORT leResult leImage_Rotate(const leImage* src,
  * <span class="param">srcRect</span> around
  * <span class="param">origin</span> at <span class="param">angle</span>
  * degress. The resulting image is <span class="param">dst</span>.
- * @remark This is a Virtual Member Function
  * @code
  * leImage * src;
  * leResult res = leImage_RotateDraw(src);

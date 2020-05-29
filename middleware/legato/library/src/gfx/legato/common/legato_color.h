@@ -351,6 +351,7 @@ LIB_EXPORT leColor leColorValue(leColorMode mode, leColorName name);
  * @param mode is the colormode required.
  * @param name is the name to query
  * @return the red color channel
+ */
 LIB_EXPORT uint32_t leColorChannelRed(leColor clr, leColorMode mode);
 
 // *****************************************************************************

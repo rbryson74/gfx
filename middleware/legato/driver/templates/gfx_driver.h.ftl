@@ -767,6 +767,7 @@ gfxColor gfxColorConvert(gfxColorMode mode_in,
  * @param address is an optional address location.
  * @param buffer is buffer to initialize.
  * @return GFX_SUCCESS if set, otherwise GFX_FAILURE.
+ */
 
 gfxResult gfxPixelBufferCreate(const int32_t width,
                                const int32_t height,

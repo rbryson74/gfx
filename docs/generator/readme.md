@@ -3,7 +3,7 @@ Overview {#mainpage}
 
 [TOC]
 
-<img src="https://raw.githubusercontent.com/wiki/Microchip-MPLAB-Harmony/gfx/images/graphics_suite.png" width="700" height="350" />
+<img src="graphics_suite.png" width="700" height="350" />
 
 [MPLAB Harmony Graphics Suite](GraphicsSuite.html) is a free fast-to-market graphics software development environment for [MPLAB Harmony v3 Framework](https://www.microchip.com/mplab/mplab-harmony). It is used to build graphics applications for Microchip 32-bit family of devices. Example applications for PIC32 and SAM devices are found on our [supported development kits](https://github.com/automaate/GFX_sandbox/wiki/Supported-Development-Boards).
 

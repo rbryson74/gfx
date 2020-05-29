@@ -39,8 +39,8 @@ struct leDynamicString;
 #define LE_DYNAMICSTRING_VTABLE(THIS_TYPE) \
     LE_STRING_VTABLE(THIS_TYPE) \
     \
-	uint32_t (*getCapacity)(THIS_TYPE* str); \
-	leResult (*setCapacity)(THIS_TYPE* str, uint32_t cap); \
+        uint32_t (*getCapacity)(THIS_TYPE* str); \
+        leResult (*setCapacity)(THIS_TYPE* str, uint32_t cap); \
 
 typedef struct leDynamicStringVTable
 {

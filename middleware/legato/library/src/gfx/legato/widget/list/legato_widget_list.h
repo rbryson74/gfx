@@ -144,7 +144,6 @@ typedef struct leListWidget leListWidget;
 #define LE_LISTWIDGET_VTABLE(THIS_TYPE) \
     LE_WIDGET_VTABLE(THIS_TYPE) \
     \
-
     leListWidget_SelectionMode (*getSelectionMode)(const THIS_TYPE* _this); \
     leResult      (*setSelectionMode)(THIS_TYPE* _this, leListWidget_SelectionMode mode); \
     leBool        (*getAllowEmptySelection)(const THIS_TYPE* _this); \

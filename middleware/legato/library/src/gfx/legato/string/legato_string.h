@@ -67,7 +67,6 @@ struct leString;
 typedef void (*leString_InvalidateCallback)(const struct leString* str, void* userData);
 
 #define LE_STRING_VTABLE(THIS_TYPE) \
-
     void        (*destructor)(THIS_TYPE* _this); \
     leFont*     (*getFont)(const THIS_TYPE* _this); \
     leResult    (*setFont)(THIS_TYPE* _this, const leFont* font); \
@@ -93,7 +92,7 @@ typedef void (*leString_InvalidateCallback)(const struct leString* str, void* us
     void        (*preinvalidate)(THIS_TYPE* _this); \
     void        (*invalidate)(THIS_TYPE* _this); \
     leResult    (*setPreInvalidateCallback)(THIS_TYPE* _this, leString_InvalidateCallback, void* userData); \
-    leResult    (*setInvalidateCallback)(THIS_TYPE* _this, leString_InvalidateCallback, void* userData);
+    leResult    (*setInvalidateCallback)(THIS_TYPE* _this, leString_InvalidateCallback, void* userData); \
 
 typedef struct leStringVTable
 {

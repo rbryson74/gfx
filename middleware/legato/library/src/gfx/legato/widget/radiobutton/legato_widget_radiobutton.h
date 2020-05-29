@@ -103,7 +103,6 @@ typedef void (*leRadioButtonWidget_DeselectedEvent)(leRadioButtonWidget*);
 #define LE_RADIOBUTTONWIDGET_VTABLE(THIS_TYPE) \
     LE_WIDGET_VTABLE(THIS_TYPE) \
     \
-
     leRadioButtonGroup* (*getGroup)(const THIS_TYPE* _this); \
     leBool              (*getSelected)(const THIS_TYPE* _this); \
     leResult            (*setSelected)(THIS_TYPE* _this); \

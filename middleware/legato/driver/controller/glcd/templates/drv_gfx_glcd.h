@@ -50,11 +50,14 @@
  *
  * @details The GLCD device driver provides a simple interface to manage the
  * GLCD module on Microchip PIC32MZ DA microcontrollers. This file defines the interface
- * Declarations for the GLCD driver.
+ * declarations for the GLCD driver.
  *
  * This driver is configured via MHC and generated specific to the configuration
  * and hardware architecture set in MHC.
  * @see LE GLCD Display Driver component
+ *
+ * \image html https://raw.githubusercontent.com/wiki/Microchip-MPLAB-Harmony/gfx/images/display_driver_display_module.png
+ *
  */
 
 #ifndef _DRV_GFX_GLCD_H
@@ -177,7 +180,7 @@ uint32_t DRV_GLCD_GetActiveLayer();
 
 /**
  * @brief Set active layer.
- * @details Sets active the layer at <span style="color: #820a32"><em>idx</em></span> position.
+ * @details Sets active the layer at <span class="param">idx</span> position.
  * @code
  * gfxDisplayDriver* drv;
  * uint32_t idx;
@@ -189,10 +192,10 @@ gfxResult DRV_GLCD_SetActiveLayer(uint32_t idx);
 
 /**
  * @brief Blit buffer.
- * @details Copies <span style="color: #820a32"><em>buf</em></span>
- * to the framebuffer at location <span style="color: #820a32"><em>x</em></span> and
- * <span style="color: #820a32"><em>y</em></span> with
- * <span style="color: #820a32"><em>blend</em></span> composition.
+ * @details Copies <span class="param">buf</span>
+ * to the framebuffer at location <span class="param">x</span> and
+ * <span class="param">y</span> with
+ * <span class="param">blend</span> composition.
  * @code
  * gfxDisplayDriver* drv;
  * gfxResult res = drv->blitBuffer();
@@ -209,7 +212,7 @@ gfxResult DRV_GLCD_BlitBuffer(int32_t x, int32_t y, gfxPixelBuffer* buf, gfxBlen
  * gfxDisplayDriver* drv;
  * drv->swap();
  * @endcode
- * @
+ */
 void DRV_GLCD_Swap(void);
 
 /**
@@ -228,12 +231,13 @@ uint32_t DRV_GLCD_GetVSYNCCount(void);
 /**
  * @brief Get framebuffer.
  * @details Returns the framebuffer (display buffer) located at
- * <span style="color: #820a32"><em>idx</em></span> position.
+ * <span class="param">idx</span> position.
  * @code
  * gfxDisplayDriver* drv;
  * int32_t idx;
  * gfxPixelBuffer * buf = drv->getFrameBuffer(idx);
  * @endcode
+ * @param idx is the framebuffer location identifier
  * @return void.
  */
 gfxPixelBuffer * DRV_GLCD_GetFrameBuffer(int32_t idx);
@@ -241,25 +245,30 @@ gfxPixelBuffer * DRV_GLCD_GetFrameBuffer(int32_t idx);
 /**
  * @brief Set use GPU.
  * @details Sets the gpu status to the value of
- * <span style="color: #820a32"><em>onOff</em></span>
+ * <span class="param">onOff</span>
  * This routine enables the use of the GPU for blit operations.
  * @code
  * gfxBool onOff;
  * DRV_GLCD_SetUseGPU(onOff);
  * @endcode
+ * @param onOff is the new gpu status to set.
  * @return void.
  */
 void DRV_GLCD_SetUseGPU(gfxBool onOff);
 
 /**
- * @brief Perform Control config request.
- * @details Performs configuration <span style="color: #820a32"><em>request</em></span>.
+ * @brief Perform control config request.
+ * @details Performs control configuration request specified by
+ * <span class="param">request</span> with the given
+ * arguments <span class="param">arg</span>
  * @code
  * ctlrCfg request;
  * void * arg;
  * gfxDisplayDriver* drv;
  * gfxPixelBuffer * buf = drv->ctrlrConfig(request, arg);
+ * @param request is the request to perform
  * @endcode
+ * @param arg is the arguments for the request
  * @return GFX_SUCCESS if configuration was performed, otherwise GFX_FAILURE
  */
 gfxResult DRV_GLCD_CtrlrConfig(ctlrCfg request, void * arg);
