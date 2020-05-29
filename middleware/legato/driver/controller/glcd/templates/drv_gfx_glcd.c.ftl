@@ -652,6 +652,9 @@ static gfxResult DRV_GLCD_LayerConfig(ctlrCfg request, unsigned int layer, void 
         drvLayer[layer].updateLock = LAYER_LOCKED_PENDING;
         
         PLIB_GLCD_VSyncInterruptEnable();
+
+        //Wait for the changes to be applied
+        while (drvLayer[layer].updateLock == LAYER_LOCKED_PENDING);
         
         return GFX_SUCCESS;
     }
@@ -698,12 +701,12 @@ static gfxResult DRV_GLCD_LayerConfig(ctlrCfg request, unsigned int layer, void 
         }
         case GFX_CTRLR_SET_LAYER_ENABLE:
         {
-            drvLayer[layer].colorspace = true;
+            drvLayer[layer].enabled = true;
             break;
         }
         case GFX_CTRLR_SET_LAYER_DISABLE:
         {
-            drvLayer[layer].colorspace = false;
+            drvLayer[layer].enabled = false;
             break;
         }
         default:

@@ -82,7 +82,7 @@ static GFXC_STATE gfxcState;
 <#if EffectsEnabled == true>
 static unsigned int effectsIntervalMS = CONFIG_FX_INTERVAL_MS;
 static SYS_TIME_HANDLE effectsTimer;
-static unsigned int effectsTick = 0;
+static volatile unsigned int effectsTick = 0;
 static unsigned int oldEffectsTick = 0;
 </#if>
 
