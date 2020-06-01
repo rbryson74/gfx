@@ -897,7 +897,7 @@ DRV_HANDLE DRV_MAXTOUCH_Open(const SYS_MODULE_INDEX index,
     
     if(pDrvInstance->drvI2CHandle == DRV_HANDLE_INVALID)
     {
-        pDrvInstance->drvI2CHandle = pDrvInstance->drvOpen(DRV_I2C_INDEX_0,
+        pDrvInstance->drvI2CHandle = pDrvInstance->drvOpen(${DRV_MAXTOUCH_I2C_INDEX},
                                                            DRV_IO_INTENT_READWRITE);
     }
     
