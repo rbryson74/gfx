@@ -156,7 +156,7 @@ static void GFX_Disp_Intf_CallBack(DRV_SPI_TRANSFER_EVENT event,
 
 GFX_Disp_Intf GFX_Disp_Intf_Open(void)
 {   
-    spiIntf.drvSPIHandle = DRV_SPI_Open(DRV_SPI_INDEX, DRV_IO_INTENT_READWRITE);
+    spiIntf.drvSPIHandle = DRV_SPI_Open(${DRV_INTERFACE_SPI_INDEX}, DRV_IO_INTENT_READWRITE);
     
     if (DRV_HANDLE_INVALID == spiIntf.drvSPIHandle)
     {
