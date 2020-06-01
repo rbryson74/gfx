@@ -520,7 +520,8 @@ static leResult _resizeDraw(const leImage* src,
     }
 
     // convert and write
-    if(_initConvertStage(&state) == LE_FAILURE ||
+    if(_initBlendStage(&state) == LE_FAILURE ||
+	   _initConvertStage(&state) == LE_FAILURE ||
        _leRawImageDecoder_FrameBufferWriteStage(&state) == LE_FAILURE)
     {
         return LE_FAILURE;
@@ -992,7 +993,8 @@ static leResult _rotateDraw(const leImage* src,
 
     // convert and write
     if(_initMaskStage(&state) == LE_FAILURE ||
-       _initConvertStage(&state) == LE_FAILURE ||
+		_initBlendStage(&state) == LE_FAILURE ||
+		_initConvertStage(&state) == LE_FAILURE ||
        _leRawImageDecoder_FrameBufferWriteStage(&state) == LE_FAILURE)
     {
         return LE_FAILURE;
