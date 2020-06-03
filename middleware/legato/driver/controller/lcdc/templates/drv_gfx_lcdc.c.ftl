@@ -101,24 +101,27 @@
 #define YPHIDEF 0
 </#if>
 
-<#if FrameBufferColorMode == "GS_8">
-#define LCDC_DEFAULT_GFX_COLOR_MODE GFX_COLOR_MODE_GS_8
-#define FRAMEBUFFER_PTR_TYPE    uint8_t*
-#define FRAMEBUFFER_PIXEL_TYPE    uint8_t
-<#elseif FrameBufferColorMode == "RGB_565">
-#define LCDC_DEFAULT_GFX_COLOR_MODE GFX_COLOR_MODE_RGB_565
+<#if FrameBufferColorMode == "RGB_565">
+#define LCDC_DEFAULT_GFX_COLOR_MODE LCDC_INPUT_COLOR_MODE_RGB_565
 #define FRAMEBUFFER_PTR_TYPE    uint16_t*
 #define FRAMEBUFFER_PIXEL_TYPE    uint16_t
 <#elseif FrameBufferColorMode == "RGBA_8888">
-#define LCDC_DEFAULT_GFX_COLOR_MODE ${Val_FrameBufferColorMode}
+#define LCDC_DEFAULT_GFX_COLOR_MODE LCDC_INPUT_COLOR_MODE_RGBA_8888
 #define FRAMEBUFFER_PTR_TYPE    uint32_t*
 #define FRAMEBUFFER_PIXEL_TYPE    uint32_t
 <#else>
 //Unsupported  framebuffer type specified, default to RGBA8888
-#define LCDC_DEFAULT_GFX_COLOR_MODE GFX_COLOR_MODE_RGBA_8888
+#define LCDC_DEFAULT_GFX_COLOR_MODE LCDC_INPUT_COLOR_MODE_UNSUPPORTED
 #define FRAMEBUFFER_PTR_TYPE      uint32_t*
 #define FRAMEBUFFER_PIXEL_TYPE    uint32_t
 </#if>
+
+typedef enum
+{
+    LAYER_UNLOCKED,
+    LAYER_LOCKED,
+    LAYER_LOCKED_PENDING,
+} LAYER_LOCK_STATUS;
 
 <#if DisplayVSYNCNegative == true>
 #define LCDC_VSYNC_POLARITY LCDC_POLARITY_NEGATIVE
@@ -156,7 +159,6 @@ typedef struct
 //--------------------------------------------------------------------------
 typedef struct __display_layer {
     LCDC_LAYER_ID hwLayerID;
-    GFX_Layer * layer;
     FRAMEBUFFER_PIXEL_TYPE  *baseaddr[BUFFER_PER_LAYER];
     int        draw;
     int        frame;
@@ -174,6 +176,8 @@ typedef struct __display_layer {
     uint16_t   color;
     LCDC_DMA_DESC * desc;
     uint32_t frameOffset;
+    bool enabled;
+    volatile LAYER_LOCK_STATUS updateLock;
 } DISPLAY_LAYER;
 
 //This array defines the z-order of the hw layers in the GLCD
@@ -207,7 +211,6 @@ LCDC_DMA_DESC __attribute__ ((section(".region_nocache"), aligned (64))) channel
 </#list>
 
 const char* DRIVER_NAME = "LCDC";
-static uint32_t supported_color_format = GFX_COLOR_MASK_RGBA_8888;
 uint32_t state;
 
 <#if UseGPU == true>
@@ -231,32 +234,15 @@ enum
 };
 
 static int DRV_GFX_LCDC_Start();
+static gfxResult DRV_LCDC_UpdateLayer(unsigned int layer);
 
 void _IntHandlerVSync(uintptr_t context);
-
-GFX_Context* cntxt;
-
-volatile GFX_Bool pendingDMATransfer[GFX_LCDC_LAYERS];
 
 static void LCDCUpdateDMADescriptor(LCDC_DMA_DESC * desc, uint32_t addr, uint32_t ctrl, uint32_t next)
 {
     desc->addr = addr;
     desc->ctrl = ctrl;
     desc->next = next;
-}
-
-// function that returns the information for this driver
-gfxResult driverLCDCInfoGet(GFX_DriverInfo* info)
-{
-    if(info == NULL)
-    return GFX_FAILURE;
-
-    // populate info struct
-    strcpy(info->name, DRIVER_NAME);
-    info->color_formats = supported_color_format;
-    info->layer_count = GFX_LCDC_LAYERS;
-
-    return GFX_SUCCESS;
 }
 
 void DRV_LCDC_Update()
@@ -270,175 +256,38 @@ void DRV_LCDC_Update()
     }
 }
 
-static uint32_t getColorModeStrideSize(LCDC_LAYER_COLOR_MODE mode)
-{
-    switch(mode)
-    {
-        case LCDC_LAYER_COLOR_MODE_LUT8:
-            return sizeof(uint8_t);
-            break;
-        case LCDC_LAYER_COLOR_MODE_RGB332:
-            return sizeof(uint8_t);
-            break;
-        case LCDC_LAYER_COLOR_MODE_RGB565:
-            return sizeof(uint16_t);
-            break;
-        case LCDC_LAYER_COLOR_MODE_RGB888:
-            return sizeof(uint32_t);
-            break;
-        case LCDC_LAYER_COLOR_MODE_RGBA8888:
-            return sizeof(uint32_t);
-            break;
-        case LCDC_LAYER_COLOR_MODE_ARGB8888:
-            return sizeof(uint32_t);
-            break;
-        case LCDC_LAYER_COLOR_MODE_L1:
-            return sizeof(uint8_t);
-            break;
-        case LCDC_LAYER_COLOR_MODE_L4:
-            return sizeof(uint8_t);
-            break;
-        case LCDC_LAYER_COLOR_MODE_L8:
-            return sizeof(uint8_t);
-            break;
-        default:
-            return sizeof(uint32_t);
-            break;
-    }
-}
-
-static LCDC_LAYER_COLOR_MODE getLCDCColorModeFromGFXColorMode(gfxColorMode mode)
+static LCDC_INPUT_COLOR_MODE getLCDCColorModeFromGFXColorMode(gfxColorMode mode)
 {
     switch(mode)
     {
         case GFX_COLOR_MODE_GS_8:
-            return LCDC_LAYER_COLOR_MODE_LUT8;
-        case GFX_COLOR_MODE_RGB_332:
-            return LCDC_LAYER_COLOR_MODE_RGB332;
+            return LCDC_INPUT_COLOR_MODE_LUT8;
+            break;
         case GFX_COLOR_MODE_RGB_565:
-            return LCDC_LAYER_COLOR_MODE_RGB565;
-        case GFX_COLOR_MODE_RGBA_5551:
-            return LCDC_LAYER_COLOR_MODE_RGBA5551;
+            return LCDC_INPUT_COLOR_MODE_RGB_565;
+            break;
         case GFX_COLOR_MODE_RGB_888:
-            return LCDC_LAYER_COLOR_MODE_RGB888;
-        case GFX_COLOR_MODE_ARGB_8888:
-            return LCDC_LAYER_COLOR_MODE_ARGB8888;
-        case GFX_COLOR_MODE_INDEX_1:
-            return LCDC_LAYER_COLOR_MODE_L1;
-        case GFX_COLOR_MODE_INDEX_4:
-            return LCDC_LAYER_COLOR_MODE_L4;
-        case GFX_COLOR_MODE_INDEX_8:
-            return LCDC_LAYER_COLOR_MODE_L8;
+            return LCDC_INPUT_COLOR_MODE_RGB_888;
+            break;
         case GFX_COLOR_MODE_RGBA_8888:
+            return LCDC_INPUT_COLOR_MODE_RGBA_8888;
+            break;
+        case GFX_COLOR_MODE_ARGB_8888:
+            return LCDC_INPUT_COLOR_MODE_ARGB_8888;
+            break;
+        case GFX_COLOR_MODE_INDEX_1:
+        case GFX_COLOR_MODE_INDEX_4:
+        case GFX_COLOR_MODE_INDEX_8:
+        case GFX_COLOR_MODE_RGB_332:
+            return LCDC_INPUT_COLOR_MODE_UNSUPPORTED;
+            break;
         default:
-            return LCDC_LAYER_COLOR_MODE_RGBA8888;
+            return LCDC_INPUT_COLOR_MODE_RGBA_8888;
+            break;
     }
 }
 
-static gfxResult layerBufferCountSet(uint32_t count)
-{
-    GFX_Layer* layer;
-    GFX_Context* context = GFX_ActiveContext();
-    uint32_t i;
-    
-    layer = context->layer.active;
-
-    if(count > BUFFER_PER_LAYER)
-    {
-        count = BUFFER_PER_LAYER;
-    }
-    
-    // use default implementation to initialize buffer struct
-    defLayerBufferCountSet(count);
-    
-    // ensure all buffers are marked as managed by the driver so application
-    // can't delete or modify them
-    for(i = 0; i < layer->buffer_count; i++)
-    {
-        GFX_PixelBufferCreate(layer->rect.display.width,
-                  layer->rect.display.height,
-                  context->colorMode,
-                  drvLayer[layer->id].baseaddr[i],
-                  &layer->buffers[i].pb);
-
-        layer->buffers[i].state = GFX_BS_MANAGED;
-    }
-
-    return GFX_SUCCESS;
-}
-
-static gfxResult layerBufferAddressSet(uint32_t idx, GFX_Buffer address)
-{
-    GFX_Layer* layer;
-    GFX_Context* context = GFX_ActiveContext();
-    
-    if (address == NULL || idx >= BUFFER_PER_LAYER)
-    {
-        return GFX_FAILURE;
-    }
-    
-    layer = context->layer.active;
-
-    //No need to call default address set as this is driver managed
-    //defLayerBufferAddressSet(idx, address);
-    
-    drvLayer[layer->id].baseaddr[idx] = address;
-    drvLayer[layer->id].desc->addr = (uint32_t) drvLayer[layer->id].baseaddr[idx];
-
-    LCDC_SetDMAHeadPointer(drvLayer[layer->id].hwLayerID, (uint32_t) drvLayer[layer->id].desc);
-    LCDC_UpdateAddToQueue(drvLayer[layer->id].hwLayerID);
-
-    return GFX_SUCCESS;
-}
-
-void layerSetFrameBufferOffset(GFX_Layer* layer, uint32_t offset)
-{
-    FRAMEBUFFER_PIXEL_TYPE * baseAddr = (FRAMEBUFFER_PIXEL_TYPE *) drvLayer[layer->id].baseaddr[layer->buffer_read_idx];
-    
-    drvLayer[layer->id].frameOffset = offset;
-    
-    LCDCUpdateDMADescriptor(drvLayer[layer->id].desc,
-                            (uint32_t) &baseAddr[drvLayer[layer->id].frameOffset] ,
-                            0x1,
-                            (uint32_t) drvLayer[layer->id].desc);
-}
-
-void * layerGetReadFrameBufferBase(GFX_Layer* layer)
-{
-    return (void *)drvLayer[layer->id].baseaddr[layer->buffer_read_idx];
-}
-
-static gfxResult layerBufferAllocate(uint32_t idx)
-{
-    GFX_Layer* layer;
-    GFX_Context* context = GFX_ActiveContext();
-    uint32_t  i,j;
-    uint32_t  color = 0;
-    
-    layer = context->layer.active;
-
-    if (layer->id == 0)
-    {
-        color = GFX_LCDC_BACKGROUND_COLOR;
-    }
-    
-    for(i = 0; i < layer->rect.display.height; i++)
-    {
-        for(j = 0; j < layer->rect.display.width; j++)
-        {
-            *(uint32_t*)(drvLayer[layer->id].baseaddr[idx] + i*layer->rect.display.width + j) = color;
-        }
-    }
-
-    return GFX_SUCCESS;
-}
-
-static gfxResult layerBufferFree(uint32_t idx)
-{
-    return GFX_UNSUPPORTED;
-}
-
-static gfxResult LCDC_BrightnessRangeGet(uint32_t *low, uint32_t *high)
+gfxResult LCDC_BrightnessRangeGet(uint32_t *low, uint32_t *high)
 {
     *low = 0;
     *high = 100;
@@ -446,7 +295,7 @@ static gfxResult LCDC_BrightnessRangeGet(uint32_t *low, uint32_t *high)
     return GFX_SUCCESS;
 }
 
-static gfxResult LCDC_BrightnessSet(uint32_t brightness)
+gfxResult LCDC_BrightnessSet(uint32_t brightness)
 {
 
     LCDC_SetPWMCompareValue(brightness * 0xff / 100);
@@ -454,196 +303,7 @@ static gfxResult LCDC_BrightnessSet(uint32_t brightness)
     return GFX_SUCCESS;
 }
 
-static gfxResult layerPositionSet(int32_t x, int32_t y)
-{
-    uint32_t idx;
-    
-    idx = GFX_ActiveContext()->layer.active->id;
-
-    defLayerPositionSet(x, y);    
-
-    LCDC_SetWindowPosition(drvLayer[idx].hwLayerID, 
-                            GFX_ActiveContext()->layer.active->rect.display.x,
-                            GFX_ActiveContext()->layer.active->rect.display.y);
-
-    return GFX_SUCCESS;
-}
-
-<#if HEOLayerEnable == true>
-static void layerHEOGetScalingFactors(uint16_t xmemsize,
-                                     uint16_t ymemsize,
-                                     uint16_t xsize,
-                                     uint16_t ysize,
-                                     uint16_t* xfactor,
-                                     uint16_t* yfactor)
-{
-    uint16_t xfactor1st, yfactor1st;
-
-    xmemsize--;
-    ymemsize--;
-    xsize--;
-    ysize--;
-            
-    xfactor1st = ((2048 * xmemsize - 256 * XPHIDEF)/ xsize) + 1;
-    yfactor1st = ((2048 * ymemsize - 256 * XPHIDEF)/ ysize) + 1;
-
-    if ((xfactor1st * xsize / 2048) > xmemsize)
-        *xfactor = xfactor1st - 1;
-    else
-        *xfactor = xfactor1st;
-
-    if ((yfactor1st * ysize / 2048) > ymemsize)
-        *yfactor = yfactor1st - 1;
-    else
-        *yfactor = yfactor1st;
-}
-
-static void layerHEOSetSize(uint16_t s_width, uint16_t s_height, uint16_t w_width, uint16_t w_height)
-{
-    LCDC_SetWindowSize(LCDC_LAYER_HEO, w_width, w_height);
-    LCDC_SetHEOImageMemSize(s_width, s_height);    
-    
-    //Source and window size are not the same, use scaler
-    if (s_width != w_width || s_height != w_height)
-    {
-        uint16_t scale_w, scale_h;
-        
-        layerHEOGetScalingFactors(s_width,
-                                s_height,
-                                w_width,
-                                w_height,
-                                &scale_w,
-                                &scale_h);
-          
-        LCDC_SetHEOScaler(scale_h, scale_w, true);
-    }
-    else
-    {
-        LCDC_SetHEOScaler(0, 0, false);
-    }
-}
-</#if>
-
-static gfxResult layerSizeSet(int32_t width, int32_t height)
-{
-    uint32_t idx;
-
-    idx = GFX_ActiveContext()->layer.active->id;
-
-    defLayerSizeSet(width, height);
-<#if HEOLayerEnable == true>
-    if (drvLayer[idx].hwLayerID == LCDC_LAYER_HEO)
-        layerHEOSetSize(GFX_ActiveContext()->layer.active->rect.display.width,
-                        GFX_ActiveContext()->layer.active->rect.display.height,
-                        GFX_ActiveContext()->layer.active->rect.display.width,
-                        GFX_ActiveContext()->layer.active->rect.display.height);
-    else
-        LCDC_SetWindowSize(drvLayer[idx].hwLayerID,
-                           GFX_ActiveContext()->layer.active->rect.display.width,
-                           GFX_ActiveContext()->layer.active->rect.display.height);
-<#else>
-    LCDC_SetWindowSize(drvLayer[idx].hwLayerID,
-                       GFX_ActiveContext()->layer.active->rect.display.width,
-                       GFX_ActiveContext()->layer.active->rect.display.height);
-</#if>
-
-    return GFX_SUCCESS;
-}
-
-<#if GlobalAlphaEnable == true>
-static gfxResult layerAlphaAmountSet(uint32_t alpha, GFX_Bool wait)
-{
-    uint32_t idx;
-    
-    idx = GFX_ActiveContext()->layer.active->id;
-
-    if(wait == GFX_TRUE)
-    {
-        waitForAlphaSetting[idx] = alpha;
-    }
-    else
-    {
-        waitForAlphaSetting[idx] = -1;
-        
-        defLayerAlphaAmountSet(alpha, wait);
-        
-        //Local alpha does not work with global alpha, disable it
-        LCDC_SetBlenderLocalAlphaEnable(drvLayer[idx].hwLayerID, false);
-        
-        LCDC_SetBlenderGlobalAlpha(drvLayer[idx].hwLayerID, alpha);
-        LCDC_SetBlenderGlobalAlphaEnable(drvLayer[idx].hwLayerID, true);
-        LCDC_UpdateOverlayAttributesEnable(drvLayer[idx].hwLayerID);
-        
-    }
-
-    
-    return GFX_SUCCESS;
-}
-    
-static uint32_t layerAlphaAmountGet(void)
-{
-    uint32_t idx;
-    
-    idx = GFX_ActiveContext()->layer.active->id;
-
-    //TBD: Implement Alpha setting and return GFX_SUCCESS
-    //return GFX_SUCCESS;
-    return GFX_FAILURE;
-}
-</#if>
-
-void layerSwapped(GFX_Layer* layer)
-{
-    FRAMEBUFFER_PIXEL_TYPE * baseAddr;
-    if (layer->buffer_count > BUFFER_PER_LAYER)
-        return;
-    
-    baseAddr = (FRAMEBUFFER_PIXEL_TYPE *) drvLayer[layer->id].baseaddr[layer->buffer_read_idx];
-    switch(drvLayer[layer->id].hwLayerID)
-    {
-        case LCDC_LAYER_BASE:
-        case LCDC_LAYER_OVR1:
-        case LCDC_LAYER_OVR2:
-        case LCDC_LAYER_HEO:
-        case LCDC_LAYER_PP:
-            LCDCUpdateDMADescriptor(drvLayer[layer->id].desc,
-                                    (uint32_t) &baseAddr[drvLayer[layer->id].frameOffset] ,
-                                    0x1,
-                                    (uint32_t) drvLayer[layer->id].desc);
-            break;
-        default:
-            break;
-    }
-}
-
-void layerEnable(GFX_Layer* layer, GFX_Bool enable)
-{
-    uint32_t layerIdx = layer->id;
-    
-    if(enable == GFX_TRUE)
-    {
-        LCDC_SetChannelEnable(drvLayer[layerIdx].hwLayerID, true);
-        LCDC_IRQ_Enable(LCDC_INTERRUPT_BASE + drvLayer[layerIdx].hwLayerID);
-    }
-    else
-    {
-        LCDC_SetChannelEnable(drvLayer[layerIdx].hwLayerID, false);
-        LCDC_IRQ_Disable(LCDC_INTERRUPT_BASE + drvLayer[layerIdx].hwLayerID);
-    }
-
-    layer->enabled = enable;    
-}
-
-static gfxResult layerEnabledSet(GFX_Bool val)
-{
-    GFX_ActiveContext()->layer.active->enabled = val;
-
-    layerEnable(GFX_ActiveContext()->layer.active, val);
-    
-    return GFX_SUCCESS;
-}
-
-static gfxResult DRV_LCDC_Initialize()
+gfxResult DRV_LCDC_Initialize()
 {
     uint32_t      xResolution;
     uint32_t      yResolution;
@@ -654,7 +314,7 @@ static gfxResult DRV_LCDC_Initialize()
     uint32_t      leftMargin;
     uint32_t      upperMargin;
     uint32_t      layerCount;
-    uint32_t      i,j;
+    uint32_t      bufferCount;
     
     //Clear the descriptor and structures
     memset(drvLayer, 0, sizeof(drvLayer));
@@ -754,9 +414,8 @@ static gfxResult DRV_LCDC_Initialize()
     drvLayer[${i}].desc = &channelDesc${i};
 </#list>
     
-    for (layerCount = 0; layerCount < context->layer.count; layerCount++)
+    for (layerCount = 0; layerCount < GFX_LCDC_LAYERS; layerCount++)
     {
-        drvLayer[layerCount].layer = &context->layer.layers[layerCount];
         drvLayer[layerCount].hwLayerID = lcdcLayerZOrder[layerCount];
         drvLayer[layerCount].resx       = xResolution;
         drvLayer[layerCount].resy       = yResolution;
@@ -773,15 +432,11 @@ static gfxResult DRV_LCDC_Initialize()
                                 (uint32_t) drvLayer[layerCount].desc);
         
         //Clear frame buffer
-        for(i = 0; i < context->layer.layers[layerCount].rect.display.height; i++)
+        for(bufferCount = 0; bufferCount < BUFFER_PER_LAYER; ++bufferCount)
         {
-            for(j = 0; j < context->layer.layers[layerCount].rect.display.width; j++)
-            {
-                *(uint32_t*)(drvLayer[layerCount].baseaddr[0] + 
-                    i*context->layer.layers[layerCount].rect.display.width + j) = 0;
-            }
+            memset(drvLayer[layerCount].baseaddr[bufferCount], 0, sizeof(FRAMEBUFFER_PIXEL_TYPE) * DISPLAY_WIDTH * DISPLAY_HEIGHT);
         }
- 
+        
         LCDC_SetLayerClockGatingDisable(drvLayer[layerCount].hwLayerID, false);
         LCDC_SetWindowPosition(drvLayer[layerCount].hwLayerID, drvLayer[layerCount].startx, drvLayer[layerCount].starty);
 <#if HEOLayerEnable == true>
@@ -834,11 +489,13 @@ void _IntHandlerVSync(uintptr_t context)
     {
         LCDC_LAYER_ID layerID = lcdcLayerZOrder[i];
         status = LCDC_LAYER_IRQ_Status(layerID);
-        if (status && pendingDMATransfer[layerID] == GFX_TRUE)
+
+        if (status && drvLayer[i].updateLock == LAYER_LOCKED_PENDING)
         {
             LCDC_LAYER_IRQ_Disable(layerID, LCDC_LAYER_INTERRUPT_DMA);
-            
-            pendingDMATransfer[layerID] = GFX_FALSE;
+
+            DRV_LCDC_UpdateLayer(i);
+            drvLayer[i].updateLock = LAYER_UNLOCKED;
         }
     }
 }
@@ -851,9 +508,9 @@ static int DRV_GFX_LCDC_Start()
     return 0;
 }
 
-gfxPixelBuffer * DRV_GLCD_GetFrameBuffer(int32_t idx)
+gfxPixelBuffer * DRV_LCDC_GetFrameBuffer(int32_t idx)
 {
-    return &pixelBuffer[idx];
+    return &pixelBuffer[activeLayer];
 }
 
 gfxColorMode DRV_LCDC_GetColorMode()
@@ -964,35 +621,20 @@ gfxResult DRV_LCDC_BlitBuffer(int32_t x,
 
 static gfxResult DRV_LCDC_UpdateLayer(unsigned int layer)
 {
-    LCDC_SetRGBModeInput(drvLayer[layer].hwLayerID, drvLayer[layer].colorspace );
-        
-    PLIB_LCDC_LayerBaseAddressSet(layer,
-                                 (uint32_t)drvLayer[layer].baseaddr[0]);
-                
-    PLIB_LCDC_LayerStartXYSet(layer,
-                              drvLayer[layer].startx,
-                              drvLayer[layer].starty );
-        
-        //Set layer size
-    PLIB_LCDC_LayerSizeXYSet(layer,
-                             drvLayer[layer].sizex,
-                             drvLayer[layer].sizey);
-            
-    PLIB_LCDC_LayerResXYSet(layer,
-                            drvLayer[layer].sizex,
-                            drvLayer[layer].sizey);
-            
-    PLIB_LCDC_LayerGlobalAlphaSet(layer,
-                            drvLayer[layer].alpha);
-        
-    PLIB_LCDC_LayerColorModeSet(layer,
-                            drvLayer[layer].colorspace);   
-    
     if (drvLayer[layer].enabled == true)
-        PLIB_LCDC_LayerEnable(layer);
-    else
-        PLIB_LCDC_LayerDisable(layer);
-    
+	    LCDC_SetUseDMAPathEnable(drvLayer[layer].hwLayerID, true);
+	else
+	    LCDC_SetUseDMAPathEnable(drvLayer[layer].hwLayerID, false);
+
+    //Update the active layer's color mode and stride
+    LCDC_SetRGBModeInput(drvLayer[layer].hwLayerID, drvLayer[layer].colorspace);
+    LCDC_SetDMAAddressRegister(drvLayer[layer].hwLayerID, drvLayer[layer].desc->addr);
+    LCDC_SetDMADescriptorNextAddress(drvLayer[layer].hwLayerID, (uint32_t) drvLayer[layer].desc);
+    LCDC_SetDMAHeadPointer(drvLayer[layer].hwLayerID, (uint32_t) drvLayer[layer].desc);
+    LCDC_SetTransferDescriptorFetchEnable(drvLayer[layer].hwLayerID, true);
+        
+    LCDC_UpdateAddToQueue(drvLayer[layer].hwLayerID);
+
     return GFX_SUCCESS;
 }
 
@@ -1018,7 +660,11 @@ static gfxResult DRV_LCDC_LayerConfig(ctlrCfg request, unsigned int layer, void 
     {
         drvLayer[layer].updateLock = LAYER_LOCKED_PENDING;
         
-        PLIB_LCDC_VSyncInterruptEnable();
+		LCDC_WaitForSyncInProgress();
+		LCDC_SetSYNCEnable(true);
+        
+        //Wait for the changes to be applied
+        while (drvLayer[layer].updateLock == LAYER_LOCKED_PENDING);
         
         return GFX_SUCCESS;
     }
@@ -1065,12 +711,12 @@ static gfxResult DRV_LCDC_LayerConfig(ctlrCfg request, unsigned int layer, void 
         }
         case GFX_CTRLR_SET_LAYER_ENABLE:
         {
-            drvLayer[layer].colorspace = true;
+            drvLayer[layer].enabled = true;
             break;
         }
         case GFX_CTRLR_SET_LAYER_DISABLE:
         {
-            drvLayer[layer].colorspace = false;
+            drvLayer[layer].enabled = false;
             break;
         }
         default:

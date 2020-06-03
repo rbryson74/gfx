@@ -1,1 +1,1 @@
-#include "gfx/driver/processor/2dgpu/drv_2dgpu.h"
+#include "gfx/driver/processor/gfx2d/drv_gfx2d.h"

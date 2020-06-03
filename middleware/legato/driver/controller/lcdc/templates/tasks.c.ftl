@@ -23,10 +23,10 @@
 *******************************************************************************/
 -->
 <#if HarmonyCore.SELECT_RTOS == "BareMetal">
-    <#lt>DRV_GLCD_Update();
+    <#lt>DRV_LCDC_Update();
 <#elseif HarmonyCore.SELECT_RTOS == "FreeRTOS">
-    <#lt>    xTaskCreate( _GLCD_Tasks,
-    <#lt>        "GLCD_Tasks",
+    <#lt>    xTaskCreate( _LCDC_Tasks,
+    <#lt>        "LCDC_Tasks",
     <#lt>        ${rtosTaskSize},
     <#lt>        (void*)NULL,
     <#lt>        ${rtosTaskPriority},

@@ -62,9 +62,7 @@
           this file.
 */
 
-#include "gfx/hal/inc/gfx_common.h"
-#include "gfx/hal/inc/gfx_driver_interface.h"
-#include "gfx/hal/inc/gfx_default_impl.h"
+#include "gfx/driver/gfx_driver.h"
 #include "peripheral/gfx2d/plib_gfx2d.h"
 
 #ifdef __cplusplus
@@ -98,7 +96,7 @@ void DRV_GFX2D_Initialize();
 
 // *****************************************************************************
 /* Function:
-    void  DRV_GFX2D_Fill()
+    gfxResult DRV_GFX2D_Fill
 
    Summary:
     Fill a (partial) buffer with a specified color
@@ -119,7 +117,7 @@ void DRV_GFX2D_Initialize();
     blend          - Not used
 
   Returns:
-    Returns the status as defined by GFX_STATUS
+    Returns the status as defined by gfxResult
 
   Remarks:
     This function will wait until the hardware is complete, i.e. it is synchronous
@@ -132,7 +130,7 @@ gfxResult DRV_GFX2D_Fill(gfxPixelBuffer * dest,
 
 // *****************************************************************************
 /* Function:
-    void DRV_GFX2D_Blit()
+    gfxResult DRV_GFX2D_Blit
 
    Summary:
     Copy a source buffer to the the destination buffer
@@ -159,7 +157,7 @@ gfxResult DRV_GFX2D_Fill(gfxPixelBuffer * dest,
                             region
 
   Returns:
-    Returns the status as defined by GFX_STATUS
+    Returns the status as defined by gfxResult
 
   Remarks:
     This function will wait until the hardware is complete, i.e. it is synchronous.
@@ -269,10 +267,10 @@ gfxPixelBuffer * DRV_GFX2D_GetFrameBuffer(void);
 
 static const gfxGraphicsProcessor _gfx2dGraphicsProcessor =
 {
-    null, // Line Draw not supported
+    NULL, // Line Draw not supported
     DRV_GFX2D_Fill,
     DRV_GFX2D_Blit,
-    null // Blit Stretch not supported
+    NULL // Blit Stretch not supported
 };
 
 #ifdef __cplusplus

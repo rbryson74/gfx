@@ -27,18 +27,11 @@ def instantiateComponent(comp):
 	
 	# these two symbols are read by the HAL for initialization purposes
 	# they must match the function names in the actual driver code
-	DriverInfoFunction = comp.createStringSymbol("DriverInfoFunction", None)
-	DriverInfoFunction.setLabel("Driver Info Function Name")
-	DriverInfoFunction.setReadOnly(True)
-	DriverInfoFunction.setDefaultValue("driverLCDCInfoGet")
-	DriverInfoFunction.setVisible(False)
-	
-	DriverInitFunction = comp.createStringSymbol("DriverInitFunction", None)
-	DriverInitFunction.setLabel("Driver Init Function Name")
-	DriverInitFunction.setReadOnly(True)
-	DriverInitFunction.setDefaultValue("driverLCDCContextInitialize")
-	DriverInitFunction.setVisible(False)
-	
+	DriverInitName = comp.createStringSymbol("DriverInitName", None)
+	DriverInitName.setVisible(False)
+	DriverInitName.setReadOnly(True)
+	DriverInitName.setDefaultValue("lcdcDisplayDriver")
+
 	DisplayWidth = comp.createIntegerSymbol("DisplayWidth", None)
 	DisplayWidth.setLabel("Width")
 	DisplayWidth.setDescription("The width of the frame buffer in pixels.")
@@ -353,7 +346,50 @@ def instantiateComponent(comp):
 	PaletteMode.setDefaultValue(False)
 	PaletteMode.setVisible(False)
 	### End of unsupported options
-	
+
+	SYS_DEFINITIONS_H = comp.createFileSymbol("SYS_DEFINITIONS_H", None)
+	SYS_DEFINITIONS_H.setType("STRING")
+	SYS_DEFINITIONS_H.setOutputName("core.LIST_SYSTEM_DEFINITIONS_H_INCLUDES")
+	SYS_DEFINITIONS_H.setSourcePath("templates/definitions.h.ftl")
+	SYS_DEFINITIONS_H.setMarkup(True)
+
+	SYS_INIT_C = comp.createFileSymbol("SYS_INIT_C", None)
+	SYS_INIT_C.setType("STRING")
+	SYS_INIT_C.setOutputName("core.LIST_SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS")
+	SYS_INIT_C.setSourcePath("templates/init.c.ftl")
+	SYS_INIT_C.setMarkup(True)
+
+	SYS_TASK_C = comp.createFileSymbol("SYS_TASK_C", None)
+	SYS_TASK_C.setType("STRING")
+	SYS_TASK_C.setOutputName("core.LIST_SYSTEM_TASKS_C_CALL_DRIVER_TASKS")
+	SYS_TASK_C.setSourcePath("templates/tasks.c.ftl")
+	SYS_TASK_C.setMarkup(True)
+
+	SYS_RTOS_TASK_C = comp.createFileSymbol("SYS_RTOS_TASK_C", None)
+	SYS_RTOS_TASK_C.setType("STRING")
+	SYS_RTOS_TASK_C.setOutputName("core.LIST_SYSTEM_RTOS_TASKS_C_DEFINITIONS")
+	SYS_RTOS_TASK_C.setSourcePath("templates/rtos_tasks.c.ftl")
+	SYS_RTOS_TASK_C.setMarkup(True)
+
+	execfile(Module.getPath() + "/config/lcdc_rtos.py")
+
+	# common gfx driver header
+	GFX_DRIVER_H = comp.createFileSymbol("GFX_DRIVER_H", None)
+	GFX_DRIVER_H.setSourcePath("../../templates/gfx_driver.h.ftl")
+	GFX_DRIVER_H.setDestPath("gfx/driver/")
+	GFX_DRIVER_H.setOutputName("gfx_driver.h")
+	GFX_DRIVER_H.setProjectPath(projectPath)
+	GFX_DRIVER_H.setType("HEADER")
+	GFX_DRIVER_H.setMarkup(True)
+
+	GFX_DRIVER_C = comp.createFileSymbol("GFX_DRIVER_C", None)
+	GFX_DRIVER_C.setSourcePath("../../templates/gfx_driver.c.ftl")
+	GFX_DRIVER_C.setDestPath("gfx/driver/")
+	GFX_DRIVER_C.setOutputName("gfx_driver.c")
+	GFX_DRIVER_C.setProjectPath(projectPath)
+	GFX_DRIVER_C.setType("SOURCE")
+	GFX_DRIVER_C.setMarkup(True)
+
 	# generated code files
 	GFX_LCDC_C = comp.createFileSymbol("GFX_LCDC_C", None)
 	GFX_LCDC_C.setDestPath("gfx/driver/controller/lcdc/")

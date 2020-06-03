@@ -64,7 +64,7 @@
 // Section: Functions
 // *****************************************************************************
 // *****************************************************************************
-void DRV_LCDC_Initialize(void);
+gfxResult DRV_LCDC_Initialize(void);
 
 gfxColorMode DRV_LCDC_GetColorMode(void);
 uint32_t DRV_LCDC_GetBufferCount(void);
@@ -81,7 +81,7 @@ gfxPixelBuffer * DRV_LCDC_GetFrameBuffer(int32_t idx);
 void DRV_LCDC_SetUseGPU(gfxBool onOff);
 gfxResult DRV_LCDC_CtrlrConfig(ctlrCfg request, void * arg);
 
-static const gfxDisplayDriver LCDCDisplayDriver =
+static const gfxDisplayDriver lcdcDisplayDriver =
 {
 	DRV_LCDC_GetColorMode,
 	DRV_LCDC_GetBufferCount,

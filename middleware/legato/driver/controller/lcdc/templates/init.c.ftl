@@ -39,7 +39,7 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
  -->
-    DRV_GLCD_Initialize();
+    DRV_LCDC_Initialize();
 <#--
 /*******************************************************************************
  End of File

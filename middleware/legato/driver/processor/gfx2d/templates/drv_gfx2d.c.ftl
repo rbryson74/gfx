@@ -73,6 +73,19 @@
 uint32_t  __attribute__ ((aligned (64))) blitbuffer[DISPLAY_WIDTH * DISPLAY_HEIGHT] ;
 uint32_t  __attribute__ ((aligned (64))) maskbuffer[DISPLAY_WIDTH * DISPLAY_HEIGHT] ;
 
+GFX2D_PIXEL_FORMAT gfx2dFormats[GFX_COLOR_MODE_LAST + 1] =
+{
+    -1, // GFX_COLOR_MODE_GS_8
+    -1, // GFX_COLOR_MODE_RGB_332,
+    GFX2D_RGB16, // GFX_COLOR_MODE_RGB_565
+    -1, // GFX_COLOR_MODE_RGBA_5551
+    -1, // GFX_COLOR_MODE_RGB_888
+    GFX2D_ARGB32, // GFX_COLOR_MODE_RGBA_8888
+    -1, // GFX_COLOR_MODE_ARGB_8888
+    -1, // GFX_COLOR_MODE_INDEX_1
+    -1, // GFX_COLOR_MODE_INDEX_4
+    GFX2D_IDX8, //GFX_COLOR_MODE_INDEX_8
+};
 
 /* Indicate end of execute instruction */
 volatile uint8_t gpu_end = 0;
@@ -93,31 +106,77 @@ void DRV_GFX2D_Initialize()
     PLIB_GFX2D_IRQ_CallbackRegister(_IntHandler, 0);
 }
 
-void  DRV_GFX2D_Fill(
-    GFX2D_BUFFER *dest,
-    GFX2D_RECTANGLE *dest_rect,
-    gpu_color_t color)
+gfxResult DRV_GFX2D_Fill(gfxPixelBuffer* dest,
+                           const gfxRect* clipRect,
+                           const gfxColor color,
+                        const gfxBlend blend)
 {
-    PLIB_GFX2D_Fill(dest, dest_rect, color);
+    GFX2D_BUFFER    dest_buffer;
+	GFX2D_RECTANGLE dest_rect;
+
+    dest_buffer.width = dest->size.width;
+    dest_buffer.height = dest->size.height;
+    dest_buffer.format = gfx2dFormats[dest->mode];
+	dest_buffer.dir = GFX2D_XY00;
+	dest_buffer.addr = (uint32_t)dest->pixels;
+
+	dest_rect.x = (uint32_t)clipRect->x; 
+	dest_rect.y = (uint32_t)clipRect->y; 
+	dest_rect.width = (uint32_t)clipRect->width; 
+	dest_rect.height = (uint32_t)clipRect->height; 
+
+    PLIB_GFX2D_Fill(&dest_buffer, &dest_rect, color);
 
     /* Wait for instruction to complete */
     while ( PLIB_GFX2D_GetGlobalStatusBusy() == true ) ;
     //while (gpu_end == 0) {
     //};
+    
+    return GFX_SUCCESS;
 }
 
-void  DRV_GFX2D_Copy(
-    GFX2D_BUFFER *dest,
-    GFX2D_RECTANGLE *dest_rect,
-    GFX2D_BUFFER *src,
-    GFX2D_RECTANGLE *src_rect)
+gfxResult DRV_GFX2D_Blit(const gfxPixelBuffer* source,
+                           const gfxRect* srcRect,
+                           const gfxPixelBuffer* dest,
+                        const gfxRect* destRect,
+                        const gfxBlend blend)
 {
-    PLIB_GFX2D_Copy(dest, dest_rect, src, src_rect);
+    GFX2D_BUFFER    dest_buffer;
+	GFX2D_RECTANGLE dest_rect;
+    GFX2D_BUFFER    src_buffer;
+	GFX2D_RECTANGLE src_rect;
+    
+    dest_buffer.width = dest->size.width;
+    dest_buffer.height = dest->size.height;
+    dest_buffer.format = gfx2dFormats[dest->mode];
+	dest_buffer.dir = GFX2D_XY00;
+	dest_buffer.addr = (uint32_t)dest->pixels;
+
+	dest_rect.x = (uint32_t)destRect->x; 
+	dest_rect.y = (uint32_t)destRect->y; 
+	dest_rect.width = (uint32_t)destRect->width; 
+	dest_rect.height = (uint32_t)destRect->height; 
+
+    src_buffer.width = source->size.width;
+    src_buffer.height = source->size.height;
+    src_buffer.format = gfx2dFormats[source->mode];
+	src_buffer.dir = GFX2D_XY00;
+	src_buffer.addr = (uint32_t)source->pixels;
+
+	src_rect.x = (uint32_t)srcRect->x; 
+	src_rect.y = (uint32_t)srcRect->y; 
+	src_rect.width = (uint32_t)srcRect->width; 
+	src_rect.height = (uint32_t)srcRect->height; 
+
+    
+    PLIB_GFX2D_Copy(&dest_buffer, &dest_rect, &src_buffer, &src_rect);
 
     /* Wait for instruction to complete */
     while ( PLIB_GFX2D_GetGlobalStatusBusy() == true ) ;
     //while (gpu_end == 0) {
     //};
+
+    return GFX_SUCCESS;
 }
 
 void  DRV_GFX2D_Blend(

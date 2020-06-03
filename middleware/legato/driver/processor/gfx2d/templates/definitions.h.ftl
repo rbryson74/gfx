@@ -22,7 +22,7 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 -->
-#include "gfx/driver/processor/2dgpu/libnano2d.h"
+#include "gfx/driver/processor/gfx2d/drv_gfx2d.h"
 <#--
 /*******************************************************************************
  End of File

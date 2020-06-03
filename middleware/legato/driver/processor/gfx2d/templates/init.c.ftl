@@ -39,7 +39,7 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
  -->
-    DRV_2DGPU_Initialize();
+    DRV_GFX2D_Initialize();
 <#--
 /*******************************************************************************
  End of File
