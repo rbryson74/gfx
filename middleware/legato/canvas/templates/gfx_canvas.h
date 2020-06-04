@@ -72,7 +72,6 @@ extern "C" {
 typedef struct 
 {
     int id;                         // Canvas ID
-    char * buf;                     // The canvas frame buffer
     GFXC_BOOL active;               //The canvas is shown on its layer
     
     gfxPixelBuffer pixelBuffer;
@@ -129,8 +128,7 @@ typedef struct
   * @cond INTERNAL
   *
   */
-GFXC_RESULT _gfxcShowCanvas(unsigned int canvasID);
-GFXC_RESULT _gfxcHideCanvas(unsigned int canvasID);
+GFXC_RESULT _gfxcCanvasUpdate(unsigned int canvasID);
 GFXC_RESULT _gfxcSetEffectsIntervalMS(unsigned int ms);
 GFXC_RESULT _gfxcStartEffects(void);
 

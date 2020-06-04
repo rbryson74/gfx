@@ -29,7 +29,9 @@
 #include "gfx/canvas/gfx_canvas_api.h"
 #include "gfx/canvas/gfx_canvas.h"
 
+<#if GPUBlitEnabled == true && GraphicsProcessorDriverName != "NULL">
 #include "gfx/driver/processor/2dgpu/libnano2d.h"
+</#if>
 
 #include "definitions.h"
 
@@ -196,7 +198,7 @@ void GFX_CANVAS_Initialize(void)
 //Library interface functions
 gfxColorMode GFXC_GetColorMode()
 {
-	return canvas[activeCanvasID].pixelBuffer.mode;
+    return canvas[activeCanvasID].pixelBuffer.mode;
 }
 
 uint32_t GFXC_GetBufferCount()
@@ -216,12 +218,12 @@ uint32_t GFXC_GetDisplayHeight()
 
 uint32_t GFXC_GetLayerCount()
 {
-	return CONFIG_NUM_CANVAS_OBJ;
+    return CONFIG_NUM_CANVAS_OBJ;
 }
 
 uint32_t GFXC_GetActiveLayer()
 {
-	return activeCanvasID;
+    return activeCanvasID;
 }
 
 gfxResult GFXC_SetActiveLayer(uint32_t canvasID)
@@ -243,7 +245,7 @@ void GFXC_Swap(void)
 
 uint32_t GFXC_GetVSYNCCount(void)
 {
-	return 0;
+    return 0;
 }
 
 void GFXC_Update()
@@ -294,7 +296,7 @@ gfxResult GFXC_BlitBuffer(int32_t x,
     {
         srcPtr = gfxPixelBufferOffsetGet(buf, 0, row);
         destPtr = gfxPixelBufferOffsetGet(&canvas[activeCanvasID].pixelBuffer,
-	                                      x, y + row);
+                                          x, y + row);
 
         memcpy(destPtr, srcPtr, rowSize);
     }
@@ -303,7 +305,7 @@ gfxResult GFXC_BlitBuffer(int32_t x,
     return GFX_SUCCESS;
 }
 
-GFXC_RESULT _gfxcShowCanvas(unsigned int canvasID)
+GFXC_RESULT _gfxcCanvasUpdate(unsigned int canvasID)
 {
     argSetSize setSizeParm;
     argSetSize setResParm;
@@ -385,36 +387,18 @@ GFXC_RESULT _gfxcShowCanvas(unsigned int canvasID)
         
         gfxDispCtrlr->ctrlrConfig(GFX_CTRLR_SET_LAYER_ALPHA, (void *) &setAlphaParm);
         
-        //Unlock layer to affect changes
-        gfxDispCtrlr->ctrlrConfig(GFX_CTRLR_SET_LAYER_UNLOCK, (void *) &canvas[canvasID].layer.id);
+        if (canvas[canvasID].active == true)
+            gfxDispCtrlr->ctrlrConfig(GFX_CTRLR_SET_LAYER_ENABLE, (void *) &canvas[canvasID].layer.id);
+        else
+            gfxDispCtrlr->ctrlrConfig(GFX_CTRLR_SET_LAYER_DISABLE, (void *) &canvas[canvasID].layer.id);
+
         
-        //Lock and enable layer
-        gfxDispCtrlr->ctrlrConfig(GFX_CTRLR_SET_LAYER_LOCK, (void *) &canvas[canvasID].layer.id);
-        gfxDispCtrlr->ctrlrConfig(GFX_CTRLR_SET_LAYER_ENABLE, (void *) &canvas[canvasID].layer.id);
+        //Unlock layer to affect changes
         gfxDispCtrlr->ctrlrConfig(GFX_CTRLR_SET_LAYER_UNLOCK, (void *) &canvas[canvasID].layer.id);
 
         return GFX_SUCCESS;
     }
             
-    return GFX_FAILURE;
-}
-
-GFXC_RESULT _gfxcHideCanvas(unsigned int canvasID)
-{
-    if (canvasID < CONFIG_NUM_CANVAS_OBJ &&
-        canvas[canvasID].layer.id != LAYER_ID_INVALID &&
-        gfxDispCtrlr != NULL &&
-        gfxDispCtrlr->ctrlrConfig != NULL)
-    {
-        gfxDispCtrlr->ctrlrConfig(GFX_CTRLR_SET_LAYER_LOCK, (void *) &canvas[canvasID].layer.id);
-
-        gfxDispCtrlr->ctrlrConfig(GFX_CTRLR_SET_LAYER_DISABLE, (void *) &canvas[canvasID].layer.id);
-        
-        gfxDispCtrlr->ctrlrConfig(GFX_CTRLR_SET_LAYER_UNLOCK, (void *) &canvas[canvasID].layer.id);
-
-        return GFX_SUCCESS;
-    }
-    
     return GFX_FAILURE;
 }
 
@@ -488,7 +472,7 @@ static GFXC_RESULT gfxcProcessFadeEffect(GFXC_CANVAS * canvas)
         }
     }
     
-    _gfxcShowCanvas(canvas->id);
+    gfxcCanvasUpdate(canvas->id);
     
     if (retval == GFX_FAILURE && canvas->effects.cb != NULL)
         canvas->effects.cb(canvas->id,
@@ -596,7 +580,7 @@ static GFXC_RESULT gfxcProcessMoveEffect(GFXC_CANVAS * canvas)
         }
     }
     
-    _gfxcShowCanvas(canvas->id);
+    gfxcCanvasUpdate(canvas->id);
     
     if (retval == GFX_FAILURE)
     {
@@ -638,17 +622,21 @@ void GFX_CANVAS_Task(void)
             //Process effects
             if (oldEffectsTick != effectsTick)
             {
-                GFXC_RESULT res = GFX_FAILURE; 
+                GFXC_RESULT gres = GFX_FAILURE; 
                 
                 for (i = 0; i < CONFIG_NUM_CANVAS_OBJ; i++)
                 {
                     if (canvas[i].id != CANVAS_ID_INVALID)
                     {
+                        GFXC_RESULT res = GFX_FAILURE; 
+
 <#if FadeEffectsEnabled == true>
                         //Process alpha effects
                         if (canvas[i].effects.fade.status == GFXC_FX_RUN)
                         {
                             res = gfxcProcessFadeEffect(&canvas[i]);
+                            if (gres == GFX_FAILURE)
+                                gres = res;
                         }
 </#if>
 <#if MoveEffectsEnabled == true>
@@ -656,12 +644,14 @@ void GFX_CANVAS_Task(void)
                         if (canvas[i].effects.move.status == GFXC_FX_RUN)
                         {
                             res = gfxcProcessMoveEffect(&canvas[i]);
+                            if (gres == GFX_FAILURE)
+                                gres = res;
                         }
 </#if>
                     }
                 }
                 
-                if (res == GFX_FAILURE)
+                if (gres == GFX_FAILURE)
                     SYS_TIME_TimerStop(effectsTimer);
                 
                 oldEffectsTick = effectsTick;

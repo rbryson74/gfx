@@ -243,20 +243,6 @@ uint32_t DRV_GLCD_GetVSYNCCount(void);
 gfxPixelBuffer * DRV_GLCD_GetFrameBuffer(int32_t idx);
 
 /**
- * @brief Set use GPU.
- * @details Sets the gpu status to the value of
- * <span class="param">onOff</span>
- * This routine enables the use of the GPU for blit operations.
- * @code
- * gfxBool onOff;
- * DRV_GLCD_SetUseGPU(onOff);
- * @endcode
- * @param onOff is the new gpu status to set.
- * @return void.
- */
-void DRV_GLCD_SetUseGPU(gfxBool onOff);
-
-/**
  * @brief Perform control config request.
  * @details Performs control configuration request specified by
  * <span class="param">request</span> with the given

@@ -93,8 +93,7 @@ int gfxcSetPixelBuffer(unsigned int canvasID,
                        const GFXC_COLOR_FORMAT format,
                        void * buf)
 {
-    if (canvasID < CONFIG_NUM_CANVAS_OBJ &&
-        canvas[canvasID].active == GFX_FALSE)
+    if (canvasID < CONFIG_NUM_CANVAS_OBJ)
     {
             gfxPixelBufferCreate(width, height, format, (const void *) buf, &canvas[canvasID].pixelBuffer);
             
@@ -151,11 +150,6 @@ GFXC_RESULT gfxcSetWindowAlpha(unsigned int canvasID, uint8_t alpha)
     if (canvasID < CONFIG_NUM_CANVAS_OBJ)
     {
         canvas[canvasID].layer.alpha = alpha;
-        
-        if (canvas[canvasID].active == GFX_TRUE)
-        {
-            gfxcShowCanvas(canvasID);
-        }
 
         return GFX_SUCCESS;
     }
@@ -169,11 +163,6 @@ GFXC_RESULT gfxcSetWindowPosition(unsigned int canvasID, int xpos, int ypos)
     {
         canvas[canvasID].layer.pos.xpos = xpos;
         canvas[canvasID].layer.pos.ypos = ypos;
-        
-        if (canvas[canvasID].active == GFX_TRUE)
-        {
-            gfxcShowCanvas(canvasID);
-        }
 
         return GFX_SUCCESS;
     }
@@ -187,11 +176,6 @@ GFXC_RESULT gfxcSetWindowSize(unsigned int canvasID, unsigned int width, unsigne
     {
         canvas[canvasID].layer.size.width = width;
         canvas[canvasID].layer.size.height = height;
-        
-        if (canvas[canvasID].active == GFX_TRUE)
-        {
-            gfxcShowCanvas(canvasID);
-        }
 
         return GFX_SUCCESS;
     }
@@ -203,10 +187,7 @@ GFXC_RESULT gfxcShowCanvas(unsigned int canvasID)
 {
     if (canvasID < CONFIG_NUM_CANVAS_OBJ)
     {
-        _gfxcShowCanvas(canvasID);
-            
         canvas[canvasID].active = GFX_TRUE;
-        
         return GFX_SUCCESS;
     }
         
@@ -217,9 +198,18 @@ GFXC_RESULT gfxcHideCanvas(unsigned int canvasID)
 {
     if (canvasID < CONFIG_NUM_CANVAS_OBJ)
     {
-        _gfxcHideCanvas(canvasID);
-                    
         canvas[canvasID].active = GFX_FALSE;
+        return GFX_SUCCESS;        
+    }
+        
+    return GFX_FAILURE;    
+}
+
+GFXC_RESULT gfxcCanvasUpdate(unsigned int canvasID)
+{
+    if (canvasID < CONFIG_NUM_CANVAS_OBJ)
+    {
+        _gfxcCanvasUpdate(canvasID);
         
         return GFX_SUCCESS;        
     }

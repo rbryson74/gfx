@@ -95,8 +95,9 @@
 #include "gfx/driver/controller/glcd/plib_glcd.h"
 #include "gfx/driver/controller/glcd/drv_gfx_glcd.h"
 #include "definitions.h"
+<#if UseGPU == true && le_gfx_driver_2dgpu??>
 #include "gfx/driver/processor/2dgpu/libnano2d.h"
-
+</#if>
 // *****************************************************************************
 // *****************************************************************************
 // Section: Global Data
@@ -177,14 +178,12 @@ FRAMEBUFFER_PIXEL_TYPE  __attribute__ ((coherent, aligned (32))) framebuffer1_${
 </#if>
 </#if>
 static uint32_t state;
-<#if UseGPU == true>
-static gfxBool useGPU = true;
-<#else>
-static gfxBool useGPU = false;
+<#if UseGPU == true && le_gfx_driver_2dgpu??>
+static gfxRect srcRect, destRect;
 </#if>
 static unsigned int vsyncCount = 0;
 static gfxPixelBuffer pixelBuffer[GFX_GLCD_LAYERS];
-static gfxRect srcRect, destRect;
+
 static unsigned int activeLayer = 0;
 
 volatile int32_t waitForAlphaSetting[GFX_GLCD_LAYERS] = {0};
@@ -464,19 +463,16 @@ void GLCD_Interrupt_Handler(void)
     EVIC_SourceStatusClear(INT_SOURCE_GLCD);
     
     //Update GLCD during blanking period
-    if (!PLIB_GLCD_IsVerticalBlankingActive())
+    for (i = 0; i < GFX_GLCD_LAYERS; i++)
     {
-        for (i = 0; i < GFX_GLCD_LAYERS; i++)
+        if (drvLayer[i].updateLock == LAYER_LOCKED_PENDING)
         {
-            if (drvLayer[i].updateLock == LAYER_LOCKED_PENDING)
-            {
-                DRV_GLCD_UpdateLayer(i);
-                drvLayer[i].updateLock = LAYER_UNLOCKED;
-            }
+            DRV_GLCD_UpdateLayer(i);
+            drvLayer[i].updateLock = LAYER_UNLOCKED;
         }
-        
-        PLIB_GLCD_VSyncInterruptDisable();
     }
+
+    PLIB_GLCD_VSyncInterruptDisable();
 }
 
 /**** End Hardware Abstraction Interfaces ****/
@@ -546,49 +542,43 @@ uint32_t DRV_GLCD_GetVSYNCCount(void)
     return vsyncCount;
 }
 
-void DRV_GLCD_SetUseGPU(gfxBool onOff)
-{
-    useGPU = onOff;
-}
-
 gfxResult DRV_GLCD_BlitBuffer(int32_t x,
                              int32_t y,
                              gfxPixelBuffer* buf,
                              gfxBlend blend)
 {
+<#if UseGPU == false || !le_gfx_driver_2dgpu??>
+    void* srcPtr;
+    void* destPtr;
+    uint32_t row, rowSize;
+</#if>
+
     if (state != RUN)
         return GFX_FAILURE;
 
-    if(useGPU)
+<#if UseGPU == true && le_gfx_driver_2dgpu??>
+    srcRect.x = 0;
+    srcRect.y = 0;
+    srcRect.height = buf->size.height;
+    srcRect.width = buf->size.width;
+
+    destRect.x = x;
+    destRect.y = y;
+    destRect.height = buf->size.height;
+    destRect.width = buf->size.width;
+
+    _2dgpuGraphicsProcessor.blitBuffer(buf, &srcRect, &pixelBuffer[activeLayer], &destRect, blend );
+<#else>
+    rowSize = buf->size.width * gfxColorInfoTable[buf->mode].size;
+
+    for(row = 0; row < buf->size.height; row++)
     {
-        srcRect.x = 0;
-        srcRect.y = 0;
-        srcRect.height = buf->size.height;
-        srcRect.width = buf->size.width;
+        srcPtr = gfxPixelBufferOffsetGet(buf, 0, row);
+        destPtr = gfxPixelBufferOffsetGet(&pixelBuffer[activeLayer], x, y + row);
 
-        destRect.x = x;
-        destRect.y = y;
-        destRect.height = buf->size.height;
-        destRect.width = buf->size.width;
-
-        _2dgpuGraphicsProcessor.blitBuffer(buf, &srcRect, &pixelBuffer[activeLayer], &destRect, blend );
+        memcpy(destPtr, srcPtr, rowSize);
     }
-    else
-    {
-        void* srcPtr;
-        void* destPtr;
-        uint32_t row, rowSize;
-
-        rowSize = buf->size.width * gfxColorInfoTable[buf->mode].size;
-
-        for(row = 0; row < buf->size.height; row++)
-        {
-            srcPtr = gfxPixelBufferOffsetGet(buf, 0, row);
-            destPtr = gfxPixelBufferOffsetGet(&pixelBuffer[activeLayer], x, y + row);
-
-            memcpy(destPtr, srcPtr, rowSize);
-        }
-    }
+</#if>
 
     return GFX_SUCCESS;
 }
@@ -635,11 +625,11 @@ static gfxResult DRV_GLCD_LayerConfig(ctlrCfg request, unsigned int layer, void 
     if (layer >= GFX_GLCD_LAYERS)
         return GFX_FAILURE;
     
-    if (request == GFX_CTRLR_SET_LAYER_LOCK &&
-        drvLayer[layer].updateLock == LAYER_UNLOCKED)
+    //Attempt to lock
+    if (request == GFX_CTRLR_SET_LAYER_LOCK)
     {
+        PLIB_GLCD_VSyncInterruptDisable();
         drvLayer[layer].updateLock = LAYER_LOCKED;
-        
         return GFX_SUCCESS;
     }
     
@@ -650,11 +640,7 @@ static gfxResult DRV_GLCD_LayerConfig(ctlrCfg request, unsigned int layer, void 
     if (request == GFX_CTRLR_SET_LAYER_UNLOCK)
     {
         drvLayer[layer].updateLock = LAYER_LOCKED_PENDING;
-        
         PLIB_GLCD_VSyncInterruptEnable();
-
-        //Wait for the changes to be applied
-        while (drvLayer[layer].updateLock == LAYER_LOCKED_PENDING);
         
         return GFX_SUCCESS;
     }

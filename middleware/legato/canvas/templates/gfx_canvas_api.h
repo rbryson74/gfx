@@ -274,7 +274,7 @@ GFXC_RESULT gfxcSetWindowSize(unsigned int canvasID, unsigned int width, unsigne
 
 // *****************************************************************************
 /* Function:
-    GFXC_RESULT gfxcSetCallback(unsigned int canvasID, gfxcCallback cb, void * parm);
+    GFXC_RESULT gfxcSetEffectsCallback(unsigned int canvasID, gfxcCallback cb, void * parm);
 
   Summary:
     Sets the callback function called to notify of effects status
@@ -288,7 +288,7 @@ GFXC_RESULT gfxcSetWindowSize(unsigned int canvasID, unsigned int width, unsigne
     GFX_SUCCESS - success
     GFX_FAILURE - fail
 */
-GFXC_RESULT gfxcSetCallback(unsigned int canvasID, gfxcCallback cb, void * parm);
+GFXC_RESULT gfxcSetEffectsCallback(unsigned int canvasID, gfxcCallback cb, void * parm);
 
 // *****************************************************************************
 /* Function:
@@ -322,6 +322,22 @@ GFXC_RESULT gfxcShowCanvas(unsigned int canvasID);
     GFX_FAILURE - fail
 */
 GFXC_RESULT gfxcHideCanvas(unsigned int canvasID);
+
+// *****************************************************************************
+/* Function:
+    GFXC_RESULT gfxcCanvasUpdate(unsigned int canvasID);
+
+  Summary:
+    Updates the assigned layer with the canvas properties
+
+  Parameters:
+    canvasID - the index of the canvas object
+
+  Returns:
+    GFX_SUCCESS - success
+    GFX_FAILURE - fail
+*/
+GFXC_RESULT gfxcCanvasUpdate(unsigned int canvasID);
 
 // *****************************************************************************
 /* Function:
