@@ -220,7 +220,9 @@ static gfxBool useGPU = false;
 </#if>
 static unsigned int vsyncCount = 0;
 static gfxPixelBuffer pixelBuffer[GFX_LCDC_LAYERS];
+<#if le_gfx_gfx2d??>
 static gfxRect srcRect, destRect;
+</#if>
 static unsigned int activeLayer = 0;
 
 static DISPLAY_LAYER drvLayer[GFX_LCDC_LAYERS];
@@ -585,6 +587,7 @@ gfxResult DRV_LCDC_BlitBuffer(int32_t x,
     if (state != RUN)
         return GFX_FAILURE;
 
+<#if le_gfx_gfx2d??>
     if(useGPU)
     {
         srcRect.x = 0;
@@ -600,6 +603,7 @@ gfxResult DRV_LCDC_BlitBuffer(int32_t x,
         _gfx2dGraphicsProcessor.blitBuffer(buf, &srcRect, &pixelBuffer[activeLayer], &destRect, blend );
     }
     else
+</#if>
     {
     	void* srcPtr;
     	void* destPtr;
