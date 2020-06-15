@@ -85,7 +85,7 @@ extern GFXU_ImageAsset H3;
 /*********************************
  * GFX Font Asset
  * Name:         NotoSans_Bold
- * Height:       26
+ * Height:       24
  * Style:        Plain
  * Glyph Count:  0
  * Range Count:  0
@@ -105,7 +105,7 @@ extern GFXU_FontAsset NotoSans_Regular;
 /*********************************
  * GFX Font Asset
  * Name:         Arial
- * Height:       14
+ * Height:       13
  * Style:        Bold
  * Glyph Count:  17
  * Range Count:  13

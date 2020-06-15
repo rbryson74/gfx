@@ -115,6 +115,7 @@ leResult leInput_InjectTouchDown(uint32_t id, int32_t x, int32_t y)
     if(evt == NULL)
         return LE_FAILURE;
     
+    evt->event.owner = NULL;
     evt->event.id = LE_EVENT_TOUCH_DOWN;
     evt->touchID = id;
     evt->x = pnt.x;
@@ -174,7 +175,8 @@ leResult leInput_InjectTouchUp(uint32_t id, int32_t x, int32_t y)
 
     if(evt == NULL)
         return LE_FAILURE;
-    
+
+    evt->event.owner = NULL;
     evt->event.id = LE_EVENT_TOUCH_UP;
     evt->touchID = id;
     evt->x = pnt.x;
@@ -280,6 +282,7 @@ leResult leInput_InjectTouchMoved(uint32_t id, int32_t x, int32_t y)
                 pnt.x = y;
 #endif
 
+    evt->event.owner = NULL;
     evt->event.id = LE_EVENT_TOUCH_MOVE;
     evt->touchID = id;
     evt->prevX = _state.touch[id].x;

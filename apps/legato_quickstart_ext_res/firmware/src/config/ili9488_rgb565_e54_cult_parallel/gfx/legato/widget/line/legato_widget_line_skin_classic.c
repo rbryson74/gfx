@@ -125,7 +125,7 @@ static void drawLine(leLineWidget* line)
                         p1.y,
                         p2.x,
                         p2.y,
-                        line->widget.scheme->foreground,
+                        leScheme_GetRenderColor(line->widget.scheme, LE_SCHM_FOREGROUND),
                         paintState.alpha);
 
     nextState(line);
@@ -149,13 +149,6 @@ static void drawBorder(leLineWidget* line)
 
 void _leLineWidget_Paint(leLineWidget* line)
 {
-    if(line->widget.scheme == NULL)
-    {
-        line->widget.drawState = DONE;
-
-        return;
-    }
-
     if(line->widget.drawState == NOT_STARTED)
         nextState(line);
 

@@ -1,4 +1,3 @@
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
@@ -21,7 +20,6 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 /*******************************************************************************
   MPLAB Harmony LCC Generated Driver Header File
@@ -74,14 +72,18 @@ void DRV_LCDC_Update(void);
 uint32_t DRV_LCDC_GetLayerCount();
 uint32_t DRV_LCDC_GetActiveLayer();
 gfxResult DRV_LCDC_SetActiveLayer(uint32_t idx);
-gfxResult DRV_LCDC_BlitBuffer(int32_t x, int32_t y, gfxPixelBuffer* buf, gfxBlend blend);
+gfxLayerState DRV_LCDC_GetLayerState(uint32_t idx);
+gfxResult DRV_LCDC_BlitBuffer(int32_t x, int32_t y, gfxPixelBuffer* buf);
 void DRV_LCDC_Swap(void);
 uint32_t DRV_LCDC_GetVSYNCCount(void);
 gfxPixelBuffer * DRV_LCDC_GetFrameBuffer(int32_t idx);
+gfxResult DRV_LCDC_SetPalette(gfxBuffer* palette,
+                              gfxColorMode mode,
+                              uint32_t colorCount);
 void DRV_LCDC_SetUseGPU(gfxBool onOff);
 gfxResult DRV_LCDC_CtrlrConfig(ctlrCfg request, void * arg);
 
-static const gfxDisplayDriver lcdcDisplayDriver =
+static const gfxDisplayDriver gfxDriverInterface =
 {
 	DRV_LCDC_GetColorMode,
 	DRV_LCDC_GetBufferCount,
@@ -91,10 +93,12 @@ static const gfxDisplayDriver lcdcDisplayDriver =
 	DRV_LCDC_GetLayerCount,
 	DRV_LCDC_GetActiveLayer,
 	DRV_LCDC_SetActiveLayer,
+	DRV_LCDC_GetLayerState,
 	DRV_LCDC_BlitBuffer,
 	DRV_LCDC_Swap,
 	DRV_LCDC_GetVSYNCCount,
 	DRV_LCDC_GetFrameBuffer,
+	DRV_LCDC_SetPalette,
 	DRV_LCDC_CtrlrConfig
 };
 

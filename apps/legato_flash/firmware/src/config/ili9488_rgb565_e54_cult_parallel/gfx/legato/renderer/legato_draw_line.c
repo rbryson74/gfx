@@ -129,6 +129,8 @@ static void linePutPixel(int32_t x,
                          leColor clr,
                          uint32_t a)
 {
+    (void)a; // unused
+
     leRenderer_PutPixel(x, y, clr);
 }
 

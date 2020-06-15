@@ -65,8 +65,7 @@
 // *****************************************************************************
 // *****************************************************************************
 
-
-
+  
 /*** Macros for GFX_DISP_INTF_PIN_BACKLIGHT pin ***/
 #define GFX_DISP_INTF_PIN_BACKLIGHT_Set()               (PORT_REGS->GROUP[1].PORT_OUTSET = 1 << 12)
 #define GFX_DISP_INTF_PIN_BACKLIGHT_Clear()             (PORT_REGS->GROUP[1].PORT_OUTCLR = 1 << 12)

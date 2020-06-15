@@ -143,7 +143,7 @@ enum leStreamFlag
 */
 typedef struct leStream
 {
-    leStreamDescriptor* desc;
+    const leStreamDescriptor* desc;
 
     enum leStreamState state;
 
@@ -172,7 +172,7 @@ typedef struct leStream
 // *****************************************************************************
 /* Function:
     void leStream_Init(leStream* stream,
-                       leStreamDescriptor* desc,
+                       const leStreamDescriptor* desc,
                        uint32_t cacheSize,
                        uint8_t* cacheBuf,
                        void* userData)
@@ -191,7 +191,7 @@ typedef struct leStream
 
   Parameters:
     leStream* stream - the stream struct to initialize
-    leStreamDescriptor* desc - the stream descriptor to read from
+    const leStreamDescriptor* desc - the stream descriptor to read from
     uint32_t cacheSize - the size of the cache being passed in
     uint8_t* cacheBuf - a buffer to use as a local cache
     void* userData - a user data pointer for general purpose use
@@ -203,7 +203,7 @@ typedef struct leStream
 
 */
 void leStream_Init(leStream* stream,
-                   leStreamDescriptor* desc,
+                   const leStreamDescriptor* desc,
                    uint32_t cacheSize,
                    uint8_t* cacheBuf,
                    void* userData);
@@ -229,6 +229,27 @@ void leStream_Init(leStream* stream,
 
 */
 leResult leStream_Open(leStream* stream);
+
+// *****************************************************************************
+/* Function:
+    void leStream_IsOpen(leStream* stream)
+
+  Summary:
+    Tests a stream to see if it is open
+
+  Description:
+    Tests a stream to see if it is open
+
+  Parameters:
+    leStream* stream - the stream to test
+
+  Returns:
+    leBool - true if open
+
+  Remarks:
+
+*/
+leBool leStream_IsOpen(leStream* stream);
 
 // *****************************************************************************
 /* Function:

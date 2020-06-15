@@ -65,8 +65,7 @@
 // *****************************************************************************
 // *****************************************************************************
 
-
-
+  
 /*** Macros for GFX_DISP_INTF_PIN_RESET pin ***/
 #define GFX_DISP_INTF_PIN_RESET_Set()               (PORT_REGS->GROUP[1].PORT_OUTSET = 1 << 15)
 #define GFX_DISP_INTF_PIN_RESET_Clear()             (PORT_REGS->GROUP[1].PORT_OUTCLR = 1 << 15)

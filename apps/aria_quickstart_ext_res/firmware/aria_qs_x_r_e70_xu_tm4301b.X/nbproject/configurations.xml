@@ -178,6 +178,9 @@
             <logicalFolder name="f4" displayName="cache" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt/system/cache/sys_cache.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="f5" displayName="debug" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt/system/debug/sys_debug.h</itemPath>
+            </logicalFolder>
             <logicalFolder name="f2" displayName="input" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt/system/input/sys_input.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt/system/input/sys_input_gesture.h</itemPath>
@@ -518,6 +521,7 @@
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
+      <itemPath>../src/config/lcc_rgb565_mxt/harmony.prj</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
@@ -534,12 +538,14 @@
         <platformTool>EdbgTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>2.40</languageToolchainVersion>
-        <platform>2</platform>
+        <platform>3</platform>
       </toolsSet>
       <packs>
         <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
         <pack name="SAME70_DFP" vendor="Microchip" version="4.0.40"/>
       </packs>
+      <ScriptingSettings>
+      </ScriptingSettings>
       <compileType>
         <linkerTool>
           <linkerLibItems>
@@ -597,7 +603,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/lcc_rgb565_mxt;../src/packs/ATSAME70Q21B_DFP;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/CMSIS/;../src/arm"/>
+                  value="../src;../src/config/lcc_rgb565_mxt;../src/packs/ATSAME70Q21B_DFP;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/CMSIS/"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>

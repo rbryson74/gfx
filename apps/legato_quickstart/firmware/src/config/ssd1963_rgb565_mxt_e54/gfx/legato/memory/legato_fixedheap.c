@@ -147,6 +147,10 @@ void* leFixedHeap_Alloc(leFixedHeap* heap)
     if(heap->freeList == NULL)
         return NULL;
 
+#if LE_FIXEDHEAP_DEBUG == 1
+    LE_ASSERT(leFixedHeap_Validate(heap) == LE_SUCCESS);
+#endif
+
     freeBlk = (leFixedHeapBlock*)heap->freeList;
 
     heap->freeList = freeBlk->data;
@@ -276,6 +280,8 @@ leResult leFixedHeap_Validate(struct leFixedHeap* heap)
 
         i++;
     }
+#else
+    (void)heap; // unused
 #endif
 
     return LE_SUCCESS;

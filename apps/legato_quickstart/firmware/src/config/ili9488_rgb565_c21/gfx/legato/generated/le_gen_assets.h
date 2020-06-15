@@ -5,20 +5,23 @@
     Microchip Technology Inc.
 
   File Name:
-    generated/le_gen_assets.h
+    le_gen_assets.h
 
   Summary:
     Header file containing a list of asset specifications for use with the
-    MPLAB Harmony Graphics Stack.
+    Legato Graphics Stack.
+
 
   Description:
     Header file containing a list of asset specifications for use with the
-    MPLAB Harmony Graphics Stack.
+    Legato Graphics Stack.
+
 *******************************************************************************/
+
 
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C)  Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -39,6 +42,7 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
+
 // DOM-IGNORE-END
 
 #ifndef LE_GEN_ASSETS_H
@@ -52,62 +56,85 @@ extern "C" {
 
 #include "gfx/legato/legato.h"
 
-/*****************************************************************************
-* MPLAB Harmony Graphics Asset Location IDs
-*****************************************************************************/
-/*****************************************************************************
-* MPLAB Harmony Graphics Image Assets
-*****************************************************************************/
-/*********************************
- * Legato Image Asset
- * Name:   MHGC_170x170
- * Size:   170x170 pixels
- * Format: Raw
- * Mode: RGB_565
- ***********************************/
-extern leImage MHGC_170x170;
+extern const lePalette leGlobalPalette;
 
 /*****************************************************************************
-* MPLAB Harmony Graphics Font Assets
-*****************************************************************************/
+ * Legato Graphics Image Assets
+ *****************************************************************************/
+/*********************************
+ * Legato Image Asset
+ * Name:   QuickstartDown_WQVGA
+ * Size:   160x74 pixels
+ * Type:   RGB Data
+ * Format: RGB_565
+ ***********************************/
+extern leImage QuickstartDown_WQVGA;
+
+/*********************************
+ * Legato Image Asset
+ * Name:   QuickstartUp_WQVGA
+ * Size:   160x74 pixels
+ * Type:   RGB Data
+ * Format: RGB_565
+ ***********************************/
+extern leImage QuickstartUp_WQVGA;
+
+/*********************************
+ * Legato Image Asset
+ * Name:   MHGS_logo_smaller
+ * Size:   180x169 pixels
+ * Type:   RGB Data
+ * Format: RGB_565
+ ***********************************/
+extern leImage MHGS_logo_smaller;
+
+/*********************************
+ * Legato Image Asset
+ * Name:   mchpLogo_small
+ * Size:   120x28 pixels
+ * Type:   RGB Data
+ * Format: RGB_565
+ ***********************************/
+extern leImage mchpLogo_small;
+
+/*****************************************************************************
+ * Legato Graphics Font Assets
+ *****************************************************************************/
 /*********************************
  * Legato Font Asset
- * Name:         NotoSans_Medium
- * Height:       17
- * Baseline:     12
+ * Name:         NotoSans_Regular
+ * Height:       21
+ * Baseline:     20
  * Style:        Antialias
- * Glyph Count:  28
- * Range Count:  12
- * Glyph Ranges: 0x20
-                 0x2E
-                 0x41-0x43
-                 0x47-0x48
-                 0x4C-0x4D
-                 0x50
-                 0x52
+ * Glyph Count:  10
+ * Range Count:  7
+ * Glyph Ranges: 0x2E
+                 0x45-0x46
+                 0x53
                  0x61
-                 0x63-0x69
-                 0x6D-0x70
-                 0x72-0x75
+                 0x6D
+                 0x72-0x74
                  0x79
 ***********************************/
-extern leRasterFont NotoSans_Medium;
+extern leRasterFont NotoSans_Regular;
 
 /*****************************************************************************
  * Legato String Table
  * Encoding        ASCII
  * Language Count: 1
- * String Count:   2
-*****************************************************************************/
+ * String Count:   3
+ *****************************************************************************/
 
 // language IDs
 #define language_default    0
 
 // string IDs
-#define string_MPLABHarmonyComposer    0
-#define string_ModifyRegenerateRun    1
+#define stringID_Easy    0
+#define stringID_Fast    1
+#define stringID_Smart    2
 
 extern const leStringTable stringTable;
+
 //DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 }

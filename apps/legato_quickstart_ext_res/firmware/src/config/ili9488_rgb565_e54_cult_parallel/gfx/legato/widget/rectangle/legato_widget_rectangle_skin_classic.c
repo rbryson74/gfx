@@ -171,21 +171,27 @@ static void drawEdge(leRectangleWidget* rct)
     edgeRect.width = rct->thickness;
     edgeRect.height = widgetRect.height;
     
-    leRenderer_RectFill(&edgeRect, rct->widget.scheme->foreground, paintState.alpha);
+    leRenderer_RectFill(&edgeRect,
+                        leScheme_GetRenderColor(rct->widget.scheme, LE_SCHM_FOREGROUND),
+                        paintState.alpha);
                  
     // top bar
     edgeRect.x = widgetRect.x + rct->thickness;
     edgeRect.width = widgetRect.width - (rct->thickness * 2);
     edgeRect.height = rct->thickness; 
                  
-    leRenderer_RectFill(&edgeRect, rct->widget.scheme->foreground, paintState.alpha);
+    leRenderer_RectFill(&edgeRect,
+                        leScheme_GetRenderColor(rct->widget.scheme, LE_SCHM_FOREGROUND),
+                        paintState.alpha);
                  
     // right bar
     edgeRect.x = widgetRect.x + widgetRect.width - rct->thickness;
     edgeRect.width = rct->thickness;
     edgeRect.height = widgetRect.height; 
                  
-    leRenderer_RectFill(&edgeRect, rct->widget.scheme->foreground, paintState.alpha);
+    leRenderer_RectFill(&edgeRect,
+                        leScheme_GetRenderColor(rct->widget.scheme, LE_SCHM_FOREGROUND),
+                        paintState.alpha);
                  
     // bottom bar
     edgeRect.x = widgetRect.x + rct->thickness;
@@ -193,7 +199,9 @@ static void drawEdge(leRectangleWidget* rct)
     edgeRect.width = widgetRect.width - (rct->thickness * 2);
     edgeRect.height = rct->thickness; 
                  
-    leRenderer_RectFill(&edgeRect, rct->widget.scheme->foreground, paintState.alpha);
+    leRenderer_RectFill(&edgeRect,
+                        leScheme_GetRenderColor(rct->widget.scheme, LE_SCHM_FOREGROUND),
+                        paintState.alpha);
     
     nextState(rct);
 }
@@ -216,13 +224,6 @@ static void drawBorder(leRectangleWidget* rct)
 
 void _leRectangleWidget_Paint(leRectangleWidget* rct)
 {
-    if(rct->widget.scheme == NULL)
-    {
-        rct->widget.drawState = DONE;
-        
-        return;
-    }
-    
     if(rct->widget.drawState == NOT_STARTED)
     {
         nextState(rct);

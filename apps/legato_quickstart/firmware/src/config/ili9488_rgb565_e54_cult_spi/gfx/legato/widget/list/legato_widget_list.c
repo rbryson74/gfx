@@ -217,8 +217,8 @@ void leListWidget_Constructor(leListWidget* _this)
     _this->widget.rect.width = DEFAULT_WIDTH;
     _this->widget.rect.height = DEFAULT_HEIGHT;
 
-    _this->widget.borderType = LE_WIDGET_BORDER_BEVEL;
-    _this->widget.backgroundType = LE_WIDGET_BACKGROUND_FILL;
+    _this->widget.style.borderType = LE_WIDGET_BORDER_BEVEL;
+    _this->widget.style.backgroundType = LE_WIDGET_BACKGROUND_FILL;
     _this->itemDown = -1;
     _this->mode = LE_LIST_WIDGET_SELECTION_MODE_SINGLE;
     _this->allowEmpty = LE_FALSE;
@@ -244,7 +244,7 @@ void leListWidget_Constructor(leListWidget* _this)
                          
     _recalculateScrollBarValues(_this);
     
-    _this->widget.halign = LE_HALIGN_CENTER;
+    _this->widget.style.halign = LE_HALIGN_CENTER;
     _this->iconMargin = DEFAULT_MARGIN;
     _this->iconPos = LE_RELATIVE_POSITION_LEFTOF;
 
@@ -504,8 +504,6 @@ static leResult removeAllItems(leListWidget* _this)
     
     _this->fn->invalidate(_this);
         
-    _recalculateScrollBarValues(_this);
-    
     return LE_SUCCESS;
 }
 
@@ -1219,7 +1217,7 @@ static const leListWidgetVTable listWidgetVTable =
     .getChildCount = (void*)_leWidget_GetChildCount,
     .getChildAtIndex = (void*)_leWidget_GetChildAtIndex,
     .getIndexOfChild = (void*)_leWidget_GetIndexOfChild,
-    .containsDescendent = (void*)_leWidget_ContainsDescendent,
+    .containsDescendant = (void*)_leWidget_ContainsDescendant,
     .getScheme = (void*)_leWidget_GetScheme,
     .setScheme = (void*)_leWidget_SetScheme,
     .getBorderType = (void*)_leWidget_GetBorderType,

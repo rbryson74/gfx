@@ -1,4 +1,3 @@
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
@@ -21,8 +20,6 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
-
 /********************************************************************************
   GFX GLCD Driver Functions for Static Single Instance Driver
 
@@ -57,7 +54,6 @@
 #include "gfx/driver/controller/glcd/drv_gfx_glcd.h"
 #include "definitions.h"
 #include "gfx/driver/processor/2dgpu/libnano2d.h"
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Global Data
@@ -72,6 +68,7 @@
 #define GFX_GLCD_BACKGROUND_COLOR 0xFFFFFF00
 #define GFX_GLCD_CONFIG_CONTROL 0x80000000
 #define GFX_GLCD_CONFIG_CLK_DIVIDER 6
+#define GFX_GLCD_GLOBAL_PALETTE_COLOR_COUNT 256
 
 
 #define LCDC_DEFAULT_GFX_COLOR_MODE GLCD_LAYER_COLOR_MODE_RGB565
@@ -93,10 +90,10 @@ const char* DRIVER_NAME = "GLCD";
 FRAMEBUFFER_PIXEL_TYPE  __attribute__ ((coherent, aligned (32))) framebuffer_0[DISPLAY_WIDTH * DISPLAY_HEIGHT];
 
 static uint32_t state;
-static gfxBool useGPU = true;
+static gfxRect srcRect, destRect;
 static unsigned int vsyncCount = 0;
 static gfxPixelBuffer pixelBuffer[GFX_GLCD_LAYERS];
-static gfxRect srcRect, destRect;
+
 static unsigned int activeLayer = 0;
 
 volatile int32_t waitForAlphaSetting[GFX_GLCD_LAYERS] = {0};
@@ -213,7 +210,6 @@ static GLCD_LAYER_COLOR_MODE getGLCDColorModeFromGFXColorMode(gfxColorMode mode)
     }
 }
 
-
 void DRV_GLCD_Initialize()
 {
     uint32_t      xResolution;
@@ -259,6 +255,7 @@ void DRV_GLCD_Initialize()
     PLIB_GLCD_ResolutionXYSet(xResolution, yResolution);
 
     PLIB_GLCD_SignalPolaritySet( GLCD_VSYNC_POLARITY_NEGATIVE | GLCD_HSYNC_POLARITY_NEGATIVE );
+
     PLIB_GLCD_PaletteGammaRampDisable();
 
     PLIB_GLCD_Enable();
@@ -316,7 +313,7 @@ void DRV_GLCD_Initialize()
 
 gfxPixelBuffer * DRV_GLCD_GetFrameBuffer(int32_t idx)
 {
-    return &pixelBuffer[idx];
+    return &pixelBuffer[activeLayer];
 }
 
 void GLCD_Interrupt_Handler(void)
@@ -326,19 +323,16 @@ void GLCD_Interrupt_Handler(void)
     EVIC_SourceStatusClear(INT_SOURCE_GLCD);
     
     //Update GLCD during blanking period
-    if (!PLIB_GLCD_IsVerticalBlankingActive())
+    for (i = 0; i < GFX_GLCD_LAYERS; i++)
     {
-        for (i = 0; i < GFX_GLCD_LAYERS; i++)
+        if (drvLayer[i].updateLock == LAYER_LOCKED_PENDING)
         {
-            if (drvLayer[i].updateLock == LAYER_LOCKED_PENDING)
-            {
-                DRV_GLCD_UpdateLayer(i);
-                drvLayer[i].updateLock = LAYER_UNLOCKED;
-            }
+            DRV_GLCD_UpdateLayer(i);
+            drvLayer[i].updateLock = LAYER_UNLOCKED;
         }
-        
-        PLIB_GLCD_VSyncInterruptDisable();
     }
+
+    PLIB_GLCD_VSyncInterruptDisable();
 }
 
 /**** End Hardware Abstraction Interfaces ****/
@@ -386,6 +380,20 @@ gfxResult DRV_GLCD_SetActiveLayer(uint32_t idx)
     return GFX_SUCCESS;
 }
 
+gfxLayerState DRV_GLCD_GetLayerState(uint32_t idx)
+{
+    gfxLayerState layerState;
+
+    layerState.rect.x = drvLayer[idx].startx;
+    layerState.rect.y = drvLayer[idx].starty;
+    layerState.rect.width = drvLayer[idx].sizex;
+    layerState.rect.height = drvLayer[idx].sizey;
+
+    layerState.enabled = drvLayer[idx].enabled;
+
+    return layerState;
+}
+
 void DRV_GLCD_Swap(void)
 {
 
@@ -396,49 +404,25 @@ uint32_t DRV_GLCD_GetVSYNCCount(void)
     return vsyncCount;
 }
 
-void DRV_GLCD_SetUseGPU(gfxBool onOff)
-{
-    useGPU = onOff;
-}
-
 gfxResult DRV_GLCD_BlitBuffer(int32_t x,
                              int32_t y,
-                             gfxPixelBuffer* buf,
-                             gfxBlend blend)
+                             gfxPixelBuffer* buf)
 {
+
     if (state != RUN)
         return GFX_FAILURE;
 
-    if(useGPU)
-    {
-        srcRect.x = 0;
-        srcRect.y = 0;
-        srcRect.height = buf->size.height;
-        srcRect.width = buf->size.width;
+    srcRect.x = 0;
+    srcRect.y = 0;
+    srcRect.height = buf->size.height;
+    srcRect.width = buf->size.width;
 
-        destRect.x = x;
-        destRect.y = y;
-        destRect.height = buf->size.height;
-        destRect.width = buf->size.width;
+    destRect.x = x;
+    destRect.y = y;
+    destRect.height = buf->size.height;
+    destRect.width = buf->size.width;
 
-        _2dgpuGraphicsProcessor.blitBuffer(buf, &srcRect, &pixelBuffer[activeLayer], &destRect, blend );
-    }
-    else
-    {
-        void* srcPtr;
-        void* destPtr;
-        uint32_t row, rowSize;
-
-        rowSize = buf->size.width * gfxColorInfoTable[buf->mode].size;
-
-        for(row = 0; row < buf->size.height; row++)
-        {
-            srcPtr = gfxPixelBufferOffsetGet(buf, 0, row);
-            destPtr = gfxPixelBufferOffsetGet(&pixelBuffer[activeLayer], x, y + row);
-
-            memcpy(destPtr, srcPtr, rowSize);
-        }
-    }
+    gfxGPUInterface.blitBuffer(buf, &srcRect, &pixelBuffer[activeLayer], &destRect);
 
     return GFX_SUCCESS;
 }
@@ -485,11 +469,11 @@ static gfxResult DRV_GLCD_LayerConfig(ctlrCfg request, unsigned int layer, void 
     if (layer >= GFX_GLCD_LAYERS)
         return GFX_FAILURE;
     
-    if (request == GFX_CTRLR_SET_LAYER_LOCK &&
-        drvLayer[layer].updateLock == LAYER_UNLOCKED)
+    //Attempt to lock
+    if (request == GFX_CTRLR_SET_LAYER_LOCK)
     {
+        PLIB_GLCD_VSyncInterruptDisable();
         drvLayer[layer].updateLock = LAYER_LOCKED;
-        
         return GFX_SUCCESS;
     }
     
@@ -500,7 +484,6 @@ static gfxResult DRV_GLCD_LayerConfig(ctlrCfg request, unsigned int layer, void 
     if (request == GFX_CTRLR_SET_LAYER_UNLOCK)
     {
         drvLayer[layer].updateLock = LAYER_LOCKED_PENDING;
-        
         PLIB_GLCD_VSyncInterruptEnable();
         
         return GFX_SUCCESS;
@@ -548,12 +531,12 @@ static gfxResult DRV_GLCD_LayerConfig(ctlrCfg request, unsigned int layer, void 
         }
         case GFX_CTRLR_SET_LAYER_ENABLE:
         {
-            drvLayer[layer].colorspace = true;
+            drvLayer[layer].enabled = true;
             break;
         }
         case GFX_CTRLR_SET_LAYER_DISABLE:
         {
-            drvLayer[layer].colorspace = false;
+            drvLayer[layer].enabled = false;
             break;
         }
         default:
@@ -561,6 +544,13 @@ static gfxResult DRV_GLCD_LayerConfig(ctlrCfg request, unsigned int layer, void 
     }
     
     return GFX_SUCCESS;
+}
+
+gfxResult DRV_GLCD_SetPalette(gfxBuffer* palette,
+                              gfxColorMode mode,
+                              uint32_t colorCount)
+{
+    return GFX_FAILURE;
 }
 
 gfxResult DRV_GLCD_CtrlrConfig(ctlrCfg request, void * arg)

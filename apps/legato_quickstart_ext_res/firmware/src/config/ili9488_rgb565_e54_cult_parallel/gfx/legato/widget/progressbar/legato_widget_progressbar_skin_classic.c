@@ -173,7 +173,8 @@ static void drawBackground(leProgressBarWidget* bar)
 {
     if(bar->widget.backgroundType == LE_WIDGET_BACKGROUND_FILL)
     {
-        leWidget_SkinClassic_DrawBackground((leWidget*)bar, bar->widget.scheme->base,
+        leWidget_SkinClassic_DrawBackground((leWidget*)bar,
+                                            leScheme_GetRenderColor(bar->widget.scheme, LE_SCHM_BASE),
                                             paintState.alpha);
     }
     
@@ -187,7 +188,7 @@ static void drawFill(leProgressBarWidget* bar)
     _leProgressBarWidget_GetBarRect(bar, 0, bar->value, &barRect);
     
     leRenderer_RectFill(&barRect,
-                        bar->widget.scheme->background,
+                        leScheme_GetRenderColor(bar->widget.scheme, LE_SCHM_BACKGROUND),
                         paintState.alpha);
              
     nextState(bar);
@@ -211,13 +212,6 @@ static void drawBorder(leProgressBarWidget* bar)
 
 void _leProgressBarWidget_Paint(leProgressBarWidget* bar)
 {
-    if(bar->widget.scheme == NULL)
-    {
-        bar->widget.drawState = DONE;
-        
-        return;
-    }
-
     if(bar->widget.drawState == NOT_STARTED)
     {
         nextState(bar);

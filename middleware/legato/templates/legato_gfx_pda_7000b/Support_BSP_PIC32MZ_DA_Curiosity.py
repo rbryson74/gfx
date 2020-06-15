@@ -31,7 +31,7 @@ mzda_cu_connectList = [["gfx_legato", "gfx_driver", "le_gfx_driver_glcd", "gfx_d
 					["sys_time", "sys_time_TMR_dependency", "core_timer", "CORE_TIMER_TMR"],
 					["gfx_legato", "gpu_driver", "le_gfx_driver_2dgpu", "gfx_driver_2dgpu"]]
 mzda_cu_pinConfig = [{"pin": 42, "name": "BSP_MAXTOUCH_CHG", "type": "GPIO", "direction": "In", "latch": "", "abcd": ""}, #RH14
-				{"pin": 79, "name": "TM4301B_BACKLIGHT", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #RD0
+				{"pin": 79, "name": "TM7000_BACKLIGHT", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #RD0
 				{"pin": 129, "name": "SCL2", "type": "SCL2", "direction": "", "latch": "", "abcd": ""}, #RA2
 				{"pin": 128, "name": "SDA2", "type": "SDA2", "direction": "", "latch": "", "abcd": ""}] #RA3
 

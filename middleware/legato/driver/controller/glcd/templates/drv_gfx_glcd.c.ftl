@@ -1,4 +1,3 @@
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
@@ -21,8 +20,6 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
-
 /********************************************************************************
   GFX GLCD Driver Functions for Static Single Instance Driver
 
@@ -116,7 +113,9 @@
 #define GFX_GLCD_BACKGROUND_COLOR 0xFFFFFF00
 #define GFX_GLCD_CONFIG_CONTROL 0x80000000
 #define GFX_GLCD_CONFIG_CLK_DIVIDER ${PixelClockDivider}
+#define GFX_GLCD_GLOBAL_PALETTE_COLOR_COUNT 256
 
+<#if CanvasModeOnly == false>
 <#if FrameBufferMemoryMode == "DDR">
 <#if Layer0Enable == true>
 /*** GLCD Layer 0 Configuration ***/
@@ -132,6 +131,7 @@
 /*** GLCD Layer 2 Configuration ***/
 #define  GFX_GLCD_LAYER2_BASEADDR                      ${Layer2Buffer0}
 #define  GFX_GLCD_LAYER2_DBL_BASEADDR                  ${Layer2Buffer1}
+</#if>
 </#if>
 </#if>
 
@@ -166,6 +166,7 @@ const char* DRIVER_NAME = "GLCD";
 //                                          GFX_COLOR_MASK_RGB_565 |
 //                                          GFX_COLOR_MASK_RGBA_8888);
 
+<#if CanvasModeOnly == false>
 <#if FrameBufferMemoryMode == "INT_SRAM">
 <#list 0..(TotalNumLayers-1) as i>
 FRAMEBUFFER_PIXEL_TYPE  __attribute__ ((coherent, aligned (32))) framebuffer_${i}[DISPLAY_WIDTH * DISPLAY_HEIGHT];
@@ -177,6 +178,8 @@ FRAMEBUFFER_PIXEL_TYPE  __attribute__ ((coherent, aligned (32))) framebuffer1_${
 </#list>
 </#if>
 </#if>
+</#if>
+
 static uint32_t state;
 <#if UseGPU == true && le_gfx_driver_2dgpu??>
 static gfxRect srcRect, destRect;
@@ -300,31 +303,6 @@ static GLCD_LAYER_COLOR_MODE getGLCDColorModeFromGFXColorMode(gfxColorMode mode)
     }
 }
 
-<#if PaletteMode == true>
-static gfxResult globalPaletteSet(GFX_GlobalPalette palette)
-{
-    uint32_t lut[GFX_GLOBAL_PALETTE_SIZE];
-    uint32_t colorIndex = 0;
-    uint32_t* pal;
-    
-    if (palette == NULL)
-        return GFX_FAILURE;
-
-    defGlobalPaletteSet(palette);
-
-    for( colorIndex = 0; colorIndex < GFX_GLOBAL_PALETTE_SIZE; colorIndex++ )
-    {
-        pal = (uint32_t*)palette;
-        lut[colorIndex] = GFX_ColorConvert(GFX_COLOR_MODE_RGBA_8888, GFX_COLOR_MODE_RGB_888, pal[colorIndex]);
-    }
-
-    PLIB_GLCD_GlobalColorLUTSet(GLCD_ID_0, lut );
-    PLIB_GLCD_PaletteGammaRampEnable(GLCD_ID_0);
-
-        return GFX_SUCCESS;
-}
-</#if>
-
 void DRV_GLCD_Initialize()
 {
     uint32_t      xResolution;
@@ -337,7 +315,9 @@ void DRV_GLCD_Initialize()
     uint32_t      upperMargin;
     uint32_t      stride;
     uint32_t      layerCount;
+<#if CanvasModeOnly == false>
     uint32_t      bufferCount;
+</#if>
 
     // general default initialization
     //if(defInitialize(context) == LE_FAILURE)
@@ -378,10 +358,16 @@ void DRV_GLCD_Initialize()
     <#if Val_HSYNCNegative == true && Val_VSYNCNegative == true>
     PLIB_GLCD_SignalPolaritySet( GLCD_VSYNC_POLARITY_NEGATIVE | GLCD_HSYNC_POLARITY_NEGATIVE );
     </#if>
+
+<#if PaletteMode == true>
+    PLIB_GLCD_PaletteGammaRampEnable();
+<#else>
     PLIB_GLCD_PaletteGammaRampDisable();
+</#if>
 
     PLIB_GLCD_Enable();
 
+<#if CanvasModeOnly == false>
 <#if FrameBufferMemoryMode == "INT_SRAM">
     <#list 0..(TotalNumLayers-1) as i>
     drvLayer[${i}].baseaddr[0] = framebuffer_${i};
@@ -401,6 +387,7 @@ void DRV_GLCD_Initialize()
     </#if>
     </#list>
 </#if>
+</#if>
 
     for (layerCount = 0; layerCount < GFX_GLCD_LAYERS; layerCount++)
     {
@@ -416,13 +403,13 @@ void DRV_GLCD_Initialize()
         drvLayer[layerCount].colorspace = LCDC_DEFAULT_GFX_COLOR_MODE;
         drvLayer[layerCount].enabled    = true;
         drvLayer[layerCount].updateLock = LAYER_LOCKED;
-
+<#if CanvasModeOnly == false>
         //Clear frame buffer
         for(bufferCount = 0; bufferCount < BUFFER_PER_LAYER; ++bufferCount)
         {
             memset(drvLayer[layerCount].baseaddr[bufferCount], 0, sizeof(FRAMEBUFFER_PIXEL_TYPE) * DISPLAY_WIDTH * DISPLAY_HEIGHT);
         }
-        
+</#if>
         stride = getColorModeStrideSize(drvLayer[layerCount].colorspace);
 
         PLIB_GLCD_LayerBaseAddressSet(layerCount, (uint32_t)drvLayer[layerCount].baseaddr[0]);
@@ -532,6 +519,20 @@ gfxResult DRV_GLCD_SetActiveLayer(uint32_t idx)
     return GFX_SUCCESS;
 }
 
+gfxLayerState DRV_GLCD_GetLayerState(uint32_t idx)
+{
+    gfxLayerState layerState;
+
+    layerState.rect.x = drvLayer[idx].startx;
+    layerState.rect.y = drvLayer[idx].starty;
+    layerState.rect.width = drvLayer[idx].sizex;
+    layerState.rect.height = drvLayer[idx].sizey;
+
+    layerState.enabled = drvLayer[idx].enabled;
+
+    return layerState;
+}
+
 void DRV_GLCD_Swap(void)
 {
 
@@ -544,8 +545,7 @@ uint32_t DRV_GLCD_GetVSYNCCount(void)
 
 gfxResult DRV_GLCD_BlitBuffer(int32_t x,
                              int32_t y,
-                             gfxPixelBuffer* buf,
-                             gfxBlend blend)
+                             gfxPixelBuffer* buf)
 {
 <#if UseGPU == false || !le_gfx_driver_2dgpu??>
     void* srcPtr;
@@ -567,7 +567,7 @@ gfxResult DRV_GLCD_BlitBuffer(int32_t x,
     destRect.height = buf->size.height;
     destRect.width = buf->size.width;
 
-    _2dgpuGraphicsProcessor.blitBuffer(buf, &srcRect, &pixelBuffer[activeLayer], &destRect, blend );
+    gfxGPUInterface.blitBuffer(buf, &srcRect, &pixelBuffer[activeLayer], &destRect);
 <#else>
     rowSize = buf->size.width * gfxColorInfoTable[buf->mode].size;
 
@@ -700,6 +700,40 @@ static gfxResult DRV_GLCD_LayerConfig(ctlrCfg request, unsigned int layer, void 
     }
     
     return GFX_SUCCESS;
+}
+
+gfxResult DRV_GLCD_SetPalette(gfxBuffer* palette,
+                              gfxColorMode mode,
+                              uint32_t colorCount)
+{
+<#if PaletteMode == true>
+    uint32_t lut[GFX_GLCD_GLOBAL_PALETTE_COLOR_COUNT];
+    uint32_t colorIndex = 0;
+    gfxPixelBuffer buffer;
+    
+    if (palette == NULL)
+        return GFX_FAILURE;
+    
+    if (colorCount > GFX_GLCD_GLOBAL_PALETTE_COLOR_COUNT)
+        colorCount = GFX_GLCD_GLOBAL_PALETTE_COLOR_COUNT;
+
+    gfxPixelBufferCreate(colorCount, 1, mode, palette, &buffer);
+    
+    for( colorIndex = 0;
+         colorIndex < colorCount;
+         colorIndex++ )
+    {
+        lut[colorIndex] = gfxColorConvert(mode,
+                                          GFX_COLOR_MODE_RGB_888,
+                                          gfxPixelBufferGetIndex(&buffer, colorIndex));
+    }
+
+    PLIB_GLCD_GlobalColorLUTSet(lut);
+
+    return GFX_SUCCESS;
+<#else>
+    return GFX_FAILURE;
+</#if>
 }
 
 gfxResult DRV_GLCD_CtrlrConfig(ctlrCfg request, void * arg)

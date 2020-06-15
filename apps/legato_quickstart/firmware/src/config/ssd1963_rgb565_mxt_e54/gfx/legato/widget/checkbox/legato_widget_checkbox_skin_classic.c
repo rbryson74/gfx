@@ -264,16 +264,16 @@ static void drawCheckBox(leCheckBoxWidget* cbox, leRect* rect)
     fillRect.height = CHECKBOX_SIZE;
     
     leRenderer_RectFill(&fillRect,
-                        cbox->widget.scheme->background,
+                        leScheme_GetRenderColor(cbox->widget.scheme, LE_SCHM_BACKGROUND),
                         paintState.alpha);
     
     // draw box border
     leWidget_SkinClassic_Draw2x2BeveledBorder(rect,
-                                             cbox->widget.scheme->shadow,
-                                             cbox->widget.scheme->shadowDark,
-                                             cbox->widget.scheme->highlight,
-                                             cbox->widget.scheme->highlightLight,
-                                             paintState.alpha);
+                                              leScheme_GetRenderColor(cbox->widget.scheme, LE_SCHM_SHADOW),
+                                              leScheme_GetRenderColor(cbox->widget.scheme, LE_SCHM_SHADOWDARK),
+                                              leScheme_GetRenderColor(cbox->widget.scheme, LE_SCHM_HIGHLIGHT),
+                                              leScheme_GetRenderColor(cbox->widget.scheme, LE_SCHM_HIGHLIGHTLIGHT),
+                                              paintState.alpha);
         
     if(cbox->checked == LE_TRUE)
     {
@@ -281,42 +281,42 @@ static void drawCheckBox(leCheckBoxWidget* cbox, leRect* rect)
                             rect->y + 5,
                             rect->x + 5,
                             rect->y + 7,
-                            cbox->widget.scheme->foreground,
+                            leScheme_GetRenderColor(cbox->widget.scheme, LE_SCHM_FOREGROUND),
                             paintState.alpha);
                             
         leRenderer_DrawLine(rect->x + 5,
                             rect->y + 7,
                             rect->x + 9,
                             rect->y + 3,
-                            cbox->widget.scheme->foreground,
+                            leScheme_GetRenderColor(cbox->widget.scheme, LE_SCHM_FOREGROUND),
                             paintState.alpha);
         
         leRenderer_DrawLine(rect->x + 3,
                             rect->y + 6,
                             rect->x + 5,
                             rect->y + 8,
-                            cbox->widget.scheme->foreground,
+                            leScheme_GetRenderColor(cbox->widget.scheme, LE_SCHM_FOREGROUND),
                             paintState.alpha);
                             
         leRenderer_DrawLine(rect->x + 5,
                             rect->y + 8,
                             rect->x + 9,
                             rect->y + 4,
-                            cbox->widget.scheme->foreground,
+                            leScheme_GetRenderColor(cbox->widget.scheme, LE_SCHM_FOREGROUND),
                             paintState.alpha);
                      
         leRenderer_DrawLine(rect->x + 3,
                             rect->y + 7,
                             rect->x + 5,
                             rect->y + 9,
-                            cbox->widget.scheme->foreground,
+                            leScheme_GetRenderColor(cbox->widget.scheme, LE_SCHM_FOREGROUND),
                             paintState.alpha);
                             
         leRenderer_DrawLine(rect->x + 5,
                             rect->y + 9,
                             rect->x + 9,
                             rect->y + 5,
-                            cbox->widget.scheme->foreground,
+                            leScheme_GetRenderColor(cbox->widget.scheme, LE_SCHM_FOREGROUND),
                             paintState.alpha);
     }
 }
@@ -410,7 +410,7 @@ static void drawString(leCheckBoxWidget* cbox)
                             textRect.x,
                             textRect.y,
                             cbox->widget.halign,
-                            cbox->widget.scheme->text,
+                            leScheme_GetRenderColor(cbox->widget.scheme, LE_SCHM_TEXT),
                             paintState.alpha);
 
 #if LE_STREAMING_ENABLED == 1
@@ -446,13 +446,6 @@ static void drawBorder(leCheckBoxWidget* cbox)
 
 void _leCheckBoxWidget_Paint(leCheckBoxWidget* cbox)
 {
-    if(cbox->widget.scheme == NULL)
-    {
-        cbox->widget.drawState = DONE;
-        
-        return;
-    }
-    
     if(cbox->widget.drawState == NOT_STARTED)
     {
         nextState(cbox);

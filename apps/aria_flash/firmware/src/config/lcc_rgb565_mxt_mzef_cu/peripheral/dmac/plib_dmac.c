@@ -213,8 +213,8 @@ void DMAC_Initialize( void )
 
     /* DMA channel-level control registers.  They will have additional settings made when starting a transfer. */
     /* DMA channel 0 configuration */
-    /* CHPRI = 3 */
-    DCH0CON = 0x3;
+    /* CHPRI = 0 */
+    DCH0CON = 0x0;
     /* CHSIRQ = 0, SIRQEN = 0 */
     DCH0ECON = 0x0;
     /* CHBCIE = 1, CHTAIE=1, CHERIE=1 */
@@ -390,7 +390,7 @@ void DMA0_InterruptHandler (void)
 {
     DMAC_CHANNEL_OBJECT *chanObj;
     DMAC_TRANSFER_EVENT dmaEvent = DMAC_TRANSFER_EVENT_NONE;
-    bool retVal;
+    bool retVal = false;
 
     /* Find out the channel object */
     chanObj = (DMAC_CHANNEL_OBJECT *) &gDMAChannelObj[0];

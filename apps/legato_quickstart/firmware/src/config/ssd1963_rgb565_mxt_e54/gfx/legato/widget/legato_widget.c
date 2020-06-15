@@ -75,7 +75,8 @@ void leWidget_Constructor(leWidget* _this)
     _this->id = leGetState()->widgetIDs++;
 
     _this->type = LE_WIDGET_WIDGET;
-    
+
+    _this->scheme = NULL;
     _this->visible = LE_TRUE;
     _this->enabled = LE_TRUE;
     _this->dirtyState = LE_WIDGET_DIRTY_STATE_DIRTY;
@@ -103,8 +104,6 @@ void leWidget_Constructor(leWidget* _this)
     _this->margin.right = DEFAULT_BORDER_MARGIN;
     _this->margin.bottom = DEFAULT_BORDER_MARGIN;
     
-    _this->scheme = leGetDefaultScheme();
-
     for(i = 0; i < LE_WIDGET_MAX_EVENT_FILTERS; i++)
     {
         _this->eventFilters[i].filterEvent = NULL;
@@ -330,7 +329,7 @@ leResult _leWidget_SetWidth(leWidget* _this,
 
     LE_ASSERT_THIS();
     
-    if(_this->rect.width == width)
+    if(_this->rect.width == (int32_t)width)
         return LE_SUCCESS;
 
     // invalidate old area
@@ -362,7 +361,7 @@ leResult _leWidget_SetHeight(leWidget* _this,
 
     LE_ASSERT_THIS();
     
-    if(_this->rect.height == height)
+    if(_this->rect.height == (int32_t)height)
         return LE_SUCCESS;
 
     // invalidate old area
@@ -388,7 +387,7 @@ leResult _leWidget_SetSize(leWidget* _this,
     
     LE_ASSERT_THIS();
     
-    if(_this->rect.width == width && _this->rect.height == height)
+    if(_this->rect.width == (int32_t)width && _this->rect.height == (int32_t)height)
         return LE_FAILURE;
 
     if(width == 0)
@@ -736,6 +735,32 @@ leResult _leWidget_AddChild(leWidget* _this,
     return LE_SUCCESS;
 }
 
+leResult _leWidget_InsertChild(leWidget* _this,
+                               leWidget* child,
+                               uint32_t idx)
+{
+    LE_ASSERT_THIS();
+
+    if(child == NULL ||
+       child->root == LE_TRUE ||
+       isAncestorOf(child, _this) == LE_TRUE)
+    {
+        return LE_FAILURE;
+    }
+
+    if(child->parent != NULL)
+    {
+        child->parent->fn->removeChild(child->parent, child);
+    }
+
+    leArray_InsertAt(&_this->children, idx, child);
+    child->parent = _this;
+
+    child->fn->invalidate(child);
+
+    return LE_SUCCESS;
+}
+
 leResult _leWidget_RemoveChild(leWidget* _this,
                                leWidget* child)
 {
@@ -751,6 +776,26 @@ leResult _leWidget_RemoveChild(leWidget* _this,
         
     _this->fn->invalidate(_this);
     
+    return LE_SUCCESS;
+}
+
+leResult _leWidget_RemoveChildAt(leWidget* _this,
+                                 uint32_t idx)
+{
+    leWidget* child;
+
+    LE_ASSERT_THIS();
+
+    if(idx >= _this->children.size)
+        return LE_FAILURE;
+
+    child = leArray_Get(&_this->children, idx);
+    child->parent = NULL;
+
+    leArray_RemoveAt(&_this->children, idx);
+
+    _this->fn->invalidate(_this);
+
     return LE_SUCCESS;
 }
 
@@ -841,7 +886,7 @@ uint32_t _leWidget_GetIndexOfChild(const leWidget* _this,
     return leArray_Find((void*)&_this->children, (void*)child);
 }
 
-leBool _leWidget_ContainsDescendent(const leWidget* _this,
+leBool _leWidget_ContainsDescendant(const leWidget* _this,
                                     const leWidget* wgt)
 {
     uint32_t idx;
@@ -859,7 +904,7 @@ leBool _leWidget_ContainsDescendent(const leWidget* _this,
         }
         else
         {
-            if(child->fn->containsDescendent(child, wgt) == LE_TRUE)
+            if(child->fn->containsDescendant(child, wgt) == LE_TRUE)
             {
                 return LE_TRUE;
             }
@@ -877,22 +922,15 @@ leScheme* _leWidget_GetScheme(const leWidget* _this)
 }
 
 leResult _leWidget_SetScheme(leWidget* _this,
-                             leScheme* scheme)
+                             const leScheme* scheme)
 {
     LE_ASSERT_THIS();
     
     if(_this->scheme == scheme)
         return LE_SUCCESS;
 
-    if(scheme == NULL)
-    {
-        _this->scheme = leGetDefaultScheme();
-    }
-    else
-    {
-        _this->scheme = scheme;
-    }
-    
+    _this->scheme = scheme;
+
     _this->fn->invalidate(_this);
     
     return LE_SUCCESS;
@@ -1166,7 +1204,9 @@ void _leWidget_InvalidateRect(const leWidget* _this,
 #endif
 
 void _leWidget_InvalidateContents(const leWidget* _this)
-{ }
+{
+    (void)_this; // unused
+}
 
 leResult _leWidget_InstallEventFilter(leWidget* _this,
                                       leWidgetEventFilter fltr)
@@ -1217,32 +1257,53 @@ leResult _leWidget_RemoveEventFilter(leWidget* _this,
 
 void _leWidget_TouchDownEvent(leWidget* _this,
                               leWidgetEvent_TouchDown* evt)
-{ }
+{
+    (void)_this; // unused
+    (void)evt; // unused
+}
 
 void _leWidget_TouchUpEvent(leWidget* _this,
                             leWidgetEvent_TouchUp* evt)
-{ }
+{
+    (void)_this; // unused
+    (void)evt; // unused
+}
 
 void _leWidget_TouchMoveEvent(leWidget* _this,
                               leWidgetEvent_TouchMove* evt)
-{ }
+{
+    (void)_this; // unused
+    (void)evt; // unused
+}
 
 void _leWidget_MoveEvent(leWidget* _this,
                          leWidget_MoveEvent* evt)
-{ }
+{
+    (void)_this; // unused
+    (void)evt; // unused
+}
 
 void _leWidget_ResizeEvent(leWidget* _this,
                            leWidget_ResizeEvent* evt)
-{ }
+{
+    (void)_this; // unused
+    (void)evt; // unused
+}
 
 void _leWidget_FocusLostEvent(leWidget* _this)
-{ }
+{
+    (void)_this; // unused
+}
 
 void _leWidget_FocusGainedEvent(leWidget* _this)
-{ }
+{
+    (void)_this; // unused
+}
 
 void _leWidget_LanguageChangeEvent(leWidget* _this)
-{ }
+{
+    (void)_this; // unused
+}
 
 static leBool filterEvent(leWidget* _this,
                           leWidgetEvent* evt)
@@ -1392,7 +1453,9 @@ void _leWidget_ClearDirtyState(leWidget* _this)
 
 
 void _leWidget_InvalidateBorderAreas(const leWidget* _this)
-{ }
+{
+    (void)_this; // unused
+}
 
 void _leWidget_DamageArea(const leWidget* _this, leRect* rect)
 {
@@ -1408,6 +1471,8 @@ void _leWidget_Paint(leWidget* _this);
 
 void _leWidget_Update(leWidget* _this, uint32_t dt)
 {
+    (void)_this; // unused
+    (void)dt; // unused
 }
 
 #if LE_DYNAMIC_VTABLES == 1
@@ -1441,14 +1506,16 @@ void _leWidget_GenerateVTable()
     widgetVTable.rectToParent = _leWidget_RectToParentSpace;
     widgetVTable.rectToScreen = _leWidget_RectToScreenSpace;
     widgetVTable.addChild = _leWidget_AddChild;
+    widgetVTable.insertChild = _leWidget_InsertChild;
     widgetVTable.removeChild = _leWidget_RemoveChild;
+    widgetVTable.removeChildAt = _leWidget_RemoveChildAt;
     widgetVTable.removeAllChildren = _leWidget_RemoveAllChildren;
     widgetVTable.getRootWidget = _leWidget_GetRootWidget;
     widgetVTable.setParent = _leWidget_SetParent;
     widgetVTable.getChildCount = _leWidget_GetChildCount;
     widgetVTable.getChildAtIndex = _leWidget_GetChildAtIndex;
     widgetVTable.getIndexOfChild = _leWidget_GetIndexOfChild;
-    widgetVTable.containsDescendent = _leWidget_ContainsDescendent;
+    widgetVTable.containsDescendant = _leWidget_ContainsDescendant;
     widgetVTable.getScheme = _leWidget_GetScheme;
     widgetVTable.setScheme = _leWidget_SetScheme;
     widgetVTable.getBorderType = _leWidget_GetBorderType;
@@ -1530,14 +1597,16 @@ static const leWidgetVTable widgetVTable =
     .rectToParent = _leWidget_RectToParentSpace,
     .rectToScreen = _leWidget_RectToScreenSpace,
     .addChild = _leWidget_AddChild,
+    .insertChild = _leWidget_InsertChild,
     .removeChild = _leWidget_RemoveChild,
+    .removeChildAt = _leWidget_RemoveChildAt,
     .removeAllChildren = _leWidget_RemoveAllChildren,
     .getRootWidget = _leWidget_GetRootWidget,
     .setParent = _leWidget_SetParent,
     .getChildCount = _leWidget_GetChildCount,
     .getChildAtIndex = _leWidget_GetChildAtIndex,
     .getIndexOfChild = _leWidget_GetIndexOfChild,
-    .containsDescendent = _leWidget_ContainsDescendent,
+    .containsDescendant = _leWidget_ContainsDescendant,
     .getScheme = _leWidget_GetScheme,
     .setScheme = _leWidget_SetScheme,
     .getBorderType = _leWidget_GetBorderType,

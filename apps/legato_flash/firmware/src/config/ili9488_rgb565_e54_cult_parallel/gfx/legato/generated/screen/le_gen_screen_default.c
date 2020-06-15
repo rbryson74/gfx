@@ -1,73 +1,54 @@
-// DOM-IGNORE-BEGIN
-/*******************************************************************************
-* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
-*
-* Subject to your compliance with these terms, you may use Microchip software
-* and any derivatives exclusively with Microchip products. It is your
-* responsibility to comply with third party license terms applicable to your
-* use of third party software (including open source software) that may
-* accompany Microchip software.
-*
-* THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
-* EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
-* WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
-* PARTICULAR PURPOSE.
-*
-* IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
-* INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
-* WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
-* BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
-* FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
-* ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
-* THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
-*******************************************************************************/
-// DOM-IGNORE-END
-
 #include "gfx/legato/generated/screen/le_gen_screen_default.h"
 
-// widget list for layer 0
-static leWidget* root0;
+// screen member widget declarations
+leWidget* root0;
 
-leWidget* BackgroundPanel;
-leImageWidget* WatermarkImage;
-leImageWidget* LogoImage;
-leLabelWidget* TitleLabel;
-leWidget* SelectMediumPanel;
-leLabelWidget* SelectMediumLabel;
-leButtonWidget* SDCardButton;
-leButtonWidget* USBButton;
-leWidget* ErrorMsgPanel;
-leLabelWidget* NoMediumLabel2;
-leLabelWidget* NoMediumLabel1;
-leWidget* InfoPanel;
-leLabelWidget* InfoLabel1;
-leLabelWidget* InfoLabel2;
-leButtonWidget* InfoOKButton;
-leWidget* FlashingPanel;
-leProgressBarWidget* FlashingProgressBar;
-leLabelWidget* FlashingLabel;
-leLabelWidget* RecordsTotalLabel;
-leLabelWidget* OfLabel;
-leLabelWidget* CurrentRecordLabel;
+leWidget* default_BackgroundPanel;
+leImageWidget* default_WatermarkImage;
+leImageWidget* default_LogoImage;
+leLabelWidget* default_TitleLabel;
+leWidget* default_SelectMediumPanel;
+leWidget* default_InfoPanel;
+leWidget* default_FlashingPanel;
+leLabelWidget* default_SelectMediumLabel;
+leButtonWidget* default_SDCardButton;
+leButtonWidget* default_USBButton;
+leWidget* default_ErrorMsgPanel;
+leLabelWidget* default_NoMediumLabel2;
+leLabelWidget* default_NoMediumLabel1;
+leLabelWidget* default_InfoLabel1;
+leLabelWidget* default_InfoLabel2;
+leButtonWidget* default_InfoOKButton;
+leProgressBarWidget* default_FlashingProgressBar;
+leLabelWidget* default_FlashingLabel;
+leLabelWidget* default_RecordsTotalLabel;
+leLabelWidget* default_OfLabel;
+leLabelWidget* default_CurrentRecordLabel;
 
 // string list for this screen
-static leTableString tableString_Title;
-static leTableString tableString_SelectSource;
-static leTableString tableString_SDCard;
-static leTableString tableString_USB;
-static leTableString tableString_NoValidMedium2;
-static leTableString tableString_NoValidMedium;
-static leTableString tableString_FileNotFound1;
-static leTableString tableString_FileNotFound2;
-static leTableString tableString_Ok;
-static leTableString tableString_Flashing;
-static leTableString tableString_stringNumberFiller;
-static leTableString tableString_Of;
+static leTableString string_Title;
+static leTableString string_SelectSource;
+static leTableString string_SDCard;
+static leTableString string_USB;
+static leTableString string_NoValidMedium2;
+static leTableString string_NoValidMedium;
+static leTableString string_FileNotFound1;
+static leTableString string_FileNotFound2;
+static leTableString string_Ok;
+static leTableString string_Flashing;
+static leTableString string_stringNumberFiller;
+static leTableString string_Of;
 
+static leBool initialized = LE_FALSE;
 static leBool showing = LE_FALSE;
 
 leResult screenInit_default()
 {
+    if(initialized == LE_TRUE)
+        return LE_FAILURE;
+
+    initialized = LE_TRUE;
+
     return LE_SUCCESS;
 }
 
@@ -77,18 +58,18 @@ leResult screenShow_default()
         return LE_FAILURE;
 
     // initialize static strings
-    leTableString_Constructor(&tableString_Title, string_Title);
-    leTableString_Constructor(&tableString_SelectSource, string_SelectSource);
-    leTableString_Constructor(&tableString_SDCard, string_SDCard);
-    leTableString_Constructor(&tableString_USB, string_USB);
-    leTableString_Constructor(&tableString_NoValidMedium2, string_NoValidMedium2);
-    leTableString_Constructor(&tableString_NoValidMedium, string_NoValidMedium);
-    leTableString_Constructor(&tableString_FileNotFound1, string_FileNotFound1);
-    leTableString_Constructor(&tableString_FileNotFound2, string_FileNotFound2);
-    leTableString_Constructor(&tableString_Ok, string_Ok);
-    leTableString_Constructor(&tableString_Flashing, string_Flashing);
-    leTableString_Constructor(&tableString_stringNumberFiller, string_stringNumberFiller);
-    leTableString_Constructor(&tableString_Of, string_Of);
+    leTableString_Constructor(&string_Title, stringID_Title);
+    leTableString_Constructor(&string_SelectSource, stringID_SelectSource);
+    leTableString_Constructor(&string_SDCard, stringID_SDCard);
+    leTableString_Constructor(&string_USB, stringID_USB);
+    leTableString_Constructor(&string_NoValidMedium2, stringID_NoValidMedium2);
+    leTableString_Constructor(&string_NoValidMedium, stringID_NoValidMedium);
+    leTableString_Constructor(&string_FileNotFound1, stringID_FileNotFound1);
+    leTableString_Constructor(&string_FileNotFound2, stringID_FileNotFound2);
+    leTableString_Constructor(&string_Ok, stringID_Ok);
+    leTableString_Constructor(&string_Flashing, stringID_Flashing);
+    leTableString_Constructor(&string_stringNumberFiller, stringID_stringNumberFiller);
+    leTableString_Constructor(&string_Of, stringID_Of);
 
     // layer 0
     root0 = leWidget_New();
@@ -97,238 +78,244 @@ leResult screenShow_default()
     root0->fn->setBackgroundType(root0, LE_WIDGET_BACKGROUND_NONE);
     root0->fn->setMargins(root0, 0, 0, 0, 0);
 
-    BackgroundPanel = leWidget_New();
-    BackgroundPanel->fn->setPosition(BackgroundPanel, 0, 0);
-    BackgroundPanel->fn->setSize(BackgroundPanel, 480, 320);
-    BackgroundPanel->fn->setScheme(BackgroundPanel, &whiteScheme);
-    root0->fn->addChild(root0, BackgroundPanel);
+    default_BackgroundPanel = leWidget_New();
+    default_BackgroundPanel->fn->setPosition(default_BackgroundPanel, 0, 0);
+    default_BackgroundPanel->fn->setSize(default_BackgroundPanel, 480, 320);
+    default_BackgroundPanel->fn->setScheme(default_BackgroundPanel, &whiteScheme);
+    root0->fn->addChild(root0, (leWidget*)default_BackgroundPanel);
 
-    WatermarkImage = leImageWidget_New();
-    WatermarkImage->fn->setPosition(WatermarkImage, 170, 106);
-    WatermarkImage->fn->setSize(WatermarkImage, 141, 132);
-    WatermarkImage->fn->setBackgroundType(WatermarkImage, LE_WIDGET_BACKGROUND_NONE);
-    WatermarkImage->fn->setImage(WatermarkImage, &MHGS_logo_small);
-    root0->fn->addChild(root0, (leWidget*)WatermarkImage);
+    default_WatermarkImage = leImageWidget_New();
+    default_WatermarkImage->fn->setPosition(default_WatermarkImage, 170, 106);
+    default_WatermarkImage->fn->setSize(default_WatermarkImage, 141, 132);
+    default_WatermarkImage->fn->setBackgroundType(default_WatermarkImage, LE_WIDGET_BACKGROUND_NONE);
+    default_WatermarkImage->fn->setBorderType(default_WatermarkImage, LE_WIDGET_BORDER_NONE);
+    default_WatermarkImage->fn->setImage(default_WatermarkImage, (leImage*)&MHGS_logo_small);
+    root0->fn->addChild(root0, (leWidget*)default_WatermarkImage);
 
-    LogoImage = leImageWidget_New();
-    LogoImage->fn->setPosition(LogoImage, 11, 11);
-    LogoImage->fn->setSize(LogoImage, 32, 32);
-    LogoImage->fn->setBackgroundType(LogoImage, LE_WIDGET_BACKGROUND_NONE);
-    LogoImage->fn->setImage(LogoImage, &mchpLogo);
-    root0->fn->addChild(root0, (leWidget*)LogoImage);
+    default_LogoImage = leImageWidget_New();
+    default_LogoImage->fn->setPosition(default_LogoImage, 11, 11);
+    default_LogoImage->fn->setSize(default_LogoImage, 32, 32);
+    default_LogoImage->fn->setBackgroundType(default_LogoImage, LE_WIDGET_BACKGROUND_NONE);
+    default_LogoImage->fn->setBorderType(default_LogoImage, LE_WIDGET_BORDER_NONE);
+    default_LogoImage->fn->setImage(default_LogoImage, (leImage*)&mchpLogo);
+    root0->fn->addChild(root0, (leWidget*)default_LogoImage);
 
-    TitleLabel = leLabelWidget_New();
-    TitleLabel->fn->setPosition(TitleLabel, 64, 14);
-    TitleLabel->fn->setSize(TitleLabel, 377, 32);
-    TitleLabel->fn->setScheme(TitleLabel, &defaultScheme);
-    TitleLabel->fn->setBackgroundType(TitleLabel, LE_WIDGET_BACKGROUND_NONE);
-    TitleLabel->fn->setString(TitleLabel, (leString*)&tableString_Title);
-    root0->fn->addChild(root0, (leWidget*)TitleLabel);
+    default_TitleLabel = leLabelWidget_New();
+    default_TitleLabel->fn->setPosition(default_TitleLabel, 64, 14);
+    default_TitleLabel->fn->setSize(default_TitleLabel, 377, 32);
+    default_TitleLabel->fn->setScheme(default_TitleLabel, &defaultScheme);
+    default_TitleLabel->fn->setBackgroundType(default_TitleLabel, LE_WIDGET_BACKGROUND_NONE);
+    default_TitleLabel->fn->setString(default_TitleLabel, (leString*)&string_Title);
+    root0->fn->addChild(root0, (leWidget*)default_TitleLabel);
 
-    SelectMediumPanel = leWidget_New();
-    SelectMediumPanel->fn->setPosition(SelectMediumPanel, 0, 60);
-    SelectMediumPanel->fn->setSize(SelectMediumPanel, 480, 260);
-    SelectMediumPanel->fn->setBackgroundType(SelectMediumPanel, LE_WIDGET_BACKGROUND_NONE);
-    root0->fn->addChild(root0, SelectMediumPanel);
+    default_SelectMediumPanel = leWidget_New();
+    default_SelectMediumPanel->fn->setPosition(default_SelectMediumPanel, 0, 60);
+    default_SelectMediumPanel->fn->setSize(default_SelectMediumPanel, 480, 260);
+    default_SelectMediumPanel->fn->setBackgroundType(default_SelectMediumPanel, LE_WIDGET_BACKGROUND_NONE);
+    root0->fn->addChild(root0, (leWidget*)default_SelectMediumPanel);
 
-    SelectMediumLabel = leLabelWidget_New();
-    SelectMediumLabel->fn->setPosition(SelectMediumLabel, 78, 6);
-    SelectMediumLabel->fn->setSize(SelectMediumLabel, 333, 25);
-    SelectMediumLabel->fn->setScheme(SelectMediumLabel, &defaultScheme);
-    SelectMediumLabel->fn->setBackgroundType(SelectMediumLabel, LE_WIDGET_BACKGROUND_NONE);
-    SelectMediumLabel->fn->setString(SelectMediumLabel, (leString*)&tableString_SelectSource);
-    SelectMediumPanel->fn->addChild(SelectMediumPanel, (leWidget*)SelectMediumLabel);
+    default_SelectMediumLabel = leLabelWidget_New();
+    default_SelectMediumLabel->fn->setPosition(default_SelectMediumLabel, 78, 6);
+    default_SelectMediumLabel->fn->setSize(default_SelectMediumLabel, 333, 25);
+    default_SelectMediumLabel->fn->setScheme(default_SelectMediumLabel, &defaultScheme);
+    default_SelectMediumLabel->fn->setBackgroundType(default_SelectMediumLabel, LE_WIDGET_BACKGROUND_NONE);
+    default_SelectMediumLabel->fn->setString(default_SelectMediumLabel, (leString*)&string_SelectSource);
+    default_SelectMediumPanel->fn->addChild(default_SelectMediumPanel, (leWidget*)default_SelectMediumLabel);
 
-    SDCardButton = leButtonWidget_New();
-    SDCardButton->fn->setPosition(SDCardButton, 58, 65);
-    SDCardButton->fn->setSize(SDCardButton, 100, 100);
-    SDCardButton->fn->setVisible(SDCardButton, LE_FALSE);
-    SDCardButton->fn->setScheme(SDCardButton, &defaultScheme);
-    SDCardButton->fn->setString(SDCardButton, (leString*)&tableString_SDCard);
-    SDCardButton->fn->setPressedImage(SDCardButton, &sdcard_sm);
-    SDCardButton->fn->setReleasedImage(SDCardButton, &sdcard_sm);
-    SDCardButton->fn->setImagePosition(SDCardButton, LE_RELATIVE_POSITION_ABOVE);
-    SelectMediumPanel->fn->addChild(SelectMediumPanel, (leWidget*)SDCardButton);
+    default_SDCardButton = leButtonWidget_New();
+    default_SDCardButton->fn->setPosition(default_SDCardButton, 58, 65);
+    default_SDCardButton->fn->setSize(default_SDCardButton, 100, 100);
+    default_SDCardButton->fn->setVisible(default_SDCardButton, LE_FALSE);
+    default_SDCardButton->fn->setScheme(default_SDCardButton, &defaultScheme);
+    default_SDCardButton->fn->setString(default_SDCardButton, (leString*)&string_SDCard);
+    default_SDCardButton->fn->setPressedImage(default_SDCardButton, (leImage*)&sdcard_sm);
+    default_SDCardButton->fn->setReleasedImage(default_SDCardButton, (leImage*)&sdcard_sm);
+    default_SDCardButton->fn->setImagePosition(default_SDCardButton, LE_RELATIVE_POSITION_ABOVE);
+    default_SelectMediumPanel->fn->addChild(default_SelectMediumPanel, (leWidget*)default_SDCardButton);
 
-    USBButton = leButtonWidget_New();
-    USBButton->fn->setPosition(USBButton, 316, 65);
-    USBButton->fn->setSize(USBButton, 100, 100);
-    USBButton->fn->setVisible(USBButton, LE_FALSE);
-    USBButton->fn->setScheme(USBButton, &defaultScheme);
-    USBButton->fn->setString(USBButton, (leString*)&tableString_USB);
-    USBButton->fn->setPressedImage(USBButton, &usb_icon_sm);
-    USBButton->fn->setReleasedImage(USBButton, &usb_icon_sm);
-    USBButton->fn->setImagePosition(USBButton, LE_RELATIVE_POSITION_ABOVE);
-    SelectMediumPanel->fn->addChild(SelectMediumPanel, (leWidget*)USBButton);
+    default_USBButton = leButtonWidget_New();
+    default_USBButton->fn->setPosition(default_USBButton, 316, 65);
+    default_USBButton->fn->setSize(default_USBButton, 100, 100);
+    default_USBButton->fn->setVisible(default_USBButton, LE_FALSE);
+    default_USBButton->fn->setScheme(default_USBButton, &defaultScheme);
+    default_USBButton->fn->setString(default_USBButton, (leString*)&string_USB);
+    default_USBButton->fn->setPressedImage(default_USBButton, (leImage*)&usb_icon_sm);
+    default_USBButton->fn->setReleasedImage(default_USBButton, (leImage*)&usb_icon_sm);
+    default_USBButton->fn->setImagePosition(default_USBButton, LE_RELATIVE_POSITION_ABOVE);
+    default_SelectMediumPanel->fn->addChild(default_SelectMediumPanel, (leWidget*)default_USBButton);
 
-    ErrorMsgPanel = leWidget_New();
-    ErrorMsgPanel->fn->setPosition(ErrorMsgPanel, 67, 189);
-    ErrorMsgPanel->fn->setSize(ErrorMsgPanel, 327, 57);
-    ErrorMsgPanel->fn->setBackgroundType(ErrorMsgPanel, LE_WIDGET_BACKGROUND_NONE);
-    SelectMediumPanel->fn->addChild(SelectMediumPanel, ErrorMsgPanel);
+    default_ErrorMsgPanel = leWidget_New();
+    default_ErrorMsgPanel->fn->setPosition(default_ErrorMsgPanel, 67, 189);
+    default_ErrorMsgPanel->fn->setSize(default_ErrorMsgPanel, 327, 57);
+    default_ErrorMsgPanel->fn->setBackgroundType(default_ErrorMsgPanel, LE_WIDGET_BACKGROUND_NONE);
+    default_SelectMediumPanel->fn->addChild(default_SelectMediumPanel, (leWidget*)default_ErrorMsgPanel);
 
-    NoMediumLabel2 = leLabelWidget_New();
-    NoMediumLabel2->fn->setPosition(NoMediumLabel2, -6, 27);
-    NoMediumLabel2->fn->setSize(NoMediumLabel2, 358, 25);
-    NoMediumLabel2->fn->setScheme(NoMediumLabel2, &defaultScheme);
-    NoMediumLabel2->fn->setBackgroundType(NoMediumLabel2, LE_WIDGET_BACKGROUND_NONE);
-    NoMediumLabel2->fn->setHAlignment(NoMediumLabel2, LE_HALIGN_CENTER);
-    NoMediumLabel2->fn->setString(NoMediumLabel2, (leString*)&tableString_NoValidMedium2);
-    ErrorMsgPanel->fn->addChild(ErrorMsgPanel, (leWidget*)NoMediumLabel2);
+    default_NoMediumLabel2 = leLabelWidget_New();
+    default_NoMediumLabel2->fn->setPosition(default_NoMediumLabel2, -6, 27);
+    default_NoMediumLabel2->fn->setSize(default_NoMediumLabel2, 358, 25);
+    default_NoMediumLabel2->fn->setScheme(default_NoMediumLabel2, &defaultScheme);
+    default_NoMediumLabel2->fn->setBackgroundType(default_NoMediumLabel2, LE_WIDGET_BACKGROUND_NONE);
+    default_NoMediumLabel2->fn->setHAlignment(default_NoMediumLabel2, LE_HALIGN_CENTER);
+    default_NoMediumLabel2->fn->setString(default_NoMediumLabel2, (leString*)&string_NoValidMedium2);
+    default_ErrorMsgPanel->fn->addChild(default_ErrorMsgPanel, (leWidget*)default_NoMediumLabel2);
 
-    NoMediumLabel1 = leLabelWidget_New();
-    NoMediumLabel1->fn->setPosition(NoMediumLabel1, 33, 2);
-    NoMediumLabel1->fn->setSize(NoMediumLabel1, 277, 25);
-    NoMediumLabel1->fn->setScheme(NoMediumLabel1, &defaultScheme);
-    NoMediumLabel1->fn->setBackgroundType(NoMediumLabel1, LE_WIDGET_BACKGROUND_NONE);
-    NoMediumLabel1->fn->setHAlignment(NoMediumLabel1, LE_HALIGN_CENTER);
-    NoMediumLabel1->fn->setString(NoMediumLabel1, (leString*)&tableString_NoValidMedium);
-    ErrorMsgPanel->fn->addChild(ErrorMsgPanel, (leWidget*)NoMediumLabel1);
+    default_NoMediumLabel1 = leLabelWidget_New();
+    default_NoMediumLabel1->fn->setPosition(default_NoMediumLabel1, 33, 2);
+    default_NoMediumLabel1->fn->setSize(default_NoMediumLabel1, 277, 25);
+    default_NoMediumLabel1->fn->setScheme(default_NoMediumLabel1, &defaultScheme);
+    default_NoMediumLabel1->fn->setBackgroundType(default_NoMediumLabel1, LE_WIDGET_BACKGROUND_NONE);
+    default_NoMediumLabel1->fn->setHAlignment(default_NoMediumLabel1, LE_HALIGN_CENTER);
+    default_NoMediumLabel1->fn->setString(default_NoMediumLabel1, (leString*)&string_NoValidMedium);
+    default_ErrorMsgPanel->fn->addChild(default_ErrorMsgPanel, (leWidget*)default_NoMediumLabel1);
 
-    InfoPanel = leWidget_New();
-    InfoPanel->fn->setPosition(InfoPanel, 0, 60);
-    InfoPanel->fn->setSize(InfoPanel, 480, 260);
-    InfoPanel->fn->setVisible(InfoPanel, LE_FALSE);
-    InfoPanel->fn->setBackgroundType(InfoPanel, LE_WIDGET_BACKGROUND_NONE);
-    root0->fn->addChild(root0, InfoPanel);
+    default_InfoPanel = leWidget_New();
+    default_InfoPanel->fn->setPosition(default_InfoPanel, 0, 60);
+    default_InfoPanel->fn->setSize(default_InfoPanel, 480, 260);
+    default_InfoPanel->fn->setVisible(default_InfoPanel, LE_FALSE);
+    default_InfoPanel->fn->setBackgroundType(default_InfoPanel, LE_WIDGET_BACKGROUND_NONE);
+    root0->fn->addChild(root0, (leWidget*)default_InfoPanel);
 
-    InfoLabel1 = leLabelWidget_New();
-    InfoLabel1->fn->setPosition(InfoLabel1, 14, 4);
-    InfoLabel1->fn->setSize(InfoLabel1, 448, 33);
-    InfoLabel1->fn->setScheme(InfoLabel1, &defaultScheme);
-    InfoLabel1->fn->setBackgroundType(InfoLabel1, LE_WIDGET_BACKGROUND_NONE);
-    InfoLabel1->fn->setHAlignment(InfoLabel1, LE_HALIGN_CENTER);
-    InfoLabel1->fn->setString(InfoLabel1, (leString*)&tableString_FileNotFound1);
-    InfoPanel->fn->addChild(InfoPanel, (leWidget*)InfoLabel1);
+    default_InfoLabel1 = leLabelWidget_New();
+    default_InfoLabel1->fn->setPosition(default_InfoLabel1, 14, 4);
+    default_InfoLabel1->fn->setSize(default_InfoLabel1, 448, 33);
+    default_InfoLabel1->fn->setScheme(default_InfoLabel1, &defaultScheme);
+    default_InfoLabel1->fn->setBackgroundType(default_InfoLabel1, LE_WIDGET_BACKGROUND_NONE);
+    default_InfoLabel1->fn->setHAlignment(default_InfoLabel1, LE_HALIGN_CENTER);
+    default_InfoLabel1->fn->setString(default_InfoLabel1, (leString*)&string_FileNotFound1);
+    default_InfoPanel->fn->addChild(default_InfoPanel, (leWidget*)default_InfoLabel1);
 
-    InfoLabel2 = leLabelWidget_New();
-    InfoLabel2->fn->setPosition(InfoLabel2, 72, 29);
-    InfoLabel2->fn->setSize(InfoLabel2, 336, 29);
-    InfoLabel2->fn->setScheme(InfoLabel2, &defaultScheme);
-    InfoLabel2->fn->setBackgroundType(InfoLabel2, LE_WIDGET_BACKGROUND_NONE);
-    InfoLabel2->fn->setHAlignment(InfoLabel2, LE_HALIGN_CENTER);
-    InfoLabel2->fn->setString(InfoLabel2, (leString*)&tableString_FileNotFound2);
-    InfoPanel->fn->addChild(InfoPanel, (leWidget*)InfoLabel2);
+    default_InfoLabel2 = leLabelWidget_New();
+    default_InfoLabel2->fn->setPosition(default_InfoLabel2, 72, 29);
+    default_InfoLabel2->fn->setSize(default_InfoLabel2, 336, 29);
+    default_InfoLabel2->fn->setScheme(default_InfoLabel2, &defaultScheme);
+    default_InfoLabel2->fn->setBackgroundType(default_InfoLabel2, LE_WIDGET_BACKGROUND_NONE);
+    default_InfoLabel2->fn->setHAlignment(default_InfoLabel2, LE_HALIGN_CENTER);
+    default_InfoLabel2->fn->setString(default_InfoLabel2, (leString*)&string_FileNotFound2);
+    default_InfoPanel->fn->addChild(default_InfoPanel, (leWidget*)default_InfoLabel2);
 
-    InfoOKButton = leButtonWidget_New();
-    InfoOKButton->fn->setPosition(InfoOKButton, 177, 189);
-    InfoOKButton->fn->setSize(InfoOKButton, 120, 44);
-    InfoOKButton->fn->setScheme(InfoOKButton, &defaultScheme);
-    InfoOKButton->fn->setString(InfoOKButton, (leString*)&tableString_Ok);
-    InfoPanel->fn->addChild(InfoPanel, (leWidget*)InfoOKButton);
+    default_InfoOKButton = leButtonWidget_New();
+    default_InfoOKButton->fn->setPosition(default_InfoOKButton, 177, 189);
+    default_InfoOKButton->fn->setSize(default_InfoOKButton, 120, 44);
+    default_InfoOKButton->fn->setScheme(default_InfoOKButton, &defaultScheme);
+    default_InfoOKButton->fn->setString(default_InfoOKButton, (leString*)&string_Ok);
+    default_InfoPanel->fn->addChild(default_InfoPanel, (leWidget*)default_InfoOKButton);
 
-    FlashingPanel = leWidget_New();
-    FlashingPanel->fn->setPosition(FlashingPanel, 39, 243);
-    FlashingPanel->fn->setSize(FlashingPanel, 398, 60);
-    FlashingPanel->fn->setVisible(FlashingPanel, LE_FALSE);
-    FlashingPanel->fn->setBackgroundType(FlashingPanel, LE_WIDGET_BACKGROUND_NONE);
-    root0->fn->addChild(root0, FlashingPanel);
+    default_FlashingPanel = leWidget_New();
+    default_FlashingPanel->fn->setPosition(default_FlashingPanel, 39, 243);
+    default_FlashingPanel->fn->setSize(default_FlashingPanel, 398, 60);
+    default_FlashingPanel->fn->setVisible(default_FlashingPanel, LE_FALSE);
+    default_FlashingPanel->fn->setBackgroundType(default_FlashingPanel, LE_WIDGET_BACKGROUND_NONE);
+    root0->fn->addChild(root0, (leWidget*)default_FlashingPanel);
 
-    FlashingProgressBar = leProgressBarWidget_New();
-    FlashingProgressBar->fn->setPosition(FlashingProgressBar, 5, 30);
-    FlashingProgressBar->fn->setSize(FlashingProgressBar, 385, 25);
-    FlashingProgressBar->fn->setScheme(FlashingProgressBar, &ProgressScheme);
-    FlashingPanel->fn->addChild(FlashingPanel, (leWidget*)FlashingProgressBar);
+    default_FlashingProgressBar = leProgressBarWidget_New();
+    default_FlashingProgressBar->fn->setPosition(default_FlashingProgressBar, 5, 30);
+    default_FlashingProgressBar->fn->setSize(default_FlashingProgressBar, 385, 25);
+    default_FlashingProgressBar->fn->setScheme(default_FlashingProgressBar, &ProgressScheme);
+    default_FlashingPanel->fn->addChild(default_FlashingPanel, (leWidget*)default_FlashingProgressBar);
 
-    FlashingLabel = leLabelWidget_New();
-    FlashingLabel->fn->setPosition(FlashingLabel, 0, 0);
-    FlashingLabel->fn->setSize(FlashingLabel, 310, 25);
-    FlashingLabel->fn->setScheme(FlashingLabel, &defaultScheme);
-    FlashingLabel->fn->setBackgroundType(FlashingLabel, LE_WIDGET_BACKGROUND_NONE);
-    FlashingLabel->fn->setString(FlashingLabel, (leString*)&tableString_Flashing);
-    FlashingPanel->fn->addChild(FlashingPanel, (leWidget*)FlashingLabel);
+    default_FlashingLabel = leLabelWidget_New();
+    default_FlashingLabel->fn->setPosition(default_FlashingLabel, 0, 0);
+    default_FlashingLabel->fn->setSize(default_FlashingLabel, 310, 25);
+    default_FlashingLabel->fn->setScheme(default_FlashingLabel, &defaultScheme);
+    default_FlashingLabel->fn->setBackgroundType(default_FlashingLabel, LE_WIDGET_BACKGROUND_NONE);
+    default_FlashingLabel->fn->setString(default_FlashingLabel, (leString*)&string_Flashing);
+    default_FlashingPanel->fn->addChild(default_FlashingPanel, (leWidget*)default_FlashingLabel);
 
-    RecordsTotalLabel = leLabelWidget_New();
-    RecordsTotalLabel->fn->setPosition(RecordsTotalLabel, 327, 0);
-    RecordsTotalLabel->fn->setSize(RecordsTotalLabel, 66, 25);
-    RecordsTotalLabel->fn->setVisible(RecordsTotalLabel, LE_FALSE);
-    RecordsTotalLabel->fn->setScheme(RecordsTotalLabel, &defaultScheme);
-    RecordsTotalLabel->fn->setBackgroundType(RecordsTotalLabel, LE_WIDGET_BACKGROUND_NONE);
-    RecordsTotalLabel->fn->setHAlignment(RecordsTotalLabel, LE_HALIGN_RIGHT);
-    RecordsTotalLabel->fn->setString(RecordsTotalLabel, (leString*)&tableString_stringNumberFiller);
-    FlashingPanel->fn->addChild(FlashingPanel, (leWidget*)RecordsTotalLabel);
+    default_RecordsTotalLabel = leLabelWidget_New();
+    default_RecordsTotalLabel->fn->setPosition(default_RecordsTotalLabel, 327, 0);
+    default_RecordsTotalLabel->fn->setSize(default_RecordsTotalLabel, 66, 25);
+    default_RecordsTotalLabel->fn->setVisible(default_RecordsTotalLabel, LE_FALSE);
+    default_RecordsTotalLabel->fn->setScheme(default_RecordsTotalLabel, &defaultScheme);
+    default_RecordsTotalLabel->fn->setBackgroundType(default_RecordsTotalLabel, LE_WIDGET_BACKGROUND_NONE);
+    default_RecordsTotalLabel->fn->setHAlignment(default_RecordsTotalLabel, LE_HALIGN_RIGHT);
+    default_RecordsTotalLabel->fn->setString(default_RecordsTotalLabel, (leString*)&string_stringNumberFiller);
+    default_FlashingPanel->fn->addChild(default_FlashingPanel, (leWidget*)default_RecordsTotalLabel);
 
-    OfLabel = leLabelWidget_New();
-    OfLabel->fn->setPosition(OfLabel, 301, 0);
-    OfLabel->fn->setSize(OfLabel, 23, 25);
-    OfLabel->fn->setVisible(OfLabel, LE_FALSE);
-    OfLabel->fn->setScheme(OfLabel, &defaultScheme);
-    OfLabel->fn->setBackgroundType(OfLabel, LE_WIDGET_BACKGROUND_NONE);
-    OfLabel->fn->setString(OfLabel, (leString*)&tableString_Of);
-    FlashingPanel->fn->addChild(FlashingPanel, (leWidget*)OfLabel);
+    default_OfLabel = leLabelWidget_New();
+    default_OfLabel->fn->setPosition(default_OfLabel, 301, 0);
+    default_OfLabel->fn->setSize(default_OfLabel, 23, 25);
+    default_OfLabel->fn->setVisible(default_OfLabel, LE_FALSE);
+    default_OfLabel->fn->setScheme(default_OfLabel, &defaultScheme);
+    default_OfLabel->fn->setBackgroundType(default_OfLabel, LE_WIDGET_BACKGROUND_NONE);
+    default_OfLabel->fn->setString(default_OfLabel, (leString*)&string_Of);
+    default_FlashingPanel->fn->addChild(default_FlashingPanel, (leWidget*)default_OfLabel);
 
-    CurrentRecordLabel = leLabelWidget_New();
-    CurrentRecordLabel->fn->setPosition(CurrentRecordLabel, 221, 0);
-    CurrentRecordLabel->fn->setSize(CurrentRecordLabel, 80, 25);
-    CurrentRecordLabel->fn->setVisible(CurrentRecordLabel, LE_FALSE);
-    CurrentRecordLabel->fn->setScheme(CurrentRecordLabel, &defaultScheme);
-    CurrentRecordLabel->fn->setBackgroundType(CurrentRecordLabel, LE_WIDGET_BACKGROUND_NONE);
-    CurrentRecordLabel->fn->setHAlignment(CurrentRecordLabel, LE_HALIGN_RIGHT);
-    CurrentRecordLabel->fn->setString(CurrentRecordLabel, (leString*)&tableString_stringNumberFiller);
-    FlashingPanel->fn->addChild(FlashingPanel, (leWidget*)CurrentRecordLabel);
+    default_CurrentRecordLabel = leLabelWidget_New();
+    default_CurrentRecordLabel->fn->setPosition(default_CurrentRecordLabel, 221, 0);
+    default_CurrentRecordLabel->fn->setSize(default_CurrentRecordLabel, 80, 25);
+    default_CurrentRecordLabel->fn->setVisible(default_CurrentRecordLabel, LE_FALSE);
+    default_CurrentRecordLabel->fn->setScheme(default_CurrentRecordLabel, &defaultScheme);
+    default_CurrentRecordLabel->fn->setBackgroundType(default_CurrentRecordLabel, LE_WIDGET_BACKGROUND_NONE);
+    default_CurrentRecordLabel->fn->setHAlignment(default_CurrentRecordLabel, LE_HALIGN_RIGHT);
+    default_CurrentRecordLabel->fn->setString(default_CurrentRecordLabel, (leString*)&string_stringNumberFiller);
+    default_FlashingPanel->fn->addChild(default_FlashingPanel, (leWidget*)default_CurrentRecordLabel);
 
     leAddRootWidget(root0, 0);
+    leSetLayerColorMode(0, LE_COLOR_MODE_RGB_565);
+
+    default_OnShow(); // raise event
 
     showing = LE_TRUE;
-
-    default_OnShow();
 
     return LE_SUCCESS;
 }
 
 void screenUpdate_default()
 {
-    default_OnUpdate();
 }
 
 void screenHide_default()
 {
+
     leRemoveRootWidget(root0, 0);
-
     leWidget_Delete(root0);
-
     root0 = NULL;
 
-    BackgroundPanel = NULL;
-    WatermarkImage = NULL;
-    LogoImage = NULL;
-    TitleLabel = NULL;
-    SelectMediumPanel = NULL;
-    SelectMediumLabel = NULL;
-    SDCardButton = NULL;
-    USBButton = NULL;
-    ErrorMsgPanel = NULL;
-    NoMediumLabel2 = NULL;
-    NoMediumLabel1 = NULL;
-    InfoPanel = NULL;
-    InfoLabel1 = NULL;
-    InfoLabel2 = NULL;
-    InfoOKButton = NULL;
-    FlashingPanel = NULL;
-    FlashingProgressBar = NULL;
-    FlashingLabel = NULL;
-    RecordsTotalLabel = NULL;
-    OfLabel = NULL;
-    CurrentRecordLabel = NULL;
+    default_BackgroundPanel = NULL;
+    default_WatermarkImage = NULL;
+    default_LogoImage = NULL;
+    default_TitleLabel = NULL;
+    default_SelectMediumPanel = NULL;
+    default_InfoPanel = NULL;
+    default_FlashingPanel = NULL;
+    default_SelectMediumLabel = NULL;
+    default_SDCardButton = NULL;
+    default_USBButton = NULL;
+    default_ErrorMsgPanel = NULL;
+    default_NoMediumLabel2 = NULL;
+    default_NoMediumLabel1 = NULL;
+    default_InfoLabel1 = NULL;
+    default_InfoLabel2 = NULL;
+    default_InfoOKButton = NULL;
+    default_FlashingProgressBar = NULL;
+    default_FlashingLabel = NULL;
+    default_RecordsTotalLabel = NULL;
+    default_OfLabel = NULL;
+    default_CurrentRecordLabel = NULL;
 
-    tableString_Title.fn->destructor(&tableString_Title);
-    tableString_SelectSource.fn->destructor(&tableString_SelectSource);
-    tableString_SDCard.fn->destructor(&tableString_SDCard);
-    tableString_USB.fn->destructor(&tableString_USB);
-    tableString_NoValidMedium2.fn->destructor(&tableString_NoValidMedium2);
-    tableString_NoValidMedium.fn->destructor(&tableString_NoValidMedium);
-    tableString_FileNotFound1.fn->destructor(&tableString_FileNotFound1);
-    tableString_FileNotFound2.fn->destructor(&tableString_FileNotFound2);
-    tableString_Ok.fn->destructor(&tableString_Ok);
-    tableString_Flashing.fn->destructor(&tableString_Flashing);
-    tableString_stringNumberFiller.fn->destructor(&tableString_stringNumberFiller);
-    tableString_Of.fn->destructor(&tableString_Of);
+    string_Title.fn->destructor(&string_Title);
+    string_SelectSource.fn->destructor(&string_SelectSource);
+    string_SDCard.fn->destructor(&string_SDCard);
+    string_USB.fn->destructor(&string_USB);
+    string_NoValidMedium2.fn->destructor(&string_NoValidMedium2);
+    string_NoValidMedium.fn->destructor(&string_NoValidMedium);
+    string_FileNotFound1.fn->destructor(&string_FileNotFound1);
+    string_FileNotFound2.fn->destructor(&string_FileNotFound2);
+    string_Ok.fn->destructor(&string_Ok);
+    string_Flashing.fn->destructor(&string_Flashing);
+    string_stringNumberFiller.fn->destructor(&string_stringNumberFiller);
+    string_Of.fn->destructor(&string_Of);
+
+
     showing = LE_FALSE;
 }
 
 void screenDestroy_default()
 {
+    if(initialized == LE_FALSE)
+        return;
 
+    initialized = LE_FALSE;
 }
 
 leWidget* screenGetRoot_default(uint32_t lyrIdx)

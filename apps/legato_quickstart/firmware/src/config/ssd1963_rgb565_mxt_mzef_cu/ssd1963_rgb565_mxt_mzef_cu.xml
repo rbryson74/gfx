@@ -889,124 +889,129 @@
             <Dynamic dnOrder="0" id="i2c2" value="true"/>
           </Values>
         </Boolean>
-        <Hex dnOrder="177" id="PMD4_REG_VALUE">
+        <String dnOrder="177" id="KEIL_STACK_HEAP_SIZE">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core" value="0x1200"/>
+          </Values>
+        </String>
+        <Hex dnOrder="178" id="PMD4_REG_VALUE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="4294967295"/>
           </Values>
         </Hex>
-        <Hex dnOrder="178" id="PMD5_REG_VALUE">
+        <Hex dnOrder="179" id="PMD5_REG_VALUE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="4278059007"/>
           </Values>
         </Hex>
-        <Hex dnOrder="179" id="PMD6_REG_VALUE">
+        <Hex dnOrder="180" id="PMD6_REG_VALUE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="4294832383"/>
           </Values>
         </Hex>
-        <Hex dnOrder="180" id="PMD7_REG_VALUE">
+        <Hex dnOrder="181" id="PMD7_REG_VALUE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="4294967279"/>
           </Values>
         </Hex>
-        <Hex dnOrder="181" id="SYS_PORT_B_ANSEL">
+        <Hex dnOrder="182" id="SYS_PORT_B_ANSEL">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="960"/>
           </Values>
         </Hex>
-        <Hex dnOrder="182" id="SYS_PORT_B_LAT">
+        <Hex dnOrder="183" id="SYS_PORT_B_LAT">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="960"/>
           </Values>
         </Hex>
-        <Hex dnOrder="183" id="SYS_PORT_B_ODC">
+        <Hex dnOrder="184" id="SYS_PORT_B_ODC">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="896"/>
           </Values>
         </Hex>
-        <Hex dnOrder="184" id="SYS_PORT_B_TRIS">
+        <Hex dnOrder="185" id="SYS_PORT_B_TRIS">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="960"/>
           </Values>
         </Hex>
-        <Hex dnOrder="185" id="SYS_PORT_C_ANSEL">
+        <Hex dnOrder="186" id="SYS_PORT_C_ANSEL">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="8"/>
           </Values>
         </Hex>
-        <Hex dnOrder="186" id="SYS_PORT_C_LAT">
+        <Hex dnOrder="187" id="SYS_PORT_C_LAT">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="8"/>
           </Values>
         </Hex>
-        <Hex dnOrder="187" id="SYS_PORT_C_TRIS">
+        <Hex dnOrder="188" id="SYS_PORT_C_TRIS">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="8"/>
           </Values>
         </Hex>
-        <Hex dnOrder="188" id="SYS_PORT_D_LAT">
+        <Hex dnOrder="189" id="SYS_PORT_D_LAT">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </Hex>
-        <Hex dnOrder="189" id="SYS_PORT_D_TRIS">
+        <Hex dnOrder="190" id="SYS_PORT_D_TRIS">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </Hex>
-        <Hex dnOrder="190" id="SYS_PORT_J_LAT">
+        <Hex dnOrder="191" id="SYS_PORT_J_LAT">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="136"/>
           </Values>
         </Hex>
-        <Hex dnOrder="191" id="SYS_PORT_J_ODC">
+        <Hex dnOrder="192" id="SYS_PORT_J_ODC">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="136"/>
           </Values>
         </Hex>
-        <Hex dnOrder="192" id="SYS_PORT_J_TRIS">
+        <Hex dnOrder="193" id="SYS_PORT_J_TRIS">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="16520"/>
           </Values>
         </Hex>
-        <Hex dnOrder="193" id="SYS_PORT_K_LAT">
+        <Hex dnOrder="194" id="SYS_PORT_K_LAT">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="142"/>
           </Values>
         </Hex>
-        <Hex dnOrder="194" id="SYS_PORT_K_ODC">
+        <Hex dnOrder="195" id="SYS_PORT_K_ODC">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="128"/>
           </Values>
         </Hex>
-        <Hex dnOrder="195" id="SYS_PORT_K_TRIS">
+        <Hex dnOrder="196" id="SYS_PORT_K_TRIS">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="142"/>
           </Values>
         </Hex>
-        <Boolean dnOrder="196" id="TIMER_1_INTERRUPT_ENABLE_UPDATE">
+        <Boolean dnOrder="197" id="TIMER_1_INTERRUPT_ENABLE_UPDATE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="true"/>
           </Values>
         </Boolean>
-        <Integer dnOrder="197" id="TMR1_CLOCK_FREQUENCY">
+        <Integer dnOrder="198" id="TMR1_CLOCK_FREQUENCY">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
         </Integer>
-        <Setting dnOrder="198" id="XC32_HEAP">
+        <Setting dnOrder="199" id="XC32_HEAP">
           <Attributes dnOrder="0">
             <String dnOrder="0" id="value">
               <Value dnOrder="0">1024</Value>
             </String>
           </Attributes>
         </Setting>
-        <Integer dnOrder="199" id="XC32_HEAP_SIZE">
+        <Integer dnOrder="200" id="XC32_HEAP_SIZE">
           <Values dnOrder="0">
             <User dnOrder="0" value="1024"/>
           </Values>
         </Integer>
-        <KeyValueSet dnOrder="200" id="clkSvcMode">
+        <KeyValueSet dnOrder="201" id="clkSvcMode">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core" value="0"/>
           </Values>
@@ -1015,23 +1020,36 @@
     </UniqueComponent>
     <UniqueComponent dnOrder="2" id="core_timer">
       <Symbols dnOrder="0">
-        <Float dnOrder="0" id="CORE_TIMER_COMPARE_MS">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="visible">
-              <Value dnOrder="0">false</Value>
-            </Boolean>
-          </Attributes>
-        </Float>
+        <Integer dnOrder="0" id="CORE_TIMER_FREQUENCY">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core_timer" value="100000000"/>
+          </Values>
+        </Integer>
         <Boolean dnOrder="1" id="CORE_TIMER_INTERRUPT_MODE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="core_timer" value="true"/>
           </Values>
         </Boolean>
         <Boolean dnOrder="2" id="CORE_TIMER_PERIODIC_INTERRUPT">
-          <Values dnOrder="0">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
             <Dynamic dnOrder="0" id="core_timer" value="false"/>
           </Values>
         </Boolean>
+        <Integer dnOrder="3" id="CORE_TIMER_PERIOD_US">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core_timer" value="1000"/>
+          </Values>
+        </Integer>
+        <String dnOrder="4" id="CORE_TIMER_PERIOD_VALUE">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="core_timer" value="0x186a0"/>
+          </Values>
+        </String>
       </Symbols>
       <Attachments dnOrder="1">
         <DirectCapability dnOrder="0" id="CORE_TIMER_TMR">
@@ -1116,52 +1134,59 @@
             <Dynamic dnOrder="0" id="ebi" value="19"/>
           </Values>
         </Hex>
-        <KeyValueSet dnOrder="5" id="EBIMSK0_MEMSIZE">
+        <Hex dnOrder="5" id="EBICS0_CSADDR">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+        </Hex>
+        <KeyValueSet dnOrder="6" id="EBIMSK0_MEMSIZE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_intf_parallel_ebi" value="8"/>
           </Values>
         </KeyValueSet>
-        <Hex dnOrder="6" id="EBIMSK0_VALUE">
+        <Hex dnOrder="7" id="EBIMSK0_VALUE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="ebi" value="40"/>
           </Values>
         </Hex>
-        <KeyValueSet dnOrder="7" id="EBISMCON_SMDWIDTH0">
+        <KeyValueSet dnOrder="8" id="EBISMCON_SMDWIDTH0">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_intf_parallel_ebi" value="0"/>
           </Values>
         </KeyValueSet>
-        <Hex dnOrder="8" id="EBISMCON_VALUE">
+        <Hex dnOrder="9" id="EBISMCON_VALUE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="ebi" value="1"/>
           </Values>
         </Hex>
-        <Integer dnOrder="9" id="EBISMT0_TAS">
+        <Integer dnOrder="10" id="EBISMT0_TAS">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_intf_parallel_ebi" value="3"/>
           </Values>
         </Integer>
-        <Integer dnOrder="10" id="EBISMT0_TBTA">
+        <Integer dnOrder="11" id="EBISMT0_TBTA">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_intf_parallel_ebi" value="0"/>
           </Values>
         </Integer>
-        <Integer dnOrder="11" id="EBISMT0_TRC">
+        <Integer dnOrder="12" id="EBISMT0_TRC">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_intf_parallel_ebi" value="0"/>
           </Values>
         </Integer>
-        <Integer dnOrder="12" id="EBISMT0_TWP">
+        <Integer dnOrder="13" id="EBISMT0_TWP">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_intf_parallel_ebi" value="2"/>
           </Values>
         </Integer>
-        <Integer dnOrder="13" id="EBISMT0_TWR">
+        <Integer dnOrder="14" id="EBISMT0_TWR">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_intf_parallel_ebi" value="3"/>
           </Values>
         </Integer>
-        <Hex dnOrder="14" id="EBISMT0_VALUE">
+        <Hex dnOrder="15" id="EBISMT0_VALUE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="ebi" value="1575872"/>
           </Values>
@@ -1185,7 +1210,7 @@
         <DirectCapability dnOrder="0" id="gfx_display">
           <Attributes dnOrder="0">
             <String dnOrder="0" id="targetComponentID">
-              <Value dnOrder="0">le_gfx_driver_ssd1963</Value>
+              <Value dnOrder="0">le_gfx_driver_external</Value>
             </String>
             <String dnOrder="1" id="targetAttachmentID">
               <Value dnOrder="0">Graphics&amp;#160;Display</Value>
@@ -1208,72 +1233,37 @@
       <Symbols dnOrder="0">
         <Integer dnOrder="0" id="DisplayHeight">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="le_gfx_driver_ssd1963" value="272"/>
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="272"/>
           </Values>
         </Integer>
-        <Integer dnOrder="1" id="DisplayHorzBackPorch">
+        <String dnOrder="1" id="DisplayName">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="le_gfx_driver_ssd1963" value="2"/>
-          </Values>
-        </Integer>
-        <Integer dnOrder="2" id="DisplayHorzFrontPorch">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="le_gfx_driver_ssd1963" value="2"/>
-          </Values>
-        </Integer>
-        <Integer dnOrder="3" id="DisplayHorzPulseWidth">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="le_gfx_driver_ssd1963" value="41"/>
-          </Values>
-        </Integer>
-        <String dnOrder="4" id="DisplayName">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="le_gfx_driver_ssd1963" value="PDA TM4301B"/>
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="PDA TM4301B"/>
           </Values>
         </String>
-        <Integer dnOrder="5" id="DisplayVertBackPorch">
+        <Integer dnOrder="2" id="DisplayWidth">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="le_gfx_driver_ssd1963" value="2"/>
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="480"/>
           </Values>
         </Integer>
-        <Integer dnOrder="6" id="DisplayVertFrontPorch">
+        <String dnOrder="3" id="DriverName">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="le_gfx_driver_ssd1963" value="2"/>
-          </Values>
-        </Integer>
-        <Integer dnOrder="7" id="DisplayVertPulseWidth">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="le_gfx_driver_ssd1963" value="10"/>
-          </Values>
-        </Integer>
-        <Integer dnOrder="8" id="DisplayWidth">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="le_gfx_driver_ssd1963" value="480"/>
-          </Values>
-        </Integer>
-        <String dnOrder="9" id="DriverName">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="le_gfx_driver_ssd1963" value="LE SSD1963"/>
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="LE External Controller"/>
           </Values>
         </String>
-        <Integer dnOrder="10" id="PixelClock">
+        <Integer dnOrder="4" id="RefreshRate">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="le_gfx_driver_ssd1963" value="15000000"/>
+            <Dynamic dnOrder="0" id="gfx_hal_le" value="0"/>
           </Values>
         </Integer>
-        <Integer dnOrder="11" id="RefreshRate">
+        <String dnOrder="5" id="gfx_display">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_hal_le" value="99"/>
-          </Values>
-        </Integer>
-        <String dnOrder="12" id="gfx_display">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="le_gfx_driver_ssd1963" value="gfx_disp_pdatm4301b_480x272"/>
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="gfx_disp_pdatm4301b_480x272"/>
           </Values>
         </String>
-        <String dnOrder="13" id="gfx_driver">
+        <String dnOrder="6" id="gfx_driver">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="le_gfx_driver_ssd1963" value="le_gfx_driver_ssd1963"/>
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="le_gfx_driver_external"/>
           </Values>
         </String>
       </Symbols>
@@ -1282,25 +1272,18 @@
       <Symbols dnOrder="0">
         <String dnOrder="0" id="driverInitName">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_legato" value="ssd1963DisplayDriver"/>
+            <Dynamic dnOrder="0" id="gfx_legato" value="ExternalController"/>
           </Values>
         </String>
-        <Menu dnOrder="1" id="rtosMenu">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="visible">
-              <Value dnOrder="0">false</Value>
-            </Boolean>
-          </Attributes>
-        </Menu>
       </Symbols>
       <Attachments dnOrder="1">
         <DirectDependency dnOrder="0" id="gfx_driver">
           <Attributes dnOrder="0">
             <String dnOrder="0" id="targetComponentID">
-              <Value dnOrder="0">le_gfx_driver_ssd1963</Value>
+              <Value dnOrder="0">le_gfx_driver_external</Value>
             </String>
             <String dnOrder="1" id="targetAttachmentID">
-              <Value dnOrder="0">gfx_driver_ssd1963</Value>
+              <Value dnOrder="0">gfx_driver_external</Value>
             </String>
           </Attributes>
         </DirectDependency>
@@ -1313,38 +1296,22 @@
             <Dynamic dnOrder="0" id="gfx_maxtouch_controller" value="Asynchronous"/>
           </Values>
         </Combo>
-        <Integer dnOrder="1" id="Height">
+        <Integer dnOrder="1" id="DRV_MAXTOUCH_I2C_INDEX">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="readOnly">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="gfx_maxtouch_controller" value="0"/>
+          </Values>
+        </Integer>
+        <Integer dnOrder="2" id="Height">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="gfx_maxtouch_controller" value="272"/>
           </Values>
         </Integer>
-        <Integer dnOrder="2" id="I2CIndex">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="gfx_maxtouch_controller" value="0"/>
-          </Values>
-        </Integer>
-        <Boolean dnOrder="3" id="RTOSEnabled">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="enabled">
-              <Value dnOrder="0">false</Value>
-            </Boolean>
-          </Attributes>
-        </Boolean>
-        <Menu dnOrder="4" id="RTOSMenu">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="visible">
-              <Value dnOrder="0">false</Value>
-            </Boolean>
-          </Attributes>
-        </Menu>
-        <File dnOrder="5" id="TOUCH_DRV_RTOS_TASK_C">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="enabled">
-              <Value dnOrder="0">false</Value>
-            </Boolean>
-          </Attributes>
-        </File>
-        <Integer dnOrder="6" id="Width">
+        <Integer dnOrder="3" id="Width">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="gfx_maxtouch_controller" value="480"/>
           </Values>
@@ -1389,55 +1356,160 @@
             </Boolean>
           </Attributes>
         </File>
-        <File dnOrder="2" id="DRIVER_COMMON">
+        <File dnOrder="2" id="CONFIGURATION_H">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="enabled">
               <Value dnOrder="0">true</Value>
             </Boolean>
           </Attributes>
         </File>
-        <File dnOrder="3" id="DRIVER_ROOT">
+        <File dnOrder="3" id="DRIVER_COMMON">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="enabled">
               <Value dnOrder="0">true</Value>
             </Boolean>
           </Attributes>
         </File>
-        <Boolean dnOrder="4" id="ENABLE_APP_FILE">
+        <File dnOrder="4" id="DRIVER_ROOT">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="enabled">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+        </File>
+        <Boolean dnOrder="5" id="ENABLE_APP_FILE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="HarmonyCore" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="5" id="ENABLE_DRV_COMMON">
+        <Boolean dnOrder="6" id="ENABLE_DRV_COMMON">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="drv_i2c" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="6" id="ENABLE_OSAL">
+        <Boolean dnOrder="7" id="ENABLE_OSAL">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="HarmonyCore" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="7" id="ENABLE_SYS_CACHE">
+        <Boolean dnOrder="8" id="ENABLE_SYS_CACHE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="HarmonyCore" value="false"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="8" id="ENABLE_SYS_COMMON">
+        <Boolean dnOrder="9" id="ENABLE_SYS_COMMON">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="drv_i2c" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="9" id="ENABLE_SYS_INT">
+        <Boolean dnOrder="10" id="ENABLE_SYS_INT">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="HarmonyCore" value="true"/>
           </Values>
         </Boolean>
-        <Combo dnOrder="10" id="SELECT_RTOS">
+        <Menu dnOrder="11" id="GEN_APP_TASK_MENU">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+        </Menu>
+        <File dnOrder="12" id="INT_DEF">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="enabled">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+        </File>
+        <File dnOrder="13" id="INT_HEADER">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="enabled">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+        </File>
+        <File dnOrder="14" id="INT_MAPPING">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="enabled">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+        </File>
+        <File dnOrder="15" id="INT_SOURCE">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="enabled">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+        </File>
+        <File dnOrder="16" id="OSAL_DEFINITIONS_H">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="enabled">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+        </File>
+        <File dnOrder="17" id="OSAL_H">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="enabled">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+        </File>
+        <File dnOrder="18" id="OSAL_IMPL_BASIC_H">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="enabled">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+        </File>
+        <File dnOrder="19" id="OSAL_SYSDEF_H">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="enabled">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+        </File>
+        <Combo dnOrder="20" id="SELECT_RTOS">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="HarmonyCore" value="BareMetal"/>
           </Values>
         </Combo>
+        <File dnOrder="21" id="SYSTEM_COMMON">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="enabled">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+        </File>
+        <File dnOrder="22" id="SYSTEM_MODULE">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="enabled">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+        </File>
+        <File dnOrder="23" id="SYSTEM_ROOT">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="enabled">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+        </File>
+        <File dnOrder="24" id="TASKS_C">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="enabled">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+        </File>
+        <File dnOrder="25" id="USER_H">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="enabled">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+        </File>
       </Symbols>
     </UniqueComponent>
     <UniqueComponent dnOrder="11" id="i2c2">
@@ -1471,85 +1543,682 @@
         </DirectCapability>
       </Attachments>
     </UniqueComponent>
-    <UniqueComponent dnOrder="12" id="le_gfx_driver_ssd1963">
+    <UniqueComponent dnOrder="12" id="le_gfx_driver_external">
       <Symbols dnOrder="0">
-        <Integer dnOrder="0" id="DisplayHeight">
+        <Combo dnOrder="0" id="BaseDriverType">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="le_gfx_driver_ssd1963" value="272"/>
+            <User dnOrder="0" value="SSD1963"/>
           </Values>
-        </Integer>
-        <Integer dnOrder="1" id="DisplayHorzBackPorch">
+        </Combo>
+        <Hex dnOrder="1" id="Command0">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="le_gfx_driver_ssd1963" value="2"/>
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="226"/>
           </Values>
-        </Integer>
-        <Integer dnOrder="2" id="DisplayHorzFrontPorch">
+        </Hex>
+        <String dnOrder="2" id="Command0Comment">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="le_gfx_driver_ssd1963" value="2"/>
-          </Values>
-        </Integer>
-        <Integer dnOrder="3" id="DisplayHorzPulseWidth">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="le_gfx_driver_ssd1963" value="41"/>
-          </Values>
-        </Integer>
-        <String dnOrder="4" id="DisplayInterface">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="le_gfx_driver_ssd1963" value="le_gfx_intf_parallel_ebi"/>
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="Set PLL Config"/>
           </Values>
         </String>
-        <String dnOrder="5" id="DisplayInterfaceType">
+        <Integer dnOrder="3" id="Command0Delay">
           <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="le_gfx_driver_ssd1963" value="Parallel 16-bit"/>
-          </Values>
-        </String>
-        <Menu dnOrder="6" id="DisplaySettingsMenu">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="visible">
-              <Value dnOrder="0">false</Value>
-            </Boolean>
-          </Attributes>
-        </Menu>
-        <Integer dnOrder="7" id="DisplayVertBackPorch">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="le_gfx_driver_ssd1963" value="2"/>
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="10"/>
           </Values>
         </Integer>
-        <Integer dnOrder="8" id="DisplayVertFrontPorch">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="le_gfx_driver_ssd1963" value="2"/>
-          </Values>
-        </Integer>
-        <Integer dnOrder="9" id="DisplayVertPulseWidth">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="le_gfx_driver_ssd1963" value="10"/>
-          </Values>
-        </Integer>
-        <Integer dnOrder="10" id="DisplayWidth">
-          <Values dnOrder="0">
-            <Dynamic dnOrder="0" id="le_gfx_driver_ssd1963" value="480"/>
-          </Values>
-        </Integer>
-        <Comment dnOrder="11" id="HALComment">
+        <Hex dnOrder="4" id="Command0Parm0">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="visible">
               <Value dnOrder="0">true</Value>
             </Boolean>
           </Attributes>
-        </Comment>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="29"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="5" id="Command0Parm1">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="2"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="6" id="Command0Parm2">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="84"/>
+          </Values>
+        </Hex>
+        <Integer dnOrder="7" id="Command0ParmsCount">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="3"/>
+          </Values>
+        </Integer>
+        <Hex dnOrder="8" id="Command1">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="224"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="9" id="Command10">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="190"/>
+          </Values>
+        </Hex>
+        <String dnOrder="10" id="Command10Comment">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="Turn on backlight"/>
+          </Values>
+        </String>
+        <Hex dnOrder="11" id="Command10Parm0">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="6"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="12" id="Command10Parm1">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="255"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="13" id="Command10Parm2">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="1"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="14" id="Command10Parm3">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="0"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="15" id="Command10Parm4">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="0"/>
+          </Values>
+        </Hex>
+        <Integer dnOrder="16" id="Command10ParmsCount">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="5"/>
+          </Values>
+        </Integer>
+        <Hex dnOrder="17" id="Command11">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="41"/>
+          </Values>
+        </Hex>
+        <String dnOrder="18" id="Command11Comment">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="Turn on the display"/>
+          </Values>
+        </String>
+        <Integer dnOrder="19" id="Command11ParmsCount">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="0"/>
+          </Values>
+        </Integer>
+        <String dnOrder="20" id="Command1Comment">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="Enable PLL"/>
+          </Values>
+        </String>
+        <Integer dnOrder="21" id="Command1Delay">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="10"/>
+          </Values>
+        </Integer>
+        <Hex dnOrder="22" id="Command1Parm0">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="1"/>
+          </Values>
+        </Hex>
+        <Integer dnOrder="23" id="Command1ParmsCount">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="1"/>
+          </Values>
+        </Integer>
+        <Hex dnOrder="24" id="Command2">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="224"/>
+          </Values>
+        </Hex>
+        <String dnOrder="25" id="Command2Comment">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="Use PLL as System Clock"/>
+          </Values>
+        </String>
+        <Integer dnOrder="26" id="Command2Delay">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="10"/>
+          </Values>
+        </Integer>
+        <Hex dnOrder="27" id="Command2Parm0">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="3"/>
+          </Values>
+        </Hex>
+        <Integer dnOrder="28" id="Command2ParmsCount">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="1"/>
+          </Values>
+        </Integer>
+        <Hex dnOrder="29" id="Command3">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="1"/>
+          </Values>
+        </Hex>
+        <String dnOrder="30" id="Command3Comment">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="Software Reset"/>
+          </Values>
+        </String>
+        <Integer dnOrder="31" id="Command3Delay">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="10"/>
+          </Values>
+        </Integer>
+        <Integer dnOrder="32" id="Command3ParmsCount">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="0"/>
+          </Values>
+        </Integer>
+        <Hex dnOrder="33" id="Command4">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="230"/>
+          </Values>
+        </Hex>
+        <String dnOrder="34" id="Command4Comment">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="Set Pixel Clock to 15MHz"/>
+          </Values>
+        </String>
+        <Hex dnOrder="35" id="Command4Parm0">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="2"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="36" id="Command4Parm1">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="102"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="37" id="Command4Parm2">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="100"/>
+          </Values>
+        </Hex>
+        <Integer dnOrder="38" id="Command4ParmsCount">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="3"/>
+          </Values>
+        </Integer>
+        <Hex dnOrder="39" id="Command5">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="176"/>
+          </Values>
+        </Hex>
+        <String dnOrder="40" id="Command5Comment">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="Set Panel Mode, 480x272, RGB"/>
+          </Values>
+        </String>
+        <Hex dnOrder="41" id="Command5Parm0">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="32"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="42" id="Command5Parm1">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="0"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="43" id="Command5Parm2">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="1"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="44" id="Command5Parm3">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="223"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="45" id="Command5Parm4">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="1"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="46" id="Command5Parm5">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="15"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="47" id="Command5Parm6">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="0"/>
+          </Values>
+        </Hex>
+        <Integer dnOrder="48" id="Command5ParmsCount">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="7"/>
+          </Values>
+        </Integer>
+        <Hex dnOrder="49" id="Command6">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="180"/>
+          </Values>
+        </Hex>
+        <String dnOrder="50" id="Command6Comment">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="Set Horizontal Period"/>
+          </Values>
+        </String>
+        <Hex dnOrder="51" id="Command6Parm0">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="2"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="52" id="Command6Parm1">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="12"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="53" id="Command6Parm2">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="0"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="54" id="Command6Parm3">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="42"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="55" id="Command6Parm4">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="40"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="56" id="Command6Parm5">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="0"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="57" id="Command6Parm6">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="0"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="58" id="Command6Parm7">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="0"/>
+          </Values>
+        </Hex>
+        <Integer dnOrder="59" id="Command6ParmsCount">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="8"/>
+          </Values>
+        </Integer>
+        <Hex dnOrder="60" id="Command7">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="182"/>
+          </Values>
+        </Hex>
+        <String dnOrder="61" id="Command7Comment">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="Set Vertical Period"/>
+          </Values>
+        </String>
+        <Hex dnOrder="62" id="Command7Parm0">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="1"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="63" id="Command7Parm1">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="29"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="64" id="Command7Parm2">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="0"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="65" id="Command7Parm3">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="11"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="66" id="Command7Parm4">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="9"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="67" id="Command7Parm5">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="0"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="68" id="Command7Parm6">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="0"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="69" id="Command7Parm7">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="0"/>
+          </Values>
+        </Hex>
+        <Integer dnOrder="70" id="Command7ParmsCount">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="8"/>
+          </Values>
+        </Integer>
+        <Hex dnOrder="71" id="Command8">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="58"/>
+          </Values>
+        </Hex>
+        <String dnOrder="72" id="Command8Comment">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="Set Pixel Format RGB565 (16bpp)"/>
+          </Values>
+        </String>
+        <Hex dnOrder="73" id="Command8Parm0">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="85"/>
+          </Values>
+        </Hex>
+        <Integer dnOrder="74" id="Command8ParmsCount">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="1"/>
+          </Values>
+        </Integer>
+        <Hex dnOrder="75" id="Command9">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="240"/>
+          </Values>
+        </Hex>
+        <String dnOrder="76" id="Command9Comment">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="Set Data Interface"/>
+          </Values>
+        </String>
+        <Hex dnOrder="77" id="Command9Parm0">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="3"/>
+          </Values>
+        </Hex>
+        <Integer dnOrder="78" id="Command9ParmsCount">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="1"/>
+          </Values>
+        </Integer>
+        <String dnOrder="79" id="ControllerName">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="SSD1963"/>
+            <User dnOrder="1" value="ssd1963"/>
+          </Values>
+        </String>
+        <Integer dnOrder="80" id="DisplayHeight">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="272"/>
+          </Values>
+        </Integer>
+        <Integer dnOrder="81" id="DisplayWidth">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="480"/>
+          </Values>
+        </Integer>
+        <Integer dnOrder="82" id="InitCommandsCount">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="12"/>
+          </Values>
+        </Integer>
+        <Hex dnOrder="83" id="MemoryWriteCommand">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="44"/>
+          </Values>
+        </Hex>
+        <Integer dnOrder="84" id="PostResetDelay">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="30"/>
+          </Values>
+        </Integer>
+        <Hex dnOrder="85" id="SetXAddressCommand">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="42"/>
+          </Values>
+        </Hex>
+        <Hex dnOrder="86" id="SetYAddressCommand">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="43"/>
+          </Values>
+        </Hex>
       </Symbols>
       <Attachments dnOrder="1">
-        <DirectDependency dnOrder="0" id="Display Interface">
-          <Attributes dnOrder="0">
-            <String dnOrder="0" id="targetComponentID">
-              <Value dnOrder="0">le_gfx_intf_parallel_ebi</Value>
-            </String>
-            <String dnOrder="1" id="targetAttachmentID">
-              <Value dnOrder="0">le_gfx_intf_parallel_ebi</Value>
-            </String>
-          </Attributes>
-        </DirectDependency>
-        <DirectDependency dnOrder="1" id="Graphics Display">
+        <DirectDependency dnOrder="0" id="Graphics Display">
           <Attributes dnOrder="0">
             <String dnOrder="0" id="targetComponentID">
               <Value dnOrder="0">gfx_disp_pdatm4301b_480x272</Value>
@@ -1559,7 +2228,17 @@
             </String>
           </Attributes>
         </DirectDependency>
-        <DirectCapability dnOrder="2" id="gfx_driver_ssd1963">
+        <DirectDependency dnOrder="1" id="Parallel Display Interface">
+          <Attributes dnOrder="0">
+            <String dnOrder="0" id="targetComponentID">
+              <Value dnOrder="0">le_gfx_intf_parallel_ebi</Value>
+            </String>
+            <String dnOrder="1" id="targetAttachmentID">
+              <Value dnOrder="0">le_gfx_intf_parallel_ebi</Value>
+            </String>
+          </Attributes>
+        </DirectDependency>
+        <DirectCapability dnOrder="2" id="gfx_driver_external">
           <Attributes dnOrder="0">
             <String dnOrder="0" id="targetComponentID">
               <Value dnOrder="0">gfx_legato</Value>
@@ -1593,10 +2272,10 @@
         <DirectCapability dnOrder="1" id="le_gfx_intf_parallel_ebi">
           <Attributes dnOrder="0">
             <String dnOrder="0" id="targetComponentID">
-              <Value dnOrder="0">le_gfx_driver_ssd1963</Value>
+              <Value dnOrder="0">le_gfx_driver_external</Value>
             </String>
             <String dnOrder="1" id="targetAttachmentID">
-              <Value dnOrder="0">Display&amp;#160;Interface</Value>
+              <Value dnOrder="0">Parallel&amp;#160;Display&amp;#160;Interface</Value>
             </String>
           </Attributes>
         </DirectCapability>
@@ -1628,15 +2307,7 @@
     <UniqueComponent dnOrder="16" id="sys_time">
       <Symbols dnOrder="0">
         <Combo dnOrder="0" id="SYS_TIME_OPERATING_MODE">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="readOnly">
-              <Value dnOrder="0">true</Value>
-            </Boolean>
-            <Boolean dnOrder="1" id="visible">
-              <Value dnOrder="0">true</Value>
-            </Boolean>
-          </Attributes>
-          <Values dnOrder="1">
+          <Values dnOrder="0">
             <Dynamic dnOrder="0" id="sys_time" value="TICKLESS"/>
           </Values>
         </Combo>
@@ -1666,8 +2337,7 @@
     </UniqueComponent>
   </Components>
   <UserData>
-    <GraphSettings canvasHeight="400" canvasWidth="400" dnOrder="0"/>
-    <ComponentGraph dnOrder="1" id="__ROOTVIEW">
+    <ComponentGraph dnOrder="0" id="__ROOTVIEW">
       <ElementPositions dnOrder="0">
         <ElementPosition dnOrder="0" id="BSP_PIC32MZ_EF_Curiosity_2.0" x="340" y="20"/>
         <ElementPosition dnOrder="1" id="HarmonyCore" x="30" y="60"/>
@@ -1681,12 +2351,13 @@
         <ElementPosition dnOrder="9" id="gfx_legato" x="665" y="280"/>
         <ElementPosition dnOrder="10" id="gfx_maxtouch_controller" x="452" y="442"/>
         <ElementPosition dnOrder="11" id="i2c2" x="65" y="457"/>
-        <ElementPosition dnOrder="12" id="le_gfx_driver_ssd1963" x="437" y="266"/>
+        <ElementPosition dnOrder="12" id="le_gfx_driver_external" x="439" y="267"/>
         <ElementPosition dnOrder="13" id="le_gfx_intf_parallel_ebi" x="198" y="258"/>
         <ElementPosition dnOrder="14" id="legato_gfx_pda_tm4301b" x="573" y="21"/>
         <ElementPosition dnOrder="15" id="sys_input" x="210" y="60"/>
         <ElementPosition dnOrder="16" id="sys_time" x="512" y="145"/>
       </ElementPositions>
     </ComponentGraph>
+    <GraphSettings canvasHeight="400" canvasWidth="400" dnOrder="1"/>
   </UserData>
 </Configuration>

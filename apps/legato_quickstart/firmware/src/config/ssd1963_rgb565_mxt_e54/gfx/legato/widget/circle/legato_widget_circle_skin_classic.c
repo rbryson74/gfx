@@ -134,7 +134,7 @@ static void drawCircle(leCircleWidget* cir)
                               cir->y,
                               cir->radius,
                               cir->thickness,
-                              cir->widget.scheme->foreground,
+                              leScheme_GetRenderColor(cir->widget.scheme, LE_SCHM_FOREGROUND),
                               paintState.alpha);
     }
     else
@@ -144,8 +144,8 @@ static void drawCircle(leCircleWidget* cir)
                               cir->y,
                               cir->radius,
                               cir->thickness,
-                              cir->widget.scheme->foreground,
-                              cir->widget.scheme->background,
+                              leScheme_GetRenderColor(cir->widget.scheme, LE_SCHM_FOREGROUND),
+                              leScheme_GetRenderColor(cir->widget.scheme, LE_SCHM_BACKGROUND),
                               paintState.alpha);
     }
 
@@ -170,13 +170,6 @@ static void drawBorder(leCircleWidget* cir)
 
 void _leCircleWidget_Paint(leCircleWidget* cir)
 {
-    if(cir->widget.scheme == NULL)
-    {
-        cir->widget.drawState = DONE;
-        
-        return;
-    }
-    
     if(cir->widget.drawState == NOT_STARTED)
     {
         nextState(cir);

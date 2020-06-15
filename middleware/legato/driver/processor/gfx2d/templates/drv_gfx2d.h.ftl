@@ -1,4 +1,3 @@
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
@@ -21,7 +20,6 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 /*******************************************************************************
   GFX GFX2D Driver Interface Declarations for Static Single Instance Driver
@@ -124,8 +122,7 @@ void DRV_GFX2D_Initialize();
 */
 gfxResult DRV_GFX2D_Fill(gfxPixelBuffer * dest,
                            const gfxRect* clipRect,
-                           const gfxColor color,
-                        const gfxBlend blend);
+                           const gfxColor color);
 
 
 // *****************************************************************************
@@ -163,10 +160,9 @@ gfxResult DRV_GFX2D_Fill(gfxPixelBuffer * dest,
     This function will wait until the hardware is complete, i.e. it is synchronous.
   */
 gfxResult DRV_GFX2D_Blit(const gfxPixelBuffer* source,
-                           const gfxRect* srcRect,
-                           const gfxPixelBuffer* dest,
-                        const gfxRect* destRect,
-                        const gfxBlend blend);
+                        const gfxRect* srcRect,
+                        const gfxPixelBuffer* dest,
+                        const gfxRect* destRect);
 
 
 // *****************************************************************************
@@ -257,20 +253,73 @@ void  DRV_GFX2D_Rop(
    GFX2D_BUFFER *pmask, 
    GFX2D_ROP rop);
 
+/**
+ * @brief Set blend type.
+ * @details Sets the blend type specified by <span class="param">blend</span>.
+ * @code
+ * gfxBlend blend;
+ * gfxResult res = gfxGPUInterface.DRV_GFX2D_SetBlend(blend);
+ * @endcode
+ * @return GFX_SUCCESS if completed, otherwise GFX_FAILURE.
+ */
+gfxResult DRV_GFX2D_SetBlend(const gfxBlend blend);
+
+
+/**
+ * @brief Set a index palette.
+ * @details Sets a index palette <span class="param">palette</span> at <span class="param">first_index</span>
+ * with length <span class="param">index_count</span> usisng
+ * color conversion flag <span class="param">color_convert</span>.
+ * @code
+ * gfxResult res = gfxGPUInterface.DRV_GFX2D_SetPalette(index_count, color_table, color_convert);
+ * @endcode
+ * @param index_count is the length of table
+ * @param color_table is the color table
+ * @param color_convert is a swizzle conversion flag
+ * @return GFX_SUCCESS if completed, otherwise GFX_FAILURE.
+ */
+gfxResult DRV_GFX2D_SetPalette(
+                        uint32_t index_count,
+                        gfxBuffer color_table,
+                        gfxBool color_convert);
+
+/**
+ * @brief Set transparency type and color.
+ * @details Sets the transparency type to <span class="param">transparency</span>
+ * for <span class="param">color</span> using the specified raster operations
+ * <span class="param">foreground_rop</span> and
+ * <span class="param">background_rop</span>.
+ * @code
+ * gfxResult res = gfxGPUInterface.DRV_GFX2D_SetTransparency(transparency, color, dest, foreground_rop, background_rop);
+ * @endcode
+ * @param transparency is the transparecy mode.
+ * @param color is the color to mask
+ * @param foreground_rop is the source raster operation
+ * @param background_rop is background raster operation
+ * @return GFX_SUCCESS if completed, otherwise GFX_FAILURE.
+ */
+gfxResult DRV_GFX2D_SetTransparency(
+                        gfxTransparency transparency,
+                        gfxColor color,
+                        uint32_t foreground_rop,
+                        uint32_t background_rop);
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Functions
 // *****************************************************************************
 // *****************************************************************************
 
-gfxPixelBuffer * DRV_GFX2D_GetFrameBuffer(void);
 
-static const gfxGraphicsProcessor _gfx2dGraphicsProcessor =
+static const gfxGraphicsProcessor gfxGPUInterface =
 {
     NULL, // Line Draw not supported
     DRV_GFX2D_Fill,
     DRV_GFX2D_Blit,
-    NULL // Blit Stretch not supported
+    DRV_GFX2D_SetBlend,
+    NULL,
+    DRV_GFX2D_SetPalette,
+    DRV_GFX2D_SetTransparency
 };
 
 #ifdef __cplusplus

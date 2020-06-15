@@ -55,6 +55,7 @@
 
 
 
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: System "Tasks" Routine
@@ -74,7 +75,7 @@ void SYS_Tasks ( void )
     
 
     /* Maintain Device Drivers */
-        DRV_ILI9488_Update();
+        DRV_ili9488_Update();
 
 
     DRV_MAXTOUCH_Tasks(sysObj.drvMAXTOUCH);
@@ -93,6 +94,7 @@ void SYS_Tasks ( void )
     /* Maintain the application's state machine. */
         /* Call Application task APP. */
     APP_Tasks();
+
 
 
 

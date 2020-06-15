@@ -3,7 +3,10 @@
 
 #include "gfx/legato/legato.h"
 
-extern leScheme NewScheme;
+extern const leScheme RedScheme;
+extern const leScheme GreenScheme;
+extern const leScheme WhiteScheme;
+extern const leScheme BlueScheme;
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility

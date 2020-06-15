@@ -99,7 +99,7 @@ typedef enum leWidgetType
 #if LE_BUTTON_WIDGET_ENABLED == 1
     LE_WIDGET_BUTTON,
 #endif
-#if LE_BUTTON_WIDGET_ENABLED == 1
+#if LE_CHECKBOX_WIDGET_ENABLED == 1
     LE_WIDGET_CHECKBOX,
 #endif
 #if LE_CIRCLE_WIDGET_ENABLED == 1
@@ -144,7 +144,7 @@ typedef enum leWidgetType
 #if LE_LINEGRAPH_WIDGET_ENABLED == 1
     LE_WIDGET_LINE_GRAPH,
 #endif
-#if LE_LIST_WIDGET_ENABLED && LE_SCROLLBAR_WIDGET_ENABLED == 1
+#if LE_LIST_WIDGET_ENABLED == 1 && LE_SCROLLBAR_WIDGET_ENABLED == 1
     LE_WIDGET_LIST,
 #endif
 #if LE_LISTWHEEL_WIDGET_ENABLED == 1
@@ -335,6 +335,8 @@ typedef struct leWidget_ResizeEvent
     uint32_t newHeight;
 } leWidget_ResizeEvent;
 
+typedef struct leWidget leWidget;
+
 // *****************************************************************************
 /* Structure:
     leWidgetEvent
@@ -469,7 +471,8 @@ typedef struct
 /**
   * @cond INTERNAL
   *
-  */typedef struct leWidget leWidget;
+  */
+typedef struct leWidget leWidget;
 
 #define LE_WIDGET_VTABLE(THIS_TYPE) \
     leWidgetType       (*getType)(const THIS_TYPE* _this); \
@@ -500,16 +503,18 @@ typedef struct
     leRect             (*rectToParent)(const THIS_TYPE* _this); \
     leRect             (*rectToScreen)(const THIS_TYPE* _this); \
     leResult           (*addChild)(THIS_TYPE* _this, leWidget* chld); \
+    leResult           (*insertChild)(THIS_TYPE* _this, leWidget* chld, uint32_t idx); \
     leResult           (*removeChild)(THIS_TYPE* _this, leWidget* chld); \
+    leResult           (*removeChildAt)(THIS_TYPE* _this, uint32_t idx); \
     void               (*removeAllChildren)(THIS_TYPE* _this); \
     leWidget*          (*getRootWidget)(const THIS_TYPE* _this); \
     leResult           (*setParent)(THIS_TYPE* _this, leWidget* pnt); \
     uint32_t           (*getChildCount)(const THIS_TYPE* _this); \
     leWidget*          (*getChildAtIndex)(const THIS_TYPE* _this, uint32_t idx); \
     uint32_t           (*getIndexOfChild)(const THIS_TYPE* _this, const leWidget* chld); \
-    leBool             (*containsDescendent)(const THIS_TYPE* _this, const leWidget* wgt); \
+    leBool             (*containsDescendant)(const THIS_TYPE* _this, const leWidget* wgt); \
     leScheme*          (*getScheme)(const THIS_TYPE* _this); \
-    leResult           (*setScheme)(THIS_TYPE* _this, leScheme* schm); \
+    leResult           (*setScheme)(THIS_TYPE* _this, const leScheme* schm); \
     leBorderType       (*getBorderType)(const THIS_TYPE* _this); \
     leResult           (*setBorderType)(THIS_TYPE* _this, leBorderType type); \
     leBackgroundType   (*getBackgroundType)(const THIS_TYPE* _this); \
@@ -551,7 +556,6 @@ typedef struct
     void               (*_damageArea)(const THIS_TYPE* _this, leRect* rect); \
     void               (*_paint)(THIS_TYPE* _this); \
     
-
 typedef struct leWidgetVTable
 {
 	LE_WIDGET_VTABLE(leWidget)
@@ -562,6 +566,33 @@ typedef struct leWidget leWidget;
 typedef struct leRectArray leRectArray;
 
 typedef void (*leWidget_DrawFunction_FnPtr)(void*);
+
+enum leWidgetFlags
+{
+    LE_WIDGET_ENABLED      = 0x1,  // indicates that the widget is enabled
+    LE_WIDGET_VISIBLE      = 0x2,  // indicates that the widget is visible
+    LE_WIDGET_ALPHAENABLED = 0x4,  // indicates that the widget is using alpha blending
+    LE_WIDGET_ISROOT       = 0x8,  // indicates that this widget is a root widget
+    LE_WIDGET_IGNOREEVENTS = 0x10, // indicates that the widget should ignore input/focus events
+    LE_WIDGET_IGNOREPICK   = 0x20  // indicates that the widget should be ignored for pick tests
+};
+
+typedef struct leWidgetStyle
+{
+    uint8_t backgroundType;  // the widget background type
+    uint8_t borderType;      // the widget border type
+    uint8_t halign;          // horizontal alignment of the widget
+    uint8_t valign;          // vertical alignment of the widget
+    uint8_t alphaAmount;     // the global alpha amount to apply to this widget (cumulative with parent widgets)
+    uint8_t cornerRadius;    //corner radius, draws round corners if > 0
+} leWidgetStyle;
+
+typedef struct leWidgetStatus
+{
+    uint8_t dirtyState;
+    uint8_t drawState;
+
+} leWidgetStatus;
 
 /**
   * @endcond
@@ -595,42 +626,23 @@ typedef struct leWidget
     uint32_t id;  // the id of the widget
     leWidgetType type; // the type of the widget
 
-    leBool visible; // the widget visible flag
-    leBool enabled; // the widget enabled flag
-
     leRect rect; // the bounding rectangle of the widget
-    uint32_t cornerRadius; //corner radius, draws round corners if > 0
-    
-    leHAlignment halign; // horizontal alignment of the widget
-    leVAlignment valign; // vertical alignment of the widget
+
+    uint32_t flags;        // widget state flags
+    leWidgetStyle style;   // widget style values
+    leWidgetStatus status; // widget status values
 
     leMargin margin; // the margin settings for the widget
 
-    leBorderType borderType; // the widget border type
-    leBackgroundType backgroundType; // the widget background type
-
-    uint32_t optimizationFlags; // optimization flags
-
     uint32_t drawCount; // number of times this widget has been drawn
                         // for the active screen
-
-    leBool alphaEnabled;    // indicates that the global alpha blending
-                            // setting is enabled for this widget
-    uint32_t alphaAmount;   // the global alpha amount to apply to this
-                            // widget (cumulative with parent widgets)
-
-    uint32_t dirtyState;    // the widget's dirty state
-    uint32_t drawState;     // the widget's draw state
 
     leWidget_DrawFunction_FnPtr drawFunc; // the next draw function to call
 
     const leScheme* scheme; // the widget's color scheme
 
-    //leWidgetInputHandler externalHandler;
-
     leWidgetEventFilter eventFilters[LE_WIDGET_MAX_EVENT_FILTERS];
 
-    leBool root;      // indicates if this widget is a root widget
     leWidget* parent; // pointer to the widget's parent
     leArray children;  // pointers for the widget's children
 } leWidget;
@@ -1702,6 +1714,24 @@ leRect _leWidget_RectToScreenSpace(const leWidget* _this);
 leResult _leWidget_AddChild(leWidget* _this,
                             leWidget* child);
 
+/**
+ * @brief Adds child to widget at index.
+ * @details Adds <span style="color: #820a32"><em>child</em></span> widget
+ * to <span style="color: #820a32"><em>wgt</em></span> at the given index.
+ * @remark This is a Virtual Member Function
+ * @code
+ * leWidget* wgt;
+ * leResult res = wgt->fn->addChild(wgt, child, 0);
+ * @endcode
+ * @param param1 wgt is the widget to modify
+ * @param param2 child is the widget to add
+ * @param param3 idx is the index to insert at
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+leResult _leWidget_InsertChild(leWidget* _this,
+                               leWidget* child,
+                               uint32_t idx);
+
 // *****************************************************************************
 /* Virtual Member Function:
     leResult removeChild(leWidgetWidget* _this,
@@ -1738,6 +1768,22 @@ leResult _leWidget_AddChild(leWidget* _this,
  */
 leResult _leWidget_RemoveChild(leWidget* _this,
                                leWidget* child);
+
+/**
+ * @brief Remove child from widget at index.
+ * @details Remove <span style="color: #820a32"><em>child</em></span> widget
+ * from <span style="color: #820a32"><em>wgt</em></span>.
+ * @remark This is a Virtual Member Function
+ * @code
+ * leWidget* wgt;
+ * leResult res = wgt->fn->removeChild(wgt, idx);
+ * @endcode
+ * @param param1 wgt is the widget to query
+ * @param param2 idx is the index of the child to remove
+ * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
+ */
+leResult _leWidget_RemoveChildAt(leWidget* _this,
+                                 uint32_t idx);
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -1947,21 +1993,21 @@ uint32_t _leWidget_GetIndexOfChild(const leWidget* _this,
 
 // *****************************************************************************
 /* Virtual Member Function:
-    leBool containsDescendent(const leWidgetWidget* _this,
+    leBool containsDescendant(const leWidgetWidget* _this,
                               const leWidget* wgt)
 
   Summary:
-     Determines of a widget's descendent tree contains a given widget
+     Determines of a widget's descendant tree contains a given widget
 
   Description:
-     Determines of a widget's descendent tree contains a given widget
+     Determines of a widget's descendant tree contains a given widget
 
   Parameters:
     const leWidgetWidget* _this - The widget to operate on
     const leWidget* wgt - the widget
 
   Remarks:
-    Usage - _this->fn->containsDescendent(_this, wgt);
+    Usage - _this->fn->containsDescendant(_this, wgt);
 
   Returns:
     leBool - LE_TRUE if the widget is a descentdent of this
@@ -1980,7 +2026,7 @@ uint32_t _leWidget_GetIndexOfChild(const leWidget* _this,
  * @param param2 child is the child to get index
  * @return returns true if widget is a decendent, otherwise false.
  */
-leBool _leWidget_ContainsDescendent(const leWidget* _this,
+leBool _leWidget_ContainsDescendant(const leWidget* _this,
                                     const leWidget* wgt);
 
 // *****************************************************************************
@@ -2017,7 +2063,7 @@ leScheme* _leWidget_GetScheme(const leWidget* _this);
 
 // *****************************************************************************
 /* Virtual Member Function:
-    leResult setScheme(leWidgetWidget* _this,
+    leResult setScheme(const leWidgetWidget* _this,
                        leScheme* schm)
 
   Summary:
@@ -2028,7 +2074,7 @@ leScheme* _leWidget_GetScheme(const leWidget* _this);
 
   Parameters:
     leWidgetWidget* _this - The widget to operate on
-    leScheme* schm - the scheme pointer
+    const leScheme* schm - the scheme pointer
 
   Remarks:
     Usage - _this->fn->setScheme(_this, schm);
@@ -2051,7 +2097,7 @@ leScheme* _leWidget_GetScheme(const leWidget* _this);
  * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
  */
 leResult _leWidget_SetScheme(leWidget* _this,
-                             leScheme* scheme);
+                             const leScheme* scheme);
 
 // *****************************************************************************
 /* Virtual Member Function:

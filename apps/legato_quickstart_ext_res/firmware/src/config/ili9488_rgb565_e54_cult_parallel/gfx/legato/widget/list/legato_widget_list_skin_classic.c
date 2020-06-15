@@ -431,7 +431,7 @@ static void drawBackground(leListWidget* lst)
     if(lst->widget.backgroundType == LE_WIDGET_BACKGROUND_FILL)
     {
         leWidget_SkinClassic_DrawBackground((leWidget*)lst,
-                                            lst->widget.scheme->background,
+                                            leScheme_GetRenderColor(lst->widget.scheme, LE_SCHM_BACKGROUND),
                                             paintState.alpha);
     }
     
@@ -450,11 +450,11 @@ static void drawBackground(leListWidget* lst)
             {        
                 if(i == lst->itemDown && item->enabled == LE_TRUE)
                 {
-                    clr = lst->widget.scheme->backgroundInactive;
+                    clr = leScheme_GetRenderColor(lst->widget.scheme, LE_SCHM_BACKGROUND_INACTIVE);
                 }
                 else if(item->selected == LE_TRUE)
                 {
-                    clr = lst->widget.scheme->textHighlight;
+                    clr = leScheme_GetRenderColor(lst->widget.scheme, LE_SCHM_TEXT_HIGHLIGHT);
                 }
                 else
                 {
@@ -512,16 +512,16 @@ static void drawString(leListWidget* lst)
         {
             if(paintState.item->enabled == LE_TRUE)
             {
-                clr = lst->widget.scheme->text;
+                clr = leScheme_GetRenderColor(lst->widget.scheme, LE_SCHM_TEXT);
             }
             else
             {
-                clr = lst->widget.scheme->textDisabled;
+                clr = leScheme_GetRenderColor(lst->widget.scheme, LE_SCHM_TEXT_DISABLED);
             }
         }
         else
         {
-            clr = lst->widget.scheme->textHighlightText;
+            clr = leScheme_GetRenderColor(lst->widget.scheme, LE_SCHM_TEXT_HIGHLIGHTTEXT);
         }
 
         paintState.item->string->fn->_draw(paintState.item->string,
@@ -629,13 +629,6 @@ static void drawBorder(leListWidget* lst)
 
 void _leListWidget_Paint(leListWidget* lst)
 {
-    if(lst->widget.scheme == NULL)
-    {
-        lst->widget.drawState = DONE;
-        
-        return;
-    }
-    
     if(lst->widget.drawState == NOT_STARTED)
     {
         nextState(lst);

@@ -66,13 +66,15 @@ void GPIO_Initialize ( void )
     ANSELBCLR = 0x3c0; /* Digital Mode Enable */
 
     /* PORTC Initialization */
+    LATC = 0x4000; /* Initial Latch Value */
+    TRISCCLR = 0x4000; /* Direction Control */
+    ANSELCCLR = 0x4000; /* Digital Mode Enable */
 
     /* PORTD Initialization */
 
     /* PORTE Initialization */
 
     /* PORTF Initialization */
-    CNPDFSET = 0x8; /* Pull-Down Enable */
 
     /* PORTG Initialization */
 

@@ -24,9 +24,6 @@
           </logicalFolder>
           <logicalFolder name="f2" displayName="gfx" projectFiles="true">
             <logicalFolder name="f2" displayName="driver" projectFiles="true">
-              <logicalFolder name="f2" displayName="gfx2d" projectFiles="true">
-                <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/driver/processor/gfx2d/drv_gfx2d.h</itemPath>
-              </logicalFolder>
               <logicalFolder name="f1" displayName="lcdc" projectFiles="true">
                 <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/driver/gfx_driver.h</itemPath>
                 <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/driver/controller/lcdc/drv_gfx_lcdc.h</itemPath>
@@ -59,7 +56,7 @@
               </logicalFolder>
               <logicalFolder name="f10" displayName="generated" projectFiles="true">
                 <logicalFolder name="f1" displayName="screen" projectFiles="true">
-                  <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/generated/screen/le_gen_screen_default.h</itemPath>
+                  <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/generated/screen/le_gen_screen_Screen0.h</itemPath>
                 </logicalFolder>
                 <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/generated/le_gen_assets.h</itemPath>
                 <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/generated/le_gen_harmony.h</itemPath>
@@ -67,6 +64,14 @@
                 <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/generated/le_gen_scheme.h</itemPath>
               </logicalFolder>
               <logicalFolder name="f5" displayName="image" projectFiles="true">
+                <logicalFolder name="f2" displayName="jpeg" projectFiles="true">
+                  <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/image/jpeg/legato_imagedecoder_jpeg.h</itemPath>
+                  <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/image/jpeg/legato_imagedecoder_jpeg_common.h</itemPath>
+                </logicalFolder>
+                <logicalFolder name="f3" displayName="png" projectFiles="true">
+                  <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/image/png/legato_imagedecoder_png.h</itemPath>
+                  <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/image/png/lodepng.h</itemPath>
+                </logicalFolder>
                 <logicalFolder name="f1" displayName="raw" projectFiles="true">
                   <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/image/raw/legato_imagedecoder_raw.h</itemPath>
                 </logicalFolder>
@@ -81,6 +86,7 @@
               </logicalFolder>
               <logicalFolder name="f7" displayName="renderer" projectFiles="true">
                 <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/renderer/legato_renderer.h</itemPath>
+                <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/renderer/legato_gpu.h</itemPath>
               </logicalFolder>
               <logicalFolder name="f8" displayName="string" projectFiles="true">
                 <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/string/legato_dynamicstring.h</itemPath>
@@ -192,32 +198,32 @@
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f3" displayName="peripheral" projectFiles="true">
-            <logicalFolder name="f4" displayName="aic" projectFiles="true">
+            <logicalFolder name="f5" displayName="aic" projectFiles="true">
               <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/peripheral/aic/plib_aic.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="clk" projectFiles="true">
+            <logicalFolder name="f3" displayName="clk" projectFiles="true">
               <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/peripheral/clk/plib_clk.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="flexcom" projectFiles="true">
+            <logicalFolder name="f7" displayName="flexcom" projectFiles="true">
               <logicalFolder name="f1" displayName="twi" projectFiles="true">
                 <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/peripheral/flexcom/twi/plib_flexcom0_twi.h</itemPath>
                 <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/peripheral/flexcom/twi/plib_flexcom_twi_master.h</itemPath>
               </logicalFolder>
             </logicalFolder>
-            <logicalFolder name="f8" displayName="gfx2d" projectFiles="true">
-              <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/peripheral/gfx2d/plib_gfx2d.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f7" displayName="lcdc" projectFiles="true">
+            <logicalFolder name="f8" displayName="lcdc" projectFiles="true">
               <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/peripheral/lcdc/plib_lcdc.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f1" displayName="mmu" projectFiles="true">
+            <logicalFolder name="f2" displayName="mmu" projectFiles="true">
               <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/peripheral/mmu/plib_mmu.h</itemPath>
               <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/peripheral/mmu/cp15.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="pio" projectFiles="true">
+            <logicalFolder name="f4" displayName="pio" projectFiles="true">
               <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/peripheral/pio/plib_pio.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="tc" projectFiles="true">
+            <logicalFolder name="f1" displayName="pit" projectFiles="true">
+              <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/peripheral/pit/plib_pit.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f6" displayName="tc" projectFiles="true">
               <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/peripheral/tc/plib_tc0.h</itemPath>
               <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/peripheral/tc/plib_tc_common.h</itemPath>
             </logicalFolder>
@@ -352,9 +358,6 @@
           </logicalFolder>
           <logicalFolder name="f2" displayName="gfx" projectFiles="true">
             <logicalFolder name="f2" displayName="driver" projectFiles="true">
-              <logicalFolder name="f2" displayName="gfx2d" projectFiles="true">
-                <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/driver/processor/gfx2d/drv_gfx2d.c</itemPath>
-              </logicalFolder>
               <logicalFolder name="f1" displayName="lcdc" projectFiles="true">
                 <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/driver/gfx_driver.c</itemPath>
                 <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/driver/controller/lcdc/drv_gfx_lcdc.c</itemPath>
@@ -393,22 +396,30 @@
               </logicalFolder>
               <logicalFolder name="f10" displayName="generated" projectFiles="true">
                 <logicalFolder name="f1" displayName="font" projectFiles="true">
-                  <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/generated/font/le_gen_font_NotoSans_48.c</itemPath>
+                  <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/generated/font/le_gen_fonts.c</itemPath>
                 </logicalFolder>
                 <logicalFolder name="f2" displayName="image" projectFiles="true">
-                  <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/generated/image/le_gen_image_MHGS_logo_WVGA.c</itemPath>
-                  <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/generated/image/le_gen_image_QuickstartDown_WVGA.c</itemPath>
-                  <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/generated/image/le_gen_image_QuickstartUp_WVGA.c</itemPath>
+                  <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/generated/image/le_gen_images.c</itemPath>
                 </logicalFolder>
                 <logicalFolder name="f3" displayName="screen" projectFiles="true">
-                  <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/generated/screen/le_gen_screen_default.c</itemPath>
+                  <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/generated/screen/le_gen_screen_Screen0.c</itemPath>
                 </logicalFolder>
+                <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/generated/le_gen_globalpalette.c</itemPath>
                 <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/generated/le_gen_harmony.c</itemPath>
                 <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/generated/le_gen_init.c</itemPath>
                 <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/generated/le_gen_scheme.c</itemPath>
                 <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/generated/le_gen_stringtable.c</itemPath>
               </logicalFolder>
               <logicalFolder name="f5" displayName="image" projectFiles="true">
+                <logicalFolder name="f2" displayName="jpeg" projectFiles="true">
+                  <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/image/jpeg/legato_imagedecoder_jpeg.c</itemPath>
+                  <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/image/jpeg/legato_imagedecoder_jpeg_common.c</itemPath>
+                  <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/image/jpeg/jidctint.c</itemPath>
+                </logicalFolder>
+                <logicalFolder name="f3" displayName="png" projectFiles="true">
+                  <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/image/png/legato_imagedecoder_png.c</itemPath>
+                  <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/image/png/lodepng.c</itemPath>
+                </logicalFolder>
                 <logicalFolder name="f1" displayName="raw" projectFiles="true">
                   <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/image/raw/legato_imagedecoder_raw.c</itemPath>
                   <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/image/raw/legato_imagedecoder_raw_blend.c</itemPath>
@@ -441,6 +452,7 @@
                 <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/renderer/legato_draw_line.c</itemPath>
                 <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/renderer/legato_draw_rect.c</itemPath>
                 <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/renderer/legato_renderer.c</itemPath>
+                <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/renderer/legato_gpu.c</itemPath>
               </logicalFolder>
               <logicalFolder name="f8" displayName="string" projectFiles="true">
                 <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/gfx/legato/string/legato_dynamicstring.c</itemPath>
@@ -581,35 +593,35 @@
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f4" displayName="peripheral" projectFiles="true">
-            <logicalFolder name="f4" displayName="aic" projectFiles="true">
+          <logicalFolder name="f3" displayName="peripheral" projectFiles="true">
+            <logicalFolder name="f5" displayName="aic" projectFiles="true">
               <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/peripheral/aic/plib_aic.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="clk" projectFiles="true">
+            <logicalFolder name="f3" displayName="clk" projectFiles="true">
               <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/peripheral/clk/plib_clk.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="flexcom" projectFiles="true">
+            <logicalFolder name="f7" displayName="flexcom" projectFiles="true">
               <logicalFolder name="f1" displayName="twi" projectFiles="true">
                 <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/peripheral/flexcom/twi/plib_flexcom0_twi.c</itemPath>
               </logicalFolder>
             </logicalFolder>
-            <logicalFolder name="f8" displayName="gfx2d" projectFiles="true">
-              <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/peripheral/gfx2d/plib_gfx2d.c</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f7" displayName="lcdc" projectFiles="true">
+            <logicalFolder name="f8" displayName="lcdc" projectFiles="true">
               <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/peripheral/lcdc/plib_lcdc.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f1" displayName="mmu" projectFiles="true">
+            <logicalFolder name="f2" displayName="mmu" projectFiles="true">
               <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/peripheral/mmu/plib_mmu.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="pio" projectFiles="true">
+            <logicalFolder name="f4" displayName="pio" projectFiles="true">
               <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/peripheral/pio/plib_pio.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="tc" projectFiles="true">
+            <logicalFolder name="f1" displayName="pit" projectFiles="true">
+              <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/peripheral/pit/plib_pit.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f6" displayName="tc" projectFiles="true">
               <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/peripheral/tc/plib_tc0.c</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f3" displayName="stdio" projectFiles="true">
+          <logicalFolder name="f4" displayName="stdio" projectFiles="true">
             <itemPath>../src/config/lcdc_rgba8888_mxt_9x60_wvga/stdio/xc32_monitor.c</itemPath>
           </logicalFolder>
           <logicalFolder name="f6" displayName="system" projectFiles="true">

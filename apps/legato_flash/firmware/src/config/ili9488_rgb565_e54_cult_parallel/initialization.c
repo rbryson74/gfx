@@ -175,7 +175,6 @@ const DRV_SST26_INIT drvSST26InitData =
 {
     .sst26Plib      = &drvSST26PlibAPI,
 };
-
 // </editor-fold>
 
 // <editor-fold defaultstate="collapsed" desc="DRV_SDMMC Instance 0 Initialization Data">
@@ -287,15 +286,51 @@ const DRV_USBFSV1_INIT drvUSBInit =
 };
 
 
-/*** File System Initialization Data ***/
+// <editor-fold defaultstate="collapsed" desc="File System Initialization Data">
 
 
-const SYS_FS_MEDIA_MOUNT_DATA sysfsMountTable[SYS_FS_VOLUME_NUMBER] = 
+const SYS_FS_MEDIA_MOUNT_DATA sysfsMountTable[SYS_FS_VOLUME_NUMBER] =
 {
-	{NULL}
+    {NULL}
 };
 
-
+const SYS_FS_FUNCTIONS FatFsFunctions =
+{
+    .mount             = FATFS_mount,
+    .unmount           = FATFS_unmount,
+    .open              = FATFS_open,
+    .read              = FATFS_read,
+    .close             = FATFS_close,
+    .seek              = FATFS_lseek,
+    .fstat             = FATFS_stat,
+    .getlabel          = FATFS_getlabel,
+    .currWD            = FATFS_getcwd,
+    .getstrn           = FATFS_gets,
+    .openDir           = FATFS_opendir,
+    .readDir           = FATFS_readdir,
+    .closeDir          = FATFS_closedir,
+    .chdir             = FATFS_chdir,
+    .chdrive           = FATFS_chdrive,
+    .write             = FATFS_write,
+    .tell              = FATFS_tell,
+    .eof               = FATFS_eof,
+    .size              = FATFS_size,
+    .mkdir             = FATFS_mkdir,
+    .remove            = FATFS_unlink,
+    .setlabel          = FATFS_setlabel,
+    .truncate          = FATFS_truncate,
+    .chmode            = FATFS_chmod,
+    .chtime            = FATFS_utime,
+    .rename            = FATFS_rename,
+    .sync              = FATFS_sync,
+    .putchr            = FATFS_putc,
+    .putstrn           = FATFS_puts,
+    .formattedprint    = FATFS_printf,
+    .testerror         = FATFS_error,
+    .formatDisk        = (FORMAT_DISK)FATFS_mkfs,
+    .partitionDisk     = FATFS_fdisk,
+    .getCluster        = FATFS_getclusters
+};
 
 
 const SYS_FS_REGISTRATION_TABLE sysFSInit [ SYS_FS_MAX_FILE_SYSTEM_TYPE ] =
@@ -306,6 +341,7 @@ const SYS_FS_REGISTRATION_TABLE sysFSInit [ SYS_FS_MAX_FILE_SYSTEM_TYPE ] =
     }
 };
 
+// </editor-fold>
 
 
 
@@ -333,6 +369,14 @@ const SYS_TIME_INIT sysTimeInitData =
 };
 
 // </editor-fold>
+
+
+
+// *****************************************************************************
+// *****************************************************************************
+// Section: Local initialization functions
+// *****************************************************************************
+// *****************************************************************************
 
 
 
@@ -400,6 +444,30 @@ void SYS_Initialize ( void* data )
 	/* Initialize USB Driver */ 
     sysObj.drvUSBFSV1Object = DRV_USBFSV1_Initialize(DRV_USBFSV1_INDEX_0, (SYS_MODULE_INIT *) &drvUSBInit);	
 
+// DOM-IGNORE-BEGIN
+/*******************************************************************************
+* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
+*
+* Subject to your compliance with these terms, you may use Microchip software
+* and any derivatives exclusively with Microchip products. It is your
+* responsibility to comply with third party license terms applicable to your
+* use of third party software (including open source software) that may
+* accompany Microchip software.
+*
+* THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+* EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+* WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+* PARTICULAR PURPOSE.
+*
+* IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+* INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+* WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+* BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+* FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+* ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+* THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
+*******************************************************************************/
+// DOM-IGNORE-END
     // initialize UI library
     Legato_Initialize();
 

@@ -54,7 +54,7 @@
               </logicalFolder>
               <logicalFolder name="f10" displayName="generated" projectFiles="true">
                 <logicalFolder name="f1" displayName="screen" projectFiles="true">
-                  <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/generated/screen/le_gen_screen_screen1.h</itemPath>
+                  <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/generated/screen/le_gen_screen_Screen0.h</itemPath>
                 </logicalFolder>
                 <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/generated/le_gen_assets.h</itemPath>
                 <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/generated/le_gen_harmony.h</itemPath>
@@ -62,6 +62,14 @@
                 <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/generated/le_gen_scheme.h</itemPath>
               </logicalFolder>
               <logicalFolder name="f5" displayName="image" projectFiles="true">
+                <logicalFolder name="f2" displayName="jpeg" projectFiles="true">
+                  <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/image/jpeg/legato_imagedecoder_jpeg.h</itemPath>
+                  <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/image/jpeg/legato_imagedecoder_jpeg_common.h</itemPath>
+                </logicalFolder>
+                <logicalFolder name="f3" displayName="png" projectFiles="true">
+                  <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/image/png/legato_imagedecoder_png.h</itemPath>
+                  <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/image/png/lodepng.h</itemPath>
+                </logicalFolder>
                 <logicalFolder name="f1" displayName="raw" projectFiles="true">
                   <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/image/raw/legato_imagedecoder_raw.h</itemPath>
                 </logicalFolder>
@@ -76,6 +84,7 @@
               </logicalFolder>
               <logicalFolder name="f7" displayName="renderer" projectFiles="true">
                 <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/renderer/legato_renderer.h</itemPath>
+                <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/renderer/legato_gpu.h</itemPath>
               </logicalFolder>
               <logicalFolder name="f8" displayName="string" projectFiles="true">
                 <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/string/legato_dynamicstring.h</itemPath>
@@ -219,6 +228,9 @@
           <logicalFolder name="f4" displayName="system" projectFiles="true">
             <logicalFolder name="f4" displayName="cache" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_e70/system/cache/sys_cache.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f5" displayName="debug" projectFiles="true">
+              <itemPath>../src/config/lcc_rgb565_mxt_e70/system/debug/sys_debug.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f2" displayName="input" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_e70/system/input/sys_input.h</itemPath>
@@ -380,21 +392,30 @@
               </logicalFolder>
               <logicalFolder name="f10" displayName="generated" projectFiles="true">
                 <logicalFolder name="f1" displayName="font" projectFiles="true">
-                  <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/generated/font/le_gen_font_NotoSans_Bold.c</itemPath>
-                  <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/generated/font/le_gen_font_NotoSans_Regular.c</itemPath>
+                  <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/generated/font/le_gen_fonts.c</itemPath>
                 </logicalFolder>
                 <logicalFolder name="f2" displayName="image" projectFiles="true">
-                  <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/generated/image/le_gen_image_MHGC_150x150.c</itemPath>
+                  <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/generated/image/le_gen_images.c</itemPath>
                 </logicalFolder>
                 <logicalFolder name="f3" displayName="screen" projectFiles="true">
-                  <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/generated/screen/le_gen_screen_screen1.c</itemPath>
+                  <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/generated/screen/le_gen_screen_Screen0.c</itemPath>
                 </logicalFolder>
+                <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/generated/le_gen_globalpalette.c</itemPath>
                 <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/generated/le_gen_harmony.c</itemPath>
                 <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/generated/le_gen_init.c</itemPath>
                 <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/generated/le_gen_scheme.c</itemPath>
                 <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/generated/le_gen_stringtable.c</itemPath>
               </logicalFolder>
               <logicalFolder name="f5" displayName="image" projectFiles="true">
+                <logicalFolder name="f2" displayName="jpeg" projectFiles="true">
+                  <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/image/jpeg/legato_imagedecoder_jpeg.c</itemPath>
+                  <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/image/jpeg/legato_imagedecoder_jpeg_common.c</itemPath>
+                  <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/image/jpeg/jidctint.c</itemPath>
+                </logicalFolder>
+                <logicalFolder name="f3" displayName="png" projectFiles="true">
+                  <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/image/png/legato_imagedecoder_png.c</itemPath>
+                  <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/image/png/lodepng.c</itemPath>
+                </logicalFolder>
                 <logicalFolder name="f1" displayName="raw" projectFiles="true">
                   <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/image/raw/legato_imagedecoder_raw.c</itemPath>
                   <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/image/raw/legato_imagedecoder_raw_blend.c</itemPath>
@@ -427,6 +448,7 @@
                 <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/renderer/legato_draw_line.c</itemPath>
                 <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/renderer/legato_draw_rect.c</itemPath>
                 <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/renderer/legato_renderer.c</itemPath>
+                <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/renderer/legato_gpu.c</itemPath>
               </logicalFolder>
               <logicalFolder name="f8" displayName="string" projectFiles="true">
                 <itemPath>../src/config/lcc_rgb565_mxt_e70/gfx/legato/string/legato_dynamicstring.c</itemPath>
@@ -627,6 +649,7 @@
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
+      <itemPath>../src/config/lcc_rgb565_mxt_e70/harmony.prj</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
@@ -649,6 +672,8 @@
         <pack name="SAME70_DFP" vendor="Microchip" version="4.0.40"/>
         <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
       </packs>
+      <ScriptingSettings>
+      </ScriptingSettings>
       <compileType>
         <linkerTool>
           <linkerLibItems>
@@ -706,7 +731,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/lcc_rgb565_mxt_e70;../src/packs/ATSAME70Q21B_DFP;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/CMSIS/;../src/arm"/>
+                  value="../src;../src/config/lcc_rgb565_mxt_e70;../src/packs/ATSAME70Q21B_DFP;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/CMSIS/"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>

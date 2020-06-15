@@ -265,8 +265,8 @@ static void drawCircle(leRadioButtonWidget* btn, leRect* rect, leBool filled)
     leColor clr;
 
     // fill
-    clr = btn->widget.scheme->background;
-    
+    clr = leScheme_GetRenderColor(btn->widget.scheme, LE_SCHM_BACKGROUND),
+
     leRenderer_HorzLine(x + 4, y + 2, 7, clr, paintState.alpha);
     leRenderer_HorzLine(x + 3, y + 3, 8, clr, paintState.alpha);
     leRenderer_HorzLine(x + 2, y + 4, 10, clr, paintState.alpha);
@@ -279,8 +279,8 @@ static void drawCircle(leRadioButtonWidget* btn, leRect* rect, leBool filled)
     leRenderer_HorzLine(x + 4, y + 11, 4, clr, paintState.alpha);
     
     // upper outer ring
-    clr = btn->widget.scheme->shadow;
-    
+    clr = leScheme_GetRenderColor(btn->widget.scheme, LE_SCHM_SHADOW),
+
     leRenderer_HorzLine(x + 4, y + 0, 4, clr, paintState.alpha);
     leRenderer_HorzLine(x + 2, y + 1, 2, clr, paintState.alpha);
     leRenderer_HorzLine(x + 8, y + 1, 2, clr, paintState.alpha);
@@ -291,8 +291,8 @@ static void drawCircle(leRadioButtonWidget* btn, leRect* rect, leBool filled)
     leRenderer_VertLine(x + 0, y + 4, 4, clr, paintState.alpha);
     
     // upper inner ring
-    clr = btn->widget.scheme->shadowDark;
-    
+    clr = leScheme_GetRenderColor(btn->widget.scheme, LE_SCHM_SHADOWDARK),
+
     leRenderer_HorzLine(x + 4, y + 1, 4, clr, paintState.alpha);
     leRenderer_HorzLine(x + 2, y + 2, 2, clr, paintState.alpha);
     leRenderer_HorzLine(x + 8, y + 2, 2, clr, paintState.alpha);
@@ -301,8 +301,8 @@ static void drawCircle(leRadioButtonWidget* btn, leRect* rect, leBool filled)
     leRenderer_BlendPixel_Safe(x + 2, y + 9, clr, paintState.alpha);
     
     // lower inner ring
-    clr = btn->widget.scheme->highlight;
-    
+    clr = leScheme_GetRenderColor(btn->widget.scheme, LE_SCHM_HIGHLIGHT),
+
     leRenderer_BlendPixel_Safe(x + 9, y + 4, clr, paintState.alpha);
     leRenderer_VertLine(x + 10, y + 4, 4, clr, paintState.alpha);
     leRenderer_BlendPixel_Safe(x + 9, y + 9, clr, paintState.alpha);
@@ -312,8 +312,8 @@ static void drawCircle(leRadioButtonWidget* btn, leRect* rect, leBool filled)
     
     if(filled == LE_TRUE)
     {
-        clr = btn->widget.scheme->foreground;
-        
+        clr = leScheme_GetRenderColor(btn->widget.scheme, LE_SCHM_FOREGROUND),
+
         leRenderer_HorzLine(x + 5, y + 4, 2, clr, paintState.alpha);
         leRenderer_HorzLine(x + 4, y + 5, 4, clr, paintState.alpha);
         leRenderer_HorzLine(x + 4, y + 6, 4, clr, paintState.alpha);
@@ -332,15 +332,6 @@ static void drawCircleArcs(leRadioButtonWidget* btn,
     center.x = rect->x + rect->width / 2;
     center.y = rect->y + rect->height / 2;
     
-    // upper outer ring
-    /*GFX_Set(GFXF_DRAW_THICKNESS, thickness);
-    GFX_Set(GFXF_DRAW_COLOR, btn->widget.scheme->shadow);
-    GFX_Set(GFXF_DRAW_GRADIENT_COLOR, 
-            btn->widget.scheme->shadow & 0xffffff00, 
-            btn->widget.scheme->shadow, 
-            NULL, 
-            NULL);  */  
-            
     leRenderer_ArcFill(rect,
                        center.x,
                        center.y,
@@ -348,22 +339,10 @@ static void drawCircleArcs(leRadioButtonWidget* btn,
                        45,
                        180,
                        thickness,
-                       btn->widget.scheme->shadow,
+                       leScheme_GetRenderColor(btn->widget.scheme, LE_SCHM_SHADOW),
                        LE_FALSE,
                        paintState.alpha);
             
-    //GFX_DrawArc(center.x, center.y, outRadius, 45, 180);
-    
-    // lower outer ring
-    /*GFX_Set(GFXF_DRAW_THICKNESS, thickness*2);
-    GFX_Set(GFXF_DRAW_COLOR, btn->widget.scheme->highlightLight);
-    GFX_Set(GFXF_DRAW_GRADIENT_COLOR, 
-            btn->widget.scheme->highlightLight & 0xffffff00, 
-            btn->widget.scheme->highlightLight, 
-            NULL, 
-            NULL);
-    GFX_DrawArc(center.x, center.y, outRadius, 225, 180);*/
-    
     leRenderer_ArcFill(rect,
                        center.x,
                        center.y,
@@ -371,22 +350,14 @@ static void drawCircleArcs(leRadioButtonWidget* btn,
                        225,
                        180,
                        thickness * 2,
-                       btn->widget.scheme->highlightLight,
+                       leScheme_GetRenderColor(btn->widget.scheme, LE_SCHM_HIGHLIGHTLIGHT),
                        LE_FALSE,
                        paintState.alpha);
     
     
     // upper inner ring
     outRadius -= thickness;
-    /*GFX_Set(GFXF_DRAW_THICKNESS, thickness*2);
-    GFX_Set(GFXF_DRAW_COLOR, btn->widget.scheme->shadowDark);
-    GFX_Set(GFXF_DRAW_GRADIENT_COLOR, 
-            btn->widget.scheme->shadowDark & 0xffffff00, 
-            btn->widget.scheme->shadowDark, 
-            NULL, 
-            NULL);
-    GFX_DrawArc(center.x, center.y, outRadius, 45, 180);*/    
-    
+
     leRenderer_ArcFill(rect,
                        center.x,
                        center.y,
@@ -394,22 +365,14 @@ static void drawCircleArcs(leRadioButtonWidget* btn,
                        45,
                        180,
                        thickness * 2,
-                       btn->widget.scheme->shadowDark,
+                       leScheme_GetRenderColor(btn->widget.scheme, LE_SCHM_SHADOWDARK),
                        LE_FALSE,
                        paintState.alpha);        
     
     
     // lower inner ring
     outRadius -= thickness;
-    /*GFX_Set(GFXF_DRAW_THICKNESS, thickness*2);
-    GFX_Set(GFXF_DRAW_COLOR, btn->widget.scheme->highlight);
-    GFX_Set(GFXF_DRAW_GRADIENT_COLOR, 
-            btn->widget.scheme->highlight & 0xffffff00, 
-            btn->widget.scheme->highlight, 
-            NULL, 
-            NULL);
-    GFX_DrawArc(center.x, center.y, outRadius, 225, 180); */
-    
+
     leRenderer_ArcFill(rect,
                        center.x,
                        center.y,
@@ -417,21 +380,13 @@ static void drawCircleArcs(leRadioButtonWidget* btn,
                        225,
                        180,
                        thickness * 2,
-                       btn->widget.scheme->highlight,
+                       leScheme_GetRenderColor(btn->widget.scheme, LE_SCHM_HIGHLIGHT),
                        LE_FALSE,
                        paintState.alpha);      
     
     //Center base circle
     outRadius -= thickness;
-    /*GFX_Set(GFXF_DRAW_THICKNESS, outRadius);
-    GFX_Set(GFXF_DRAW_COLOR, btn->widget.scheme->background);
-    GFX_Set(GFXF_DRAW_GRADIENT_COLOR, 
-            btn->widget.scheme->background & 0xffffff00, 
-            btn->widget.scheme->background, 
-            NULL, 
-            NULL);
-    GFX_DrawArc(center.x, center.y, outRadius, 0, 360); */
-    
+
     leRenderer_ArcFill(rect,
                        center.x,
                        center.y,
@@ -439,22 +394,14 @@ static void drawCircleArcs(leRadioButtonWidget* btn,
                        0,
                        360,
                        outRadius,
-                       btn->widget.scheme->background,
+                       leScheme_GetRenderColor(btn->widget.scheme, LE_SCHM_BACKGROUND),
                        LE_FALSE,
                        paintState.alpha);
     
     if(filled == LE_TRUE)
     {
         outRadius = ((outRadius * 2)/3 < 3) ? 3 : (outRadius * 2)/3;
-        /*GFX_Set(GFXF_DRAW_THICKNESS, outRadius);
-        GFX_Set(GFXF_DRAW_COLOR, btn->widget.scheme->foreground);
-        GFX_Set(GFXF_DRAW_GRADIENT_COLOR, 
-                btn->widget.scheme->foreground & 0xffffff00, 
-                btn->widget.scheme->foreground, 
-                NULL, 
-                NULL);
-        GFX_DrawArc(center.x, center.y, outRadius, 0, 360); */ 
-        
+
         leRenderer_ArcFill(rect,
                            center.x,
                            center.y,
@@ -462,7 +409,7 @@ static void drawCircleArcs(leRadioButtonWidget* btn,
                            0,
                            360,
                            outRadius,
-                           btn->widget.scheme->foreground,
+                           leScheme_GetRenderColor(btn->widget.scheme, LE_SCHM_FOREGROUND),
                            LE_FALSE,
                            paintState.alpha);       
     }
@@ -560,7 +507,7 @@ static void drawString(leRadioButtonWidget* btn)
                          textRect.x,
                          textRect.y,
                          LE_HALIGN_CENTER,
-                         btn->widget.scheme->text,
+                         leScheme_GetRenderColor(btn->widget.scheme, LE_SCHM_TEXT),
                          paintState.alpha);
 
 #if LE_STREAMING_ENABLED == 1
@@ -596,13 +543,6 @@ static void drawBorder(leRadioButtonWidget* btn)
 
 void _leRadioButtonWidget_Paint(leRadioButtonWidget* btn)
 {
-    if(btn->widget.scheme == NULL)
-    {
-        btn->widget.drawState = DONE;
-        
-        return;
-    }
-    
     if(btn->widget.drawState == NOT_STARTED)
     {
         nextState(btn);

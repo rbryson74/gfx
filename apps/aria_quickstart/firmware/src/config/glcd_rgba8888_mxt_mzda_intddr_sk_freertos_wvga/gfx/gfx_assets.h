@@ -76,7 +76,7 @@ extern GFXU_ImageAsset NewHarmonyLogo;
 /*********************************
  * GFX Font Asset
  * Name:         Arial_22
- * Height:       27
+ * Height:       26
  * Style:        Plain
  * Glyph Count:  16
  * Range Count:  12

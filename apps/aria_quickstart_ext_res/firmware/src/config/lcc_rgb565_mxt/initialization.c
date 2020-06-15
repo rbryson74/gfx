@@ -148,7 +148,6 @@ const DRV_SST26_INIT drvSST26InitData =
 {
     .sst26Plib      = &drvSST26PlibAPI,
 };
-
 // </editor-fold>
 
 // <editor-fold defaultstate="collapsed" desc="DRV_INPUT_MXT336T Initialization Data">
@@ -204,6 +203,14 @@ const SYS_TIME_INIT sysTimeInitData =
 };
 
 // </editor-fold>
+
+
+
+// *****************************************************************************
+// *****************************************************************************
+// Section: Local initialization functions
+// *****************************************************************************
+// *****************************************************************************
 
 
 

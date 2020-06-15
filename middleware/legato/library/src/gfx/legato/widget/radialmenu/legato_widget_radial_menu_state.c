@@ -39,8 +39,8 @@
 
 #define DEFAULT_WIDTH           200
 #define DEFAULT_HEIGHT          150
-#define DEFAULT_A               100
-#define DEFAULT_B               80
+#define DEFAULT_A               70
+#define DEFAULT_B               30
 #define DEFAULT_THETA           0
 
 #define DEFAULT_HIGHLIGHT_MARGIN 2
@@ -59,124 +59,6 @@
 #define BACK_ANGLE                  270
 #define MIN_THETA                   0
 #define MAX_THETA                   90
-
-#if 0
-static leResult _rotateMenuItems(leRadialMenuWidget* _this, int32_t angle)
-{
-    leRadialMenuItemNode* item = NULL;
-    leRadialMenuItemNode* itemToHide = NULL;
-    leList itemsToHide;
-    uint32_t itemsShown = _this->itemsShown;
-    uint32_t i; 
-    
-    if(_this->widgetList.size == 0)
-        return LE_FAILURE;
-    
-    if(angle == 0)
-        return LE_SUCCESS;
-
-    if(_this->itemsShown > _this->widgetList.size)
-    {
-        itemsShown = _this->widgetList.size;
-    }
-
-    leList_Create(&itemsToHide);
-    
-    for(i = 0; i < _this->shownList.size; ++i)
-    {
-        item = leList_Get(&_this->shownList, i);
-        
-        if (itemsShown < _this->widgetList.size)
-        {                
-            if(leAbsoluteValue(item->t - BACK_ANGLE) < leAbsoluteValue(angle) &&
-              (item->t - BACK_ANGLE) * angle >= 0)
-            {
-                if (angle > 0)
-                {
-                    leList_PushBack(&_this->hiddenList, item);
-                }
-                else
-                {
-                    leList_PushFront(&_this->hiddenList, item);                            
-                }
-                
-                leList_PushBack(&itemsToHide, item);
-            }            
-        }
-
-        item->t -= angle;                
-        item->t = leNormalizeAngle(item->t);
-    }
-
-    for(i = 0; i < itemsToHide.size; ++i)
-    {
-        itemToHide = leList_Get(&itemsToHide, i);
-        
-        if (angle > 0)
-        {
-            item = leList_Get(&_this->hiddenList, 0);
-        }
-        else
-        {
-            item = leList_Get(&_this->hiddenList, _this->hiddenList.size - 1);
-        }                    
-
-        if (item != NULL)
-        {
-            leList_Remove(&_this->hiddenList, item);                            
-            leList_PushFront(&_this->shownList, item);
-            item->t = itemToHide->t;
-            itemToHide->t = BACK_ANGLE;
-        };
-        
-        leList_Remove(&_this->shownList, itemToHide);
-    }
-    
-    leList_Clear(&itemsToHide);
-
-    return LE_SUCCESS;
-}
-#endif
-
-#if 0
-static int32_t _getSliceAngle(const leRadialMenuWidget* _this)
-{
-    if(_this == NULL || _this->itemsShown == 0)
-        return 0;
-
-    if(_this->itemsShown > _this->widgetList.size)
-    {
-        return (360 / _this->widgetList.size);
-    }
-    else
-    {
-        return (360 / _this->itemsShown);
-    }
-}
-#endif
-
-#if 0
-static int32_t _normalizeIndex(const leRadialMenuWidget* _this,
-                               uint32_t index)
-{
-    int32_t newIndex = 0;
-    
-    if (index >= 0 && index < _this->widgetList.size)
-        return index;
-    
-    if (index < 0)
-    {
-        newIndex = _this->widgetList.size + index; 
-        
-        return newIndex;
-    }
-    
-    //if we get here, the index is larger than the total amount of items
-    newIndex = index - _this->widgetList.size;    
-    
-    return newIndex;
-}
-#endif
 
 static int _prevItem(uint32_t itemCount,
                      int32_t curr)
@@ -325,7 +207,7 @@ static leRadialMenuItemNode* _nextZItem(leRadialMenuWidget* mn)
     //int32_t highestIndex = -1;
     int32_t i;
 
-    for(i = 0; i < mn->widgetList.size; ++i)
+    for(i = 0; i < (int32_t)mn->widgetList.size; ++i)
     {
         item = leList_Get(&mn->widgetList, i);
 
@@ -427,7 +309,7 @@ static void calculateBlending(leRadialMenuItemNode* item,
         case LE_RADIAL_MENU_INTERPOLATE_OFF:
         {
             item->widget->fn->setAlphaEnabled(item->widget, LE_FALSE);
-            item->widget->alphaAmount = item->origAlphaAmount;
+            item->widget->style.alphaAmount = item->origAlphaAmount;
 
             break;
         }

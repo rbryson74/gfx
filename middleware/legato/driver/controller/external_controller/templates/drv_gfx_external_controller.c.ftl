@@ -1,4 +1,3 @@
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
@@ -21,7 +20,6 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 /*******************************************************************************
   Custom ${ControllerName}Display Top-Level Driver Source File
@@ -65,7 +63,7 @@
 #define DISPLAY_WIDTH   ${Val_Width}
 #define DISPLAY_HEIGHT  ${Val_Height}
 
-#define PIXEL_BUFFER_COLOR_MODE LE_COLOR_MODE_RGB_565
+#define PIXEL_BUFFER_COLOR_MODE GFX_COLOR_MODE_RGB_565
 #define SCREEN_WIDTH DISPLAY_WIDTH
 #define SCREEN_HEIGHT DISPLAY_HEIGHT
 </#if>
@@ -301,6 +299,19 @@ uint32_t DRV_${ControllerName}_GetActiveLayer()
     return 0;
 }
 
+gfxLayerState DRV_${ControllerName}_GetLayerState(uint32_t idx)
+{
+    gfxLayerState state;
+
+    state.rect.x = 0;
+    state.rect.y = 0;
+    state.rect.width = SCREEN_WIDTH;
+    state.rect.height = SCREEN_HEIGHT;
+    state.enabled = GFX_TRUE;
+
+    return state;
+}
+
 gfxResult DRV_${ControllerName}_SetActiveLayer(uint32_t idx)
 {
     return GFX_SUCCESS;
@@ -308,8 +319,7 @@ gfxResult DRV_${ControllerName}_SetActiveLayer(uint32_t idx)
 
 gfxResult DRV_${ControllerName}_BlitBuffer(int32_t x,
                                 int32_t y,
-                                gfxPixelBuffer* buf,
-								gfxBlend gfx)
+                                gfxPixelBuffer* buf)
 {
 
 <#if BlitBufferFunctionGenerateMode == "Use Bulk Write">
@@ -426,6 +436,13 @@ void DRV_${ControllerName}_Swap(void)
 uint32_t DRV_${ControllerName}_GetSwapCount(void)
 {
     return swapCount;
+}
+
+gfxResult DRV_${ControllerName}_SetPalette(gfxBuffer* palette,
+                                           gfxColorMode mode,
+                                           uint32_t colorCount)
+{
+    return GFX_FAILURE;
 }
 </#if>
 

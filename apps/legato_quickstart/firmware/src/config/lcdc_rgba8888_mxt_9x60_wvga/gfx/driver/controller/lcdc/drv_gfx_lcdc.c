@@ -1,4 +1,3 @@
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
@@ -21,7 +20,6 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 /*******************************************************************************
   MPLAB Harmony LCDC Generated Driver Implementation File
@@ -47,8 +45,8 @@
 
 #define BUFFER_PER_LAYER    1
 
-#define DISPLAY_WIDTH  480
-#define DISPLAY_HEIGHT 272
+#define DISPLAY_WIDTH  800
+#define DISPLAY_HEIGHT 480
 
 #define PIXEL_CLOCK_DIV 7
 #define LCDC_OUTPUT_COLOR_MODE LCDC_OUTPUT_COLOR_MODE_24BPP
@@ -134,10 +132,9 @@ LCDC_DMA_DESC __attribute__ ((section(".region_nocache"), aligned (64))) channel
 const char* DRIVER_NAME = "LCDC";
 uint32_t state;
 
-static gfxBool useGPU = true;
+static gfxBool useGPU = false;
 static unsigned int vsyncCount = 0;
 static gfxPixelBuffer pixelBuffer[GFX_LCDC_LAYERS];
-static gfxRect srcRect, destRect;
 static unsigned int activeLayer = 0;
 
 static DISPLAY_LAYER drvLayer[GFX_LCDC_LAYERS];
@@ -237,8 +234,8 @@ gfxResult DRV_LCDC_Initialize()
     memset(drvLayer, 0, sizeof(drvLayer));
 
     /* set temporary information */
-    xResolution     = 480;
-    yResolution     = 272;
+    xResolution     = 800;
+    yResolution     = 480;
     rightMargin     = 2;
     leftMargin      = 2;
     hsyncLength     = 41;
@@ -364,6 +361,9 @@ gfxResult DRV_LCDC_Initialize()
         LCDC_UpdateOverlayAttributesEnable(drvLayer[layerCount].hwLayerID);
         LCDC_UpdateAttribute(drvLayer[layerCount].hwLayerID); //Apply the attributes
 
+        LCDC_SetChannelEnable(drvLayer[layerCount].hwLayerID, true);
+        LCDC_IRQ_Enable(LCDC_INTERRUPT_BASE + drvLayer[layerCount].hwLayerID);
+
         gfxPixelBufferCreate(xResolution,
                     yResolution,
                     DRV_LCDC_GetColorMode(),
@@ -408,6 +408,20 @@ static int DRV_GFX_LCDC_Start()
 gfxPixelBuffer * DRV_LCDC_GetFrameBuffer(int32_t idx)
 {
     return &pixelBuffer[activeLayer];
+}
+
+gfxLayerState DRV_LCDC_GetLayerState(uint32_t idx)
+{
+    gfxLayerState layerState;
+
+    layerState.rect.x = drvLayer[idx].startx;
+    layerState.rect.y = drvLayer[idx].starty;
+    layerState.rect.width = drvLayer[idx].sizex;
+    layerState.rect.height = drvLayer[idx].sizey;
+
+    layerState.enabled = drvLayer[idx].enabled;
+
+    return layerState;
 }
 
 gfxColorMode DRV_LCDC_GetColorMode()
@@ -464,27 +478,11 @@ void DRV_LCDC_SetUseGPU(gfxBool onOff)
 
 gfxResult DRV_LCDC_BlitBuffer(int32_t x,
                              int32_t y,
-                             gfxPixelBuffer* buf,
-                             gfxBlend blend)
+                             gfxPixelBuffer* buf)
 {
     if (state != RUN)
         return GFX_FAILURE;
 
-    if(useGPU)
-    {
-        srcRect.x = 0;
-        srcRect.y = 0;
-        srcRect.height = buf->size.height;
-        srcRect.width = buf->size.width;
-
-        destRect.x = x;
-        destRect.y = y;
-        destRect.height = buf->size.height;
-        destRect.width = buf->size.width;
-
-        _gfx2dGraphicsProcessor.blitBuffer(buf, &srcRect, &pixelBuffer[activeLayer], &destRect, blend );
-    }
-    else
     {
     	void* srcPtr;
     	void* destPtr;
@@ -609,6 +607,13 @@ static gfxResult DRV_LCDC_LayerConfig(ctlrCfg request, unsigned int layer, void 
     }
     
     return GFX_SUCCESS;
+}
+
+gfxResult DRV_LCDC_SetPalette(gfxBuffer* palette,
+                              gfxColorMode mode,
+                              uint32_t colorCount)
+{
+    return GFX_FAILURE;
 }
 
 gfxResult DRV_LCDC_CtrlrConfig(ctlrCfg request, void * arg)

@@ -65,21 +65,33 @@ def onDisplayInterfaceTypeSelected(symbol, event):
 		symbol.getComponent().getSymbolByID("ParallelInterfaceWidth").setVisible(True)
 	
 def onAttachmentConnected(source, target):
-	print("dependency Connected = " + str(target['id']))
+	print("dependency Connected = " + target["component"].getDisplayName())
 	gfxCoreComponentTable = ["gfx_hal_le"]
 	if (Database.getComponentByID("gfx_hal_le") is None):
 		Database.activateComponents(gfxCoreComponentTable)
-	updateDisplayManager(source["component"], target["component"])
+	updateDisplayManager(source["component"], target)
 
 def showRTOSMenu(symbol, event):
 	symbol.setVisible(event["value"] != "BareMetal")
 
-def updateDisplayManager(component, source):
+def updateDisplayManager(component, target):
 	if (Database.getComponentByID("gfx_hal_le") is not None):
-		Database.setSymbolValue("gfx_hal_le", "DisplayWidth", component.getSymbolValue("DisplayWidth"), 1)    
-		Database.setSymbolValue("gfx_hal_le", "DisplayHeight", component.getSymbolValue("DisplayHeight"), 1)
+		if target["id"] == "gfx_display":
+			Database.setSymbolValue("gfx_hal_le", "gfx_display", component.getDependencyComponent("Graphics Display").getID(), 1)
+			Database.setSymbolValue("gfx_hal_le", "DisplayName", component.getDependencyComponent("Graphics Display").getDisplayName(), 1)
+			Database.setSymbolValue("gfx_hal_le", "DisplayWidth", target["component"].getSymbolValue("DisplayWidth"), 1)    
+			Database.setSymbolValue("gfx_hal_le", "DisplayHeight", target["component"].getSymbolValue("DisplayHeight"), 1)
+			Database.setSymbolValue("gfx_hal_le", "DisplayHorzPulseWidth", target["component"].getSymbolValue("HorzPulseWidth"), 1)    
+			Database.setSymbolValue("gfx_hal_le", "DisplayHorzBackPorch", target["component"].getSymbolValue("HorzBackPorch"), 1)
+			Database.setSymbolValue("gfx_hal_le", "DisplayHorzFrontPorch", target["component"].getSymbolValue("HorzFrontPorch"), 1)    
+			Database.setSymbolValue("gfx_hal_le", "DisplayVertPulseWidth", target["component"].getSymbolValue("VertPulseWidth"), 1)
+			Database.setSymbolValue("gfx_hal_le", "DisplayVertBackPorch", target["component"].getSymbolValue("VertBackPorch"), 1)    
+			Database.setSymbolValue("gfx_hal_le", "DisplayVertFrontPorch", target["component"].getSymbolValue("VertFrontPorch"), 1)
+			Database.setSymbolValue("gfx_hal_le", "DisplayDataEnablePolarity", target["component"].getSymbolValue("DataEnablePolarity"), 1)
+			Database.setSymbolValue("gfx_hal_le", "DisplayVSYNCNegative", target["component"].getSymbolValue("VSYNCNegative"), 1)
+			Database.setSymbolValue("gfx_hal_le", "DisplayHSYNCNegative", target["component"].getSymbolValue("HSYNCNegative"), 1)
+			component.setSymbolValue("DisplayWidth", target["component"].getSymbolValue("DisplayWidth"), 1)
+			component.setSymbolValue("DisplayHeight", target["component"].getSymbolValue("DisplayHeight"), 1)
 		Database.setSymbolValue("gfx_hal_le", "gfx_driver", component.getID(), 1)
-		Database.setSymbolValue("gfx_hal_le", "gfx_display", component.getDependencyComponent("Graphics Display").getID(), 1)
 		Database.setSymbolValue("gfx_hal_le", "DriverName", component.getDisplayName(), 1)
-		Database.setSymbolValue("gfx_hal_le", "DisplayName", component.getDependencyComponent("Graphics Display").getDisplayName(), 1)
     

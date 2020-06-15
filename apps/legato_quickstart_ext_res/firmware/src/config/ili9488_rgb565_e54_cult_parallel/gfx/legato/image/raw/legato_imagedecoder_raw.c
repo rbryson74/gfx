@@ -192,7 +192,7 @@ static leResult _initLookupStage(leRawDecodeState* state)
 
 static leResult _initConvertStage(leRawDecodeState* state)
 {
-    if(state->source->palette != NULL && state->source->palette->colorMode == state->targetMode)
+    if(state->source->palette != NULL && state->source->palette->buffer.mode == state->targetMode)
         return LE_SUCCESS;
 
     if(state->source->buffer.mode  == state->targetMode)
@@ -270,7 +270,7 @@ static leResult _draw(const leImage* img,
 
     state.globalAlpha = a;
 
-    state.targetMode = LE_GLOBAL_COLOR_MODE;
+    state.targetMode = leRenderer_CurrentColorMode();
 
     if(_leRawImageDecoder_SourceIterateSetupStage(&state) == LE_FAILURE ||
        _initReadStage(&state) == LE_FAILURE ||
@@ -481,7 +481,7 @@ static leResult _resizeDraw(const leImage* src,
     state.sizeX = sizeX;
     state.sizeY = sizeY;
 
-    state.targetMode = LE_GLOBAL_COLOR_MODE;
+    state.targetMode = leRenderer_CurrentColorMode();
 
     state.globalAlpha = a;
 
@@ -520,7 +520,8 @@ static leResult _resizeDraw(const leImage* src,
     }
 
     // convert and write
-    if(_initConvertStage(&state) == LE_FAILURE ||
+    if(_initBlendStage(&state) == LE_FAILURE ||
+	   _initConvertStage(&state) == LE_FAILURE ||
        _leRawImageDecoder_FrameBufferWriteStage(&state) == LE_FAILURE)
     {
         return LE_FAILURE;
@@ -864,7 +865,8 @@ static leResult _rotate(const leImage* src,
     }
 
     // convert and write
-    if(_initConvertStage(&state) == LE_FAILURE ||
+    if(_initBlendStage(&state) == LE_FAILURE ||
+       _initConvertStage(&state) == LE_FAILURE ||
        _leRawImageDecoder_ImageWriteStage(&state) == LE_FAILURE)
     {
         return LE_FAILURE;
@@ -950,7 +952,7 @@ static leResult _rotateDraw(const leImage* src,
     state.angle = angle;
     state.origin = *origin;
 
-    state.targetMode = LE_GLOBAL_COLOR_MODE;
+    state.targetMode = leRenderer_CurrentColorMode();
 
     state.globalAlpha = a;
 
@@ -992,7 +994,8 @@ static leResult _rotateDraw(const leImage* src,
 
     // convert and write
     if(_initMaskStage(&state) == LE_FAILURE ||
-       _initConvertStage(&state) == LE_FAILURE ||
+		_initBlendStage(&state) == LE_FAILURE ||
+		_initConvertStage(&state) == LE_FAILURE ||
        _leRawImageDecoder_FrameBufferWriteStage(&state) == LE_FAILURE)
     {
         return LE_FAILURE;

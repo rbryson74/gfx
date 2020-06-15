@@ -70,7 +70,11 @@ static void GFXC_Update(void);
 static uint32_t GFXC_GetLayerCount();
 static uint32_t GFXC_GetActiveLayer();
 static gfxResult GFXC_SetActiveLayer(uint32_t idx);
-static gfxResult GFXC_BlitBuffer(int32_t x, int32_t y, gfxPixelBuffer* buf, gfxBlend blend);
+static gfxResult GFXC_BlitBuffer(int32_t x, int32_t y, gfxPixelBuffer* buf);
+static gfxResult GFXC_SetPalette(gfxBuffer* palette,
+                          gfxColorMode mode,
+                          uint32_t colorCount);
+static gfxLayerState GFXC_GetLayerState(uint32_t idx);
 static void GFXC_Swap(void);
 static uint32_t GFXC_GetVSYNCCount(void);
 static gfxPixelBuffer * GFXC_GetPixelBuffer(int32_t idx);
@@ -91,13 +95,23 @@ static unsigned int oldEffectsTick = 0;
 static unsigned int displayWidth = 0;
 static unsigned int displayHeight = 0;
 
+
+<#if GPUBlitEnabled == true && GraphicsProcessorDriverName != "NULL">
+extern const gfxGraphicsProcessor gfxGPUInterface;
+const gfxGraphicsProcessor * gfxcGPU = &gfxGPUInterface;
+<#else>
 const gfxGraphicsProcessor * gfxcGPU = NULL;
+</#if>
+
+<#if DisplayDriverName != "NULL">
+extern const gfxDisplayDriver ${DisplayDriverName};
+const gfxDisplayDriver * gfxDispCtrlr = &${DisplayDriverName};
+<#else>
 const gfxDisplayDriver * gfxDispCtrlr = NULL;
+</#if>
 
-extern const gfxGraphicsProcessor _2dgpuGraphicsProcessor;
-extern const gfxDisplayDriver glcdDisplayDriver;
 
-const gfxDisplayDriver gfxcVirtualDisplayDriver =
+const gfxDisplayDriver gfxDriverInterface =
 {
     GFXC_GetColorMode,
     GFXC_GetBufferCount,
@@ -107,10 +121,12 @@ const gfxDisplayDriver gfxcVirtualDisplayDriver =
     GFXC_GetLayerCount,
     GFXC_GetActiveLayer,
     GFXC_SetActiveLayer,
+    GFXC_GetLayerState,
     GFXC_BlitBuffer,
     GFXC_Swap,
     GFXC_GetVSYNCCount,
-    GFXC_GetPixelBuffer
+    GFXC_GetPixelBuffer,
+    GFXC_SetPalette,
 };
 
 <#list 0.. (NumCanvasObjects - 1) as i>
@@ -120,11 +136,11 @@ const gfxDisplayDriver gfxcVirtualDisplayDriver =
 <#assign WIDTH = "Canvas" + i + "Width">
 <#assign MODE = "Canvas" + i + "Mode">
 <#if .vars[MODE] == "GS_8">
-uint8_t canvasfb${i}[${.vars[WIDTH]} * ${.vars[HEIGHT]}] = {0};
+uint8_t __attribute__ ((coherent, aligned (32))) canvasfb${i}[${.vars[WIDTH]} * ${.vars[HEIGHT]}] = {0};
 <#elseif .vars[MODE] == "RGB_565">
-uint16_t canvasfb${i}[${.vars[WIDTH]} * ${.vars[HEIGHT]}] = {0};
+uint16_t __attribute__ ((coherent, aligned (32))) canvasfb${i}[${.vars[WIDTH]} * ${.vars[HEIGHT]}] = {0};
 <#else>
-uint32_t canvasfb${i}[${.vars[WIDTH]} * ${.vars[HEIGHT]}] = {0};
+uint32_t __attribute__ ((coherent, aligned (32))) canvasfb${i}[${.vars[WIDTH]} * ${.vars[HEIGHT]}] = {0};
 </#if>
 </#if>
 </#list>
@@ -162,13 +178,6 @@ static void effectsTimerCallback ( uintptr_t context )
 void GFX_CANVAS_Initialize(void)
 {
     unsigned int i;
-
-<#if GPUBlitEnabled == true && GraphicsProcessorDriverName != "NULL">
-    gfxcGPU = &_2dgpuGraphicsProcessor;
-</#if>
-<#if DisplayDriverName != "NULL">
-    gfxDispCtrlr = &glcdDisplayDriver;
-</#if>
     gfxcState = GFXC_INIT;
     
     //Initialize canvas objects
@@ -188,8 +197,11 @@ void GFX_CANVAS_Initialize(void)
     numLayers =  CONFIG_NUM_LAYERS;
 </#if>
 
-    displayWidth = gfxDispCtrlr->getDisplayWidth();
-    displayHeight = gfxDispCtrlr->getDisplayHeight();
+    if (gfxDispCtrlr != NULL)
+    {
+        displayWidth = gfxDispCtrlr->getDisplayWidth();
+        displayHeight = gfxDispCtrlr->getDisplayHeight();
+    }
 
     gfxcObjectsInitialize();
 }
@@ -259,8 +271,7 @@ gfxPixelBuffer * GFXC_GetPixelBuffer(int32_t idx)
 
 gfxResult GFXC_BlitBuffer(int32_t x,
                           int32_t y,
-                          gfxPixelBuffer* buf,
-                          gfxBlend blend)
+                          gfxPixelBuffer* buf)
 {
 <#if GPUBlitEnabled == true>
     gfxRect srcRect, destRect;   
@@ -303,6 +314,32 @@ gfxResult GFXC_BlitBuffer(int32_t x,
 </#if>
 
     return GFX_SUCCESS;
+}
+
+gfxResult GFXC_SetPalette(gfxBuffer* palette,
+                          gfxColorMode mode,
+                          uint32_t colorCount)
+{
+    //Global Palette is a controller function, pass it down to the controller
+    if (gfxDispCtrlr != NULL && 
+        gfxDispCtrlr->setPalette != NULL)
+        return gfxDispCtrlr->setPalette(palette, mode, colorCount);
+    else
+        return GFX_FAILURE;
+}
+
+gfxLayerState GFXC_GetLayerState(uint32_t idx)
+{
+    gfxLayerState layerState;
+
+    layerState.rect.x = canvas[idx].layer.pos.xpos;
+    layerState.rect.y = canvas[idx].layer.pos.ypos;
+    layerState.rect.width = canvas[idx].layer.size.width;
+    layerState.rect.height = canvas[idx].layer.size.height;
+
+    layerState.enabled = canvas[idx].active;
+
+    return layerState;
 }
 
 GFXC_RESULT _gfxcCanvasUpdate(unsigned int canvasID)
@@ -350,6 +387,10 @@ GFXC_RESULT _gfxcCanvasUpdate(unsigned int canvasID)
         //clipping code
         if (setPositionParm.xpos < 0)
         {
+            //align offsets for 8bpp frames
+            if (gfxColorInfoTable[canvas[canvasID].pixelBuffer.mode].size == 1)
+                setPositionParm.xpos = -(abs(setPositionParm.xpos) & ~0x3);
+
             setBaseAddressParm.value += abs(setPositionParm.xpos) * 
                     gfxColorInfoTable[canvas[canvasID].pixelBuffer.mode].size; 
 
@@ -632,20 +673,42 @@ void GFX_CANVAS_Task(void)
 
 <#if FadeEffectsEnabled == true>
                         //Process alpha effects
-                        if (canvas[i].effects.fade.status == GFXC_FX_RUN)
+                        switch(canvas[i].effects.fade.status)
                         {
-                            res = gfxcProcessFadeEffect(&canvas[i]);
-                            if (gres == GFX_FAILURE)
-                                gres = res;
+                            case GFXC_FX_START:
+                            {
+                                canvas[i].effects.fade.status = GFXC_FX_RUN;
+                                //no break, start running effect;
+                            }
+                            case GFXC_FX_RUN:
+                            {
+                                res = gfxcProcessFadeEffect(&canvas[i]);
+                                if (gres == GFX_FAILURE)
+                                    gres = res;
+                                break;
+                            }
+                            default:
+                                break;
                         }
 </#if>
 <#if MoveEffectsEnabled == true>
                         //Process move effects
-                        if (canvas[i].effects.move.status == GFXC_FX_RUN)
+                        switch(canvas[i].effects.move.status)
                         {
-                            res = gfxcProcessMoveEffect(&canvas[i]);
-                            if (gres == GFX_FAILURE)
-                                gres = res;
+                            case GFXC_FX_START:
+                            {
+                                canvas[i].effects.move.status = GFXC_FX_RUN;
+                                //no break, start running effect;
+                            }
+                            case GFXC_FX_RUN:
+                            {
+                                res = gfxcProcessMoveEffect(&canvas[i]);
+                                if (gres == GFX_FAILURE)
+                                    gres = res;
+                                break;
+                            }
+                            default:
+                                break;
                         }
 </#if>
                     }

@@ -227,6 +227,23 @@ LIB_EXPORT leRenderState* leGetRenderState();
 
 // *****************************************************************************
 /* Function:
+    leColorMode leRenderer_CurrentColorMode();
+
+  Summary:
+    Gets the color mode of the current rendering layer.
+
+  Description:
+    Gets the color mode of the current rendering layer.
+
+  Parameters:
+
+  Returns:
+    leColorMode - the current render color mode
+*/
+leColorMode leRenderer_CurrentColorMode();
+
+// *****************************************************************************
+/* Function:
     lePalette* leRenderer_GetGlobalPalette()
 
   Summary:
@@ -283,10 +300,10 @@ leColor leRenderer_GlobalPaletteLookup(uint32_t idx);
     leColor leRenderer_ConvertColor(leColor inColor, leColorMode inMode)
 
   Summary:
-    Converts a color to the current library render color.
+    Converts a color from the input mode to the current layer render color.
 
   Description:
-    Converts a color to the current library render color.
+    Converts a color from the input mode to the current layer render color.
 
   Parameters:
     leColor inColor - the input color
@@ -843,9 +860,6 @@ leResult leRenderer_VertGradientRect(const leRect* rect,
     leResult
 */
 leResult leRenderer_CircleDraw(const leRect* rect,
-                               int32_t x,
-                               int32_t y,
-                               uint32_t radius,
                                uint32_t thickness,
                                leColor clr,
                                uint32_t alpha);
@@ -880,9 +894,6 @@ leResult leRenderer_CircleDraw(const leRect* rect,
     leResult
 */
 leResult leRenderer_CircleFill(const leRect* rect,
-                               int32_t x,
-                               int32_t y,
-                               uint32_t radius,
                                uint32_t thickness,
                                leColor borderClr,
                                leColor fillClr,
@@ -927,9 +938,6 @@ leResult leRenderer_ArcLine(int32_t x,
 // *****************************************************************************
 /* Function:
     leResult leRenderer_ArcFill(const leRect* drawRect,
-                                int32_t x,
-                                int32_t y,
-                                int32_t radius,
                                 int32_t startAngle,
                                 int32_t centerAngle,
                                 uint32_t thickness,
@@ -949,7 +957,7 @@ leResult leRenderer_ArcLine(int32_t x,
     int32_t y - the y component of the origin (bound space)
     uint32_t radius - the radius of the arc
     uint32_t startAngle - the arc starting angle
-    uint32_t centerAngle - the arc center angle
+    uint32_t spanAngle - the arc span/center angle
     leColor clr - the color to write
     leBool antialias - indicates that an antialiased arc should be drawn (not supported yet)
     uint32_t a - the global alpha blending value to use
@@ -958,11 +966,8 @@ leResult leRenderer_ArcLine(int32_t x,
     leResult
 */
 leResult leRenderer_ArcFill(const leRect* drawRect,
-                            int32_t x,
-                            int32_t y,
-                            int32_t radius,
                             int32_t startAngle,
-                            int32_t centerAngle,
+                            int32_t spanAngle,
                             uint32_t thickness,
                             leColor clr,
                             leBool antialias,

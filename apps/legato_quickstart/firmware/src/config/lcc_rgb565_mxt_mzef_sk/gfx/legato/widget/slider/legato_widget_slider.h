@@ -36,10 +36,10 @@
     This module implements slider control widget functions.
 *******************************************************************************/
 
-/** \file legato_widget_textfield.h
- * @brief Textfield widget functions and definitions.
+/** \file legato_widget_slider.h
+ * @brief Slider widget functions and definitions.
  *
- * @details This module implements text field widget functions.
+ * @details This module implements slider widget functions.
  */
 
 #ifndef LEGATO_SLIDER_H

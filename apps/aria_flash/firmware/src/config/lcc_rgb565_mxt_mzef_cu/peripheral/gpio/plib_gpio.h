@@ -101,14 +101,6 @@
 #define GFX_DISP_INTF_PIN_DE_OutputEnable()      (TRISKCLR = (1<<3))
 #define GFX_DISP_INTF_PIN_DE_InputEnable()       (TRISKSET = (1<<3))
 #define GFX_DISP_INTF_PIN_DE_PIN                  GPIO_PIN_RK3
-/*** Macros for GPIO_RF3 pin ***/
-#define GPIO_RF3_Set()               (LATFSET = (1<<3))
-#define GPIO_RF3_Clear()             (LATFCLR = (1<<3))
-#define GPIO_RF3_Toggle()            (LATFINV= (1<<3))
-#define GPIO_RF3_Get()               ((PORTF >> 3) & 0x1)
-#define GPIO_RF3_OutputEnable()      (TRISFCLR = (1<<3))
-#define GPIO_RF3_InputEnable()       (TRISFSET = (1<<3))
-#define GPIO_RF3_PIN                  GPIO_PIN_RF3
 /*** Macros for BSP_MAXTOUCH_CHG pin ***/
 #define BSP_MAXTOUCH_CHG_Set()               (LATDSET = (1<<0))
 #define BSP_MAXTOUCH_CHG_Clear()             (LATDCLR = (1<<0))
@@ -117,6 +109,14 @@
 #define BSP_MAXTOUCH_CHG_OutputEnable()      (TRISDCLR = (1<<0))
 #define BSP_MAXTOUCH_CHG_InputEnable()       (TRISDSET = (1<<0))
 #define BSP_MAXTOUCH_CHG_PIN                  GPIO_PIN_RD0
+/*** Macros for OLD_BACKLIGHT pin ***/
+#define OLD_BACKLIGHT_Set()               (LATCSET = (1<<14))
+#define OLD_BACKLIGHT_Clear()             (LATCCLR = (1<<14))
+#define OLD_BACKLIGHT_Toggle()            (LATCINV= (1<<14))
+#define OLD_BACKLIGHT_Get()               ((PORTC >> 14) & 0x1)
+#define OLD_BACKLIGHT_OutputEnable()      (TRISCCLR = (1<<14))
+#define OLD_BACKLIGHT_InputEnable()       (TRISCSET = (1<<14))
+#define OLD_BACKLIGHT_PIN                  GPIO_PIN_RC14
 
 
 // *****************************************************************************

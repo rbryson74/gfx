@@ -31,6 +31,16 @@
 
 #include "gfx/legato/common/legato_common.h"
 
+#if LE_MEMORY_MANAGER_ENABLE == 1
+
+#if LE_USE_DEBUG_ALLOCATOR == 1
+#define LE_VHEAP_ALLOC(heap, size) leVariableHeap_Alloc(heap, size, __LINE__, __FUNCTION__, __FILE__)
+#define LE_VHEAP_REALLOC(heap, ptr, size) leVariableHeap_Realloc(heap, ptr, size, __LINE__, __FUNCTION__, __FILE__)
+#else
+#define LE_VHEAP_ALLOC(heap, size) leVariableHeap_Alloc(heap, size)
+#define LE_VHEAP_REALLOC(heap, ptr, size) leVariableHeap_Realloc(ptr, size)
+#endif
+
 // *****************************************************************************
 /* Structure:
     struct leVariableHeap
@@ -70,10 +80,8 @@ typedef struct leVariableHeap
     void* allocList;
     void* freeList;
 
-#if LE_VARIABLEHEAP_DEBUGLEVEL >= 1
     uint32_t allocBlockCount;
     uint32_t freeBlockCount;
-#endif
 } leVariableHeap;
 
 // *****************************************************************************
@@ -159,6 +167,46 @@ void* leVariableHeap_Alloc(leVariableHeap* heap,
                            uint32_t size);
 #endif
 
+#if LE_USE_DEBUG_ALLOCATOR == 1
+/**
+ * @brief Reallocate a block.
+ * @details Reallocates a block from a variable heap.
+ * @code
+ * leVariableHeap* heap;
+ * void* ptr = leVariableHeap_Realloc(heap, ptr, size, lineNum, funcName, fileName);
+ * @param heap pointer to the heap object
+ * @param ptr the address to reallocate
+ * @param size the size of block to allocate
+ * @param lineNum the file line number of the caller
+ * @param funcName the function name of the caller
+ * @param fileName the file name of the caller
+ * @endcode
+ * @return void pointer.
+ */
+void* leVariableHeap_Realloc(leVariableHeap* heap,
+                             void* ptr,
+                             uint32_t size,
+                             uint32_t lineNum,
+                             const char* funcName,
+                             const char* fileName);
+
+#else
+/**
+ * @brief Reallocate a block.
+ * @details Reallocates a block from a variable heap.
+ * @code
+ * leVariableHeap* heap;
+ * void* ptr = leVariableHeap_Realloc(heap, ptr, size);
+ * @param heap pointer to the heap object
+ * @param ptr the address to reallocate
+ * @param size the size of block to allocate
+ * @endcode
+ * @return void pointer.
+ */
+void* leVariableHeap_Realloc(leVariableHeap* heap,
+                             void* ptr,
+                             uint32_t size);
+#endif
 // *****************************************************************************
 /**
  * @brief Free a block.
@@ -225,7 +273,6 @@ leResult leVariableHeap_Validate(leVariableHeap* heap);
 uint32_t leVariableHeap_SizeOf(leVariableHeap* heap,
                                void* ptr);
 
-#ifdef _WIN32
 // *****************************************************************************
 
 /**
@@ -242,6 +289,8 @@ uint32_t leVariableHeap_SizeOf(leVariableHeap* heap,
  */
 void leVariableHeap_Dump(leVariableHeap* heap,
                          leBool dumpRecords);
-#endif
+
+#endif // LE_MEMORY_MANAGER_ENABLE
 
 #endif /* LEGATO_VARIABLEHEAP_H */
+

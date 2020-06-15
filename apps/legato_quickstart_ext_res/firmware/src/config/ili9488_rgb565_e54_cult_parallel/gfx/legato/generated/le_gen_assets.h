@@ -5,20 +5,23 @@
     Microchip Technology Inc.
 
   File Name:
-    generated/le_gen_assets.h
+    le_gen_assets.h
 
   Summary:
     Header file containing a list of asset specifications for use with the
-    MPLAB Harmony Graphics Stack.
+    Legato Graphics Stack.
+
 
   Description:
     Header file containing a list of asset specifications for use with the
-    MPLAB Harmony Graphics Stack.
+    Legato Graphics Stack.
+
 *******************************************************************************/
+
 
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C)  Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -39,6 +42,7 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
+
 // DOM-IGNORE-END
 
 #ifndef LE_GEN_ASSETS_H
@@ -52,28 +56,35 @@ extern "C" {
 
 #include "gfx/legato/legato.h"
 
-/*****************************************************************************
-* MPLAB Harmony Graphics Asset Location IDs
-*****************************************************************************/
-/*********************************
- * Legato Asset Memory Location
- * Name:   SQI
- * Size:   8000000
- * Format: HEX
- * Path:   SQI
- * Offset: 0
- ***********************************/
-#define LA_ASSET_LOCATION_ID_SQI    2
+extern const lePalette leGlobalPalette;
 
 /*****************************************************************************
-* MPLAB Harmony Graphics Image Assets
-*****************************************************************************/
+ * Legato Graphics Asset Location IDs
+ *****************************************************************************/
+/*********************************
+ * Legato Asset Memory Location
+ * Name:          SQI
+ ***********************************/
+#define LE_STREAM_LOCATION_ID_SQI    1
+
+/*****************************************************************************
+ * Legato Graphics Image Assets
+ *****************************************************************************/
+/*********************************
+ * Legato Image Asset
+ * Name:   Image0
+ * Size:   256x1 pixels
+ * Type:   RGB Color Palette
+ * Format: RGB_888
+ ***********************************/
+extern leImage Image0;
+
 /*********************************
  * Legato Image Asset
  * Name:   MHGS_logo_small_jpeg
  * Size:   141x132 pixels
- * Format: Raw
- * Mode: RGB_565
+ * Type:   RGB Data
+ * Format: RGB_888
  ***********************************/
 extern leImage MHGS_logo_small_jpeg;
 
@@ -81,8 +92,8 @@ extern leImage MHGS_logo_small_jpeg;
  * Legato Image Asset
  * Name:   MHGS_logo_small_png
  * Size:   141x132 pixels
- * Format: Raw
- * Mode: RGB_565
+ * Type:   RGB Data
+ * Format: RGBA_8888
  ***********************************/
 extern leImage MHGS_logo_small_png;
 
@@ -90,8 +101,8 @@ extern leImage MHGS_logo_small_png;
  * Legato Image Asset
  * Name:   MHGS_logo_small_raw
  * Size:   141x132 pixels
- * Format: Raw
- * Mode: RGB_565
+ * Type:   RGB Data
+ * Format: RGB_565
  ***********************************/
 extern leImage MHGS_logo_small_raw;
 
@@ -99,8 +110,8 @@ extern leImage MHGS_logo_small_raw;
  * Legato Image Asset
  * Name:   MHGS_logo_small_rle
  * Size:   141x132 pixels
- * Format: RLE
- * Mode: RGB_565
+ * Type:   RGB Data
+ * Format: RGB_565
  ***********************************/
 extern leImage MHGS_logo_small_rle;
 
@@ -108,36 +119,36 @@ extern leImage MHGS_logo_small_rle;
  * Legato Image Asset
  * Name:   MHGS_logo_small_compressed
  * Size:   141x132 pixels
- * Format: Raw
- * Mode: INDEX_8
+ * Type:   RGB Data
+ * Format: RGB_565
  ***********************************/
 extern leImage MHGS_logo_small_compressed;
 
 /*****************************************************************************
-* MPLAB Harmony Graphics Font Assets
-*****************************************************************************/
+ * Legato Graphics Font Assets
+ *****************************************************************************/
 /*********************************
  * Legato Font Asset
- * Name:         ArialUnicodeMS
- * Height:       16
- * Baseline:     12
+ * Name:         NotoSans_Regular
+ * Height:       21
+ * Baseline:     13
  * Style:        Antialias
- * Glyph Count:  97
- * Range Count:  2
- * Glyph Ranges: 0x0A
-                 0x20-0x7F
+ * Glyph Count:  96
+ * Range Count:  16
+ * Glyph Ranges: 0xA
+                 0x20-0x7E
 ***********************************/
-extern leRasterFont ArialUnicodeMS;
+extern leRasterFont NotoSans_Regular;
 
 /*********************************
  * Legato Font Asset
- * Name:         ArialUnicodeMS_Large
- * Height:       24
- * Baseline:     19
+ * Name:         NotoSansCJKtc_Regular
+ * Height:       23
+ * Baseline:     18
  * Style:        Antialias
- * Glyph Count:  8109
- * Range Count:  22
- * Glyph Ranges: 0x20-0x7F
+ * Glyph Count:  121
+ * Range Count:  40
+ * Glyph Ranges: 0x20-0x7E
                  0x4E26
                  0x50CF
                  0x5132
@@ -158,35 +169,40 @@ extern leRasterFont ArialUnicodeMS;
                  0x7D22
                  0x7E2E
                  0x7E6A
-                 0x80C8-0x9FFF
+                 0x8A00
+                 0x8A9E
+                 0x90E8
+                 0x91CD
+                 0x9215
 ***********************************/
-extern leRasterFont ArialUnicodeMS_Large;
+extern leRasterFont NotoSansCJKtc_Regular;
 
 /*****************************************************************************
  * Legato String Table
  * Encoding        UTF16
  * Language Count: 2
  * String Count:   11
-*****************************************************************************/
+ *****************************************************************************/
 
 // language IDs
 #define language_English    0
 #define language_Chinese    1
 
 // string IDs
-#define string_DrawJpeg    0
-#define string_DrawPNG    1
-#define string_DrawPaletteCompressed    2
-#define string_DrawRLE    3
-#define string_DrawRaw    4
-#define string_ImageIsJPEG    5
-#define string_ImageIsPNG    6
-#define string_ImageIsPaletteCompressed    7
-#define string_ImageIsRLE    8
-#define string_ImageIsRaw    9
-#define string_TitleString    10
+#define stringID_ImageIsJPEG    0
+#define stringID_DrawRLE    1
+#define stringID_DrawRaw    2
+#define stringID_ImageIsPNG    3
+#define stringID_DrawJpeg    4
+#define stringID_ImageIsRLE    5
+#define stringID_ImageIsPaletteCompressed    6
+#define stringID_ImageIsRaw    7
+#define stringID_DrawPaletteCompressed    8
+#define stringID_TitleString    9
+#define stringID_DrawPNG    10
 
 extern const leStringTable stringTable;
+
 //DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 }

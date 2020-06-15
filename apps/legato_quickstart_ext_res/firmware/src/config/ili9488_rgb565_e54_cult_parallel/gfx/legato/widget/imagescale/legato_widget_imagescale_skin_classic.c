@@ -283,13 +283,6 @@ static void drawBorder(leImageScaleWidget* img)
 
 void _leImageScaleWidget_Paint(leImageScaleWidget* img)
 {
-    if(img->widget.scheme == NULL)
-    {
-        img->widget.drawState = DONE;
-        
-        return;
-    }
-    
     if(img->widget.drawState == NOT_STARTED)
     {
         nextState(img);

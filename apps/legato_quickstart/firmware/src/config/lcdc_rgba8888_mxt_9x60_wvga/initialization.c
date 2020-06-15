@@ -236,14 +236,6 @@ static void SYSC_Disable( void )
     rstc_mr = rstc_mr & (~RSTC_MR_URSTIEN_Msk);
     RSTC_REGS->RSTC_MR = RSTC_MR_KEY_PASSWD | rstc_mr;
 
-    /* ----------------------------   PIT  -------------------------------*/
-    //Disable Timer and interrupt
-    uint32_t pit_mr = PIT_REGS->PIT_MR & PIT_MR_PIV_Msk;
-    PIT_REGS->PIT_MR = pit_mr & ~(PIT_MR_PITEN_Msk | PIT_MR_PITIEN_Msk);
-
-    //Clear status
-    PIT_REGS->PIT_SR;
-
    //Context restore SYSC write protect registers
    SYSCWP_REGS->SYSCWP_SYSC_WPMR = (SYSCWP_SYSC_WPMR_WPKEY_PASSWD | sysc_wpmr);
 }
@@ -273,6 +265,8 @@ void SYS_Initialize ( void* data )
 
 
 	BSP_Initialize();
+	PIT_TimerInitialize();
+
     MMU_Initialize();
 
     INT_Initialize();
@@ -291,8 +285,6 @@ void SYS_Initialize ( void* data )
     sysObj.drvI2C0 = DRV_I2C_Initialize(DRV_I2C_INDEX_0, (SYS_MODULE_INIT *)&drvI2C0InitData);
     DRV_LCDC_Initialize();
 
-    DRV_GFX2D_Initialize();
-
 
     sysObj.drvMAXTOUCH = DRV_MAXTOUCH_Initialize(0, (SYS_MODULE_INIT *)&drvMAXTOUCHInitData);
 
@@ -302,6 +294,30 @@ void SYS_Initialize ( void* data )
     SYS_INP_Init();
 
 
+// DOM-IGNORE-BEGIN
+/*******************************************************************************
+* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
+*
+* Subject to your compliance with these terms, you may use Microchip software
+* and any derivatives exclusively with Microchip products. It is your
+* responsibility to comply with third party license terms applicable to your
+* use of third party software (including open source software) that may
+* accompany Microchip software.
+*
+* THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+* EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+* WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+* PARTICULAR PURPOSE.
+*
+* IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+* INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+* WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+* BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+* FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+* ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+* THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
+*******************************************************************************/
+// DOM-IGNORE-END
     // initialize UI library
     Legato_Initialize();
 

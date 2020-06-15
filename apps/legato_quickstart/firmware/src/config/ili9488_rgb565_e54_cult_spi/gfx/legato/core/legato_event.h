@@ -78,7 +78,6 @@ typedef enum leEventID
     LE_WIDGET_EVENT_FOCUS_LOST, /**< Focus lost event. */
 } leEventID;
 
-typedef struct leWidget leWidget;
 
 // *****************************************************************************
 /**

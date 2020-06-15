@@ -57,7 +57,6 @@
 
 typedef struct leRadialMenuWidget leRadialMenuWidget;
 
-typedef void (*leRadialMenuWidget_ItemSelectedEvent)(leRadialMenuWidget*, leWidget*, int32_t);
 typedef void (*leRadialMenuWidget_ItemProminenceChangedEvent)(leRadialMenuWidget*, leWidget*, int32_t);
 
 // *****************************************************************************
@@ -88,17 +87,6 @@ typedef enum leRadialMenuWidgetInterpolationMode
 	LE_RADIAL_MENU_INTERPOLATE_PROMINENT
 } leRadialMenuWidgetInterpolationMode;
 
-/**
- * @brief This struct represents a redial menu widget ellipse type.
- * @details Used to define the possible ellipse types for  radial menu widget.
- */
-typedef enum leRadialMenuEllipseType
-{
-	LE_RADIAL_MENU_ELLIPSE_TYPE_DEFAULT,
-	LE_RADIAL_MENU_ELLIPSE_TYPE_ORBITAL,
-	LE_RADIAL_MENU_ELLIPSE_TYPE_ROLLODEX
-} leRadialMenuEllipseType;
-
 /* internal use only */
 /**
   * @cond INTERNAL
@@ -109,30 +97,27 @@ typedef enum leRadialMenuEllipseType
     LE_WIDGET_VTABLE(THIS_TYPE) \
     \
     leBool    (*isProminent)(const THIS_TYPE* _this, const leWidget* widget); \
+    leWidget* (*getProminent)(const THIS_TYPE* _this); \
     leResult  (*setProminent)(THIS_TYPE* _this, const leWidget* widget); \
     int32_t   (*getProminentIndex)(const THIS_TYPE* _this); \
     leResult  (*setProminentIndex)(THIS_TYPE* _this, int32_t index); \
     leResult  (*setNumberOfItemsShown)(THIS_TYPE* _this, uint32_t cnt); \
     leResult  (*setHighlightProminent)(THIS_TYPE* _this, leBool hl); \
+    int32_t   (*getMajorAxis)(const THIS_TYPE* _this); \
+    leResult  (*setMajorAxis)(THIS_TYPE* _this, int32_t a); \
+    int32_t   (*getMinorAxis)(const THIS_TYPE* _this); \
+    leResult  (*setMinorAxis)(THIS_TYPE* _this, int32_t b); \
     int32_t   (*getTheta)(const THIS_TYPE* _this); \
     leResult  (*setTheta)(THIS_TYPE* _this, int32_t tht); \
-    leResult  (*setEllipseType)(THIS_TYPE* _this, leRadialMenuEllipseType type); \
-    leResult  (*addWidget)(THIS_TYPE* _this, leWidget* wgt); \
-    leResult  (*removeWidget)(THIS_TYPE* _this, leWidget* wgt); \
-    leWidget* (*getWidgetAtIndex)(const THIS_TYPE* _this, int32_t idx); \
-    leResult  (*setWidgetAtIndex)(THIS_TYPE* _this, int32_t idx, leWidget* wgt); \
-    leResult  (*removeAllWidgets)(THIS_TYPE* _this); \
     leResult  (*setScaleMode)(THIS_TYPE* _this, leRadialMenuWidgetInterpolationMode mode); \
     leResult  (*setScaleRange)(THIS_TYPE* _this, int32_t min, int32_t max); \
     leResult  (*setBlendMode)(THIS_TYPE* _this, leRadialMenuWidgetInterpolationMode mode); \
     leResult  (*setBlendRange)(THIS_TYPE* _this, int32_t min, int32_t max); \
     leResult  (*setTouchArea)(THIS_TYPE* _this, int32_t x, int32_t y, int32_t width, int32_t height); \
     leResult  (*setDrawEllipse)(THIS_TYPE* _this, leBool b); \
-    leRadialMenuWidget_ItemSelectedEvent (*getItemSelectedEventCallback)(const THIS_TYPE* _this); \
-    leResult  (*setItemSelectedEventCallback)(THIS_TYPE* _this, leRadialMenuWidget_ItemSelectedEvent cb); \
     leRadialMenuWidget_ItemProminenceChangedEvent (*getItemProminenceChangedEventCallback)(const THIS_TYPE* _this); \
-    leResult  (*setItemProminenceChangedEventCallback)(THIS_TYPE* _this, leRadialMenuWidget_ItemProminenceChangedEvent cb); \
-    
+    leResult  (*setItemProminenceChangedEventCallback)(THIS_TYPE* _this, leRadialMenuWidget_ItemProminenceChangedEvent cb);
+
 typedef struct leRadialMenuWidgetVTable
 {
 	LE_RADIALMENUWIDGET_VTABLE(leRadialMenuWidget)
@@ -143,26 +128,33 @@ typedef struct leRadialMenuWidgetVTable
       *
       */
 
+enum leRadialMenuItemState
+{
+    LE_RMI_NOT_VISIBLE,
+    LE_RMI_WAITING_FOR_SORT,
+    LE_RMI_VISIBLE,
+    LE_RMI_PROMINENT
+};
+
 /**
  * @brief This struct represents a redial menu item node.
  * @details Used to define the attributes of an radial menu item.
  */
 typedef struct leRadialMenuItemNode
 {
-	leWidget* widget; // point to the widget of the item
-	int32_t t; // the angle in degress between 0 - 360, representing the relative position of the item on the track
-	
-	//leWidgetInputHandler inputHandler; 
-    
-	//leWidget_TouchDownEvent_FnPtr origTouchDown; //the widget item's original touch down event, 
-                                                 //allows the radial menu to work as a hub to route to the appropriate widget
-	//leWidget_TouchUpEvent_FnPtr origTouchUp; //the widget item's original touch up event
-                                                 //allows the radial menu to work as a hub to route to the appropriate widget
-	//leWidget_TouchMovedEvent_FnPtr origTouchMoved; //the widget item's original touch move event
+    leWidget* widget; // point to the widget of the item
+    lePoint point;
+    int32_t angle;
+    int32_t absAngle;
+    int32_t adjustedAngle;
+    int32_t paintAngle;
+    uint32_t percent;
 
     leRect origSize;  //the original size of the widget, it is a reference point for scaling
     uint32_t origAlphaAmount; //the original alpha value of the widget, it is a reference point for scaling
-    
+
+    enum leRadialMenuItemState state;
+
 } leRadialMenuItemNode;
 
 // *****************************************************************************
@@ -183,48 +175,67 @@ typedef struct leRadialMenuWidget
 	leRadialMenuWidgetState state;
 
     int32_t prominentIndex;
-    int32_t lastProminentIndex;
-	int32_t userRequestedAngleDiff; // the angle for the radial menu to rotate as requested by user
-	int32_t targetAngleDiff; // the angle for the radial menu to rotate for prominent item to be in front
-    int32_t userRequestedDirection; // tracks the direction that the user requested for rotation
-    
+
     leBool drawEllipse; // indicates if the radial menu is selected
     leBool highlightProminent; // highlight the prominent widget
 
-	leImageWidget* highlighter; // this widget manages the selector art asset
-    
-	int32_t a;  // the half-length of the 0-180 axis of the ellipse
-	int32_t b;  // the half-length of the 90-270 axis of the ellipse
-	int32_t theta; // the angle of rotation of the entire ellipse
-	
+    struct
+    {
+	leBool invalid;
+        int32_t a;  // the half-length of the 0-180 axis of the ellipse
+        int32_t b;  // the half-length of the 90-270 axis of the ellipse
+        int32_t theta; // the angle of rotation of the entire ellipse
+    } ellipse;
+
+    struct
+    {
+	    uint32_t maxWidth;
+	    uint32_t maxHeight;
+	    uint32_t alpha;
+	    int32_t firstVisibleItem;
+	    uint32_t lastZ;
+    } paintState;
+
     leBool touchPressed; // keep track of users touch input
+    int32_t rotationDegrees;
+    int32_t angleSlice;
     
-    leBool ellipseChanged; // keeps track if the elliptical track has changed
-    
-	leRadialMenuWidgetInterpolationMode scaleMode;  // the enable item size scaling within the widget
+    leRadialMenuWidgetInterpolationMode scaleMode;  // the enable item size scaling within the widget
 
-	int32_t maxSizePercent;  // the maximum size scale between 1 - 200%
-	int32_t minSizePercent;  // the minimum size scale between 1 - 200%
+    int32_t maxSizePercent;  // the maximum size scale between 1 - 200%
+    int32_t minSizePercent;  // the minimum size scale between 1 - 200%
 
-	leRect touchArea; // the area specified within the widget that touch events are detected
+    uint32_t touchX; // the x offset of the touch area as a percentage
+    uint32_t touchY; // the y offset of the touch area as a percentage
+    uint32_t touchWidth; // the width of the touch area as a percentage
+    uint32_t touchHeight; // the height of the touch area as a percentage
 
-	leRadialMenuWidgetInterpolationMode blendMode; // the enable item alpha scaling within the widget
+    leRect touchArea; // the area specified within the widget that touch events are detected in pixels
 
-	int32_t maxAlphaAmount;  // the maximum alpha between 0 - 255
-	int32_t minAlphaAmount;  // the minimum alpha between 0 - 255
+    int32_t minFlickDelta; // amount of distance that must be dragged in a single
+    // frame to trigger momentum mode
+
+    int32_t momentum; // current momentum value
+    int32_t maxMomentum; // maximum momentum value
+    int32_t momentumFalloff; // momentum falloff rate
+    int32_t rotation; // determines actual rotation of the wheel
+    int32_t rotationCounter; // time-based limiter for rotation calculations
+    int32_t rotationTick; // rotation time accumulator
+
+    int32_t snapState;
+    int32_t snapCounter;
+    int32_t snapMagnitude;
+
+    leRadialMenuWidgetInterpolationMode blendMode; // the enable item alpha scaling within the widget
+
+    int32_t maxAlphaAmount;  // the maximum alpha between 0 - 255
+    int32_t minAlphaAmount;  // the minimum alpha between 0 - 255
 
     uint32_t itemsShown; // keeps count of how many items to visible, this number should be less than or equal to total number of widget items
     leList widgetList; // this is the list of widgets
-    leList shownList; // this is the partial list of widgets shown
-    leList hiddenList; // this is the partial list of widgets hidden
-
-    leRadialMenuItemNode* widestWidgetItem; // keeps track of which widget is the widgets for major axis calculation
-    leRadialMenuItemNode* tallestWidgetItem; // keeps track of which widget is the widgets for minor axis calculation
+    leBool positionsInvalid;
     
-    leRadialMenuWidget_ItemSelectedEvent itemSelectedEvent; // an item is selected event callback
-	leRadialMenuWidget_ItemProminenceChangedEvent itemProminenceChangedEvent; // whenever a new item is in prominence event callback
-
-    leRadialMenuEllipseType ellipseType;
+    leRadialMenuWidget_ItemProminenceChangedEvent itemProminenceChangedEvent; // whenever a new item is in prominence event callback
 } leRadialMenuWidget;
 
 
@@ -283,19 +294,26 @@ LIB_EXPORT void leRadialMenuWidget_Constructor(leRadialMenuWidget* wgt);
   Returns:
     leBool - the prominent indicator
 */
-/**
- * @brief Determine if widget is prominent.
- * @details Determines if widget <span class="param">widget</span> is prominent using <span class="param">_this</span>.
- * @code
- * const leRadialMenuWidget* _this;
- * leBool prom = _this->fn->isProminent(_this);
- * @endcode
- * @param _this is the widget pointer to query.
- * @returns LE_TRUE if set, otherwise LE_FALSE;
- */
-virtual leBool isProminent(const leRadialMenuWidget* _this,
-                           const leWidget* widget);
 
+// *****************************************************************************
+/* Virtual Member Function:
+    leWidget* getProminent(const leRadialMenuWidget* _this)
+
+  Summary:
+     Gets the prominent child widget
+
+  Description:
+     Gets the prominent child widget
+
+  Parameters:
+    const leRadialMenuWidget* _this - The radial menu widget to operate on
+
+  Remarks:
+    Usage - _this->fn->getProminent(_this);
+
+  Returns:
+    leWidget* - the prominent child widget
+*/
 
 // *****************************************************************************
 /* Virtual Member Function:
@@ -1037,17 +1055,6 @@ virtual leResult setItemProminenceChangedEventCallback(leRadialMenuWidget* _this
 
 #undef THIS_TYPE
 #endif
-
-/* internal use only */
-/**
-  * @cond INTERNAL
-  *
-  */
-leWidgetUpdateState _leRadialMenuWidget_Update(leRadialMenuWidget* mn);
-/**
-  * @endcond
-  *
-  */
 
 #endif // LE_RADIALMENU_WIDGET_ENABLED
 #endif /* LEGATO_RADIALMENU_H */

@@ -38,7 +38,7 @@
 *******************************************************************************/
 
 /** \file legato_math.h
- * @brief An array implementation for storing pointers.
+ * @brief Defines common math functions for general use.
  *
  * @details This is an array implementation that is used internally by the Legato user
  * interface library.
@@ -705,26 +705,17 @@ LIB_EXPORT leResult leEllipsePoint(int32_t t, int32_t a, int32_t b, int32_t thet
  */
 LIB_EXPORT double leAtan(double val);
 
-//Returns true if arc overlaps with quadrant
-/**
- * @brief Determines if arc overlaps quadrant.
- * @details Determines arc at <span style="color: #820a32"><em>startAngleArc0</em></span> and
- * <span style="color: #820a32"><em>endAngleArc0</em></span> and
- * <span style="color: #820a32"><em>dir</em></span> overlaps
- * <span style="color: #820a32"><em>quadrant</em></span>
- * @code
- * leArcsOverlapQuadrant(startAngleArc0, endAngleArc0, dir, quadrant);
- * @endcode
- * @param param1 startAngleArc0 is point to rotate.
- * @param param2 endAngleArc0 of the rotation.
- * @param param2 dir of the rotation.
- * @param param2 quadrant of the rotation.
- * @return void.
- */
-leBool leArcsOverlapQuadrant(int32_t startAngleArc0, 
-                             int32_t endAngleArc0, 
-                             leArcDir dir, 
-                             uint32_t quadrant);
+typedef struct
+{
+    leBool q1;
+    leBool q2;
+    leBool q3;
+    leBool q4;
+} leArcQuadrantQuery;
+
+leBool lePointOnLineSide(lePoint* pt,
+                         lePoint* linePt,
+                         lePoint* sign);
 
 // *****************************************************************************
 /* Function:
@@ -956,5 +947,54 @@ lePoint leRotatePoint(lePoint pos,
 leRect leRotatedRectBounds(leRect rect,
                            lePoint org,
                            int32_t ang);
+
+
+// *****************************************************************************
+/* Function:
+    float leSqrt(const float x)
+
+  Summary:
+    Fast square root approximation function.
+
+  Description:
+    Approximates a square root using the magic number method.
+
+  Parameters:
+    const float x - the number to calculate the root for
+
+  Returns:
+    float - square root of the input number
+
+  Remarks:
+
+*/
+float leSqrt(const float x);
+
+void leNormalizeAngles(int32_t startAngle,
+                       int32_t spanAngle,
+                       int32_t* normalizedStartAngle,
+                       int32_t* normalizedEndAngle);
+
+typedef struct leResolvedAngleRanges
+{
+    uint32_t angleCount;
+    struct
+    {
+        int32_t startAngle;
+        int32_t endAngle;
+        leArcQuadrantQuery quadrants;
+    } angle0;
+    struct
+    {
+        int32_t startAngle;
+        int32_t endAngle;
+        leArcQuadrantQuery quadrants;
+    } angle1;
+} leResolvedAngleRanges;
+
+leResolvedAngleRanges leResolveAngles(int32_t startAngle,
+                                      int32_t spanAngle);
+
+float leRound(float flt);
 
 #endif /* LE_MATH_H */

@@ -163,6 +163,9 @@
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f4" displayName="system" projectFiles="true">
+            <logicalFolder name="f4" displayName="debug" projectFiles="true">
+              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk_freertos_wvga/system/debug/sys_debug.h</itemPath>
+            </logicalFolder>
             <logicalFolder name="f2" displayName="input" projectFiles="true">
               <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk_freertos_wvga/system/input/sys_input.h</itemPath>
               <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk_freertos_wvga/system/input/sys_input_gesture.h</itemPath>
@@ -194,22 +197,6 @@
       <logicalFolder name="f3" displayName="FreeRTOS" projectFiles="true">
         <logicalFolder name="f1" displayName="Source" projectFiles="true">
           <logicalFolder name="f1" displayName="include" projectFiles="true">
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/croutine.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/event_groups.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/FreeRTOS.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/list.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/mpu_wrappers.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/portable.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/projdefs.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/queue.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/semphr.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/stack_macros.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/deprecated_definitions.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/task.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/timers.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/mpu_prototypes.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/stream_buffer.h</itemPath>
-            <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/message_buffer.h</itemPath>
             <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/croutine.h</itemPath>
             <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/event_groups.h</itemPath>
             <itemPath>../src/third_party/rtos/FreeRTOS/Source/include/FreeRTOS.h</itemPath>
@@ -508,6 +495,7 @@
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
+      <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk_freertos_wvga/harmony.prj</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
@@ -521,14 +509,16 @@
         <targetDevice>PIC32MZ2064DAR169</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>RealICEPlatformTool</platformTool>
+        <platformTool>noID</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>2.40</languageToolchainVersion>
-        <platform>2</platform>
+        <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC32MZ-DA_DFP" vendor="Microchip" version="1.1.98"/>
+        <pack name="PIC32MZ-DA_DFP" vendor="Microchip" version="1.2.102"/>
       </packs>
+      <ScriptingSettings>
+      </ScriptingSettings>
       <compileType>
         <linkerTool>
           <linkerLibItems>
@@ -563,7 +553,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/glcd_rgba8888_mxt_mzda_intddr_sk_freertos_wvga;../src/packs/PIC32MZ2064DAR169_DFP;;../src/mips;../src/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ;../src/third_party/rtos/FreeRTOS/Source/include"/>
+                  value="../src;../src/config/glcd_rgba8888_mxt_mzda_intddr_sk_freertos_wvga;../src/packs/PIC32MZ2064DAR169_DFP;../src/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ;../src/third_party/rtos/FreeRTOS/Source/include"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -685,6 +675,7 @@
         <property key="mdtcm" value=""/>
         <property key="mitcm" value=""/>
         <property key="mstacktcm" value="false"/>
+        <property key="omit-pack-options" value="1"/>
         <property key="relaxed-math" value="false"/>
         <property key="save-temps" value="false"/>
         <property key="wpo-lto" value="false"/>
@@ -917,6 +908,12 @@
         <property key="programoptions.programuserotp" value="false"/>
         <property key="programoptions.usehighvoltageonmclr" value="false"/>
         <property key="programoptions.uselvpprogramming" value="false"/>
+        <property key="tracecontrol.include.timestamp" value="summarydataenabled"/>
+        <property key="tracecontrol.select" value="0"/>
+        <property key="tracecontrol.stallontracebufferfull" value="false"/>
+        <property key="tracecontrol.tracebufmax" value="546000"/>
+        <property key="tracecontrol.tracefile" value="defmplabxtrace.log"/>
+        <property key="tracecontrol.tracefilemax" value="10000000"/>
         <property key="voltagevalue" value="3.25"/>
       </RealICEPlatformTool>
     </conf>

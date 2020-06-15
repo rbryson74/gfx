@@ -30,6 +30,14 @@
 
 #if LE_FIXEDHEAP_ENABLE == 1
 
+#if LE_USE_DEBUG_ALLOCATOR == 1
+#define LE_FHEAP_ALLOC(heap) leFixedHeap_Alloc(heap, __LINE__, __FUNCTION__, __FILE__)
+#define LE_FHEAP_REALLOC(heap, ptr) leFixedHeap_Realloc(heap, ptr, __LINE__, __FUNCTION__, __FILE__)
+#else
+#define LE_FHEAP_ALLOC(heap) leFixedHeap_Alloc(heap)
+#define LE_FHEAP_REALLOC(heap, ptr) leFixedHeap_Realloc(ptr)
+#endif
+
 #if LE_FIXEDHEAP_DEBUG == 1
 #define LE_FIXEDHEAP_HEADER_SIZE   sizeof(leFixedHeapDebugHeader)
 #define LE_FIXEDHEAP_FOOTER_SIZE   4

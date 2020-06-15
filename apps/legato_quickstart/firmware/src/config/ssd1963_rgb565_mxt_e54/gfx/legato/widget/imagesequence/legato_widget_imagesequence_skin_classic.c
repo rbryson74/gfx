@@ -214,13 +214,6 @@ static void drawBorder(leImageSequenceWidget* img)
 
 void _leImageSequenceWidget_Paint(leImageSequenceWidget* img)
 {
-    if(img->widget.scheme == NULL)
-    {
-        img->widget.drawState = DONE;
-        
-        return;
-    }
-    
     if(img->widget.drawState == NOT_STARTED)
         nextState(img);
 

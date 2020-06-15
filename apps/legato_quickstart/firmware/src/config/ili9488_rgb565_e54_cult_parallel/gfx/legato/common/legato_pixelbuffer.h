@@ -271,24 +271,7 @@ LIB_EXPORT leColor lePixelBufferGet(const lePixelBuffer* const buffer,
 LIB_EXPORT leColor lePixelBufferGet_Unsafe(const lePixelBuffer* const buffer,
                                            uint32_t x,
                                            uint32_t y);
-                                               
-// *****************************************************************************
-/* Function:
-    leColor lePixelBufferGetIndex(const lePixelBuffer* const buffer,
-                                  const int32_t idx)
 
-  Summary:
-    Interprets the pixel buffer as a table of indices and looks up a specific
-    index at position 'idx'.  Indices may be 1bpp, 4bpp, or 8bpp in size and
-    are indicated by the color mode of the pixel buffer.
-
-  Parameters:
-    const lePixelBuffer* const - the input buffer
-    const int32_t - the index to retrieve
-    
-  Returns:
-    leColor - the resultant value that was retrieved
-*/                                        
 /**
  * @brief Get color at index
  * @details Interprets the pixel buffer as a table of indices and looks up
@@ -304,21 +287,7 @@ LIB_EXPORT leColor lePixelBufferGet_Unsafe(const lePixelBuffer* const buffer,
 LIB_EXPORT leColor lePixelBufferGetIndex_Unsafe(const lePixelBuffer* const buffer,
                                                 const uint32_t idx);
 
-// *****************************************************************************
-/* Function:
-    leColor lePixelBufferGetIndex_Unsafe(const lePixelBuffer* const buffer,
-                                     const uint32_t idx)
 
-  Summary:
-    A faster less-safe version of lePixelBufferGetIndex;
-
-  Parameters:
-    const lePixelBuffer* const - the input buffer
-    const int32_t - the index to retrieve
-
-  Returns:
-    leColor - the resultant value that was retrieved
-*/
 /**
  * @brief Pixel get
  * @details A faster less-safe version of lePixelBufferGetIndex.
@@ -518,6 +487,36 @@ LIB_EXPORT leResult lePixelBufferAreaFill_Unsafe(const lePixelBuffer* const buff
                                                  uint32_t w,
                                                  uint32_t h,
                                                  leColor color);
+
+// *****************************************************************************
+/* Function:
+    leResult lePixelBufferCopy(lePixelBuffer* dest,
+                               int16_t x,
+                               int16_t y,
+                               const lePixelBuffer* src,
+                               leRect* srcRect)
+
+  Summary:
+    Copies a rectangle of data from one buffer into another buffer.  This is
+    a safe copy in that any reads or writes outside of the buffers are detected
+    and discarded.  The color data is automatically converted from the source
+    mode to the destination mode.
+
+  Parameters:
+    lePixelBuffer* dest - the buffer to write to
+    int16_t - the x coordinate to write to
+    int16_t - the y cooridnate to write to
+    const lePixelBuffer* src - the pixel buffer to read from
+    leRect* srcRect - the rectangle of the source data
+
+  Returns:
+    leResult
+*/
+leResult lePixelBufferCopy(lePixelBuffer* dest,
+                           uint32_t x,
+                           uint32_t y,
+                           const lePixelBuffer* src,
+                           const leRect* srcRect);
 
 // *****************************************************************************
 /* Function:

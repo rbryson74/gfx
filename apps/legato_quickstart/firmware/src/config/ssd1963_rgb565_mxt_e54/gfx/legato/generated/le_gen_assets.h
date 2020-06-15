@@ -5,20 +5,23 @@
     Microchip Technology Inc.
 
   File Name:
-    generated/le_gen_assets.h
+    le_gen_assets.h
 
   Summary:
     Header file containing a list of asset specifications for use with the
-    MPLAB Harmony Graphics Stack.
+    Legato Graphics Stack.
+
 
   Description:
     Header file containing a list of asset specifications for use with the
-    MPLAB Harmony Graphics Stack.
+    Legato Graphics Stack.
+
 *******************************************************************************/
+
 
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C)  Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -39,6 +42,7 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
+
 // DOM-IGNORE-END
 
 #ifndef LE_GEN_ASSETS_H
@@ -52,28 +56,27 @@ extern "C" {
 
 #include "gfx/legato/legato.h"
 
+extern const lePalette leGlobalPalette;
+
 /*****************************************************************************
-* MPLAB Harmony Graphics Asset Location IDs
-*****************************************************************************/
-/*****************************************************************************
-* MPLAB Harmony Graphics Image Assets
-*****************************************************************************/
+ * Legato Graphics Image Assets
+ *****************************************************************************/
 /*********************************
  * Legato Image Asset
  * Name:   MHGC_150x150
  * Size:   150x150 pixels
- * Format: RLE
- * Mode: RGB_565
+ * Type:   RGB Data
+ * Format: RGB_888
  ***********************************/
 extern leImage MHGC_150x150;
 
 /*****************************************************************************
-* MPLAB Harmony Graphics Font Assets
-*****************************************************************************/
+ * Legato Graphics Font Assets
+ *****************************************************************************/
 /*********************************
  * Legato Font Asset
  * Name:         NotoSans_Bold
- * Height:       19
+ * Height:       21
  * Baseline:     14
  * Style:        Antialias
  * Glyph Count:  23
@@ -97,7 +100,7 @@ extern leRasterFont NotoSans_Bold;
 /*********************************
  * Legato Font Asset
  * Name:         NotoSans_Regular
- * Height:       17
+ * Height:       21
  * Baseline:     12
  * Style:        Antialias
  * Glyph Count:  16
@@ -122,16 +125,17 @@ extern leRasterFont NotoSans_Regular;
  * Encoding        ASCII
  * Language Count: 1
  * String Count:   2
-*****************************************************************************/
+ *****************************************************************************/
 
 // language IDs
 #define language_default    0
 
 // string IDs
-#define string_Slogan    0
-#define string_TitleString    1
+#define stringID_TitleString    0
+#define stringID_Slogan    1
 
 extern const leStringTable stringTable;
+
 //DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 }

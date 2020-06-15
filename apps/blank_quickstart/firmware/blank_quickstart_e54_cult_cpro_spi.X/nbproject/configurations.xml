@@ -28,10 +28,9 @@
           </logicalFolder>
           <logicalFolder name="f4" displayName="gfx" projectFiles="true">
             <logicalFolder name="f2" displayName="driver" projectFiles="true">
-              <logicalFolder name="f1" displayName="ili9488" projectFiles="true">
+              <logicalFolder name="f1" displayName="external_controller" projectFiles="true">
                 <itemPath>../src/config/ili9488_rgb565_e54_cult_spi/gfx/driver/gfx_driver.h</itemPath>
-                <itemPath>../src/config/ili9488_rgb565_e54_cult_spi/gfx/driver/controller/ili9488/drv_gfx_ili9488.h</itemPath>
-                <itemPath>../src/config/ili9488_rgb565_e54_cult_spi/gfx/driver/controller/ili9488/drv_gfx_ili9488_cmd_defs.h</itemPath>
+                <itemPath>../src/config/ili9488_rgb565_e54_cult_spi/gfx/driver/controller/external_controller/drv_gfx_external_controller.h</itemPath>
               </logicalFolder>
             </logicalFolder>
             <logicalFolder name="f1" displayName="interface" projectFiles="true">
@@ -75,6 +74,9 @@
           <logicalFolder name="f5" displayName="system" projectFiles="true">
             <logicalFolder name="f5" displayName="cache" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54_cult_spi/system/cache/sys_cache.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f7" displayName="debug" projectFiles="true">
+              <itemPath>../src/config/ili9488_rgb565_e54_cult_spi/system/debug/sys_debug.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f6" displayName="dma" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54_cult_spi/system/dma/sys_dma.h</itemPath>
@@ -164,6 +166,7 @@
             <itemPath>../src/packs/ATSAME54P20A_DFP/pio/same54p20a.h</itemPath>
           </logicalFolder>
           <itemPath>../src/packs/ATSAME54P20A_DFP/device.h</itemPath>
+          <itemPath>../src/packs/ATSAME54P20A_DFP/atsame54p20a_compat.h</itemPath>
           <itemPath>../src/packs/ATSAME54P20A_DFP/atsame54p20a.h</itemPath>
         </logicalFolder>
         <logicalFolder name="f2" displayName="CMSIS" projectFiles="true">
@@ -215,9 +218,9 @@
           </logicalFolder>
           <logicalFolder name="f4" displayName="gfx" projectFiles="true">
             <logicalFolder name="f2" displayName="driver" projectFiles="true">
-              <logicalFolder name="f1" displayName="ili9488" projectFiles="true">
+              <logicalFolder name="f1" displayName="external_controller" projectFiles="true">
                 <itemPath>../src/config/ili9488_rgb565_e54_cult_spi/gfx/driver/gfx_driver.c</itemPath>
-                <itemPath>../src/config/ili9488_rgb565_e54_cult_spi/gfx/driver/controller/ili9488/drv_gfx_ili9488.c</itemPath>
+                <itemPath>../src/config/ili9488_rgb565_e54_cult_spi/gfx/driver/controller/external_controller/drv_gfx_external_controller.c</itemPath>
               </logicalFolder>
             </logicalFolder>
             <logicalFolder name="f1" displayName="interface" projectFiles="true">
@@ -294,6 +297,8 @@
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
+      <itemPath>../src/config/ili9488_rgb565_e54_cult_spi/harmony.prj</itemPath>
+      <itemPath>../src/config/ili9488_rgb565_e54_cult_spi/ili9488_rgb565_e54_cult_spi.xml</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
@@ -307,15 +312,17 @@
         <targetDevice>ATSAME54P20A</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>EdbgTool</platformTool>
+        <platformTool></platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>2.40</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="SAME54_DFP" vendor="Microchip" version="3.1.43"/>
         <pack name="CMSIS" vendor="ARM" version="5.4.0"/>
+        <pack name="SAME54_DFP" vendor="Microchip" version="3.2.56"/>
       </packs>
+      <ScriptingSettings>
+      </ScriptingSettings>
       <compileType>
         <linkerTool>
           <linkerLibItems>
@@ -373,7 +380,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/ili9488_rgb565_e54_cult_spi;../src/packs/ATSAME54P20A_DFP;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/CMSIS/;../src/arm"/>
+                  value="../src;../src/config/ili9488_rgb565_e54_cult_spi;../src/packs/ATSAME54P20A_DFP;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/CMSIS/"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -493,6 +500,7 @@
         <property key="mdtcm" value=""/>
         <property key="mitcm" value=""/>
         <property key="mstacktcm" value="false"/>
+        <property key="omit-pack-options" value="1"/>
         <property key="relaxed-math" value="false"/>
         <property key="save-temps" value="false"/>
         <property key="wpo-lto" value="false"/>
@@ -505,6 +513,8 @@
         <property key="debugoptions.useswbreakpoints" value="false"/>
         <property key="firmware.path"
                   value="Press to browse for a specific firmware version"/>
+        <property key="firmware.toolpack"
+                  value="Press to select which tool pack to use"/>
         <property key="firmware.update.action" value="firmware.update.use.latest"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>
@@ -530,6 +540,10 @@
         <property key="programoptions.preserveprogramrange" value="false"/>
         <property key="programoptions.preserveuserid" value="false"/>
         <property key="programoptions.programuserotp" value="false"/>
+        <property key="toolpack.updateoptions"
+                  value="toolpack.updateoptions.uselatestoolpack"/>
+        <property key="toolpack.updateoptions.packversion"
+                  value="Press to select which tool pack to use"/>
         <property key="voltagevalue" value=""/>
       </EdbgTool>
       <PICkit3PlatformTool>

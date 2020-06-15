@@ -165,6 +165,9 @@
             <logicalFolder name="f4" displayName="cache" projectFiles="true">
               <itemPath>../src/config/lcdc_rgba8888_mxt_a5d2_xc32_wvga/system/cache/sys_cache.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="f5" displayName="debug" projectFiles="true">
+              <itemPath>../src/config/lcdc_rgba8888_mxt_a5d2_xc32_wvga/system/debug/sys_debug.h</itemPath>
+            </logicalFolder>
             <logicalFolder name="f2" displayName="input" projectFiles="true">
               <itemPath>../src/config/lcdc_rgba8888_mxt_a5d2_xc32_wvga/system/input/sys_input.h</itemPath>
               <itemPath>../src/config/lcdc_rgba8888_mxt_a5d2_xc32_wvga/system/input/sys_input_gesture.h</itemPath>
@@ -201,55 +204,54 @@
       <logicalFolder name="f2" displayName="packs" projectFiles="true">
         <logicalFolder name="f1" displayName="ATSAMA5D27_DFP" projectFiles="true">
           <logicalFolder name="f1" displayName="component" projectFiles="true">
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/secumod.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/aes.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/pit.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/pio.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/ptc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/twihs.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/sckc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/tdes.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/flexcom.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/aximx.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/rxlp.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/aic.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/mpddrc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/matrix.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/tc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/smc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/uart.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/pdmic.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/shdwc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/uhphs.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/qspi.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/ssc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/sdmmc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/sha.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/i2sc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/pwm.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/chipid.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/udphs.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/wdt.h</itemPath>
             <itemPath>../src/packs/ATSAMA5D27_DFP/component/acc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/mcan.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/trng.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/xdmac.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/rstc.h</itemPath>
             <itemPath>../src/packs/ATSAMA5D27_DFP/component/adc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/gmac.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/sfrbu.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/pio_ctrl.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/l2cc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/sfr.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/aes.h</itemPath>
             <itemPath>../src/packs/ATSAMA5D27_DFP/component/aesb.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/rtc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/isc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/sfc.h</itemPath>
-            <itemPath>../src/packs/ATSAMA5D27_DFP/component/lcdc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/aic.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/aximx.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/chipid.h</itemPath>
             <itemPath>../src/packs/ATSAMA5D27_DFP/component/classd.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/flexcom.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/gmac.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/i2sc.h</itemPath>
             <itemPath>../src/packs/ATSAMA5D27_DFP/component/icm.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/isc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/l2cc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/lcdc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/matrix.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/mcan.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/mpddrc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/pdmic.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/pio.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/pit.h</itemPath>
             <itemPath>../src/packs/ATSAMA5D27_DFP/component/pmc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/ptc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/pwm.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/qspi.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/rstc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/rtc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/rxlp.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/sckc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/sdmmc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/secumod.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/sfc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/sfr.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/sfrbu.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/sha.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/shdwc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/smc.h</itemPath>
             <itemPath>../src/packs/ATSAMA5D27_DFP/component/spi.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/ssc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/tc.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/tdes.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/trng.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/twihs.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/uart.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/udphs.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/uhphs.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/wdt.h</itemPath>
+            <itemPath>../src/packs/ATSAMA5D27_DFP/component/xdmac.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f2" displayName="pio" projectFiles="true">
             <itemPath>../src/packs/ATSAMA5D27_DFP/pio/sama5d27.h</itemPath>
@@ -512,6 +514,7 @@
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
+      <itemPath>../src/config/lcdc_rgba8888_mxt_a5d2_xc32_wvga/harmony.prj</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
@@ -525,14 +528,16 @@
         <targetDevice>ATSAMA5D27</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>Simulator</platformTool>
+        <platformTool>noID</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>2.40</languageToolchainVersion>
-        <platform>2</platform>
+        <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="SAMA5D2_DFP" vendor="Microchip" version="1.1.11"/>
+        <pack name="SAMA5D2_DFP" vendor="Microchip" version="1.3.33"/>
       </packs>
+      <ScriptingSettings>
+      </ScriptingSettings>
       <compileType>
         <linkerTool>
           <linkerLibItems>
@@ -590,7 +595,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/lcdc_rgba8888_mxt_a5d2_xc32_wvga;../src/packs/ATSAMA5D27_DFP;../src/packs/CMSIS/CMSIS/Core_A/Include;../src/packs/CMSIS/;../src/arm"/>
+                  value="../src;../src/config/lcdc_rgba8888_mxt_a5d2_xc32_wvga;../src/packs/ATSAMA5D27_DFP;../src/packs/CMSIS/CMSIS/Core_A/Include;../src/packs/CMSIS/"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -607,6 +612,7 @@
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
+        <appendMe value="-marm -cpu=cortex-a5 -mfpu=neon-vfpv4"/>
       </C32>
       <C32-AR>
         <property key="additional-options-chop-files" value="false"/>
@@ -711,6 +717,7 @@
         <property key="mdtcm" value=""/>
         <property key="mitcm" value=""/>
         <property key="mstacktcm" value="false"/>
+        <property key="omit-pack-options" value="1"/>
         <property key="relaxed-math" value="false"/>
         <property key="save-temps" value="false"/>
         <property key="wpo-lto" value="false"/>
@@ -800,6 +807,10 @@
         <property key="periphComp6.gte" value="gt"/>
         <property key="reset.scl" value="false"/>
         <property key="reset.type" value="MCLR"/>
+        <property key="toolpack.updateoptions"
+                  value="toolpack.updateoptions.uselatestoolpack"/>
+        <property key="toolpack.updateoptions.packversion"
+                  value="Press to select which tool pack to use"/>
         <property key="tracecontrol.include.timestamp" value="summarydataenabled"/>
         <property key="tracecontrol.select" value="0"/>
         <property key="tracecontrol.stallontracebufferfull" value="false"/>
@@ -810,9 +821,6 @@
         <property key="uart0io.output" value="window"/>
         <property key="uart0io.outputfile" value=""/>
         <property key="uart0io.uartioenabled" value="false"/>
-        <property key="uart10io.output" value="window"/>
-        <property key="uart10io.outputfile" value=""/>
-        <property key="uart10io.uartioenabled" value="false"/>
         <property key="uart1io.output" value="window"/>
         <property key="uart1io.outputfile" value=""/>
         <property key="uart1io.uartioenabled" value="false"/>
@@ -831,15 +839,48 @@
         <property key="uart6io.output" value="window"/>
         <property key="uart6io.outputfile" value=""/>
         <property key="uart6io.uartioenabled" value="false"/>
-        <property key="uart7io.output" value="window"/>
-        <property key="uart7io.outputfile" value=""/>
-        <property key="uart7io.uartioenabled" value="false"/>
-        <property key="uart8io.output" value="window"/>
-        <property key="uart8io.outputfile" value=""/>
-        <property key="uart8io.uartioenabled" value="false"/>
-        <property key="uart9io.output" value="window"/>
-        <property key="uart9io.outputfile" value=""/>
-        <property key="uart9io.uartioenabled" value="false"/>
+        <property key="usart0io.output" value="window"/>
+        <property key="usart0io.outputfile" value=""/>
+        <property key="usart0io.uartioenabled" value="false"/>
+        <property key="usart1io.output" value="window"/>
+        <property key="usart1io.outputfile" value=""/>
+        <property key="usart1io.uartioenabled" value="false"/>
+        <property key="usart2io.output" value="window"/>
+        <property key="usart2io.outputfile" value=""/>
+        <property key="usart2io.uartioenabled" value="false"/>
+        <property key="usart3io.output" value="window"/>
+        <property key="usart3io.outputfile" value=""/>
+        <property key="usart3io.uartioenabled" value="false"/>
+        <property key="usart4io.output" value="window"/>
+        <property key="usart4io.outputfile" value=""/>
+        <property key="usart4io.uartioenabled" value="false"/>
+        <property key="usartc0io.output" value="window"/>
+        <property key="usartc0io.outputfile" value=""/>
+        <property key="usartc0io.uartioenabled" value="false"/>
+        <property key="usartc1io.output" value="window"/>
+        <property key="usartc1io.outputfile" value=""/>
+        <property key="usartc1io.uartioenabled" value="false"/>
+        <property key="usartd0io.output" value="window"/>
+        <property key="usartd0io.outputfile" value=""/>
+        <property key="usartd0io.uartioenabled" value="false"/>
+        <property key="usartd1io.output" value="window"/>
+        <property key="usartd1io.outputfile" value=""/>
+        <property key="usartd1io.uartioenabled" value="false"/>
+        <property key="usarte0io.output" value="window"/>
+        <property key="usarte0io.outputfile" value=""/>
+        <property key="usarte0io.uartioenabled" value="false"/>
+        <property key="usarte1io.output" value="window"/>
+        <property key="usarte1io.outputfile" value=""/>
+        <property key="usarte1io.uartioenabled" value="false"/>
+        <property key="usarte2io.output" value="window"/>
+        <property key="usarte2io.outputfile" value=""/>
+        <property key="usarte2io.uartioenabled" value="false"/>
+        <property key="usartf0io.output" value="window"/>
+        <property key="usartf0io.outputfile" value=""/>
+        <property key="usartf0io.uartioenabled" value="false"/>
+        <property key="usartf1io.output" value="window"/>
+        <property key="usartf1io.outputfile" value=""/>
+        <property key="usartf1io.uartioenabled" value="false"/>
         <property key="warningmessagebreakoptions.W0001_CORE_BITREV_MODULO_EN"
                   value="report"/>
         <property key="warningmessagebreakoptions.W0002_CORE_SECURE_MEMORYACCESS"
@@ -1044,6 +1085,10 @@
                   value="report"/>
         <property key="warningmessagebreakoptions.W0245_ADC_BUFREGEN_NOT_ALLOWED"
                   value="report"/>
+        <property key="warningmessagebreakoptions.W0246_ADC_ACCUMULATION_BAD_RESSEL"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0247_ADC_CONVERSION_BAD_RESSEL"
+                  value="report"/>
         <property key="warningmessagebreakoptions.W0400_PWM_PWM_FASTER_THAN_FOSC"
                   value="report"/>
         <property key="warningmessagebreakoptions.W0600_WDT_2ND_WDT_MR_WRITE"
@@ -1143,6 +1188,8 @@
         <property key="warningmessagebreakoptions.W7003_SMT_WIN_SELECTION_NOT_SUPPORT"
                   value="report"/>
         <property key="warningmessagebreakoptions.W8001_OSC_INVALID_CLOCK_SOURCE"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W8002_OSC_RESERVED_FEXTOSC"
                   value="report"/>
         <property key="warningmessagebreakoptions.W9001_TMR_GATE_AND_EXTCLOCK_ENABLED"
                   value="report"/>

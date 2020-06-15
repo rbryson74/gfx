@@ -127,7 +127,7 @@ static void APP_PaintFrameWithBuffer(
     scratchPixels.pixels = buff;
     scratchPixels.buffer_length = scratchPixels.pixel_count * APP_GFX_BYTES_PER_PIXEL;
     
-    ili9488DisplayDriver.blitBuffer(x, y, &scratchPixels, GFX_BLEND_NONE);
+    gfxDriverInterface.blitBuffer(x, y, &scratchPixels);
 
 }
 
@@ -143,7 +143,7 @@ static void APP_PaintFrameWithColor(
      
      for (int i = y; i < height; i++)
      {
-         ili9488DisplayDriver.blitBuffer(x, i, &scratchPixels, GFX_BLEND_NONE);
+         gfxDriverInterface.blitBuffer(x, i, &scratchPixels);
      }
 
 }

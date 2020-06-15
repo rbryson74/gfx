@@ -121,29 +121,29 @@ static void deviceConnectionStateChanged()
 {
     if((usbDeviceConnected != 0 || sdcardDeviceConnected != 0) && (appData.state == APP_STATE_DONE))
     {
-        ErrorMsgPanel->fn->setVisible(ErrorMsgPanel, LE_FALSE);
+        default_ErrorMsgPanel->fn->setVisible(default_ErrorMsgPanel, LE_FALSE);
     }
     else
     {
-        ErrorMsgPanel->fn->setVisible(ErrorMsgPanel, LE_TRUE);
+        default_ErrorMsgPanel->fn->setVisible(default_ErrorMsgPanel, LE_TRUE);
     }
 
     if (usbDeviceConnected != 0)
     {
-        USBButton->fn->setVisible(USBButton, LE_TRUE);
+        default_USBButton->fn->setVisible(default_USBButton, LE_TRUE);
     }
     else
     {
-        USBButton->fn->setVisible(USBButton, LE_FALSE);
+        default_USBButton->fn->setVisible(default_USBButton, LE_FALSE);
     }
     
     if (sdcardDeviceConnected != 0)
     {
-        SDCardButton->fn->setVisible(SDCardButton, LE_TRUE);
+        default_SDCardButton->fn->setVisible(default_SDCardButton, LE_TRUE);
     }
     else
     {
-        SDCardButton->fn->setVisible(SDCardButton, LE_FALSE);
+        default_SDCardButton->fn->setVisible(default_SDCardButton, LE_FALSE);
     }
 }
 
@@ -229,11 +229,11 @@ void APP_USBButtonPressed(leButtonWidget* btn)
 
 void APP_OKButtonPressed(leButtonWidget* btn)
 {
-    InfoPanel->fn->setVisible(InfoPanel, LE_FALSE);
-    SelectMediumPanel->fn->setVisible(SelectMediumPanel, LE_TRUE);
-    InfoOKButton->fn->setVisible(InfoOKButton, LE_FALSE);
-    USBButton->fn->setVisible(USBButton, LE_TRUE);
-    SDCardButton->fn->setVisible(SDCardButton, LE_TRUE);
+    default_InfoPanel->fn->setVisible(default_InfoPanel, LE_FALSE);
+    default_SelectMediumPanel->fn->setVisible(default_SelectMediumPanel, LE_TRUE);
+    default_InfoOKButton->fn->setVisible(default_InfoOKButton, LE_FALSE);
+    default_USBButton->fn->setVisible(default_USBButton, LE_TRUE);
+    default_SDCardButton->fn->setVisible(default_SDCardButton, LE_TRUE);
 
     deviceConnectionStateChanged();
 }
@@ -349,17 +349,17 @@ void APP_Initialize ( void )
 
 void default_OnShow()
 {
-    SDCardButton->fn->setReleasedEventCallback(SDCardButton, &APP_SDCardButtonPressed);
-    USBButton->fn->setReleasedEventCallback(USBButton, &APP_USBButtonPressed);
-    InfoOKButton->fn->setReleasedEventCallback(InfoOKButton, &APP_OKButtonPressed);
+    default_SDCardButton->fn->setReleasedEventCallback(default_SDCardButton, &APP_SDCardButtonPressed);
+    default_USBButton->fn->setReleasedEventCallback(default_USBButton, &APP_USBButtonPressed);
+    default_InfoOKButton->fn->setReleasedEventCallback(default_InfoOKButton, &APP_OKButtonPressed);
     
     leFixedString_Constructor(&totalStr, totalStrBuff, 12);
     leFixedString_Constructor(&counterStr, counterStrBuff, 12);
     counterStr.fn->setFont(&counterStr, leStringTable_GetStringFont(leGetState()->stringTable,
-                                                            string_RecordCount,
+                                                            stringID_RecordCount,
                                                             0));
     totalStr.fn->setFont(&totalStr, leStringTable_GetStringFont(leGetState()->stringTable,
-                                                            string_RecordCount,
+                                                            stringID_RecordCount,
                                                             0));
 }
 
@@ -475,17 +475,17 @@ void APP_Tasks ( void )
 
 		case APP_FILE_NOT_FOUND:
 		{
-            SelectMediumPanel->fn->setVisible(SelectMediumPanel, LE_FALSE);
-            InfoPanel->fn->setVisible(InfoPanel, LE_TRUE);
+            default_SelectMediumPanel->fn->setVisible(default_SelectMediumPanel, LE_FALSE);
+            default_InfoPanel->fn->setVisible(default_InfoPanel, LE_TRUE);
 
-            leTableString_Constructor(&ts_FileNotFound1, string_FileNotFound1); 
-            leTableString_Constructor(&ts_FileNotFound2, string_FileNotFound2); 
+            leTableString_Constructor(&ts_FileNotFound1, stringID_FileNotFound1); 
+            leTableString_Constructor(&ts_FileNotFound2, stringID_FileNotFound2); 
             
-            InfoLabel1->fn->setString(InfoLabel1, (leString*)&ts_FileNotFound1);
-            InfoLabel2->fn->setString(InfoLabel2, (leString*)&ts_FileNotFound2);
+            default_InfoLabel1->fn->setString(default_InfoLabel1, (leString*)&ts_FileNotFound1);
+            default_InfoLabel2->fn->setString(default_InfoLabel2, (leString*)&ts_FileNotFound2);
     
-            InfoLabel1->fn->setVisible(InfoLabel1, LE_TRUE);
-            InfoLabel2->fn->setVisible(InfoLabel2, LE_TRUE);
+            default_InfoLabel1->fn->setVisible(default_InfoLabel1, LE_TRUE);
+            default_InfoLabel2->fn->setVisible(default_InfoLabel2, LE_TRUE);
 
 			appData.state = APP_STATE_DONE;
             break;
@@ -493,16 +493,16 @@ void APP_Tasks ( void )
 
 		case APP_VALIDATE_FILE:
         {
-            SelectMediumPanel->fn->setVisible(SelectMediumPanel, LE_FALSE);
-            FlashingPanel->fn->setVisible(FlashingPanel, LE_TRUE);
+            default_SelectMediumPanel->fn->setVisible(default_SelectMediumPanel, LE_FALSE);
+            default_FlashingPanel->fn->setVisible(default_FlashingPanel, LE_TRUE);
 
-            CurrentRecordLabel->fn->setVisible(CurrentRecordLabel, LE_FALSE);
-            OfLabel->fn->setVisible(OfLabel, LE_FALSE);
-            RecordsTotalLabel->fn->setVisible(RecordsTotalLabel, LE_FALSE);
+            default_CurrentRecordLabel->fn->setVisible(default_CurrentRecordLabel, LE_FALSE);
+            default_OfLabel->fn->setVisible(default_OfLabel, LE_FALSE);
+            default_RecordsTotalLabel->fn->setVisible(default_RecordsTotalLabel, LE_FALSE);
             
-            leTableString_Constructor(&ts_RecordCount, string_RecordCount); 
-            FlashingLabel->fn->setString(FlashingLabel, (leString*)&ts_RecordCount);
-            FlashingLabel->fn->setVisible(FlashingLabel, LE_TRUE);
+            leTableString_Constructor(&ts_RecordCount, stringID_RecordCount); 
+            default_FlashingLabel->fn->setString(default_FlashingLabel, (leString*)&ts_RecordCount);
+            default_FlashingLabel->fn->setVisible(default_FlashingLabel, LE_TRUE);
 
 			fileSize = SYS_FS_FileSize(fileHandle);
 
@@ -510,11 +510,11 @@ void APP_Tasks ( void )
 			{
 				SYS_FS_FileClose(fileHandle);
 
-                leTableString_Constructor(&ts_NoValidMedium, string_InvalidFile); 
-                InfoLabel1->fn->setString(InfoLabel1, (leString*)&ts_NoValidMedium);
+                leTableString_Constructor(&ts_NoValidMedium, stringID_InvalidFile); 
+                default_InfoLabel1->fn->setString(default_InfoLabel1, (leString*)&ts_NoValidMedium);
 
-                InfoLabel1->fn->setVisible(InfoLabel1, LE_TRUE);
-                InfoLabel2->fn->setVisible(InfoLabel2, LE_FALSE);
+                default_InfoLabel1->fn->setVisible(default_InfoLabel1, LE_TRUE);
+                default_InfoLabel2->fn->setVisible(default_InfoLabel2, LE_FALSE);
 
 				appData.state = APP_STATE_DONE;
 			}
@@ -528,8 +528,8 @@ void APP_Tasks ( void )
 		{
 			recordCount = 0;
 
-            leTableString_Constructor(&ts_RecordCount, string_RecordCount); 
-            FlashingLabel->fn->setString(FlashingLabel, (leString*)&ts_RecordCount);
+            leTableString_Constructor(&ts_RecordCount, stringID_RecordCount); 
+            default_FlashingLabel->fn->setString(default_FlashingLabel, (leString*)&ts_RecordCount);
 
 			for (i = 0; i < fileSize; i++)
 			{
@@ -543,11 +543,11 @@ void APP_Tasks ( void )
 			{
 				SYS_FS_FileClose(fileHandle);
 
-                leTableString_Constructor(&ts_InvalideFile, string_InvalidFile); 
-                InfoLabel1->fn->setString(InfoLabel1, (leString*)&ts_InvalideFile);
+                leTableString_Constructor(&ts_InvalideFile, stringID_InvalidFile); 
+                default_InfoLabel1->fn->setString(default_InfoLabel1, (leString*)&ts_InvalideFile);
 
-                InfoLabel1->fn->setVisible(InfoLabel1, LE_TRUE);
-                InfoLabel2->fn->setVisible(InfoLabel2, LE_FALSE);
+                default_InfoLabel1->fn->setVisible(default_InfoLabel1, LE_TRUE);
+                default_InfoLabel2->fn->setVisible(default_InfoLabel2, LE_FALSE);
 
 				appData.state = APP_STATE_DONE;
 			}
@@ -583,16 +583,16 @@ void APP_Tasks ( void )
 		case APP_START_DECODING:
         {
 			// update the UI
-            leTableString_Constructor(&ts_Flashing, string_Flashing); 
-            FlashingLabel->fn->setString(FlashingLabel, (leString*)&ts_Flashing);
+            leTableString_Constructor(&ts_Flashing, stringID_Flashing); 
+            default_FlashingLabel->fn->setString(default_FlashingLabel, (leString*)&ts_Flashing);
 
-            FlashingProgressBar->fn->setValue(FlashingProgressBar, 0);
+            default_FlashingProgressBar->fn->setValue(default_FlashingProgressBar, 0);
             
-            USBButton->fn->setVisible(USBButton, LE_FALSE);
-            SDCardButton->fn->setVisible(SDCardButton, LE_FALSE);
-            CurrentRecordLabel->fn->setVisible(CurrentRecordLabel, LE_TRUE);
-            OfLabel->fn->setVisible(OfLabel, LE_TRUE);
-            RecordsTotalLabel->fn->setVisible(RecordsTotalLabel, LE_TRUE);
+            default_USBButton->fn->setVisible(default_USBButton, LE_FALSE);
+            default_SDCardButton->fn->setVisible(default_SDCardButton, LE_FALSE);
+            default_CurrentRecordLabel->fn->setVisible(default_CurrentRecordLabel, LE_TRUE);
+            default_OfLabel->fn->setVisible(default_OfLabel, LE_TRUE);
+            default_RecordsTotalLabel->fn->setVisible(default_RecordsTotalLabel, LE_TRUE);
 
 #ifdef _STDLIB_ULTOA
 			itoa(number, recordCount, 10);
@@ -601,7 +601,7 @@ void APP_Tasks ( void )
 #endif
             
             counterStr.fn->setFromCStr(&totalStr, number);
-            RecordsTotalLabel->fn->setString(RecordsTotalLabel, (leString*)&totalStr);
+            default_RecordsTotalLabel->fn->setString(default_RecordsTotalLabel, (leString*)&totalStr);
 
             memset(writeBuffer, 0x0, BUFFER_SIZE);
 
@@ -640,11 +640,11 @@ void APP_Tasks ( void )
 #endif
             
             counterStr.fn->setFromCStr(&counterStr, number);
-            CurrentRecordLabel->fn->setString(CurrentRecordLabel, (leString*)&counterStr);
+            default_CurrentRecordLabel->fn->setString(default_CurrentRecordLabel, (leString*)&counterStr);
 
 			percent = ((float)dec.currentRecord / ((float)dec.recordCount - 1)) * 100.0f;
 
-            FlashingProgressBar->fn->setValue(FlashingProgressBar, (uint32_t)percent);
+            default_FlashingProgressBar->fn->setValue(default_FlashingProgressBar, (uint32_t)percent);
 
 			appData.state = APP_DECODE_RECORD;
 
@@ -657,17 +657,17 @@ void APP_Tasks ( void )
             {
 				SYS_FS_FileClose(fileHandle);
 
-                FlashingPanel->fn->setVisible(FlashingPanel, LE_FALSE);
-                InfoPanel->fn->setVisible(InfoPanel, LE_TRUE);
+                default_FlashingPanel->fn->setVisible(default_FlashingPanel, LE_FALSE);
+                default_InfoPanel->fn->setVisible(default_InfoPanel, LE_TRUE);
 
-                leTableString_Constructor(&ts_FlashingComplete, string_FlashingComplete); 
-                InfoLabel1->fn->setString(InfoLabel1, (leString*)&ts_FlashingComplete);
+                leTableString_Constructor(&ts_FlashingComplete, stringID_FlashingComplete); 
+                default_InfoLabel1->fn->setString(default_InfoLabel1, (leString*)&ts_FlashingComplete);
 
-                USBButton->fn->setVisible(USBButton, LE_TRUE);
-                SDCardButton->fn->setVisible(SDCardButton, LE_TRUE);
-                InfoLabel1->fn->setVisible(InfoLabel1, LE_TRUE);
-                InfoLabel2->fn->setVisible(InfoLabel2, LE_FALSE);
-                InfoOKButton->fn->setVisible(InfoOKButton, LE_TRUE);
+                default_USBButton->fn->setVisible(default_USBButton, LE_TRUE);
+                default_SDCardButton->fn->setVisible(default_SDCardButton, LE_TRUE);
+                default_InfoLabel1->fn->setVisible(default_InfoLabel1, LE_TRUE);
+                default_InfoLabel2->fn->setVisible(default_InfoLabel2, LE_FALSE);
+                default_InfoOKButton->fn->setVisible(default_InfoOKButton, LE_TRUE);
 
 #ifdef LED_ON            
             LED_ON();
@@ -683,14 +683,14 @@ void APP_Tasks ( void )
             {
 				SYS_FS_FileClose(fileHandle);
 
-                FlashingPanel->fn->setVisible(FlashingPanel, LE_FALSE);
-                InfoPanel->fn->setVisible(InfoPanel, LE_TRUE);
+                default_FlashingPanel->fn->setVisible(default_FlashingPanel, LE_FALSE);
+                default_InfoPanel->fn->setVisible(default_InfoPanel, LE_TRUE);
 
-                leTableString_Constructor(&ts_UnknownError, string_UnknownError); 
-                InfoLabel1->fn->setString(InfoLabel1, (leString*)&ts_UnknownError);
+                leTableString_Constructor(&ts_UnknownError, stringID_UnknownError); 
+                default_InfoLabel1->fn->setString(default_InfoLabel1, (leString*)&ts_UnknownError);
 
-                InfoLabel1->fn->setVisible(InfoLabel1, LE_TRUE);
-                InfoLabel2->fn->setVisible(InfoLabel2, LE_FALSE);
+                default_InfoLabel1->fn->setVisible(default_InfoLabel1, LE_TRUE);
+                default_InfoLabel2->fn->setVisible(default_InfoLabel2, LE_FALSE);
 
 				appData.state = APP_STATE_DONE;
             }

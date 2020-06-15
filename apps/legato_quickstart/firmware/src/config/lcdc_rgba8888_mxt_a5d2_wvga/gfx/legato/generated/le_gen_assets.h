@@ -5,20 +5,23 @@
     Microchip Technology Inc.
 
   File Name:
-    generated/le_gen_assets.h
+    le_gen_assets.h
 
   Summary:
     Header file containing a list of asset specifications for use with the
-    MPLAB Harmony Graphics Stack.
+    Legato Graphics Stack.
+
 
   Description:
     Header file containing a list of asset specifications for use with the
-    MPLAB Harmony Graphics Stack.
+    Legato Graphics Stack.
+
 *******************************************************************************/
+
 
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C)  Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -39,6 +42,7 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
+
 // DOM-IGNORE-END
 
 #ifndef LE_GEN_ASSETS_H
@@ -52,18 +56,17 @@ extern "C" {
 
 #include "gfx/legato/legato.h"
 
+extern const lePalette leGlobalPalette;
+
 /*****************************************************************************
-* MPLAB Harmony Graphics Asset Location IDs
-*****************************************************************************/
-/*****************************************************************************
-* MPLAB Harmony Graphics Image Assets
-*****************************************************************************/
+ * Legato Graphics Image Assets
+ *****************************************************************************/
 /*********************************
  * Legato Image Asset
  * Name:   QuickstartDown_WVGA
  * Size:   260x120 pixels
- * Format: RLE
- * Mode: RGBA_8888
+ * Type:   RGB Data
+ * Format: RGBA_8888
  ***********************************/
 extern leImage QuickstartDown_WVGA;
 
@@ -71,8 +74,8 @@ extern leImage QuickstartDown_WVGA;
  * Legato Image Asset
  * Name:   QuickstartUp_WVGA
  * Size:   260x120 pixels
- * Format: RLE
- * Mode: RGBA_8888
+ * Type:   RGB Data
+ * Format: RGBA_8888
  ***********************************/
 extern leImage QuickstartUp_WVGA;
 
@@ -80,23 +83,33 @@ extern leImage QuickstartUp_WVGA;
  * Legato Image Asset
  * Name:   MHGS_logo_WVGA
  * Size:   320x300 pixels
- * Format: Raw
- * Mode: RGB_888
+ * Type:   RGB Data
+ * Format: RGB_888
  ***********************************/
 extern leImage MHGS_logo_WVGA;
 
+/*********************************
+ * Legato Image Asset
+ * Name:   mchpLogo_light
+ * Size:   152x40 pixels
+ * Type:   RGB Data
+ * Format: RGB_888
+ ***********************************/
+extern leImage mchpLogo_light;
+
 /*****************************************************************************
-* MPLAB Harmony Graphics Font Assets
-*****************************************************************************/
+ * Legato Graphics Font Assets
+ *****************************************************************************/
 /*********************************
  * Legato Font Asset
  * Name:         NotoSans_48
- * Height:       47
+ * Height:       21
  * Baseline:     35
  * Style:        Antialias
- * Glyph Count:  9
- * Range Count:  6
- * Glyph Ranges: 0x45-0x46
+ * Glyph Count:  10
+ * Range Count:  7
+ * Glyph Ranges: 0x2E
+                 0x45-0x46
                  0x53
                  0x61
                  0x6D
@@ -110,17 +123,18 @@ extern leRasterFont NotoSans_48;
  * Encoding        ASCII
  * Language Count: 1
  * String Count:   3
-*****************************************************************************/
+ *****************************************************************************/
 
 // language IDs
 #define language_English    0
 
 // string IDs
-#define string_Easy    0
-#define string_Fast    1
-#define string_Smart    2
+#define stringID_Smart    0
+#define stringID_Fast    1
+#define stringID_Easy    2
 
 extern const leStringTable stringTable;
+
 //DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 }

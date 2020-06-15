@@ -1,4 +1,3 @@
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
@@ -21,7 +20,6 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 /*******************************************************************************
   MPLAB Harmony LCDC Generated Driver Implementation File
@@ -409,6 +407,20 @@ gfxPixelBuffer * DRV_LCDC_GetFrameBuffer(int32_t idx)
     return &pixelBuffer[activeLayer];
 }
 
+gfxLayerState DRV_LCDC_GetLayerState(uint32_t idx)
+{
+    gfxLayerState layerState;
+
+    layerState.rect.x = drvLayer[idx].startx;
+    layerState.rect.y = drvLayer[idx].starty;
+    layerState.rect.width = drvLayer[idx].sizex;
+    layerState.rect.height = drvLayer[idx].sizey;
+
+    layerState.enabled = drvLayer[idx].enabled;
+
+    return layerState;
+}
+
 gfxColorMode DRV_LCDC_GetColorMode()
 {
 	return GFX_COLOR_MODE_RGBA_8888;
@@ -463,8 +475,7 @@ void DRV_LCDC_SetUseGPU(gfxBool onOff)
 
 gfxResult DRV_LCDC_BlitBuffer(int32_t x,
                              int32_t y,
-                             gfxPixelBuffer* buf,
-                             gfxBlend blend)
+                             gfxPixelBuffer* buf)
 {
     if (state != RUN)
         return GFX_FAILURE;
@@ -593,6 +604,13 @@ static gfxResult DRV_LCDC_LayerConfig(ctlrCfg request, unsigned int layer, void 
     }
     
     return GFX_SUCCESS;
+}
+
+gfxResult DRV_LCDC_SetPalette(gfxBuffer* palette,
+                              gfxColorMode mode,
+                              uint32_t colorCount)
+{
+    return GFX_FAILURE;
 }
 
 gfxResult DRV_LCDC_CtrlrConfig(ctlrCfg request, void * arg)

@@ -673,4 +673,7 @@ LIB_EXPORT leColor leColorBilerp(leColor c00,
                                  uint32_t yper,
                                  leColorMode mode);                                   
 
+leColor leColorSwap(leColor clr,
+                    leColorMode mode);
+
 #endif /* LE_COLOR_H */

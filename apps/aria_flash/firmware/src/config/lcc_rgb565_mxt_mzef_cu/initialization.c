@@ -75,7 +75,7 @@
 /*** DEVCFG1 ***/
 #pragma config FNOSC =      SPLL
 #pragma config DMTINTV =    WIN_127_128
-#pragma config FSOSCEN =    ON
+#pragma config FSOSCEN =    OFF
 #pragma config IESO =       OFF
 #pragma config POSCMOD =    EC
 #pragma config OSCIOFNC =   OFF
@@ -201,7 +201,6 @@ const DRV_SST26_INIT drvSST26InitData =
 {
     .sst26Plib      = &drvSST26PlibAPI,
 };
-
 // </editor-fold>
 
 // <editor-fold defaultstate="collapsed" desc="DRV_INPUT_MXT336T Initialization Data">
@@ -234,6 +233,7 @@ SYSTEM_OBJECTS sysObj;
 /******************************************************
  * USB Driver Initialization
  ******************************************************/
+
 void DRV_USB_VBUSPowerEnable(uint8_t port, bool enable)
 {
 	/* Note: When operating in Host mode, the application can specify a Root 
@@ -291,20 +291,56 @@ const DRV_USBHS_INIT drvUSBInit =
 };
 
 
-/*** File System Initialization Data ***/
+// <editor-fold defaultstate="collapsed" desc="File System Initialization Data">
 
-const SYS_FS_MEDIA_MOUNT_DATA sysfsMountTable[SYS_FS_VOLUME_NUMBER] = 
+const SYS_FS_MEDIA_MOUNT_DATA sysfsMountTable[SYS_FS_VOLUME_NUMBER] =
 {
-	{
-		.mountName = SYS_FS_MEDIA_IDX0_MOUNT_NAME_VOLUME_IDX0,
-		.devName   = SYS_FS_MEDIA_IDX0_DEVICE_NAME_VOLUME_IDX0, 
-		.mediaType = SYS_FS_MEDIA_TYPE_IDX0,
-		.fsType   = SYS_FS_TYPE_IDX0   
-	},
+    {
+        .mountName = SYS_FS_MEDIA_IDX0_MOUNT_NAME_VOLUME_IDX0,
+        .devName   = SYS_FS_MEDIA_IDX0_DEVICE_NAME_VOLUME_IDX0,
+        .mediaType = SYS_FS_MEDIA_TYPE_IDX0,
+        .fsType   = SYS_FS_TYPE_IDX0
+    },
 };
 
 
-
+const SYS_FS_FUNCTIONS FatFsFunctions =
+{
+    .mount             = FATFS_mount,
+    .unmount           = FATFS_unmount,
+    .open              = FATFS_open,
+    .read              = FATFS_read,
+    .close             = FATFS_close,
+    .seek              = FATFS_lseek,
+    .fstat             = FATFS_stat,
+    .getlabel          = FATFS_getlabel,
+    .currWD            = FATFS_getcwd,
+    .getstrn           = FATFS_gets,
+    .openDir           = FATFS_opendir,
+    .readDir           = FATFS_readdir,
+    .closeDir          = FATFS_closedir,
+    .chdir             = FATFS_chdir,
+    .chdrive           = FATFS_chdrive,
+    .write             = FATFS_write,
+    .tell              = FATFS_tell,
+    .eof               = FATFS_eof,
+    .size              = FATFS_size,
+    .mkdir             = FATFS_mkdir,
+    .remove            = FATFS_unlink,
+    .setlabel          = FATFS_setlabel,
+    .truncate          = FATFS_truncate,
+    .chmode            = FATFS_chmod,
+    .chtime            = FATFS_utime,
+    .rename            = FATFS_rename,
+    .sync              = FATFS_sync,
+    .putchr            = FATFS_putc,
+    .putstrn           = FATFS_puts,
+    .formattedprint    = FATFS_printf,
+    .testerror         = FATFS_error,
+    .formatDisk        = (FORMAT_DISK)FATFS_mkfs,
+    .partitionDisk     = FATFS_fdisk,
+    .getCluster        = FATFS_getclusters
+};
 
 
 const SYS_FS_REGISTRATION_TABLE sysFSInit [ SYS_FS_MAX_FILE_SYSTEM_TYPE ] =
@@ -315,6 +351,7 @@ const SYS_FS_REGISTRATION_TABLE sysFSInit [ SYS_FS_MAX_FILE_SYSTEM_TYPE ] =
     }
 };
 
+// </editor-fold>
 
 
 
@@ -345,6 +382,14 @@ const SYS_TIME_INIT sysTimeInitData =
 
 
 
+// *****************************************************************************
+// *****************************************************************************
+// Section: Local initialization functions
+// *****************************************************************************
+// *****************************************************************************
+
+
+
 /*******************************************************************************
   Function:
     void SYS_Initialize ( void *data )
@@ -365,7 +410,7 @@ void SYS_Initialize ( void* data )
     
     /* Configure Prefetch, Wait States and ECC */
     PRECONbits.PREFEN = 3;
-    PRECONbits.PFMWS = 2;
+    PRECONbits.PFMWS = 3;
     CFGCONbits.ECCCON = 3;
 
 

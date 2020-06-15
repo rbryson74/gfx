@@ -65,52 +65,6 @@ typedef struct leCircularGaugeWidget leCircularGaugeWidget;
 
 
 // *****************************************************************************
-/* Structure:
-    leCircularGaugeWidgetDir
-
-  Summary:
-    Direction of the gauge
-
-  Description:
-    Direction of the gauge
-
-  Remarks:
-    None.
-*/
-/**
-  * @brief This enum represents direction of the guage.
-  * @details A direction of a guage is used to define possible label positions.
-  */
-typedef enum leCircularGaugeWidgetLabelPosition
-{
-    CIRCULAR_GAUGE_LABEL_OUTSIDE,
-    CIRCULAR_GAUGE_LABEL_INSIDE,
-} leCircularGaugeWidgetLabelPosition;
-
-// *****************************************************************************
-/* Structure:
-    leCircularGaugeWidgetArcType
-
-  Summary:
-    Type of arc
-
-  Description:
-    Type of arc
-
-  Remarks:
-    None.
-*/
-/**
-  * @brief This enum represents gauge widget arc type.
-  * @details A widget arc is used to define possible arc types.
-  */
-typedef enum leCircularGaugeWidgetArcType
-{
-    ANGLE_ARC,
-    VALUE_ARC,
-} leCircularGaugeWidgetArcType;
-
-// *****************************************************************************
 /* Function Pointer:
     leCircularGaugeWidget_ValueChangedEvent
 
@@ -139,27 +93,64 @@ typedef void (*leCircularGaugeWidget_ValueChangedEvent)(leCircularGaugeWidget*,
     leResult                 (*setStartAngle)(THIS_TYPE* _this, int32_t ang); \
     int32_t                  (*getCenterAngle)(const THIS_TYPE* _this); \
     leResult                 (*setCenterAngle)(THIS_TYPE* _this, int32_t ang); \
-    leResult                 (*addValueArc)(THIS_TYPE* _this, int32_t startVal, int32_t endVal, uint32_t rad, uint32_t thk, leScheme* schm); \
-    leResult                 (*addAngularArc)(THIS_TYPE* _this, int32_t startAng, int32_t endAng, uint32_t rad, uint32_t thk, leScheme* schm); \
-    leResult                 (*deleteArcs)(THIS_TYPE* _this); \
-    leResult                 (*addMinorTicks)(THIS_TYPE* _this, int32_t startVal, int32_t endVal, uint32_t rad, uint32_t len, uint32_t interval, leScheme* schm); \
-    leResult                 (*deleteMinorTicks)(THIS_TYPE* _this); \
-    leResult                 (*addMinorTickLabels)(THIS_TYPE* _this, int32_t startVal, int32_t endVal, uint32_t rad, leCircularGaugeWidgetLabelPosition pos, uint32_t interval, leScheme* schm); \
-    leResult                 (*deleteMinorTickLabels)(THIS_TYPE* _this); \
-    int32_t                  (*getValue)(const THIS_TYPE* _this); \
-    leResult                 (*setValue)(THIS_TYPE* _this, int32_t val); \
-    int32_t                  (*getStartValue)(const THIS_TYPE* _this); \
-    leResult                 (*setStartValue)(THIS_TYPE* _this, int32_t val); \
-    int32_t                  (*getEndValue)(const THIS_TYPE* _this); \
-    leResult                 (*setEndValue)(THIS_TYPE* _this, int32_t val); \
-    leBool                   (*getTicksVisible)(const THIS_TYPE* _this); \
-    leResult                 (*setTicksVisible)(THIS_TYPE* _this, leBool vis); \
-    int32_t                  (*getTickValue)(const THIS_TYPE* _this); \
-    leResult                 (*setTickValue)(THIS_TYPE* _this, int32_t val); \
-    uint32_t                 (*getTickLength)(const THIS_TYPE* _this); \
-    leResult                 (*setTickLength)(THIS_TYPE* _this, uint32_t len); \
-    leBool                   (*getTickLabelsVisible)(const THIS_TYPE* _this); \
-    leResult                 (*setTickLabelsVisible)(THIS_TYPE* _this, leBool vis); \
+    uint32_t                 (*getValue)(const THIS_TYPE* _this); \
+    leResult                 (*setValue)(THIS_TYPE* _this, uint32_t val); \
+    \
+    int32_t                  (*addArc)(THIS_TYPE* _this, uint32_t startAngle, uint32_t endAngle, int32_t offset, const leScheme* schm, uint32_t thk); \
+    leResult                 (*deleteArc)(THIS_TYPE* _this, uint32_t idx); \
+    leResult                 (*deleteAllArcs)(THIS_TYPE* _this); \
+    uint32_t                 (*arcCount)(const THIS_TYPE* _this); \
+    leBool                   (*getArcEnabled)(const THIS_TYPE* _this, uint32_t idx); \
+    leResult                 (*setArcEnabled)(THIS_TYPE* _this, uint32_t idx, leBool b); \
+    uint32_t                 (*getArcStartAngle)(const THIS_TYPE* _this, uint32_t idx); \
+    leResult                 (*setArcStartAngle)(THIS_TYPE* _this, uint32_t idx, uint32_t val); \
+    uint32_t                 (*getArcEndAngle)(const THIS_TYPE* _this, uint32_t idx); \
+    leResult                 (*setArcEndAngle)(THIS_TYPE* _this, uint32_t idx, uint32_t val); \
+    int32_t                  (*getArcOffset)(const THIS_TYPE* _this, uint32_t idx); \
+    leResult                 (*setArcOffset)(THIS_TYPE* _this, uint32_t idx, int32_t offs); \
+    const leScheme*          (*getArcScheme)(const THIS_TYPE* _this, uint32_t idx); \
+    leResult                 (*setArcScheme)(THIS_TYPE* _this, uint32_t idx, const leScheme* schm); \
+    uint32_t                 (*getArcThickness)(const THIS_TYPE* _this, uint32_t idx); \
+    leResult                 (*setArcThickness)(THIS_TYPE* _this, uint32_t idx, uint32_t thk); \
+    \
+    int32_t                  (*addTickRange)(THIS_TYPE* _this, uint32_t startAngle, uint32_t endAngle, int32_t offset, const leScheme* schm, uint32_t thk, uint32_t div); \
+    leResult                 (*deleteTickRange)(THIS_TYPE* _this, uint32_t idx); \
+    leResult                 (*deleteAllTickRanges)(THIS_TYPE* _this); \
+    uint32_t                 (*tickRangeCount)(const THIS_TYPE* _this); \
+    leBool                   (*getTickRangeEnabled)(const THIS_TYPE* _this, uint32_t idx); \
+    leResult                 (*setTickRangeEnabled)(THIS_TYPE* _this, uint32_t idx, leBool b); \
+    uint32_t                 (*getTickRangeStartAngle)(const THIS_TYPE* _this, uint32_t idx); \
+    leResult                 (*setTickRangeStartAngle)(THIS_TYPE* _this, uint32_t idx, uint32_t val); \
+    uint32_t                 (*getTickRangeEndAngle)(const THIS_TYPE* _this, uint32_t idx); \
+    leResult                 (*setTickRangeEndAngle)(THIS_TYPE* _this, uint32_t idx, uint32_t val); \
+    int32_t                  (*getTickRangeOffset)(const THIS_TYPE* _this, uint32_t idx); \
+    leResult                 (*setTickRangeOffset)(THIS_TYPE* _this, uint32_t idx, int32_t offs); \
+    const leScheme*          (*getTickRangeScheme)(const THIS_TYPE* _this, uint32_t idx); \
+    leResult                 (*setTickRangeScheme)(THIS_TYPE* _this, uint32_t idx, const leScheme* schm); \
+    uint32_t                 (*getTickRangeThickness)(const THIS_TYPE* _this, uint32_t idx); \
+    leResult                 (*setTickRangeThickness)(THIS_TYPE* _this, uint32_t idx, uint32_t thk); \
+    uint32_t                 (*getTickRangeDivisions)(const THIS_TYPE* _this, uint32_t idx); \
+    leResult                 (*setTickRangeDivisions)(THIS_TYPE* _this, uint32_t idx, uint32_t div); \
+    \
+    int32_t                  (*addLabelRange)(THIS_TYPE* _this, uint32_t startVal, uint32_t endVal, int32_t offset, const leScheme* schm, const leFont* fnt, uint32_t div); \
+    leResult                 (*deleteLabelRange)(THIS_TYPE* _this, uint32_t idx); \
+    leResult                 (*deleteAllLabelRanges)(THIS_TYPE* _this); \
+    uint32_t                 (*labelRangeCount)(const THIS_TYPE* _this); \
+    leBool                   (*getLabelRangeEnabled)(const THIS_TYPE* _this, uint32_t idx); \
+    leResult                 (*setLabelRangeEnabled)(THIS_TYPE* _this, uint32_t idx, leBool b); \
+    uint32_t                 (*getLabelRangeStartAngle)(const THIS_TYPE* _this, uint32_t idx); \
+    leResult                 (*setLabelRangeStartAngle)(THIS_TYPE* _this, uint32_t idx, uint32_t val); \
+    uint32_t                 (*getLabelRangeEndAngle)(const THIS_TYPE* _this, uint32_t idx); \
+    leResult                 (*setLabelRangeEndAngle)(THIS_TYPE* _this, uint32_t idx, uint32_t val); \
+    int32_t                  (*getLabelRangeOffset)(const THIS_TYPE* _this, uint32_t idx); \
+    leResult                 (*setLabelRangeOffset)(THIS_TYPE* _this, uint32_t idx, int32_t offs); \
+    const leScheme*          (*getLabelRangeScheme)(const THIS_TYPE* _this, uint32_t idx); \
+    leResult                 (*setLabelRangeScheme)(THIS_TYPE* _this, uint32_t idx, const leScheme* schm); \
+    const leFont*            (*getLabelRangeFont)(const THIS_TYPE* _this, uint32_t idx); \
+    leResult                 (*setLabelRangeFont)(THIS_TYPE* _this, uint32_t idx, const leFont* font); \
+    uint32_t                 (*getLabelRangeDivisions)(const THIS_TYPE* _this, uint32_t idx); \
+    leResult                 (*setLabelRangeDivisions)(THIS_TYPE* _this, uint32_t idx, uint32_t div); \
+    \
     leBool                   (*getHandVisible)(const THIS_TYPE* _this); \
     leResult                 (*setHandVisible)(THIS_TYPE* _this, leBool vis); \
     uint32_t                 (*getHandRadius)(const THIS_TYPE* _this); \
@@ -170,7 +161,6 @@ typedef void (*leCircularGaugeWidget_ValueChangedEvent)(leCircularGaugeWidget*,
     leResult                 (*setCenterCircleRadius)(THIS_TYPE* _this, uint32_t rad); \
     uint32_t                 (*getCenterCircleThickness)(const THIS_TYPE* _this); \
     leResult                 (*setCenterCircleThickness)(THIS_TYPE* _this, uint32_t thk); \
-    leResult                 (*setTickLabelFont)(THIS_TYPE* _this, const leFont* font); \
     leResult                 (*setValueChangedEventCallback)(THIS_TYPE* _this, leCircularGaugeWidget_ValueChangedEvent cb); \
 
 typedef struct leCircularGaugeWidgetVTable
@@ -210,22 +200,10 @@ typedef struct leCircularGaugeWidget
     const leCircularGaugeWidgetVTable* fn;
 
     //Widget properties
-    int32_t value;
-    int32_t startValue;
-    int32_t endValue;
+    uint32_t value;
     uint32_t radius; // the radius of the circular gauge
-    uint32_t startAngle; //the start angle of the outer arc
-    int32_t centerAngle; //the center angle of the outer arc
-    leRotationDirection dir; //the turn direction of the gauge
-
-    //Tick properties
-    leBool ticksVisible; // are ticks visible
-    uint32_t tickLength; //length of ticks (towards center)
-    int32_t tickValue; // tick value (delta)
-
-    //Tick label properties
-    leBool tickLabelsVisible; // are tick labels visible
-    const leFont* ticksLabelFont; // ticks label font
+    int32_t startAngle; //the start angle of the arc
+    int32_t centerAngle; //the center/span angle of the outer arc
 
     //hand properties
     leBool handVisible;
@@ -239,9 +217,7 @@ typedef struct leCircularGaugeWidget
     leArray ticksArray; //ArcsArray list
     leArray labelsArray; //ArcsArray list
 
-
     leCircularGaugeWidget_ValueChangedEvent cb; //value changed event callback
-
 } leCircularGaugeWidget;
 
 // *****************************************************************************
@@ -252,7 +228,7 @@ typedef struct leCircularGaugeWidget
     Internal structure for the arcs in the circular gauge widget
 
   Description:
-    Describs the arc instances in the circular gauge widget
+    Contains state values for a circular gauge arc
 
   Remarks:
     None.
@@ -264,25 +240,23 @@ typedef struct leCircularGaugeWidget
   */
 typedef struct leCircularGaugeArc
 {
-    leCircularGaugeWidgetArcType type;
-    int32_t startAngle;
-    int32_t endAngle;
-    int32_t startValue;
-    int32_t endValue;
-    uint32_t radius;
+    leBool enabled;
+    uint32_t startAngle;
+    uint32_t endAngle;
+    int32_t offset;
+    const leScheme* scheme;
     uint32_t thickness;
-    leScheme* scheme;
 } leCircularGaugeArc;
 
 // *****************************************************************************
 /* Structure:
-    leCircularGaugeTick
+    leCircularGaugeTickRange
 
   Summary:
-    Tick object for the circular gauge
+    Tick range for a circular gauge
 
   Description:
-    Contains properties of the ticks in the gauge
+    Contains properties of a circular gauge tick range
 
   Remarks:
     None.
@@ -292,23 +266,23 @@ typedef struct leCircularGaugeArc
   * @details A circular gauge tick is used to
   * contain properties of the ticks in the gauge.
   */
-typedef struct leCircularGaugeTick
+typedef struct leCircularGaugeTickRange
 {
-    int32_t startValue;
-    int32_t endValue;
-    uint32_t interval;
-    uint32_t radius;
-    uint32_t length;
-    leScheme* scheme;
-} leCircularGaugeTick;
+    leBool enabled;
+    uint32_t startAngle;
+    uint32_t endAngle;
+    int32_t offset;
+    const leScheme* scheme;
+    uint32_t thickness;
+    uint32_t divisions;
+} leCircularGaugeTickRange;
 
 // *****************************************************************************
 /* Structure:
     typedef struct leCircularGaugeLabel
 
-
   Summary:
-    Label object for the circular gauge
+    Contains state values for a circular gauge label range
 
   Description:
     Contains properties of the labels in the gauge
@@ -321,15 +295,16 @@ typedef struct leCircularGaugeTick
   * @details A circular gauge tick is used to
   * contain properties of the labels in the gauge.
   */
-typedef struct leCircularGaugeLabel
+typedef struct leCircularGaugeLabelRange
 {
-    int32_t startValue;
-    int32_t endValue;
-    uint32_t interval;
-    uint32_t radius;
-    leCircularGaugeWidgetLabelPosition position;
-    leScheme* scheme;
-} leCircularGaugeLabel;
+    leBool enabled;
+    uint32_t startAngle;
+    uint32_t endAngle;
+    int32_t offset;
+    const leScheme* scheme;
+    const leFont* font;
+    uint32_t divisions;
+} leCircularGaugeLabelRange;
 
 // *****************************************************************************
 // *****************************************************************************
@@ -348,7 +323,7 @@ typedef struct leCircularGaugeLabel
  * @endcode
  * @return a widget object pointer.
  */
-LIB_EXPORT leCircularGaugeWidget* leCircularGaugeWidget_New();
+leCircularGaugeWidget* leCircularGaugeWidget_New();
 
 
 /**
@@ -361,7 +336,7 @@ LIB_EXPORT leCircularGaugeWidget* leCircularGaugeWidget_New();
  * @param wgt is the widget to initialize
  * @return void.
  */
-LIB_EXPORT void leCircularGaugeWidget_Constructor(leCircularGaugeWidget* gauge);
+void leCircularGaugeWidget_Constructor(leCircularGaugeWidget* gauge);
 
 
 #ifdef _DOXYGEN_
@@ -480,437 +455,6 @@ virtual int32_t getCenterAngle(const leCircularGaugeWidget* _this);
 virtual leResult setCenterAngle(leCircularGaugeWidget* _this,
                                 int32_t ang);
 
-
-// *****************************************************************************
-/* Virtual Member Function:
-    leResult addValueArc(leCircularGaugeWidget* _this,
-                         int32_t startVal,
-                         int32_t endVal,
-                         uint32_t rad,
-                         uint32_t thk,
-                         leScheme* schm)
-
-  Summary:
-     Adds a value arc to the gauge
-
-  Description:
-     Adds a value arc to the gauge
-
-  Parameters:
-    leCircularGaugeWidget* _this - The gauge to operate on
-    int32_t startVal - the start value
-    int32_t endVal - the end value
-    uint32_t rad - the radius value
-    uint32_t thk - the thickness value
-    leScheme* schm - the scheme pointer
-
-  Remarks:
-    Usage - _this->fn->addValueArc(_this, startVal, endVal, rad, thk, schm);
-
-  Returns:
-    leResult - the result of the operation
-*/
-
-// *****************************************************************************
-/* Virtual Member Function:
-    leResult addAngularArc(leCircularGaugeWidget* _this,
-                           int32_t startAng,
-                           int32_t endAng,
-                           uint32_t rad,
-                           uint32_t thk,
-                           leScheme* schm)
-
-  Summary:
-     Adds an angular arc to the gauge
-
-  Description:
-     Adds an angular arc to the gauge
-
-  Parameters:
-    leCircularGaugeWidget* _this - The gauge to operate on
-    int32_t startAng - the start angle value
-    int32_t endAng - the end angle value
-    uint32_t rad - the radius value
-    uint32_t thk - the thickness value
-    leScheme* schm - the scheme pointer
-
-  Remarks:
-    Usage - _this->fn->addAngularArc(_this, startAng, endAng, rad, thk, schm);
-
-  Returns:
-    leResult - the result of the operation
-*/
-
-// *****************************************************************************
-/* Virtual Member Function:
-    leResult deleteArcs(leCircularGaugeWidget* _this)
-
-  Summary:
-     Deletes all arcs from the gauge
-
-  Description:
-     Deletes all arcs from the gauge
-
-  Parameters:
-    leCircularGaugeWidget* _this - The gauge to operate on
-
-  Remarks:
-    Usage - _this->fn->deleteArcs(_this);
-
-  Returns:
-    leResult - the result of the operation
-*/
-/**
- * @brief Delete arcs from the gauge.
- * @details Deletes all arcs from the gauge using <span class="param">_this</span>.
- * @code
- * const leCircularGaugeWidget* _this;
- * int32_t ang;
- * leResult res = _this->fn->setCenterAngle(_this, ang);
- * @endcode
- * @param _this is the widget pointer to query.
- * @param ang is the center angle.
- * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
- */
-virtual leResult setCenterAngle(leCircularGaugeWidget* _this,
-                                int32_t ang);
-
-// *****************************************************************************
-/* Virtual Member Function:
-    leResult addMinorTicks(leCircularGaugeWidget* _this,
-                           int32_t startVal,
-                           int32_t endVal,
-                           uint32_t rad,
-                           uint32_t len,
-                           uint32_t interval,
-                           leScheme* schm)
-
-  Summary:
-     Adds a series of minor ticks
-
-  Description:
-     Adds a series of minor ticks
-
-  Parameters:
-    leCircularGaugeWidget* _this - The gauge to operate on
-    int32_t startVal - the start value
-    int32_t endVal - the end value
-    uint32_t rad - the radius value
-    uint32_t len - the length value
-    uint32_t interval - the value
-    leScheme* schm - the scheme pointer
-
-  Remarks:
-    Usage - _this->fn->addMinorTicks(_this, startVal, endVal, rad, len, interval, schm);
-
-  Returns:
-    leResult - the result of the operation
-*/
-* @brief Adds series of minor ticks.
-* @details Adds a series of minor ticks by
-* <span class="param">val</span> using <span class="param">_this</span>.
-* @code
-* const leCircularGaugeWidget* _this;
-* int32_t val;
-* int32_t startVal;
-* int32_t endVal;
-* uint32_t rad;
-* leCircularGaugeWidgetLabelPosition pos;
-* uint32_t interval;
-* leScheme* schm;
-* leResult res = _this->fn->addMinorTicks(_this, startVal, endVal, rad, pos, interval, schm);
-* @endcode
-* @param _this is the widget pointer to query.
-* @param val is the label to add.
-* @param startVal the start value
-* @param endVal the end value.
-* @param rad the radius value.
-* @param len  position.
-* @param interval the value.
-* @param schm the scheme pointer.
-* @returns LE_SUCCESS if set, otherwise LE_FAILURE.
-*/
-virtual leResult addMinorTicks(leCircularGaugeWidget* _this,
-                               int32_t startVal,
-                               int32_t endVal,
-                               uint32_t rad,
-                               uint32_t len,
-                               uint32_t interval,
-                               leScheme* schm);
-
-// *****************************************************************************
-/* Virtual Member Function:
-    leResult deleteMinorTicks(leCircularGaugeWidget* _this)
-
-  Summary:
-     Deletes all minor ticks
-
-  Description:
-     Deletes all minor ticks
-
-  Parameters:
-    leCircularGaugeWidget* _this - The gauge to operate on
-
-  Remarks:
-    Usage - _this->fn->deleteMinorTicks(_this);
-
-  Returns:
-    leResult - the result of the operation
-*/
-/**
- * @brief Delete all minor ticks.
- * @details Deletes all minor ticks using <span class="param">_this</span>.
- * @code
- * const leCircularGaugeWidget* _this;
- * leResult res = _this->fn->deleteMinorTicks(_this);
- * @endcode
- * @param _this is the widget pointer to query.
- * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
- */
-virtual leResult deleteMinorTicks(leCircularGaugeWidget* _this);
-
-
-// *****************************************************************************
-/**
- * @brief Adds minor tick labels.
- * @details Adds minor tick labels by
- * <span class="param">val</span> using <span class="param">_this</span>.
- * @code
- * const leCircularGaugeWidget* _this;
- * int32_t val;
- * int32_t startVal;
- * int32_t endVal;
- * uint32_t rad;
- * leCircularGaugeWidgetLabelPosition pos;
- * uint32_t interval;
- * leScheme* schm;
- * leResult res = _this->fn->addMinorTickLabels(_this, startVal, endVal, rad, pos, interval, schm);
- * @endcode
- * @param _this is the widget pointer to query.
- * @param val is the label to add.
- * @param startVal the start value
- * @param endVal the end value.
- * @param rad the radius value.
- * @param pos  position.
- * @param interval the value.
- * @param schm the scheme pointer.
- * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
- */
-virtual leResult addMinorTickLabels(leCircularGaugeWidget* _this,
-                                    int32_t startVal,
-                                    int32_t endVal,
-                                    uint32_t rad,
-                                    leCircularGaugeWidgetLabelPosition pos,
-                                    uint32_t interval,
-                                    leScheme* schm);
-
-
-// *****************************************************************************
-/**
- * @brief Delete all minor tick labels.
- * @details Deletes all minor tick labels by
- * <span class="param">val</span> using <span class="param">_this</span>.
- * @code
- * const leCircularGaugeWidget* _this;
- * int32_t val;
- * leResult res = _this->fn->deleteMinorTickLabels(_this, val);
- * @endcode
- * @param _this is the widget pointer to query.
- * @param val is the label to value .
- * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
- */
-virtual leResult deleteMinorTickLabels(leCircularGaugeWidget* _this,
-                          int32_t val);
-
-// *****************************************************************************
-/**
- * @brief Get gauge value.
- * @details Gets the gauge value using <span class="param">_this</span>.
- * @code
- * const leCircularGaugeWidget* _this;
- * int32_t gauge = _this->fn->getValue(_this);
- * @endcode
- * @param _this is the widget pointer to query.
- * @returns the gauge value.
- */
-virtual int32_t getValue(const leCircularGaugeWidget* _this);
-
-
-// *****************************************************************************
-/**
- * @brief Set gauge value.
- * @details Sets the gauge value to
- * <span class="param">val</span> using <span class="param">_this</span>.
- * @code
- * const leCircularGaugeWidget* _this;
- * int32_t val;
- * leResult res = _this->fn->setValue(_this, val);
- * @endcode
- * @param _this is the widget pointer to query.
- * @param val is the gauge value.
- * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
- */
-virtual leResult setValue(leCircularGaugeWidget* _this,
-                          int32_t val);
-
-
-// *****************************************************************************
-/**
- * @brief Get start value.
- * @details Gets the start value using <span class="param">_this</span>.
- * @code
- * const leCircularGaugeWidget* _this;
- * int32_t start = _this->fn->getStartValue(_this);
- * @endcode
- * @param _this is the widget pointer to query.
- * @returns the start value.
- */
-virtual int32_t getStartValue(const leCircularGaugeWidget* _this);
-
-
-// *****************************************************************************
-/**
- * @brief Set start value.
- * @details Sets the start value to
- * <span class="param">val</span> using <span class="param">_this</span>.
- * @code
- * const leCircularGaugeWidget* _this;
- * int32_t val;
- * leResult res = _this->fn->setStartValue(_this, val);
- * @endcode
- * @param _this is the widget pointer to query.
- * @param val is the gauge value.
- * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
- */
-virtual leResult setStartValue(leCircularGaugeWidget* _this,
-                               int32_t val);
-
-// *****************************************************************************
-/**
- * @brief Get end value.
- * @details Gets the end value using <span class="param">_this</span>.
- * @code
- * const leCircularGaugeWidget* _this;
- * int32_t end = _this->fn->getEndValue(_this);
- * @endcode
- * @param _this is the widget pointer to query.
- * @returns the end value.
- */
-virtual int32_t getEndValue(const leCircularGaugeWidget* _this);
-
-
-// *****************************************************************************
-/**
- * @brief Set end value.
- * @details Sets the end value to
- * <span class="param">val</span> using <span class="param">_this</span>.
- * @code
- * const leCircularGaugeWidget* _this;
- * int32_t val;
- * leResult res = _this->fn->setEndValue(_this, val);
- * @endcode
- * @param _this is the widget pointer to query.
- * @param val is the end value.
- * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
- */
-virtual leResult setEndValue(leCircularGaugeWidget* _this,
-                               int32_t val);
-
-
-// *****************************************************************************
-/**
- * @brief Get ticks visible setting.
- * @details Gets the ticks visible setting using <span class="param">_this</span>.
- * @code
- * const leCircularGaugeWidget* _this;
- * leBool visible = _this->fn->getTicksVisible(_this);
- * @endcode
- * @param _this is the widget pointer to query.
- * @returns the ticks visible setting.
- */
-virtual leBool getTicksVisible(const leCircularGaugeWidget* _this);
-
-
-// *****************************************************************************
-/**
- * @brief Set ticks visible setting.
- * @details Sets the ticks visible setting to
- * <span class="param">val</span> using <span class="param">_this</span>.
- * @code
- * const leCircularGaugeWidget* _this;
- * leBool vis;
- * leResult res = _this->fn->setTicksVisible(_this, vis);
- * @endcode
- * @param _this is the widget pointer to query.
- * @param vis is the ticks visible settinge.
- * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
- */
-virtual leResult setTicksVisible(leCircularGaugeWidget* _this,
-                                 leBool vis);
-
-
-// *****************************************************************************
-/**
- * @brief Get current tick value.
- * @details Gets the current tick value using <span class="param">_this</span>.
- * @code
- * const leCircularGaugeWidget* _this;
- * int32_t tick = _this->fn->getTickValue(_this);
- * @endcode
- * @param _this is the widget pointer to query.
- * @returns the tick value.
- */
-virtual int32_t getTickValue(const leCircularGaugeWidget* _this);
-
-
-// *****************************************************************************
-/**
- * @brief Set tick value.
- * @details Sets the tick value to
- * <span class="param">val</span> using <span class="param">_this</span>.
- * @code
- * const leCircularGaugeWidget* _this;
- * int32_t val;
- * leResult res = _this->fn->setTicksVisible(_this, val);
- * @endcode
- * @param _this is the widget pointer to query.
- * @param val is the tick value.
- * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
- */
-virtual leResult setTickValue(leCircularGaugeWidget* _this,
-                              int32_t val);
-
-
-
-// *****************************************************************************
-/**
- * @brief Get current tick length.
- * @details Gets the current tick length using <span class="param">_this</span>.
- * @code
- * const leCircularGaugeWidget* _this;
- * uint32_t len = _this->fn->getTickLength(_this);
- * @endcode
- * @param _this is the widget pointer to query.
- * @returns the tick length.
- */
-virtual uint32_t getTickLength(const leCircularGaugeWidget* _this);
-
-// *****************************************************************************
-/**
- * @brief Set tick length.
- * @details Sets the tick length to
- * <span class="param">val</span> using <span class="param">_this</span>.
- * @code
- * const leCircularGaugeWidget* _this;
- * int32_t val;
- * leResult res = _this->fn->setTicksVisible(_this, val);
- * @endcode
- * @param _this is the widget pointer to query.
- * @param val is the tick length.
- * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
- */
-virtual leResult setTickValue(leCircularGaugeWidget* _this,
-                              int32_t val);
 
 
 // *****************************************************************************
@@ -1097,44 +641,6 @@ virtual uint32_t getCenterCircleThickness(const leCircularGaugeWidget* _this);
  */
 virtual leResult setCenterCircleThickness(leCircularGaugeWidget* _this,
                                        uint32_t rad);
-
-
-// *****************************************************************************
-/* Virtual Member Function:
-    leResult setTickLabelFont(leCircularGaugeWidget* _this,
-                              const leFont* font)
-
-  Summary:
-     Sets the tick label font
-
-  Description:
-     Sets the tick label font
-
-  Parameters:
-    leCircularGaugeWidget* _this - The gauge to operate on
-    const leFont* font - the font pointer
-
-  Remarks:
-    Usage - _this->fn->setTickLabelFont(_this, font);
-
-  Returns:
-    leResult - the result of the operation
-*/
-/**
- * @brief Set tick label font.
- * @details Sets the tick label font to
- * <span class="param">font</span> using <span class="param">_this</span>.
- * @code
- * const leCircularGaugeWidget* _this;
- * leFont* font;
- * leResult res = _this->fn->setCenterCircleThickness(_this, font);
- * @endcode
- * @param _this is the widget pointer to query.
- * @param font the font pointer.
- * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
- */
-virtual leResult setTickLabelFont(leCircularGaugeWidget* _this,
-                                  const leFont* font);
 
 /**
  * @brief Set value changed callback.

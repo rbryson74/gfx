@@ -217,7 +217,7 @@ static void drawSliceLabel(lePieChartWidget* chart,
                   drawRect.x,
                   drawRect.y,
                   LE_HALIGN_CENTER,
-                  chart->widget.scheme->text,
+                  leScheme_GetRenderColor(chart->widget.scheme, LE_SCHM_TEXT),
                   paintState.alpha);
 
     str.fn->destructor(&str);
@@ -270,19 +270,13 @@ static void drawPieSlice(lePieChartWidget* chart,
     lePieChartPie* pie = leArray_Get(&chart->pieArray, idx);
     leColor clr;
     
-    //paintState.pieCenter = paintState.p;
-
     if (pie->scheme != NULL)
     {
-        clr = pie->scheme->foreground;
-        //GFX_Set(GFXF_DRAW_COLOR, pie->scheme->foreground);
-        //GFX_Set(GFXF_DRAW_GRADIENT_COLOR, pie->scheme->foreground & 0xffffff00, pie->scheme->foreground, NULL, NULL);
+        clr = leScheme_GetRenderColor(pie->scheme, LE_SCHM_FOREGROUND);
     }
     else
     {
-        clr = chart->widget.scheme->foreground;
-        //GFX_Set(GFXF_DRAW_COLOR, chart->widget.scheme->foreground);
-        //GFX_Set(GFXF_DRAW_GRADIENT_COLOR, chart->widget.scheme->foreground & 0xffffff00, chart->widget.scheme->foreground, NULL, NULL);
+        clr = leScheme_GetRenderColor( chart->widget.scheme, LE_SCHM_FOREGROUND);
     }
 
     //GFX_Set(GFXF_DRAW_THICKNESS, pie->radius);
@@ -349,9 +343,6 @@ static void drawPieChart(lePieChartWidget* chart)
     paintState.pieCenter.x = paintState.pieRect.width / 2;
     paintState.pieCenter.y = paintState.pieRect.height / 2;
 
-    //GFX_Set(GFXF_DRAW_MODE, GFX_DRAW_LINE);
-    //GFX_Set(GFXF_DRAW_COLOR, chart->widget.scheme->foreground);
-        
     //Get the total
     for (i = 0; i < chart->pieArray.size; i++) 
     {
@@ -387,13 +378,6 @@ static void drawBorder(lePieChartWidget* chart)
 
 void _lePieChartWidget_Paint(lePieChartWidget* chart)
 {
-    if(chart->widget.scheme == NULL)
-    {
-        chart->widget.drawState = DONE;
-        
-        return;
-    }
-    
     if(chart->widget.drawState == NOT_STARTED)
     {
         nextState(chart);

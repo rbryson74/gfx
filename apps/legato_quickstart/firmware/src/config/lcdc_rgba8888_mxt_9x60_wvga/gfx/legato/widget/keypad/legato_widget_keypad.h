@@ -152,7 +152,6 @@ typedef struct leKeyPadCell
     leResult              (*setKeyPadActionTrigger)(THIS_TYPE* _this, leKeyPadActionTrigger trg); \
     leKeyPadWidget_KeyClickEvent (*getKeyClickEventCallback)(const THIS_TYPE* _this); \
     leResult              (*setKeyClickEventCallback)(THIS_TYPE* _this, leKeyPadWidget_KeyClickEvent cb); \
-    leBool                (*getKeyEnabled)(const THIS_TYPE* _this, uint32_t row, uint32_t col); \
     leResult              (*setKeyVisible)(THIS_TYPE* _this, uint32_t row, uint32_t col, leBool b); \
     leKeyPadCellAction    (*getKeyAction)(const THIS_TYPE* _this, uint32_t row, uint32_t col); \
     leResult              (*setKeyAction)(THIS_TYPE* _this, uint32_t row, uint32_t col, leKeyPadCellAction action); \
@@ -307,26 +306,24 @@ virtual leResult setKeyClickEventCallback(leKeyPadWidget* _this,
 
 // *****************************************************************************
 /* Virtual Member Function:
-    leBool getKeyEnabled(const leKeyPadWidget* _this,
-                         uint32_t row,
-                         uint32_t col)
+    leResult setKeyClickEventCallback(leKeyPadWidget* _this,
+                                      leKeyPadWidget_KeyClickEvent cb)
 
   Summary:
-     Gets the enabled state of a key
+     Sets the key click event callback
 
   Description:
-     Gets the enabled state of a key
+     Sets the key click event callback
 
   Parameters:
-    const leKeyPadWidget* _this - The keypad widget to operate on
-    uint32_t row - the row index
-    uint32_t col - the column index
+    leKeyPadWidget* _this - The keypad widget to operate on
+    leKeyPadWidget_KeyClickEvent cb - the callback pointer
 
   Remarks:
-    Usage - _this->fn->getKeyEnabled(_this, row, col);
+    Usage - _this->fn->setKeyClickEventCallback(_this, cb);
 
   Returns:
-    leBool -
+    leResult - the result of the operation
 */
 
 // *****************************************************************************

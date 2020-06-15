@@ -359,8 +359,42 @@ LIB_EXPORT leResult leRectArray_RemoveOverlapping(leRectArray* arr);
 LIB_EXPORT leResult leRectArray_CropToArea(leRectArray* arr,
                                            uint32_t width,
                                            uint32_t height);
-                                           
-                                           
-leResult leRectArray_CropToSize(leRectArray* arr, uint32_t size);
+
+
+// *****************************************************************************
+/**
+ * @brief Slices an array of rectangles to a given pixel count
+ * @details Crops <span class="param">arr</span> to
+ * given <span class="param">width</span>
+ * and <span class="param">size</span>.
+ * This method attempts to keep the rectangle slices as wide as possible.
+ * @code
+ * leRectArray* arr;
+ * uint32_t size;
+ * leResult res = leRectArray_CropToSizeY(arr, size);
+ * @endcode
+ * @param arr the array to modify.
+ * @param size the number of pixels to crop to.
+ * @returns LE_SUCCESS , otherwise LE_FAILURE.
+ */
+leResult leRectArray_CropToSizeY(leRectArray* arr, uint32_t size);
+
+// *****************************************************************************
+/**
+ * @brief Slices an array of rectangles to a given pixel count
+ * @details Crops <span class="param">arr</span> to
+ * given <span class="param">width</span>
+ * and <span class="param">size</span>.
+ * This method attempts to keep the rectangle slices as tall as possible.
+ * @code
+ * leRectArray* arr;
+ * uint32_t size;
+ * leResult res = leRectArray_CropToSizeX(arr, size);
+ * @endcode
+ * @param arr the array to modify.
+ * @param size the number of pixels to crop to.
+ * @returns LE_SUCCESS , otherwise LE_FAILURE.
+ */
+leResult leRectArray_CropToSizeX(leRectArray* arr, uint32_t size);
 
 #endif /* LEGATO_RECTARRAY_H */

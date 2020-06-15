@@ -49,6 +49,8 @@
 typedef struct leWidget leWidget;
 typedef struct leList leList;
 
+#define LE_TEST_FLAG(val, flag) ((val & flag) > 0)
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Routines
@@ -56,34 +58,21 @@ typedef struct leList leList;
 // *****************************************************************************
 
 /**
- * @brief Finds the top-most visible widget in the tree at the given coordinates.
- * @details Finds the top-most visible widget in the tree at the given coordinates
- * <span class="param">x</span> and <span class="param">y</span>.
- * @code
- * leWidget* wdt = leUtils_Pick(x, y);
- * @endcode
- * @param x position.
- * @param y position.
- * @return the result widget .
- */
-LIB_EXPORT leWidget* leUtils_Pick(int32_t x,
-                                  int32_t y);
-
-/**
  * @brief Finds the top-most visible widget in a layer at the given coordinates.
  * @details Finds the top-most visible widget in <span class="param">wgt</span>
  * at the given coordinates <span class="param">x</span> and
  * <span class="param">y</span>.
  * @code
- * leWidget* wdt = leUtils_Pick(x, y);
+ * leWidget* wdt = leUtils_PickFromWidget(wgt, x, y);
  * @endcode
+ * @param wgt the widget to pick from
  * @param x position.
  * @param y position.
  * @return the result widget.
  */
-LIB_EXPORT leWidget* leUtils_PickFromWidget(const leWidget* wgt,
-                                            int32_t x,
-                                            int32_t y);
+leWidget* leUtils_PickFromWidget(const leWidget* wgt,
+                                 int32_t x,
+                                 int32_t y);
 
 
 /**

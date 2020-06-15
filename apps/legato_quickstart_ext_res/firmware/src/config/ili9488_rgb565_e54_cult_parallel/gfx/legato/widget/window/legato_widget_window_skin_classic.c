@@ -258,22 +258,8 @@ static void drawTitleBar(leWindowWidget* win)
     leUtils_RectToScreenSpace((leWidget*)win, &barRect);
     
     leRenderer_RectFill(&barRect,
-                        win->widget.scheme->background,
+                        leScheme_GetRenderColor(win->widget.scheme, LE_SCHM_BACKGROUND),
                         paintState.alpha);
-    
-    // draw title bar border
-    /*if(win->widget.borderType == LE_WIDGET_BORDER_LINE)
-    {
-        leDraw_LineBorder(&barRect, win->widget.scheme->shadowDark);
-    }
-    else if(win->widget.borderType == LE_WIDGET_BORDER_BEVEL)
-    {
-        leDraw_2x2BevelBorder(&barRect,
-                              win->widget.scheme->base,
-                              win->widget.scheme->highlightLight,
-                              win->widget.scheme->shadow,
-                              win->widget.scheme->shadowDark);
-    }*/
     
     nextState(win);
 }
@@ -337,7 +323,7 @@ static void drawString(leWindowWidget* win)
                           textRect.x,
                           textRect.y,
                           win->widget.halign,
-                          win->widget.scheme->text,
+                          leScheme_GetRenderColor(win->widget.scheme, LE_SCHM_TEXT),
                           paintState.alpha);
 
 #if LE_STREAMING_ENABLED == 1
@@ -371,10 +357,10 @@ static void drawBorder(leWindowWidget* win)
         leUtils_RectToScreenSpace((leWidget*)win, &rect);
         
         leWidget_SkinClassic_Draw2x2BeveledBorder(&rect,
-                                                  win->widget.scheme->base,
-                                                  win->widget.scheme->highlightLight,
-                                                  win->widget.scheme->shadowDark,
-                                                  win->widget.scheme->shadow,
+                                                  leScheme_GetRenderColor(win->widget.scheme, LE_SCHM_BASE),
+                                                  leScheme_GetRenderColor(win->widget.scheme, LE_SCHM_HIGHLIGHTLIGHT),
+                                                  leScheme_GetRenderColor(win->widget.scheme, LE_SCHM_SHADOWDARK),
+                                                  leScheme_GetRenderColor(win->widget.scheme, LE_SCHM_SHADOW),
                                                   paintState.alpha);
     }
     
@@ -383,13 +369,6 @@ static void drawBorder(leWindowWidget* win)
 
 void _leWindowWidget_Paint(leWindowWidget* win)
 {
-    if(win->widget.scheme == NULL)
-    {
-        win->widget.drawState = DONE;
-        
-        return;
-    }
-    
     if(win->widget.drawState == NOT_STARTED)
         nextState(win);
 

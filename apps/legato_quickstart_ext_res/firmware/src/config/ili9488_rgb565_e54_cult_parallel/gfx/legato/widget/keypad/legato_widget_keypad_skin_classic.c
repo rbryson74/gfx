@@ -135,13 +135,6 @@ void _leKeyPadWidget_Paint(leKeyPadWidget* pad)
         child->scheme = pad->widget.scheme;
     }
     
-    if(pad->widget.scheme == NULL)
-    {
-        pad->widget.drawState = DONE;
-        
-        return;
-    }
-    
     if(pad->widget.drawState == NOT_STARTED)
     {
         nextState(pad);

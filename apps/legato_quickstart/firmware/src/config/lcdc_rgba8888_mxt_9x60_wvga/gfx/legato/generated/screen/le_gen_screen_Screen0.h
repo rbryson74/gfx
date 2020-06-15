@@ -1,7 +1,10 @@
 #ifndef LE_GEN_SCREEN_SCREEN0_H
 #define LE_GEN_SCREEN_SCREEN0_H
 
-#include "gfx/legato/generated/le_gen_init.h"
+#include "gfx/legato/legato.h"
+
+#include "gfx/legato/generated/le_gen_scheme.h"
+#include "gfx/legato/generated/le_gen_assets.h"
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
@@ -9,6 +12,8 @@ extern "C" {
 #endif
 // DOM-IGNORE-END
 
+// screen member widget declarations
+extern leWidget* Screen0_default_Layer0_FillPanel;
 
 // screen lifecycle functions
 // DO NOT CALL THESE DIRECTLY

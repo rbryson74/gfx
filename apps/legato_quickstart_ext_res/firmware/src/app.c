@@ -29,7 +29,7 @@
 
 #include "app.h"
 #include "gfx/legato/generated/le_gen_assets.h"
-#include "gfx/legato/generated/screen/le_gen_screen_screen1.h"
+#include "gfx/legato/generated/screen/le_gen_screen_default.h"
 
 // *****************************************************************************
 // *****************************************************************************
@@ -55,10 +55,14 @@
 static leTableString tableString_DrawRLE;
 static leTableString tableString_DrawPaletteCompressed;
 static leTableString tableString_DrawRaw;
+static leTableString tableString_DrawJpeg;
+static leTableString tableString_DrawPNG;
 
 static leTableString tableString_ImageIsPaletteCompressed;
 static leTableString tableString_ImageIsRaw;
 static leTableString tableString_ImageIsRLE;
+static leTableString tableString_ImageIsPNG;
+static leTableString tableString_ImageIsJPEG;
 
 APP_DATA CACHE_ALIGN appData;
 
@@ -107,7 +111,7 @@ void leApplication_MediaCloseRequest(leStream* stream)
 {
 }
 
-void LogoButton_OnReleased(leButtonWidget* btn)
+void event_default_LogoButton_OnReleased(leButtonWidget* btn)
 {
     if (leGetStringLanguage() == language_English)
     {
@@ -119,46 +123,72 @@ void LogoButton_OnReleased(leButtonWidget* btn)
     }
 }
 
-void SloganButton_OnReleased(leButtonWidget* btn)
+void event_default_SloganButton_OnReleased(leButtonWidget* btn)
 {
-    if (LogoButton->releasedImage == &MHGS_logo_small_compressed)
+    if (default_LogoButton->releasedImage == &MHGS_logo_small_compressed)
     {
         //Show the next message
-        leTableString_Constructor(&tableString_DrawRLE, string_DrawRLE); 
-        SloganButton->fn->setString(SloganButton, (leString*)&tableString_DrawRLE);
+        leTableString_Constructor(&tableString_DrawRLE, stringID_DrawRLE); 
+        default_SloganButton->fn->setString(default_SloganButton, (leString*)&tableString_DrawRLE);
 
         //Draw the intended from the previous message
-        LogoButton->fn->setPressedImage(LogoButton, &MHGS_logo_small_raw);
-        LogoButton->fn->setReleasedImage(LogoButton, &MHGS_logo_small_raw);
+        default_LogoButton->fn->setPressedImage(default_LogoButton, &MHGS_logo_small_raw);
+        default_LogoButton->fn->setReleasedImage(default_LogoButton, &MHGS_logo_small_raw);
         
-        leTableString_Constructor(&tableString_ImageIsRaw, string_ImageIsRaw); 
-        ImageTypeLabelWidget->fn->setString(ImageTypeLabelWidget, (leString*)&tableString_ImageIsRaw);
+        leTableString_Constructor(&tableString_ImageIsRaw, stringID_ImageIsRaw); 
+        default_ImageTypeLabelWidget->fn->setString(default_ImageTypeLabelWidget, (leString*)&tableString_ImageIsRaw);
     }
-    else if (LogoButton->releasedImage == &MHGS_logo_small_raw)
+    else if (default_LogoButton->releasedImage == &MHGS_logo_small_raw)
     {
         //Show the next message
-        leTableString_Constructor(&tableString_DrawPaletteCompressed, string_DrawPaletteCompressed); 
-        SloganButton->fn->setString(SloganButton, (leString*)&tableString_DrawPaletteCompressed);
+        leTableString_Constructor(&tableString_DrawPNG, stringID_DrawPNG); 
+        default_SloganButton->fn->setString(default_SloganButton, (leString*)&tableString_DrawPNG);
 
         //Draw the intended from the previous message
-        LogoButton->fn->setPressedImage(LogoButton, &MHGS_logo_small_rle);
-        LogoButton->fn->setReleasedImage(LogoButton, &MHGS_logo_small_rle);
+        default_LogoButton->fn->setPressedImage(default_LogoButton, &MHGS_logo_small_rle);
+        default_LogoButton->fn->setReleasedImage(default_LogoButton, &MHGS_logo_small_rle);
 
-        leTableString_Constructor(&tableString_ImageIsRLE, string_ImageIsRLE); 
-        ImageTypeLabelWidget->fn->setString(ImageTypeLabelWidget, (leString*)&tableString_ImageIsRLE);
+        leTableString_Constructor(&tableString_ImageIsRLE, stringID_ImageIsRLE); 
+        default_ImageTypeLabelWidget->fn->setString(default_ImageTypeLabelWidget, (leString*)&tableString_ImageIsRLE);
     }
-    else if (LogoButton->releasedImage == &MHGS_logo_small_rle)
+    else if (default_LogoButton->releasedImage == &MHGS_logo_small_rle)
     {
         //Show the next message
-        leTableString_Constructor(&tableString_DrawRaw, string_DrawRaw); 
-        SloganButton->fn->setString(SloganButton, (leString*)&tableString_DrawRaw);
+        leTableString_Constructor(&tableString_DrawJpeg, stringID_DrawJpeg); 
+        default_SloganButton->fn->setString(default_SloganButton, (leString*)&tableString_DrawJpeg);
 
         //Draw the intended from the previous message
-        LogoButton->fn->setPressedImage(LogoButton, &MHGS_logo_small_compressed);
-        LogoButton->fn->setReleasedImage(LogoButton, &MHGS_logo_small_compressed);
+        default_LogoButton->fn->setPressedImage(default_LogoButton, &MHGS_logo_small_png);
+        default_LogoButton->fn->setReleasedImage(default_LogoButton, &MHGS_logo_small_png);
 
-        leTableString_Constructor(&tableString_ImageIsPaletteCompressed, string_ImageIsPaletteCompressed); 
-        ImageTypeLabelWidget->fn->setString(ImageTypeLabelWidget, (leString*)&tableString_ImageIsPaletteCompressed);
+        leTableString_Constructor(&tableString_ImageIsPNG, stringID_ImageIsPNG); 
+        default_ImageTypeLabelWidget->fn->setString(default_ImageTypeLabelWidget, (leString*)&tableString_ImageIsPNG);
+    }
+    else if (default_LogoButton->releasedImage == &MHGS_logo_small_png)
+    {
+        //Show the next message
+        leTableString_Constructor(&tableString_DrawPaletteCompressed, stringID_DrawPaletteCompressed); 
+        default_SloganButton->fn->setString(default_SloganButton, (leString*)&tableString_DrawPaletteCompressed);
+
+        //Draw the intended from the previous message
+        default_LogoButton->fn->setPressedImage(default_LogoButton, &MHGS_logo_small_jpeg);
+        default_LogoButton->fn->setReleasedImage(default_LogoButton, &MHGS_logo_small_jpeg);
+
+        leTableString_Constructor(&tableString_ImageIsJPEG, stringID_ImageIsJPEG); 
+        default_ImageTypeLabelWidget->fn->setString(default_ImageTypeLabelWidget, (leString*)&tableString_ImageIsJPEG);
+    }
+    else if (default_LogoButton->releasedImage == &MHGS_logo_small_jpeg)
+    {
+        //Show the next message
+        leTableString_Constructor(&tableString_DrawRaw, stringID_DrawRaw); 
+        default_SloganButton->fn->setString(default_SloganButton, (leString*)&tableString_DrawRaw);
+
+        //Draw the intended from the previous message
+        default_LogoButton->fn->setPressedImage(default_LogoButton, &MHGS_logo_small_compressed);
+        default_LogoButton->fn->setReleasedImage(default_LogoButton, &MHGS_logo_small_compressed);
+
+        leTableString_Constructor(&tableString_ImageIsPaletteCompressed, stringID_ImageIsPaletteCompressed); 
+        default_ImageTypeLabelWidget->fn->setString(default_ImageTypeLabelWidget, (leString*)&tableString_ImageIsPaletteCompressed);
     }
 }
 
@@ -217,7 +247,7 @@ void APP_Tasks ( void )
 
 		case APP_INIT_READ_MEDIA:
 		{
-            appData.handle = DRV_SST26_Open(DRV_SST26_INDEX, DRV_IO_INTENT_READ);
+            //appData.handle = DRV_SST26_Open(DRV_SST26_INDEX, DRV_IO_INTENT_READ);
 
             if (appData.handle != DRV_HANDLE_INVALID)
             {

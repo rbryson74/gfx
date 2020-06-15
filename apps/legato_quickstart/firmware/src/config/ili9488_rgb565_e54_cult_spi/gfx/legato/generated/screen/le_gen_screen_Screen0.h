@@ -1,7 +1,10 @@
 #ifndef LE_GEN_SCREEN_SCREEN0_H
 #define LE_GEN_SCREEN_SCREEN0_H
 
-#include "gfx/legato/generated/le_gen_init.h"
+#include "gfx/legato/legato.h"
+
+#include "gfx/legato/generated/le_gen_scheme.h"
+#include "gfx/legato/generated/le_gen_assets.h"
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
@@ -9,13 +12,11 @@ extern "C" {
 #endif
 // DOM-IGNORE-END
 
-// widget list for this screen
-// layer 0
-extern leImageWidget* ImageWidget0;
-extern leLabelWidget* LabelWidget0;
-extern leImageWidget* ImageWidget1;
-extern leButtonWidget* ButtonWidget0;
-
+// screen member widget declarations
+extern leImageWidget* Screen0_ImageWidget0;
+extern leLabelWidget* Screen0_LabelWidget0;
+extern leImageWidget* Screen0_ImageWidget1;
+extern leButtonWidget* Screen0_ButtonWidget0;
 
 // screen lifecycle functions
 // DO NOT CALL THESE DIRECTLY

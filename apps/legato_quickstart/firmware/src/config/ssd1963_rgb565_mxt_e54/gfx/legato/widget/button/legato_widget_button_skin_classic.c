@@ -338,13 +338,13 @@ static void drawBackground(leButtonWidget* btn)
         if(btn->state != LE_BUTTON_STATE_UP)
         {
             leWidget_SkinClassic_DrawBackground((leWidget*)btn,
-                                                btn->widget.scheme->background,
+                                                leScheme_GetRenderColor(btn->widget.scheme, LE_SCHM_BACKGROUND),
                                                 paintState.alpha);
         }
         else
         {
             leWidget_SkinClassic_DrawBackground((leWidget*)btn,
-                                                btn->widget.scheme->base,
+                                                leScheme_GetRenderColor(btn->widget.scheme, LE_SCHM_BASE),
                                                 paintState.alpha);
         }
     }
@@ -427,7 +427,7 @@ static void drawString(leButtonWidget* btn)
                            textRect.x,
                            textRect.y,
                            btn->widget.halign,
-                           btn->widget.scheme->text,
+                           leScheme_GetRenderColor(btn->widget.scheme, LE_SCHM_TEXT),
                            paintState.alpha);
 
 #if LE_STREAMING_ENABLED == 1
@@ -471,13 +471,6 @@ static void drawBorder(leButtonWidget* btn)
 
 void _leButtonWidget_Paint(leButtonWidget* btn)
 {
-    if(btn->widget.scheme == NULL)
-    {
-        btn->widget.drawState = DONE;
-        
-        return;
-    }
-    
     if(btn->widget.drawState == NOT_STARTED)
     {
         nextState(btn);

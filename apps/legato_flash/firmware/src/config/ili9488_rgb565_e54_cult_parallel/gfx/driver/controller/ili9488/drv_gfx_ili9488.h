@@ -68,7 +68,7 @@ void DRV_ILI9488_Swap(void);
 uint32_t DRV_ILI9488_GetSwapCount(void);
 
 
-static const gfxDisplayDriver ili9488DisplayDriver =
+static const gfxDisplayDriver gfxDriverInterface =
 {
     DRV_ILI9488_GetColorMode,
     DRV_ILI9488_GetBufferCount,

@@ -94,6 +94,7 @@ typedef enum
 {
     GFXC_FX_IDLE,                   //Done or idle, no active effects
     GFXC_FX_DONE = GFXC_FX_IDLE,
+    GFXC_FX_START,                  //Starting effect
     GFXC_FX_RUN,                    //effect in progress
 } GFXC_FX_STATUS;
 
@@ -102,7 +103,7 @@ typedef void (*gfxcCallback) (unsigned int canvasID,
                               GFXC_FX_STATUS status,
                               void * parm);
 
-extern const gfxDisplayDriver gfxcVirtualDisplayDriver;
+extern const gfxDisplayDriver gfxDriverInterface;
 
 // *****************************************************************************
 /* Function:

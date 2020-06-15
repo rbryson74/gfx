@@ -234,9 +234,13 @@ leResult leInitialize(const gfxDisplayDriver* dispDriver)
         return LE_FAILURE;
         
     memset(&_state, 0, sizeof(leState));
-        
-    if(leMemory_Init() == LE_FAILURE ||
-       leEvent_Init() == LE_FAILURE ||
+
+#if LE_MEMORY_MANAGER_ENABLE == 1
+    if(leMemory_Init() == LE_FAILURE)
+        return LE_FAILURE;
+#endif
+
+    if(leEvent_Init() == LE_FAILURE ||
        leInput_Init() == LE_FAILURE ||
        leRenderer_Initialize(dispDriver) == LE_FAILURE)
     {
@@ -256,7 +260,6 @@ leResult leInitialize(const gfxDisplayDriver* dispDriver)
 #endif
     
     leImage_InitDecoders();
-    leScheme_Initialize(&_state.defaultScheme, LE_GLOBAL_COLOR_MODE);
 
     for(idx = 0; idx < LE_LAYER_COUNT; idx++)
     {
@@ -269,6 +272,8 @@ leResult leInitialize(const gfxDisplayDriver* dispDriver)
         root->fn->setSize(root,
                           dispDriver->getDisplayWidth(),
                           dispDriver->getDisplayHeight());
+
+        _state.layerStates[idx].colorMode = LE_DEFAULT_COLOR_MODE;
     }
     
     _initialized = LE_TRUE;
@@ -358,9 +363,42 @@ leResult leUpdate(uint32_t dt)
     return LE_SUCCESS;
 }
 
-leColorMode leGetColorMode()
+leColorMode leGetLayerColorMode(uint32_t idx)
 {
-    return LE_GLOBAL_COLOR_MODE;
+    if(idx >= LE_LAYER_COUNT)
+        return LE_COLOR_MODE_GS_8;
+
+    return _state.layerStates[idx].colorMode;
+}
+
+leResult leSetLayerColorMode(uint32_t idx,
+                             leColorMode mode)
+{
+    if(idx >= LE_LAYER_COUNT)
+        return LE_FAILURE;
+
+    _state.layerStates[idx].colorMode = mode;
+
+    return LE_SUCCESS;
+}
+
+leBool leGetLayerRenderHorizontal(uint32_t idx)
+{
+    if(idx >= LE_LAYER_COUNT)
+        return LE_FALSE;
+
+    return _state.layerStates[idx].renderHorizontal;
+}
+
+leResult leSetLayerRenderHorizontal(uint32_t idx,
+                                    leBool horz)
+{
+    if(idx >= LE_LAYER_COUNT)
+        return LE_FAILURE;
+
+    _state.layerStates[idx].renderHorizontal = horz;
+
+    return LE_SUCCESS;
 }
 
 leRect leGetDisplayRect()

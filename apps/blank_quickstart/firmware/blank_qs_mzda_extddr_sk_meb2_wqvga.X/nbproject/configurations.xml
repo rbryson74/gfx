@@ -25,7 +25,7 @@
           <logicalFolder name="f1" displayName="gfx" projectFiles="true">
             <logicalFolder name="f1" displayName="driver" projectFiles="true">
               <logicalFolder name="f1" displayName="2dgpu" projectFiles="true">
-                <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/driver/processor/2dgpu/libnano2d.h</itemPath>
+                <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/driver/processor/2dgpu/libnano2D.h</itemPath>
               </logicalFolder>
               <logicalFolder name="f2" displayName="glcd" projectFiles="true">
                 <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/gfx/driver/gfx_driver.h</itemPath>
@@ -56,6 +56,9 @@
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f4" displayName="system" projectFiles="true">
+            <logicalFolder name="f4" displayName="debug" projectFiles="true">
+              <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/system/debug/sys_debug.h</itemPath>
+            </logicalFolder>
             <logicalFolder name="f2" displayName="input" projectFiles="true">
               <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/system/input/sys_input.h</itemPath>
               <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/system/input/sys_input_gesture.h</itemPath>
@@ -239,6 +242,7 @@
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
+      <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/harmony.prj</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
@@ -253,14 +257,16 @@
         <targetDevice>PIC32MZ2064DAA288</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>ICD4Tool</platformTool>
+        <platformTool></platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>2.40</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC32MZ-DA_DFP" vendor="Microchip" version="1.1.98"/>
+        <pack name="PIC32MZ-DA_DFP" vendor="Microchip" version="1.2.102"/>
       </packs>
+      <ScriptingSettings>
+      </ScriptingSettings>
       <compileType>
         <linkerTool>
           <linkerLibItems>
@@ -295,7 +301,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/third_party/gfx;../src;../src/config/glcd_rgba8888_mxt_mzda_extddr_sk;../src/packs/PIC32MZ2064DAA288_DFP;../src/mips;../src/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ;../src/third_party/rtos/FreeRTOS/Source/include"/>
+                  value="../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/third_party/gfx;../src;../src/config/glcd_rgba8888_mxt_mzda_extddr_sk;../src/packs/PIC32MZ2064DAA288_DFP;../src/third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ;../src/third_party/rtos/FreeRTOS/Source/include"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -417,6 +423,7 @@
         <property key="mdtcm" value=""/>
         <property key="mitcm" value=""/>
         <property key="mstacktcm" value="false"/>
+        <property key="omit-pack-options" value="1"/>
         <property key="relaxed-math" value="false"/>
         <property key="save-temps" value="false"/>
         <property key="wpo-lto" value="false"/>
@@ -493,6 +500,8 @@
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UpdateOptions"
                   value="ToolFirmwareOption.UseLatest"/>
+        <property key="ToolFirmwareToolPack"
+                  value="Press to select which tool pack to use"/>
         <property key="UART1" value="true"/>
         <property key="UART2" value="true"/>
         <property key="UART3" value="true"/>
@@ -516,8 +525,6 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="1d000000-1d1fffff"/>
         <property key="poweroptions.powerenable" value="false"/>
-        <property key="programmerToGoFilePath"
-                  value="C:/Harmony3/gfx/apps/blank_quickstart/firmware/blank_qs_mzda_extddr_sk_meb2_wqvga.X/debug/glcd_rgba8888_mxt_mzda_extddr_sk/blank_qs_mzda_extddr_sk_meb2_wqvga_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.ledbrightness" value="5"/>
@@ -538,6 +545,10 @@
         <property key="programoptions.programcalmem" value="false"/>
         <property key="programoptions.programuserotp" value="false"/>
         <property key="programoptions.testmodeentrymethod" value="VDDFirst"/>
+        <property key="toolpack.updateoptions"
+                  value="toolpack.updateoptions.uselatestoolpack"/>
+        <property key="toolpack.updateoptions.packversion"
+                  value="Press to select which tool pack to use"/>
         <property key="voltagevalue" value="3.25"/>
       </ICD4Tool>
       <PICkit3PlatformTool>

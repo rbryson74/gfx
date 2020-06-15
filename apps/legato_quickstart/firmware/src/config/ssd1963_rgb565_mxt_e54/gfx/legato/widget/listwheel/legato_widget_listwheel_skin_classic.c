@@ -418,8 +418,8 @@ static void drawBackground(leListWheelWidget* whl)
             drawRect.height = (widgetRect.height / 2) - whl->indicatorArea;
             
             leRenderer_VertGradientRect(&drawRect,
-                                        whl->widget.scheme->backgroundDisabled,
-                                        whl->widget.scheme->backgroundInactive,
+                                        leScheme_GetRenderColor(whl->widget.scheme, LE_SCHM_BACKGROUND_DISABLED),
+                                        leScheme_GetRenderColor(whl->widget.scheme, LE_SCHM_BACKGROUND_INACTIVE),
                                         paintState.alpha);
             
             // lower rectangle
@@ -427,14 +427,14 @@ static void drawBackground(leListWheelWidget* whl)
             drawRect.height = (widgetRect.height / 2) - whl->indicatorArea;
             
             leRenderer_VertGradientRect(&drawRect,
-                                        whl->widget.scheme->backgroundInactive,
-                                        whl->widget.scheme->backgroundDisabled,
+                                        leScheme_GetRenderColor(whl->widget.scheme, LE_SCHM_BACKGROUND_INACTIVE),
+                                        leScheme_GetRenderColor(whl->widget.scheme, LE_SCHM_BACKGROUND_DISABLED),
                                         paintState.alpha);
         }
         else
         {
             leWidget_SkinClassic_DrawBackground((leWidget*)whl,
-                                                whl->widget.scheme->background,
+                                                leScheme_GetRenderColor(whl->widget.scheme, LE_SCHM_BACKGROUND),
                                                 paintState.alpha);
         }
     }
@@ -448,14 +448,14 @@ static void drawBackground(leListWheelWidget* whl)
         if (whl->indicatorFill == LE_LISTWHEEL_INDICATOR_FILL_GRADIENT)
         {
             leRenderer_VertGradientRect(&drawRect,
-                                        whl->widget.scheme->foregroundDisabled,
-                                        whl->widget.scheme->foregroundInactive,
+                                        leScheme_GetRenderColor(whl->widget.scheme, LE_SCHM_FOREGROUND_DISABLED),
+                                        leScheme_GetRenderColor(whl->widget.scheme, LE_SCHM_FOREGROUND_INACTIVE),
                                         paintState.alpha);
         }
         else
         {
             leRenderer_RectFill(&drawRect,
-                                whl->widget.scheme->foregroundInactive,
+                                leScheme_GetRenderColor(whl->widget.scheme, LE_SCHM_FOREGROUND_INACTIVE),
                                 paintState.alpha);
         }
     }
@@ -536,7 +536,7 @@ static void drawString(leListWheelWidget* whl)
                                 textRect.x,
                                 textRect.y,
                                 whl->widget.halign,
-                                whl->widget.scheme->textHighlightText,
+                                leScheme_GetRenderColor(whl->widget.scheme, LE_SCHM_TEXT_HIGHLIGHTTEXT),
                                 paintState.alpha);
 
 #if LE_STREAMING_ENABLED == 1
@@ -559,7 +559,7 @@ static void drawString(leListWheelWidget* whl)
                                 textRect.x,
                                 textRect.y,
                                 whl->widget.halign,
-                                whl->widget.scheme->text,
+                                leScheme_GetRenderColor(whl->widget.scheme, LE_SCHM_TEXT),
                                 paintState.alpha);
 
 #if LE_STREAMING_ENABLED == 1
@@ -599,7 +599,7 @@ static void drawString(leListWheelWidget* whl)
                 GFX_Set(GFXF_DRAW_COLOR, leColorConvert(
                                             leContext_GetActive()->colorMode,
                                             LE_COLOR_MODE_RGBA_8888,
-                                            whl->widget.scheme->text));
+                                            leScheme_GetRenderColor(whl->widget.scheme, LE_SCHM_TEXT);
 
                 GFX_Set(GFXF_DRAW_TARGET, &pixelBuff);
 
@@ -825,7 +825,7 @@ static void drawIcon(leListWheelWidget* whl)
                         GFX_Set(GFXF_DRAW_COLOR, leColorConvert(
                                                     leContext_GetActive()->colorMode,
                                                     LE_COLOR_MODE_RGBA_8888,
-                                                    whl->widget.scheme->text));
+                                                    leScheme_GetRenderColor(whl->widget.scheme, LE_SCHM_FOREGROUND_TEXT));
 
                         GFX_Set(GFXF_DRAW_TARGET, &pixelBuff);
 
@@ -950,28 +950,28 @@ static void drawIndicators(leListWheelWidget* whl)
     leRenderer_HorzLine(rect.x,
                         topLine,
                         rect.width,
-                        whl->widget.scheme->foreground,
+                        leScheme_GetRenderColor(whl->widget.scheme, LE_SCHM_FOREGROUND),
                         paintState.alpha);
     
     // bottom inner line
     leRenderer_HorzLine(rect.x,
                         bottomLine,
                         rect.width,
-                        whl->widget.scheme->foreground,
+                        leScheme_GetRenderColor(whl->widget.scheme, LE_SCHM_FOREGROUND),
                         paintState.alpha);
     
     // top inner line
     leRenderer_HorzLine(rect.x,
                         topLine + 1,
                         rect.width,
-                        whl->widget.scheme->foreground,
+                        leScheme_GetRenderColor(whl->widget.scheme, LE_SCHM_FOREGROUND),
                         paintState.alpha);
     
     // bottom outer line
     leRenderer_HorzLine(rect.x,
                         bottomLine + 1,
                         rect.width,
-                        whl->widget.scheme->foreground,
+                        leScheme_GetRenderColor(whl->widget.scheme, LE_SCHM_FOREGROUND),
                         paintState.alpha);
     
     //if the widget has no border, draw the vertical indicator borders
@@ -984,7 +984,7 @@ static void drawIndicators(leListWheelWidget* whl)
         drawRect.height = bottomLine - topLine;
         
         leRenderer_RectFill(&drawRect,
-                            whl->widget.scheme->foreground,
+                            leScheme_GetRenderColor(whl->widget.scheme, LE_SCHM_FOREGROUND),
                             paintState.alpha);
      
         //right line
@@ -994,7 +994,7 @@ static void drawIndicators(leListWheelWidget* whl)
         drawRect.height = bottomLine - drawRect.y;
         
         leRenderer_RectFill(&drawRect,
-                            whl->widget.scheme->foreground,
+                            leScheme_GetRenderColor(whl->widget.scheme, LE_SCHM_FOREGROUND),
                             paintState.alpha);
     }
     
@@ -1019,13 +1019,6 @@ static void drawBorder(leListWheelWidget* whl)
 
 void _leListWheelWidget_Paint(leListWheelWidget* whl)
 {
-    if(whl->widget.scheme == NULL)
-    {
-        whl->widget.drawState = DONE;
-        
-        return;
-    }
-    
     if(whl->widget.drawState == NOT_STARTED)
         nextState(whl);
 

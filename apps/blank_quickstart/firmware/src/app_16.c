@@ -149,7 +149,7 @@ static void APP_PaintFrameWithBuffer(
     int i, j;
     
 //    lccDisplayDriver.blitBuffer(x, y, &imageBuffer, GFX_BLEND_NONE);
-    frameBuff = lccDisplayDriver.getFrameBuffer(0);
+    frameBuff = gfxDriverInterface.getFrameBuffer(0);
     pixels = (uint16_t*)frameBuff->pixels;
 //    return;
     
@@ -173,7 +173,7 @@ static void APP_PaintFrameWithColor(
 {
     gfxPixelBuffer * frameBuff;
     
-     frameBuff = lccDisplayDriver.getFrameBuffer(0);
+     frameBuff = gfxDriverInterface.getFrameBuffer(0);
      memset(frameBuff->pixels, color, APP_GFX_LAYER_WIDTH_PIXELS * APP_GFX_LAYER_HEIGHT_PIXELS * 2);
 
 }

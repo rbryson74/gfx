@@ -107,7 +107,7 @@ extern GFXU_ImageAsset MHGS_logo_small_raw_rle;
 /*********************************
  * GFX Font Asset
  * Name:         ArialUnicodeMS_Internal
- * Height:       19
+ * Height:       23
  * Style:        Plain
  * Glyph Count:  72
  * Range Count:  52
@@ -169,7 +169,7 @@ extern GFXU_FontAsset ArialUnicodeMS_Internal;
 /*********************************
  * GFX Font Asset
  * Name:         ArialUnicodeMS
- * Height:       19
+ * Height:       23
  * Style:        Plain
  * Glyph Count:  38
  * Range Count:  17
@@ -196,7 +196,7 @@ extern GFXU_FontAsset ArialUnicodeMS;
 /*********************************
  * GFX Font Asset
  * Name:         ArialUnicodeMS_Large1
- * Height:       24
+ * Height:       28
  * Style:        Plain
  * Glyph Count:  10522
  * Range Count:  26
@@ -232,7 +232,7 @@ extern GFXU_FontAsset ArialUnicodeMS_Large1;
 /*********************************
  * GFX Font Asset
  * Name:         ArialUnicodeMS_Large2
- * Height:       24
+ * Height:       28
  * Style:        Plain
  * Glyph Count:  10497
  * Range Count:  1
@@ -243,7 +243,7 @@ extern GFXU_FontAsset ArialUnicodeMS_Large2;
 /*********************************
  * GFX Font Asset
  * Name:         ArialUnicodeMS_Bold
- * Height:       19
+ * Height:       23
  * Style:        Bold
  * Glyph Count:  26
  * Range Count:  15

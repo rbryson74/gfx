@@ -59,13 +59,13 @@ static void drawBackground(leWidget* wdg)
              wdg->borderType == LE_WIDGET_BORDER_LINE))
         {
             leWidget_SkinClassic_DrawRoundCornerBackground(wdg,
-                                                           wdg->scheme->base,
+                                                           leScheme_GetRenderColor(wdg->scheme, LE_SCHM_BASE),
                                                            paintState.alpha);
         }
         else
         {
             leWidget_SkinClassic_DrawBackground(wdg,
-                                                wdg->scheme->base,
+                                                leScheme_GetRenderColor(wdg->scheme, LE_SCHM_BASE),
                                                 paintState.alpha);
         }
     }
@@ -105,13 +105,6 @@ static void drawBorder(leWidget* wdg)
 
 void _leWidget_Paint(leWidget* wdg)
 {
-    if(wdg->scheme == NULL)
-    {
-        wdg->drawState = DONE;
-        
-        return;
-    }
-    
     if(wdg->drawState == NOT_STARTED)
     {
         paintState.alpha = 255;

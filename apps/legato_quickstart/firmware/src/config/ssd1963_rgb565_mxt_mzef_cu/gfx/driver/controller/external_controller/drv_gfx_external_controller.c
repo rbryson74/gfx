@@ -1,4 +1,3 @@
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
@@ -21,22 +20,25 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
 
 /*******************************************************************************
-  Custom SSD1963Display Top-Level Driver Source File
+  Custom ssd1963Display Top-Level Driver Source File
 
   File Name:
     drv_gfx_custom_external.c
 
   Summary:
-    Top level driver for SSD1963.
+    Top level driver for ssd1963.
 
   Description:
-    Build-time generated implementation for the SSD1963Driver.
+    Build-time generated implementation for the ssd1963Driver.
 
     Created with MPLAB Harmony Version 3.0
 *******************************************************************************/
+
+
+
+
 #include "definitions.h"
 
 #include "gfx/interface/drv_gfx_disp_intf.h"
@@ -44,7 +46,7 @@
 
 #include "system/time/sys_time.h"
 
-// Default max width/height of SSD1963frame
+// Default max width/height of ssd1963frame
 #define DISPLAY_DEFAULT_WIDTH   480
 #define DISPLAY_DEFAULT_HEIGHT  800
 
@@ -56,26 +58,27 @@
 #define SCREEN_HEIGHT DISPLAY_HEIGHT
 
 #ifdef GFX_DISP_INTF_PIN_RESET_Clear
-#define DRV_SSD1963_Reset_Assert()      GFX_DISP_INTF_PIN_RESET_Clear()
-#define DRV_SSD1963_Reset_Deassert()    GFX_DISP_INTF_PIN_RESET_Set()
+#define DRV_ssd1963_Reset_Assert()      GFX_DISP_INTF_PIN_RESET_Clear()
+#define DRV_ssd1963_Reset_Deassert()    GFX_DISP_INTF_PIN_RESET_Set()
 #else
 #error "ERROR: GFX_DISP_INTF_PIN_RESET not defined. Please define in Pin Manager."
-#define DRV_SSD1963_Reset_Assert()
-#define DRV_SSD1963_Reset_Deassert()
+#define DRV_ssd1963_Reset_Assert()
+#define DRV_ssd1963_Reset_Deassert()
 #endif
 
-#define DRV_SSD1963_NCSAssert(intf)   GFX_Disp_Intf_PinControl(intf, \
+#define DRV_ssd1963_NCSAssert(intf)   GFX_Disp_Intf_PinControl(intf, \
                                     GFX_DISP_INTF_PIN_CS, \
                                     GFX_DISP_INTF_PIN_CLEAR)
 
-#define DRV_SSD1963_NCSDeassert(intf) GFX_Disp_Intf_PinControl(intf, \
+#define DRV_ssd1963_NCSDeassert(intf) GFX_Disp_Intf_PinControl(intf, \
                                     GFX_DISP_INTF_PIN_CS, \
                                     GFX_DISP_INTF_PIN_SET)
 
 typedef enum
 {
     INIT = 0,
-    RUN
+    RUN,
+    ERROR,
 } DRV_STATE;
 
 typedef struct ILI9488_DRV 
@@ -85,9 +88,9 @@ typedef struct ILI9488_DRV
         
     /* Port-specific private data */
     void *port_priv;
-} SSD1963_DRV;
+} ssd1963_DRV;
 
-SSD1963_DRV drv;
+ssd1963_DRV drv;
 
 static uint32_t swapCount = 0;
 
@@ -96,7 +99,7 @@ static uint32_t swapCount = 0;
 
 /**
   Function:
-    static void DRV_SSD1963_DelayMS(int ms)
+    static void DRV_ssd1963_DelayMS(int ms)
 
   Summary:
     Delay helper function.
@@ -112,7 +115,7 @@ static uint32_t swapCount = 0;
 
 */
 
-static inline void DRV_SSD1963_DelayMS(int ms)
+static inline void DRV_ssd1963_DelayMS(int ms)
 {
     SYS_TIME_HANDLE timer = SYS_TIME_HANDLE_INVALID;
 
@@ -123,13 +126,13 @@ static inline void DRV_SSD1963_DelayMS(int ms)
 
 /**
   Function:
-    static void DRV_SSD1963_Reset(void)
+    static void DRV_ssd1963_Reset(void)
 
   Summary:
-    Toggles the hardware reset to the SSD1963.
+    Toggles the hardware reset to the ssd1963.
 
   Description:
-    This function toggles the GPIO pin for asserting reset to the SSD1963.
+    This function toggles the GPIO pin for asserting reset to the ssd1963.
 
   Parameters:
     None
@@ -138,64 +141,64 @@ static inline void DRV_SSD1963_DelayMS(int ms)
     None
 
 */
-static void DRV_SSD1963_Reset(void)
+static void DRV_ssd1963_Reset(void)
 {
-    DRV_SSD1963_Reset_Assert();
-    DRV_SSD1963_DelayMS(10);
-    DRV_SSD1963_Reset_Deassert();
-    DRV_SSD1963_DelayMS(30);
+    DRV_ssd1963_Reset_Assert();
+    DRV_ssd1963_DelayMS(10);
+    DRV_ssd1963_Reset_Deassert();
+    DRV_ssd1963_DelayMS(30);
 }
 
-int DRV_SSD1963_Initialize(void)
+int DRV_ssd1963_Initialize(void)
 {
     drv.state = INIT;
 
-    drv.port_priv = (void *) GFX_Disp_Intf_Open();
-    if (drv.port_priv == 0)
-        return -1;
-    
     return 0;
 }
 
-static int DRV_SSD1963_Configure(SSD1963_DRV *drv)
+static int DRV_ssd1963_Configure(ssd1963_DRV *drv)
 {
     GFX_Disp_Intf intf = (GFX_Disp_Intf) drv->port_priv;
     uint8_t cmd;
     uint8_t parms[16];
 
-    DRV_SSD1963_NCSAssert(intf);
+    DRV_ssd1963_NCSAssert(intf);
 
     //Set PLL Config
     cmd = 0xe2;
     parms[0] = 0x1d;
     parms[1] = 0x2;
     parms[2] = 0x54;
-    GFX_Disp_Intf_WriteCommandParm(intf, cmd, parms, 3);
-    DRV_SSD1963_DelayMS(10);
+    GFX_Disp_Intf_WriteCommand(intf, cmd);
+    GFX_Disp_Intf_WriteData(intf, parms, 3);
+    DRV_ssd1963_DelayMS(10);
 
     //Enable PLL
     cmd = 0xe0;
     parms[0] = 0x1;
-    GFX_Disp_Intf_WriteCommandParm(intf, cmd, parms, 1);
-    DRV_SSD1963_DelayMS(10);
+    GFX_Disp_Intf_WriteCommand(intf, cmd);
+    GFX_Disp_Intf_WriteData(intf, parms, 1);
+    DRV_ssd1963_DelayMS(10);
 
     //Use PLL as System Clock
     cmd = 0xe0;
     parms[0] = 0x3;
-    GFX_Disp_Intf_WriteCommandParm(intf, cmd, parms, 1);
-    DRV_SSD1963_DelayMS(10);
+    GFX_Disp_Intf_WriteCommand(intf, cmd);
+    GFX_Disp_Intf_WriteData(intf, parms, 1);
+    DRV_ssd1963_DelayMS(10);
 
     //Software Reset
     cmd = 0x1;
-    GFX_Disp_Intf_WriteCommandParm(intf, cmd, parms, 0);
-    DRV_SSD1963_DelayMS(10);
+    GFX_Disp_Intf_WriteCommand(intf, cmd);
+    DRV_ssd1963_DelayMS(10);
 
     //Set Pixel Clock to 15MHz
     cmd = 0xe6;
     parms[0] = 0x2;
     parms[1] = 0x66;
     parms[2] = 0x64;
-    GFX_Disp_Intf_WriteCommandParm(intf, cmd, parms, 3);
+    GFX_Disp_Intf_WriteCommand(intf, cmd);
+    GFX_Disp_Intf_WriteData(intf, parms, 3);
 
     //Set Panel Mode, 480x272, RGB
     cmd = 0xb0;
@@ -206,7 +209,8 @@ static int DRV_SSD1963_Configure(SSD1963_DRV *drv)
     parms[4] = 0x1;
     parms[5] = 0xf;
     parms[6] = 0x0;
-    GFX_Disp_Intf_WriteCommandParm(intf, cmd, parms, 7);
+    GFX_Disp_Intf_WriteCommand(intf, cmd);
+    GFX_Disp_Intf_WriteData(intf, parms, 7);
 
     //Set Horizontal Period
     cmd = 0xb4;
@@ -218,7 +222,8 @@ static int DRV_SSD1963_Configure(SSD1963_DRV *drv)
     parms[5] = 0x0;
     parms[6] = 0x0;
     parms[7] = 0x0;
-    GFX_Disp_Intf_WriteCommandParm(intf, cmd, parms, 8);
+    GFX_Disp_Intf_WriteCommand(intf, cmd);
+    GFX_Disp_Intf_WriteData(intf, parms, 8);
 
     //Set Vertical Period
     cmd = 0xb6;
@@ -230,17 +235,20 @@ static int DRV_SSD1963_Configure(SSD1963_DRV *drv)
     parms[5] = 0x0;
     parms[6] = 0x0;
     parms[7] = 0x0;
-    GFX_Disp_Intf_WriteCommandParm(intf, cmd, parms, 8);
+    GFX_Disp_Intf_WriteCommand(intf, cmd);
+    GFX_Disp_Intf_WriteData(intf, parms, 8);
 
     //Set Pixel Format RGB565 (16bpp)
     cmd = 0x3a;
     parms[0] = 0x55;
-    GFX_Disp_Intf_WriteCommandParm(intf, cmd, parms, 1);
+    GFX_Disp_Intf_WriteCommand(intf, cmd);
+    GFX_Disp_Intf_WriteData(intf, parms, 1);
 
     //Set Data Interface
     cmd = 0xf0;
     parms[0] = 0x3;
-    GFX_Disp_Intf_WriteCommandParm(intf, cmd, parms, 1);
+    GFX_Disp_Intf_WriteCommand(intf, cmd);
+    GFX_Disp_Intf_WriteData(intf, parms, 1);
 
     //Turn on backlight
     cmd = 0xbe;
@@ -249,13 +257,14 @@ static int DRV_SSD1963_Configure(SSD1963_DRV *drv)
     parms[2] = 0x1;
     parms[3] = 0x0;
     parms[4] = 0x0;
-    GFX_Disp_Intf_WriteCommandParm(intf, cmd, parms, 5);
+    GFX_Disp_Intf_WriteCommand(intf, cmd);
+    GFX_Disp_Intf_WriteData(intf, parms, 5);
 
     //Turn on the display
     cmd = 0x29;
-    GFX_Disp_Intf_WriteCommandParm(intf, cmd, parms, 0);
+    GFX_Disp_Intf_WriteCommand(intf, cmd);
 
-    DRV_SSD1963_NCSDeassert(intf);
+    DRV_ssd1963_NCSDeassert(intf);
 
     return 0;
 }
@@ -263,72 +272,92 @@ static int DRV_SSD1963_Configure(SSD1963_DRV *drv)
 
 /**
   Function:
-    static void DRV_SSD1963_Update(void)
+    static void DRV_ssd1963_Update(void)
 
   Summary:
     Driver-specific implementation of GFX HAL update function.
 
   Description:
-    On GFX update, this function flushes any pending pixels to the SSD1963.
+    On GFX update, this function flushes any pending pixels to the ssd1963.
 
   Parameters:
     None.
 
   Returns:
-    * LE_SUCCESS       - Operation successful
-    * LE_FAILURE       - Operation failed
+    * GFX_SUCCESS       - Operation successful
+    * GFX_FAILURE       - Operation failed
 
 */
-void DRV_SSD1963_Update(void)
+void DRV_ssd1963_Update(void)
 {
     if(drv.state == INIT)
     {
-        DRV_SSD1963_Reset();
+        drv.port_priv = (void *) GFX_Disp_Intf_Open();
+        if (drv.port_priv == 0)
+        {
+            drv.state = ERROR;
+            return;
+        }
 
-        DRV_SSD1963_Configure(&drv);
+        DRV_ssd1963_Reset();
+
+        DRV_ssd1963_Configure(&drv);
 
         drv.state = RUN;
     }
 }
 
-leColorMode DRV_SSD1963_GetColorMode(void)
+gfxColorMode DRV_ssd1963_GetColorMode(void)
 {
     return PIXEL_BUFFER_COLOR_MODE;
 }
 
-uint32_t DRV_SSD1963_GetBufferCount(void)
+uint32_t DRV_ssd1963_GetBufferCount(void)
 {
     return 1;
 }
 
-uint32_t DRV_SSD1963_GetDisplayWidth(void)
+uint32_t DRV_ssd1963_GetDisplayWidth(void)
 {
     return SCREEN_WIDTH;
 }
 
-uint32_t DRV_SSD1963_GetDisplayHeight(void)
+uint32_t DRV_ssd1963_GetDisplayHeight(void)
 {
     return SCREEN_HEIGHT;
 }
 
-uint32_t DRV_SSD1963_GetLayerCount()
+uint32_t DRV_ssd1963_GetLayerCount()
 {
     return 1;
 }
 
-uint32_t DRV_SSD1963_GetActiveLayer()
+uint32_t DRV_ssd1963_GetActiveLayer()
 {
     return 0;
 }
 
-leResult DRV_SSD1963_SetActiveLayer(uint32_t idx)
+gfxLayerState DRV_ssd1963_GetLayerState(uint32_t idx)
 {
-    return LE_SUCCESS;
+    gfxLayerState state;
+
+    state.rect.x = 0;
+    state.rect.y = 0;
+    state.rect.width = SCREEN_WIDTH;
+    state.rect.height = SCREEN_HEIGHT;
+    state.enabled = GFX_TRUE;
+
+    return state;
 }
 
-leResult DRV_SSD1963_BlitBuffer(int32_t x,
+gfxResult DRV_ssd1963_SetActiveLayer(uint32_t idx)
+{
+    return GFX_SUCCESS;
+}
+
+gfxResult DRV_ssd1963_BlitBuffer(int32_t x,
                                 int32_t y,
-                                lePixelBuffer* buf)
+                                gfxPixelBuffer* buf)
 {
 
     uint16_t* ptr;
@@ -337,43 +366,53 @@ leResult DRV_SSD1963_BlitBuffer(int32_t x,
     GFX_Disp_Intf intf;
     
     if (drv.state != RUN)
-        return LE_FAILURE;
+        return GFX_FAILURE;
     
     intf = (GFX_Disp_Intf) drv.port_priv;
 
-    DRV_SSD1963_NCSAssert(intf);
+
+    DRV_ssd1963_NCSAssert(intf);
 
     //Write X/Column Address
     parm[0] = x>>8;
     parm[1] = x;
     parm[2] = (x + buf->size.width - 1) >>8;
     parm[3] = (x + buf->size.width - 1);
-    GFX_Disp_Intf_WriteCommandParm(intf, 0x2a, parm, 4);
+    GFX_Disp_Intf_WriteCommand(intf, 0x2a);
+    GFX_Disp_Intf_WriteData(intf, parm, 4);
     
     //Write Y/Page Address
     parm[0] = y>>8;
     parm[1] = y;
     parm[2] = (y + buf->size.height - 1)>>8;
     parm[3] = (y + buf->size.height - 1);
-    GFX_Disp_Intf_WriteCommandParm(intf, 0x2b, parm, 4);
+    GFX_Disp_Intf_WriteCommand(intf, 0x2b);
+    GFX_Disp_Intf_WriteData(intf, parm, 4);
 
     //Start Memory Write
     GFX_Disp_Intf_WriteCommand(intf, 0x2c);
 
-    ptr = lePixelBufferOffsetGet_Unsafe(buf, 0, 0);
+    ptr = gfxPixelBufferOffsetGet_Unsafe(buf, 0, 0);
     GFX_Disp_Intf_WriteData16(intf, (uint16_t *) ptr, buf->size.width * buf->size.height);
-    DRV_SSD1963_NCSDeassert(intf);
+    DRV_ssd1963_NCSDeassert(intf);
 
-    return LE_SUCCESS;
+    return GFX_SUCCESS;
 }
 
-void DRV_SSD1963_Swap(void)
+void DRV_ssd1963_Swap(void)
 {
     swapCount++;
 }
 
-uint32_t DRV_SSD1963_GetSwapCount(void)
+uint32_t DRV_ssd1963_GetSwapCount(void)
 {
     return swapCount;
+}
+
+gfxResult DRV_ssd1963_SetPalette(gfxBuffer* palette,
+                                           gfxColorMode mode,
+                                           uint32_t colorCount)
+{
+    return GFX_FAILURE;
 }
 

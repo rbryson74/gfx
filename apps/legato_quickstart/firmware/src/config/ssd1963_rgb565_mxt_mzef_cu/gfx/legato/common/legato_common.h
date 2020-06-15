@@ -428,7 +428,9 @@ typedef uint16_t leChar;
 #ifdef __cplusplus
     }
 #endif
-     
+
+#define ASSIGN_VIRTUAL_FUNCTION(name) .name = name
+#define ASSIGN_VTABLE_FUNCTION(vtable, name) vtable.name = name
 #endif // LEGATO_COMMON_H
 
 /*******************************************************************************

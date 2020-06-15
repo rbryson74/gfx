@@ -3,7 +3,7 @@
 
 #include "gfx/legato/legato.h"
 
-extern leScheme DefaultScheme;
+extern const leScheme DefaultScheme;
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility

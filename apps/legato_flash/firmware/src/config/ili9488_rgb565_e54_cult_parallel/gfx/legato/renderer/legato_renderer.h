@@ -1,4 +1,3 @@
-// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
@@ -21,7 +20,11 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
+/** \file legato_renderer.h
+  * @brief .
+  *
+  * @details .
+  */
 
 #ifndef LEGATO_RENDERER_H
 #define LEGATO_RENDERER_H
@@ -34,15 +37,13 @@
 #include "gfx/driver/gfx_driver.h"
 #include "gfx/legato/widget/legato_widget.h"
 
-// DOM-IGNORE-BEGIN
 
 // *****************************************************************************
-/* Enumeration:
-    enum leFrameState
-
-  Summary:
-    Defines the state of the renderer
-*/
+/**
+ * @brief This enum represents state of the renderer.
+ * @details This enum type describes the state at which a
+ * widget is being drawn.
+ */
 typedef enum leFrameState
 {
     LE_FRAME_READY = 0,
@@ -108,6 +109,11 @@ typedef enum leFrameState
 
     lePixelBuffer* renderBuffer - the current scratch buffer
 */
+/**
+ * @brief This structs represents global state of the renderer.
+ * @details This struct type describes the state at which a
+ * widget is being drawn.
+ */
 typedef struct leRenderState
 {
     const gfxDisplayDriver* dispDriver;  // the display driver pointer
@@ -164,11 +170,20 @@ typedef struct leGradient
     leColor c3;
 } leGradient;
 
-// internal use only
+/* internal use only */
+/**
+  * @cond INTERNAL
+  *
+  */
 leResult leRenderer_Initialize(const gfxDisplayDriver* dispDriver);
 
 // internal use only
 void leRenderer_Shutdown();
+/**
+  * @endcond
+  *
+  */
+
 
 // *****************************************************************************
 /* Function:
@@ -209,6 +224,23 @@ void leRenderer_Paint();
     leRenderState* - the current render state
 */
 LIB_EXPORT leRenderState* leGetRenderState();
+
+// *****************************************************************************
+/* Function:
+    leColorMode leRenderer_CurrentColorMode();
+
+  Summary:
+    Gets the color mode of the current rendering layer.
+
+  Description:
+    Gets the color mode of the current rendering layer.
+
+  Parameters:
+
+  Returns:
+    leColorMode - the current render color mode
+*/
+leColorMode leRenderer_CurrentColorMode();
 
 // *****************************************************************************
 /* Function:
@@ -268,10 +300,10 @@ leColor leRenderer_GlobalPaletteLookup(uint32_t idx);
     leColor leRenderer_ConvertColor(leColor inColor, leColorMode inMode)
 
   Summary:
-    Converts a color to the current library render color.
+    Converts a color from the input mode to the current layer render color.
 
   Description:
-    Converts a color to the current library render color.
+    Converts a color from the input mode to the current layer render color.
 
   Parameters:
     leColor inColor - the input color
@@ -828,9 +860,6 @@ leResult leRenderer_VertGradientRect(const leRect* rect,
     leResult
 */
 leResult leRenderer_CircleDraw(const leRect* rect,
-                               int32_t x,
-                               int32_t y,
-                               uint32_t radius,
                                uint32_t thickness,
                                leColor clr,
                                uint32_t alpha);
@@ -865,9 +894,6 @@ leResult leRenderer_CircleDraw(const leRect* rect,
     leResult
 */
 leResult leRenderer_CircleFill(const leRect* rect,
-                               int32_t x,
-                               int32_t y,
-                               uint32_t radius,
                                uint32_t thickness,
                                leColor borderClr,
                                leColor fillClr,
@@ -912,9 +938,6 @@ leResult leRenderer_ArcLine(int32_t x,
 // *****************************************************************************
 /* Function:
     leResult leRenderer_ArcFill(const leRect* drawRect,
-                                int32_t x,
-                                int32_t y,
-                                int32_t radius,
                                 int32_t startAngle,
                                 int32_t centerAngle,
                                 uint32_t thickness,
@@ -934,7 +957,7 @@ leResult leRenderer_ArcLine(int32_t x,
     int32_t y - the y component of the origin (bound space)
     uint32_t radius - the radius of the arc
     uint32_t startAngle - the arc starting angle
-    uint32_t centerAngle - the arc center angle
+    uint32_t spanAngle - the arc span/center angle
     leColor clr - the color to write
     leBool antialias - indicates that an antialiased arc should be drawn (not supported yet)
     uint32_t a - the global alpha blending value to use
@@ -943,11 +966,8 @@ leResult leRenderer_ArcLine(int32_t x,
     leResult
 */
 leResult leRenderer_ArcFill(const leRect* drawRect,
-                            int32_t x,
-                            int32_t y,
-                            int32_t radius,
                             int32_t startAngle,
-                            int32_t centerAngle,
+                            int32_t spanAngle,
                             uint32_t thickness,
                             leColor clr,
                             leBool antialias,
@@ -995,6 +1015,9 @@ leResult leRenderer_EllipseLine(int32_t x,
                                 leColor clr,
                                 uint32_t alpha);                                                                         
                              
-// DOM-IGNORE-END
+/**
+  * @endcond
+  *
+  */
 
 #endif // LEGATO_RENDERER_H

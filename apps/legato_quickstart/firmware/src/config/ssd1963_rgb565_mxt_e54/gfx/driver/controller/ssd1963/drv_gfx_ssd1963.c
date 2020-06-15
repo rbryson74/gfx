@@ -62,10 +62,10 @@
 
 #define DISP_HOR_RESOLUTION DISPLAY_WIDTH
 #define DISP_VER_RESOLUTION DISPLAY_HEIGHT
-#define DISP_HOR_PULSE_WIDTH 41
+#define DISP_HOR_PULSE_WIDTH 44
 #define DISP_HOR_FRONT_PORCH 2
 #define DISP_HOR_BACK_PORCH 2
-#define DISP_VER_PULSE_WIDTH 10
+#define DISP_VER_PULSE_WIDTH 22
 #define DISP_VER_FRONT_PORCH 2
 #define DISP_VER_BACK_PORCH 2
 
@@ -96,7 +96,6 @@
                                     GFX_DISP_INTF_PIN_CS, \
                                     GFX_DISP_INTF_PIN_SET)
 
-static uint8_t pixelBuffer[SCREEN_WIDTH * 3];
 
 SSD1963_DRV drv;
 
@@ -263,7 +262,7 @@ static gfxResult DRV_SSD1963_Configure(SSD1963_DRV *drv)
     GFX_Disp_Intf_WriteData(intf, parm, 1); 
     
     //Set pixel data interface
-    parm[0] = 0x00; //8-bit pixel data
+    parm[0] = 0x03; //16-bit pixel data
     GFX_Disp_Intf_WriteCommand(intf, CMD_SET_DATA_INTERFACE);
     GFX_Disp_Intf_WriteData(intf, parm, 1); 
 
@@ -416,8 +415,6 @@ gfxResult DRV_SSD1963_BlitBuffer(int32_t x,
                                  gfxPixelBuffer* buf,
                                  gfxBlend gfx)
 {
-    int row, col, dataIdx;
-    uint16_t clr;
     uint16_t* ptr;
 
     GFX_Disp_Intf intf;
@@ -432,18 +429,8 @@ gfxResult DRV_SSD1963_BlitBuffer(int32_t x,
     DRV_SSD1963_SetArea(&drv, x, y, x + buf->size.width - 1, y + buf->size.height - 1);
 
     GFX_Disp_Intf_WriteCommand(intf, CMD_WR_MEMSTART);
-    for(row = 0; row < buf->size.height; row++)
-    {
-        ptr = gfxPixelBufferOffsetGet_Unsafe(buf, 0, row);
-        for(col = 0, dataIdx = 0; col < buf->size.width; col++)
-        {
-            clr = ptr[col];
-            pixelBuffer[dataIdx++] = (uint8_t) ((clr & 0xf800) >> 8);
-            pixelBuffer[dataIdx++] = (uint8_t) ((clr & 0x07e0) >> 3 );
-            pixelBuffer[dataIdx++] = (uint8_t) ((clr & 0x001f) << 3);
-        }
-        GFX_Disp_Intf_WriteData(intf, pixelBuffer, 3 * buf->size.width);
-    }
+    ptr = gfxPixelBufferOffsetGet_Unsafe(buf, 0, 0);
+    GFX_Disp_Intf_WriteData16(intf, (uint16_t *) ptr, buf->size.width * buf->size.height);
     
     DRV_SSD1963_NCSDeassert(intf);
 

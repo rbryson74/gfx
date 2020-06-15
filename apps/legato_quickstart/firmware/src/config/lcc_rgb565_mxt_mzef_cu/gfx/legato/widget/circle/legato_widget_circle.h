@@ -115,8 +115,8 @@ typedef struct leCircleWidget
 
     int32_t x; // the origin x cooridnate
     int32_t y; // the origin y coordinate
-    int32_t radius; // the radius of the circle
-    int32_t thickness; // the thickness of the circle outline
+    uint32_t radius; // the radius of the circle
+    uint32_t thickness; // the thickness of the circle outline
     leBool filled; // fills the circle area
 } leCircleWidget;
 

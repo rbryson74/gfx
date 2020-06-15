@@ -5,7 +5,7 @@
  * Encoding        ASCII
  * Language Count: 1
  * String Count:   3
-*****************************************************************************/
+ *****************************************************************************/
 
 /*****************************************************************************
  * string table data
@@ -13,30 +13,28 @@
  * this table contains the raw character data for each string
  * 
  * unsigned short - number of indices in the table
- * unsigned byte - size of each index
- * unsigned byte - number of languages in the table
+ * unsigned short - number of languages in the table
  * 
  * index array (size = number of indices * number of languages
  * 
  * for each index in the array:
  *   unsigned byte - the font ID for the index
- *   unsigned (index size) - a value of length 'index size' that contains
- *                           the offset of the string codepoint data in
- *                           the table
+ *   unsigned byte[3] - the offset of the string codepoint data in
+ *                      the table
  * 
  * string data is found by jumping to the index offset from the start
  * of the table
  * 
  * string data entry:
- * unsigned short : length of the string in bytes:
- * 'length' number of codepoints - the string data (encoding dependent
+ *     unsigned short - length of the string in bytes (encoding dependent)
+ *     codepoint data - the string data
  ****************************************************************************/
 
 const uint8_t stringTable_data[40] =
 {
     0x03,0x00,0x01,0x00,0x00,0x10,0x00,0x00,0x00,0x18,0x00,0x00,0x00,0x20,0x00,0x00,
-    0x04,0x00,0x45,0x61,0x73,0x79,0x00,0x00,0x04,0x00,0x46,0x61,0x73,0x74,0x00,0x00,
-    0x05,0x00,0x53,0x6D,0x61,0x72,0x74,0x00,
+    0x06,0x00,0x53,0x6D,0x61,0x72,0x74,0x2E,0x06,0x00,0x46,0x61,0x73,0x74,0x2E,0x00,
+    0x06,0x00,0x45,0x61,0x73,0x79,0x2E,0x00,
 };
 
 /* font asset pointer list */

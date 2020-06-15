@@ -244,9 +244,6 @@ typedef struct leBarGraphWidget
 // *****************************************************************************
 // *****************************************************************************
 
-#ifdef _DOXYGEN_
-#define THIS_TYPE struct leWidget
-
 /**
  * @brief Create widget.
  * @details Creates a new leBarGraphWidget and allocates memory for the widget through the
@@ -271,6 +268,9 @@ LIB_EXPORT leBarGraphWidget* leBarGraphWidget_New();
  * @return void.
  */
 LIB_EXPORT void leBarGraphWidget_Constructor(leBarGraphWidget* wgt);
+
+#ifdef _DOXYGEN_
+#define THIS_TYPE struct leWidget
 
 /**
  * @brief Get tick length.

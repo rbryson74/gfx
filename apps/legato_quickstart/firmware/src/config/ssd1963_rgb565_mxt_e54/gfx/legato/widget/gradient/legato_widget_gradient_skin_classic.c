@@ -103,29 +103,29 @@ static void drawBackground(leGradientWidget* grad)
         if(grad->dir == LE_DIRECTION_LEFT)
         {
             leRenderer_HorzGradientRect(&rect,
-                                        grad->widget.scheme->foreground,
-                                        grad->widget.scheme->foregroundInactive,
+                                        leScheme_GetRenderColor(grad->widget.scheme, LE_SCHM_FOREGROUND),
+                                        leScheme_GetRenderColor(grad->widget.scheme, LE_SCHM_FOREGROUND_INACTIVE),
                                         paintState.alpha);
         }
         else if(grad->dir == LE_DIRECTION_RIGHT)
         {
             leRenderer_HorzGradientRect(&rect,
-                                        grad->widget.scheme->foregroundInactive,
-                                        grad->widget.scheme->foreground,
+                                        leScheme_GetRenderColor(grad->widget.scheme, LE_SCHM_FOREGROUND_INACTIVE),
+                                        leScheme_GetRenderColor(grad->widget.scheme, LE_SCHM_FOREGROUND),
                                         paintState.alpha);
         }
         else if(grad->dir == LE_DIRECTION_DOWN)
         {
             leRenderer_VertGradientRect(&rect,
-                                        grad->widget.scheme->foreground,
-                                        grad->widget.scheme->foregroundInactive,
+                                        leScheme_GetRenderColor(grad->widget.scheme, LE_SCHM_FOREGROUND),
+                                        leScheme_GetRenderColor(grad->widget.scheme, LE_SCHM_FOREGROUND_INACTIVE),
                                         paintState.alpha);
         }
         else if(grad->dir == LE_DIRECTION_UP)
         {
             leRenderer_VertGradientRect(&rect,
-                                        grad->widget.scheme->foregroundInactive,
-                                        grad->widget.scheme->foreground,
+                                        leScheme_GetRenderColor(grad->widget.scheme, LE_SCHM_FOREGROUND_INACTIVE),
+                                        leScheme_GetRenderColor(grad->widget.scheme, LE_SCHM_FOREGROUND),
                                         paintState.alpha);
         }
     }
@@ -151,13 +151,6 @@ static void drawBorder(leGradientWidget* grad)
 
 void _leGradientWidget_Paint(leGradientWidget* grad)
 {
-    if(grad->widget.scheme == NULL)
-    {
-        grad->widget.drawState = DONE;
-        
-        return;
-    }
-    
     if(grad->widget.drawState == NOT_STARTED)
     {
         nextState(grad);

@@ -55,6 +55,7 @@
 
 
 
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: System "Tasks" Routine
@@ -105,6 +106,7 @@ DRV_MEMORY_Tasks(sysObj.drvMemory0);
     /* Maintain the application's state machine. */
         /* Call Application task APP_MSD_FS_SQI_FLASH. */
     APP_MSD_FS_SQI_FLASH_Tasks();
+
 
 
 

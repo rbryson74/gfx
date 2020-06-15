@@ -47,6 +47,18 @@
  */
 typedef void (*leLanguageChangedCallback_FnPtr)(uint32_t);
 
+// *****************************************************************************
+/**
+ * @brief This struct describes the layer state for a layer.
+ * @details This struct contains useful information about a layer such as color mode,
+ * rendering options, etc.
+ */
+typedef struct
+{
+    leColorMode colorMode;
+    leBool renderHorizontal;
+    lePoint driverPosition;
+} leLayerState;
 
 // *****************************************************************************
 /**
@@ -69,6 +81,7 @@ typedef struct leState
     leLanguageChangedCallback_FnPtr languageChangedCB; /**< language changed callback */
 
     leWidget rootWidget[LE_LAYER_COUNT]; /**< root widgets of the scene */
+    leLayerState layerStates[LE_LAYER_COUNT]; /**< layer states */
 
 #if LE_STREAMING_ENABLED == 1
     leStreamManager* activeStream; /**< active stream state */
@@ -79,7 +92,7 @@ typedef struct leState
 /**
   * @cond INTERNAL
   */
-LIB_EXPORT leState* leGetState();
+leState* leGetState();
 /**
   * @endcond
   *
@@ -99,7 +112,8 @@ LIB_EXPORT leState* leGetState();
  * @param dispDriver is the display controller driver.
  * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
  */
-LIB_EXPORT leResult leInitialize(const gfxDisplayDriver* dispDriver);
+leResult leInitialize(const gfxDisplayDriver* dispDriver,
+                      const gfxGraphicsProcessor* gpuDriver);
 
 // *****************************************************************************
 /**
@@ -143,6 +157,57 @@ LIB_EXPORT leResult leUpdate(uint32_t dt);
  */
 LIB_EXPORT leColorMode leGetColorMode();
     
+/**
+ * @brief Get layer color mode.
+ * @details Gets the the layer color mode
+ * @code
+ * leColorMode mode = leGetLayerColorMode(0);
+ * @endcode
+ * @param lyrIdx is the index of the layer to query
+ * @return the color mode of layer.
+ */
+LIB_EXPORT leColorMode leGetLayerColorMode(uint32_t lyrIdx);
+
+/**
+ * @brief Set layer color mode.
+ * @details Sets the the layer color mode at index
+ * @code
+ * leResult res = leGetLayerColorMode(0, LE_RGB_565);
+ * @endcode
+ * @param lyrIdx is the index of the layer to query
+ * @param mode is the color mode to set
+ * @return result.
+ */
+leResult leSetLayerColorMode(uint32_t lyrIdx, leColorMode mode);
+
+/**
+ * @brief Get layer render direction.
+ * @details Gets the the layer render direction
+ * @code
+ * bool horz = leGetLayerRenderHorizontal(0);
+ * @endcode
+ * @param lyrIdx is the index of the layer to query
+ * @return true if the layer is set to render horizontally.
+ */
+leBool leGetLayerRenderHorizontal(uint32_t lyrIdx);
+
+/**
+ * @brief Set layer render direction.
+ * @details Sets the the layer render direction at index.  By default a layer
+ * is rendered from top-down with dirty rectangles sliced favoring height.  In
+ * horizontal mode layers are rendered from left to right with rectangles
+ * sliced favoring width.  This can help reduce tearing for scenes that have
+ * horizontal movement.
+ * @code
+ * leResult res = leSetLayerRenderHorizontal(0, true);
+ * @endcode
+ * @param lyrIdx is the index of the layer to modify
+ * @param true if the layer should use horizontal mode
+ * @return result.
+ */
+leResult leSetLayerRenderHorizontal(uint32_t lyrIdx, leBool horz);
+
+#if 0
 // *****************************************************************************
 /**
  * @brief Get display rectangle.
@@ -154,7 +219,8 @@ LIB_EXPORT leColorMode leGetColorMode();
  * @return the display rectangle.
  */
 LIB_EXPORT leRect leGetDisplayRect();
-    
+#endif
+
 // *****************************************************************************
 /**
  * @brief Get string table.
@@ -620,7 +686,9 @@ LIB_EXPORT leResult leRemoveRootWidget(leWidget* wgt,
  * @param void.
  * @returns LE_SUCCESS if set, otherwise LE_FAILURE.
  */
-LIB_EXPORT leBool leWidgetIsInScene(const leWidget* wgt);
+leBool leWidgetIsInScene(const leWidget* wgt);
+
+int32_t leGetWidgetLayer(const leWidget* wgt);
 
 
 /*  Function:
