@@ -239,8 +239,8 @@ static void drawCircularSlider(leCircularSliderWidget* slider)
     if (slider->outsideBorderArc.visible == LE_TRUE)
     {
         leRenderer_ArcFill(&sliderRect,
-                           p.x - sliderRect.x,
-                           p.y - sliderRect.y,
+                           p.x,
+                           p.y,
                            slider->radius,
                            0,
                            360,
@@ -254,8 +254,8 @@ static void drawCircularSlider(leCircularSliderWidget* slider)
     if (slider->insideBorderArc.visible == LE_TRUE)
     {
         leRenderer_ArcFill(&sliderRect,
-                           p.x - sliderRect.x,
-                           p.y - sliderRect.y,
+                           p.x,
+                           p.y,
                            slider->radius - slider->outsideBorderArc.thickness - slider->activeArc.thickness, 
                            0, 
                            360,
