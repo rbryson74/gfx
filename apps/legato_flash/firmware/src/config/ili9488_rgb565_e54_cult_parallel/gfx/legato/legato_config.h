@@ -52,7 +52,7 @@ extern "C" {
 
 #define LE_DEFAULT_COLOR_MODE              LE_COLOR_MODE_RGB_565
 #define LE_TOUCH_ORIENTATION               0
-#define LE_HARDWARE_LAYER_MODE             0
+#define LE_DRIVER_LAYER_MODE               0
 
 #define LE_ASSERT_ENABLE                   0
 
@@ -105,6 +105,7 @@ extern "C" {
 #define LE_WINDOW_WIDGET_ENABLED           0
 
 // memory configuration
+#define LE_MEMORY_MANAGER_ENABLE           1
 #define LE_USE_DEBUG_ALLOCATOR             0
 #define LE_MALLOC_ZEROIZE                  0
 

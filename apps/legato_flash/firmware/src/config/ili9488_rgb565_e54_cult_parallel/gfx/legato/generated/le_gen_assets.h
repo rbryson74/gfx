@@ -102,7 +102,7 @@ extern leImage MHGS_logo_small;
  *****************************************************************************/
 /*********************************
  * Legato Font Asset
- * Name:         Arial
+ * Name:         NotoSans_Bold
  * Height:       21
  * Baseline:     15
  * Style:        Antialias
@@ -122,11 +122,11 @@ extern leImage MHGS_logo_small;
                  0x72-0x74
                  0x79
 ***********************************/
-extern leRasterFont Arial;
+extern leRasterFont NotoSans_Bold;
 
 /*********************************
  * Legato Font Asset
- * Name:         Arial_sm
+ * Name:         NotoSans_Regular
  * Height:       21
  * Baseline:     12
  * Style:        Antialias
@@ -147,7 +147,7 @@ extern leRasterFont Arial;
                  0x6B-0x70
                  0x72-0x79
 ***********************************/
-extern leRasterFont Arial_sm;
+extern leRasterFont NotoSans_Regular;
 
 /*****************************************************************************
  * Legato String Table

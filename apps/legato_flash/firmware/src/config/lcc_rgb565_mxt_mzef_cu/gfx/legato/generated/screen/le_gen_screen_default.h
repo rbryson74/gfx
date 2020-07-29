@@ -20,20 +20,20 @@ extern leLabelWidget* default_TitleLabel;
 extern leWidget* default_SelectMediumPanel;
 extern leWidget* default_InfoPanel;
 extern leWidget* default_FlashingPanel;
-extern leLabelWidget* default_SelectMediumLabel;
-extern leButtonWidget* default_SDCardButton;
-extern leButtonWidget* default_USBButton;
 extern leWidget* default_ErrorMsgPanel;
-extern leLabelWidget* default_NoMediumLabel2;
+extern leButtonWidget* default_USBButton;
+extern leButtonWidget* default_SDCardButton;
+extern leLabelWidget* default_SelectMediumLabel;
 extern leLabelWidget* default_NoMediumLabel1;
-extern leLabelWidget* default_InfoLabel1;
-extern leLabelWidget* default_InfoLabel2;
+extern leLabelWidget* default_NoMediumLabel2;
 extern leButtonWidget* default_InfoOKButton;
-extern leProgressBarWidget* default_FlashingProgressBar;
-extern leLabelWidget* default_FlashingLabel;
-extern leLabelWidget* default_RecordsTotalLabel;
-extern leLabelWidget* default_OfLabel;
+extern leLabelWidget* default_InfoLabel2;
+extern leLabelWidget* default_InfoLabel1;
 extern leLabelWidget* default_CurrentRecordLabel;
+extern leLabelWidget* default_OfLabel;
+extern leLabelWidget* default_RecordsTotalLabel;
+extern leLabelWidget* default_FlashingLabel;
+extern leProgressBarWidget* default_FlashingProgressBar;
 
 // screen lifecycle functions
 // DO NOT CALL THESE DIRECTLY

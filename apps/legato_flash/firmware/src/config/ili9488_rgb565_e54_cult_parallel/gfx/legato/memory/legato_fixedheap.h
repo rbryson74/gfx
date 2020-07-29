@@ -28,6 +28,8 @@
 
 #include "gfx/legato/common/legato_common.h"
 
+#if LE_MEMORY_MANAGER_ENABLE == 1
+
 #if LE_FIXEDHEAP_ENABLE == 1
 
 #if LE_USE_DEBUG_ALLOCATOR == 1
@@ -428,5 +430,7 @@ void leFixedHeap_Dump(leFixedHeap* heap, leBool dumpRecords);
 #endif
 
 #endif
+
+#endif // LE_MEMORY_MANAGER_ENABLE
 
 #endif /* LEGATO_FIXEDHEAP_H */

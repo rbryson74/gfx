@@ -271,24 +271,7 @@ LIB_EXPORT leColor lePixelBufferGet(const lePixelBuffer* const buffer,
 LIB_EXPORT leColor lePixelBufferGet_Unsafe(const lePixelBuffer* const buffer,
                                            uint32_t x,
                                            uint32_t y);
-                                               
-// *****************************************************************************
-/* Function:
-    leColor lePixelBufferGetIndex(const lePixelBuffer* const buffer,
-                                  const int32_t idx)
 
-  Summary:
-    Interprets the pixel buffer as a table of indices and looks up a specific
-    index at position 'idx'.  Indices may be 1bpp, 4bpp, or 8bpp in size and
-    are indicated by the color mode of the pixel buffer.
-
-  Parameters:
-    const lePixelBuffer* const - the input buffer
-    const int32_t - the index to retrieve
-    
-  Returns:
-    leColor - the resultant value that was retrieved
-*/                                        
 /**
  * @brief Get color at index
  * @details Interprets the pixel buffer as a table of indices and looks up
@@ -304,21 +287,7 @@ LIB_EXPORT leColor lePixelBufferGet_Unsafe(const lePixelBuffer* const buffer,
 LIB_EXPORT leColor lePixelBufferGetIndex_Unsafe(const lePixelBuffer* const buffer,
                                                 const uint32_t idx);
 
-// *****************************************************************************
-/* Function:
-    leColor lePixelBufferGetIndex_Unsafe(const lePixelBuffer* const buffer,
-                                     const uint32_t idx)
 
-  Summary:
-    A faster less-safe version of lePixelBufferGetIndex;
-
-  Parameters:
-    const lePixelBuffer* const - the input buffer
-    const int32_t - the index to retrieve
-
-  Returns:
-    leColor - the resultant value that was retrieved
-*/
 /**
  * @brief Pixel get
  * @details A faster less-safe version of lePixelBufferGetIndex.

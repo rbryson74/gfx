@@ -356,10 +356,10 @@ void default_OnShow()
     leFixedString_Constructor(&totalStr, totalStrBuff, 12);
     leFixedString_Constructor(&counterStr, counterStrBuff, 12);
     counterStr.fn->setFont(&counterStr, leStringTable_GetStringFont(leGetState()->stringTable,
-                                                            stringID_RecordCount,
+                                                            stringID_stringNumberFiller,
                                                             0));
     totalStr.fn->setFont(&totalStr, leStringTable_GetStringFont(leGetState()->stringTable,
-                                                            stringID_RecordCount,
+                                                            stringID_stringNumberFiller,
                                                             0));
 }
 

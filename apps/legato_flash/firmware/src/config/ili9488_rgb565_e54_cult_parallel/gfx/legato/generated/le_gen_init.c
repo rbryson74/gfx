@@ -6,6 +6,8 @@ void legato_initialize(void)
 {
     leSetStringTable(&stringTable);
 
+    screenInit_default();
+
     currentScreen = -1;
 
     legato_showScreen(screenID_default);

@@ -759,13 +759,13 @@ uint8_t JPEG_bPaintOneBlock(JPEGDECODER *pJpegDecoder)
         shiftX = 8;
         shiftY = 8;
 
-        pJpegDecoder->pixels = LE_REALLOC(pJpegDecoder->pixels, pJpegDecoder->pixelBlockBuffer.buffer_length);
-
         lePixelBufferCreate(shiftX,
                             shiftY,
                             LE_COLOR_MODE_RGB_888,
-                            pJpegDecoder->pixels,
+                            NULL,
                             &pJpegDecoder->pixelBlockBuffer);
+
+        pJpegDecoder->pixelBlockBuffer.pixels = LE_MALLOC(pJpegDecoder->pixelBlockBuffer.buffer_length);
 
         psY = &pJpegDecoder->asOneBlock[0][0];
         psCb = &pJpegDecoder->asOneBlock[1][0];
@@ -803,13 +803,13 @@ uint8_t JPEG_bPaintOneBlock(JPEGDECODER *pJpegDecoder)
         shiftX = 8;
         shiftY = 16;
 
-        pJpegDecoder->pixels = LE_REALLOC(pJpegDecoder->pixels, pJpegDecoder->pixelBlockBuffer.buffer_length);
-
         lePixelBufferCreate(shiftX,
                             shiftY,
                             LE_COLOR_MODE_RGB_888,
-                            pJpegDecoder->pixels,
+                            NULL,
                             &pJpegDecoder->pixelBlockBuffer);
+
+        pJpegDecoder->pixelBlockBuffer.pixels = LE_MALLOC(pJpegDecoder->pixelBlockBuffer.buffer_length);
 
         for(bBlock = 0; bBlock < 2; bBlock++)
         {
@@ -849,13 +849,13 @@ uint8_t JPEG_bPaintOneBlock(JPEGDECODER *pJpegDecoder)
         shiftX = 16;
         shiftY = 8;
 
-        pJpegDecoder->pixels = LE_REALLOC(pJpegDecoder->pixels, pJpegDecoder->pixelBlockBuffer.buffer_length);
-
         lePixelBufferCreate(shiftX,
                             shiftY,
                             LE_COLOR_MODE_RGB_888,
-                            pJpegDecoder->pixels,
+                            NULL,
                             &pJpegDecoder->pixelBlockBuffer);
+
+        pJpegDecoder->pixelBlockBuffer.pixels = LE_MALLOC(pJpegDecoder->pixelBlockBuffer.buffer_length);
 
         for(bBlock = 0; bBlock < 2; bBlock++)
         {
@@ -895,13 +895,13 @@ uint8_t JPEG_bPaintOneBlock(JPEGDECODER *pJpegDecoder)
         shiftX = 16;
         shiftY = 16;
 
-        pJpegDecoder->pixels = LE_REALLOC(pJpegDecoder->pixels, pJpegDecoder->pixelBlockBuffer.buffer_length);
-
         lePixelBufferCreate(shiftX,
                             shiftY,
                             LE_COLOR_MODE_RGB_888,
-                            pJpegDecoder->pixels,
+                            NULL,
                             &pJpegDecoder->pixelBlockBuffer);
+
+        pJpegDecoder->pixelBlockBuffer.pixels = LE_MALLOC(pJpegDecoder->pixelBlockBuffer.buffer_length);
 
         for(bBlock = 0; bBlock < 4; bBlock++)
         {
@@ -971,7 +971,7 @@ uint8_t JPEG_bPaintOneBlock(JPEGDECODER *pJpegDecoder)
         pJpegDecoder->wPrevY += shiftY;
     }
 
-    //LE_FREE(pJpegDecoder->pixelBlockBuffer.pixels);
+    LE_FREE(pJpegDecoder->pixelBlockBuffer.pixels);
 
     return 0;
 }

@@ -999,6 +999,8 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="400000-5fffff"/>
         <property key="poweroptions.powerenable" value="false"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/harmony3_dev/gfx/apps/legato_flash/firmware/legato_fl_e70_xu_tm4301b.X/debug/lcc_rgb565_mxt/legato_fl_e70_xu_tm4301b_ptg"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.preservedataflash" value="false"/>
         <property key="programoptions.preservedataflash.ranges"

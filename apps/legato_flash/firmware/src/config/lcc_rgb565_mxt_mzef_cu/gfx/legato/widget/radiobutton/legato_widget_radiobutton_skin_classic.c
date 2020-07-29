@@ -113,8 +113,8 @@ void _leRadioButtonWidget_GetImageRect(const leRadioButtonWidget* btn,
     leUtils_ArrangeRectangle(imgRect,
                              textRect,
                              bounds,
-                             btn->widget.halign,
-                             btn->widget.valign,
+                             btn->widget.style.halign,
+                             btn->widget.style.valign,
                              btn->imagePosition,
                              btn->widget.margin.left,
                              btn->widget.margin.top,
@@ -179,8 +179,8 @@ void _leRadioButtonWidget_GetTextRect(leRadioButtonWidget* btn,
     leUtils_ArrangeRectangleRelative(textRect,
                                      imgRect,
                                      bounds,
-                                     btn->widget.halign,
-                                     btn->widget.valign,
+                                     btn->widget.style.halign,
+                                     btn->widget.style.valign,
                                      btn->imagePosition,
                                      btn->widget.margin.left,
                                      btn->widget.margin.top,
@@ -202,7 +202,7 @@ static void drawBorder(leRadioButtonWidget* btn);
 
 static void nextState(leRadioButtonWidget* btn)
 {
-    switch(btn->widget.drawState)
+    switch(btn->widget.status.drawState)
     {
         case NOT_STARTED:
         {
@@ -215,17 +215,18 @@ static void nextState(leRadioButtonWidget* btn)
             }
 #endif
 
-            if(btn->widget.backgroundType != LE_WIDGET_BACKGROUND_NONE) 
+            if(btn->widget.style.backgroundType != LE_WIDGET_BACKGROUND_NONE)
             {
-                btn->widget.drawState = DRAW_BACKGROUND;
+                btn->widget.status.drawState = DRAW_BACKGROUND;
                 btn->widget.drawFunc = (leWidget_DrawFunction_FnPtr)&drawBackground;
 
                 return;
             }
         }
+        // fall through
         case DRAW_BACKGROUND:
         {
-            btn->widget.drawState = DRAW_IMAGE;
+            btn->widget.status.drawState = DRAW_IMAGE;
             btn->widget.drawFunc = (leWidget_DrawFunction_FnPtr)&drawImage;
 
             return;
@@ -234,25 +235,27 @@ static void nextState(leRadioButtonWidget* btn)
         {            
             if(btn->string != NULL)
             {
-                btn->widget.drawState = DRAW_STRING;
+                btn->widget.status.drawState = DRAW_STRING;
                 btn->widget.drawFunc = (leWidget_DrawFunction_FnPtr)&drawString;
 
                 return;
             }
         }
+        // fall through
         case DRAW_STRING:
         {
-            if(btn->widget.borderType != LE_WIDGET_BORDER_NONE)
+            if(btn->widget.style.borderType != LE_WIDGET_BORDER_NONE)
             {
                 btn->widget.drawFunc = (leWidget_DrawFunction_FnPtr)&drawBorder;
-                btn->widget.drawState = DRAW_BORDER;
+                btn->widget.status.drawState = DRAW_BORDER;
                 
                 return;
             }
         }
+        // fall through
         case DRAW_BORDER:
         {
-            btn->widget.drawState = DONE;
+            btn->widget.status.drawState = DONE;
             btn->widget.drawFunc = NULL;
         }
     }
@@ -325,95 +328,85 @@ static void drawCircleArcs(leRadioButtonWidget* btn,
                            leRect* rect,
                            leBool filled)
 {
-    lePoint center;
-    uint32_t outRadius = (rect->width < rect->height) ? rect->width / 2 : rect->height / 2;
-    uint32_t thickness = (outRadius / THICKNESS_DIV > 1) ? outRadius / THICKNESS_DIV : 1;
-    
-    center.x = rect->x + rect->width / 2;
-    center.y = rect->y + rect->height / 2;
-    
-    leRenderer_ArcFill(rect,
-                       center.x,
-                       center.y,
-                       outRadius,
+    uint32_t thickness = rect->width / 18;
+
+    leRect arcRect;
+
+    //uint32_t outRadius = (rect->width < rect->height) ? rect->width / 2 : rect->height / 2;
+    //uint32_t thickness = (outRadius / THICKNESS_DIV > 1) ? outRadius / THICKNESS_DIV : 1;
+
+    arcRect = *rect;
+
+    leRenderer_CircleFill(&arcRect,
+                          0,
+                          0,
+                          leScheme_GetRenderColor(btn->widget.scheme, LE_SCHM_BACKGROUND),
+                          paintState.alpha);
+
+    leRenderer_ArcFill(&arcRect,
                        45,
                        180,
-                       thickness,
+                       rect->width / 8,
+                       LE_FALSE,
                        leScheme_GetRenderColor(btn->widget.scheme, LE_SCHM_SHADOW),
                        LE_FALSE,
                        paintState.alpha);
             
-    leRenderer_ArcFill(rect,
-                       center.x,
-                       center.y,
-                       outRadius,
+    leRenderer_ArcFill(&arcRect,
                        225,
                        180,
-                       thickness * 2,
+                       rect->width / 8,
+                       LE_FALSE,
                        leScheme_GetRenderColor(btn->widget.scheme, LE_SCHM_HIGHLIGHTLIGHT),
                        LE_FALSE,
                        paintState.alpha);
-    
-    
-    // upper inner ring
-    outRadius -= thickness;
 
-    leRenderer_ArcFill(rect,
-                       center.x,
-                       center.y,
-                       outRadius,
+    // upper inner ring
+    arcRect.x += thickness;
+    arcRect.y += thickness;
+    arcRect.width -= thickness * 2;
+    arcRect.height -= thickness * 2;
+
+    leRenderer_ArcFill(&arcRect,
                        45,
                        180,
                        thickness * 2,
+                       LE_FALSE,
                        leScheme_GetRenderColor(btn->widget.scheme, LE_SCHM_SHADOWDARK),
                        LE_FALSE,
-                       paintState.alpha);        
-    
-    
-    // lower inner ring
-    outRadius -= thickness;
+                       paintState.alpha);
 
-    leRenderer_ArcFill(rect,
-                       center.x,
-                       center.y,
-                       outRadius,
+    // lower inner ring
+    leRenderer_ArcFill(&arcRect,
                        225,
                        180,
                        thickness * 2,
+                       LE_FALSE,
                        leScheme_GetRenderColor(btn->widget.scheme, LE_SCHM_HIGHLIGHT),
                        LE_FALSE,
-                       paintState.alpha);      
-    
-    //Center base circle
-    outRadius -= thickness;
-
-    leRenderer_ArcFill(rect,
-                       center.x,
-                       center.y,
-                       outRadius,
-                       0,
-                       360,
-                       outRadius,
-                       leScheme_GetRenderColor(btn->widget.scheme, LE_SCHM_BACKGROUND),
-                       LE_FALSE,
                        paintState.alpha);
-    
+
     if(filled == LE_TRUE)
     {
-        outRadius = ((outRadius * 2)/3 < 3) ? 3 : (outRadius * 2)/3;
+        uint32_t dia = rect->width;
 
-        leRenderer_ArcFill(rect,
-                           center.x,
-                           center.y,
-                           outRadius,
+        arcRect.x = rect->x + (rect->width / 2);
+        arcRect.y = rect->y + (rect->height / 2);
+
+        arcRect.x -= dia / 8;
+        arcRect.y -= dia / 8;
+        arcRect.width = dia / 4;
+        arcRect.height = dia / 4;
+
+        leRenderer_ArcFill(&arcRect,
                            0,
                            360,
-                           outRadius,
+                           dia / 4,
+                           LE_FALSE,
                            leScheme_GetRenderColor(btn->widget.scheme, LE_SCHM_FOREGROUND),
                            LE_FALSE,
                            paintState.alpha);       
     }
-    
 }
 
 static void drawBackground(leRadioButtonWidget* btn)
@@ -429,7 +422,7 @@ static void onImageStreamFinished(leStreamManager* dec)
 {
     leRadioButtonWidget* btn = (leRadioButtonWidget*)dec->userData;
 
-    btn->widget.drawState = DRAW_IMAGE;
+    btn->widget.status.drawState = DRAW_IMAGE;
 
     nextState(btn);
 }
@@ -476,7 +469,7 @@ static void drawImage(leRadioButtonWidget* btn)
             leGetActiveStream()->onDone = onImageStreamFinished;
             leGetActiveStream()->userData = btn;
 
-            btn->widget.drawState = WAIT_IMAGE;
+            btn->widget.status.drawState = WAIT_IMAGE;
 
             return;
         }
@@ -491,7 +484,7 @@ static void onStringStreamFinished(leStreamManager* strm)
 {
     leRadioButtonWidget* btn = (leRadioButtonWidget*)strm->userData;
 
-    btn->widget.drawState = DRAW_STRING;
+    btn->widget.status.drawState = DRAW_STRING;
 
     nextState(btn);
 }
@@ -516,7 +509,7 @@ static void drawString(leRadioButtonWidget* btn)
         leGetActiveStream()->onDone = onStringStreamFinished;
         leGetActiveStream()->userData = btn;
 
-        btn->widget.drawState = WAIT_STRING;
+        btn->widget.status.drawState = WAIT_STRING;
 
         return;
     }
@@ -527,12 +520,12 @@ static void drawString(leRadioButtonWidget* btn)
 
 static void drawBorder(leRadioButtonWidget* btn)
 {
-    if(btn->widget.borderType == LE_WIDGET_BORDER_LINE)
+    if(btn->widget.style.borderType == LE_WIDGET_BORDER_LINE)
     {
         leWidget_SkinClassic_DrawStandardLineBorder((leWidget*)btn,
                                                     paintState.alpha);
     }
-    else if(btn->widget.borderType == LE_WIDGET_BORDER_BEVEL)
+    else if(btn->widget.style.borderType == LE_WIDGET_BORDER_BEVEL)
     {
         leWidget_SkinClassic_DrawStandardRaisedBorder((leWidget*)btn,
                                                       paintState.alpha);
@@ -543,20 +536,20 @@ static void drawBorder(leRadioButtonWidget* btn)
 
 void _leRadioButtonWidget_Paint(leRadioButtonWidget* btn)
 {
-    if(btn->widget.drawState == NOT_STARTED)
+    if(btn->widget.status.drawState == NOT_STARTED)
     {
         nextState(btn);
     }
 
 #if LE_STREAMING_ENABLED == 1
-    if(btn->widget.drawState == WAIT_STRING ||
-       btn->widget.drawState == WAIT_IMAGE)
+    if(btn->widget.status.drawState == WAIT_STRING ||
+       btn->widget.status.drawState == WAIT_IMAGE)
     {
         return;
     }
 #endif
     
-    while(btn->widget.drawState != DONE)
+    while(btn->widget.status.drawState != DONE)
     {
         btn->widget.drawFunc((leWidget*)btn);
         
@@ -565,8 +558,8 @@ void _leRadioButtonWidget_Paint(leRadioButtonWidget* btn)
 #endif
         
 #if LE_STREAMING_ENABLED == 1
-        if(btn->widget.drawState == WAIT_STRING ||
-           btn->widget.drawState == WAIT_IMAGE)
+        if(btn->widget.status.drawState == WAIT_STRING ||
+           btn->widget.status.drawState == WAIT_IMAGE)
             break;
 #endif
     }

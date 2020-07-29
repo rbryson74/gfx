@@ -69,8 +69,8 @@ const uint8_t stringTable_data[512] =
 /* font asset pointer list */
 leFont* fontList[2] =
 {
-    (leFont*)&Arial,
-    (leFont*)&Arial_sm,
+    (leFont*)&NotoSans_Bold,
+    (leFont*)&NotoSans_Regular,
 };
 
 const leStringTable stringTable =

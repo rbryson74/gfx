@@ -57,6 +57,9 @@
  * Macro Mapping
  **********************************************/
 
+/* SAME5x Devices have USB PADCAL values in SW0_ADDR */ 
+#define DRV_USBFSV1_READ_PADCAL_VALUE (*((uint32_t *) SW0_ADDR + 1))
+
 /* SAME5x Family Devices has Four interrupt vectors for USB module */ 
 #define DRV_USBFSV1_MULTIPLE_ISR_AVAILABLE true
   
@@ -166,7 +169,7 @@
 #endif
  
 #if (DRV_USBFSV1_HOST_SUPPORT == true)
-    #define _DRV_USBFSV1_HOST_INIT(x, y)    _DRV_USBFSV1_HOST_Initialize(x , y)
+    #define _DRV_USBFSV1_HOST_INIT(x, y, z)    _DRV_USBFSV1_HOST_Initialize(x , y, z)
     #define _DRV_USBFSV1_HOST_TASKS_ISR(x)  _DRV_USBFSV1_HOST_Tasks_ISR(x)
     #define _DRV_USBFSV1_HOST_ATTACH_DETACH_STATE_MACHINE(x)  _DRV_USBFSV1_HOST_AttachDetachStateMachine(x)
     #define _DRV_USBFSV1_FOR_HOST(x, y)     x y
@@ -175,10 +178,23 @@
     #define min(x, y) ((x) > (y) ? (y) : (x))
     #if (defined __GNUC__) || (defined __CC_ARM)
         #define clz(u) __builtin_clz(u)
+    #else
+        static __INLINE uint32_t clz(uint32_t data)
+        {
+            uint32_t count = 0;
+            uint32_t mask = 0x80000000;
+
+            while((data & mask) == 0)
+            {
+                count += 1u;
+                mask = mask >> 1u;
+            }
+            return (count);
+        }
     #endif
 
 #elif (DRV_USBFSV1_HOST_SUPPORT == false)
-    #define _DRV_USBFSV1_HOST_INIT(x, y)
+    #define _DRV_USBFSV1_HOST_INIT(x, y, z)
     #define _DRV_USBFSV1_HOST_TASKS_ISR(x) 
     #define _DRV_USBFSV1_HOST_ATTACH_DETACH_STATE_MACHINE(x)
     #define _DRV_USBFSV1_FOR_HOST(x, y)

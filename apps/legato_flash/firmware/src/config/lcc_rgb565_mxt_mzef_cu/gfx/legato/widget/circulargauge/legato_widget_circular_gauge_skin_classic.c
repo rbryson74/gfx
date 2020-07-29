@@ -67,32 +67,13 @@ static struct
     leChar strbuff[MAX_TICK_LABEL_DIGITS];
 } paintState;
 
-static uint32_t degreesFromPercent(uint32_t percent, int32_t centerAngle, int32_t startAngle)
-{
-    uint32_t uangle = centerAngle;
-
-    if(centerAngle < 0)
-    {
-        uangle = centerAngle * -1;
-    }
-
-    int32_t per = lePercentOf(uangle, percent);
-
-    if(centerAngle < 0)
-    {
-        per *= -1;
-    }
-
-    return per + startAngle;
-}
-
 static void drawBackground(leCircularGaugeWidget* gauge);
 static void drawCircularGauge(leCircularGaugeWidget* gauge);
 static void drawBorder(leCircularGaugeWidget* gauge);
 
 static void nextState(leCircularGaugeWidget* gauge)
 {
-    switch(gauge->widget.drawState)
+    switch(gauge->widget.status.drawState)
     {
         case NOT_STARTED:
         {
@@ -105,34 +86,36 @@ static void nextState(leCircularGaugeWidget* gauge)
             }
 #endif
             
-            if(gauge->widget.backgroundType != LE_WIDGET_BACKGROUND_NONE) 
+            if(gauge->widget.style.backgroundType != LE_WIDGET_BACKGROUND_NONE)
             {
-                gauge->widget.drawState = DRAW_BACKGROUND;
+                gauge->widget.status.drawState = DRAW_BACKGROUND;
                 gauge->widget.drawFunc = (leWidget_DrawFunction_FnPtr)&drawBackground;
 
                 return;
             }
         }
+        // fall through
         case DRAW_BACKGROUND:
         {
-            gauge->widget.drawState = DRAW_CIRCULAR_GAUGE;
+            gauge->widget.status.drawState = DRAW_CIRCULAR_GAUGE;
             gauge->widget.drawFunc = (leWidget_DrawFunction_FnPtr)&drawCircularGauge;
     
             return;
         }
         case DRAW_CIRCULAR_GAUGE:
         {            
-            if(gauge->widget.borderType != LE_WIDGET_BORDER_NONE)
+            if(gauge->widget.style.borderType != LE_WIDGET_BORDER_NONE)
             {
                 gauge->widget.drawFunc = (leWidget_DrawFunction_FnPtr)&drawBorder;
-                gauge->widget.drawState = DRAW_BORDER;
+                gauge->widget.status.drawState = DRAW_BORDER;
                 
                 return;
             }
         }
+        // fall through
         case DRAW_BORDER:
         {
-            gauge->widget.drawState = DONE;
+            gauge->widget.status.drawState = DONE;
             gauge->widget.drawFunc = NULL;
         }
     }
@@ -151,8 +134,8 @@ static void paintArc(const leCircularGaugeWidget* gauge,
 {
     leRect rect;
 
-    int32_t startAngle = degreesFromPercent(arc->startAngle, gauge->centerAngle, gauge->startAngle);
-    int32_t endAngle = degreesFromPercent(arc->endAngle, gauge->centerAngle, gauge->startAngle);
+    int32_t startAngle = leDegreesFromPercent(arc->startAngle, gauge->centerAngle, gauge->startAngle);
+    int32_t endAngle = leDegreesFromPercent(arc->endAngle, gauge->centerAngle, gauge->startAngle);
 
     leColor clr = leScheme_GetRenderColor(arc->scheme,
                                           LE_SCHM_FOREGROUND);
@@ -166,6 +149,7 @@ static void paintArc(const leCircularGaugeWidget* gauge,
                        startAngle,
                        endAngle - startAngle,
                        arc->thickness,
+                       LE_FALSE,
                        clr,
                        LE_FALSE,
                        paintState.alpha);
@@ -194,8 +178,8 @@ static void _paintTickRange(const leCircularGaugeWidget* gauge,
 {
     leColor clr = leScheme_GetRenderColor(rng->scheme, LE_SCHM_FOREGROUND);
 
-    int32_t startAngle = degreesFromPercent(rng->startAngle, gauge->centerAngle, gauge->startAngle);
-    int32_t endAngle = degreesFromPercent(rng->endAngle, gauge->centerAngle, gauge->startAngle);
+    int32_t startAngle = leDegreesFromPercent(rng->startAngle, gauge->centerAngle, gauge->startAngle);
+    int32_t endAngle = leDegreesFromPercent(rng->endAngle, gauge->centerAngle, gauge->startAngle);
     int32_t t;
 
     if(endAngle < startAngle)
@@ -232,7 +216,7 @@ static void _paintTickRange(const leCircularGaugeWidget* gauge,
         {
             _paintTicksAtAngle(rng->offset,
                                rng->thickness,
-                               degreesFromPercent(rng->startAngle + (idx * increment), gauge->centerAngle, gauge->startAngle),
+                               leDegreesFromPercent(rng->startAngle + (idx * increment), gauge->centerAngle, gauge->startAngle),
                                clr);
         }
 
@@ -290,14 +274,14 @@ static void _paintLabelRange(const leCircularGaugeWidget* gauge,
     if(rng->divisions == 0)
     {
         // draw label at start
-        _paintLabelValueAtAngle(degreesFromPercent(rng->startAngle, gauge->centerAngle, gauge->startAngle),
+        _paintLabelValueAtAngle(leDegreesFromPercent(rng->startAngle, gauge->centerAngle, gauge->startAngle),
                                 rng->offset,
                                 0,
                                 clr,
                                 rng->font);
 
         // draw label at end
-        _paintLabelValueAtAngle(degreesFromPercent(rng->endAngle, gauge->centerAngle, gauge->startAngle),
+        _paintLabelValueAtAngle(leDegreesFromPercent(rng->endAngle, gauge->centerAngle, gauge->startAngle),
                                 rng->offset,
                                 100,
                                 clr,
@@ -307,8 +291,8 @@ static void _paintLabelRange(const leCircularGaugeWidget* gauge,
     {
         if(gauge->centerAngle < 0)
         {
-            int32_t startAngle = degreesFromPercent(rng->startAngle, gauge->centerAngle, gauge->startAngle);
-            int32_t endAngle = degreesFromPercent(rng->endAngle, gauge->centerAngle, gauge->startAngle);
+            int32_t startAngle = leDegreesFromPercent(rng->startAngle, gauge->centerAngle, gauge->startAngle);
+            int32_t endAngle = leDegreesFromPercent(rng->endAngle, gauge->centerAngle, gauge->startAngle);
             int32_t increment = -((startAngle - endAngle) / rng->divisions);
             uint32_t idx;
 
@@ -327,7 +311,7 @@ static void _paintLabelRange(const leCircularGaugeWidget* gauge,
             }
 
             // draw label at end
-            _paintLabelValueAtAngle(degreesFromPercent(rng->endAngle, gauge->centerAngle, gauge->startAngle),
+            _paintLabelValueAtAngle(leDegreesFromPercent(rng->endAngle, gauge->centerAngle, gauge->startAngle),
                                     rng->offset,
                                     100,
                                     clr,
@@ -335,8 +319,8 @@ static void _paintLabelRange(const leCircularGaugeWidget* gauge,
         }
         else
         {
-            int32_t startAngle = degreesFromPercent(rng->startAngle, gauge->centerAngle, gauge->startAngle);
-            int32_t endAngle = degreesFromPercent(rng->endAngle, gauge->centerAngle, gauge->startAngle);
+            int32_t startAngle = leDegreesFromPercent(rng->startAngle, gauge->centerAngle, gauge->startAngle);
+            int32_t endAngle = leDegreesFromPercent(rng->endAngle, gauge->centerAngle, gauge->startAngle);
             int32_t increment = (endAngle - startAngle) / rng->divisions;
             uint32_t idx;
 
@@ -355,7 +339,7 @@ static void _paintLabelRange(const leCircularGaugeWidget* gauge,
             }
 
             // draw label at end
-            _paintLabelValueAtAngle(degreesFromPercent(rng->endAngle, gauge->centerAngle, gauge->startAngle),
+            _paintLabelValueAtAngle(leDegreesFromPercent(rng->endAngle, gauge->centerAngle, gauge->startAngle),
                                     rng->offset,
                                     100,
                                     clr,
@@ -401,7 +385,7 @@ static void paintHand(const leCircularGaugeWidget* gauge)
         return;
 
     handLength = lePercentOf(gauge->radius, gauge->handRadius);
-    angle = degreesFromPercent(gauge->value, gauge->centerAngle, gauge->startAngle);
+    angle = leDegreesFromPercent(gauge->value, gauge->centerAngle, gauge->startAngle);
 
     if(gauge->centerCircleVisible == LE_FALSE)
     {
@@ -490,12 +474,12 @@ static void drawCircularGauge(leCircularGaugeWidget* gauge)
 
 static void drawBorder(leCircularGaugeWidget* gauge)
 {    
-    if(gauge->widget.borderType == LE_WIDGET_BORDER_LINE)
+    if(gauge->widget.style.borderType == LE_WIDGET_BORDER_LINE)
     {
         leWidget_SkinClassic_DrawStandardLineBorder((leWidget*)gauge,
                                                     paintState.alpha);
     }
-    else if(gauge->widget.borderType == LE_WIDGET_BORDER_BEVEL)
+    else if(gauge->widget.style.borderType == LE_WIDGET_BORDER_BEVEL)
     {
         leWidget_SkinClassic_DrawStandardRaisedBorder((leWidget*)gauge,
                                                       paintState.alpha);
@@ -506,12 +490,12 @@ static void drawBorder(leCircularGaugeWidget* gauge)
 
 void _leCircularGaugeWidget_Paint(leCircularGaugeWidget* gauge)
 {    
-    if(gauge->widget.drawState == NOT_STARTED)
+    if(gauge->widget.status.drawState == NOT_STARTED)
     {
         nextState(gauge);
     }
     
-    while(gauge->widget.drawState != DONE)
+    while(gauge->widget.status.drawState != DONE)
     {
         gauge->widget.drawFunc((leWidget*)gauge);
         

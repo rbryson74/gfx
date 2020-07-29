@@ -43,6 +43,8 @@
 
 #include "gfx/legato/common/legato_common.h"
 
+#if LE_MEMORY_MANAGER_ENABLE == 1
+
 #define LE_FIXED_HEAP_COUNT 7
 
 /**
@@ -216,5 +218,14 @@ LIB_EXPORT void leMemoryDumpAllocations();
  * @return LE_SUCCESS if set, otherwise LE_FAILURE.
  */
 LIB_EXPORT leResult leMemoryValidateHeaps();
+
+#else
+
+#include <stdlib.h>
+
+#define LE_MALLOC(size) malloc(size)
+#define LE_REALLOC(ptr, size) realloc(ptr, size)
+#define LE_FREE(ptr) free(ptr)
+#endif // LE_MEMORY_MANAGER_ENABLE
 
 #endif /* LEGATO_MEMORY_H */

@@ -55,6 +55,7 @@
 #include "gfx/legato/generated/le_gen_harmony.h"
 #include "peripheral/clk/plib_clk.h"
 #include "peripheral/gpio/plib_gpio.h"
+#include "peripheral/cache/plib_cache.h"
 #include "peripheral/evic/plib_evic.h"
 #include "peripheral/dmac/plib_dmac.h"
 #include "bsp/bsp.h"
@@ -77,7 +78,9 @@
 #include "peripheral/sqi/plib_sqi1.h"
 #include "driver/input/drv_maxtouch.h"
 #include "system/int/sys_int.h"
+#include "system/cache/sys_cache.h"
 #include "osal/osal.h"
+#include "system/debug/sys_debug.h"
 #include "app.h"
 
 
