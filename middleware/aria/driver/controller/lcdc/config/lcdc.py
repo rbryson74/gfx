@@ -94,7 +94,7 @@ def instantiateComponent(comp):
 	
 	MasterClockValue = 166000000
 	try:
-		if (Variables.get("__PROCESSOR") == "SAM9X60"):
+		if ("9X60" in str(Variables.get("__PROCESSOR"))):
 			MasterClockValue = Database.getSymbolValue("core", "MCK_FREQUENCY")
 		else:
 			MasterClockValue = Database.getSymbolValue("core", "MCK_CLK_FREQUENCY")
