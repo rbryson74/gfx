@@ -4,36 +4,22 @@
 
 
 project: legato_quickstart
-creation_date: 2020-07-02T12:30:10.376-07:00[America/Phoenix]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
-operating_system: Windows 7
+creation_date: 2020-07-30T15:02:22.292-07:00[America/Phoenix]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+operating_system: Linux
 mhc_mode: IDE            # [IDE|Standalone|Headless]
 mplabx_version: v5.40        # if MPLAB X plugin only
-plugin_version: v3.5.0        # if MPLAB X plugin only
+plugin_version: v3.5.1        # if MPLAB X plugin only
 
 modules:
-    - {name: "audio", version: "unknown"}
-    - {name: "bsp", version: "v3.7.0"}
-    - {name: "bt", version: "unknown"}
-    - {name: "CMSIS-FreeRTOS", version: "unknown"}
-    - {name: "contentmanager", version: "v1.3.1"}
-    - {name: "core", version: "v3.7.1"}
-    - {name: "crypto", version: "unknown"}
-    - {name: "csp", version: "v3.7.1"}
-    - {name: "dev_packs", version: "v3.7.0"}
-    - {name: "doc_o_matic_h3", version: "unknown"}
-    - {name: "gen1_wiki_sandbox.wiki", version: "unknown"}
-    - {name: "gen2_wiki_sandbox", version: "unknown"}
-    - {name: "gfx", version: "unknown"}
-    - {name: "gfx.wiki", version: "unknown"}
+    - {name: "mhc", version: "v3.4.1"}
+    - {name: "contentmanager", version: "v1.4.0"}
     - {name: "gfx_apps", version: "unknown"}
-    - {name: "gfx_apps.wiki", version: "unknown"}
-    - {name: "GFX_sandbox", version: "unknown"}
-    - {name: "libssh", version: "unknown"}
-    - {name: "mhc", version: "v3.4.0"}
-    - {name: "moxygen", version: "unknown"}
-    - {name: "mplabx_plugin", version: "v3.4.1"}
-    - {name: "mxt-app", version: "unknown"}
-    - {name: "net", version: "unknown"}
-    - {name: "NukeFreeRTOS", version: "H3_alpha"}
-    - {name: "usb", version: "v3.4.0"}
+    - {name: "bsp", version: "v3.7.0"}
+    - {name: "dev_packs", version: "v3.7.0"}
+    - {name: "usb", version: "v3.6.0"}
+    - {name: "gfx", version: "unknown"}
+    - {name: "csp", version: "v3.7.0"}
+    - {name: "CMSIS-FreeRTOS", version: "v10.3.0"}
+    - {name: "core", version: "v3.7.2"}
+    - {name: "quick_docs", version: "v1.0.0"}
 

@@ -25,6 +25,8 @@
 
 #include "gfx/legato/memory/legato_variableheap.h"
 
+#if LE_MEMORY_MANAGER_ENABLE == 1
+
 #include "gfx/legato/common/legato_error.h"
 
 #include <string.h>
@@ -1293,10 +1295,10 @@ void leVariableHeap_Dump(leVariableHeap* heap,
     Block* blk;
 
     printf("Variable Heap Data:\n");
-    printf("  Size           %u\n", heap->size);
-    printf("  Max Usage:     %u\n", heap->maxUsage);
-    printf("  Current Usage: %u\n", heap->used);
-    printf("  Available:     %u\n", heap->size - heap->used);
+	printf("  Size           %u\n", (unsigned int)heap->size);
+	printf("  Max Usage:     %u\n", (unsigned int)heap->maxUsage);
+	printf("  Current Usage: %u\n", (unsigned int)heap->used);
+	printf("  Available:     %u\n", (unsigned int)(heap->size - heap->used));
     printf("\n");
 
     if(dumpRecords == LE_TRUE)
@@ -1338,7 +1340,7 @@ void leVariableHeap_Dump(leVariableHeap* heap,
 
         while(blk != NULL)
         {
-            printf("    Block: %p, %u\n", blk, BLOCK_PHYSICAL_SIZE(blk));
+			printf("    Block: %p, %u\n", blk, (unsigned int)BLOCK_PHYSICAL_SIZE(blk));
             //printf("      Address: %p\n", blk);
             //printf("      Size: %u\n", BLOCK_PHYSICAL_SIZE(blk));
 
@@ -1351,3 +1353,5 @@ void leVariableHeap_Dump(leVariableHeap* heap,
 #endif
     }
 }
+
+#endif // LE_MEMORY_MANAGER_ENABLE

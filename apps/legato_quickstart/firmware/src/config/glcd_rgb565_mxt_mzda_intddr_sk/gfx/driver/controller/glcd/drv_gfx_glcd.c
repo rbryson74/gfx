@@ -89,6 +89,7 @@ const char* DRIVER_NAME = "GLCD";
 
 FRAMEBUFFER_PIXEL_TYPE  __attribute__ ((coherent, aligned (32))) framebuffer_0[DISPLAY_WIDTH * DISPLAY_HEIGHT];
 
+
 static uint32_t state;
 static gfxRect srcRect, destRect;
 static unsigned int vsyncCount = 0;
@@ -276,13 +277,11 @@ void DRV_GLCD_Initialize()
         drvLayer[layerCount].colorspace = LCDC_DEFAULT_GFX_COLOR_MODE;
         drvLayer[layerCount].enabled    = true;
         drvLayer[layerCount].updateLock = LAYER_LOCKED;
-
         //Clear frame buffer
         for(bufferCount = 0; bufferCount < BUFFER_PER_LAYER; ++bufferCount)
         {
             memset(drvLayer[layerCount].baseaddr[bufferCount], 0, sizeof(FRAMEBUFFER_PIXEL_TYPE) * DISPLAY_WIDTH * DISPLAY_HEIGHT);
         }
-        
         stride = getColorModeStrideSize(drvLayer[layerCount].colorspace);
 
         PLIB_GLCD_LayerBaseAddressSet(layerCount, (uint32_t)drvLayer[layerCount].baseaddr[0]);

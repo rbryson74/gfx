@@ -11,11 +11,6 @@ leLabelWidget* default_LabelWidget0;
 leLabelWidget* default_LabelWidget1;
 leLabelWidget* default_LabelWidget2;
 
-// string list for this screen
-static leTableString string_Fast;
-static leTableString string_Easy;
-static leTableString string_Smart;
-
 static leBool initialized = LE_FALSE;
 static leBool showing = LE_FALSE;
 
@@ -33,11 +28,6 @@ leResult screenShow_default()
 {
     if(showing == LE_TRUE)
         return LE_FAILURE;
-
-    // initialize static strings
-    leTableString_Constructor(&string_Fast, stringID_Fast);
-    leTableString_Constructor(&string_Easy, stringID_Easy);
-    leTableString_Constructor(&string_Smart, stringID_Smart);
 
     // layer 0
     root0 = leWidget_New();
@@ -128,10 +118,6 @@ void screenHide_default()
     default_LabelWidget0 = NULL;
     default_LabelWidget1 = NULL;
     default_LabelWidget2 = NULL;
-
-    string_Fast.fn->destructor(&string_Fast);
-    string_Easy.fn->destructor(&string_Easy);
-    string_Smart.fn->destructor(&string_Smart);
 
 
     showing = LE_FALSE;

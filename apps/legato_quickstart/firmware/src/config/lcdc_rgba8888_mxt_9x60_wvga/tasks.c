@@ -92,8 +92,8 @@ void SYS_Tasks ( void )
 
 
     /* Maintain the application's state machine. */
-        /* Call Application task APP. */
-    APP_Tasks();
+        /* Call Application task APP_GLCD. */
+    APP_GLCD_Tasks();
 
 
 

@@ -25,6 +25,8 @@
 
 #include "gfx/legato/memory/legato_fixedheap.h"
 
+#if LE_MEMORY_MANAGER_ENABLE == 1
+
 #include "gfx/legato/common/legato_error.h"
 #include "legato_fixedheap.h"
 
@@ -331,3 +333,5 @@ void leFixedHeap_Dump(leFixedHeap* heap,
 #endif
 
 #endif
+
+#endif // LE_MEMORY_MANAGER_ENABLE

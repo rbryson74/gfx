@@ -157,8 +157,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/gfx</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">46D388C063EE9715C687649AD866E1A9</GeneratedChecksum>
-          <UserChecksum dnOrder="6">46D388C063EE9715C687649AD866E1A9</UserChecksum>
+          <GeneratedChecksum dnOrder="5">525E7EF832449E61E00FD79836C44EE9</GeneratedChecksum>
+          <UserChecksum dnOrder="6">525E7EF832449E61E00FD79836C44EE9</UserChecksum>
         </File>
         <File dnOrder="17">
           <Type dnOrder="0">SOURCE</Type>
@@ -1120,8 +1120,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">B71976C739CE8CF09FEC797B7B58BB4C</GeneratedChecksum>
-          <UserChecksum dnOrder="6">B71976C739CE8CF09FEC797B7B58BB4C</UserChecksum>
+          <GeneratedChecksum dnOrder="5">8F9D31D0364ACE1BBD96F31732B74E61</GeneratedChecksum>
+          <UserChecksum dnOrder="6">8F9D31D0364ACE1BBD96F31732B74E61</UserChecksum>
         </File>
         <File dnOrder="124">
           <Type dnOrder="0">SOURCE</Type>
@@ -1831,8 +1831,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt_msd_fs_sqi_flash_mzef_sk/gfx</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">ACA0ACCFCC365E8B5C5015C263CE39DC</GeneratedChecksum>
-          <UserChecksum dnOrder="6">ACA0ACCFCC365E8B5C5015C263CE39DC</UserChecksum>
+          <GeneratedChecksum dnOrder="5">171C604EB38672C6F3243E9BBE0B9030</GeneratedChecksum>
+          <UserChecksum dnOrder="6">171C604EB38672C6F3243E9BBE0B9030</UserChecksum>
         </File>
         <File dnOrder="203">
           <Type dnOrder="0">HEADER</Type>
@@ -3410,12 +3410,12 @@
       </Settings>
     </Manifest>
     <Settings dnOrder="5">
-      <Setting dnOrder="0" key="CMSISPath" value=".\dev_packs\arm\CMSIS\5.6.0"/>
-      <Setting dnOrder="1" key="DFPPath" value=".\dev_packs\Microchip\PIC32MZ-EF_DFP\1.1.45\atdf\PIC32MZ2048EFH144.atdf"/>
+      <Setting dnOrder="0" key="CMSISPath" value="./dev_packs/arm/CMSIS/5.6.0"/>
+      <Setting dnOrder="1" key="DFPPath" value="./dev_packs/Microchip/PIC32MZ-EF_DFP/1.1.45/atdf/PIC32MZ2048EFH144.atdf"/>
       <Setting dnOrder="2" key="FORCE_OPTIMIZATION" value="false"/>
       <Setting dnOrder="3" key="GENERATE_BACKUP" value="true"/>
-      <Setting dnOrder="4" key="MERGE_STRATEGY" value="OVERWRITE"/>
-      <Setting dnOrder="5" key="PackageFilter" value="audio;bsp;core;csp;gfx;gfx_apps;touch;usb;"/>
+      <Setting dnOrder="4" key="MERGE_STRATEGY" value="USER_ALL"/>
+      <Setting dnOrder="5" key="PackageFilter" value="gfx_apps;bsp;usb;gfx;csp;core;quick_docs;"/>
     </Settings>
   </Configurator>
   <MHGC>

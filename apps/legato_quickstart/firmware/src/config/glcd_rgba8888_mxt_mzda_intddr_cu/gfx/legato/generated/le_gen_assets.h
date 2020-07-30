@@ -134,6 +134,13 @@ extern leRasterFont NotoSans_Regular;
 
 extern const leStringTable stringTable;
 
+
+// string list
+extern leTableString string_Fast;
+extern leTableString string_Smart;
+extern leTableString string_Easy;
+
+void initializeStrings(void);
 //DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 }

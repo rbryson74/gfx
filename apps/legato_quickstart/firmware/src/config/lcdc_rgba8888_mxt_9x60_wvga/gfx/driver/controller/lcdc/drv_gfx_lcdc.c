@@ -45,8 +45,8 @@
 
 #define BUFFER_PER_LAYER    1
 
-#define DISPLAY_WIDTH  800
-#define DISPLAY_HEIGHT 480
+#define DISPLAY_WIDTH  480
+#define DISPLAY_HEIGHT 272
 
 #define PIXEL_CLOCK_DIV 7
 #define LCDC_OUTPUT_COLOR_MODE LCDC_OUTPUT_COLOR_MODE_24BPP
@@ -234,8 +234,8 @@ gfxResult DRV_LCDC_Initialize()
     memset(drvLayer, 0, sizeof(drvLayer));
 
     /* set temporary information */
-    xResolution     = 800;
-    yResolution     = 480;
+    xResolution     = 480;
+    yResolution     = 272;
     rightMargin     = 2;
     leftMargin      = 2;
     hsyncLength     = 41;

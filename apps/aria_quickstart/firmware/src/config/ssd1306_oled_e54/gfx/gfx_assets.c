@@ -218,10 +218,10 @@ GFXU_FontAsset NotoSans_Bold =
 	    NULL, // data address pointer
 	    0, // data size
     },	
-	24, // font height
-	19, // font max ascent
-	4, // font max descent
-	5, // font baseline
+	26, // font height
+	20, // font max ascent
+	6, // font max descent
+	6, // font baseline
 	GFXU_FONT_BPP_1, // bits per pixel
     NULL // glyph index table
 };

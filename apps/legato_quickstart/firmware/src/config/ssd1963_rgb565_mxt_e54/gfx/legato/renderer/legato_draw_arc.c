@@ -58,6 +58,7 @@ leResult leRenderer_CircleDraw(const leRect* rect,
                        0,
                        360,
                        thickness,
+                       LE_FALSE,
                        clr,
                        LE_FALSE,
                        alpha);
@@ -73,24 +74,31 @@ leResult leRenderer_CircleFill(const leRect* rect,
 {
     uint32_t radius = rect->width / 2;
 
+
+
+    leRect fillRect;
+    fillRect.x = rect->x + 1 + rect->width / 4;
+    fillRect.y = rect->y + 1 + rect->height / 4;
+    fillRect.width = radius;
+    fillRect.height = radius;
+
+    leRenderer_ArcFill(&fillRect,
+                       0,
+                       360,
+                       radius,
+                       LE_FALSE,
+                       fillClr,
+                       LE_FALSE,
+                       alpha);
+
     leRenderer_ArcFill(rect,
                        0,
                        360,
                        thickness,
+                       LE_FALSE,
                        borderClr,
                        LE_FALSE,
                        alpha);
-
-    if(thickness < radius)
-    {
-        leRenderer_ArcFill(rect,
-                           0,
-                           360,
-                           radius - thickness,
-                           fillClr,
-                           LE_FALSE,
-                           alpha);
-    }
 
     return LE_SUCCESS;
 }
@@ -140,6 +148,7 @@ static void drawQ1(const ArcDrawState* state,
 {
     lePoint testPt;
     lePoint line0, line1;
+    int32_t x, y;
 
     int32_t width = state->botRectPt.x;
     int32_t height = state->botRectPt.y;
@@ -180,15 +189,15 @@ static void drawQ1(const ArcDrawState* state,
         pt1Sin.y = -ARC_MAX;
     }
 
-    for(int32_t y = 1; y <= height; y++)
+    for(y = 1; y <= height; y++)
     {
         testPt.y = y;
 
-        for(int32_t x = 1; x <= width; x++)
+        for(x = 1; x <= width; x++)
         {
             int32_t mag = (x * x) + (y * y);
             float rad = leSqrt((float)mag);
-            rad = round(rad);
+            rad = leRound(rad);
 
             // if point is outside outer circle, skip
             if(!(rad >= state->fiCirRad && rad <= state->foCirRad))
@@ -218,6 +227,7 @@ static void drawQ2(const ArcDrawState* state,
 {
     lePoint testPt;
     lePoint line0, line1;
+    int32_t x, y;
 
     int32_t width = state->botRectPt.x;
     int32_t height = state->botRectPt.y;
@@ -258,15 +268,15 @@ static void drawQ2(const ArcDrawState* state,
         pt1Sin.y = ARC_MAX;
     }
 
-    for(int32_t y = 1; y <= height; y++)
+    for(y = 1; y <= height; y++)
     {
         testPt.y = y;
 
-        for(int32_t x = -width; x < 0; x++)
+        for(x = -width; x < 0; x++)
         {
             int32_t mag = (x * x) + (y * y);
             float rad = leSqrt((float)mag);
-            rad = round(rad);
+            rad = leRound(rad);
 
             // if point is outside outer circle, skip
             if(!(rad >= state->fiCirRad && rad <= state->foCirRad))
@@ -296,6 +306,7 @@ static void drawQ3(const ArcDrawState* state,
 {
     lePoint testPt;
     lePoint line0, line1;
+    int32_t x, y;
 
     int32_t width = state->botRectPt.x;
     int32_t height = state->botRectPt.y;
@@ -336,15 +347,15 @@ static void drawQ3(const ArcDrawState* state,
         pt1Sin.y = ARC_MAX;
     }
 
-    for(int32_t y = 0; y <= height; y++)
+    for(y = 0; y <= height; y++)
     {
         testPt.y = -y;
 
-        for(int32_t x = -width; x < 0; x++)
+        for(x = -width; x < 0; x++)
         {
             int32_t mag = (x * x) + (y * y);
             float rad = leSqrt((float)mag);
-            rad = round(rad);
+            rad = leRound(rad);
 
             // if point is outside outer circle, skip
             if(!(rad >= state->fiCirRad && rad <= state->foCirRad))
@@ -374,6 +385,7 @@ static void drawQ4(const ArcDrawState* state,
 {
     lePoint testPt;
     lePoint line0, line1;
+    int32_t x, y;
 
     int32_t width = state->botRectPt.x;
     int32_t height = state->botRectPt.y;
@@ -414,15 +426,15 @@ static void drawQ4(const ArcDrawState* state,
         pt1Sin.y = -ARC_MAX;
     }
 
-    for(int32_t y = 1; y <= height; y++)
+    for(y = 1; y <= height; y++)
     {
         testPt.y = -y;
 
-        for(int32_t x = 1; x <= width; x++)
+        for(x = 1; x <= width; x++)
         {
             int32_t mag = (x * x) + (y * y);
             float rad = leSqrt((float)mag);
-            rad = round(rad);
+            rad = leRound(rad);
 
             // if point is outside outer circle, skip
             if(!(rad >= state->fiCirRad && rad <= state->foCirRad))
@@ -450,6 +462,7 @@ leResult leRenderer_ArcFill(const leRect* drawRect,
                             int32_t startAngle,
                             int32_t spanAngle,
                             uint32_t thickness,
+                            leBool rounded,
                             leColor clr,
                             leBool antialias,
                             uint32_t a)
@@ -574,6 +587,49 @@ leResult leRenderer_ArcFill(const leRect* drawRect,
                    ranges.angle1.startAngle,
                    ranges.angle1.endAngle);
         }
+    }
+
+    if(rounded == LE_TRUE)
+    {
+        lePoint point = lePointOnCircle((drawRect->width / 2) + 1,
+                                        startAngle);
+
+        leRect tipRect;
+
+        point.y *= -1;
+
+        tipRect.x = drawRect->x + (drawRect->width / 2) + point.x;
+        tipRect.y = drawRect->y + (drawRect->height / 2) + point.y;
+
+        tipRect.x -= thickness / 4;
+        tipRect.y -= thickness / 4;
+        tipRect.width = thickness / 2;
+        tipRect.height = thickness / 2;
+
+        leRenderer_CircleFill(&tipRect,
+                              thickness / 2,
+                              clr,
+                              clr,
+                              a);
+
+        point = lePointOnCircle((drawRect->width / 2) + 1,
+                                 startAngle + spanAngle);
+
+        point.y *= -1;
+
+        tipRect.x = drawRect->x + (drawRect->width / 2) + point.x;
+        tipRect.y = drawRect->y + (drawRect->height / 2) + point.y;
+
+        tipRect.x -= thickness / 4;
+        tipRect.y -= thickness / 4;
+        tipRect.width = thickness / 2;
+        tipRect.height = thickness / 2;
+
+        leRenderer_CircleFill(&tipRect,
+                              thickness / 2,
+                              clr,
+                              clr,
+                              a);
     }
 
     return LE_SUCCESS;

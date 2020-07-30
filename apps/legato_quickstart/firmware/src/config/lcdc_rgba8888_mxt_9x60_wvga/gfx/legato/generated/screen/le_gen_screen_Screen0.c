@@ -4,6 +4,12 @@
 leWidget* root0;
 
 leWidget* Screen0_default_Layer0_FillPanel;
+leImageWidget* Screen0_ImageWidget1;
+leButtonWidget* Screen0_ButtonWidget1;
+leLabelWidget* Screen0_LabelWidget0;
+leLabelWidget* Screen0_LabelWidget1;
+leLabelWidget* Screen0_LabelWidget2;
+leImageWidget* Screen0_ImageWidget0;
 
 static leBool initialized = LE_FALSE;
 static leBool showing = LE_FALSE;
@@ -34,8 +40,57 @@ leResult screenShow_Screen0()
     Screen0_default_Layer0_FillPanel = leWidget_New();
     Screen0_default_Layer0_FillPanel->fn->setPosition(Screen0_default_Layer0_FillPanel, 0, 0);
     Screen0_default_Layer0_FillPanel->fn->setSize(Screen0_default_Layer0_FillPanel, 800, 480);
-    Screen0_default_Layer0_FillPanel->fn->setScheme(Screen0_default_Layer0_FillPanel, &RedScheme);
+    Screen0_default_Layer0_FillPanel->fn->setScheme(Screen0_default_Layer0_FillPanel, &LayerScheme);
     root0->fn->addChild(root0, (leWidget*)Screen0_default_Layer0_FillPanel);
+
+    Screen0_ImageWidget1 = leImageWidget_New();
+    Screen0_ImageWidget1->fn->setPosition(Screen0_ImageWidget1, 45, 85);
+    Screen0_ImageWidget1->fn->setSize(Screen0_ImageWidget1, 320, 300);
+    Screen0_ImageWidget1->fn->setBackgroundType(Screen0_ImageWidget1, LE_WIDGET_BACKGROUND_NONE);
+    Screen0_ImageWidget1->fn->setBorderType(Screen0_ImageWidget1, LE_WIDGET_BORDER_NONE);
+    Screen0_ImageWidget1->fn->setImage(Screen0_ImageWidget1, (leImage*)&MHGS_logo_WVGA);
+    root0->fn->addChild(root0, (leWidget*)Screen0_ImageWidget1);
+
+    Screen0_ButtonWidget1 = leButtonWidget_New();
+    Screen0_ButtonWidget1->fn->setPosition(Screen0_ButtonWidget1, 435, 230);
+    Screen0_ButtonWidget1->fn->setSize(Screen0_ButtonWidget1, 260, 120);
+    Screen0_ButtonWidget1->fn->setBackgroundType(Screen0_ButtonWidget1, LE_WIDGET_BACKGROUND_NONE);
+    Screen0_ButtonWidget1->fn->setBorderType(Screen0_ButtonWidget1, LE_WIDGET_BORDER_NONE);
+    Screen0_ButtonWidget1->fn->setPressedImage(Screen0_ButtonWidget1, (leImage*)&QuickstartDown_WVGA);
+    Screen0_ButtonWidget1->fn->setReleasedImage(Screen0_ButtonWidget1, (leImage*)&QuickstartUp_WVGA);
+    root0->fn->addChild(root0, (leWidget*)Screen0_ButtonWidget1);
+
+    Screen0_LabelWidget0 = leLabelWidget_New();
+    Screen0_LabelWidget0->fn->setPosition(Screen0_LabelWidget0, 390, 145);
+    Screen0_LabelWidget0->fn->setSize(Screen0_LabelWidget0, 110, 50);
+    Screen0_LabelWidget0->fn->setScheme(Screen0_LabelWidget0, &RedScheme);
+    Screen0_LabelWidget0->fn->setBackgroundType(Screen0_LabelWidget0, LE_WIDGET_BACKGROUND_NONE);
+    Screen0_LabelWidget0->fn->setString(Screen0_LabelWidget0, (leString*)&string_Fast);
+    root0->fn->addChild(root0, (leWidget*)Screen0_LabelWidget0);
+
+    Screen0_LabelWidget1 = leLabelWidget_New();
+    Screen0_LabelWidget1->fn->setPosition(Screen0_LabelWidget1, 505, 145);
+    Screen0_LabelWidget1->fn->setSize(Screen0_LabelWidget1, 120, 50);
+    Screen0_LabelWidget1->fn->setScheme(Screen0_LabelWidget1, &GreenScheme);
+    Screen0_LabelWidget1->fn->setBackgroundType(Screen0_LabelWidget1, LE_WIDGET_BACKGROUND_NONE);
+    Screen0_LabelWidget1->fn->setString(Screen0_LabelWidget1, (leString*)&string_Easy);
+    root0->fn->addChild(root0, (leWidget*)Screen0_LabelWidget1);
+
+    Screen0_LabelWidget2 = leLabelWidget_New();
+    Screen0_LabelWidget2->fn->setPosition(Screen0_LabelWidget2, 630, 145);
+    Screen0_LabelWidget2->fn->setSize(Screen0_LabelWidget2, 160, 50);
+    Screen0_LabelWidget2->fn->setScheme(Screen0_LabelWidget2, &BlueScheme);
+    Screen0_LabelWidget2->fn->setBackgroundType(Screen0_LabelWidget2, LE_WIDGET_BACKGROUND_NONE);
+    Screen0_LabelWidget2->fn->setString(Screen0_LabelWidget2, (leString*)&string_Smart);
+    root0->fn->addChild(root0, (leWidget*)Screen0_LabelWidget2);
+
+    Screen0_ImageWidget0 = leImageWidget_New();
+    Screen0_ImageWidget0->fn->setPosition(Screen0_ImageWidget0, 5, 5);
+    Screen0_ImageWidget0->fn->setSize(Screen0_ImageWidget0, 152, 40);
+    Screen0_ImageWidget0->fn->setBackgroundType(Screen0_ImageWidget0, LE_WIDGET_BACKGROUND_NONE);
+    Screen0_ImageWidget0->fn->setBorderType(Screen0_ImageWidget0, LE_WIDGET_BORDER_NONE);
+    Screen0_ImageWidget0->fn->setImage(Screen0_ImageWidget0, (leImage*)&mchpLogo_light);
+    root0->fn->addChild(root0, (leWidget*)Screen0_ImageWidget0);
 
     leAddRootWidget(root0, 0);
     leSetLayerColorMode(0, LE_COLOR_MODE_RGBA_8888);
@@ -57,6 +112,12 @@ void screenHide_Screen0()
     root0 = NULL;
 
     Screen0_default_Layer0_FillPanel = NULL;
+    Screen0_ImageWidget1 = NULL;
+    Screen0_ButtonWidget1 = NULL;
+    Screen0_LabelWidget0 = NULL;
+    Screen0_LabelWidget1 = NULL;
+    Screen0_LabelWidget2 = NULL;
+    Screen0_ImageWidget0 = NULL;
 
 
     showing = LE_FALSE;

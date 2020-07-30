@@ -57,3 +57,14 @@ const leStringTable stringTable =
     fontList, // font lookup table
     LE_STRING_ENCODING_ASCII // encoding standard
 };
+
+
+// string list
+leTableString string_TitleString;
+leTableString string_Slogan;
+
+void initializeStrings(void)
+{
+    leTableString_Constructor(&string_TitleString, stringID_TitleString);
+    leTableString_Constructor(&string_Slogan, stringID_Slogan);
+}

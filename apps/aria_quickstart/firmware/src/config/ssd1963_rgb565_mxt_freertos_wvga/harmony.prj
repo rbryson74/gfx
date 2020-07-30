@@ -1129,8 +1129,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/ssd1963_rgb565_mxt_freertos_wvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">B71976C739CE8CF09FEC797B7B58BB4C</GeneratedChecksum>
-          <UserChecksum dnOrder="6">B71976C739CE8CF09FEC797B7B58BB4C</UserChecksum>
+          <GeneratedChecksum dnOrder="5">8F9D31D0364ACE1BBD96F31732B74E61</GeneratedChecksum>
+          <UserChecksum dnOrder="6">8F9D31D0364ACE1BBD96F31732B74E61</UserChecksum>
         </File>
         <File dnOrder="125">
           <Type dnOrder="0">SOURCE</Type>
@@ -3468,12 +3468,12 @@
       </Settings>
     </Manifest>
     <Settings dnOrder="5">
-      <Setting dnOrder="0" key="CMSISPath" value=".\dev_packs\arm\CMSIS\5.6.0"/>
-      <Setting dnOrder="1" key="DFPPath" value=".\dev_packs\Microchip\SAME70_DFP\4.3.67\same70b\atdf\ATSAME70Q21B.atdf"/>
+      <Setting dnOrder="0" key="CMSISPath" value="./dev_packs/arm/CMSIS/5.6.0"/>
+      <Setting dnOrder="1" key="DFPPath" value="./dev_packs/Microchip/SAME70_DFP/4.3.67/same70b/atdf/ATSAME70Q21B.atdf"/>
       <Setting dnOrder="2" key="FORCE_OPTIMIZATION" value="false"/>
       <Setting dnOrder="3" key="GENERATE_BACKUP" value="true"/>
-      <Setting dnOrder="4" key="MERGE_STRATEGY" value="OVERWRITE"/>
-      <Setting dnOrder="5" key="PackageFilter" value="audio;bsp;core;csp;gfx;gfx_apps;touch;usb;"/>
+      <Setting dnOrder="4" key="MERGE_STRATEGY" value="USER_ALL"/>
+      <Setting dnOrder="5" key="PackageFilter" value="gfx_apps;bsp;usb;gfx;csp;core;quick_docs;"/>
     </Settings>
   </Configurator>
   <MHGC>

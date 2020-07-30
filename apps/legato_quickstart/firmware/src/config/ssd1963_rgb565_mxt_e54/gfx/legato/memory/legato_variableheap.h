@@ -31,6 +31,8 @@
 
 #include "gfx/legato/common/legato_common.h"
 
+#if LE_MEMORY_MANAGER_ENABLE == 1
+
 #if LE_USE_DEBUG_ALLOCATOR == 1
 #define LE_VHEAP_ALLOC(heap, size) leVariableHeap_Alloc(heap, size, __LINE__, __FUNCTION__, __FILE__)
 #define LE_VHEAP_REALLOC(heap, ptr, size) leVariableHeap_Realloc(heap, ptr, size, __LINE__, __FUNCTION__, __FILE__)
@@ -288,4 +290,7 @@ uint32_t leVariableHeap_SizeOf(leVariableHeap* heap,
 void leVariableHeap_Dump(leVariableHeap* heap,
                          leBool dumpRecords);
 
+#endif // LE_MEMORY_MANAGER_ENABLE
+
 #endif /* LEGATO_VARIABLEHEAP_H */
+

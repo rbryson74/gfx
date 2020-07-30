@@ -85,8 +85,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/ssd1306_oled_c21/gfx</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">36FB4551636D5BAFEAC6130BD5EA148C</GeneratedChecksum>
-          <UserChecksum dnOrder="6">36FB4551636D5BAFEAC6130BD5EA148C</UserChecksum>
+          <GeneratedChecksum dnOrder="5">151AC97F44004C984A1E6D7B76325E85</GeneratedChecksum>
+          <UserChecksum dnOrder="6">151AC97F44004C984A1E6D7B76325E85</UserChecksum>
         </File>
         <File dnOrder="9">
           <Type dnOrder="0">SOURCE</Type>
@@ -1039,8 +1039,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/ssd1306_oled_c21/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">B71976C739CE8CF09FEC797B7B58BB4C</GeneratedChecksum>
-          <UserChecksum dnOrder="6">B71976C739CE8CF09FEC797B7B58BB4C</UserChecksum>
+          <GeneratedChecksum dnOrder="5">8F9D31D0364ACE1BBD96F31732B74E61</GeneratedChecksum>
+          <UserChecksum dnOrder="6">8F9D31D0364ACE1BBD96F31732B74E61</UserChecksum>
         </File>
         <File dnOrder="115">
           <Type dnOrder="0">SOURCE</Type>
@@ -1723,8 +1723,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/ssd1306_oled_c21/gfx</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">5E2C2199BBB28E0B63609D9166820EFF</GeneratedChecksum>
-          <UserChecksum dnOrder="6">5E2C2199BBB28E0B63609D9166820EFF</UserChecksum>
+          <GeneratedChecksum dnOrder="5">9B7A7D61DB9CD0FEB6489BBCE72B4780</GeneratedChecksum>
+          <UserChecksum dnOrder="6">9B7A7D61DB9CD0FEB6489BBCE72B4780</UserChecksum>
         </File>
         <File dnOrder="191">
           <Type dnOrder="0">HEADER</Type>
@@ -2932,12 +2932,12 @@
       </Settings>
     </Manifest>
     <Settings dnOrder="5">
-      <Setting dnOrder="0" key="CMSISPath" value=".\dev_packs\arm\CMSIS\5.6.0"/>
-      <Setting dnOrder="1" key="DFPPath" value=".\dev_packs\Microchip\SAMC21_DFP\3.3.71\samc21\atdf\ATSAMC21J18A.atdf"/>
+      <Setting dnOrder="0" key="CMSISPath" value="./dev_packs/arm/CMSIS/5.6.0"/>
+      <Setting dnOrder="1" key="DFPPath" value="./dev_packs/Microchip/SAMC21_DFP/3.3.72/samc21/atdf/ATSAMC21J18A.atdf"/>
       <Setting dnOrder="2" key="FORCE_OPTIMIZATION" value="false"/>
       <Setting dnOrder="3" key="GENERATE_BACKUP" value="true"/>
-      <Setting dnOrder="4" key="MERGE_STRATEGY" value="OVERWRITE"/>
-      <Setting dnOrder="5" key="PackageFilter" value="audio;bsp;core;csp;gfx;gfx_apps;touch;usb;"/>
+      <Setting dnOrder="4" key="MERGE_STRATEGY" value="USER_ALL"/>
+      <Setting dnOrder="5" key="PackageFilter" value="gfx_apps;bsp;usb;gfx;csp;core;"/>
     </Settings>
   </Configurator>
   <MHGC>

@@ -40,7 +40,11 @@ static LegatoState legatoState;
 
 void Legato_Initialize(void)
 {
-    leInitialize(&gfxDriverInterface);
+    leInitialize(&gfxDriverInterface, &gfxGPUInterface);
+
+    gfxDriverInterface.setPalette(leGlobalPalette.header.address,
+                                  leGlobalPalette.colorMode,
+                                  leGlobalPalette.colorCount);
 
     legato_initialize();
 

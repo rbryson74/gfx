@@ -361,6 +361,9 @@ gfxResult DRV_LCDC_Initialize()
         LCDC_UpdateOverlayAttributesEnable(drvLayer[layerCount].hwLayerID);
         LCDC_UpdateAttribute(drvLayer[layerCount].hwLayerID); //Apply the attributes
 
+        LCDC_SetChannelEnable(drvLayer[layerCount].hwLayerID, true);
+        LCDC_IRQ_Enable(LCDC_INTERRUPT_BASE + drvLayer[layerCount].hwLayerID);
+
         gfxPixelBufferCreate(xResolution,
                     yResolution,
                     DRV_LCDC_GetColorMode(),

@@ -41,8 +41,10 @@ static struct leImage decodedImage;
 
 static leBool _supportsImage(const leImage* img)
 {
+#if LE_STREAMING_ENABLED == 0
     if(img->header.location != LE_STREAM_LOCATION_ID_INTERNAL)
         return LE_FALSE;
+#endif
 
     return img->format == LE_IMAGE_FORMAT_PNG;
 }
@@ -54,6 +56,9 @@ static leResult _draw(const leImage* img,
                       uint32_t a)
 {
     leRect imgRect, sourceClipRect;
+    uint32_t itr, clr;
+    uint8_t* ptr;
+    int32_t pngError;
 
 #if LE_STREAMING_ENABLED == 1
     leStream stream;
@@ -81,7 +86,7 @@ static leResult _draw(const leImage* img,
 #if LE_STREAMING_ENABLED == 1
     if(img->header.location != LE_STREAM_LOCATION_ID_INTERNAL)
     {
-        encodedData = leMalloc(img->header.size);
+        encodedData = LE_MALLOC(img->header.size);
 
         if(encodedData == NULL)
             return LE_FAILURE;
@@ -104,24 +109,29 @@ static leResult _draw(const leImage* img,
                       NULL);
     }
     else
-#else
     {
+#endif
         encodedData = img->header.address;
+#if LE_STREAMING_ENABLED == 1
     }
 #endif
+    pngError = lodepng_decode_memory(&decodedData,
+                                    (unsigned int*)&width,
+                                    (unsigned int*)&height,
+                                     encodedData,
+                                     img->header.size,
+                                     img->buffer.mode == LE_COLOR_MODE_RGBA_8888 ? LCT_RGBA : LCT_RGB,
+                                     8);
 
-    lodepng_decode_memory(&decodedData,
-                          (unsigned int*)&width,
-                          (unsigned int*)&height,
-                          encodedData,
-                          img->header.size,
-                          img->buffer.mode == LE_COLOR_MODE_RGBA_8888 ? LCT_RGBA : LCT_RGB,
-                          8);
+    LE_ASSERT(pngError == 0);
+
+    if(pngError != 0)
+        return LE_FAILURE;
 
 #if LE_STREAMING_ENABLED == 1
     if(img->header.location != LE_STREAM_LOCATION_ID_INTERNAL)
     {
-        leFree(encodedData);
+        LE_FREE(encodedData);
     }
 #endif
 
@@ -131,6 +141,28 @@ static leResult _draw(const leImage* img,
                    img->buffer.mode,
                    decodedData,
                    LE_STREAM_LOCATION_ID_INTERNAL);
+
+    if(decodedImage.buffer.mode == LE_COLOR_MODE_RGBA_8888)
+    {
+        for(itr = 0; itr < decodedImage.buffer.pixel_count; ++itr)
+        {
+            clr = ((uint32_t*) decodedImage.buffer.pixels)[itr];
+            clr = leColorSwap(clr, decodedImage.buffer.mode);
+            ((uint32_t*) decodedImage.buffer.pixels)[itr] = clr;
+        }
+    }
+    else if(decodedImage.buffer.mode == LE_COLOR_MODE_RGB_888)
+    {
+        for(itr = 0; itr < decodedImage.buffer.pixel_count; ++itr)
+        {
+            ptr = &((uint8_t*)decodedImage.buffer.pixels)[itr * 3];
+
+            clr = 0;
+            memcpy(&clr, ptr, 3);
+            clr = leColorSwap(clr, decodedImage.buffer.mode);
+            memcpy(ptr, &clr, 3);
+        }
+    }
 
     leImage_Draw(&decodedImage,
                  srcRect,
@@ -181,7 +213,7 @@ static leResult _render(const leImage* src,
 #if LE_STREAMING_ENABLED == 1
     if(src->header.location != LE_STREAM_LOCATION_ID_INTERNAL)
     {
-        encodedData = leMalloc(src->header.size);
+        encodedData = LE_MALLOC(src->header.size);
 
         if(encodedData == NULL)
             return LE_FAILURE;
@@ -221,7 +253,7 @@ static leResult _render(const leImage* src,
 #if LE_STREAMING_ENABLED == 1
     if(src->header.location != LE_STREAM_LOCATION_ID_INTERNAL)
     {
-        leFree(encodedData);
+        LE_FREE(encodedData);
     }
 #endif
 

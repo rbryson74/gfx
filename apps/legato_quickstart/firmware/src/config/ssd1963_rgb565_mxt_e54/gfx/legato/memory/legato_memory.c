@@ -26,6 +26,8 @@
 
 #include "gfx/legato/memory/legato_memory.h"
 
+#if LE_MEMORY_MANAGER_ENABLE == 1
+
 #include <stdlib.h>
 #include <string.h>
 
@@ -113,8 +115,6 @@ static void* _fixedHeapAlloc(uint32_t size)
         if(size < fixedHeaps[i].logicalBlockSize)
         {
             ptr = LE_FHEAP_ALLOC(&fixedHeaps[i]);
-
-            LE_ASSERT(ptr != NULL);
 
             if(ptr != NULL)
             {
@@ -540,3 +540,5 @@ leResult leMemoryValidateHeaps()
 
     return LE_SUCCESS;
 }
+
+#endif // LE_MEMORY_MANAGER_ENABLE

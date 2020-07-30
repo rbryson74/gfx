@@ -51,7 +51,7 @@
 #ifndef DRV_GFX_ssd1963_H
 #define DRV_GFX_ssd1963_H
 
-#include "gfx/legato/renderer/legato_renderer.h"
+#include "gfx/driver/gfx_driver.h"
 
 #ifdef __cplusplus
     extern "C" {
@@ -162,18 +162,29 @@ uint32_t DRV_ssd1963_GetActiveLayer();
 gfxResult DRV_ssd1963_SetActiveLayer(uint32_t idx);
 
 /**
+ * @brief Gets the state for a hardware layer.
+ * @details Gets the state of layer <span style="color: #820a32"><em>idx</em></span> .
+ * @code
+ * gfxDisplayDriver* drv;
+ * uint32_t idx;
+ * gfxLayerState state = drv->getLayerState(idx);
+ * @endcode
+ * @return The state of the layer.
+ */
+gfxLayerState DRV_ssd1963_GetLayerState(uint32_t idx);
+
+/**
  * @brief Blit buffer.
  * @details Copies <span style="color: #820a32"><em>buf</em></span>
  * to the framebuffer at location <span style="color: #820a32"><em>x</em></span> and
- * <span style="color: #820a32"><em>y</em></span> with
- * <span style="color: #820a32"><em>blend</em></span> composition.
+ * <span style="color: #820a32"><em>y</em></span>.
  * @code
  * gfxDisplayDriver* drv;
  * gfxResult res = drv->blitBuffer();
  * @endcode
  * @return GFX_SUCCESS if blit was performed, otherwise GFX_FAILURE.
  */
-gfxResult DRV_ssd1963_BlitBuffer(int32_t x, int32_t y, gfxPixelBuffer* buf, gfxBlend gfx);
+gfxResult DRV_ssd1963_BlitBuffer(int32_t x, int32_t y, gfxPixelBuffer* buf);
 
 /**
  * @brief Swap buffer.
@@ -201,6 +212,19 @@ void DRV_ssd1963_Swap(void);
 uint32_t DRV_ssd1963_GetSwapCount(void);
 
 /**
+ * @brief Set global palette.
+ * @details Sets the global palette for the driver.  Used for blitting color map buffers.
+ * @code
+ * gfxDisplayDriver* drv;
+ * gfxResult res = drv->setPalette(addr, colorMode, colorCount);
+ * @endcode
+ * @return GFX_SUCCESS if the palette was successfully set, otherwise GFX_FAILURE.
+ */
+gfxResult DRV_ssd1963_SetPalette(gfxBuffer* palette,
+                                           gfxColorMode mode,
+                                           uint32_t colorCount);
+
+/**
  * @brief Defines the External Controller interface functions.
  * @details Establishes the driver abstract interface functions between the driver
  * and client. The client is either a graphics library middleware or application which
@@ -216,10 +240,12 @@ static const gfxDisplayDriver gfxDriverInterface =
     DRV_ssd1963_GetLayerCount,        /**< implements layerCount */
     DRV_ssd1963_GetActiveLayer,       /**< implements activeLayer */
     DRV_ssd1963_SetActiveLayer,       /**< implements setActive */
+    DRV_ssd1963_GetLayerState,        /**< implements getLayerState */
     DRV_ssd1963_BlitBuffer,           /**< implements blitbuffer */
     DRV_ssd1963_Swap,                 /**< implements swap. */
     DRV_ssd1963_GetSwapCount,         /**< implements getVSYNCCount */
     NULL,                                       /**< nop getframebuffer */
+    DRV_ssd1963_SetPalette,           /**< implements setPalette */
     NULL                                        /**< nop ctrlConfig */
 };
 

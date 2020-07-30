@@ -103,8 +103,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcdc_rgba8888_mxt_9x60_xc32_wqvga/gfx</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">F7704433E8B38E32A34F53A2FA3624C1</GeneratedChecksum>
-          <UserChecksum dnOrder="6">F7704433E8B38E32A34F53A2FA3624C1</UserChecksum>
+          <GeneratedChecksum dnOrder="5">6C96023AAC4AB994564C4B29BCE7F480</GeneratedChecksum>
+          <UserChecksum dnOrder="6">6C96023AAC4AB994564C4B29BCE7F480</UserChecksum>
         </File>
         <File dnOrder="11">
           <Type dnOrder="0">SOURCE</Type>
@@ -1057,8 +1057,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcdc_rgba8888_mxt_9x60_xc32_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">B71976C739CE8CF09FEC797B7B58BB4C</GeneratedChecksum>
-          <UserChecksum dnOrder="6">B71976C739CE8CF09FEC797B7B58BB4C</UserChecksum>
+          <GeneratedChecksum dnOrder="5">8F9D31D0364ACE1BBD96F31732B74E61</GeneratedChecksum>
+          <UserChecksum dnOrder="6">8F9D31D0364ACE1BBD96F31732B74E61</UserChecksum>
         </File>
         <File dnOrder="117">
           <Type dnOrder="0">SOURCE</Type>
@@ -1336,8 +1336,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcdc_rgba8888_mxt_9x60_xc32_wqvga/peripheral/gfx2d/</LogicalPath>
           <PhysicalPath dnOrder="4">/peripheral/gfx2d/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">74F28036BC6E48DC5D9CF4FF4CF3E463</GeneratedChecksum>
-          <UserChecksum dnOrder="6">74F28036BC6E48DC5D9CF4FF4CF3E463</UserChecksum>
+          <GeneratedChecksum dnOrder="5">8920B42DF213893D7D3BF22445EF94B2</GeneratedChecksum>
+          <UserChecksum dnOrder="6">8920B42DF213893D7D3BF22445EF94B2</UserChecksum>
         </File>
         <File dnOrder="148">
           <Type dnOrder="0">SOURCE</Type>
@@ -1678,8 +1678,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcdc_rgba8888_mxt_9x60_xc32_wqvga/gfx</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">A12FFDD8025976633D727A3ABD3F329E</GeneratedChecksum>
-          <UserChecksum dnOrder="6">A12FFDD8025976633D727A3ABD3F329E</UserChecksum>
+          <GeneratedChecksum dnOrder="5">E39ADD4C5C14259AFEDDA10ED13F6759</GeneratedChecksum>
+          <UserChecksum dnOrder="6">E39ADD4C5C14259AFEDDA10ED13F6759</UserChecksum>
         </File>
         <File dnOrder="186">
           <Type dnOrder="0">HEADER</Type>
@@ -3121,12 +3121,12 @@
       </Settings>
     </Manifest>
     <Settings dnOrder="5">
-      <Setting dnOrder="0" key="CMSISPath" value=".\dev_packs\arm\CMSIS\5.6.0"/>
-      <Setting dnOrder="1" key="DFPPath" value=".\dev_packs\Microchip\SAM9X6_DFP\1.2.31\atdf\SAM9X60.atdf"/>
+      <Setting dnOrder="0" key="CMSISPath" value="./dev_packs/arm/CMSIS/5.6.0"/>
+      <Setting dnOrder="1" key="DFPPath" value="./dev_packs/Microchip/SAM9X6_DFP/1.2.31/atdf/SAM9X60.atdf"/>
       <Setting dnOrder="2" key="FORCE_OPTIMIZATION" value="false"/>
       <Setting dnOrder="3" key="GENERATE_BACKUP" value="true"/>
-      <Setting dnOrder="4" key="MERGE_STRATEGY" value="OVERWRITE"/>
-      <Setting dnOrder="5" key="PackageFilter" value="audio;bsp;core;csp;gfx;gfx_apps;touch;usb;"/>
+      <Setting dnOrder="4" key="MERGE_STRATEGY" value="USER_ALL"/>
+      <Setting dnOrder="5" key="PackageFilter" value="gfx_apps;bsp;usb;gfx;csp;core;"/>
     </Settings>
   </Configurator>
   <MHGC>

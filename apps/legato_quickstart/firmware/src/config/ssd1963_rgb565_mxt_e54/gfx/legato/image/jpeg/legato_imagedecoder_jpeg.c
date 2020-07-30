@@ -73,6 +73,24 @@ static uint32_t internalMemoryRead(void* ptr, uint32_t size, uint32_t n, JPEGDEC
     return count;
 }
 
+#if LE_STREAMING_ENABLED == 1
+static uint32_t externalMemoryRead(void* ptr, uint32_t size, uint32_t n, JPEGDECODER* decoder)
+{
+    uint32_t count = size * n;
+    uint32_t addr = (uint32_t)decoder->pImageFile->header.address + decoder->fileIndex;
+
+    leStream_Read(&decoder->stream,
+                  addr,
+                  count,
+                  ptr,
+                  NULL);
+
+    decoder->fileIndex += count;
+
+    return count;
+}
+#endif
+
 static void blitToFrameBuffer(JPEGDECODER* state,
                               lePixelBuffer* buffer,
                               int32_t src_x,
@@ -187,7 +205,21 @@ static leResult _draw(const leImage* img,
 #endif
 
     JPEG_JpegDecoder.pImageFile = img;
-    JPEG_JpegDecoder.readPtr = &internalMemoryRead;
+
+#if LE_STREAMING_ENABLED == 1
+    if(img->header.location != LE_STREAM_LOCATION_ID_INTERNAL)
+    {
+        JPEG_JpegDecoder.readPtr = externalMemoryRead;
+    }
+    else
+    {
+#else
+        JPEG_JpegDecoder.readPtr = internalMemoryRead;
+#endif
+#if LE_STREAMING_ENABLED == 1
+    }
+#endif
+
     JPEG_JpegDecoder.blitPtr = blitToFrameBuffer;
     JPEG_JpegDecoder.globalAlpha = a;
     JPEG_JpegDecoder.clipRect = leRenderer_GetDrawRect();
@@ -257,8 +289,6 @@ static leResult _draw(const leImage* img,
             wi++;
         }
     }
-
-    LE_FREE(JPEG_JpegDecoder.pixels);
 
 #if LE_STREAMING_ENABLED == 1
     if(leStream_IsOpen(&JPEG_JpegDecoder.stream) == LE_TRUE)
@@ -381,8 +411,6 @@ static leResult _render(const leImage* src,
             wi++;
         }
     }
-
-    LE_FREE(JPEG_JpegDecoder.pixels);
 
 #if LE_STREAMING_ENABLED == 1
     if(leStream_IsOpen(&JPEG_JpegDecoder.stream) == LE_TRUE)

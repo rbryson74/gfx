@@ -166,8 +166,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">16EAB0860E9B3F8DA2DA1395C16FD68A</GeneratedChecksum>
-          <UserChecksum dnOrder="6">16EAB0860E9B3F8DA2DA1395C16FD68A</UserChecksum>
+          <GeneratedChecksum dnOrder="5">110CC0ECAE2CB0382AEB1EFB74D8E69E</GeneratedChecksum>
+          <UserChecksum dnOrder="6">110CC0ECAE2CB0382AEB1EFB74D8E69E</UserChecksum>
         </File>
         <File dnOrder="18">
           <Type dnOrder="0">SOURCE</Type>
@@ -1102,8 +1102,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">B71976C739CE8CF09FEC797B7B58BB4C</GeneratedChecksum>
-          <UserChecksum dnOrder="6">B71976C739CE8CF09FEC797B7B58BB4C</UserChecksum>
+          <GeneratedChecksum dnOrder="5">8F9D31D0364ACE1BBD96F31732B74E61</GeneratedChecksum>
+          <UserChecksum dnOrder="6">8F9D31D0364ACE1BBD96F31732B74E61</UserChecksum>
         </File>
         <File dnOrder="122">
           <Type dnOrder="0">SOURCE</Type>
@@ -1688,7 +1688,7 @@
           <LogicalPath dnOrder="3">config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/</LogicalPath>
           <PhysicalPath dnOrder="4">/</PhysicalPath>
           <GeneratedChecksum dnOrder="5">AC45D9A864D88D2C237C0F2CCCBDA7AD</GeneratedChecksum>
-          <UserChecksum dnOrder="6">AC45D9A864D88D2C237C0F2CCCBDA7AD</UserChecksum>
+          <UserChecksum dnOrder="6">E10A9336E45FAC55D85982A6E28A8D5D</UserChecksum>
         </File>
         <File dnOrder="187">
           <Type dnOrder="0">HEADER</Type>
@@ -1966,8 +1966,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/ssd1963_rgb565_mxt_msd_fs_sqi_flash/gfx</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">D502CC4EE569A3EA390AD3B0FBD25F6F</GeneratedChecksum>
-          <UserChecksum dnOrder="6">D502CC4EE569A3EA390AD3B0FBD25F6F</UserChecksum>
+          <GeneratedChecksum dnOrder="5">9750BAACD17295B8E0A2CC4676AD8916</GeneratedChecksum>
+          <UserChecksum dnOrder="6">9750BAACD17295B8E0A2CC4676AD8916</UserChecksum>
         </File>
         <File dnOrder="218">
           <Type dnOrder="0">HEADER</Type>
@@ -3566,12 +3566,12 @@
       </Settings>
     </Manifest>
     <Settings dnOrder="5">
-      <Setting dnOrder="0" key="CMSISPath" value=".\dev_packs\arm\CMSIS\5.6.0"/>
-      <Setting dnOrder="1" key="DFPPath" value=".\dev_packs\Microchip\SAME70_DFP\4.3.67\same70b\atdf\ATSAME70Q21B.atdf"/>
+      <Setting dnOrder="0" key="CMSISPath" value="./dev_packs/arm/CMSIS/5.6.0"/>
+      <Setting dnOrder="1" key="DFPPath" value="./dev_packs/Microchip/SAME70_DFP/4.3.67/same70b/atdf/ATSAME70Q21B.atdf"/>
       <Setting dnOrder="2" key="FORCE_OPTIMIZATION" value="false"/>
       <Setting dnOrder="3" key="GENERATE_BACKUP" value="true"/>
-      <Setting dnOrder="4" key="MERGE_STRATEGY" value="OVERWRITE"/>
-      <Setting dnOrder="5" key="PackageFilter" value="audio;bsp;core;csp;gfx;gfx_apps;touch;usb;"/>
+      <Setting dnOrder="4" key="MERGE_STRATEGY" value="USER_ALL"/>
+      <Setting dnOrder="5" key="PackageFilter" value="gfx_apps;bsp;usb;gfx;csp;core;quick_docs;"/>
     </Settings>
   </Configurator>
   <MHGC>

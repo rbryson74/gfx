@@ -94,8 +94,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">732D07BBD6D8D6477357FE24428F7B0C</GeneratedChecksum>
-          <UserChecksum dnOrder="6">732D07BBD6D8D6477357FE24428F7B0C</UserChecksum>
+          <GeneratedChecksum dnOrder="5">1C55D432D3BE0A15C14007F33BAE3A5F</GeneratedChecksum>
+          <UserChecksum dnOrder="6">1C55D432D3BE0A15C14007F33BAE3A5F</UserChecksum>
         </File>
         <File dnOrder="10">
           <Type dnOrder="0">SOURCE</Type>
@@ -1048,8 +1048,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">B71976C739CE8CF09FEC797B7B58BB4C</GeneratedChecksum>
-          <UserChecksum dnOrder="6">B71976C739CE8CF09FEC797B7B58BB4C</UserChecksum>
+          <GeneratedChecksum dnOrder="5">8F9D31D0364ACE1BBD96F31732B74E61</GeneratedChecksum>
+          <UserChecksum dnOrder="6">8F9D31D0364ACE1BBD96F31732B74E61</UserChecksum>
         </File>
         <File dnOrder="116">
           <Type dnOrder="0">SOURCE</Type>
@@ -1759,8 +1759,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">3EC5094E12332EC43EFF5B19067562C1</GeneratedChecksum>
-          <UserChecksum dnOrder="6">3EC5094E12332EC43EFF5B19067562C1</UserChecksum>
+          <GeneratedChecksum dnOrder="5">F857CD5B6378D46558A88A165330D814</GeneratedChecksum>
+          <UserChecksum dnOrder="6">F857CD5B6378D46558A88A165330D814</UserChecksum>
         </File>
         <File dnOrder="195">
           <Type dnOrder="0">HEADER</Type>
@@ -3205,12 +3205,12 @@
       </Settings>
     </Manifest>
     <Settings dnOrder="5">
-      <Setting dnOrder="0" key="CMSISPath" value=".\dev_packs\arm\CMSIS\5.6.0"/>
-      <Setting dnOrder="1" key="DFPPath" value=".\dev_packs\Microchip\SAME70_DFP\4.3.67\same70b\atdf\ATSAME70Q21B.atdf"/>
+      <Setting dnOrder="0" key="CMSISPath" value="./dev_packs/arm/CMSIS/5.6.0"/>
+      <Setting dnOrder="1" key="DFPPath" value="./dev_packs/Microchip/SAME70_DFP/4.3.67/same70b/atdf/ATSAME70Q21B.atdf"/>
       <Setting dnOrder="2" key="FORCE_OPTIMIZATION" value="false"/>
       <Setting dnOrder="3" key="GENERATE_BACKUP" value="true"/>
-      <Setting dnOrder="4" key="MERGE_STRATEGY" value="OVERWRITE"/>
-      <Setting dnOrder="5" key="PackageFilter" value="audio;bsp;core;csp;gfx;gfx_apps;touch;usb;"/>
+      <Setting dnOrder="4" key="MERGE_STRATEGY" value="USER_ALL"/>
+      <Setting dnOrder="5" key="PackageFilter" value="gfx_apps;bsp;usb;gfx;csp;core;quick_docs;"/>
     </Settings>
   </Configurator>
   <MHGC>
