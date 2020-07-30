@@ -49,6 +49,16 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include "peripheral/nvmctrl/plib_nvmctrl.h"
+#include "peripheral/tc/plib_tc1.h"
+#include "peripheral/tc/plib_tc0.h"
+#include "driver/i2c/drv_i2c.h"
+#include "system/time/sys_time.h"
+#include "peripheral/tc/plib_tc4.h"
+#include "driver/input/drv_maxtouch.h"
+#include "system/int/sys_int.h"
+#include "system/cache/sys_cache.h"
+#include "osal/osal.h"
+#include "system/debug/sys_debug.h"
 #include "peripheral/evsys/plib_evsys.h"
 #include "gfx/legato/generated/le_gen_harmony.h"
 #include "peripheral/port/plib_port.h"
@@ -59,19 +69,11 @@
 #include "peripheral/cmcc/plib_cmcc.h"
 #include "peripheral/sercom/i2c_master/plib_sercom4_i2c_master.h"
 #include "bsp/bsp.h"
-#include "peripheral/tc/plib_tc0.h"
 #include "driver/sst26/drv_sst26.h"
-#include "driver/i2c/drv_i2c.h"
-#include "system/time/sys_time.h"
-#include "peripheral/tc/plib_tc4.h"
 #include "peripheral/qspi/plib_qspi.h"
 #include "system/input/sys_input.h"
 #include "peripheral/ccl/plib_ccl.h"
-#include "gfx/driver/controller/ili9488/drv_gfx_ili9488.h"
-#include "driver/input/drv_maxtouch.h"
-#include "system/int/sys_int.h"
-#include "system/cache/sys_cache.h"
-#include "osal/osal.h"
+#include "gfx/driver/controller/external_controller/drv_gfx_external_controller.h"
 #include "app.h"
 
 
@@ -197,10 +199,10 @@ typedef struct
     /* I2C0 Driver Object */
     SYS_MODULE_OBJ drvI2C0;
 
-    SYS_MODULE_OBJ  drvSST26;
     SYS_MODULE_OBJ  sysTime;
     SYS_MODULE_OBJ  drvMAXTOUCH;
 
+    SYS_MODULE_OBJ  drvSST26;
 
 } SYSTEM_OBJECTS;
 

@@ -85,6 +85,7 @@ leResult leStream_Read(leStream* stream,
                        leStream_DataReadyCallback cb)
 {
     uint32_t remaining;
+    uint32_t copyOffs;
 
     if(stream == NULL ||
         buf == NULL ||
@@ -111,8 +112,10 @@ leResult leStream_Read(leStream* stream,
             if((uint32_t)addr >= stream->cache.baseAddress &&
                (uint32_t)addr - stream->cache.baseAddress + size < stream->cache.logicalSize)
             {
+                copyOffs = (uint32_t)addr - stream->cache.baseAddress;
+
                 memcpy(buf,
-                       stream->cache.baseAddress + (uint8_t*)addr - stream->cache.baseAddress,
+                       &stream->cache.ptr[copyOffs],
                        size);
 
                 if(cb != NULL)

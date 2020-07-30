@@ -118,9 +118,9 @@ extern leImage MHGS_logo_small_compressed;
 /*********************************
  * Legato Image Asset
  * Name:   MHGS_logo_small_png
- * Size:   141x132 pixels
+ * Size:   48x45 pixels
  * Type:   RGB Data
- * Format: RGBA_8888
+ * Format: RGB_888
  ***********************************/
 extern leImage MHGS_logo_small_png;
 

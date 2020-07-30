@@ -118,9 +118,9 @@ extern leImage MHGS_logo_small_compressed;
 /*********************************
  * Legato Image Asset
  * Name:   MHGS_logo_small_png
- * Size:   141x132 pixels
+ * Size:   48x45 pixels
  * Type:   RGB Data
- * Format: RGBA_8888
+ * Format: RGB_888
  ***********************************/
 extern leImage MHGS_logo_small_png;
 
@@ -196,6 +196,21 @@ extern leRasterFont NotoSans_Regular;
 
 extern const leStringTable stringTable;
 
+
+// string list
+extern leTableString string_ImageIsRLE;
+extern leTableString string_DrawRaw;
+extern leTableString string_DrawPNG;
+extern leTableString string_DrawRLE;
+extern leTableString string_TitleString;
+extern leTableString string_ImageIsJPEG;
+extern leTableString string_ImageIsRaw;
+extern leTableString string_DrawPaletteCompressed;
+extern leTableString string_ImageIsPNG;
+extern leTableString string_ImageIsPaletteCompressed;
+extern leTableString string_DrawJpeg;
+
+void initializeStrings(void);
 //DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 }

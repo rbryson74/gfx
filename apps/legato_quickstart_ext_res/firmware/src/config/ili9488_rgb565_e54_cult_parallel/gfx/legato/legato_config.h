@@ -52,7 +52,7 @@ extern "C" {
 
 #define LE_DEFAULT_COLOR_MODE              LE_COLOR_MODE_RGB_565
 #define LE_TOUCH_ORIENTATION               0
-#define LE_HARDWARE_LAYER_MODE             0
+#define LE_DRIVER_LAYER_MODE               0
 
 #define LE_ASSERT_ENABLE                   0
 
@@ -60,7 +60,7 @@ extern "C" {
 #define LE_STREAMING_ENABLED               1
 
 #if LE_STREAMING_ENABLED == 1
-#define LE_ASSET_DECODER_CACHE_SIZE        4096
+#define LE_ASSET_DECODER_CACHE_SIZE        8192
 #define LE_ASSET_DECODER_USE_PIXEL_CACHE   0
 #define LE_ASSET_DECODER_USE_PALETTE_CACHE 0
 #define LE_ASSET_DECODER_USE_MASK_CACHE    0
@@ -115,7 +115,7 @@ extern "C" {
 
 // variable heap configuration
 #define LE_VARIABLEHEAP_DEBUGLEVEL         0
-#define LE_VARIABLEHEAP_SIZE               4096
+#define LE_VARIABLEHEAP_SIZE               26000
 #define LE_VARIABLEHEAP_MINALLOCSIZE       32
 #define LE_VARIABLEHEAP_ALIGNMENT          4
 #define LE_VARIABLEHEAP_BESTFIT            1

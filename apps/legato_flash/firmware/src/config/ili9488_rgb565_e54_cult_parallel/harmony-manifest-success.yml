@@ -4,7 +4,7 @@
 
 
 project: legato_flash
-creation_date: 2020-07-28T17:55:33.589-07:00[America/Phoenix]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2020-07-30T12:48:41.903-07:00[America/Phoenix]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 7
 mhc_mode: IDE            # [IDE|Standalone|Headless]
 mplabx_version: v5.40        # if MPLAB X plugin only
@@ -14,7 +14,7 @@ modules:
     - {name: "audio", version: "unknown"}
     - {name: "bsp", version: "v3.7.0"}
     - {name: "CMSIS-FreeRTOS", version: "unknown"}
-    - {name: "contentmanager", version: "v1.3.0"}
+    - {name: "contentmanager", version: "v1.4.0"}
     - {name: "core", version: "v3.7.2"}
     - {name: "csp", version: "v3.7.1"}
     - {name: "dev_packs", version: "v3.7.0-rc.2"}

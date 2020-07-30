@@ -115,7 +115,6 @@ typedef struct _JPEGDECODER
         JPEG_Read_FnPtr readPtr;               /* function to read memory */
         JPEG_Blit_FnPtr blitPtr;              /* function to blit the decompressed data */
 
-        uint8_t* pixels;
         leRect clipRect;
         uint32_t globalAlpha;
         lePixelBuffer* imageWriteBuffer;

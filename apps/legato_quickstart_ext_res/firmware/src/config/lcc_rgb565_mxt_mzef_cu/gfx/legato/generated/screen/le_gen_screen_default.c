@@ -9,11 +9,6 @@ leButtonWidget* default_SloganButton;
 leButtonWidget* default_LogoButton;
 leLabelWidget* default_ImageTypeLabelWidget;
 
-// string list for this screen
-static leTableString string_TitleString;
-static leTableString string_DrawRLE;
-static leTableString string_ImageIsPaletteCompressed;
-
 static leBool initialized = LE_FALSE;
 static leBool showing = LE_FALSE;
 
@@ -32,17 +27,13 @@ leResult screenShow_default()
     if(showing == LE_TRUE)
         return LE_FAILURE;
 
-    // initialize static strings
-    leTableString_Constructor(&string_TitleString, stringID_TitleString);
-    leTableString_Constructor(&string_DrawRLE, stringID_DrawRLE);
-    leTableString_Constructor(&string_ImageIsPaletteCompressed, stringID_ImageIsPaletteCompressed);
-
     // layer 0
     root0 = leWidget_New();
-    root0->fn->setPosition(root0, 0, 0);
     root0->fn->setSize(root0, 480, 320);
     root0->fn->setBackgroundType(root0, LE_WIDGET_BACKGROUND_NONE);
     root0->fn->setMargins(root0, 0, 0, 0, 0);
+    root0->flags |= LE_WIDGET_IGNOREEVENTS;
+    root0->flags |= LE_WIDGET_IGNOREPICK;
 
     default_Layer0_FillPanel = leWidget_New();
     default_Layer0_FillPanel->fn->setPosition(default_Layer0_FillPanel, 0, 0);
@@ -108,10 +99,6 @@ void screenHide_default()
     default_SloganButton = NULL;
     default_LogoButton = NULL;
     default_ImageTypeLabelWidget = NULL;
-
-    string_TitleString.fn->destructor(&string_TitleString);
-    string_DrawRLE.fn->destructor(&string_DrawRLE);
-    string_ImageIsPaletteCompressed.fn->destructor(&string_ImageIsPaletteCompressed);
 
 
     showing = LE_FALSE;

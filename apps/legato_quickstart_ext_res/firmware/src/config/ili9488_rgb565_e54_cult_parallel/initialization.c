@@ -149,6 +149,18 @@ const DRV_I2C_INIT drvI2C0InitData =
 
 // </editor-fold>
 
+// <editor-fold defaultstate="collapsed" desc="DRV_INPUT_MXT336T Initialization Data">
+/*** MaxTouch Driver Initialization Data ***/
+const DRV_MAXTOUCH_INIT drvMAXTOUCHInitData =
+{
+    .drvOpen                     = DRV_I2C_Open,
+    .orientation                 = 0,
+    .horizontalResolution        = 480,
+    .verticalResolution          = 320,
+};
+
+// </editor-fold>
+
 // <editor-fold defaultstate="collapsed" desc="DRV_SST26 Initialization Data">
 
 const DRV_SST26_PLIB_INTERFACE drvSST26PlibAPI = {
@@ -163,18 +175,6 @@ const DRV_SST26_INIT drvSST26InitData =
 {
     .sst26Plib      = &drvSST26PlibAPI,
 };
-// </editor-fold>
-
-// <editor-fold defaultstate="collapsed" desc="DRV_INPUT_MXT336T Initialization Data">
-/*** MaxTouch Driver Initialization Data ***/
-const DRV_MAXTOUCH_INIT drvMAXTOUCHInitData =
-{
-    .drvOpen                     = DRV_I2C_Open,
-    .orientation                 = 0,
-    .horizontalResolution        = 480,
-    .verticalResolution          = 320,
-};
-
 // </editor-fold>
 
 
@@ -251,6 +251,12 @@ void SYS_Initialize ( void* data )
 
 
 
+    TC1_CompareInitialize();
+
+    TC0_TimerInitialize();
+
+    TC4_CompareInitialize();
+
     EVSYS_Initialize();
 
     DMAC_Initialize();
@@ -258,23 +264,19 @@ void SYS_Initialize ( void* data )
     SERCOM4_I2C_Initialize();
 
 	BSP_Initialize();
-    TC0_TimerInitialize();
-
-    TC4_CompareInitialize();
-
     QSPI_Initialize();
 
 
     /* Initialize I2C0 Driver Instance */
     sysObj.drvI2C0 = DRV_I2C_Initialize(DRV_I2C_INDEX_0, (SYS_MODULE_INIT *)&drvI2C0InitData);
+
+    sysObj.drvMAXTOUCH = DRV_MAXTOUCH_Initialize(0, (SYS_MODULE_INIT *)&drvMAXTOUCHInitData);
+
     sysObj.drvSST26 = DRV_SST26_Initialize((SYS_MODULE_INDEX)DRV_SST26_INDEX, (SYS_MODULE_INIT *)&drvSST26InitData);
 
     CCL_Initialize();
 
     DRV_ILI9488_Initialize();
-
-
-    sysObj.drvMAXTOUCH = DRV_MAXTOUCH_Initialize(0, (SYS_MODULE_INIT *)&drvMAXTOUCHInitData);
 
 
     sysObj.sysTime = SYS_TIME_Initialize(SYS_TIME_INDEX_0, (SYS_MODULE_INIT *)&sysTimeInitData);

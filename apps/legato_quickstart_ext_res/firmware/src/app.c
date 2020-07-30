@@ -88,23 +88,49 @@ leResult leApplication_MediaReadRequest(leStream* stream, // stream reader
                                         uint32_t readSize,  // dest size
                                         uint8_t* destBuffer)
 {
-    if(stream->desc->location == 1)
+    if(stream->desc->location != LE_STREAM_LOCATION_ID_SQI)
     {
-        appData.mediaStream = stream;
-        appData.destBuffer = destBuffer;
-        appData.readSize = readSize;
-        appData.readAddress = (void*)address;
-
-        if (DRV_SST26_Status(DRV_SST26_INDEX) == SYS_STATUS_READY)
-        {
-            DRV_SST26_Read(appData.handle, (uint32_t *)(appData.destBuffer), appData.readSize, (uint32_t)appData.readAddress);
-
-            appData.state = APP_STATE_READ_WAIT;
-
-            return GFX_SUCCESS; // success tells the decoder to keep going
-        }
+         // failure tells the decoder to abort and move on
+        return LE_FAILURE;
     }
-    return GFX_FAILURE; // failure tells the decoder to abort and move on
+    
+    if (DRV_SST26_Status(DRV_SST26_INDEX) != SYS_STATUS_READY)
+    {
+         // failure tells the decoder to abort and move on
+        return LE_FAILURE;
+    }
+    
+    appData.mediaStream = stream;
+    appData.destBuffer = destBuffer;
+    appData.readSize = readSize;
+    appData.readAddress = (void*)address;
+
+    if (DRV_SST26_Read(appData.handle, (uint32_t *)(appData.destBuffer), appData.readSize, (uint32_t)appData.readAddress) == false)
+    {
+         // failure tells the decoder to abort and move on
+        return LE_FAILURE;
+    }
+
+    appData.transferStatus = DRV_SST26_TRANSFER_BUSY;
+    
+    if(leStream_IsBlocking(stream) == LE_TRUE)
+    {
+        while (appData.transferStatus != DRV_SST26_TRANSFER_COMPLETED)
+        {
+			appData.transferStatus = DRV_SST26_TransferStatusGet(appData.handle);
+        }
+
+        // indicate that the data buffer is ready
+        leStream_DataReady(appData.mediaStream);
+
+        appData.state = APP_STATE_IDLE;
+    }
+    else
+    {
+        appData.state = APP_STATE_READ_WAIT;
+    }
+    
+    return LE_SUCCESS; // success tells the decoder to keep going
 }
 
 void leApplication_MediaCloseRequest(leStream* stream)

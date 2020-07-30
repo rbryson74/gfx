@@ -75,10 +75,10 @@ void SYS_Tasks ( void )
     
 
     /* Maintain Device Drivers */
-        DRV_ILI9488_Update();
-
-
+    
     DRV_MAXTOUCH_Tasks(sysObj.drvMAXTOUCH);
+
+    DRV_ILI9488_Update();
 
 
 

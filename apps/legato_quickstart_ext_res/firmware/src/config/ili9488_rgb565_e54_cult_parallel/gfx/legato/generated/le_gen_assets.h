@@ -72,12 +72,12 @@ extern const lePalette leGlobalPalette;
  *****************************************************************************/
 /*********************************
  * Legato Image Asset
- * Name:   Image0
+ * Name:   MHGS_logo_small_compressed_palette
  * Size:   256x1 pixels
  * Type:   RGB Color Palette
- * Format: RGB_888
+ * Format: RGB_565
  ***********************************/
-extern leImage Image0;
+extern leImage MHGS_logo_small_compressed_palette;
 
 /*********************************
  * Legato Image Asset
@@ -87,15 +87,6 @@ extern leImage Image0;
  * Format: RGB_888
  ***********************************/
 extern leImage MHGS_logo_small_jpeg;
-
-/*********************************
- * Legato Image Asset
- * Name:   MHGS_logo_small_png
- * Size:   141x132 pixels
- * Type:   RGB Data
- * Format: RGBA_8888
- ***********************************/
-extern leImage MHGS_logo_small_png;
 
 /*********************************
  * Legato Image Asset
@@ -119,44 +110,33 @@ extern leImage MHGS_logo_small_rle;
  * Legato Image Asset
  * Name:   MHGS_logo_small_compressed
  * Size:   141x132 pixels
- * Type:   RGB Data
- * Format: RGB_565
+ * Type:   Color Lookup Map
+ * Format: INDEX_8
  ***********************************/
 extern leImage MHGS_logo_small_compressed;
+
+/*********************************
+ * Legato Image Asset
+ * Name:   MHGS_logo_small_png
+ * Size:   48x45 pixels
+ * Type:   RGB Data
+ * Format: RGB_888
+ ***********************************/
+extern leImage MHGS_logo_small_png;
 
 /*****************************************************************************
  * Legato Graphics Font Assets
  *****************************************************************************/
 /*********************************
  * Legato Font Asset
- * Name:         NotoSans_Regular
- * Height:       21
- * Baseline:     13
- * Style:        Antialias
- * Glyph Count:  96
- * Range Count:  16
- * Glyph Ranges: 0xA
-                 0x20-0x7E
-***********************************/
-extern leRasterFont NotoSans_Regular;
-
-/*********************************
- * Legato Font Asset
  * Name:         NotoSansCJKtc_Regular
  * Height:       23
- * Baseline:     18
+ * Baseline:     19
  * Style:        Antialias
- * Glyph Count:  121
- * Range Count:  40
+ * Glyph Count:  4105
+ * Range Count:  41
  * Glyph Ranges: 0x20-0x7E
-                 0x4E26
-                 0x50CF
-                 0x5132
-                 0x53EF
-                 0x5716
-                 0x58D3
-                 0x5916
-                 0x5B57-0x5B58
+                 0x4E00-0x5D98
                  0x5F62
                  0x6309
                  0x6539
@@ -177,6 +157,19 @@ extern leRasterFont NotoSans_Regular;
 ***********************************/
 extern leRasterFont NotoSansCJKtc_Regular;
 
+/*********************************
+ * Legato Font Asset
+ * Name:         NotoSans_Regular
+ * Height:       21
+ * Baseline:     12
+ * Style:        Antialias
+ * Glyph Count:  96
+ * Range Count:  16
+ * Glyph Ranges: 0xA
+                 0x20-0x7E
+***********************************/
+extern leRasterFont NotoSans_Regular;
+
 /*****************************************************************************
  * Legato String Table
  * Encoding        UTF16
@@ -189,20 +182,35 @@ extern leRasterFont NotoSansCJKtc_Regular;
 #define language_Chinese    1
 
 // string IDs
-#define stringID_ImageIsJPEG    0
-#define stringID_DrawRLE    1
-#define stringID_DrawRaw    2
-#define stringID_ImageIsPNG    3
-#define stringID_DrawJpeg    4
-#define stringID_ImageIsRLE    5
-#define stringID_ImageIsPaletteCompressed    6
-#define stringID_ImageIsRaw    7
-#define stringID_DrawPaletteCompressed    8
-#define stringID_TitleString    9
-#define stringID_DrawPNG    10
+#define stringID_ImageIsRLE    0
+#define stringID_DrawRaw    1
+#define stringID_DrawPNG    2
+#define stringID_DrawRLE    3
+#define stringID_TitleString    4
+#define stringID_ImageIsJPEG    5
+#define stringID_ImageIsRaw    6
+#define stringID_DrawPaletteCompressed    7
+#define stringID_ImageIsPNG    8
+#define stringID_ImageIsPaletteCompressed    9
+#define stringID_DrawJpeg    10
 
 extern const leStringTable stringTable;
 
+
+// string list
+extern leTableString string_ImageIsRLE;
+extern leTableString string_DrawRaw;
+extern leTableString string_DrawPNG;
+extern leTableString string_DrawRLE;
+extern leTableString string_TitleString;
+extern leTableString string_ImageIsJPEG;
+extern leTableString string_ImageIsRaw;
+extern leTableString string_DrawPaletteCompressed;
+extern leTableString string_ImageIsPNG;
+extern leTableString string_ImageIsPaletteCompressed;
+extern leTableString string_DrawJpeg;
+
+void initializeStrings(void);
 //DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 }

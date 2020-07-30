@@ -183,11 +183,22 @@ uint32_t DRV_LCC_GetActiveLayer();
 gfxResult DRV_LCC_SetActiveLayer(uint32_t idx);
 
 /**
+ * @brief Gets the state for a hardware layer.
+ * @details Gets the state of layer <span style="color: #820a32"><em>idx</em></span> .
+ * @code
+ * gfxDisplayDriver* drv;
+ * uint32_t idx;
+ * gfxLayerState state = drv->getLayerState(idx);
+ * @endcode
+ * @return The rectangle of the layer.
+ */
+gfxLayerState DRV_LCC_GetLayerState(uint32_t idx);
+
+/**
  * @brief Blit buffer.
  * @details Copies <span class="param">buf</span>
  * to the framebuffer at location <span class="param">x</span> and
- * <span class="param">y</span> with
- * <span class="param">blend</span> composition.
+ * <span class="param">y</span>.
  * @code
  * gfxDisplayDriver* drv;
  * gfxResult res = drv->blitBuffer();
@@ -196,8 +207,7 @@ gfxResult DRV_LCC_SetActiveLayer(uint32_t idx);
  */
 gfxResult DRV_LCC_BlitBuffer(int32_t x,
                             int32_t y,
-                            gfxPixelBuffer* buf,
-                             gfxBlend blend);
+                            gfxPixelBuffer* buf);
 
 /**
  * @brief Swap buffer.
@@ -238,6 +248,19 @@ uint32_t DRV_LCC_GetVSYNCCount(void);
 gfxPixelBuffer * DRV_LCC_GetFrameBuffer(int32_t idx);
 
 /**
+ * @brief Set global palette.
+ * @details Sets the global palette for the driver.  Used for blitting color map buffers.
+ * @code
+ * gfxDisplayDriver* drv;
+ * gfxResult res = drv->setPalette(addr, colorMode, colorCount);
+ * @endcode
+ * @return GFX_SUCCESS if the palette was successfully set, otherwise GFX_FAILURE.
+ */
+gfxResult DRV_LCC_SetPalette(gfxBuffer* palette,
+                             gfxColorMode mode,
+                             uint32_t colorCount);
+
+/**
  * @brief Defines the LCC interface functions.
  * @details Establishes the driver abstract interface functions between the driver
  * and client. The client is either a graphics library middleware or application which
@@ -253,10 +276,12 @@ static const gfxDisplayDriver gfxDriverInterface =
     DRV_LCC_GetLayerCount,		/**< implements layerCount */
     DRV_LCC_GetActiveLayer,		/**< implements activeLayer */
     DRV_LCC_SetActiveLayer,		/**< implements setActive */
+    DRV_LCC_GetLayerState,       /**< implements getLayerState */
     DRV_LCC_BlitBuffer,			/**< implements blitbuffer */
     DRV_LCC_Swap,				/**< implements swap */
     DRV_LCC_GetVSYNCCount,		/**< implements getSwap */
     DRV_LCC_GetFrameBuffer,		/**< implements getFrameBuffer */
+    DRV_LCC_SetPalette,         /**< implements setPalette */ 
 	NULL                        /**< nop ctrlConfig */
 };
         

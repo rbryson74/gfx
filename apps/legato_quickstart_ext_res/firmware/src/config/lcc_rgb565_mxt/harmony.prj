@@ -31,8 +31,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/driver/lcc</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/driver/controller/lcc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">2D26FED59E0BC7C084A83819B87AB4C2</GeneratedChecksum>
-          <UserChecksum dnOrder="6">2D26FED59E0BC7C084A83819B87AB4C2</UserChecksum>
+          <GeneratedChecksum dnOrder="5">45B2791188C40CE4367F2479D93535FB</GeneratedChecksum>
+          <UserChecksum dnOrder="6">45B2791188C40CE4367F2479D93535FB</UserChecksum>
         </File>
         <File dnOrder="3">
           <Type dnOrder="0">SOURCE</Type>
@@ -58,8 +58,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/driver/input</LogicalPath>
           <PhysicalPath dnOrder="4">/driver/input/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">5C0C7F1FA0699ACC6605FB4D336CDF3C</GeneratedChecksum>
-          <UserChecksum dnOrder="6">5C0C7F1FA0699ACC6605FB4D336CDF3C</UserChecksum>
+          <GeneratedChecksum dnOrder="5">E9A543E88CF358FD734E749D41EB8560</GeneratedChecksum>
+          <UserChecksum dnOrder="6">E9A543E88CF358FD734E749D41EB8560</UserChecksum>
         </File>
         <File dnOrder="6">
           <Type dnOrder="0">SOURCE</Type>
@@ -118,7 +118,7 @@
         <File dnOrder="12">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">le_gen_fonts.c</Name>
-          <Security dnOrder="2"/>
+          <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/generated/font/</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato\generated\font\</PhysicalPath>
           <GeneratedChecksum dnOrder="5">77D327C4BBD25DD6E6767BF1E5D01E4C</GeneratedChecksum>
@@ -127,7 +127,7 @@
         <File dnOrder="13">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">le_gen_globalpalette.c</Name>
-          <Security dnOrder="2"/>
+          <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/generated/</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato\generated\</PhysicalPath>
           <GeneratedChecksum dnOrder="5">2D48DB8AD17CFF23FA87412540899BA2</GeneratedChecksum>
@@ -136,25 +136,25 @@
         <File dnOrder="14">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">le_gen_harmony.c</Name>
-          <Security dnOrder="2"/>
+          <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/generated/</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato\generated\</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">36EEBFE4C58E87C45DDF4021954C081E</GeneratedChecksum>
-          <UserChecksum dnOrder="6">36EEBFE4C58E87C45DDF4021954C081E</UserChecksum>
+          <GeneratedChecksum dnOrder="5">7B27ABEA143D66C8E8F9A9E2A0E7BAFE</GeneratedChecksum>
+          <UserChecksum dnOrder="6">7B27ABEA143D66C8E8F9A9E2A0E7BAFE</UserChecksum>
         </File>
         <File dnOrder="15">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">le_gen_images.c</Name>
-          <Security dnOrder="2"/>
+          <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/generated/image/</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato\generated\image\</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">A64DC0A33845AD22453657B892595E7B</GeneratedChecksum>
-          <UserChecksum dnOrder="6">A64DC0A33845AD22453657B892595E7B</UserChecksum>
+          <GeneratedChecksum dnOrder="5">DC7E5A7D8E8043C8AC643743478D8CC1</GeneratedChecksum>
+          <UserChecksum dnOrder="6">DC7E5A7D8E8043C8AC643743478D8CC1</UserChecksum>
         </File>
         <File dnOrder="16">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">le_gen_init.c</Name>
-          <Security dnOrder="2"/>
+          <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/generated/</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato\generated\</PhysicalPath>
           <GeneratedChecksum dnOrder="5">AF45D115A7206F0BD1692A4DE9A8DC8B</GeneratedChecksum>
@@ -163,25 +163,25 @@
         <File dnOrder="17">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">le_gen_scheme.c</Name>
-          <Security dnOrder="2"/>
+          <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/generated/</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato\generated\</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">4D20C616548A1B16CC5F4568DEEA61C0</GeneratedChecksum>
-          <UserChecksum dnOrder="6">4D20C616548A1B16CC5F4568DEEA61C0</UserChecksum>
+          <GeneratedChecksum dnOrder="5">A1AF6F6F7FA2D3A459AFA585B39B9B3B</GeneratedChecksum>
+          <UserChecksum dnOrder="6">A1AF6F6F7FA2D3A459AFA585B39B9B3B</UserChecksum>
         </File>
         <File dnOrder="18">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">le_gen_screen_default.c</Name>
-          <Security dnOrder="2"/>
+          <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/generated/screen/</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato\generated\screen\</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">72910D402ED19DA98FF8365A188D9677</GeneratedChecksum>
-          <UserChecksum dnOrder="6">72910D402ED19DA98FF8365A188D9677</UserChecksum>
+          <GeneratedChecksum dnOrder="5">50C62A55C4C61254B573109B7B06A92C</GeneratedChecksum>
+          <UserChecksum dnOrder="6">50C62A55C4C61254B573109B7B06A92C</UserChecksum>
         </File>
         <File dnOrder="19">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">le_gen_stringtable.c</Name>
-          <Security dnOrder="2"/>
+          <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/generated/</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato\generated\</PhysicalPath>
           <GeneratedChecksum dnOrder="5">4FBEAB582F855809FAF366EEA77C3FCE</GeneratedChecksum>
@@ -247,8 +247,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/renderer</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/renderer/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">EEBC893A6169EE3FA88F50F56247AED9</GeneratedChecksum>
-          <UserChecksum dnOrder="6">EEBC893A6169EE3FA88F50F56247AED9</UserChecksum>
+          <GeneratedChecksum dnOrder="5">E702B5867E4FE03F12DE20E693D7CFA6</GeneratedChecksum>
+          <UserChecksum dnOrder="6">E702B5867E4FE03F12DE20E693D7CFA6</UserChecksum>
         </File>
         <File dnOrder="27">
           <Type dnOrder="0">SOURCE</Type>
@@ -256,8 +256,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/renderer</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/renderer/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">D6B2C37F475ACC7113FAB6694617D4D7</GeneratedChecksum>
-          <UserChecksum dnOrder="6">D6B2C37F475ACC7113FAB6694617D4D7</UserChecksum>
+          <GeneratedChecksum dnOrder="5">C3E112686AB152FE07BF92FD6073C77D</GeneratedChecksum>
+          <UserChecksum dnOrder="6">C3E112686AB152FE07BF92FD6073C77D</UserChecksum>
         </File>
         <File dnOrder="28">
           <Type dnOrder="0">SOURCE</Type>
@@ -346,8 +346,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/renderer</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/renderer/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">E9F003A499929F17B17BDD00CD705D67</GeneratedChecksum>
-          <UserChecksum dnOrder="6">E9F003A499929F17B17BDD00CD705D67</UserChecksum>
+          <GeneratedChecksum dnOrder="5">34715C88FF0F450AC942F599A0D17BD6</GeneratedChecksum>
+          <UserChecksum dnOrder="6">34715C88FF0F450AC942F599A0D17BD6</UserChecksum>
         </File>
         <File dnOrder="38">
           <Type dnOrder="0">SOURCE</Type>
@@ -355,8 +355,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/image</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/image/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">921B7BEEE3C3498C1560B9C17DBED27E</GeneratedChecksum>
-          <UserChecksum dnOrder="6">921B7BEEE3C3498C1560B9C17DBED27E</UserChecksum>
+          <GeneratedChecksum dnOrder="5">DB51512FE15150530EF94F017145B1C8</GeneratedChecksum>
+          <UserChecksum dnOrder="6">DB51512FE15150530EF94F017145B1C8</UserChecksum>
         </File>
         <File dnOrder="39">
           <Type dnOrder="0">SOURCE</Type>
@@ -400,8 +400,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/image/raw</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/image/raw/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">22D657BD7229D09713D3E719B98D0099</GeneratedChecksum>
-          <UserChecksum dnOrder="6">22D657BD7229D09713D3E719B98D0099</UserChecksum>
+          <GeneratedChecksum dnOrder="5">0EBEA25E82A35BF75001F02D5497ACD2</GeneratedChecksum>
+          <UserChecksum dnOrder="6">0EBEA25E82A35BF75001F02D5497ACD2</UserChecksum>
         </File>
         <File dnOrder="44">
           <Type dnOrder="0">SOURCE</Type>
@@ -445,8 +445,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/image/raw</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/image/raw/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">CFA43F54B5AB3F9EC7679D2FD2BF7841</GeneratedChecksum>
-          <UserChecksum dnOrder="6">CFA43F54B5AB3F9EC7679D2FD2BF7841</UserChecksum>
+          <GeneratedChecksum dnOrder="5">E376675E2B29DD9A4C27652750950262</GeneratedChecksum>
+          <UserChecksum dnOrder="6">E376675E2B29DD9A4C27652750950262</UserChecksum>
         </File>
         <File dnOrder="49">
           <Type dnOrder="0">SOURCE</Type>
@@ -472,8 +472,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/image/raw</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/image/raw/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">B879C53DB006CB19CD79C1A60EA0BC37</GeneratedChecksum>
-          <UserChecksum dnOrder="6">B879C53DB006CB19CD79C1A60EA0BC37</UserChecksum>
+          <GeneratedChecksum dnOrder="5">3DFF38FC69EF9F5D53ECE1229AE186A5</GeneratedChecksum>
+          <UserChecksum dnOrder="6">3DFF38FC69EF9F5D53ECE1229AE186A5</UserChecksum>
         </File>
         <File dnOrder="52">
           <Type dnOrder="0">SOURCE</Type>
@@ -499,8 +499,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/image/raw</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/image/raw/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">073C8A3B69603FE3DD6F86D17F562635</GeneratedChecksum>
-          <UserChecksum dnOrder="6">073C8A3B69603FE3DD6F86D17F562635</UserChecksum>
+          <GeneratedChecksum dnOrder="5">676C099CB62AAE1A1E8AB1458815A39D</GeneratedChecksum>
+          <UserChecksum dnOrder="6">676C099CB62AAE1A1E8AB1458815A39D</UserChecksum>
         </File>
         <File dnOrder="55">
           <Type dnOrder="0">SOURCE</Type>
@@ -517,8 +517,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/image/raw</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/image/raw/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">596B137E7E0E4826CC92DFECDD45AF7F</GeneratedChecksum>
-          <UserChecksum dnOrder="6">596B137E7E0E4826CC92DFECDD45AF7F</UserChecksum>
+          <GeneratedChecksum dnOrder="5">E3B0AC1687A836DA0187B3CD71EC47E9</GeneratedChecksum>
+          <UserChecksum dnOrder="6">E3B0AC1687A836DA0187B3CD71EC47E9</UserChecksum>
         </File>
         <File dnOrder="57">
           <Type dnOrder="0">SOURCE</Type>
@@ -535,8 +535,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/core</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/core/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">E42C0FA1241601AD815A3AD01BED142B</GeneratedChecksum>
-          <UserChecksum dnOrder="6">E42C0FA1241601AD815A3AD01BED142B</UserChecksum>
+          <GeneratedChecksum dnOrder="5">E0BF124F2D0B9BDE8F9ACC2C31F5C046</GeneratedChecksum>
+          <UserChecksum dnOrder="6">E0BF124F2D0B9BDE8F9ACC2C31F5C046</UserChecksum>
         </File>
         <File dnOrder="59">
           <Type dnOrder="0">SOURCE</Type>
@@ -553,8 +553,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/common</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/common/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">E297DA308A8579CF8269A0F128B002C7</GeneratedChecksum>
-          <UserChecksum dnOrder="6">E297DA308A8579CF8269A0F128B002C7</UserChecksum>
+          <GeneratedChecksum dnOrder="5">B0A86C279F678503A949E41EDE619168</GeneratedChecksum>
+          <UserChecksum dnOrder="6">B0A86C279F678503A949E41EDE619168</UserChecksum>
         </File>
         <File dnOrder="61">
           <Type dnOrder="0">SOURCE</Type>
@@ -562,8 +562,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/memory</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/memory/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">925B0D097D28DE5F916149436B5CCC73</GeneratedChecksum>
-          <UserChecksum dnOrder="6">925B0D097D28DE5F916149436B5CCC73</UserChecksum>
+          <GeneratedChecksum dnOrder="5">441703C110295FF5738AE7DE39D6406B</GeneratedChecksum>
+          <UserChecksum dnOrder="6">441703C110295FF5738AE7DE39D6406B</UserChecksum>
         </File>
         <File dnOrder="62">
           <Type dnOrder="0">SOURCE</Type>
@@ -643,8 +643,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/renderer</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/renderer/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">6C0B5DB0F70F360E19FD7F86DFC409B5</GeneratedChecksum>
-          <UserChecksum dnOrder="6">6C0B5DB0F70F360E19FD7F86DFC409B5</UserChecksum>
+          <GeneratedChecksum dnOrder="5">6C8079BF96739FD3B9A37022D46A71C5</GeneratedChecksum>
+          <UserChecksum dnOrder="6">6C8079BF96739FD3B9A37022D46A71C5</UserChecksum>
         </File>
         <File dnOrder="71">
           <Type dnOrder="0">SOURCE</Type>
@@ -652,8 +652,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/core</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/core/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">AEB3819C3E3C056706C55F29746FF2C5</GeneratedChecksum>
-          <UserChecksum dnOrder="6">AEB3819C3E3C056706C55F29746FF2C5</UserChecksum>
+          <GeneratedChecksum dnOrder="5">EF00DAB935C4977E34A72B5D976F572A</GeneratedChecksum>
+          <UserChecksum dnOrder="6">EF00DAB935C4977E34A72B5D976F572A</UserChecksum>
         </File>
         <File dnOrder="72">
           <Type dnOrder="0">SOURCE</Type>
@@ -661,8 +661,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/core</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/core/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">0C9D7BEBB241B2685219718B4FD31BE2</GeneratedChecksum>
-          <UserChecksum dnOrder="6">0C9D7BEBB241B2685219718B4FD31BE2</UserChecksum>
+          <GeneratedChecksum dnOrder="5">731D53877B29CC9077F75BDC2470D3AF</GeneratedChecksum>
+          <UserChecksum dnOrder="6">731D53877B29CC9077F75BDC2470D3AF</UserChecksum>
         </File>
         <File dnOrder="73">
           <Type dnOrder="0">SOURCE</Type>
@@ -670,8 +670,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/core</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/core/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">ACF4D0B6B7641AAFD3C0A70F1B0A475E</GeneratedChecksum>
-          <UserChecksum dnOrder="6">ACF4D0B6B7641AAFD3C0A70F1B0A475E</UserChecksum>
+          <GeneratedChecksum dnOrder="5">57FDDCBDBE41DEC2C6DF1FB160834AB9</GeneratedChecksum>
+          <UserChecksum dnOrder="6">57FDDCBDBE41DEC2C6DF1FB160834AB9</UserChecksum>
         </File>
         <File dnOrder="74">
           <Type dnOrder="0">SOURCE</Type>
@@ -679,8 +679,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/string</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/string/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">CD902F23662071A309F0E2EFE2E76455</GeneratedChecksum>
-          <UserChecksum dnOrder="6">CD902F23662071A309F0E2EFE2E76455</UserChecksum>
+          <GeneratedChecksum dnOrder="5">24A9753F60FEA8EB34BD822041B0C53D</GeneratedChecksum>
+          <UserChecksum dnOrder="6">24A9753F60FEA8EB34BD822041B0C53D</UserChecksum>
         </File>
         <File dnOrder="75">
           <Type dnOrder="0">SOURCE</Type>
@@ -733,8 +733,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/common</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/common/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">1A9815EEBCE13CF50017756DA27C4F57</GeneratedChecksum>
-          <UserChecksum dnOrder="6">1A9815EEBCE13CF50017756DA27C4F57</UserChecksum>
+          <GeneratedChecksum dnOrder="5">429999DFD6AA1366814114338DE664A4</GeneratedChecksum>
+          <UserChecksum dnOrder="6">429999DFD6AA1366814114338DE664A4</UserChecksum>
         </File>
         <File dnOrder="81">
           <Type dnOrder="0">SOURCE</Type>
@@ -751,8 +751,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">956036142CA2DD80D5ADFF83340802FA</GeneratedChecksum>
-          <UserChecksum dnOrder="6">956036142CA2DD80D5ADFF83340802FA</UserChecksum>
+          <GeneratedChecksum dnOrder="5">6B2E204B813965EF5E25B71D3DD34E63</GeneratedChecksum>
+          <UserChecksum dnOrder="6">6B2E204B813965EF5E25B71D3DD34E63</UserChecksum>
         </File>
         <File dnOrder="83">
           <Type dnOrder="0">SOURCE</Type>
@@ -760,8 +760,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/arc</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/arc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">7A10F66DC2303C7FCA94CD91BA673F1D</GeneratedChecksum>
-          <UserChecksum dnOrder="6">7A10F66DC2303C7FCA94CD91BA673F1D</UserChecksum>
+          <GeneratedChecksum dnOrder="5">5FE816B6FE74D7712D2DB342720D1D47</GeneratedChecksum>
+          <UserChecksum dnOrder="6">5FE816B6FE74D7712D2DB342720D1D47</UserChecksum>
         </File>
         <File dnOrder="84">
           <Type dnOrder="0">SOURCE</Type>
@@ -769,8 +769,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/arc</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/arc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">1483CE007020F462AC2DD835FC0B49B6</GeneratedChecksum>
-          <UserChecksum dnOrder="6">1483CE007020F462AC2DD835FC0B49B6</UserChecksum>
+          <GeneratedChecksum dnOrder="5">4A8EA23A24BAACBCD06692ADCF93A515</GeneratedChecksum>
+          <UserChecksum dnOrder="6">4A8EA23A24BAACBCD06692ADCF93A515</UserChecksum>
         </File>
         <File dnOrder="85">
           <Type dnOrder="0">SOURCE</Type>
@@ -778,8 +778,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/bargraph</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/bargraph/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">7ABC264AC97940FFC28EFED8A8194FC5</GeneratedChecksum>
-          <UserChecksum dnOrder="6">7ABC264AC97940FFC28EFED8A8194FC5</UserChecksum>
+          <GeneratedChecksum dnOrder="5">5CDBB2A4D53122292E2917D4AF76284D</GeneratedChecksum>
+          <UserChecksum dnOrder="6">5CDBB2A4D53122292E2917D4AF76284D</UserChecksum>
         </File>
         <File dnOrder="86">
           <Type dnOrder="0">SOURCE</Type>
@@ -787,8 +787,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/bargraph</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/bargraph/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">EB452E20C8666DDA7CECF72BF5DF4388</GeneratedChecksum>
-          <UserChecksum dnOrder="6">EB452E20C8666DDA7CECF72BF5DF4388</UserChecksum>
+          <GeneratedChecksum dnOrder="5">35A82F1532D19DDBB4B76D96FFC8DDCB</GeneratedChecksum>
+          <UserChecksum dnOrder="6">35A82F1532D19DDBB4B76D96FFC8DDCB</UserChecksum>
         </File>
         <File dnOrder="87">
           <Type dnOrder="0">SOURCE</Type>
@@ -796,8 +796,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/button</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/button/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">36D156728A4F09EE0A0859CF3810B0ED</GeneratedChecksum>
-          <UserChecksum dnOrder="6">36D156728A4F09EE0A0859CF3810B0ED</UserChecksum>
+          <GeneratedChecksum dnOrder="5">C798A712611320F8A2802FDE5BC2C142</GeneratedChecksum>
+          <UserChecksum dnOrder="6">C798A712611320F8A2802FDE5BC2C142</UserChecksum>
         </File>
         <File dnOrder="88">
           <Type dnOrder="0">SOURCE</Type>
@@ -805,8 +805,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/button</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/button/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">3E146ADB7BA2A2B25FDD871A27954C56</GeneratedChecksum>
-          <UserChecksum dnOrder="6">3E146ADB7BA2A2B25FDD871A27954C56</UserChecksum>
+          <GeneratedChecksum dnOrder="5">E55A01CBD71FA95CE12DCC1CC65AAF1F</GeneratedChecksum>
+          <UserChecksum dnOrder="6">E55A01CBD71FA95CE12DCC1CC65AAF1F</UserChecksum>
         </File>
         <File dnOrder="89">
           <Type dnOrder="0">SOURCE</Type>
@@ -814,8 +814,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/checkbox</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/checkbox/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">53173AF9A42639531CF18BFB2BB2749E</GeneratedChecksum>
-          <UserChecksum dnOrder="6">53173AF9A42639531CF18BFB2BB2749E</UserChecksum>
+          <GeneratedChecksum dnOrder="5">4419499F217191832AD3975D8168F104</GeneratedChecksum>
+          <UserChecksum dnOrder="6">4419499F217191832AD3975D8168F104</UserChecksum>
         </File>
         <File dnOrder="90">
           <Type dnOrder="0">SOURCE</Type>
@@ -823,8 +823,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/checkbox</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/checkbox/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">1891E3AAA7DD15ADC81B680E2892D6B7</GeneratedChecksum>
-          <UserChecksum dnOrder="6">1891E3AAA7DD15ADC81B680E2892D6B7</UserChecksum>
+          <GeneratedChecksum dnOrder="5">8C49077AC5F9CECFA2A07FAAFE254334</GeneratedChecksum>
+          <UserChecksum dnOrder="6">8C49077AC5F9CECFA2A07FAAFE254334</UserChecksum>
         </File>
         <File dnOrder="91">
           <Type dnOrder="0">SOURCE</Type>
@@ -832,8 +832,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/circle</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/circle/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">0554D2B002E9CBF836772A0E1EC718F9</GeneratedChecksum>
-          <UserChecksum dnOrder="6">0554D2B002E9CBF836772A0E1EC718F9</UserChecksum>
+          <GeneratedChecksum dnOrder="5">62A424923AE1EDC93401A80946D25172</GeneratedChecksum>
+          <UserChecksum dnOrder="6">62A424923AE1EDC93401A80946D25172</UserChecksum>
         </File>
         <File dnOrder="92">
           <Type dnOrder="0">SOURCE</Type>
@@ -841,8 +841,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/circle</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/circle/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">DAA60DE2A678C5406847F1020751F7E3</GeneratedChecksum>
-          <UserChecksum dnOrder="6">DAA60DE2A678C5406847F1020751F7E3</UserChecksum>
+          <GeneratedChecksum dnOrder="5">B747DBE1BEFA8A368B3067626926930E</GeneratedChecksum>
+          <UserChecksum dnOrder="6">B747DBE1BEFA8A368B3067626926930E</UserChecksum>
         </File>
         <File dnOrder="93">
           <Type dnOrder="0">SOURCE</Type>
@@ -850,8 +850,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/circulargauge</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/circulargauge/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">8B694762FAFAE5896841A69AEF9AE0E0</GeneratedChecksum>
-          <UserChecksum dnOrder="6">8B694762FAFAE5896841A69AEF9AE0E0</UserChecksum>
+          <GeneratedChecksum dnOrder="5">2B6A35585841BD8E7B81A189BA11625B</GeneratedChecksum>
+          <UserChecksum dnOrder="6">2B6A35585841BD8E7B81A189BA11625B</UserChecksum>
         </File>
         <File dnOrder="94">
           <Type dnOrder="0">SOURCE</Type>
@@ -859,8 +859,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/circulargauge</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/circulargauge/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">7689113B72766EE7D6F47FBC54B17354</GeneratedChecksum>
-          <UserChecksum dnOrder="6">7689113B72766EE7D6F47FBC54B17354</UserChecksum>
+          <GeneratedChecksum dnOrder="5">48F3A5A5500694D32C42816FEF7FA167</GeneratedChecksum>
+          <UserChecksum dnOrder="6">48F3A5A5500694D32C42816FEF7FA167</UserChecksum>
         </File>
         <File dnOrder="95">
           <Type dnOrder="0">SOURCE</Type>
@@ -868,8 +868,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/circularslider</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/circularslider/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">E257DE9188D133EC7047DDC10FD0166B</GeneratedChecksum>
-          <UserChecksum dnOrder="6">E257DE9188D133EC7047DDC10FD0166B</UserChecksum>
+          <GeneratedChecksum dnOrder="5">7BE35EF7F8463074487AE0CB09B1E68C</GeneratedChecksum>
+          <UserChecksum dnOrder="6">7BE35EF7F8463074487AE0CB09B1E68C</UserChecksum>
         </File>
         <File dnOrder="96">
           <Type dnOrder="0">SOURCE</Type>
@@ -877,8 +877,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/circularslider</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/circularslider/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">943C6554541CB7566AE669C5719A1F8A</GeneratedChecksum>
-          <UserChecksum dnOrder="6">943C6554541CB7566AE669C5719A1F8A</UserChecksum>
+          <GeneratedChecksum dnOrder="5">6BAAE445D04301E0BB77E832861B4348</GeneratedChecksum>
+          <UserChecksum dnOrder="6">6BAAE445D04301E0BB77E832861B4348</UserChecksum>
         </File>
         <File dnOrder="97">
           <Type dnOrder="0">SOURCE</Type>
@@ -886,8 +886,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/drawsurface</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/drawsurface/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">EEA3CBE11A428440030C215198960EEF</GeneratedChecksum>
-          <UserChecksum dnOrder="6">EEA3CBE11A428440030C215198960EEF</UserChecksum>
+          <GeneratedChecksum dnOrder="5">E44A08BCB748C7F00A26088C1CAF63F6</GeneratedChecksum>
+          <UserChecksum dnOrder="6">E44A08BCB748C7F00A26088C1CAF63F6</UserChecksum>
         </File>
         <File dnOrder="98">
           <Type dnOrder="0">SOURCE</Type>
@@ -895,8 +895,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/drawsurface</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/drawsurface/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">FE1B695B6599F689AFF5BF905305BC43</GeneratedChecksum>
-          <UserChecksum dnOrder="6">FE1B695B6599F689AFF5BF905305BC43</UserChecksum>
+          <GeneratedChecksum dnOrder="5">7A0C5BAA7A91DE5B7FC084F4790D328E</GeneratedChecksum>
+          <UserChecksum dnOrder="6">7A0C5BAA7A91DE5B7FC084F4790D328E</UserChecksum>
         </File>
         <File dnOrder="99">
           <Type dnOrder="0">SOURCE</Type>
@@ -904,8 +904,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/gradient</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/gradient/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">AF935953F949096666ABCF2B5F900676</GeneratedChecksum>
-          <UserChecksum dnOrder="6">AF935953F949096666ABCF2B5F900676</UserChecksum>
+          <GeneratedChecksum dnOrder="5">CB874DD990A51D24395D1BD6396D9429</GeneratedChecksum>
+          <UserChecksum dnOrder="6">CB874DD990A51D24395D1BD6396D9429</UserChecksum>
         </File>
         <File dnOrder="100">
           <Type dnOrder="0">SOURCE</Type>
@@ -913,8 +913,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/gradient</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/gradient/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">DB632CB7275DE465DFEDAFFDD28D43C3</GeneratedChecksum>
-          <UserChecksum dnOrder="6">DB632CB7275DE465DFEDAFFDD28D43C3</UserChecksum>
+          <GeneratedChecksum dnOrder="5">61D510A74E7F927330133AE0CCAD1133</GeneratedChecksum>
+          <UserChecksum dnOrder="6">61D510A74E7F927330133AE0CCAD1133</UserChecksum>
         </File>
         <File dnOrder="101">
           <Type dnOrder="0">SOURCE</Type>
@@ -922,8 +922,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/groupbox</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/groupbox/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">B01A63ADFE7573A5AE56B9C7F2FD71DA</GeneratedChecksum>
-          <UserChecksum dnOrder="6">B01A63ADFE7573A5AE56B9C7F2FD71DA</UserChecksum>
+          <GeneratedChecksum dnOrder="5">D0B1280D641F0C841CD875281E249CF6</GeneratedChecksum>
+          <UserChecksum dnOrder="6">D0B1280D641F0C841CD875281E249CF6</UserChecksum>
         </File>
         <File dnOrder="102">
           <Type dnOrder="0">SOURCE</Type>
@@ -931,8 +931,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/groupbox</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/groupbox/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">46AAB40B27BE7CA966D772DB8832478F</GeneratedChecksum>
-          <UserChecksum dnOrder="6">46AAB40B27BE7CA966D772DB8832478F</UserChecksum>
+          <GeneratedChecksum dnOrder="5">EFBAB41E835A4CE865B580870467C1FF</GeneratedChecksum>
+          <UserChecksum dnOrder="6">EFBAB41E835A4CE865B580870467C1FF</UserChecksum>
         </File>
         <File dnOrder="103">
           <Type dnOrder="0">SOURCE</Type>
@@ -940,8 +940,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/image</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/image/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">79DA11AFA45812425DF66B2B3A43BA4E</GeneratedChecksum>
-          <UserChecksum dnOrder="6">79DA11AFA45812425DF66B2B3A43BA4E</UserChecksum>
+          <GeneratedChecksum dnOrder="5">BE7E1D43B569321908A7F69925C4B54B</GeneratedChecksum>
+          <UserChecksum dnOrder="6">BE7E1D43B569321908A7F69925C4B54B</UserChecksum>
         </File>
         <File dnOrder="104">
           <Type dnOrder="0">SOURCE</Type>
@@ -949,8 +949,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/image</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/image/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">FA5BEAE49620AFF78553D2A684808521</GeneratedChecksum>
-          <UserChecksum dnOrder="6">FA5BEAE49620AFF78553D2A684808521</UserChecksum>
+          <GeneratedChecksum dnOrder="5">DD2A67C78529944E169EA9183FCC448F</GeneratedChecksum>
+          <UserChecksum dnOrder="6">DD2A67C78529944E169EA9183FCC448F</UserChecksum>
         </File>
         <File dnOrder="105">
           <Type dnOrder="0">SOURCE</Type>
@@ -958,8 +958,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/imagerotate</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/imagerotate/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">978B29A0C1BD81BBE0A3EF80C45BA588</GeneratedChecksum>
-          <UserChecksum dnOrder="6">978B29A0C1BD81BBE0A3EF80C45BA588</UserChecksum>
+          <GeneratedChecksum dnOrder="5">414B0FA05B4567E9EC24F74E330728AC</GeneratedChecksum>
+          <UserChecksum dnOrder="6">414B0FA05B4567E9EC24F74E330728AC</UserChecksum>
         </File>
         <File dnOrder="106">
           <Type dnOrder="0">SOURCE</Type>
@@ -967,8 +967,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/imagerotate</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/imagerotate/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">F180091A1C356B3C03D8AE1B671D4F98</GeneratedChecksum>
-          <UserChecksum dnOrder="6">F180091A1C356B3C03D8AE1B671D4F98</UserChecksum>
+          <GeneratedChecksum dnOrder="5">0A514291F63E3DABD8376EBD76B8FF50</GeneratedChecksum>
+          <UserChecksum dnOrder="6">0A514291F63E3DABD8376EBD76B8FF50</UserChecksum>
         </File>
         <File dnOrder="107">
           <Type dnOrder="0">SOURCE</Type>
@@ -976,8 +976,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/imagescale</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/imagescale/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">ABB1BF138D0C3A9A010F0EC25D1705E6</GeneratedChecksum>
-          <UserChecksum dnOrder="6">ABB1BF138D0C3A9A010F0EC25D1705E6</UserChecksum>
+          <GeneratedChecksum dnOrder="5">050C9839F7DDF984EE54D8063A0220BA</GeneratedChecksum>
+          <UserChecksum dnOrder="6">050C9839F7DDF984EE54D8063A0220BA</UserChecksum>
         </File>
         <File dnOrder="108">
           <Type dnOrder="0">SOURCE</Type>
@@ -985,8 +985,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/imagescale</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/imagescale/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">4726A2F3875F2CC12A7E24E177C5C3CD</GeneratedChecksum>
-          <UserChecksum dnOrder="6">4726A2F3875F2CC12A7E24E177C5C3CD</UserChecksum>
+          <GeneratedChecksum dnOrder="5">D1088768269A80EB916615A960DC4CBC</GeneratedChecksum>
+          <UserChecksum dnOrder="6">D1088768269A80EB916615A960DC4CBC</UserChecksum>
         </File>
         <File dnOrder="109">
           <Type dnOrder="0">SOURCE</Type>
@@ -994,8 +994,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/imagesequence</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/imagesequence/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">981E2FC6FEDB186C120B1EAAE1C1E7A0</GeneratedChecksum>
-          <UserChecksum dnOrder="6">981E2FC6FEDB186C120B1EAAE1C1E7A0</UserChecksum>
+          <GeneratedChecksum dnOrder="5">E2AB156F1A4880F80377420C4F089A58</GeneratedChecksum>
+          <UserChecksum dnOrder="6">E2AB156F1A4880F80377420C4F089A58</UserChecksum>
         </File>
         <File dnOrder="110">
           <Type dnOrder="0">SOURCE</Type>
@@ -1003,8 +1003,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/imagesequence</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/imagesequence/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">CFD61E184E8B6434E62FE9A1AAD1A2FC</GeneratedChecksum>
-          <UserChecksum dnOrder="6">CFD61E184E8B6434E62FE9A1AAD1A2FC</UserChecksum>
+          <GeneratedChecksum dnOrder="5">191E5474C262D739317597FC47A0D739</GeneratedChecksum>
+          <UserChecksum dnOrder="6">191E5474C262D739317597FC47A0D739</UserChecksum>
         </File>
         <File dnOrder="111">
           <Type dnOrder="0">SOURCE</Type>
@@ -1012,8 +1012,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/keypad</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/keypad/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">858FB0036CD90DCE7142AA61FBD4466C</GeneratedChecksum>
-          <UserChecksum dnOrder="6">858FB0036CD90DCE7142AA61FBD4466C</UserChecksum>
+          <GeneratedChecksum dnOrder="5">DC3530C7E6E6815724E4CFE97745F524</GeneratedChecksum>
+          <UserChecksum dnOrder="6">DC3530C7E6E6815724E4CFE97745F524</UserChecksum>
         </File>
         <File dnOrder="112">
           <Type dnOrder="0">SOURCE</Type>
@@ -1021,8 +1021,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/keypad</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/keypad/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">324C787E4FD736D63178207472AFAAB5</GeneratedChecksum>
-          <UserChecksum dnOrder="6">324C787E4FD736D63178207472AFAAB5</UserChecksum>
+          <GeneratedChecksum dnOrder="5">573D18116E2334CA40841D00E2491251</GeneratedChecksum>
+          <UserChecksum dnOrder="6">573D18116E2334CA40841D00E2491251</UserChecksum>
         </File>
         <File dnOrder="113">
           <Type dnOrder="0">SOURCE</Type>
@@ -1030,8 +1030,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/label</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/label/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">68CD10F9C5AA6992D9303384AA3C9AAE</GeneratedChecksum>
-          <UserChecksum dnOrder="6">68CD10F9C5AA6992D9303384AA3C9AAE</UserChecksum>
+          <GeneratedChecksum dnOrder="5">A60D16F409981457F45C57B739DC4CEA</GeneratedChecksum>
+          <UserChecksum dnOrder="6">A60D16F409981457F45C57B739DC4CEA</UserChecksum>
         </File>
         <File dnOrder="114">
           <Type dnOrder="0">SOURCE</Type>
@@ -1039,8 +1039,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/label</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/label/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">E556210116D4878437575DF920AC3645</GeneratedChecksum>
-          <UserChecksum dnOrder="6">E556210116D4878437575DF920AC3645</UserChecksum>
+          <GeneratedChecksum dnOrder="5">F5C739E61F0A1540E69DE13F55430B16</GeneratedChecksum>
+          <UserChecksum dnOrder="6">F5C739E61F0A1540E69DE13F55430B16</UserChecksum>
         </File>
         <File dnOrder="115">
           <Type dnOrder="0">SOURCE</Type>
@@ -1048,8 +1048,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/line</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/line/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">ED783B96C916AA8D216015F6EE90D8E6</GeneratedChecksum>
-          <UserChecksum dnOrder="6">ED783B96C916AA8D216015F6EE90D8E6</UserChecksum>
+          <GeneratedChecksum dnOrder="5">1DEC1F0376EBE7D9DD42FB0CC37333CE</GeneratedChecksum>
+          <UserChecksum dnOrder="6">1DEC1F0376EBE7D9DD42FB0CC37333CE</UserChecksum>
         </File>
         <File dnOrder="116">
           <Type dnOrder="0">SOURCE</Type>
@@ -1057,8 +1057,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/linegraph</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/linegraph/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">8E8B462FDDC1541E653D445D2DF9DD25</GeneratedChecksum>
-          <UserChecksum dnOrder="6">8E8B462FDDC1541E653D445D2DF9DD25</UserChecksum>
+          <GeneratedChecksum dnOrder="5">5C3C3FD61C0E3E2ED0CA93642FAFFACB</GeneratedChecksum>
+          <UserChecksum dnOrder="6">5C3C3FD61C0E3E2ED0CA93642FAFFACB</UserChecksum>
         </File>
         <File dnOrder="117">
           <Type dnOrder="0">SOURCE</Type>
@@ -1066,8 +1066,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/linegraph</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/linegraph/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">3A230F6D620866382297A327733803E4</GeneratedChecksum>
-          <UserChecksum dnOrder="6">3A230F6D620866382297A327733803E4</UserChecksum>
+          <GeneratedChecksum dnOrder="5">EAC5273970D582BACF3066D8FCABF2A3</GeneratedChecksum>
+          <UserChecksum dnOrder="6">EAC5273970D582BACF3066D8FCABF2A3</UserChecksum>
         </File>
         <File dnOrder="118">
           <Type dnOrder="0">SOURCE</Type>
@@ -1075,8 +1075,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/line</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/line/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">5381E93EC941870B9F1A0CA69673F40E</GeneratedChecksum>
-          <UserChecksum dnOrder="6">5381E93EC941870B9F1A0CA69673F40E</UserChecksum>
+          <GeneratedChecksum dnOrder="5">DA5CF6C9C72D3A934BE3C147C0072E61</GeneratedChecksum>
+          <UserChecksum dnOrder="6">DA5CF6C9C72D3A934BE3C147C0072E61</UserChecksum>
         </File>
         <File dnOrder="119">
           <Type dnOrder="0">SOURCE</Type>
@@ -1084,8 +1084,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/list</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/list/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">D1A1018694209E0B87C8566174F8A9D5</GeneratedChecksum>
-          <UserChecksum dnOrder="6">D1A1018694209E0B87C8566174F8A9D5</UserChecksum>
+          <GeneratedChecksum dnOrder="5">9CCDFF6F33689D0A9246BBFA0E79C178</GeneratedChecksum>
+          <UserChecksum dnOrder="6">9CCDFF6F33689D0A9246BBFA0E79C178</UserChecksum>
         </File>
         <File dnOrder="120">
           <Type dnOrder="0">SOURCE</Type>
@@ -1093,8 +1093,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/list</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/list/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">3F5B6D087F282C08AC34587FEC6EF920</GeneratedChecksum>
-          <UserChecksum dnOrder="6">3F5B6D087F282C08AC34587FEC6EF920</UserChecksum>
+          <GeneratedChecksum dnOrder="5">8F10A2AEF65C02269D3686BA97A809BF</GeneratedChecksum>
+          <UserChecksum dnOrder="6">8F10A2AEF65C02269D3686BA97A809BF</UserChecksum>
         </File>
         <File dnOrder="121">
           <Type dnOrder="0">SOURCE</Type>
@@ -1102,8 +1102,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/listwheel</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/listwheel/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">5B98E2C51A974BE3D27AB28F32BA9D3A</GeneratedChecksum>
-          <UserChecksum dnOrder="6">5B98E2C51A974BE3D27AB28F32BA9D3A</UserChecksum>
+          <GeneratedChecksum dnOrder="5">814E06F910AB1C865114C4BA515E54A3</GeneratedChecksum>
+          <UserChecksum dnOrder="6">814E06F910AB1C865114C4BA515E54A3</UserChecksum>
         </File>
         <File dnOrder="122">
           <Type dnOrder="0">SOURCE</Type>
@@ -1111,8 +1111,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/listwheel</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/listwheel/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">56F07C61EB49ED7202916424315E4911</GeneratedChecksum>
-          <UserChecksum dnOrder="6">56F07C61EB49ED7202916424315E4911</UserChecksum>
+          <GeneratedChecksum dnOrder="5">CDE210FA9EBDE76C14C3862707F82DEF</GeneratedChecksum>
+          <UserChecksum dnOrder="6">CDE210FA9EBDE76C14C3862707F82DEF</UserChecksum>
         </File>
         <File dnOrder="123">
           <Type dnOrder="0">SOURCE</Type>
@@ -1120,8 +1120,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/piechart</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/piechart/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">EDDF4687191CF1E0460E158D469B673C</GeneratedChecksum>
-          <UserChecksum dnOrder="6">EDDF4687191CF1E0460E158D469B673C</UserChecksum>
+          <GeneratedChecksum dnOrder="5">490BEADFF405F33559B5F4C0EE5BF4EE</GeneratedChecksum>
+          <UserChecksum dnOrder="6">490BEADFF405F33559B5F4C0EE5BF4EE</UserChecksum>
         </File>
         <File dnOrder="124">
           <Type dnOrder="0">SOURCE</Type>
@@ -1129,8 +1129,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/piechart</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/piechart/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">2C30CB2799C126F60489F5EAFAA6A280</GeneratedChecksum>
-          <UserChecksum dnOrder="6">2C30CB2799C126F60489F5EAFAA6A280</UserChecksum>
+          <GeneratedChecksum dnOrder="5">115D5CAAC23B8B2E0A0E89B05C7E6409</GeneratedChecksum>
+          <UserChecksum dnOrder="6">115D5CAAC23B8B2E0A0E89B05C7E6409</UserChecksum>
         </File>
         <File dnOrder="125">
           <Type dnOrder="0">SOURCE</Type>
@@ -1138,8 +1138,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/progressbar</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/progressbar/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">D4B49579EB95640344AA11727FD4CECD</GeneratedChecksum>
-          <UserChecksum dnOrder="6">D4B49579EB95640344AA11727FD4CECD</UserChecksum>
+          <GeneratedChecksum dnOrder="5">1B8CBA57FD5ADBD62F10A06F48A939E1</GeneratedChecksum>
+          <UserChecksum dnOrder="6">1B8CBA57FD5ADBD62F10A06F48A939E1</UserChecksum>
         </File>
         <File dnOrder="126">
           <Type dnOrder="0">SOURCE</Type>
@@ -1147,8 +1147,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/progressbar</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/progressbar/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">2B832202602A07289EE3450FAB0F85A9</GeneratedChecksum>
-          <UserChecksum dnOrder="6">2B832202602A07289EE3450FAB0F85A9</UserChecksum>
+          <GeneratedChecksum dnOrder="5">FBD44D4987A2E8B98AD3D23D560FD525</GeneratedChecksum>
+          <UserChecksum dnOrder="6">FBD44D4987A2E8B98AD3D23D560FD525</UserChecksum>
         </File>
         <File dnOrder="127">
           <Type dnOrder="0">SOURCE</Type>
@@ -1156,8 +1156,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/radialmenu</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/radialmenu/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">9F361283F1AE596F63B25F90EBFC1F0A</GeneratedChecksum>
-          <UserChecksum dnOrder="6">9F361283F1AE596F63B25F90EBFC1F0A</UserChecksum>
+          <GeneratedChecksum dnOrder="5">AA257CD7400EDA24B50265B2D989B027</GeneratedChecksum>
+          <UserChecksum dnOrder="6">AA257CD7400EDA24B50265B2D989B027</UserChecksum>
         </File>
         <File dnOrder="128">
           <Type dnOrder="0">SOURCE</Type>
@@ -1165,8 +1165,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/radialmenu</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/radialmenu/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">3781B4965F2C8C55174CCC31B9E24ABA</GeneratedChecksum>
-          <UserChecksum dnOrder="6">3781B4965F2C8C55174CCC31B9E24ABA</UserChecksum>
+          <GeneratedChecksum dnOrder="5">408B1E5D710BF93E1B45313AC94B9239</GeneratedChecksum>
+          <UserChecksum dnOrder="6">408B1E5D710BF93E1B45313AC94B9239</UserChecksum>
         </File>
         <File dnOrder="129">
           <Type dnOrder="0">SOURCE</Type>
@@ -1174,8 +1174,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/radiobutton</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/radiobutton/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">658DFCA3D51EDAD33DB32B3B01462CF1</GeneratedChecksum>
-          <UserChecksum dnOrder="6">658DFCA3D51EDAD33DB32B3B01462CF1</UserChecksum>
+          <GeneratedChecksum dnOrder="5">FD27BB3881ED1F15C69FC5CC9FE23541</GeneratedChecksum>
+          <UserChecksum dnOrder="6">FD27BB3881ED1F15C69FC5CC9FE23541</UserChecksum>
         </File>
         <File dnOrder="130">
           <Type dnOrder="0">SOURCE</Type>
@@ -1183,8 +1183,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/radiobutton</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/radiobutton/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">E35CBF0173B8B8276022A6D21787BD11</GeneratedChecksum>
-          <UserChecksum dnOrder="6">E35CBF0173B8B8276022A6D21787BD11</UserChecksum>
+          <GeneratedChecksum dnOrder="5">A844B7644EE21A510821600E3C64403B</GeneratedChecksum>
+          <UserChecksum dnOrder="6">A844B7644EE21A510821600E3C64403B</UserChecksum>
         </File>
         <File dnOrder="131">
           <Type dnOrder="0">SOURCE</Type>
@@ -1192,8 +1192,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/rectangle</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/rectangle/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">11D5988F04C83C55EDC94396CC161F23</GeneratedChecksum>
-          <UserChecksum dnOrder="6">11D5988F04C83C55EDC94396CC161F23</UserChecksum>
+          <GeneratedChecksum dnOrder="5">5A0E271B112E916C48C38DC54658CA80</GeneratedChecksum>
+          <UserChecksum dnOrder="6">5A0E271B112E916C48C38DC54658CA80</UserChecksum>
         </File>
         <File dnOrder="132">
           <Type dnOrder="0">SOURCE</Type>
@@ -1201,8 +1201,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/rectangle</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/rectangle/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">C041870826AD75C39F189A77E5CABF85</GeneratedChecksum>
-          <UserChecksum dnOrder="6">C041870826AD75C39F189A77E5CABF85</UserChecksum>
+          <GeneratedChecksum dnOrder="5">B749B49995248A2851ED6A8F8EAB5A04</GeneratedChecksum>
+          <UserChecksum dnOrder="6">B749B49995248A2851ED6A8F8EAB5A04</UserChecksum>
         </File>
         <File dnOrder="133">
           <Type dnOrder="0">SOURCE</Type>
@@ -1210,8 +1210,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/scrollbar</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/scrollbar/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">6648105BCBC072826417D22ACE37EFB5</GeneratedChecksum>
-          <UserChecksum dnOrder="6">6648105BCBC072826417D22ACE37EFB5</UserChecksum>
+          <GeneratedChecksum dnOrder="5">8A89218372B5F89163561C284B839926</GeneratedChecksum>
+          <UserChecksum dnOrder="6">8A89218372B5F89163561C284B839926</UserChecksum>
         </File>
         <File dnOrder="134">
           <Type dnOrder="0">SOURCE</Type>
@@ -1219,8 +1219,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/scrollbar</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/scrollbar/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">A7D12D28227A39182B13DCA95D0C7525</GeneratedChecksum>
-          <UserChecksum dnOrder="6">A7D12D28227A39182B13DCA95D0C7525</UserChecksum>
+          <GeneratedChecksum dnOrder="5">F8F62A07AA9A333C5B8A9D676F95DD0B</GeneratedChecksum>
+          <UserChecksum dnOrder="6">F8F62A07AA9A333C5B8A9D676F95DD0B</UserChecksum>
         </File>
         <File dnOrder="135">
           <Type dnOrder="0">SOURCE</Type>
@@ -1228,8 +1228,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">B4CD0FEF2FEEFF725902DB1038E20FA9</GeneratedChecksum>
-          <UserChecksum dnOrder="6">B4CD0FEF2FEEFF725902DB1038E20FA9</UserChecksum>
+          <GeneratedChecksum dnOrder="5">88505DF5660858302C1493DED7A9EBD3</GeneratedChecksum>
+          <UserChecksum dnOrder="6">88505DF5660858302C1493DED7A9EBD3</UserChecksum>
         </File>
         <File dnOrder="136">
           <Type dnOrder="0">SOURCE</Type>
@@ -1237,8 +1237,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">3BA84537EB93F17AE1E7F3FF8BB5402C</GeneratedChecksum>
-          <UserChecksum dnOrder="6">3BA84537EB93F17AE1E7F3FF8BB5402C</UserChecksum>
+          <GeneratedChecksum dnOrder="5">BA16892FB69C68275674D5CE2C366B71</GeneratedChecksum>
+          <UserChecksum dnOrder="6">BA16892FB69C68275674D5CE2C366B71</UserChecksum>
         </File>
         <File dnOrder="137">
           <Type dnOrder="0">SOURCE</Type>
@@ -1246,8 +1246,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/slider</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/slider/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">6F26AD18961E4F7C8C781D1DC949DDE0</GeneratedChecksum>
-          <UserChecksum dnOrder="6">6F26AD18961E4F7C8C781D1DC949DDE0</UserChecksum>
+          <GeneratedChecksum dnOrder="5">B0AB09B41C8A16B0E635CA0D364EC1E4</GeneratedChecksum>
+          <UserChecksum dnOrder="6">B0AB09B41C8A16B0E635CA0D364EC1E4</UserChecksum>
         </File>
         <File dnOrder="138">
           <Type dnOrder="0">SOURCE</Type>
@@ -1255,8 +1255,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/slider</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/slider/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">E982F968930F873FE4ECB3C35C4DD27F</GeneratedChecksum>
-          <UserChecksum dnOrder="6">E982F968930F873FE4ECB3C35C4DD27F</UserChecksum>
+          <GeneratedChecksum dnOrder="5">F080BA5976DE162B0B46EF27E0D2C15B</GeneratedChecksum>
+          <UserChecksum dnOrder="6">F080BA5976DE162B0B46EF27E0D2C15B</UserChecksum>
         </File>
         <File dnOrder="139">
           <Type dnOrder="0">SOURCE</Type>
@@ -1264,8 +1264,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/textfield</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/textfield/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">B4F083A6C1B22BFAABF872FACADEA4F3</GeneratedChecksum>
-          <UserChecksum dnOrder="6">B4F083A6C1B22BFAABF872FACADEA4F3</UserChecksum>
+          <GeneratedChecksum dnOrder="5">292526CD60109BB1E79584DB59D73423</GeneratedChecksum>
+          <UserChecksum dnOrder="6">292526CD60109BB1E79584DB59D73423</UserChecksum>
         </File>
         <File dnOrder="140">
           <Type dnOrder="0">SOURCE</Type>
@@ -1273,8 +1273,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/textfield</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/textfield/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">82AEB88C22DB1E630258CBE287EF8322</GeneratedChecksum>
-          <UserChecksum dnOrder="6">82AEB88C22DB1E630258CBE287EF8322</UserChecksum>
+          <GeneratedChecksum dnOrder="5">31F27B4F2A14D2B94E09521EFD591490</GeneratedChecksum>
+          <UserChecksum dnOrder="6">31F27B4F2A14D2B94E09521EFD591490</UserChecksum>
         </File>
         <File dnOrder="141">
           <Type dnOrder="0">SOURCE</Type>
@@ -1282,8 +1282,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/touchtest</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/touchtest/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">2943A53493A6B6E823B59FF86C157509</GeneratedChecksum>
-          <UserChecksum dnOrder="6">2943A53493A6B6E823B59FF86C157509</UserChecksum>
+          <GeneratedChecksum dnOrder="5">C326B48B3A0ECB1D8A67C62B549F9EAF</GeneratedChecksum>
+          <UserChecksum dnOrder="6">C326B48B3A0ECB1D8A67C62B549F9EAF</UserChecksum>
         </File>
         <File dnOrder="142">
           <Type dnOrder="0">SOURCE</Type>
@@ -1291,8 +1291,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/touchtest</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/touchtest/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">004591BD916361A5C3948D06E1982B6A</GeneratedChecksum>
-          <UserChecksum dnOrder="6">004591BD916361A5C3948D06E1982B6A</UserChecksum>
+          <GeneratedChecksum dnOrder="5">CD84A4490B356DFE56FA87E2ADD8C79C</GeneratedChecksum>
+          <UserChecksum dnOrder="6">CD84A4490B356DFE56FA87E2ADD8C79C</UserChecksum>
         </File>
         <File dnOrder="143">
           <Type dnOrder="0">SOURCE</Type>
@@ -1300,8 +1300,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/window</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/window/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">A86B7B038E7CFBD0F1DA13844C8C4014</GeneratedChecksum>
-          <UserChecksum dnOrder="6">A86B7B038E7CFBD0F1DA13844C8C4014</UserChecksum>
+          <GeneratedChecksum dnOrder="5">BD6B229F0B6AEB6DC11EE89F1C94CA02</GeneratedChecksum>
+          <UserChecksum dnOrder="6">BD6B229F0B6AEB6DC11EE89F1C94CA02</UserChecksum>
         </File>
         <File dnOrder="144">
           <Type dnOrder="0">SOURCE</Type>
@@ -1309,8 +1309,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/window</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/window/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">E13BBA6B2D706E2DE23BB1DE73459A5E</GeneratedChecksum>
-          <UserChecksum dnOrder="6">E13BBA6B2D706E2DE23BB1DE73459A5E</UserChecksum>
+          <GeneratedChecksum dnOrder="5">1522B4DA607AF9CDCC043EBE9C989A12</GeneratedChecksum>
+          <UserChecksum dnOrder="6">1522B4DA607AF9CDCC043EBE9C989A12</UserChecksum>
         </File>
         <File dnOrder="145">
           <Type dnOrder="0">SOURCE</Type>
@@ -1669,8 +1669,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/</LogicalPath>
           <PhysicalPath dnOrder="4">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">578D490C6F1C09A7550B3590B67F27CA</GeneratedChecksum>
-          <UserChecksum dnOrder="6">578D490C6F1C09A7550B3590B67F27CA</UserChecksum>
+          <GeneratedChecksum dnOrder="5">B8DB5E0280C61EE046E19C3AEC1E49DD</GeneratedChecksum>
+          <UserChecksum dnOrder="6">B8DB5E0280C61EE046E19C3AEC1E49DD</UserChecksum>
         </File>
         <File dnOrder="185">
           <Type dnOrder="0">HEADER</Type>
@@ -1714,8 +1714,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/driver/lcc</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/driver/controller/lcc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">299F9D7E54E48B031072D4D0F1326660</GeneratedChecksum>
-          <UserChecksum dnOrder="6">299F9D7E54E48B031072D4D0F1326660</UserChecksum>
+          <GeneratedChecksum dnOrder="5">1DC0E687DD60C2BEC540765604356142</GeneratedChecksum>
+          <UserChecksum dnOrder="6">1DC0E687DD60C2BEC540765604356142</UserChecksum>
         </File>
         <File dnOrder="190">
           <Type dnOrder="0">HEADER</Type>
@@ -1786,8 +1786,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/driver/lcc</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/driver/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">5776E0D67EB36466530B7F57DADF2459</GeneratedChecksum>
-          <UserChecksum dnOrder="6">5776E0D67EB36466530B7F57DADF2459</UserChecksum>
+          <GeneratedChecksum dnOrder="5">524661ACAAE226F816112C0292B9DCAB</GeneratedChecksum>
+          <UserChecksum dnOrder="6">524661ACAAE226F816112C0292B9DCAB</UserChecksum>
         </File>
         <File dnOrder="198">
           <Type dnOrder="0">HEADER</Type>
@@ -1846,16 +1846,16 @@
         <File dnOrder="204">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">le_gen_assets.h</Name>
-          <Security dnOrder="2"/>
+          <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/generated/</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato\generated\</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">8BD2947EFEFF9DBF2B7DBE632D4C0BFF</GeneratedChecksum>
-          <UserChecksum dnOrder="6">8BD2947EFEFF9DBF2B7DBE632D4C0BFF</UserChecksum>
+          <GeneratedChecksum dnOrder="5">BC950113DFDA95EA099BE2631B9D470D</GeneratedChecksum>
+          <UserChecksum dnOrder="6">BC950113DFDA95EA099BE2631B9D470D</UserChecksum>
         </File>
         <File dnOrder="205">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">le_gen_harmony.h</Name>
-          <Security dnOrder="2"/>
+          <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/generated/</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato\generated\</PhysicalPath>
           <GeneratedChecksum dnOrder="5">B304831F3C1AFA7F7A497602EDC016F8</GeneratedChecksum>
@@ -1864,7 +1864,7 @@
         <File dnOrder="206">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">le_gen_init.h</Name>
-          <Security dnOrder="2"/>
+          <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/generated/</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato\generated\</PhysicalPath>
           <GeneratedChecksum dnOrder="5">B66550EE2F0277C230BE05B5DB0C8C7B</GeneratedChecksum>
@@ -1873,7 +1873,7 @@
         <File dnOrder="207">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">le_gen_scheme.h</Name>
-          <Security dnOrder="2"/>
+          <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/generated/</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato\generated\</PhysicalPath>
           <GeneratedChecksum dnOrder="5">8BEF2E94B962E813B4F0F9801C16D536</GeneratedChecksum>
@@ -1882,7 +1882,7 @@
         <File dnOrder="208">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">le_gen_screen_default.h</Name>
-          <Security dnOrder="2"/>
+          <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/generated/screen/</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato\generated\screen\</PhysicalPath>
           <GeneratedChecksum dnOrder="5">8AD2586BBB5E261365A48E88B1F0C772</GeneratedChecksum>
@@ -1927,11 +1927,11 @@
         <File dnOrder="213">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">legato_config.h</Name>
-          <Security dnOrder="2"/>
+          <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato\</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">CB428F613882784E592BC1CB095562A7</GeneratedChecksum>
-          <UserChecksum dnOrder="6">CB428F613882784E592BC1CB095562A7</UserChecksum>
+          <GeneratedChecksum dnOrder="5">221C761E3828FDABA4FDAF07FC18BD89</GeneratedChecksum>
+          <UserChecksum dnOrder="6">221C761E3828FDABA4FDAF07FC18BD89</UserChecksum>
         </File>
         <File dnOrder="214">
           <Type dnOrder="0">HEADER</Type>
@@ -2011,8 +2011,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/image</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/image/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">CCB749B11312987229D0E3370C428F59</GeneratedChecksum>
-          <UserChecksum dnOrder="6">CCB749B11312987229D0E3370C428F59</UserChecksum>
+          <GeneratedChecksum dnOrder="5">05EAE95A069088A9EEAE611E2862FB0A</GeneratedChecksum>
+          <UserChecksum dnOrder="6">05EAE95A069088A9EEAE611E2862FB0A</UserChecksum>
         </File>
         <File dnOrder="223">
           <Type dnOrder="0">HEADER</Type>
@@ -2056,8 +2056,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/image/raw</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/image/raw/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">85E984C24A902740F771E44A998E4FB6</GeneratedChecksum>
-          <UserChecksum dnOrder="6">85E984C24A902740F771E44A998E4FB6</UserChecksum>
+          <GeneratedChecksum dnOrder="5">92B99191D7F6CED016E4E1E676F93D2B</GeneratedChecksum>
+          <UserChecksum dnOrder="6">92B99191D7F6CED016E4E1E676F93D2B</UserChecksum>
         </File>
         <File dnOrder="228">
           <Type dnOrder="0">HEADER</Type>
@@ -2065,8 +2065,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/core</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/core/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">8B213D29CDC1D2EE4AC30AC6512F7655</GeneratedChecksum>
-          <UserChecksum dnOrder="6">8B213D29CDC1D2EE4AC30AC6512F7655</UserChecksum>
+          <GeneratedChecksum dnOrder="5">D7806097C632CCA34D2A578E18876B8F</GeneratedChecksum>
+          <UserChecksum dnOrder="6">D7806097C632CCA34D2A578E18876B8F</UserChecksum>
         </File>
         <File dnOrder="229">
           <Type dnOrder="0">HEADER</Type>
@@ -2083,8 +2083,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/common</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/common/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">6FAF281A0BF112C62728CF1706410D7B</GeneratedChecksum>
-          <UserChecksum dnOrder="6">6FAF281A0BF112C62728CF1706410D7B</UserChecksum>
+          <GeneratedChecksum dnOrder="5">0111B43862A08FB2E0111C0C471C5871</GeneratedChecksum>
+          <UserChecksum dnOrder="6">0111B43862A08FB2E0111C0C471C5871</UserChecksum>
         </File>
         <File dnOrder="231">
           <Type dnOrder="0">HEADER</Type>
@@ -2146,8 +2146,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/renderer</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/renderer/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">321FF2F8A5C3E24B7F62FA8B871EE2E7</GeneratedChecksum>
-          <UserChecksum dnOrder="6">321FF2F8A5C3E24B7F62FA8B871EE2E7</UserChecksum>
+          <GeneratedChecksum dnOrder="5">755449D8D9F585ACD93DDD0E88926205</GeneratedChecksum>
+          <UserChecksum dnOrder="6">755449D8D9F585ACD93DDD0E88926205</UserChecksum>
         </File>
         <File dnOrder="238">
           <Type dnOrder="0">HEADER</Type>
@@ -2155,8 +2155,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/core</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/core/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">F5703BA5A1046DD65EF90C992C2EA708</GeneratedChecksum>
-          <UserChecksum dnOrder="6">F5703BA5A1046DD65EF90C992C2EA708</UserChecksum>
+          <GeneratedChecksum dnOrder="5">8DE4FBC5FE1338053AAC6B23F9554D2F</GeneratedChecksum>
+          <UserChecksum dnOrder="6">8DE4FBC5FE1338053AAC6B23F9554D2F</UserChecksum>
         </File>
         <File dnOrder="239">
           <Type dnOrder="0">HEADER</Type>
@@ -2164,8 +2164,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/core</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/core/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">A24E3272022F601C6356B4E3AE70DA5A</GeneratedChecksum>
-          <UserChecksum dnOrder="6">A24E3272022F601C6356B4E3AE70DA5A</UserChecksum>
+          <GeneratedChecksum dnOrder="5">06CB3BBCE14CE36B9A20F6610A1222B1</GeneratedChecksum>
+          <UserChecksum dnOrder="6">06CB3BBCE14CE36B9A20F6610A1222B1</UserChecksum>
         </File>
         <File dnOrder="240">
           <Type dnOrder="0">HEADER</Type>
@@ -2227,8 +2227,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/common</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/common/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">92BAC6858C3B8482EFBBDA1A9A047119</GeneratedChecksum>
-          <UserChecksum dnOrder="6">92BAC6858C3B8482EFBBDA1A9A047119</UserChecksum>
+          <GeneratedChecksum dnOrder="5">B94995EFE98A1183097E4F2D2B34AC0E</GeneratedChecksum>
+          <UserChecksum dnOrder="6">B94995EFE98A1183097E4F2D2B34AC0E</UserChecksum>
         </File>
         <File dnOrder="247">
           <Type dnOrder="0">HEADER</Type>
@@ -2245,8 +2245,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">82FB1467E4F7DF232BC3B20DCBF63B55</GeneratedChecksum>
-          <UserChecksum dnOrder="6">82FB1467E4F7DF232BC3B20DCBF63B55</UserChecksum>
+          <GeneratedChecksum dnOrder="5">9AC490B1D5B0D7A4E8E16DFE200C1C49</GeneratedChecksum>
+          <UserChecksum dnOrder="6">9AC490B1D5B0D7A4E8E16DFE200C1C49</UserChecksum>
         </File>
         <File dnOrder="249">
           <Type dnOrder="0">HEADER</Type>
@@ -2263,8 +2263,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/bargraph</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/bargraph/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">D7AFCA831E5953D96E96E85EEAD7FCC0</GeneratedChecksum>
-          <UserChecksum dnOrder="6">D7AFCA831E5953D96E96E85EEAD7FCC0</UserChecksum>
+          <GeneratedChecksum dnOrder="5">A7A2858699CCBB020F5C7F28C835C490</GeneratedChecksum>
+          <UserChecksum dnOrder="6">A7A2858699CCBB020F5C7F28C835C490</UserChecksum>
         </File>
         <File dnOrder="251">
           <Type dnOrder="0">HEADER</Type>
@@ -2290,8 +2290,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/circle</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/circle/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">E21EC52355BBB13A09F3EB06199DBE1B</GeneratedChecksum>
-          <UserChecksum dnOrder="6">E21EC52355BBB13A09F3EB06199DBE1B</UserChecksum>
+          <GeneratedChecksum dnOrder="5">0BA6B6988CBB623CFD74F83D459700A3</GeneratedChecksum>
+          <UserChecksum dnOrder="6">0BA6B6988CBB623CFD74F83D459700A3</UserChecksum>
         </File>
         <File dnOrder="254">
           <Type dnOrder="0">HEADER</Type>
@@ -2308,8 +2308,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/circularslider</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/circularslider/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">A3B46F1010EF45B54808E25FF1811917</GeneratedChecksum>
-          <UserChecksum dnOrder="6">A3B46F1010EF45B54808E25FF1811917</UserChecksum>
+          <GeneratedChecksum dnOrder="5">2C54C8601FC3289D32F238F351590EBB</GeneratedChecksum>
+          <UserChecksum dnOrder="6">2C54C8601FC3289D32F238F351590EBB</UserChecksum>
         </File>
         <File dnOrder="256">
           <Type dnOrder="0">HEADER</Type>
@@ -2353,8 +2353,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/imagerotate</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/imagerotate/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">8DE44583D6B73FF99484D4966EC89897</GeneratedChecksum>
-          <UserChecksum dnOrder="6">8DE44583D6B73FF99484D4966EC89897</UserChecksum>
+          <GeneratedChecksum dnOrder="5">DF511C0B855CA57179BC959D205FA3D4</GeneratedChecksum>
+          <UserChecksum dnOrder="6">DF511C0B855CA57179BC959D205FA3D4</UserChecksum>
         </File>
         <File dnOrder="261">
           <Type dnOrder="0">HEADER</Type>
@@ -2407,8 +2407,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/linegraph</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/linegraph/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">C30D8A6E8675B12C1074FF29261BE694</GeneratedChecksum>
-          <UserChecksum dnOrder="6">C30D8A6E8675B12C1074FF29261BE694</UserChecksum>
+          <GeneratedChecksum dnOrder="5">8D161BAFA7D5D5D31ACE2D03CA58ADE8</GeneratedChecksum>
+          <UserChecksum dnOrder="6">8D161BAFA7D5D5D31ACE2D03CA58ADE8</UserChecksum>
         </File>
         <File dnOrder="267">
           <Type dnOrder="0">HEADER</Type>
@@ -2416,8 +2416,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/list</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/list/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">FB76B31980EE5391EAA6F931566C1353</GeneratedChecksum>
-          <UserChecksum dnOrder="6">FB76B31980EE5391EAA6F931566C1353</UserChecksum>
+          <GeneratedChecksum dnOrder="5">ED02D60E643689EDEE8BFB5FFA73B774</GeneratedChecksum>
+          <UserChecksum dnOrder="6">ED02D60E643689EDEE8BFB5FFA73B774</UserChecksum>
         </File>
         <File dnOrder="268">
           <Type dnOrder="0">HEADER</Type>
@@ -2434,8 +2434,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/gfx/legato/widget/piechart</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/widget/piechart/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">36C00793DB02D74C4C03ABE31D159F3A</GeneratedChecksum>
-          <UserChecksum dnOrder="6">36C00793DB02D74C4C03ABE31D159F3A</UserChecksum>
+          <GeneratedChecksum dnOrder="5">892B711E79B20BEE1DD2CD0CE12355F4</GeneratedChecksum>
+          <UserChecksum dnOrder="6">892B711E79B20BEE1DD2CD0CE12355F4</UserChecksum>
         </File>
         <File dnOrder="270">
           <Type dnOrder="0">HEADER</Type>
@@ -2875,8 +2875,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/lcc_rgb565_mxt/system/debug/</LogicalPath>
           <PhysicalPath dnOrder="4">/system/debug/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">33F85B8B82ED7CA982F3291C4E541C0A</GeneratedChecksum>
-          <UserChecksum dnOrder="6">33F85B8B82ED7CA982F3291C4E541C0A</UserChecksum>
+          <GeneratedChecksum dnOrder="5">6BB6C54C5CD963A5A940CF7BB28F4E10</GeneratedChecksum>
+          <UserChecksum dnOrder="6">6BB6C54C5CD963A5A940CF7BB28F4E10</UserChecksum>
         </File>
         <File dnOrder="319">
           <Type dnOrder="0">HEADER</Type>

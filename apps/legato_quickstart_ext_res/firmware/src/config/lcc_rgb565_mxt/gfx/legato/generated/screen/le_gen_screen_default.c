@@ -39,10 +39,11 @@ leResult screenShow_default()
 
     // layer 0
     root0 = leWidget_New();
-    root0->fn->setPosition(root0, 0, 0);
     root0->fn->setSize(root0, 480, 320);
     root0->fn->setBackgroundType(root0, LE_WIDGET_BACKGROUND_NONE);
     root0->fn->setMargins(root0, 0, 0, 0, 0);
+    root0->flags |= LE_WIDGET_IGNOREEVENTS;
+    root0->flags |= LE_WIDGET_IGNOREPICK;
 
     default_Layer0_FillPanel = leWidget_New();
     default_Layer0_FillPanel->fn->setPosition(default_Layer0_FillPanel, 0, 0);

@@ -182,6 +182,29 @@ extern leRasterFont NotoSans_Regular;
 
 extern const leStringTable stringTable;
 
+
+// string list
+extern leTableString string_FileNotFound2;
+extern leTableString string_FlashingComplete;
+extern leTableString string_Title;
+extern leTableString string_RecordCount;
+extern leTableString string_UnknownError;
+extern leTableString string_Numbers;
+extern leTableString string_Done;
+extern leTableString string_NoMedium;
+extern leTableString string_FileNotFound1;
+extern leTableString string_NoValidMedium;
+extern leTableString string_stringNumberFiller;
+extern leTableString string_Ok;
+extern leTableString string_SDCard;
+extern leTableString string_SelectSource;
+extern leTableString string_Of;
+extern leTableString string_Flashing;
+extern leTableString string_NoValidMedium2;
+extern leTableString string_InvalidFile;
+extern leTableString string_USB;
+
+void initializeStrings(void);
 //DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 }

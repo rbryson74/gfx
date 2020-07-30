@@ -124,7 +124,7 @@ void TC4_CompareStop( void )
 
 uint32_t TC4_CompareFrequencyGet( void )
 {
-    return (uint32_t)(120000000UL);
+    return (uint32_t)(48000000UL);
 }
 
 /* Get the current counter value */

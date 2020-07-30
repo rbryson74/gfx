@@ -134,3 +134,32 @@ const leStringTable stringTable =
     fontList, // font lookup table
     LE_STRING_ENCODING_UTF16 // encoding standard
 };
+
+
+// string list
+leTableString string_ImageIsRLE;
+leTableString string_DrawRaw;
+leTableString string_DrawPNG;
+leTableString string_DrawRLE;
+leTableString string_TitleString;
+leTableString string_ImageIsJPEG;
+leTableString string_ImageIsRaw;
+leTableString string_DrawPaletteCompressed;
+leTableString string_ImageIsPNG;
+leTableString string_ImageIsPaletteCompressed;
+leTableString string_DrawJpeg;
+
+void initializeStrings(void)
+{
+    leTableString_Constructor(&string_ImageIsRLE, stringID_ImageIsRLE);
+    leTableString_Constructor(&string_DrawRaw, stringID_DrawRaw);
+    leTableString_Constructor(&string_DrawPNG, stringID_DrawPNG);
+    leTableString_Constructor(&string_DrawRLE, stringID_DrawRLE);
+    leTableString_Constructor(&string_TitleString, stringID_TitleString);
+    leTableString_Constructor(&string_ImageIsJPEG, stringID_ImageIsJPEG);
+    leTableString_Constructor(&string_ImageIsRaw, stringID_ImageIsRaw);
+    leTableString_Constructor(&string_DrawPaletteCompressed, stringID_DrawPaletteCompressed);
+    leTableString_Constructor(&string_ImageIsPNG, stringID_ImageIsPNG);
+    leTableString_Constructor(&string_ImageIsPaletteCompressed, stringID_ImageIsPaletteCompressed);
+    leTableString_Constructor(&string_DrawJpeg, stringID_DrawJpeg);
+}

@@ -25,20 +25,6 @@ leLabelWidget* default_RecordsTotalLabel;
 leLabelWidget* default_FlashingLabel;
 leProgressBarWidget* default_FlashingProgressBar;
 
-// string list for this screen
-static leTableString string_Title;
-static leTableString string_USB;
-static leTableString string_SDCard;
-static leTableString string_SelectSource;
-static leTableString string_NoValidMedium;
-static leTableString string_NoValidMedium2;
-static leTableString string_Ok;
-static leTableString string_FileNotFound2;
-static leTableString string_FileNotFound1;
-static leTableString string_stringNumberFiller;
-static leTableString string_Of;
-static leTableString string_Flashing;
-
 static leBool initialized = LE_FALSE;
 static leBool showing = LE_FALSE;
 
@@ -56,20 +42,6 @@ leResult screenShow_default()
 {
     if(showing == LE_TRUE)
         return LE_FAILURE;
-
-    // initialize static strings
-    leTableString_Constructor(&string_Title, stringID_Title);
-    leTableString_Constructor(&string_USB, stringID_USB);
-    leTableString_Constructor(&string_SDCard, stringID_SDCard);
-    leTableString_Constructor(&string_SelectSource, stringID_SelectSource);
-    leTableString_Constructor(&string_NoValidMedium, stringID_NoValidMedium);
-    leTableString_Constructor(&string_NoValidMedium2, stringID_NoValidMedium2);
-    leTableString_Constructor(&string_Ok, stringID_Ok);
-    leTableString_Constructor(&string_FileNotFound2, stringID_FileNotFound2);
-    leTableString_Constructor(&string_FileNotFound1, stringID_FileNotFound1);
-    leTableString_Constructor(&string_stringNumberFiller, stringID_stringNumberFiller);
-    leTableString_Constructor(&string_Of, stringID_Of);
-    leTableString_Constructor(&string_Flashing, stringID_Flashing);
 
     // layer 0
     root0 = leWidget_New();
@@ -303,19 +275,6 @@ void screenHide_default()
     default_RecordsTotalLabel = NULL;
     default_FlashingLabel = NULL;
     default_FlashingProgressBar = NULL;
-
-    string_Title.fn->destructor(&string_Title);
-    string_USB.fn->destructor(&string_USB);
-    string_SDCard.fn->destructor(&string_SDCard);
-    string_SelectSource.fn->destructor(&string_SelectSource);
-    string_NoValidMedium.fn->destructor(&string_NoValidMedium);
-    string_NoValidMedium2.fn->destructor(&string_NoValidMedium2);
-    string_Ok.fn->destructor(&string_Ok);
-    string_FileNotFound2.fn->destructor(&string_FileNotFound2);
-    string_FileNotFound1.fn->destructor(&string_FileNotFound1);
-    string_stringNumberFiller.fn->destructor(&string_stringNumberFiller);
-    string_Of.fn->destructor(&string_Of);
-    string_Flashing.fn->destructor(&string_Flashing);
 
 
     showing = LE_FALSE;
