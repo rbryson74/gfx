@@ -4,7 +4,7 @@
     <Name dnOrder="0" value="lcdc_rgba8888_mxt_9x60_freertos_wvga"/>
     <Processor dnOrder="1" value="SAM9X60"/>
     <Harmony dnOrder="2" path="C:\Users\c18797\Documents\Projects\Harmony\H3"/>
-    <Project_Name dnOrder="3" value="aria_qs_9x60_ek_tm5000"/>
+    <Project_Name dnOrder="3" value="aria_qs_9x60_ek_tm5000_freertos"/>
     <Folder_Name dnOrder="4" value="aria_qs_9x60_ek_tm5000_freertos.IAR"/>
     <Manifest dnOrder="5">
       <Files dnOrder="0">

@@ -4,7 +4,7 @@
 
 
 project: aria_quickstart
-creation_date: 2020-07-31T08:09:55.194919300-07:00[America/Phoenix]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2020-07-31T11:09:27.275193800-07:00[America/Phoenix]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 10
 mhc_mode: Standalone            # [IDE|Standalone|Headless]
 mplabx_version: NA        # if MPLAB X plugin only
