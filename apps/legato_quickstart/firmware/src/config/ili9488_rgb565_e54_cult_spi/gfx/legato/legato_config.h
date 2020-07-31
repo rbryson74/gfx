@@ -51,7 +51,7 @@ extern "C" {
 
 
 #define LE_DEFAULT_COLOR_MODE              LE_COLOR_MODE_RGB_565
-#define LE_TOUCH_ORIENTATION               0
+#define LE_TOUCH_ORIENTATION               90
 #define LE_DRIVER_LAYER_MODE               1
 
 #define LE_ASSERT_ENABLE                   0
@@ -115,13 +115,13 @@ extern "C" {
 
 // variable heap configuration
 #define LE_VARIABLEHEAP_DEBUGLEVEL         0
-#define LE_VARIABLEHEAP_SIZE               6144
+#define LE_VARIABLEHEAP_SIZE               4096
 #define LE_VARIABLEHEAP_MINALLOCSIZE       32
 #define LE_VARIABLEHEAP_ALIGNMENT          4
 #define LE_VARIABLEHEAP_BESTFIT            1
 
 // fixed heap configuration
-#define LE_FIXEDHEAP_ENABLE                0
+#define LE_FIXEDHEAP_ENABLE                1
 #define LE_FIXEDHEAP_DEBUG                 0
 #define LE_FIXEDHEAP_SIZE_16               300
 #define LE_FIXEDHEAP_SIZE_32               96
@@ -143,7 +143,7 @@ extern "C" {
 
 // renderer config
 #define LE_ALPHA_BLENDING_ENABLED          1
-#define LE_SCRATCH_BUFFER_SIZE_KB          16
+#define LE_SCRATCH_BUFFER_SIZE_KB          32
 #define LE_USE_ARC_SCAN_FILL               1
 #define LE_ARC_SMOOTH_EDGE                 LE_FALSE
 
