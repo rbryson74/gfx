@@ -109,7 +109,7 @@ extern GFXU_FontAsset NotoSans_Bold;
 /*********************************
  * GFX Font Asset
  * Name:         NotoSans_Regular
- * Height:       23
+ * Height:       21
  * Style:        Plain
  * Glyph Count:  16
  * Range Count:  12
