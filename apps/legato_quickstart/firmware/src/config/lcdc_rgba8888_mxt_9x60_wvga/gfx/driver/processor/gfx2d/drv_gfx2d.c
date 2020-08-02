@@ -57,8 +57,8 @@
 
 
 
-#define DISPLAY_WIDTH  480
-#define DISPLAY_HEIGHT 272
+#define DISPLAY_WIDTH  800
+#define DISPLAY_HEIGHT 480
 uint32_t  __attribute__ ((aligned (64))) blitbuffer[DISPLAY_WIDTH * DISPLAY_HEIGHT] ;
 uint32_t  __attribute__ ((aligned (64))) maskbuffer[DISPLAY_WIDTH * DISPLAY_HEIGHT] ;
 

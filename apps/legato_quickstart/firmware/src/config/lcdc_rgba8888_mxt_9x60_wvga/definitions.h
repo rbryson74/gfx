@@ -49,7 +49,6 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include "bsp/bsp.h"
-#include "peripheral/pit/plib_pit.h"
 #include "gfx/legato/generated/le_gen_harmony.h"
 #include "peripheral/mmu/plib_mmu.h"
 #include "peripheral/clk/plib_clk.h"

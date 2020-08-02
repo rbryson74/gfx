@@ -14,12 +14,12 @@ extern "C" {
 
 // screen member widget declarations
 extern leWidget* Screen0_default_Layer0_FillPanel;
-extern leImageWidget* Screen0_ImageWidget1;
-extern leButtonWidget* Screen0_ButtonWidget1;
-extern leLabelWidget* Screen0_LabelWidget0;
-extern leLabelWidget* Screen0_LabelWidget1;
-extern leLabelWidget* Screen0_LabelWidget2;
 extern leImageWidget* Screen0_ImageWidget0;
+extern leLabelWidget* Screen0_LabelWidget2;
+extern leLabelWidget* Screen0_LabelWidget1;
+extern leLabelWidget* Screen0_LabelWidget0;
+extern leButtonWidget* Screen0_ButtonWidget1;
+extern leImageWidget* Screen0_ImageWidget1;
 
 // screen lifecycle functions
 // DO NOT CALL THESE DIRECTLY
