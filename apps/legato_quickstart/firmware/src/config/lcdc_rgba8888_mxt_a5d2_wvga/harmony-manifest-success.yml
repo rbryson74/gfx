@@ -4,22 +4,26 @@
 
 
 project: legato_quickstart
-creation_date: 2020-07-30T15:37:00.030-07:00[America/Phoenix]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
-operating_system: Linux
+creation_date: 2020-08-02T12:15:54.343-07:00[America/Phoenix]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+operating_system: Windows 7
 mhc_mode: IDE            # [IDE|Standalone|Headless]
 mplabx_version: v5.40        # if MPLAB X plugin only
-plugin_version: v3.5.1        # if MPLAB X plugin only
+plugin_version: v3.5.0        # if MPLAB X plugin only
 
 modules:
-    - {name: "mhc", version: "v3.4.1"}
-    - {name: "contentmanager", version: "v1.4.0"}
-    - {name: "gfx_apps", version: "unknown"}
+    - {name: "audio", version: "unknown"}
     - {name: "bsp", version: "v3.7.0"}
-    - {name: "dev_packs", version: "v3.7.0"}
-    - {name: "usb", version: "v3.6.0"}
-    - {name: "gfx", version: "unknown"}
-    - {name: "csp", version: "v3.7.0"}
-    - {name: "CMSIS-FreeRTOS", version: "v10.3.0"}
+    - {name: "CMSIS-FreeRTOS", version: "unknown"}
+    - {name: "contentmanager", version: "v1.4.0"}
     - {name: "core", version: "v3.7.2"}
-    - {name: "quick_docs", version: "v1.0.0"}
+    - {name: "csp", version: "v3.7.1"}
+    - {name: "dev_packs", version: "v3.7.0-rc.2"}
+    - {name: "gfx", version: "unknown"}
+    - {name: "gfx_apps", version: "unknown"}
+    - {name: "mhc", version: "v3.4.1"}
+    - {name: "microchip-mplab-harmony.github.io.wiki", version: "unknown"}
+    - {name: "mplabx_plugin", version: "v3.4.1"}
+    - {name: "touch", version: "v3.5.0"}
+    - {name: "usb", version: "v3.6.0"}
+    - {name: "xarchive_repo", version: "unknown"}
 
