@@ -553,7 +553,7 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/ili9488_rgb565_e54_cult_spi/gfx/legato/core</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/core/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">E0BF124F2D0B9BDE8F9ACC2C31F5C046</GeneratedChecksum>
+          <GeneratedChecksum dnOrder="5">F55A7959F27177E65719BB5A1CD85192</GeneratedChecksum>
           <UserChecksum dnOrder="6">2C7AE9D3537FC2EC9FB76BA5D12AE07A</UserChecksum>
         </File>
         <File dnOrder="61">
@@ -1994,7 +1994,7 @@
           <LogicalPath dnOrder="3">config/ili9488_rgb565_e54_cult_spi/gfx/legato/</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato\</PhysicalPath>
           <GeneratedChecksum dnOrder="5">2B84C0682F496891C63097C2C8A902AC</GeneratedChecksum>
-          <UserChecksum dnOrder="6">2B84C0682F496891C63097C2C8A902AC</UserChecksum>
+          <UserChecksum dnOrder="6">DD53F1AAFA9D806BD7A5054EA20829A4</UserChecksum>
         </File>
         <File dnOrder="221">
           <Type dnOrder="0">HEADER</Type>
@@ -3164,7 +3164,7 @@
       <Setting dnOrder="1" key="DFPPath" value=".\dev_packs\Microchip\SAME54_DFP\3.3.64\atdf\ATSAME54P20A.atdf"/>
       <Setting dnOrder="2" key="FORCE_OPTIMIZATION" value="false"/>
       <Setting dnOrder="3" key="GENERATE_BACKUP" value="true"/>
-      <Setting dnOrder="4" key="MERGE_STRATEGY" value="USER_ALL"/>
+      <Setting dnOrder="4" key="MERGE_STRATEGY" value="ALL"/>
       <Setting dnOrder="5" key="PackageFilter" value="audio;bootloader;bsp;core;crypto;csp;gfx;gfx_apps;net;touch;usb;"/>
     </Settings>
   </Configurator>
