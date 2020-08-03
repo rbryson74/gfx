@@ -235,7 +235,6 @@
       <logicalFolder name="f3" displayName="osal" projectFiles="true">
         <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk_freertos_wvga/osal/osal_freertos.c</itemPath>
       </logicalFolder>
-      <itemPath>../src/app_gfx_assets.c</itemPath>
       <itemPath>../src/main.c</itemPath>
       <itemPath>../src/app_glcd.c</itemPath>
     </logicalFolder>
@@ -246,6 +245,7 @@
       <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk_freertos_wvga/harmony.prj</itemPath>
       <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_sk_freertos_wvga/glcd_rgba8888_mxt_mzda_intddr_sk_freertos_wvga.xml</itemPath>
     </logicalFolder>
+    <itemPath>../src/app_gfx_assets_16.c</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>../src</Elem>
@@ -258,7 +258,7 @@
         <targetDevice>PIC32MZ2064DAR169</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool></platformTool>
+        <platformTool>RealICEPlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>2.40</languageToolchainVersion>
         <platform>2</platform>

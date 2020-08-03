@@ -235,9 +235,9 @@
       <logicalFolder name="f3" displayName="osal" projectFiles="true">
         <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk/osal/osal_freertos.c</itemPath>
       </logicalFolder>
-      <itemPath>../src/app_gfx_assets.c</itemPath>
       <itemPath>../src/main.c</itemPath>
       <itemPath>../src/app_glcd.c</itemPath>
+      <itemPath>../src/app_gfx_assets_16.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -258,9 +258,9 @@
         <targetDevice>PIC32MZ2064DAA288</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool></platformTool>
+        <platformTool>RealICEPlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>2.40</languageToolchainVersion>
+        <languageToolchainVersion>2.41</languageToolchainVersion>
         <platform>2</platform>
       </toolsSet>
       <packs>

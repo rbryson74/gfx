@@ -85,6 +85,7 @@ extern const uint8_t NewHarmonyLogo_data[41280];
 
 APP_GLCD_DATA appData;
 gfxPixelBuffer imageBuffer;
+gfxPixelBuffer textBuffer;
 
 // *****************************************************************************
 // *****************************************************************************
@@ -138,28 +139,32 @@ void APP_GLCD_Initialize ( void )
 
  */
 static void APP_PaintFrameWithBuffer(
-                    uint16_t * buff,
+                    gfxPixelBuffer* buf,
                     int x,
-                    int y,
-                    int width,
-                    int height)
+                    int y)
 {
-    gfxPixelBuffer * frameBuff;
-    uint16_t * pixels;
+    gfxPixelBuffer* frameBuff;
+    gfxBuffer pixel;
+    gfxColor clr;
+    gfxPoint pnt;
     int i, j;
     
-//    gfxDriverInterface.blitBuffer(x, y, &imageBuffer, GFX_BLEND_NONE);
     frameBuff = gfxDriverInterface.getFrameBuffer(0);
-    pixels = (uint16_t*)frameBuff->pixels;
-//    return;
-    
-    for (i = 0; i < height; i++) 
+
+    for (i = 0; i < buf->size.height; i++) 
     {
-        for (j = 0; j < width; j++) 
+        for (j = 0; j < buf->size.width; j++) 
         {
-            *(uint16_t *) (pixels + 
-                            (y + i) * APP_GFX_LAYER_WIDTH_PIXELS + 
-                            (x + j)) = buff[i * width + j];
+            pnt.x = j;
+            pnt.y = i;
+            
+            clr = gfxColorConvert(buf->mode,
+                                  frameBuff->mode,
+                                  gfxPixelBufferGet(buf, pnt.x, pnt.y));
+            
+            pixel = gfxPixelBufferOffsetGet(frameBuff, pnt.x + x, pnt.y + y);
+            
+            memcpy(pixel, &clr, gfxColorInfoTable[frameBuff->mode].size);
         }
     }
 }
@@ -173,9 +178,8 @@ static void APP_PaintFrameWithColor(
 {
     gfxPixelBuffer * frameBuff;
     
-     frameBuff = gfxDriverInterface.getFrameBuffer(0);
-     memset(frameBuff->pixels, color, APP_GFX_LAYER_WIDTH_PIXELS * APP_GFX_LAYER_HEIGHT_PIXELS * 2);
-
+    frameBuff = gfxDriverInterface.getFrameBuffer(0);
+    memset(frameBuff->pixels, color, APP_GFX_LAYER_WIDTH_PIXELS * APP_GFX_LAYER_HEIGHT_PIXELS * 2);
 }
 
 
@@ -198,11 +202,17 @@ void APP_GLCD_Tasks ( void )
         {
             bool appInitialized = true;
                        
-            gfxPixelBufferCreate(300,
-                    100,
+            gfxPixelBufferCreate(172,
+                    120,
                     GFX_COLOR_MODE_RGB_565,
-                    &NewHarmonyLogo_data[0],
+                    NewHarmonyLogo_data,
                     &imageBuffer);
+            
+            gfxPixelBufferCreate(240,
+                    40,
+                    GFX_COLOR_MODE_RGB_565,
+                    StartWithBlankText_data,
+                    &textBuffer);
                 
             if (appData.state != APP_STATE_ERROR)
             {
@@ -226,22 +236,12 @@ void APP_GLCD_Tasks ( void )
                     APP_GFX_LAYER_HEIGHT_PIXELS);
             
             //Draw Harmony Logo on Layer 1
-            APP_PaintFrameWithBuffer(
-                    (uint16_t *) NewHarmonyLogo_data,
-                    151,
-                    50,
-                    172,
-                    120);
+            APP_PaintFrameWithBuffer(&imageBuffer, 151, 50);
             
             appData.state = APP_STATE_PROCESS;
 
             //Draw Text on Layer 2
-            APP_PaintFrameWithBuffer(
-                    (uint16_t *) StartWithBlankText_data,
-                    115,
-                    200,
-                    240,
-                    40);
+            APP_PaintFrameWithBuffer(&textBuffer, 115, 200);
             
             appData.state = APP_STATE_PROCESS;
             

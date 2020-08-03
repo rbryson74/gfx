@@ -235,7 +235,6 @@
       <logicalFolder name="f3" displayName="osal" projectFiles="true">
         <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk_freertos_wvga/osal/osal_freertos.c</itemPath>
       </logicalFolder>
-      <itemPath>../src/app_gfx_assets.c</itemPath>
       <itemPath>../src/main.c</itemPath>
       <itemPath>../src/app_glcd.c</itemPath>
     </logicalFolder>
@@ -246,6 +245,7 @@
       <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk_freertos_wvga/harmony.prj</itemPath>
       <itemPath>../src/config/glcd_rgba8888_mxt_mzda_extddr_sk_freertos_wvga/glcd_rgba8888_mxt_mzda_extddr_sk_freertos_wvga.xml</itemPath>
     </logicalFolder>
+    <itemPath>../src/app_gfx_assets_16.c</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>../src</Elem>
@@ -258,9 +258,9 @@
         <targetDevice>PIC32MZ2064DAA288</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool></platformTool>
+        <platformTool>RealICEPlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>2.40</languageToolchainVersion>
+        <languageToolchainVersion>2.41</languageToolchainVersion>
         <platform>2</platform>
       </toolsSet>
       <packs>
@@ -750,6 +750,7 @@
         <property key="UART5" value="true"/>
         <property key="UART6" value="true"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="hwtoolclock.instructionspeed" value="4"/>
         <property key="hwtoolclock.units" value="mips"/>
