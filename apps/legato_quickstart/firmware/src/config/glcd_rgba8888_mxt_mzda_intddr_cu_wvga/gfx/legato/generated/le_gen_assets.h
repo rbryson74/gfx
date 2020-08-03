@@ -93,7 +93,7 @@ extern leImage MHGS_logo_WVGA;
  * Name:   mchpLogo_light
  * Size:   152x40 pixels
  * Type:   RGB Data
- * Format: RGB_888
+ * Format: RGBA_8888
  ***********************************/
 extern leImage mchpLogo_light;
 

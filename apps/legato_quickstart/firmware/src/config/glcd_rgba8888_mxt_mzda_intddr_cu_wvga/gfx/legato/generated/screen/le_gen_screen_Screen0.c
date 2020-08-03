@@ -85,8 +85,8 @@ leResult screenShow_Screen0()
     root0->fn->addChild(root0, (leWidget*)Screen0_LabelWidget2);
 
     Screen0_ImageWidget0 = leImageWidget_New();
-    Screen0_ImageWidget0->fn->setPosition(Screen0_ImageWidget0, 7, 12);
-    Screen0_ImageWidget0->fn->setSize(Screen0_ImageWidget0, 152, 40);
+    Screen0_ImageWidget0->fn->setPosition(Screen0_ImageWidget0, 5, 12);
+    Screen0_ImageWidget0->fn->setSize(Screen0_ImageWidget0, 166, 40);
     Screen0_ImageWidget0->fn->setBackgroundType(Screen0_ImageWidget0, LE_WIDGET_BACKGROUND_NONE);
     Screen0_ImageWidget0->fn->setBorderType(Screen0_ImageWidget0, LE_WIDGET_BORDER_NONE);
     Screen0_ImageWidget0->fn->setImage(Screen0_ImageWidget0, (leImage*)&mchpLogo_light);

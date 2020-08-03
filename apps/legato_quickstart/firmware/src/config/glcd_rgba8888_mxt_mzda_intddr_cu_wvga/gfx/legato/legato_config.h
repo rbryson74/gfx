@@ -52,7 +52,7 @@ extern "C" {
 
 #define LE_DEFAULT_COLOR_MODE              LE_COLOR_MODE_RGBA_8888
 #define LE_TOUCH_ORIENTATION               0
-#define LE_DRIVER_LAYER_MODE               0
+#define LE_DRIVER_LAYER_MODE               1
 
 #define LE_ASSERT_ENABLE                   0
 
@@ -143,7 +143,7 @@ extern "C" {
 
 // renderer config
 #define LE_ALPHA_BLENDING_ENABLED          1
-#define LE_SCRATCH_BUFFER_SIZE_KB          32
+#define LE_SCRATCH_BUFFER_SIZE_KB          128
 #define LE_USE_ARC_SCAN_FILL               1
 #define LE_ARC_SMOOTH_EDGE                 LE_FALSE
 

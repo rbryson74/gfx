@@ -53,7 +53,6 @@
 #include "gfx/driver/controller/glcd/plib_glcd.h"
 #include "gfx/driver/controller/glcd/drv_gfx_glcd.h"
 #include "definitions.h"
-#include "gfx/driver/processor/2dgpu/libnano2d.h"
 // *****************************************************************************
 // *****************************************************************************
 // Section: Global Data
@@ -62,9 +61,9 @@
 
 #define BUFFER_PER_LAYER    1
 
-#define DISPLAY_WIDTH  480
-#define DISPLAY_HEIGHT 272
-#define GFX_GLCD_LAYERS 3
+#define DISPLAY_WIDTH  800
+#define DISPLAY_HEIGHT 480
+#define GFX_GLCD_LAYERS 1
 #define GFX_GLCD_BACKGROUND_COLOR 0xFFFFFF00
 #define GFX_GLCD_CONFIG_CONTROL 0x80000000
 #define GFX_GLCD_CONFIG_CLK_DIVIDER 10
@@ -73,12 +72,6 @@
 /*** GLCD Layer 0 Configuration ***/
 #define  GFX_GLCD_LAYER0_BASEADDR                      0xA8000000
 #define  GFX_GLCD_LAYER0_DBL_BASEADDR                  0xA8465000
-/*** GLCD Layer 1 Configuration ***/
-#define  GFX_GLCD_LAYER1_BASEADDR                      0xA8177000
-#define  GFX_GLCD_LAYER1_DBL_BASEADDR                  0xA85DC000
-/*** GLCD Layer 2 Configuration ***/
-#define  GFX_GLCD_LAYER2_BASEADDR                      0xA82EE000
-#define  GFX_GLCD_LAYER2_DBL_BASEADDR                  0xA8753000
 
 #define LCDC_DEFAULT_GFX_COLOR_MODE GLCD_LAYER_COLOR_MODE_RGBA8888
 #define FRAMEBUFFER_PTR_TYPE    uint32_t*
@@ -98,7 +91,6 @@ const char* DRIVER_NAME = "GLCD";
 
 
 static uint32_t state;
-static gfxRect srcRect, destRect;
 static unsigned int vsyncCount = 0;
 static gfxPixelBuffer pixelBuffer[GFX_GLCD_LAYERS];
 
@@ -238,13 +230,13 @@ void DRV_GLCD_Initialize()
 
 
     /* set temporary information */
-    xResolution     = 480;
-    yResolution     = 272;
-    rightMargin     = 2;
-    leftMargin      = 2;
-    hsyncLength     = 41;
+    xResolution     = 800;
+    yResolution     = 480;
+    rightMargin     = 40;
+    leftMargin      = 40;
+    hsyncLength     = 48;
     vsyncLength     = 10;
-    upperMargin     = 2;
+    upperMargin     = 29;
     lowerMargin     = 10;
 
 
@@ -269,8 +261,6 @@ void DRV_GLCD_Initialize()
     PLIB_GLCD_Enable();
 
     drvLayer[0].baseaddr[0] = (FRAMEBUFFER_PTR_TYPE)GFX_GLCD_LAYER0_BASEADDR;
-    drvLayer[1].baseaddr[0] = (FRAMEBUFFER_PTR_TYPE)GFX_GLCD_LAYER1_BASEADDR;
-    drvLayer[2].baseaddr[0] = (FRAMEBUFFER_PTR_TYPE)GFX_GLCD_LAYER2_BASEADDR;
 
     for (layerCount = 0; layerCount < GFX_GLCD_LAYERS; layerCount++)
     {
@@ -416,21 +406,22 @@ gfxResult DRV_GLCD_BlitBuffer(int32_t x,
                              int32_t y,
                              gfxPixelBuffer* buf)
 {
+    void* srcPtr;
+    void* destPtr;
+    uint32_t row, rowSize;
 
     if (state != RUN)
         return GFX_FAILURE;
 
-    srcRect.x = 0;
-    srcRect.y = 0;
-    srcRect.height = buf->size.height;
-    srcRect.width = buf->size.width;
+    rowSize = buf->size.width * gfxColorInfoTable[buf->mode].size;
 
-    destRect.x = x;
-    destRect.y = y;
-    destRect.height = buf->size.height;
-    destRect.width = buf->size.width;
+    for(row = 0; row < buf->size.height; row++)
+    {
+        srcPtr = gfxPixelBufferOffsetGet(buf, 0, row);
+        destPtr = gfxPixelBufferOffsetGet(&pixelBuffer[activeLayer], x, y + row);
 
-    gfxGPUInterface.blitBuffer(buf, &srcRect, &pixelBuffer[activeLayer], &destRect);
+        memcpy(destPtr, srcPtr, rowSize);
+    }
 
     return GFX_SUCCESS;
 }

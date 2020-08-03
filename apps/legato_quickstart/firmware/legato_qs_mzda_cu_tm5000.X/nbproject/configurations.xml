@@ -24,10 +24,7 @@
           </logicalFolder>
           <logicalFolder name="f1" displayName="gfx" projectFiles="true">
             <logicalFolder name="f1" displayName="driver" projectFiles="true">
-              <logicalFolder name="f1" displayName="2dgpu" projectFiles="true">
-                <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_cu_wvga/gfx/driver/processor/2dgpu/libnano2d.h</itemPath>
-              </logicalFolder>
-              <logicalFolder name="f2" displayName="glcd" projectFiles="true">
+              <logicalFolder name="f1" displayName="glcd" projectFiles="true">
                 <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_cu_wvga/gfx/driver/gfx_driver.h</itemPath>
                 <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_cu_wvga/gfx/driver/controller/glcd/drv_gfx_glcd.h</itemPath>
                 <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_cu_wvga/gfx/driver/controller/glcd/plib_glcd.h</itemPath>
@@ -292,10 +289,7 @@
           </logicalFolder>
           <logicalFolder name="f1" displayName="gfx" projectFiles="true">
             <logicalFolder name="f1" displayName="driver" projectFiles="true">
-              <logicalFolder name="f1" displayName="2dgpu" projectFiles="true">
-                <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_cu_wvga/gfx/driver/processor/2dgpu/libnano2d.c</itemPath>
-              </logicalFolder>
-              <logicalFolder name="f2" displayName="glcd" projectFiles="true">
+              <logicalFolder name="f1" displayName="glcd" projectFiles="true">
                 <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_cu_wvga/gfx/driver/gfx_driver.c</itemPath>
                 <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_cu_wvga/gfx/driver/controller/glcd/drv_gfx_glcd.c</itemPath>
                 <itemPath>../src/config/glcd_rgba8888_mxt_mzda_intddr_cu_wvga/gfx/driver/controller/glcd/plib_glcd.c</itemPath>
@@ -594,10 +588,10 @@
         <targetDevice>PIC32MZ2064DAR176</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool></platformTool>
+        <platformTool>pkob4hybrid</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>2.40</languageToolchainVersion>
-        <platform>2</platform>
+        <languageToolchainVersion>2.41</languageToolchainVersion>
+        <platform>3</platform>
       </toolsSet>
       <packs>
         <pack name="PIC32MZ-DA_DFP" vendor="Microchip" version="1.2.102"/>
@@ -607,7 +601,6 @@
       <compileType>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>../src/config/glcd_rgba8888_mxt_mzda_intddr_cu_wvga/gfx/driver/processor/2dgpu/lib/libnano2d.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>
@@ -875,6 +868,11 @@
         <property key="programoptions.uselvpprogramming" value="false"/>
         <property key="voltagevalue" value="3.25"/>
       </PICkit3PlatformTool>
+      <pkob4hybrid>
+        <property key="memories.programmemory.ranges" value="1d000000-1d1fffff"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/Users/c18797/Documents/Projects/Harmony/H3/gfx/apps/legato_quickstart/firmware/legato_qs_mzda_cu_tm5000.X/debug/glcd_rgba8888_mxt_mzda_intddr_cu_wvga/legato_qs_mzda_cu_tm5000_ptg"/>
+      </pkob4hybrid>
     </conf>
   </confs>
 </configurationDescriptor>
