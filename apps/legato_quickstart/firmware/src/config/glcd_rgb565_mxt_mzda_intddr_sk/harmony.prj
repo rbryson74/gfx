@@ -1624,8 +1624,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/glcd_rgb565_mxt_mzda_intddr_sk/gfx/legato/</LogicalPath>
           <PhysicalPath dnOrder="4">/gfx/legato/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">C35F51D2753F13A9DE7220976E0657BA</GeneratedChecksum>
-          <UserChecksum dnOrder="6">C35F51D2753F13A9DE7220976E0657BA</UserChecksum>
+          <GeneratedChecksum dnOrder="5">063A172584DE4EB587D0F1F2E4AB23C9</GeneratedChecksum>
+          <UserChecksum dnOrder="6">063A172584DE4EB587D0F1F2E4AB23C9</UserChecksum>
         </File>
         <File dnOrder="180">
           <Type dnOrder="0">HEADER</Type>
