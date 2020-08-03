@@ -578,6 +578,7 @@
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
       <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/harmony.prj</itemPath>
+      <itemPath>../src/config/lcc_rgb565_mxt_mzef_cu/lcc_rgb565_mxt_mzef_cu.xml</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
@@ -594,7 +595,7 @@
         <platformTool>pkob4hybrid</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>2.40</languageToolchainVersion>
-        <platform>2</platform>
+        <platform>3</platform>
       </toolsSet>
       <packs>
         <pack name="PIC32MZ-EF_DFP" vendor="Microchip" version="1.0.20"/>

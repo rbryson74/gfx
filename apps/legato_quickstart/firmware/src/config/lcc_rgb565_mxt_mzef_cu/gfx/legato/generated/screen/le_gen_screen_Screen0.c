@@ -93,7 +93,7 @@ leResult screenShow_Screen0()
     root0->fn->addChild(root0, (leWidget*)Screen0_LabelWidget2);
 
     leAddRootWidget(root0, 0);
-    leSetLayerColorMode(0, LE_COLOR_MODE_RGBA_8888);
+    leSetLayerColorMode(0, LE_COLOR_MODE_RGB_565);
 
     showing = LE_TRUE;
 
