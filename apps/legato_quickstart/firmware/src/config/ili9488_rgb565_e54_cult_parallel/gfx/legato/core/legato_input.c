@@ -156,10 +156,7 @@ leResult leInput_InjectTouchUp(uint32_t id, int32_t x, int32_t y)
 
     // reorient touch coordinates if the user interface is rotated
 #if LE_TOUCH_ORIENTATION != 0
-    displayRect.x = 0;
-    displayRect.y = 0;
-    displayRect.height = leGetRenderState()->dispDriver->getDisplayHeight();
-    displayRect.width = leGetRenderState()->dispDriver->getDisplayWidth();
+    displayRect = leGetRenderState()->displayRect;
 #endif
 
 #if LE_TOUCH_ORIENTATION == 0
@@ -217,10 +214,7 @@ leResult leInput_InjectTouchMoved(uint32_t id, int32_t x, int32_t y)
         return LE_FAILURE;
 
 #if LE_TOUCH_ORIENTATION != 0
-    displayRect.x = 0;
-    displayRect.y = 0;
-    displayRect.height = leGetRenderState()->dispDriver->getDisplayHeight();
-    displayRect.width = leGetRenderState()->dispDriver->getDisplayWidth();
+    displayRect = leGetRenderState()->displayRect;
 #endif
 
     // find any existing touch moved event and overwrite
