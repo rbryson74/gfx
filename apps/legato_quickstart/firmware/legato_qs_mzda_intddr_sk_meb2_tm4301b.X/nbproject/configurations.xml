@@ -24,10 +24,7 @@
           </logicalFolder>
           <logicalFolder name="f1" displayName="gfx" projectFiles="true">
             <logicalFolder name="f1" displayName="driver" projectFiles="true">
-              <logicalFolder name="f1" displayName="2dgpu" projectFiles="true">
-                <itemPath>../src/config/glcd_rgb565_mxt_mzda_intddr_sk/gfx/driver/processor/2dgpu/libnano2d.h</itemPath>
-              </logicalFolder>
-              <logicalFolder name="f2" displayName="glcd" projectFiles="true">
+              <logicalFolder name="f1" displayName="glcd" projectFiles="true">
                 <itemPath>../src/config/glcd_rgb565_mxt_mzda_intddr_sk/gfx/driver/gfx_driver.h</itemPath>
                 <itemPath>../src/config/glcd_rgb565_mxt_mzda_intddr_sk/gfx/driver/controller/glcd/drv_gfx_glcd.h</itemPath>
                 <itemPath>../src/config/glcd_rgb565_mxt_mzda_intddr_sk/gfx/driver/controller/glcd/plib_glcd.h</itemPath>
@@ -289,10 +286,7 @@
           </logicalFolder>
           <logicalFolder name="f1" displayName="gfx" projectFiles="true">
             <logicalFolder name="f1" displayName="driver" projectFiles="true">
-              <logicalFolder name="f1" displayName="2dgpu" projectFiles="true">
-                <itemPath>../src/config/glcd_rgb565_mxt_mzda_intddr_sk/gfx/driver/processor/2dgpu/libnano2d.c</itemPath>
-              </logicalFolder>
-              <logicalFolder name="f2" displayName="glcd" projectFiles="true">
+              <logicalFolder name="f1" displayName="glcd" projectFiles="true">
                 <itemPath>../src/config/glcd_rgb565_mxt_mzda_intddr_sk/gfx/driver/gfx_driver.c</itemPath>
                 <itemPath>../src/config/glcd_rgb565_mxt_mzda_intddr_sk/gfx/driver/controller/glcd/drv_gfx_glcd.c</itemPath>
                 <itemPath>../src/config/glcd_rgb565_mxt_mzda_intddr_sk/gfx/driver/controller/glcd/plib_glcd.c</itemPath>
@@ -574,6 +568,7 @@
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
       <itemPath>../src/config/glcd_rgb565_mxt_mzda_intddr_sk/harmony.prj</itemPath>
+      <itemPath>../src/config/glcd_rgb565_mxt_mzda_intddr_sk/glcd_rgb565_mxt_mzda_intddr_sk.xml</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
@@ -587,9 +582,9 @@
         <targetDevice>PIC32MZ2064DAS169</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>ICD4Tool</platformTool>
+        <platformTool>RealICEPlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>2.40</languageToolchainVersion>
+        <languageToolchainVersion>2.41</languageToolchainVersion>
         <platform>2</platform>
       </toolsSet>
       <packs>
@@ -600,7 +595,6 @@
       <compileType>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>../src/config/glcd_rgb565_mxt_mzda_intddr_sk/gfx/driver/processor/2dgpu/lib/libnano2d.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>
@@ -751,6 +745,7 @@
         <property key="mdtcm" value=""/>
         <property key="mitcm" value=""/>
         <property key="mstacktcm" value="false"/>
+        <property key="omit-pack-options" value="1"/>
         <property key="relaxed-math" value="false"/>
         <property key="save-temps" value="false"/>
         <property key="wpo-lto" value="false"/>
@@ -1052,12 +1047,6 @@
         <property key="programoptions.programuserotp" value="false"/>
         <property key="programoptions.usehighvoltageonmclr" value="false"/>
         <property key="programoptions.uselvpprogramming" value="false"/>
-        <property key="tracecontrol.include.timestamp" value="summarydataenabled"/>
-        <property key="tracecontrol.select" value="0"/>
-        <property key="tracecontrol.stallontracebufferfull" value="false"/>
-        <property key="tracecontrol.tracebufmax" value="546000"/>
-        <property key="tracecontrol.tracefile" value="defmplabxtrace.log"/>
-        <property key="tracecontrol.tracefilemax" value="10000000"/>
         <property key="voltagevalue" value="3.25"/>
       </RealICEPlatformTool>
       <jlink>
