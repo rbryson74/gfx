@@ -1,32 +1,32 @@
----
+ï»¿---
 title: Harmony 3 Graphics Package
 nav_order: 1
 ---
-# ![Microchip Technology](docs/images/mhgs.png) MPLAB® Harmony 3 Graphics Support Package
 
-MPLAB® Harmony 3 is an extension of the MPLAB® ecosystem for creating
+# ![Microchip Technology](docs/images/mhgs.png) MPLABÂ® Harmony 3 Graphics Support Package
+
+MPLABÂ® Harmony 3 is an extension of the MPLAB ecosystem for creating
 embedded firmware solutions for Microchip 32-bit SAM and PIC microcontroller
 and microprocessor devices.  Refer to the following links for more information:
  - [Microchip 32-bit MCUs](https://www.microchip.com/design-centers/32-bit)
  - [Microchip 32-bit MPUs](https://www.microchip.com/design-centers/32-bit-mpus)
- - [Microchip MPLAB® X IDE](https://www.microchip.com/mplab/mplab-x-ide)
- - [Microchip MPLAB® Harmony](https://www.microchip.com/mplab/mplab-harmony)
- - [Microchip MPLAB® Harmony Pages](https://microchip-mplab-harmony.github.io/)
+ - [Microchip MPLABÂ® X IDE](https://www.microchip.com/mplab/mplab-x-ide)
+ - [Microchip MPLABÂ® Harmony](https://www.microchip.com/mplab/mplab-harmony)
+ - [Microchip MPLABÂ® Harmony Pages](https://microchip-mplab-harmony.github.io/)
 
-This repository contains the MPLAB® Harmony Graphics Suite.  The
-suite supports a free fast to market, graphics software development environment for Microchip MPLAB® 32-bit SAM and PIC microprocessor devices.  Refer to
+This repository contains the MPLAB Harmony Graphics Suite.  The
+suite supports a free fast to market, graphics software development environment for Microchip MPLAB 32-bit SAM and PIC microprocessor devices.  Refer to
 the following graphics links for release notes, home page, training materials, framework and application help.
 Find multiple graphics application examples in the [gfx_apps](https://github.com/Microchip-MPLAB-Harmony/gfx_apps/tree/master/apps) repository.
  - [Release Notes](./release_notes.md)
- - [MPLAB® Harmony License](mplab_harmony_license.md)
- - [MPLAB® Harmony 3 Graphics Wiki](https://github.com/Microchip-MPLAB-Harmony/gfx/wiki)
- - [MPLAB® Harmony 3 Graphics Videos](https://www.youtube.com/playlist?list=PL9B4edd-p2ag5xsIIHhja-caKYY7AKPxe)
- - [MPLAB® Harmony 3 Graphics Suite Documentation](https://automaate.github.io/gen2_wiki_sandbox/docs/html/index.html)
- - [MPLAB® Harmony 3 Graphics Apps Repository](api.md)
+ - [MPLABÂ® Harmony License](mplab_harmony_license.md)
+ - [MPLABÂ® Harmony 3 Graphics Wiki](https://github.com/Microchip-MPLAB-Harmony/gfx/wiki)
+ - [MPLABÂ® Harmony 3 Graphics Videos](https://www.youtube.com/playlist?list=PL9B4edd-p2ag5xsIIHhja-caKYY7AKPxe)
+ - [MPLABÂ® Harmony 3 Graphics Suite Documentation](./documentation.html)
 
 # Features
 
-The key features of the MPLAB® Harmony Graphics Suite are the following:
+The key features of the MPLAB Harmony Graphics Suite are the following:
 
 - Hardware optimized for use with Microchip 32-bit SAM and PIC devices
 - Compatible component for use with Microchip Harmony 3 Configurator (MHC)
@@ -50,34 +50,78 @@ The key features of the MPLAB® Harmony Graphics Suite are the following:
 
 | Folder     | Description                                  |
 |------------|----------------------------------------------|
-| apps       | Example quickstart and utility applications |
-| display    | Supported displays |
-| docs       | HTML Help documentation                   |
-| input      | Input System and its associated drivers and services |
-| middleware | Supported User Interface (UI) libraries |
-| driver     | Display controller and graphics processor unit drivers |
+| Legato   | Legato graphics library, drivers, applications, and tools. |
+| Aria     | Aria graphics library, drivers, applications, and tools |
+| Blank    | Blank graphics interface for third-party graphics libraries |
 
+## Legato graphics
 
-## Legato graphics library
-
-**Legato graphics library** - the performance improved graphics library for MPLAB Harmony Graphics Suite. Supports Microchip PIC32 and SAM microcontrollers.
+The performance improved graphics for MPLAB Harmony Graphics Suite. Supports Microchip PIC32 and SAM microcontrollers.
 
 | Category | Item | Description | Release Type |
 | --- | --- | ---- |---- |
-|  apps | legato_flash | Legato UI library quickstart flash writer example | ![app-beta](https://img.shields.io/badge/application-beta-orange?style=plastic) |
-|  apps | legato_quickstart | Legato UI library quickstart example | ![app-beta](https://img.shields.io/badge/application-beta-orange?style=plastic) |
-|      |  legato_quickstart_ext_res | Legato UI library external resource example | ![app-beta](https://img.shields.io/badge/application-beta-orange?style=plastic)|
-| drivers|  external_controller | User generate-able external display driver | ![app-beta](https://img.shields.io/badge/plib-beta-orange?style=plastic) |
-|      |   ili9488 | Display Driver for the ili9488 Controller |![app-beta](https://img.shields.io/badge/plib-beta-orange?style=plastic) |
-|      |   LCC | Display Driver for the LCC software Controller| ![app-beta](https://img.shields.io/badge/plib-beta-orange?style=plastic) |
-|      |   ssd1963 | Display Driver for the ssd1963 Controller | ![app-beta](https://img.shields.io/badge/plib-beta-orange?style=plastic) |
-|      |   parallel_ebi | Interface to the parallel EBI registers | ![app-beta](https://img.shields.io/badge/plib-beta-orange?style=plastic) |
-|      |   parallel_portgroup | Inteface to the parallel portgroup registers | ![app-beta](https://img.shields.io/badge/plib-beta-orange?style=plastic) |
-|      |   parallel_smc | Interface to the parallel smc registers | ![app-beta](https://img.shields.io/badge/plib-beta-orange?style=plastic) |
-|      |   spi | Interface to the spi registers | ![app-beta](https://img.shields.io/badge/plib-beta-orange?style=plastic) |
-| library    | legato | Graphics Library | ![app-beta](https://img.shields.io/badge/library-beta-orange?style=plastic) |
-| designer | legato MHGC |Harmony Graphics Composer for Legato| ![app-beta](https://img.shields.io/badge/plib-beta-orange?style=plastic) |
+|  apps | [legato_adventure](./docs/legato/html/LegatoAdventure.html) | Parallax and sprite animation example | ![app-beta](https://img.shields.io/badge/application-beta-orange?style=plastic) |
+|     | [legato_benchmark](./docs/legato/html/LegatoBenchmark.html) | Performance utility example | ![app-beta](https://img.shields.io/badge/application-beta-orange?style=plastic) |
+|     | [legato_climate_control](./docs/legato/html/LegatoClimateControl.html) | Climate control UI example | ![app-beta](https://img.shields.io/badge/application-beta-orange?style=plastic) |
+|     | [legato_cooker](./docs/legato/html/LegatoCooker.html) | Appliance cooker UI example | ![app-beta](https://img.shields.io/badge/application-beta-orange?style=plastic) |
+|     | [legato_dashboard](./docs/legato/html/LegatoDashboard.html) | Vehicle dashboard example | ![app-beta](https://img.shields.io/badge/application-beta-orange?style=plastic) |
+|     | [legato_flash](./docs/legato/html/LegatoFlash.html) |  Flash writer example | ![app-beta](https://img.shields.io/badge/application-beta-orange?style=plastic) |
+|     | [legato_monitor](./docs/legato/html/LegatoMonitor.html) | Health monitor example | ![app-beta](https://img.shields.io/badge/application-beta-orange?style=plastic) |
+|     | [legato_quickstart](./docs/legato/html/LegatoQuickstart.html) | Legato UI library quickstart example | ![app-beta](https://img.shields.io/badge/application-beta-orange?style=plastic) |
+|     | [legato_quickstart_ext_res](./docs/legato/html/LegatoQuickstartExtRes.html) | Legato UI library external resource example | ![app-beta](https://img.shields.io/badge/application-beta-orange?style=plastic)|
+|     | [legato_showcase](./docs/legato/html/LegatoShowcase.html) | Widgets and advance capabilities example | ![app-beta](https://img.shields.io/badge/application-beta-orange?style=plastic) |
+| drivers|  external_controller | User generate-able external display driver | ![app-beta](https://img.shields.io/badge/driver-beta-orange?style=plastic) |
+|      |   glcd | Driver for the GLCD display controller peripheral | ![app-beta](https://img.shields.io/badge/driver-beta-orange?style=plastic) |
+|      |   2dgpu | Driver for the 2DGPU graphics processor |![app-beta](https://img.shields.io/badge/driver-beta-orange?style=plastic) |
+|      |   lcc |  Driver for the LCC software display controller| ![app-beta](https://img.shields.io/badge/driver-beta-orange?style=plastic) |
+|      |   gfx2d | Driver for the GFX2D graphics processor| ![app-beta](https://img.shields.io/badge/driver-beta-orange?style=plastic) |
+|      |   lcdc | Driver for the LCDC display controller peripheral | ![app-beta](https://img.shields.io/badge/driver-beta-orange?style=plastic) |
+|      |   external controller |  Driver generator for a third-party external display controller | ![app-beta](https://img.shields.io/badge/driver-beta-orange?style=plastic) |
+|      |   ssd1963 | Driver for the ssd1963 display controller | ![app-beta](https://img.shields.io/badge/driver-beta-orange?style=plastic) |
+|      |   ili9488  | Display Driver for the ili9488 controller | ![app-beta](https://img.shields.io/badge/driver-beta-orange?style=plastic) |
+|      |   parallel_ebi | Interface to the parallel EBI registers | ![app-beta](https://img.shields.io/badge/driver-beta-orange?style=plastic) |
+|      |   parallel_portgroup | Inteface to the parallel portgroup registers | ![app-beta](https://img.shields.io/badge/driver-beta-orange?style=plastic) |
+|      |   parallel_smc | Interface to the parallel smc registers | ![app-beta](https://img.shields.io/badge/driver-beta-orange?style=plastic) |
+|      |   spi | Interface to the spi registers | ![app-beta](https://img.shields.io/badge/driver-beta-orange?style=plastic) |
+| library    | legato | Graphics library | ![app-beta](https://img.shields.io/badge/library-beta-orange?style=plastic) |
+| designer | legato MHGC |Harmony graphics composer for Legato| ![app-beta](https://img.shields.io/badge/tool-beta-orange?style=plastic) |
 
+
+## Aria graphics
+
+The legacy graphics facilities for MPLAB Harmony Graphics Suite. Supports Microchip PIC32 and SAM microcontrollers.
+
+| Category | Item | Description | Release Type |
+| --- | --- | ---- |---- |
+|  apps | aria_legato_adventure | Parallax and sprite animation example | ![app-production](https://img.shields.io/badge/application-production-blue?style=plastic) |
+|       | aria_benchmark | Performance utility  | ![app-production](https://img.shields.io/badge/application-production-blue?style=plastic) |
+|       | aria_dashboard | Vehicle dashboard example | ![app-production](https://img.shields.io/badge/application-production-blue?style=plastic) |
+|       | aria_flash | Aria flash writer utility  | ![app-production](https://img.shields.io/badge/application-production-blue?style=plastic) |
+|       | aria_image_viewer | Aria image viewer example | ![app-production](https://img.shields.io/badge/application-production-blue?style=plastic) |
+|       | aria_infotainment | Aria info/entertainment example | ![app-production](https://img.shields.io/badge/application-production-blue?style=plastic) |
+|       | aria_mxt_configure | Aria maXtouch configuration example | ![app-production](https://img.shields.io/badge/application-production-blue?style=plastic) |
+|       | aria_oven_controller | Aria oven controller example | ![app-production](https://img.shields.io/badge/application-production-blue?style=plastic) |
+|       | aria_radial_menu | Aria radial menu example | ![app-production](https://img.shields.io/badge/application-production-blue?style=plastic) |
+|       | aria_quickstart | Aria UI library quickstart reference | ![app-production](https://img.shields.io/badge/application-production-blue?style=plastic) |
+|       | aria_quickstart_ext_res | Aria UI library external resource utility | ![app-production](https://img.shields.io/badge/application-production-blue?style=plastic)|
+|       | aria_showcase | Aria showcase of widgets example | ![app-production](https://img.shields.io/badge/application-production-blue?style=plastic) |
+|       | aria_showcase_reloaded | Aria showcase of cicular widgets example | ![app-production](https://img.shields.io/badge/application-production-blue?style=plastic) |
+|       | aria_thermostat | Aria thermostat menu example | ![app-production](https://img.shields.io/badge/application-production-blue?style=plastic) |
+|       | aria_weather_forecast | Aria weather menu example | ![app-production](https://img.shields.io/badge/application-production-blue?style=plastic) |
+| drivers|  external_controller | User generate-able external display driver | ![app-production](https://img.shields.io/badge/driver-production-blue?style=plastic) |
+|      |   glcd | Driver for the GLCD display controller peripheral | ![app-production](https://img.shields.io/badge/driver-production-blue?style=plastic) |
+|      |   2dgpu | Driver for the 2DGPU graphics processor |![app-production](https://img.shields.io/badge/driver-production-blue?style=plastic) |
+|      |   lcc | Display Driver for the LCC software display controller| ![app-beproductionta](https://img.shields.io/badge/driver-production-blue?style=plastic) |
+|      |   gfx2d | Driver for the GFX2D graphics processor| ![app-production](https://img.shields.io/badge/driver-production-blue?style=plastic) |
+|      |   lcdc | Driver for the LCDC display controller peripheral | ![app-production](https://img.shields.io/badge/driver-production-blue?style=plastic) |
+|      |   external controller | Driver generator for a third-party external display controller | ![app-production](https://img.shields.io/badge/driver-production-blue?style=plastic) |
+|      |   parallel_ebi | Interface to the parallel EBI registers | ![app-production](https://img.shields.io/badge/driver-production-blue?style=plastic) |
+|      |   parallel_portgroup | Inteface to the parallel portgroup registers | ![app-production](https://img.shields.io/badge/driver-production-blue?style=plastic) |
+|      |   parallel_smc | Interface to the parallel smc registers | ![app-production](https://img.shields.io/badge/driver-production-blue?style=plastic) |
+|      |   spi | Interface to the spi registers | ![app-production](https://img.shields.io/badge/driver-production-blue?style=plastic) |
+| hal     | hal | Aria hardware abstraction layer | ![app-production](https://img.shields.io/badge/driver-production-blue?style=plastic) |
+| library    | Aria | Graphics library | ![app-production](https://img.shields.io/badge/library-production-blue?style=plastic) |
+| designer | Aria MHGC |Harmony graphics composer for Aria| ![app-production](https://img.shields.io/badge/tool-production-blue?style=plastic) |
 
 ## Blank library interface
 
@@ -85,39 +129,15 @@ The key features of the MPLAB® Harmony Graphics Suite are the following:
 
 | Category | Item | Description | Release Type |
 | --- | --- | ---- |---- |
-| apps | blank_quickstart | Blank UI-less library quickstart example | ![app-beta](https://img.shields.io/badge/plib-beta-orange?style=plastic) |
-| interface| gfx_driver | Interface abstraction between a graphics library and graphics drivers | ![app-beta](https://img.shields.io/badge/plib-beta-orange?style=plastic) |
-
-## Graphics Drivers
-
-| Driver | Status |
-| --- | :---: |
-| [external_controller](middleware/legato/driver/controller/external_controller/readme.md) | ![app-beta](https://img.shields.io/badge/plib-beta-orange?style=plastic) |
-| [glcd](middleware/legato/driver/controller/glcd/readme.md) | ![app-beta](https://img.shields.io/badge/plib-beta-orange?style=plastic) |
-| [2dgpu](middleware/legato/driver/processor/2dgpu/readme.md) | ![app-beta](https://img.shields.io/badge/plib-beta-orange?style=plastic) |
-| [generic_touch](input/driver/touch/generic_touch/readme.md) | ![app-beta](https://img.shields.io/badge/plib-beta-orange?style=plastic) |
-| [maxtouch](input/driver/touch/maxtouch/readme.md) | ![app-beta](https://img.shields.io/badge/plib-beta-orange?style=plastic) |
-| [ptc](input/driver/touch/ptc/readme.md) | ![app-beta](https://img.shields.io/badge/plib-beta-orange?style=plastic) |
-
-## Misc items
-
-**Misc items** - items associated with the entire graphics suite.
-
-| Category | Item | Description | Release Type |
-| --- | --- | ---- |---- |
-|input | generic | Generic Touch Input Driver | ![app-beta](https://img.shields.io/badge/plib-beta-orange?style=plastic) |
-|      | maxtouch | Microchip maXTouch Touch Input Driver | ![app-beta](https://img.shields.io/badge/plib-beta-orange?style=plastic) |
-| docs| Help | Application Help Documentation HTML| ![app-beta](https://img.shields.io/badge/plib-beta-orange?style=plastic) |
-| templates   |  middleware | Board configuration scripts| ![app-beta](https://img.shields.io/badge/plib-beta-orange?style=plastic) |
-| display | boards | Productized display board support | ![app-beta](https://img.shields.io/badge/plib-beta-orange?style=plastic) |
+| apps | [blank_quickstart](./docs/legato/html/BlankApplications.html) | Blank UI-less library quickstart example | ![app-beta](https://img.shields.io/badge/application-beta-orange?style=plastic) |
 
 ____
 
 [![License](https://img.shields.io/badge/license-Harmony%20license-orange.svg)](https://github.com/Microchip-MPLAB-Harmony/gfx/blob/master/mplab_harmony_license.md)
-[![Latest release](https://img.shields.io/github/release/Microchip-MPLAB-Harmony/aerospace.svg)](https://github.com/Microchip-MPLAB-Harmony/gfx/releases/latest)
-[![Latest release date](https://img.shields.io/github/release-date/Microchip-MPLAB-Harmony/aerospace.svg)](https://github.com/Microchip-MPLAB-Harmony/gfx/releases/latest)
-[![Commit activity](https://img.shields.io/github/commit-activity/y/Microchip-MPLAB-Harmony/aerospace.svg)](https://github.com/Microchip-MPLAB-Harmony/gfx/graphs/commit-activity)
-[![Contributors](https://img.shields.io/github/contributors-anon/Microchip-MPLAB-Harmony/aerospace.svg)]()
+![Latest release](https://img.shields.io/badge/release-v3.7.0-orange?style=plastic)
+![Latest release date](https://img.shields.io/badge/date-may-orange?style=plastic)
+![Commit activity](https://img.shields.io/badge/activity-43-orange?style=plastic)
+![Contributors](https://img.shields.io/badge/contributors-3-orange?style=plastic)
 
 ____
 
@@ -128,3 +148,4 @@ ____
 
 [![](https://img.shields.io/github/stars/Microchip-MPLAB-Harmony/aerospace.svg?style=social)]()
 [![](https://img.shields.io/github/watchers/Microchip-MPLAB-Harmony/aerospace.svg?style=social)]()
+

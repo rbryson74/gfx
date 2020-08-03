@@ -20,8 +20,8 @@ lang: en-US
 timezone: America/Phoenix
 
 description: Harmony 3 Graphics package
-url: "https://automaate.github.io"
-baseurl: "/gen2_wiki_sandbox"
+url: "https://microchip-mplab-harmony.github.io/"
+baseurl: "/gfx"
 remote_theme: "Microchip-MPLAB-Harmony/just-the-docs@mchp-harmony"
 
 # Build settings
