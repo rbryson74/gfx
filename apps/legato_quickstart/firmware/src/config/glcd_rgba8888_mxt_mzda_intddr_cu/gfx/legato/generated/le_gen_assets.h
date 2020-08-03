@@ -66,7 +66,7 @@ extern const lePalette leGlobalPalette;
  * Name:   mchpLogo_light
  * Size:   152x40 pixels
  * Type:   RGB Data
- * Format: INDEX_8
+ * Format: RGBA_8888
  ***********************************/
 extern leImage mchpLogo_light;
 
