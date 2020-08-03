@@ -63,59 +63,57 @@ extern const lePalette leGlobalPalette;
  *****************************************************************************/
 /*********************************
  * Legato Image Asset
- * Name:   MHGC_150x150
- * Size:   150x150 pixels
+ * Name:   QuickstartDown_WQVGA
+ * Size:   160x74 pixels
  * Type:   RGB Data
- * Format: RGB_888
+ * Format: RGB_565
  ***********************************/
-extern leImage MHGC_150x150;
+extern leImage QuickstartDown_WQVGA;
+
+/*********************************
+ * Legato Image Asset
+ * Name:   QuickstartUp_WQVGA
+ * Size:   160x74 pixels
+ * Type:   RGB Data
+ * Format: RGB_565
+ ***********************************/
+extern leImage QuickstartUp_WQVGA;
+
+/*********************************
+ * Legato Image Asset
+ * Name:   MHGS_logo_smaller
+ * Size:   180x169 pixels
+ * Type:   RGB Data
+ * Format: RGB_565
+ ***********************************/
+extern leImage MHGS_logo_smaller;
+
+/*********************************
+ * Legato Image Asset
+ * Name:   mchpLogo_small
+ * Size:   120x28 pixels
+ * Type:   RGB Data
+ * Format: RGB_565
+ ***********************************/
+extern leImage mchpLogo_small;
 
 /*****************************************************************************
  * Legato Graphics Font Assets
  *****************************************************************************/
 /*********************************
  * Legato Font Asset
- * Name:         NotoSans_Bold
- * Height:       21
- * Baseline:     14
- * Style:        Antialias
- * Glyph Count:  23
- * Range Count:  13
- * Glyph Ranges: 0x20
-                 0x41-0x42
-                 0x47-0x48
-                 0x4C-0x4D
-                 0x50
-                 0x53
-                 0x61
-                 0x63
-                 0x65
-                 0x68-0x69
-                 0x6D-0x70
-                 0x72-0x75
-                 0x79
-***********************************/
-extern leRasterFont NotoSans_Bold;
-
-/*********************************
- * Legato Font Asset
  * Name:         NotoSans_Regular
  * Height:       21
- * Baseline:     12
+ * Baseline:     20
  * Style:        Antialias
- * Glyph Count:  16
- * Range Count:  12
- * Glyph Ranges: 0x20
-                 0x2E
-                 0x47
-                 0x4D
-                 0x52
+ * Glyph Count:  10
+ * Range Count:  7
+ * Glyph Ranges: 0x2E
+                 0x45-0x46
+                 0x53
                  0x61
-                 0x64-0x66
-                 0x69
-                 0x6E-0x6F
-                 0x72
-                 0x74-0x75
+                 0x6D
+                 0x72-0x74
                  0x79
 ***********************************/
 extern leRasterFont NotoSans_Regular;
@@ -124,22 +122,24 @@ extern leRasterFont NotoSans_Regular;
  * Legato String Table
  * Encoding        ASCII
  * Language Count: 1
- * String Count:   2
+ * String Count:   3
  *****************************************************************************/
 
 // language IDs
 #define language_default    0
 
 // string IDs
-#define stringID_TitleString    0
-#define stringID_Slogan    1
+#define stringID_Fast    0
+#define stringID_Easy    1
+#define stringID_Smart    2
 
 extern const leStringTable stringTable;
 
 
 // string list
-extern leTableString string_TitleString;
-extern leTableString string_Slogan;
+extern leTableString string_Fast;
+extern leTableString string_Easy;
+extern leTableString string_Smart;
 
 void initializeStrings(void);
 //DOM-IGNORE-BEGIN

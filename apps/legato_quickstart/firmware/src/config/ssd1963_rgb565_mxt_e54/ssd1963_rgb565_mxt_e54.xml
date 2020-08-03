@@ -1567,37 +1567,82 @@
     </UniqueComponent>
     <UniqueComponent dnOrder="7" id="gfx_hal_le">
       <Symbols dnOrder="0">
-        <Integer dnOrder="0" id="DisplayHeight">
+        <Boolean dnOrder="0" id="DisplayDataEnablePolarity">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="true"/>
+          </Values>
+        </Boolean>
+        <Boolean dnOrder="1" id="DisplayHSYNCNegative">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="false"/>
+          </Values>
+        </Boolean>
+        <Integer dnOrder="2" id="DisplayHeight">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_driver_external" value="272"/>
           </Values>
         </Integer>
-        <String dnOrder="1" id="DisplayName">
+        <Integer dnOrder="3" id="DisplayHorzBackPorch">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="2"/>
+          </Values>
+        </Integer>
+        <Integer dnOrder="4" id="DisplayHorzFrontPorch">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="2"/>
+          </Values>
+        </Integer>
+        <Integer dnOrder="5" id="DisplayHorzPulseWidth">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="41"/>
+          </Values>
+        </Integer>
+        <String dnOrder="6" id="DisplayName">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_driver_external" value="PDA TM4301B"/>
           </Values>
         </String>
-        <Integer dnOrder="2" id="DisplayWidth">
+        <Boolean dnOrder="7" id="DisplayVSYNCNegative">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="false"/>
+          </Values>
+        </Boolean>
+        <Integer dnOrder="8" id="DisplayVertBackPorch">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="2"/>
+          </Values>
+        </Integer>
+        <Integer dnOrder="9" id="DisplayVertFrontPorch">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="2"/>
+          </Values>
+        </Integer>
+        <Integer dnOrder="10" id="DisplayVertPulseWidth">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="le_gfx_driver_external" value="10"/>
+          </Values>
+        </Integer>
+        <Integer dnOrder="11" id="DisplayWidth">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_driver_external" value="480"/>
           </Values>
         </Integer>
-        <String dnOrder="3" id="DriverName">
+        <String dnOrder="12" id="DriverName">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_driver_external" value="LE External Controller"/>
           </Values>
         </String>
-        <Integer dnOrder="4" id="RefreshRate">
+        <Integer dnOrder="13" id="RefreshRate">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="gfx_hal_le" value="0"/>
           </Values>
         </Integer>
-        <String dnOrder="5" id="gfx_display">
+        <String dnOrder="14" id="gfx_display">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_driver_external" value="gfx_disp_pdatm4301b_480x272"/>
           </Values>
         </String>
-        <String dnOrder="6" id="gfx_driver">
+        <String dnOrder="15" id="gfx_driver">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_driver_external" value="le_gfx_driver_external"/>
           </Values>
@@ -2386,6 +2431,7 @@
         <String dnOrder="76" id="Command9Comment">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_driver_external" value="Set Data Interface"/>
+            <User dnOrder="1" value="Set Data Interface (8-bit)"/>
           </Values>
         </String>
         <Hex dnOrder="77" id="Command9Parm0">
@@ -2396,6 +2442,7 @@
           </Attributes>
           <Values dnOrder="1">
             <Dynamic dnOrder="0" id="le_gfx_driver_external" value="3"/>
+            <User dnOrder="1" value="0"/>
           </Values>
         </Hex>
         <Integer dnOrder="78" id="Command9ParmsCount">
@@ -2409,37 +2456,66 @@
             <User dnOrder="1" value="ssd1963"/>
           </Values>
         </String>
-        <Integer dnOrder="80" id="DisplayHeight">
+        <Combo dnOrder="80" id="DataWriteSize">
+          <Values dnOrder="0">
+            <User dnOrder="0" value="8"/>
+          </Values>
+        </Combo>
+        <Integer dnOrder="81" id="DisplayHeight">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_driver_external" value="272"/>
           </Values>
         </Integer>
-        <Integer dnOrder="81" id="DisplayWidth">
+        <Integer dnOrder="82" id="DisplayWidth">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_driver_external" value="480"/>
           </Values>
         </Integer>
-        <Integer dnOrder="82" id="InitCommandsCount">
+        <Integer dnOrder="83" id="InitCommandsCount">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_driver_external" value="12"/>
           </Values>
         </Integer>
-        <Hex dnOrder="83" id="MemoryWriteCommand">
+        <Hex dnOrder="84" id="MemoryWriteCommand">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_driver_external" value="44"/>
           </Values>
         </Hex>
-        <Integer dnOrder="84" id="PostResetDelay">
+        <Comment dnOrder="85" id="PixelDataInfoString16bit">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">false</Value>
+            </Boolean>
+          </Attributes>
+        </Comment>
+        <Comment dnOrder="86" id="PixelDataInfoString8bit3byte">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+        </Comment>
+        <Combo dnOrder="87" id="PixelDataTxSize8Bit">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <User dnOrder="0" value="3"/>
+          </Values>
+        </Combo>
+        <Integer dnOrder="88" id="PostResetDelay">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_driver_external" value="30"/>
           </Values>
         </Integer>
-        <Hex dnOrder="85" id="SetXAddressCommand">
+        <Hex dnOrder="89" id="SetXAddressCommand">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_driver_external" value="42"/>
           </Values>
         </Hex>
-        <Hex dnOrder="86" id="SetYAddressCommand">
+        <Hex dnOrder="90" id="SetYAddressCommand">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="le_gfx_driver_external" value="43"/>
           </Values>
@@ -2728,8 +2804,7 @@
     </UniqueComponent>
   </Components>
   <UserData>
-    <GraphSettings canvasHeight="400" canvasWidth="400" dnOrder="0"/>
-    <ComponentGraph dnOrder="1" id="__ROOTVIEW">
+    <ComponentGraph dnOrder="0" id="__ROOTVIEW">
       <ElementPositions dnOrder="0">
         <ElementPosition dnOrder="0" id="BSP_SAM_E54_Curiosity_Ultra" x="780" y="22"/>
         <ElementPosition dnOrder="1" id="HarmonyCore" x="375" y="67"/>
@@ -2742,7 +2817,7 @@
         <ElementPosition dnOrder="8" id="gfx_hal_le" x="791" y="60"/>
         <ElementPosition dnOrder="9" id="gfx_legato" x="587" y="291"/>
         <ElementPosition dnOrder="10" id="gfx_maxtouch_controller" x="376" y="171"/>
-        <ElementPosition dnOrder="11" id="le_gfx_driver_external" x="364" y="293"/>
+        <ElementPosition dnOrder="11" id="le_gfx_driver_external" x="347" y="297"/>
         <ElementPosition dnOrder="12" id="le_gfx_intf_parallel_portgroup" x="52" y="400"/>
         <ElementPosition dnOrder="13" id="legato_gfx_pda_tm4301b" x="594" y="146"/>
         <ElementPosition dnOrder="14" id="nvmctrl" x="20" y="20"/>
@@ -2752,5 +2827,6 @@
         <ElementPosition dnOrder="18" id="tc0" x="421" y="466"/>
       </ElementPositions>
     </ComponentGraph>
+    <GraphSettings canvasHeight="400" canvasWidth="400" dnOrder="1"/>
   </UserData>
 </Configuration>

@@ -4,7 +4,7 @@
  * Legato String Table
  * Encoding        ASCII
  * Language Count: 1
- * String Count:   2
+ * String Count:   3
  *****************************************************************************/
 
 /*****************************************************************************
@@ -30,19 +30,16 @@
  *     codepoint data - the string data
  ****************************************************************************/
 
-const uint8_t stringTable_data[68] =
+const uint8_t stringTable_data[40] =
 {
-    0x02,0x00,0x01,0x00,0x00,0x0C,0x00,0x00,0x01,0x2A,0x00,0x00,0x1C,0x00,0x4D,0x50,
-    0x4C,0x41,0x42,0x20,0x48,0x61,0x72,0x6D,0x6F,0x6E,0x79,0x20,0x47,0x72,0x61,0x70,
-    0x68,0x69,0x63,0x73,0x20,0x53,0x75,0x69,0x74,0x65,0x18,0x00,0x4D,0x6F,0x64,0x69,
-    0x66,0x79,0x2E,0x20,0x20,0x47,0x65,0x6E,0x65,0x72,0x61,0x74,0x65,0x2E,0x20,0x20,
-    0x52,0x75,0x6E,0x2E,
+    0x03,0x00,0x01,0x00,0x00,0x10,0x00,0x00,0x00,0x18,0x00,0x00,0x00,0x20,0x00,0x00,
+    0x05,0x00,0x46,0x61,0x73,0x74,0x2E,0x00,0x05,0x00,0x45,0x61,0x73,0x79,0x2E,0x00,
+    0x06,0x00,0x53,0x6D,0x61,0x72,0x74,0x2E,
 };
 
 /* font asset pointer list */
-leFont* fontList[2] =
+leFont* fontList[1] =
 {
-    (leFont*)&NotoSans_Bold,
     (leFont*)&NotoSans_Regular,
 };
 
@@ -51,7 +48,7 @@ const leStringTable stringTable =
     {
         LE_STREAM_LOCATION_ID_INTERNAL, // data location id
         (void*)stringTable_data, // data address pointer
-        68, // data size
+        40, // data size
     },
     (void*)stringTable_data, // string table data
     fontList, // font lookup table
@@ -60,11 +57,13 @@ const leStringTable stringTable =
 
 
 // string list
-leTableString string_TitleString;
-leTableString string_Slogan;
+leTableString string_Fast;
+leTableString string_Easy;
+leTableString string_Smart;
 
 void initializeStrings(void)
 {
-    leTableString_Constructor(&string_TitleString, stringID_TitleString);
-    leTableString_Constructor(&string_Slogan, stringID_Slogan);
+    leTableString_Constructor(&string_Fast, stringID_Fast);
+    leTableString_Constructor(&string_Easy, stringID_Easy);
+    leTableString_Constructor(&string_Smart, stringID_Smart);
 }

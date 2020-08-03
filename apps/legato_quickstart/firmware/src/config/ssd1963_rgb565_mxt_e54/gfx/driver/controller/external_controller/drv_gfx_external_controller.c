@@ -73,6 +73,8 @@
 #define DRV_ssd1963_NCSDeassert(intf) GFX_Disp_Intf_PinControl(intf, \
                                     GFX_DISP_INTF_PIN_CS, \
                                     GFX_DISP_INTF_PIN_SET)
+#define PIXEL_BUFFER_BYTES_PER_PIXEL 3
+static uint8_t pixelBuffer[SCREEN_WIDTH * PIXEL_BUFFER_BYTES_PER_PIXEL];
 
 typedef enum
 {
@@ -244,9 +246,9 @@ static int DRV_ssd1963_Configure(ssd1963_DRV *drv)
     GFX_Disp_Intf_WriteCommand(intf, cmd);
     GFX_Disp_Intf_WriteData(intf, parms, 1);
 
-    //Set Data Interface
+    //Set Data Interface (8-bit)
     cmd = 0xf0;
-    parms[0] = 0x3;
+    parms[0] = 0x0;
     GFX_Disp_Intf_WriteCommand(intf, cmd);
     GFX_Disp_Intf_WriteData(intf, parms, 1);
 
@@ -360,6 +362,8 @@ gfxResult DRV_ssd1963_BlitBuffer(int32_t x,
                                 gfxPixelBuffer* buf)
 {
 
+    int row;
+    uint16_t clr;
     uint16_t* ptr;
     uint8_t parm[4];
 
@@ -392,8 +396,23 @@ gfxResult DRV_ssd1963_BlitBuffer(int32_t x,
     //Start Memory Write
     GFX_Disp_Intf_WriteCommand(intf, 0x2c);
 
-    ptr = gfxPixelBufferOffsetGet_Unsafe(buf, 0, 0);
-    GFX_Disp_Intf_WriteData16(intf, (uint16_t *) ptr, buf->size.width * buf->size.height);
+
+    for(row = 0; row < buf->size.height; row++)
+    {
+        int col, dataIdx;
+        ptr = gfxPixelBufferOffsetGet_Unsafe(buf, 0, row);
+        for(col = 0, dataIdx = 0; col < buf->size.width; col++)
+        {
+            clr = ptr[col];
+            pixelBuffer[dataIdx++] = (uint8_t) ((clr & 0xf800) >> 8);
+            pixelBuffer[dataIdx++] = (uint8_t) ((clr & 0x07e0) >> 3 );
+            pixelBuffer[dataIdx++] = (uint8_t) ((clr & 0x001f) << 3);
+        }
+        GFX_Disp_Intf_WriteData(intf,
+                                pixelBuffer,
+                                PIXEL_BUFFER_BYTES_PER_PIXEL *
+                                buf->size.width);
+    }
     DRV_ssd1963_NCSDeassert(intf);
 
     return GFX_SUCCESS;
