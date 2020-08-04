@@ -73,7 +73,7 @@
 #define DRV_ili9488_NCSDeassert(intf) GFX_Disp_Intf_PinControl(intf, \
                                     GFX_DISP_INTF_PIN_CS, \
                                     GFX_DISP_INTF_PIN_SET)
-#define PIXEL_BUFFER_BYTES_PER_PIXEL 2
+#define PIXEL_BUFFER_BYTES_PER_PIXEL 3
 static uint8_t pixelBuffer[SCREEN_WIDTH * PIXEL_BUFFER_BYTES_PER_PIXEL];
 
 typedef enum
@@ -166,9 +166,9 @@ static int DRV_ili9488_Configure(ili9488_DRV *drv)
 
     DRV_ili9488_NCSAssert(intf);
 
-    //Pixel Format Set
+    //Pixel Format Set (SPI, 18bpp)
     cmd = 0x3a;
-    parms[0] = 0x5;
+    parms[0] = 0x6;
     GFX_Disp_Intf_WriteCommand(intf, cmd);
     GFX_Disp_Intf_WriteData(intf, parms, 1);
 
@@ -336,8 +336,9 @@ gfxResult DRV_ili9488_BlitBuffer(int32_t x,
         for(col = 0, dataIdx = 0; col < buf->size.width; col++)
         {
             clr = ptr[col];
-            pixelBuffer[dataIdx++] = (uint8_t) (clr >> 8);
-            pixelBuffer[dataIdx++] = (uint8_t) (uint8_t) (clr & 0xff);
+            pixelBuffer[dataIdx++] = (uint8_t) ((clr & 0xf800) >> 8);
+            pixelBuffer[dataIdx++] = (uint8_t) ((clr & 0x07e0) >> 3 );
+            pixelBuffer[dataIdx++] = (uint8_t) ((clr & 0x001f) << 3);
         }
         GFX_Disp_Intf_WriteData(intf,
                                 pixelBuffer,
