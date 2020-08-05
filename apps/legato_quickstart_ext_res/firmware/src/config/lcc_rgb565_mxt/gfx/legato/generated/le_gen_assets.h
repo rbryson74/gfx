@@ -196,6 +196,21 @@ extern leRasterFont NotoSans_Regular;
 
 extern const leStringTable stringTable;
 
+
+// string list
+extern leTableString string_ImageIsRLE;
+extern leTableString string_DrawRaw;
+extern leTableString string_DrawPNG;
+extern leTableString string_DrawRLE;
+extern leTableString string_TitleString;
+extern leTableString string_ImageIsJPEG;
+extern leTableString string_ImageIsRaw;
+extern leTableString string_DrawPaletteCompressed;
+extern leTableString string_ImageIsPNG;
+extern leTableString string_ImageIsPaletteCompressed;
+extern leTableString string_DrawJpeg;
+
+void initializeStrings(void);
 //DOM-IGNORE-BEGIN
 #ifdef __cplusplus
 }
