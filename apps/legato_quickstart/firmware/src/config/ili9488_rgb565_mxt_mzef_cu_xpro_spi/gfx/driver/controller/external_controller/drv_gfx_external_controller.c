@@ -73,6 +73,8 @@
 #define DRV_ILI9488_NCSDeassert(intf) GFX_Disp_Intf_PinControl(intf, \
                                     GFX_DISP_INTF_PIN_CS, \
                                     GFX_DISP_INTF_PIN_SET)
+#define PIXEL_BUFFER_BYTES_PER_PIXEL 3
+static uint8_t pixelBuffer[SCREEN_WIDTH * PIXEL_BUFFER_BYTES_PER_PIXEL];
 
 typedef enum
 {
@@ -166,7 +168,7 @@ static int DRV_ILI9488_Configure(ILI9488_DRV *drv)
 
     //Pixel Format Set
     cmd = 0x3a;
-    parms[0] = 0x5;
+    parms[0] = 0x6;
     GFX_Disp_Intf_WriteCommand(intf, cmd);
     GFX_Disp_Intf_WriteData(intf, parms, 1);
 
@@ -292,6 +294,8 @@ gfxResult DRV_ILI9488_BlitBuffer(int32_t x,
                                 gfxPixelBuffer* buf)
 {
 
+    int row;
+    uint16_t clr;
     uint16_t* ptr;
     uint8_t parm[4];
 
@@ -324,8 +328,23 @@ gfxResult DRV_ILI9488_BlitBuffer(int32_t x,
     //Start Memory Write
     GFX_Disp_Intf_WriteCommand(intf, 0x2c);
 
-    ptr = gfxPixelBufferOffsetGet_Unsafe(buf, 0, 0);
-    GFX_Disp_Intf_WriteData16(intf, (uint16_t *) ptr, buf->size.width * buf->size.height);
+
+    for(row = 0; row < buf->size.height; row++)
+    {
+        int col, dataIdx;
+        ptr = gfxPixelBufferOffsetGet_Unsafe(buf, 0, row);
+        for(col = 0, dataIdx = 0; col < buf->size.width; col++)
+        {
+            clr = ptr[col];
+            pixelBuffer[dataIdx++] = (uint8_t) ((clr & 0xf800) >> 8);
+            pixelBuffer[dataIdx++] = (uint8_t) ((clr & 0x07e0) >> 3 );
+            pixelBuffer[dataIdx++] = (uint8_t) ((clr & 0x001f) << 3);
+        }
+        GFX_Disp_Intf_WriteData(intf,
+                                pixelBuffer,
+                                PIXEL_BUFFER_BYTES_PER_PIXEL *
+                                buf->size.width);
+    }
     DRV_ILI9488_NCSDeassert(intf);
 
     return GFX_SUCCESS;

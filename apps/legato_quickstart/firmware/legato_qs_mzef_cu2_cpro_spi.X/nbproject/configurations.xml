@@ -614,10 +614,10 @@
         <targetDevice>PIC32MZ2048EFM144</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>noID</platformTool>
+        <platformTool>pkob4hybrid</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>2.41</languageToolchainVersion>
-        <platform>2</platform>
+        <platform>3</platform>
       </toolsSet>
       <packs>
         <pack name="PIC32MZ-EF_DFP" vendor="Microchip" version="1.2.51"/>
@@ -657,7 +657,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/ili9488_rgb565_mxt_mzef_cu_xpro_spi;../src/packs/PIC32MZ2048EFM144_DFP"/>
+                  value="../src;../src/config/ili9488_rgb565_mxt_mzef_cu_xpro_spi;../src/packs/PIC32MZ2048EFM144_DFP;"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
