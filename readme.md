@@ -93,7 +93,7 @@ The legacy graphics facilities for MPLAB Harmony Graphics Suite. Supports Microc
 
 | Category | Item | Description | Release Type |
 | --- | --- | ---- |---- |
-|  apps | aria_legato_adventure | Parallax and sprite animation example | ![app-production](https://img.shields.io/badge/application-production-blue?style=plastic) |
+|  apps | aria_adventure | Parallax and sprite animation example | ![app-production](https://img.shields.io/badge/application-production-blue?style=plastic) |
 |       | aria_benchmark | Performance utility  | ![app-production](https://img.shields.io/badge/application-production-blue?style=plastic) |
 |       | aria_dashboard | Vehicle dashboard example | ![app-production](https://img.shields.io/badge/application-production-blue?style=plastic) |
 |       | aria_flash | Aria flash writer utility  | ![app-production](https://img.shields.io/badge/application-production-blue?style=plastic) |
