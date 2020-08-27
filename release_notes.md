@@ -81,13 +81,12 @@ nav_order: 99
 * Code is compliant to MISRA C 2012 Mandatory guidelines, with the exception of Rule 9.1 (Code 530). In gfx.c, the variable args is falsely detected in violation of Code 530: "Symbol not initialized" at line 358. In fact, va_start at line 358 is exactly where args is initialized.
 * When regenerating demo applications, keep all code between comments \/\/CUSTOM CODE and \/\/END OF CUSTOM CODE. Custom code is added to perform specific functionality.
 * Applications running on SAM E70 in combination with LCC will observe visual rendering artifacts on display during SD card R/W access. There is no loss in SD Card data.
-* FreeRTOS osal has an incorrect include path that causes build failures in non-Windows environments.
 * SAM E54/D51 must be debugged using MPLABX v5.25
 * legato_flash SAM E54 configuration support for USB is non-functional. SDCARD is functional.
 * Pin 7 of the EXT1 connector on the PIC32MZ EF should drive the backlight. However, on rev1.0 of the board, it's not connected to any pin on the MCU. As a workaround, it needs to be connected to a v3.3 pin.
 * GPU drivers 2DGPU and GFX2D are not supported in this release.
 * Legato composer is not supported in this release for OSX operating systems.
-* legato_qs_x_r_mzef_cu_tm4301b.X configuration is observed to be sluggish for QSPI.
+* For the E54 + CPRO using the 24-bit passthrough board, Pin 7 of the EXT1 connector should drive the backlight. However, on rev1.0 of the board, it's not connected to any pin on the MCU. As a workaround, it needs to be connected to a v3.3 pin
 
 For a list of post release issues that affect this release, refer to MPLAB Harmony [GFX Issues and Errata](https://github.com/Microchip-MPLAB-Harmony/gfx/wiki/Issues-and-Errata).
 
