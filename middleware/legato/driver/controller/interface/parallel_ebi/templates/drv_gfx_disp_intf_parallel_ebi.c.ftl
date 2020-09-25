@@ -101,7 +101,7 @@ typedef struct
 
 GFX_DISP_INTF_EBI ebiIntf = {.cmdAddr  = NULL, .dataAddr = NULL, .locked = 0};
 
-static inline void GFX_Disp_Intf_DelayNOP()
+static inline void GFX_Disp_Intf_DelayNOP(void)
 {
     unsigned int i;
 

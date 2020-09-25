@@ -78,102 +78,6 @@ int DRV_${ControllerName}_Initialize(void);
  */
 void DRV_${ControllerName}_Update(void);
 
-<#if PassiveDriver == false>
-/**
- * @brief Get color mode.
- * @details Returns the current color mode.
- * @code
- * gfxDisplayDriver*  drv;
- * gfxColorMode mode = drv->getColorMode();
- * @endcode
- * @return RGB color mode.
- */
-gfxColorMode DRV_${ControllerName}_GetColorMode(void);
-
-/**
- * @brief Get buffer count.
- * @details Returns the number of configured buffers. In a single buffer system
- * count will be 1. In a double buffered system, the count would be at least 2.
- * @code
- * gfxDisplayDriver*  drv;
- * uint32_t cnt = drv->getBufferCount();
- * @endcode
- * @return number of configured buffers.
- */
-uint32_t DRV_${ControllerName}_GetBufferCount(void);
-
-/**
- * @brief Get display width.
- * @details Returns the max number of horizontal pixels. This is the horizonal portion
- * of the screen resolution.
- * @see DRV_LCC_GetDisplayHeight()
- * @code
- * gfxDisplayDriver*  drv;
- * uint32_t width = drv->getDisplayWidth();
- * @endcode
- * @return horizontal display width.
- */
-uint32_t DRV_${ControllerName}_GetDisplayWidth(void);
-
-/**
- * @brief Get display height.
- * @details Returns the max number vertical pixels. This is the vertical portion
- * of the screen resolution.
- * @see DRV_LCC_GetDisplayWidth()
- * @code
- * gfxDisplayDriver*  drv;
- * uint32_t width = drv->getDisplayHeight();
- * @endcode
- * @return vertical display height.
- */
-uint32_t DRV_${ControllerName}_GetDisplayHeight(void);
-
-/**
- * @brief Get layer count.
- * @details Returns the number of display layers configured.
- * @code
- * gfxDisplayDriver*  drv;
- * uint32_t cnt = drv->getLayerCount();
- * @endcode
- * @return number of display layers.
- */
-uint32_t DRV_${ControllerName}_GetLayerCount();
-
-/**
- * @brief Get active layer.
- * @details Returns the index of the active layer.
- * @code
- * gfxDisplayDriver*  drv;
- * uint32_t layer = drv->getActiveLayer();
- * @endcode
- * @return layer index.
- */
-uint32_t DRV_${ControllerName}_GetActiveLayer();
-
-/**
- * @brief Set active layer.
- * @details Sets active the layer at <span style="color: #820a32"><em>idx</em></span> position.
- * @code
- * gfxDisplayDriver* drv;
- * uint32_t idx;
- * gfxResult res = drv->setActiveLayer(idx);
- * @endcode
- * @return GFX_SUCCESS if layer at idx is active, otherwise GFX_FAILURE.
- */
-gfxResult DRV_${ControllerName}_SetActiveLayer(uint32_t idx);
-
-/**
- * @brief Gets the state for a hardware layer.
- * @details Gets the state of layer <span style="color: #820a32"><em>idx</em></span> .
- * @code
- * gfxDisplayDriver* drv;
- * uint32_t idx;
- * gfxLayerState state = drv->getLayerState(idx);
- * @endcode
- * @return The state of the layer.
- */
-gfxLayerState DRV_${ControllerName}_GetLayerState(uint32_t idx);
-
 /**
  * @brief Blit buffer.
  * @details Copies <span style="color: #820a32"><em>buf</em></span>
@@ -188,42 +92,17 @@ gfxLayerState DRV_${ControllerName}_GetLayerState(uint32_t idx);
 gfxResult DRV_${ControllerName}_BlitBuffer(int32_t x, int32_t y, gfxPixelBuffer* buf);
 
 /**
- * @brief Swap buffer.
- * @details Swaps the rendering buffer with the display buffer. The display buffer now
- * becomes the rendering buffer. Swapping support double buffering technology.
+ * @brief Graphics driver generic IOCTL interface.
+ * @details Sends an IOCTL message to the driver.
  * @code
- * gfxDisplayDriver* drv;
- * drv->swap();
+ * gfxIOCTLArg_Value val;
+ * val.value.v_uint = 1;
+ * DRV_${ControllerName}_IOCTL(GFX_IOCTL_FRAME_START, &val);
  * @endcode
- * @return void.
+ * @return gfxDriverIOCTLResponse the IOCTL handler response
  */
-void DRV_${ControllerName}_Swap(void);
-
-/**
- * @brief Get VSYNC count.
- * @details Returns the vertical pulse count. This can be used
- * as an interrupt to indicate the end of a frame or start of a new frame.
- * This value can also be used to do frame rate calculations.
- * @code
- * gfxDisplayDriver* drv;
- * drv->getVSYNCCount();
- * @endcode
- * @return VSYNC count.
- */
-uint32_t DRV_${ControllerName}_GetSwapCount(void);
-
-/**
- * @brief Set global palette.
- * @details Sets the global palette for the driver.  Used for blitting color map buffers.
- * @code
- * gfxDisplayDriver* drv;
- * gfxResult res = drv->setPalette(addr, colorMode, colorCount);
- * @endcode
- * @return GFX_SUCCESS if the palette was successfully set, otherwise GFX_FAILURE.
- */
-gfxResult DRV_${ControllerName}_SetPalette(gfxBuffer* palette,
-                                           gfxColorMode mode,
-                                           uint32_t colorCount);
+ gfxDriverIOCTLResponse DRV_${ControllerName}_IOCTL(gfxDriverIOCTLRequest req,
+                                                    void* arg);
 
 /**
  * @brief Defines the External Controller interface functions.
@@ -233,23 +112,10 @@ gfxResult DRV_${ControllerName}_SetPalette(gfxBuffer* palette,
  */
 static const gfxDisplayDriver gfxDriverInterface =
 {
-    DRV_${ControllerName}_GetColorMode,         /**< implements getColorMode */
-    DRV_${ControllerName}_GetBufferCount,       /**< implements getBufferCount */
-    DRV_${ControllerName}_GetDisplayWidth,      /**< implements getDisplayWidth */
-    DRV_${ControllerName}_GetDisplayHeight,     /**< implements getDisplayHeight */
-    DRV_${ControllerName}_Update,               /**< implements update */
-    DRV_${ControllerName}_GetLayerCount,        /**< implements layerCount */
-    DRV_${ControllerName}_GetActiveLayer,       /**< implements activeLayer */
-    DRV_${ControllerName}_SetActiveLayer,       /**< implements setActive */
-    DRV_${ControllerName}_GetLayerState,        /**< implements getLayerState */
-    DRV_${ControllerName}_BlitBuffer,           /**< implements blitbuffer */
-    DRV_${ControllerName}_Swap,                 /**< implements swap. */
-    DRV_${ControllerName}_GetSwapCount,         /**< implements getVSYNCCount */
-    NULL,                                       /**< nop getframebuffer */
-    DRV_${ControllerName}_SetPalette,           /**< implements setPalette */
-    NULL                                        /**< nop ctrlConfig */
+    .update = DRV_${ControllerName}_Update,				       
+    .blitBuffer = DRV_${ControllerName}_BlitBuffer,			   
+	.ioctl = DRV_${ControllerName}_IOCTL,                
 };
-</#if>
 
 #ifdef __cplusplus
     }

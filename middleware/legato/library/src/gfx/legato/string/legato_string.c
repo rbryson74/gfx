@@ -401,9 +401,7 @@ leResult _leString_SetInvalidateCallback(leString* _this,
 }
 
 #if LE_DYNAMIC_VTABLES == 1
-static leStringVTable stringVTable;
-
-void _leString_GenerateVTable()
+void _leString_GenerateVTable(void)
 {
     stringVTable.getRect = _leString_GetRect;
     stringVTable.getLineCount = _leString_GetLineCount;

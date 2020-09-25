@@ -88,56 +88,6 @@ extern "C"
 gfxResult DRV_LCC_Initialize(void);
 
 /**
- * @brief Get color mode.
- * @details Gets the current color mode.
- * @code
- * gfxDisplayDriver*  drv;
- * gfxColorMode mode = drv->getColorMode();
- * @endcode
- * @return RGB color mode.
- */
-gfxColorMode DRV_LCC_GetColorMode();
-
-/**
- * @brief Get buffer count.
- * @details Gets the buffer count. This count is the number of configured buffers. In
- * a single buffer system count will be 1. In a double buffered system, the count
- * would be at least 2.
- * @code
- * gfxDisplayDriver*  drv;
- * uint32_t cnt = drv->getBufferCount();
- * @endcode
- * @return number of configured buffers.
- */
-uint32_t DRV_LCC_GetBufferCount();
-
-/**
- * @brief Get display width.
- * @details Gets the display width. Display with is the max number of horizontal pixels. This is the horizonal portion
- * of the screen resolution.
- * @see DRV_LCC_GetDisplayHeight()
- * @code
- * gfxDisplayDriver*  drv;
- * uint32_t width = drv->getDisplayWidth();
- * @endcode
- * @return horizontal display width.
- */
-uint32_t DRV_LCC_GetDisplayWidth();
-
-/**
- * @brief Get display height.
- * @details Gets the display height. Display height is the max number vertical
- * pixels. This is the vertical portion of the screen resolution.
- * @see DRV_LCC_GetDisplayWidth()
- * @code
- * gfxDisplayDriver*  drv;
- * uint32_t width = drv->getDisplayHeight();
- * @endcode
- * @return vertical display height.
- */
-uint32_t DRV_LCC_GetDisplayHeight();
-
-/**
  * @brief Execute update task.
  * @details Performs a driver task update.
  * @code
@@ -145,54 +95,7 @@ uint32_t DRV_LCC_GetDisplayHeight();
  * @endcode
  * @return void.
  */
-void DRV_LCC_Update();
-
-/**
- * @brief Get layer count.
- * @details Gets the layer count. Layer count is the number of display layers
- * configured.
- * @code
- * gfxDisplayDriver*  drv;
- * uint32_t cnt = drv->getLayerCount();
- * @endcode
- * @return number of display layers.
- */
-uint32_t DRV_LCC_GetLayerCount();
-
-/**
- * @brief Get active layer.
- * @details Gets the active layer. The active layer is the index of the active layer.
- * @code
- * gfxDisplayDriver*  drv;
- * uint32_t layer = drv->getActiveLayer();
- * @endcode
- * @return layer index.
- */
-uint32_t DRV_LCC_GetActiveLayer();
-
-/**
- * @brief Set active layer.
- * @details Sets the active the layer at <span class="param">idx</span> position.
- * @code
- * gfxDisplayDriver* drv;
- * uint32_t idx;
- * gfxResult res = drv->setActiveLayer(idx);
- * @endcode
- * @return GFX_SUCCESS if layer at idx is active, otherwise GFX_FAILURE.
- */
-gfxResult DRV_LCC_SetActiveLayer(uint32_t idx);
-
-/**
- * @brief Gets the state for a hardware layer.
- * @details Gets the state of layer <span style="color: #820a32"><em>idx</em></span> .
- * @code
- * gfxDisplayDriver* drv;
- * uint32_t idx;
- * gfxLayerState state = drv->getLayerState(idx);
- * @endcode
- * @return The rectangle of the layer.
- */
-gfxLayerState DRV_LCC_GetLayerState(uint32_t idx);
+void DRV_LCC_Update(void);
 
 /**
  * @brief Blit buffer.
@@ -210,55 +113,17 @@ gfxResult DRV_LCC_BlitBuffer(int32_t x,
                             gfxPixelBuffer* buf);
 
 /**
- * @brief Swap buffer.
- * @details Swaps the rendering buffer with the display buffer. The display buffer now
- * becomes the rendering buffer. Swapping support double buffering technology.
+ * @brief Graphics driver generic IOCTL interface.
+ * @details Sends an IOCTL message to the driver.
  * @code
- * gfxDisplayDriver* drv;
- * drv->swap();
+ * gfxIOCTLArg_Value val;
+ * val.value.v_uint = 1;
+ * DRV_LCC_IOCTL(GFX_IOCTL_FRAME_START, &val);
  * @endcode
- * @return void.
+ * @return gfxDriverIOCTLResponse the IOCTL handler response
  */
-void DRV_LCC_Swap(void);
-
-/**
- * @brief Get VSYNC count.
- * @details Returns the vertical pulse count. This can be used
- * as an interrupt to indicate the end of a frame or start of a new frame.
- * @code
- * gfxDisplayDriver* drv;
- * drv->getVSYNCCount();
- * @endcode
- * @return VSYNC count.
- */
-uint32_t DRV_LCC_GetVSYNCCount(void);
-
-/**
- * @brief Get framebuffer.
- * @details Returns the framebuffer (display buffer) located at
- * <span class="param">idx</span> position.
- * @code
- * gfxDisplayDriver* drv;
- * int32_t idx;
- * gfxPixelBuffer * buf = drv->getFrameBuffer(idx);
- * @param idx is the buffer index
- * @endcode
- * @return void.
- */
-gfxPixelBuffer * DRV_LCC_GetFrameBuffer(int32_t idx);
-
-/**
- * @brief Set global palette.
- * @details Sets the global palette for the driver.  Used for blitting color map buffers.
- * @code
- * gfxDisplayDriver* drv;
- * gfxResult res = drv->setPalette(addr, colorMode, colorCount);
- * @endcode
- * @return GFX_SUCCESS if the palette was successfully set, otherwise GFX_FAILURE.
- */
-gfxResult DRV_LCC_SetPalette(gfxBuffer* palette,
-                             gfxColorMode mode,
-                             uint32_t colorCount);
+ gfxDriverIOCTLResponse DRV_LCC_IOCTL(gfxDriverIOCTLRequest req,
+                                      void* arg);
 
 /**
  * @brief Defines the LCC interface functions.
@@ -268,21 +133,9 @@ gfxResult DRV_LCC_SetPalette(gfxBuffer* palette,
  */
 static const gfxDisplayDriver gfxDriverInterface =
 {
-    DRV_LCC_GetColorMode,		/**< implements getColorMode */
-    DRV_LCC_GetBufferCount,		/**< implements getBufferCount */
-    DRV_LCC_GetDisplayWidth,	/**< implements getDisplayWidth */
-    DRV_LCC_GetDisplayHeight,	/**< implements getDisplayHeight */
-    DRV_LCC_Update,				/**< implements update */
-    DRV_LCC_GetLayerCount,		/**< implements layerCount */
-    DRV_LCC_GetActiveLayer,		/**< implements activeLayer */
-    DRV_LCC_SetActiveLayer,		/**< implements setActive */
-    DRV_LCC_GetLayerState,       /**< implements getLayerState */
-    DRV_LCC_BlitBuffer,			/**< implements blitbuffer */
-    DRV_LCC_Swap,				/**< implements swap */
-    DRV_LCC_GetVSYNCCount,		/**< implements getSwap */
-    DRV_LCC_GetFrameBuffer,		/**< implements getFrameBuffer */
-    DRV_LCC_SetPalette,         /**< implements setPalette */ 
-	NULL                        /**< nop ctrlConfig */
+    .update = DRV_LCC_Update,				        /**< implements update */
+    .blitBuffer = DRV_LCC_BlitBuffer,			    /**< implements blitbuffer */
+	.ioctl = DRV_LCC_IOCTL                          /**< implements driver ioctl interface */
 };
         
 #ifdef _DOXYGEN_

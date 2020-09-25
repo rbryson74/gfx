@@ -64,42 +64,15 @@
 // *****************************************************************************
 gfxResult DRV_LCDC_Initialize(void);
 
-gfxColorMode DRV_LCDC_GetColorMode(void);
-uint32_t DRV_LCDC_GetBufferCount(void);
-uint32_t DRV_LCDC_GetDisplayWidth(void);
-uint32_t DRV_LCDC_GetDisplayHeight(void);
 void DRV_LCDC_Update(void);
-uint32_t DRV_LCDC_GetLayerCount();
-uint32_t DRV_LCDC_GetActiveLayer();
-gfxResult DRV_LCDC_SetActiveLayer(uint32_t idx);
-gfxLayerState DRV_LCDC_GetLayerState(uint32_t idx);
 gfxResult DRV_LCDC_BlitBuffer(int32_t x, int32_t y, gfxPixelBuffer* buf);
-void DRV_LCDC_Swap(void);
-uint32_t DRV_LCDC_GetVSYNCCount(void);
-gfxPixelBuffer * DRV_LCDC_GetFrameBuffer(int32_t idx);
-gfxResult DRV_LCDC_SetPalette(gfxBuffer* palette,
-                              gfxColorMode mode,
-                              uint32_t colorCount);
-void DRV_LCDC_SetUseGPU(gfxBool onOff);
-gfxResult DRV_LCDC_CtrlrConfig(ctlrCfg request, void * arg);
+gfxDriverIOCTLResponse DRV_LCDC_IOCTL(gfxDriverIOCTLRequest req, void* arg);
 
 static const gfxDisplayDriver gfxDriverInterface =
 {
-	DRV_LCDC_GetColorMode,
-	DRV_LCDC_GetBufferCount,
-	DRV_LCDC_GetDisplayWidth,
-	DRV_LCDC_GetDisplayHeight,
-	DRV_LCDC_Update,
-	DRV_LCDC_GetLayerCount,
-	DRV_LCDC_GetActiveLayer,
-	DRV_LCDC_SetActiveLayer,
-	DRV_LCDC_GetLayerState,
-	DRV_LCDC_BlitBuffer,
-	DRV_LCDC_Swap,
-	DRV_LCDC_GetVSYNCCount,
-	DRV_LCDC_GetFrameBuffer,
-	DRV_LCDC_SetPalette,
-	DRV_LCDC_CtrlrConfig
+	.update = DRV_LCDC_Update,
+	.blitBuffer = DRV_LCDC_BlitBuffer,
+	.ioctl = DRV_LCDC_IOCTL
 };
 
 #ifdef __cplusplus

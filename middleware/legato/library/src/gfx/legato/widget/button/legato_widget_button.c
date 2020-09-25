@@ -505,7 +505,7 @@ static void touchUp(leButtonWidget* _this,
     
     LE_ASSERT_THIS();
     
-    rect = _this->fn->localRect(_this);
+    _this->fn->localRect(_this, &rect);
 
     pnt.x = evt->x;
     pnt.y = evt->y;
@@ -582,7 +582,7 @@ static void touchMoved(leButtonWidget* _this,
     
     LE_ASSERT_THIS();
     
-    rect = _this->fn->localRect(_this);
+    _this->fn->localRect(_this, &rect);
     
     pnt.x = evt->x;
     pnt.y = evt->y;
@@ -627,7 +627,7 @@ void _leButtonWidget_Paint(leButtonWidget* _this);
 #if LE_DYNAMIC_VTABLES == 1
 void _leWidget_FillVTable(leWidgetVTable* tbl);
 
-void _leButtonWidget_GenerateVTable()
+void _leButtonWidget_GenerateVTable(void)
 {
     _leWidget_FillVTable((void*)&buttonWidgetVTable);
     

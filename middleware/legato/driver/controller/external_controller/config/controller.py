@@ -71,10 +71,12 @@ def onDisplayInterfaceTypeChanged(source, event):
 def onInitCommandsCountChanged(source, event):
 	global numCommands
 	print("Init Commands Countchanged : " + str(event["value"]))
-	for x in range(numCommands - 1):
+	for x in range(numCommands):
 		if (x < int(event["value"])):
+			print("setvisible command " + str(x))
 			source.getComponent().getSymbolByID("Command" + str(x)).setVisible(True)
 		else:
+			print("hide command " + str(x))
 			source.getComponent().getSymbolByID("Command" + str(x)).setVisible(False)
 
 def onInitCommandParmsCountChanged(source, event):
@@ -83,7 +85,7 @@ def onInitCommandParmsCountChanged(source, event):
 	sub = re.search('Command(.*)ParmsCount', str(event["id"]))
 	if (sub and sub.group(1)):
 		print("sub is : " + str((sub.group(1))))
-		for x in range(numParms - 1):
+		for x in range(numParms):
 			if (x < int(event["value"])):
 				source.getComponent().getSymbolByID("Command" + str(sub.group(1)) + "Parm" + str(x)).setVisible(True)
 			else:

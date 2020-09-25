@@ -278,6 +278,29 @@ def instantiateComponent(comp):
 	EBIChipSelectIndex.setMin(0)
 	EBIChipSelectIndex.setMax(4)
 	EBIChipSelectIndex.setDefaultValue(0)
+	
+	### Start of Blit config
+	BlitSettings = comp.createMenuSymbol("BlitSettings", None)
+	BlitSettings.setLabel("Buffer Blit Settings")
+
+	BlitMode = comp.createComboSymbol("BlitMode", BlitSettings, ["CPU", "DMA"])
+	BlitMode.setLabel("Blit Mode")
+	BlitMode.setDescription("Peripheral used for scratch buffer blit.")
+	BlitMode.setDefaultValue("CPU")
+	BlitMode.setDependencies(onBlitModeSet, ["BlitMode"])
+
+	DMABlitChannel = comp.createIntegerSymbol("DMABlitChannel", BlitMode)
+	DMABlitChannel.setLabel("DMA Channel")
+	DMABlitChannel.setDescription("DMA channel for DMA blit. Please enable and configure DMA separately")
+	DMABlitChannel.setDefaultValue(1)
+	DMABlitChannel.setMin(0)
+	DMABlitChannel.setMax(15)
+	DMABlitChannel.setVisible(False)
+	
+	BlitModeComment = comp.createCommentSymbol("BlitModeComment", BlitMode)
+	BlitModeComment.setLabel('Please enable and configure selected DMAC channel')
+	BlitModeComment.setVisible(False)
+
 
 	### End of EBI Port config
 
@@ -413,7 +436,6 @@ def onAttachmentConnected(source, target):
 	elif (source["id"] == "Graphics Display"):
 		configureDisplaySettings(source["component"], target["component"])
 
-
 def onAttachmentDisconnected(source, target):
 	if (source["id"] == "EBI_CS"):
 		sub = re.search('ebi_cs(.*)', str(target["id"]))
@@ -448,3 +470,7 @@ def updateDisplayManager(component, target):
 		Database.setSymbolValue("gfx_hal_le", "PixelClock", component.getSymbolValue("PixelClock"), 1)
 		component.getSymbolByID("DisplaySettingsMenu").setVisible(False)
 		component.getSymbolByID("HALComment").setVisible(True)
+
+def onBlitModeSet(symbol, event):
+	symbol.getComponent().getSymbolByID("DMABlitChannel").setVisible(event["value"] == "DMA")
+	symbol.getComponent().getSymbolByID("BlitModeComment").setVisible(event["value"] == "DMA")

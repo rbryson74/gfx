@@ -60,5 +60,5 @@
     None 
 
 */
-LIB_EXPORT void laUpdate_RTOS(laBool fullBlock, uint32_t dt);
+void laUpdate_RTOS(laBool fullBlock, uint32_t dt);
     

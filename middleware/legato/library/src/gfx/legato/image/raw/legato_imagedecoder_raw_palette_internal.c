@@ -33,14 +33,16 @@
 void _leRawImageDecoder_InjectStage(leRawDecodeState* state,
                                     leRawDecodeStage* stage);
 
-static struct InternalPaletteStage
+struct InternalPaletteStage
 {
     leRawDecodeStage base;
 
     leColor lookupIndex;
 
     uint32_t paletteSize;
-} paletteStage;
+};
+
+static LE_COHERENT_ATTR struct InternalPaletteStage paletteStage;
 
 static leResult stage_lookup(struct InternalPaletteStage* stage)
 {

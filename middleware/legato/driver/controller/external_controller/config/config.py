@@ -116,7 +116,7 @@ InitCommandsCount.setDescription("<html> The number of initialization commands t
 
 CommandList = comp.createListSymbol("CommandList", None)
 
-for x in range(numCommands - 1):
+for x in range(numCommands):
 	Command = comp.createHexSymbol("Command" + str(x), InitCommandsCount)
 	Command.setLabel("CMD[" + str(x) + "]")
 	Command.setMax(0xff)
@@ -141,7 +141,7 @@ for x in range(numCommands - 1):
 	CommandParmsCount.setDependencies(onInitCommandParmsCountChanged, ["Command" + str(x) + "ParmsCount"])
 	CommandParmsCount.setDescription("<html> Number of parameters for command. </html>")
 
-	for y in range(numParms - 1):
+	for y in range(numParms):
 		Parm = comp.createHexSymbol("Command" + str(x) + "Parm" + str(y), CommandParmsCount)
 		Parm.setLabel("PARM[" + str(y) + "]")
 		Parm.setMax(0xff)

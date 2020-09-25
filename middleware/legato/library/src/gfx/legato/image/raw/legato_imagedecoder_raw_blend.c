@@ -31,11 +31,13 @@
 void _leRawImageDecoder_InjectStage(leRawDecodeState* state,
                                     leRawDecodeStage* stage);
 
-static struct InternalBlendStage
+struct InternalBlendStage
 {
     leRawDecodeStage base;
     leRenderState* renderer;
-} blendStage;
+};
+
+static LE_COHERENT_ATTR struct InternalBlendStage blendStage;
 
 static leResult stage_BlendRGBA5551(leRawDecodeStage* stage)
 {

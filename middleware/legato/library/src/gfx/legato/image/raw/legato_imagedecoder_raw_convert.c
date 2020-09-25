@@ -32,12 +32,14 @@
 void _leRawImageDecoder_InjectStage(leRawDecodeState* state,
                                     leRawDecodeStage* stage);
 
-static struct ConvertStage
+struct ConvertStage
 {
     leRawDecodeStage base;
 
     leColorMode sourceMode;
-} convertStage;
+};
+
+static LE_COHERENT_ATTR struct ConvertStage convertStage;
 
 static leResult stage_convertColor(leRawDecodeStage* stage)
 {

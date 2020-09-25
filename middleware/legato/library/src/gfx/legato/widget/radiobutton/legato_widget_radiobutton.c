@@ -474,7 +474,7 @@ static void handleTouchDownEvent(leRadioButtonWidget* _this,
     
     _leRadioButtonWidget_GetImageRect(_this, &imgRect, &imgSrcRect);
     
-    widgetRect = _this->fn->rectToScreen(_this);
+    _this->fn->rectToScreen(_this, &widgetRect);
     
     leRectClip(&imgRect, &widgetRect, &clipRect);
     
@@ -498,7 +498,7 @@ static void handleTouchUpEvent(leRadioButtonWidget* _this,
     
     _leRadioButtonWidget_GetImageRect(_this, &imgRect, &imgSrcRect);
     
-    widgetRect = _this->fn->rectToScreen(_this);
+    _this->fn->rectToScreen(_this, &widgetRect);
     
     leRectClip(&imgRect, &widgetRect, &clipRect);
 
@@ -522,8 +522,6 @@ static void handleTouchMovedEvent(leRadioButtonWidget* _this,
 
     leWidgetEvent_Accept((leWidgetEvent*)evt, (leWidget*)_this);
 }
-
-void _leRadioButtonWidget_Paint(leRadioButtonWidget* _this);
 
 #if LE_DYNAMIC_VTABLES == 1
 void _leWidget_FillVTable(leWidgetVTable* tbl);

@@ -103,7 +103,7 @@ static inline void GFX_Disp_Intf_Sync(void)
 //    __ASM volatile ("dmb");
 }
 
-static inline void GFX_Disp_Intf_DelayNOP()
+static inline void GFX_Disp_Intf_DelayNOP(void)
 {
     <#list 0.. (DelayNOPCount-1) as i>
     asm("nop");

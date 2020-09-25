@@ -35,9 +35,9 @@
 
 #include "gfx/legato/image/png/lodepng.h"
 
-static leImageDecoder decoder;
+static LE_COHERENT_ATTR leImageDecoder decoder;
 
-static struct leImage decodedImage;
+static LE_COHERENT_ATTR struct leImage decodedImage;
 
 static leBool _supportsImage(const leImage* img)
 {
@@ -102,11 +102,14 @@ static leResult _draw(const leImage* img,
 
         stream.flags |= SF_BLOCKING;
 
-        leStream_Read(&stream,
-                      (uint32_t)img->header.address,
-                      img->header.size,
-                      encodedData,
-                      NULL);
+        if(leStream_Read(&stream,
+                         (uint32_t)img->header.address,
+                         img->header.size,
+                         encodedData,
+                         NULL) == LE_FAILURE)
+        {
+            return LE_FAILURE;
+        }
     }
     else
     {
@@ -229,11 +232,14 @@ static leResult _render(const leImage* src,
 
         stream.flags |= SF_BLOCKING;
 
-        leStream_Read(&stream,
-                      (uint32_t)src->header.address,
-                      src->header.size,
-                      encodedData,
-                      NULL);
+        if(leStream_Read(&stream,
+                         (uint32_t)src->header.address,
+                         src->header.size,
+                         encodedData,
+                         NULL) == LE_FAILURE)
+        {
+            return LE_FAILURE;
+        }
     }
     else
 #else
@@ -264,16 +270,16 @@ static leResult _render(const leImage* src,
     return LE_SUCCESS;
 }
 
-static void _decoderCleanup()
+static void _decoderCleanup(void)
 {
 }
 
-static leResult _decoderExec()
+static leResult _decoderExec(void)
 {
     return LE_SUCCESS;
 }
 
-static leBool _decoderIsDone()
+static leBool _decoderIsDone(void)
 {
     return LE_TRUE;
 }

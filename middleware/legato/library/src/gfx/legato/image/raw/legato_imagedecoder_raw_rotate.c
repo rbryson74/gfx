@@ -53,9 +53,10 @@ static leResult stage_rotateNearestNeighborPreRead(struct RotateNearestNeighborP
     pnt.y -= stage->base.state->destRect.height / 2;
     pnt.y *= -1;
 
-    pnt = leRotatePoint(pnt,
-                        lePoint_Zero,
-                        stage->base.state->angle);
+    leRotatePoint(pnt,
+                  lePoint_Zero,
+                  stage->base.state->angle,
+                  &pnt);
 
     // transform into source image space
     pnt.y *= -1;
@@ -119,9 +120,10 @@ static leResult stage_bilinearPreRead(struct RotateBilinearPreReadStage* stage)
     readPoint.y -= stage->base.state->destRect.height / 2;
     readPoint.y *= -1;
 
-    readPoint = leRotatePoint(readPoint,
-                              lePoint_Zero,
-                              stage->base.state->angle);
+    leRotatePoint(readPoint,
+                  lePoint_Zero,
+                  stage->base.state->angle,
+                  &readPoint);
 
     // transform into source image space
     readPoint.y *= -1;

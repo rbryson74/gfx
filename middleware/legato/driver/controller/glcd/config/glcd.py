@@ -145,7 +145,6 @@ def instantiateComponent(comp):
 	PixelClockDivider.setMin(1)
 	PixelClockDivider.setDependencies(onPixelDividerSet, ["PixelClockDivider"])
 
-	
 	clockValue = MasterClockSourceValue.getValue() / PixelClockDivider.getValue()
 
 	PixelClock = comp.createIntegerSymbol("PixelClock", ClockSettingsMenu)
@@ -348,7 +347,7 @@ def instantiateComponent(comp):
 	PaletteMode.setLabel("Use 8-bit Palette?")
 	PaletteMode.setDescription("<html>Enables frame buffer compression.<br>Uses an 8-bit color lookup table to reduce the required<br>frame buffer memory size.  This also reduces the<br>maximum avilable color count to 256 and significantly<br>slows down display refresh speed.</html>")
 	PaletteMode.setDefaultValue(False)
-	PaletteMode.setVisible(True)	
+	PaletteMode.setVisible(True)
 	### End of frame buffer settings
 
 	### Other Timing Settings
@@ -364,6 +363,13 @@ def instantiateComponent(comp):
 	UseGPU.setLabel("Use GPU for Blits?")
 	UseGPU.setDefaultValue(True)
 	UseGPU.setDescription("<html>Uses the Nano2D GPU for buffer blits.</html>")
+	UseGPU.setDependencies(useGPUChanged, ["UseGPU"])
+
+	VblankBlit = comp.createBooleanSymbol("VblankBlit", UseGPU)
+	VblankBlit.setLabel("Blit on Vblank")
+	VblankBlit.setDefaultValue(False)
+	VblankBlit.setVisible(True)
+	VblankBlit.setDescription("<html>Schedule blits during vblank.</html>")
 	
 	### Unsupported symbols, but may be queried by GFX HAL
 	UnsupportedOptionsMenu = comp.createMenuSymbol("UnsupportedOptionsMenu", None)
@@ -460,6 +466,9 @@ def onPixelDividerSet(pixelDividerSet, event):
 	
 def showRTOSMenu(symbol, event):
 	symbol.setVisible(event["value"] != "BareMetal")
+
+def useGPUChanged(symbol, event):
+	symbol.getComponent().getSymbolByID("VblankBlit").setVisible(event["value"] == True)
 
 def updateDisplayManager(component, target):
 	if (Database.getComponentByID("gfx_hal_le") is not None):

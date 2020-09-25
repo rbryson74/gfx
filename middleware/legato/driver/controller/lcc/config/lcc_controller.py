@@ -296,6 +296,28 @@ def instantiateComponent(comp):
 	TCChannelCompare.setDefaultValue("A")
 	### End of Backlight config options
 
+### Start of Blit config
+	BlitSettings = comp.createMenuSymbol("BlitSettings", None)
+	BlitSettings.setLabel("Buffer Blit Settings")
+
+	BlitMode = comp.createComboSymbol("BlitMode", BlitSettings, ["CPU", "DMA"])
+	BlitMode.setLabel("Blit Mode")
+	BlitMode.setDescription("Peripheral used for scratch buffer blit.")
+	BlitMode.setDefaultValue("CPU")
+	BlitMode.setDependencies(onBlitModeSet, ["BlitMode"])
+
+	DMABlitChannel = comp.createIntegerSymbol("DMABlitChannel", BlitMode)
+	DMABlitChannel.setLabel("DMA Channel")
+	DMABlitChannel.setDescription("DMA channel for DMA blit. Please enable and configure DMA separately")
+	DMABlitChannel.setDefaultValue(1)
+	DMABlitChannel.setMin(0)
+	DMABlitChannel.setMax(15)
+	DMABlitChannel.setVisible(False)
+	
+	BlitModeComment = comp.createCommentSymbol("BlitModeComment", BlitMode)
+	BlitModeComment.setLabel('Please enable and configure selected DMAC channel')
+	BlitModeComment.setVisible(False)
+
 	# generated code files
 	GFX_LCC_C = comp.createFileSymbol("GFX_LCC_C", None)
 	GFX_LCC_C.setSourcePath("templates/drv_gfx_lcc.c.ftl")
@@ -481,3 +503,6 @@ def updateDisplayManager(component, target):
 		component.getSymbolByID("DisplaySettingsMenu").setVisible(False)
 		component.getSymbolByID("HALComment").setVisible(True)
 
+def onBlitModeSet(symbol, event):
+	symbol.getComponent().getSymbolByID("DMABlitChannel").setVisible(event["value"] == "DMA")
+	symbol.getComponent().getSymbolByID("BlitModeComment").setVisible(event["value"] == "DMA")

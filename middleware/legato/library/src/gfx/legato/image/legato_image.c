@@ -42,7 +42,7 @@ leImageDecoder* _leJPEGImageDecoder_Init(void);
 void leImage_InitDecoders()
 {
     uint32_t decIdx = 0;
-    
+
     decoders[decIdx++] = _leRawImageDecoder_Init();
     decoders[decIdx++] = _lePNGImageDecoder_Init();
     decoders[decIdx++] = _leJPEGImageDecoder_Init();
@@ -157,6 +157,8 @@ leResult leImage_Draw(const leImage* img,
 
                 break;
             }
+
+            return LE_SUCCESS;
         }
     }
 

@@ -48,11 +48,9 @@ enum StageState
     SS_DONE
 };
 
-#if LE_ASSET_DECODER_USE_PALETTE_CACHE == 1
 #define cache leRawImageDecoderPaletteScratchBuffer
-#endif
 
-static struct StreamPaletteStage
+struct StreamPaletteStage
 {
     leRawDecodeStage base;
 
@@ -64,12 +62,12 @@ static struct StreamPaletteStage
 
     leStream stream;
 
-#if LE_ASSET_DECODER_USE_PALETTE_CACHE == 1
     lePixelBuffer cacheBuffer;
-#endif
-} streamPaletteStage;
+};
 
-static void advanceStage()
+static LE_COHERENT_ATTR struct StreamPaletteStage streamPaletteStage;
+
+static void advanceStage(void)
 {
     streamPaletteStage.state = SS_DONE;
 }
@@ -104,11 +102,14 @@ static leResult exec_nonblocking(struct StreamPaletteStage* stage)
             streamPaletteStage.lookupIndex *
             stage->paletteSize;
 
-    leStream_Read(&streamPaletteStage.stream,
-                  addr,
-                  stage->paletteSize,
-                  (uint8_t*)&streamPaletteStage.base.state->writeColor,
-                  indexDataReady);
+    if(leStream_Read(&streamPaletteStage.stream,
+                     addr,
+                     stage->paletteSize,
+                     (uint8_t*)&streamPaletteStage.base.state->writeColor,
+                     indexDataReady) == LE_FAILURE)
+    {
+        return LE_FAILURE;
+    }
 
     // only stall out of the read is still pending
     if(leStream_IsDataReady(&streamPaletteStage.stream) == LE_FALSE)
@@ -138,11 +139,12 @@ static leResult exec_blocking(struct StreamPaletteStage* stage)
             streamPaletteStage.base.state->writeColor *
             stage->paletteSize;
 
-    leStream_Read(&streamPaletteStage.stream,
-                  addr,
-                  stage->paletteSize,
-                  (uint8_t*)&streamPaletteStage.base.state->writeColor,
-                  NULL);
+    while(leStream_Read(&streamPaletteStage.stream,
+                        addr,
+                        stage->paletteSize,
+                        (uint8_t*)&streamPaletteStage.base.state->writeColor,
+                        NULL) != LE_SUCCESS)
+    { }
 
     return LE_SUCCESS;
 }
@@ -158,8 +160,7 @@ leResult _leRawImageDecoder_LookupStage_Stream(leRawDecodeState* state)
 {
     memset(&streamPaletteStage, 0, sizeof(streamPaletteStage));
 
-#if LE_ASSET_DECODER_USE_PALETTE_CACHE == 1
-    lePixelBufferCreate(LE_ASSET_DECODER_CACHE_SIZE / leColorInfoTable[state->source->palette->buffer.mode].size,
+    lePixelBufferCreate(LE_ASSET_DECODER_PALETTE_CACHE_SIZE / leColorInfoTable[state->source->palette->buffer.mode].size,
                         1,
                         state->source->palette->buffer.mode,
                         cache,
@@ -167,16 +168,9 @@ leResult _leRawImageDecoder_LookupStage_Stream(leRawDecodeState* state)
 
     leStream_Init(&streamPaletteStage.stream,
                   (leStreamDescriptor*)state->source->palette,
-                  LE_ASSET_DECODER_CACHE_SIZE,
+                  LE_ASSET_DECODER_PALETTE_CACHE_SIZE,
                   leRawImageDecoderPaletteScratchBuffer,
                   NULL);
-#else
-    leStream_Init(&streamPaletteStage.stream,
-                  (leStreamDescriptor*)state->source->palette,
-                  0,
-                  NULL,
-                  NULL);
-#endif
 
     if(leStream_Open(&streamPaletteStage.stream) == LE_FAILURE)
     {

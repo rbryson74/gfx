@@ -187,9 +187,9 @@ int DRV_${ControllerName}_Initialize(void)
     return 0;
 }
 
-static int DRV_${ControllerName}_Configure(${ControllerName}_DRV *drv)
+static int DRV_${ControllerName}_Configure(${ControllerName}_DRV *drvPtr)
 {
-    GFX_Disp_Intf intf = (GFX_Disp_Intf) drv->port_priv;
+    GFX_Disp_Intf intf = (GFX_Disp_Intf) drvPtr->port_priv;
 <#if InitCommandsCount != 0>
     uint8_t cmd;
     uint8_t parms[${MaXNumParms}];
@@ -249,9 +249,14 @@ static int DRV_${ControllerName}_Configure(${ControllerName}_DRV *drv)
 */
 void DRV_${ControllerName}_Update(void)
 {
+    uint32_t openVal;
+    
     if(drv.state == INIT)
     {
-        drv.port_priv = (void *) GFX_Disp_Intf_Open();
+        openVal = GFX_Disp_Intf_Open();
+        
+        drv.port_priv = (void *)openVal;
+        
         if (drv.port_priv == 0)
         {
             drv.state = ERROR;
@@ -269,57 +274,10 @@ void DRV_${ControllerName}_Update(void)
 }
 
 <#if PassiveDriver == false>
-gfxColorMode DRV_${ControllerName}_GetColorMode(void)
-{
-    return PIXEL_BUFFER_COLOR_MODE;
-}
-
-uint32_t DRV_${ControllerName}_GetBufferCount(void)
-{
-    return 1;
-}
-
-uint32_t DRV_${ControllerName}_GetDisplayWidth(void)
-{
-    return SCREEN_WIDTH;
-}
-
-uint32_t DRV_${ControllerName}_GetDisplayHeight(void)
-{
-    return SCREEN_HEIGHT;
-}
-
-uint32_t DRV_${ControllerName}_GetLayerCount()
-{
-    return 1;
-}
-
-uint32_t DRV_${ControllerName}_GetActiveLayer()
-{
-    return 0;
-}
-
-gfxLayerState DRV_${ControllerName}_GetLayerState(uint32_t idx)
-{
-    gfxLayerState state;
-
-    state.rect.x = 0;
-    state.rect.y = 0;
-    state.rect.width = SCREEN_WIDTH;
-    state.rect.height = SCREEN_HEIGHT;
-    state.enabled = GFX_TRUE;
-
-    return state;
-}
-
-gfxResult DRV_${ControllerName}_SetActiveLayer(uint32_t idx)
-{
-    return GFX_SUCCESS;
-}
 
 gfxResult DRV_${ControllerName}_BlitBuffer(int32_t x,
-                                int32_t y,
-                                gfxPixelBuffer* buf)
+                                           int32_t y,
+                                           gfxPixelBuffer* buf)
 {
 
 <#if BlitBufferFunctionGenerateMode == "Use Bulk Write">
@@ -428,21 +386,81 @@ buf->size.height);
     return GFX_SUCCESS;
 }
 
-void DRV_${ControllerName}_Swap(void)
+gfxDriverIOCTLResponse DRV_${ControllerName}_IOCTL(gfxDriverIOCTLRequest request,
+                                     void* arg)
 {
-    swapCount++;
-}
-
-uint32_t DRV_${ControllerName}_GetSwapCount(void)
-{
-    return swapCount;
-}
-
-gfxResult DRV_${ControllerName}_SetPalette(gfxBuffer* palette,
-                                           gfxColorMode mode,
-                                           uint32_t colorCount)
-{
-    return GFX_FAILURE;
+    gfxIOCTLArg_Value* val;
+    gfxIOCTLArg_DisplaySize* disp;
+    gfxIOCTLArg_LayerRect* rect;
+    
+    switch(request)
+    {
+        case GFX_IOCTL_GET_COLOR_MODE:
+        {
+            val = (gfxIOCTLArg_Value*)arg;
+            
+            val->value.v_colormode = PIXEL_BUFFER_COLOR_MODE;
+            
+            return GFX_IOCTL_OK;
+        }
+        case GFX_IOCTL_GET_BUFFER_COUNT:
+        {
+            val = (gfxIOCTLArg_Value*)arg;
+            
+            val->value.v_uint = 1;
+            
+            return GFX_IOCTL_OK;
+        }
+        case GFX_IOCTL_GET_DISPLAY_SIZE:
+        {
+            disp = (gfxIOCTLArg_DisplaySize*)arg;            
+            
+            disp->width = DISPLAY_WIDTH;
+            disp->height = DISPLAY_HEIGHT;
+            
+            return GFX_IOCTL_OK;
+        }
+        case GFX_IOCTL_GET_LAYER_COUNT:
+        {
+            val = (gfxIOCTLArg_Value*)arg;
+            
+            val->value.v_uint = 1;
+            
+            return GFX_IOCTL_OK;
+        }
+        case GFX_IOCTL_GET_ACTIVE_LAYER:
+        {
+            val = (gfxIOCTLArg_Value*)arg;
+            
+            val->value.v_uint = 0;
+            
+            return GFX_IOCTL_OK;
+        }
+        case GFX_IOCTL_GET_LAYER_RECT:
+        {
+            rect = (gfxIOCTLArg_LayerRect*)arg;
+            
+            rect->base.id = 0;
+            rect->x = 0;
+            rect->y = 0;
+            rect->width = DISPLAY_WIDTH;
+            rect->height = DISPLAY_HEIGHT;
+            
+            return GFX_IOCTL_OK;
+        }
+        case GFX_IOCTL_GET_VSYNC_COUNT:
+        {
+            val = (gfxIOCTLArg_Value*)arg;
+            
+            val->value.v_uint = swapCount;
+            
+            return GFX_IOCTL_OK;
+        }
+        default:
+        { }
+    }
+    
+    return GFX_IOCTL_UNSUPPORTED;
 }
 </#if>
 

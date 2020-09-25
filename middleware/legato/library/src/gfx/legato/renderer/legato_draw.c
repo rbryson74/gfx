@@ -51,7 +51,7 @@ leColor leRenderer_GetPixel(int32_t x,
     x -= _rendererState.layerStates[_rendererState.layerIdx].frameRectList.rects[_rendererState.frameRectIdx].x;
     y -= _rendererState.layerStates[_rendererState.layerIdx].frameRectList.rects[_rendererState.frameRectIdx].y;
 
-    return lePixelBufferGet_Unsafe(_rendererState.renderBuffer,
+    return lePixelBufferGet_Unsafe(leGetRenderBuffer(),
                                    x,
                                    y);
 }
@@ -67,7 +67,7 @@ leResult leRenderer_GetPixel_Safe(int32_t x,
     x -= _rendererState.layerStates[_rendererState.layerIdx].frameRectList.rects[_rendererState.frameRectIdx].x;
     y -= _rendererState.layerStates[_rendererState.layerIdx].frameRectList.rects[_rendererState.frameRectIdx].y;
 
-    *clr = lePixelBufferGet_Unsafe(_rendererState.renderBuffer,
+    *clr = lePixelBufferGet_Unsafe(leGetRenderBuffer(),
                                    x,
                                    y);
 
@@ -163,7 +163,7 @@ leResult putPixel(int32_t x,
 {
     (void)a; // unused
 
-    lePixelBufferSet_Unsafe(_rendererState.renderBuffer,
+    lePixelBufferSet_Unsafe(leGetRenderBuffer(),
                             x,
                             y,
                             clr);
@@ -179,7 +179,7 @@ leResult blendPixel(int32_t x, int32_t y, leColor clr, uint32_t a)
     leColor rgbaDest;
     leColor resultClr;
     
-    nativeSource = lePixelBufferGet_Unsafe(_rendererState.renderBuffer, x, y);
+    nativeSource = lePixelBufferGet_Unsafe(leGetRenderBuffer(), x, y);
     
     rgbaSource = leColorConvert(leRenderer_CurrentColorMode(),
                                  LE_COLOR_MODE_RGBA_8888, clr);
@@ -204,7 +204,7 @@ leResult blendPixel(int32_t x, int32_t y, leColor clr, uint32_t a)
                          leRenderer_CurrentColorMode(),
                          resultClr);
     
-    lePixelBufferSet_Unsafe(_rendererState.renderBuffer,
+    lePixelBufferSet_Unsafe(leGetRenderBuffer(),
                             x,
                             y,
                             clr);
@@ -257,7 +257,7 @@ leResult leRenderer_FillArea(int32_t x,
     else
     {
 #endif
-        lePixelBufferAreaFill_Unsafe(_rendererState.renderBuffer,
+        lePixelBufferAreaFill_Unsafe(leGetRenderBuffer(),
                                      pnt.x,
                                      pnt.y,
                                      width,
@@ -321,7 +321,7 @@ leResult leRenderer_FillArea_Safe(int32_t x,
     else
     {
 #endif
-        lePixelBufferAreaFill(_rendererState.renderBuffer,
+        lePixelBufferAreaFill(leGetRenderBuffer(),
                               pnt.x,
                               pnt.y,
                               width,
