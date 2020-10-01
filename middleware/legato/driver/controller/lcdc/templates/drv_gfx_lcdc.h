@@ -22,7 +22,7 @@
 *******************************************************************************/
 
 /*******************************************************************************
-  MPLAB Harmony LCC Generated Driver Header File
+  MPLAB Harmony LCDC Generated Driver Header File
 
   File Name:
     drv_gfx_lcdc.h
@@ -39,6 +39,12 @@
 
     Created with MPLAB Harmony Version 3.0
 *******************************************************************************/
+
+/** \file drv_gfx_lcdc.h
+* @brief  LCDC Generated Driver Header File
+*
+* @details This header file contains the function prototypes and definitions of the data types and constants that make up the interface to the LCDC Graphics Controller for PIC32C MPU/MCUs.
+*/
 
 #ifndef _DRV_GFX_LCDC_H
 #define _DRV_GFX_LCDC_H
