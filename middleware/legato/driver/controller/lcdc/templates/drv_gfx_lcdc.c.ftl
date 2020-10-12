@@ -520,7 +520,7 @@ void _IntHandlerVSync(uintptr_t context)
 
 /**** End Hardware Abstraction Interfaces ****/
 
-gfxColorMode DRV_LCDC_GetColorMode()
+gfxColorMode DRV_LCDC_GetColorMode(void)
 {
 <#if FrameBufferColorMode == "GS_8">
     return GFX_COLOR_MODE_GS_8;
