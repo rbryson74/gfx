@@ -19,3 +19,8 @@
 *.bmp binary
 *.ttf binary
 *.a binary
+*.so binary
+*.otf binary
+*.pdf binary
+*.dot binary
+middleware/legato/composer/linux/composer binary
