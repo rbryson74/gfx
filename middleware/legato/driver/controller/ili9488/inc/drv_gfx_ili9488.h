@@ -60,7 +60,10 @@ gfxResult DRV_ILI9488_BlitBuffer(int32_t x,
                            
 gfxDriverIOCTLResponse DRV_ILI9488_IOCTL(gfxDriverIOCTLRequest req,
                                          void* arg);
-
+	    
+gfxIOCTLArg_Value	*val;
+gfxIOCTLArg_DisplaySize *disp;
+gfxIOCTLArg_LayerRect 	*rect;
 
 static const gfxDisplayDriver gfxDriverInterface =
 {
