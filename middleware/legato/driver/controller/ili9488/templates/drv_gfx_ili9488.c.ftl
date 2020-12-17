@@ -530,10 +530,10 @@ gfxResult DRV_ILI9488_BlitBuffer(int32_t x,
     return GFX_SUCCESS;
 }
 
-gfxDriverIOCTLResponse DRV_SSD1963_IOCTL(gfxDriverIOCTLRequest req,
+gfxDriverIOCTLResponse DRV_ILI9488_IOCTL(gfxDriverIOCTLRequest req,
                                          void* arg)
 {
-	switch(request)
+	switch(req)
 	{
 		case GFX_IOCTL_GET_COLOR_MODE:
 		{
